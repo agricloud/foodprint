@@ -16,5 +16,6 @@ class Item {
     Date lastUpdated    //修改日期
 
     static constraints = {
+    	editor nullable:true
     }
 }
