@@ -89,3 +89,22 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+grails.resources.debug=true
+
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'finder.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'finder.UserRole'
+grails.plugins.springsecurity.authority.className = 'finder.Role'
+
+grails.plugins.springsecurity.useSwitchUserFilter = true
+grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+   '/j_spring_security_switch_user': ['ROLE_ADMIN']
+]
+
+
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/login/authSucccessExtJs'
+grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
+grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFailExtJs?login_error=1'
+
+

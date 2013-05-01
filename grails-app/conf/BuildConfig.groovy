@@ -60,10 +60,11 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
 
-
-
         compile ':spring-security-core:latest.release'
 
-        compile ":create-domain-uml:0.5"
+
+        // compile ':spring-security-core:latest.release'
+
+        // compile ":create-domain-uml:0.5"
     }
 }

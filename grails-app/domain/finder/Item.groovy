@@ -4,18 +4,22 @@ class Item {
 
 
 		String name
-		String title
-		String description
+		String title=""
+		String description=""
 		Long dueDays
 		Date effectStartDate
 		Date effectEndDate
 
-		User editor			//修改者
-		User creator		//建立者
+		static hasMany=[collectDatas:ItemCollectData, images:ItemImage]
+
+		String editor=""			//修改者
+		String creator=""		//建立者
     Date dateCreated    //建立日期
     Date lastUpdated    //修改日期
-
+	
     static constraints = {
-    	editor nullable:true
+    	dueDays nullable:true
+    	effectStartDate nullable:true
+    	effectEndDate nullable:true
     }
 }
