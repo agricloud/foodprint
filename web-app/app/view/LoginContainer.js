@@ -70,14 +70,16 @@ Ext.define('Argicloud.view.LoginContainer', {
                             xtype: 'textfield',
                             itemId: 'username',
                             fieldLabel: 'username',
-                            name: 'j_username'
+                            name: 'j_username',
+                            value: 'admin'
                         },
                         {
                             xtype: 'textfield',
                             itemId: 'password',
                             width: 150,
                             fieldLabel: 'password',
-                            name: 'j_password'
+                            name: 'j_password',
+                            value: 'admin'
                         }
                     ]
                 }

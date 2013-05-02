@@ -15,6 +15,7 @@
 
 Ext.define('Argicloud.view.BatchEditor', {
     extend: 'Ext.tab.Panel',
+    alias: 'widget.batcheditor',
 
     requires: [
         'Argicloud.view.ListToolbar',
@@ -24,6 +25,7 @@ Ext.define('Argicloud.view.BatchEditor', {
     ],
 
     height: 595,
+    itemId: 'batchEditor',
     width: 722,
     activeTab: 0,
 

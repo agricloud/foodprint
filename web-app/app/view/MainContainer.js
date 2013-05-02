@@ -18,7 +18,8 @@ Ext.define('Argicloud.view.MainContainer', {
     alias: 'widget.maincontainer',
 
     requires: [
-        'Argicloud.view.ItemEditor'
+        'Argicloud.view.ItemEditor',
+        'Argicloud.view.BatchEditor'
     ],
 
     height: 544,
@@ -60,7 +61,12 @@ Ext.define('Argicloud.view.MainContainer', {
                         },
                         {
                             xtype: 'panel',
-                            title: '批號維護'
+                            title: '批號維護',
+                            items: [
+                                {
+                                    xtype: 'batcheditor'
+                                }
+                            ]
                         }
                     ]
                 },

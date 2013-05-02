@@ -18,6 +18,7 @@ Ext.define('Argicloud.model.Item', {
 
     fields: [
         {
+            mapping: 'id',
             name: 'id'
         },
         {
@@ -38,5 +39,14 @@ Ext.define('Argicloud.model.Item', {
         {
             name: 'expiryDate'
         }
-    ]
+    ],
+
+    proxy: {
+        type: 'rest',
+        url: 'rest/item',
+        reader: {
+            type: 'json',
+            root: 'items'
+        }
+    }
 });

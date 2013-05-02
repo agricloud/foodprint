@@ -16,11 +16,16 @@
 Ext.define('Argicloud.model.batch', {
     extend: 'Ext.data.Model',
 
+    uses: [
+        'Argicloud.model.Item'
+    ],
+
     fields: [
         {
             name: 'id'
         },
         {
+            mapping: 'item.id',
             name: 'item_id'
         },
         {
@@ -35,5 +40,19 @@ Ext.define('Argicloud.model.batch', {
         {
             name: 'ExpectQty'
         }
-    ]
+    ],
+
+    proxy: {
+        type: 'rest',
+        url: 'rest/batch',
+        reader: {
+            type: 'json',
+            root: 'batchs'
+        }
+    },
+
+    belongsTo: {
+        model: 'Argicloud.model.Item',
+        getterName: 'getItem'
+    }
 });

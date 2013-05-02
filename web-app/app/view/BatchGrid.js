@@ -34,6 +34,14 @@ Ext.define('Argicloud.view.BatchGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+
+                        //record.getItem(function(item, operation) { 
+                        //    console.log(item.get('name')); 
+                        //}, this);
+
+                        return value
+                    },
                     dataIndex: 'item_id',
                     text: 'Item_id'
                 },

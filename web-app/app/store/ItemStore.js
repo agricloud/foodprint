@@ -24,14 +24,9 @@ Ext.define('Argicloud.store.ItemStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            autoLoad: true,
             model: 'Argicloud.model.Item',
-            storeId: 'MyJsonStore',
-            proxy: {
-                type: 'ajax',
-                reader: {
-                    type: 'json'
-                }
-            }
+            storeId: 'MyJsonStore'
         }, cfg)]);
     }
 });

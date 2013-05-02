@@ -24,6 +24,7 @@ Ext.define('Argicloud.store.BatchStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            autoLoad: true,
             model: 'Argicloud.model.batch',
             storeId: 'MyStore1'
         }, cfg)]);

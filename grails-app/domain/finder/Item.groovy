@@ -10,8 +10,6 @@ class Item {
 		Date effectStartDate
 		Date effectEndDate
 
-		static hasMany=[collectDatas:ItemCollectData, images:ItemImage]
-
 		String editor=""			//修改者
 		String creator=""		//建立者
     Date dateCreated    //建立日期

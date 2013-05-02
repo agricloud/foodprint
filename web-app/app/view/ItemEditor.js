@@ -25,6 +25,7 @@ Ext.define('Argicloud.view.ItemEditor', {
     ],
 
     height: 595,
+    itemId: 'itemEditor',
     width: 722,
     activeTab: 0,
 
