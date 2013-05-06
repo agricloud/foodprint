@@ -4,27 +4,27 @@ def __bundleName = 'finder'
 
 
 modules = {
-
-	extjs4 {
-		//defaultBundle 'coding-tools'
+	extjs4_dev {
 		defaultBundle __bundleName
-		//css
-		resource url: 'extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
-		resource url: 'extjs4/ext-all.js'
-		resource url: 'extjs4/ext-theme-neptune.js'		
+
+		resource url: 'extjs4_dev/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
+		resource url: 'ext/ext-all.js'
+		resource url: 'ext/ext-theme-neptune.js'		
 		resource url: 'app.js'
 
-	}	
-
-	//載入所有的自定義 extjs class 
-	extjs4App {
-		defaultBundle __bundleName
-		getFilesForPath('/app').each {
+		getFilesForPath('extjs4_dev/app').each {
       resource url: it
     }
-	}	
 
+	}	
+  extjs4 {
+		defaultBundle __bundleName
+		resource url: 'extjs4/resources/finder_extjs-all.css'
+		resource url: 'extjs4/all-classes.js'
+	}	
 }
+
+
 
 def getFilesForPath(path) {
 

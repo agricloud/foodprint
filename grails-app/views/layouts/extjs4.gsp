@@ -6,8 +6,12 @@
 <title>extjs</title>
 
 
-
-<r:require modules="extjs4"/>
+<g:if env='development'>
+	<r:require modules="extjs4_dev"/>
+</g:if>
+<g:else>
+	<r:require modules="extjs4"/>
+</g:else>
 
 <g:layoutHead/>
 <r:layoutResources />
