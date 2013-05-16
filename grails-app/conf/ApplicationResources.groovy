@@ -7,7 +7,7 @@ modules = {
 	extjs4_dev {
 		defaultBundle __bundleName
 
-		resource url: 'extjs4_dev/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
+		resource url: 'extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
 		resource url: 'ext/ext-all.js'
 		resource url: 'ext/ext-theme-neptune.js'		
 		resource url: 'app.js'
