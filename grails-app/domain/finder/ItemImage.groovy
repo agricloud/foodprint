@@ -1,9 +1,9 @@
 package finder
-
+import finder.*
 class ItemImage {
 
 	Item item
-	String image
+	String name
 
     static constraints = {
     }

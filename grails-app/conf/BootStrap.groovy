@@ -17,7 +17,12 @@ class BootStrap {
 
 			development {
 				def item1 = new Item(name:"item1").save(failOnError: true, flush: true)
+				def item2 = new Item(name:"item2").save(failOnError: true, flush: true)
 				def batch1 = new Batch(name:"batch1",item:item1).save(failOnError: true, flush: true)
+				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
+
+				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)
+				def itemImage2 = new ItemImage(name:"itemImage2.jpg",item:item1).save(failOnError: true, flush: true)
     	}
 			
 

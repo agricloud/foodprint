@@ -12,7 +12,7 @@ modules = {
 		resource url: 'ext/ext-theme-neptune.js'		
 		resource url: 'app.js'
 
-		getFilesForPath('extjs4_dev/app').each {
+		getFilesForPath('app').each {
       resource url: it
     }
 

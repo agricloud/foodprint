@@ -11,6 +11,8 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+grails.app.context = '/'
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -61,7 +63,9 @@ grails.hibernate.cache.queries = false
 
 environments {
     development {
+        grails.serverURL = "http://localhost:8080"
         grails.logging.jul.usebridge = true
+        grails.resources.debug=true
     }
     production {
         grails.logging.jul.usebridge = false
@@ -91,7 +95,7 @@ log4j = {
 }
 
 
-grails.resources.debug=true
+
 
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'finder.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'finder.UserRole'
