@@ -111,4 +111,6 @@ grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/login/authSucc
 grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFailExtJs?login_error=1'
 
+grails.project.fork.run=true
+grails.project.fork.run= [maxMemory:512, minMemory:64, debug:true, maxPerm:256 ]
 

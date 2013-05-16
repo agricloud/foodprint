@@ -23,7 +23,7 @@ class UrlMappings {
 		}
 
 
-		"/"(view:"/home/index")
+		"/"(uri:"/home/index")
 		"500"(view:'/error')
 
 

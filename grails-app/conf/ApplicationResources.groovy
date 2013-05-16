@@ -4,45 +4,49 @@ def __bundleName = 'finder'
 
 
 modules = {
-	extjs4_dev {
-		defaultBundle __bundleName
-
-		resource url: 'extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
-		resource url: 'ext/ext-all.js'
-		resource url: 'ext/ext-theme-neptune.js'		
-		resource url: 'app.js'
-
-		getFilesForPath('app').each {
-      resource url: it
+    application {
+        resource url:'js/application.js'
     }
+    
+	// extjs4_dev {
+	// 	defaultBundle __bundleName
 
-	}	
-  extjs4 {
-		defaultBundle __bundleName
-		resource url: 'extjs4/resources/finder_extjs-all.css'
-		resource url: 'extjs4/all-classes.js'
-	}	
+	// 	resource url: 'extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css'		
+	// 	resource url: 'ext/ext-all.js'
+	// 	resource url: 'ext/ext-theme-neptune.js'		
+	// 	resource url: 'app.js'
+
+	// 	getFilesForPath('app').each {
+ //      resource url: it
+ //    }
+
+	// }	
+ //  extjs4 {
+	// 	defaultBundle __bundleName
+	// 	resource url: 'extjs4/resources/finder_extjs-all.css'
+	// 	resource url: 'extjs4/all-classes.js'
+	// }	
 }
 
 
 
-def getFilesForPath(path) {
+// def getFilesForPath(path) {
 
-    def webFileCachePaths = []
+//     def webFileCachePaths = []
 
-    def servletContext = SCH.getServletContext()
+//     def servletContext = SCH.getServletContext()
 
-    //context isn't present when testing in integration mode. -jg
-    if(!servletContext) return webFileCachePaths
+//     //context isn't present when testing in integration mode. -jg
+//     if(!servletContext) return webFileCachePaths
 
-    def realPath = servletContext.getRealPath('/')
+//     def realPath = servletContext.getRealPath('/')
 
-    def appDir = new File("$realPath/$path")
+//     def appDir = new File("$realPath/$path")
 
-    appDir.eachFileRecurse {File file ->
-        if (file.isDirectory() || file.isHidden()) return
-        webFileCachePaths << file.path.replace(realPath, '')
-    }
+//     appDir.eachFileRecurse {File file ->
+//         if (file.isDirectory() || file.isHidden()) return
+//         webFileCachePaths << file.path.replace(realPath, '')
+//     }
 
-    webFileCachePaths
-}
+//     webFileCachePaths
+// }
