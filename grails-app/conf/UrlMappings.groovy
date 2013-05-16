@@ -23,7 +23,7 @@ class UrlMappings {
 		}
 
 
-		"/"(uri:"/home/index")
+		"/"(controller: "home", action: "index")
 		"500"(view:'/error')
 
 
