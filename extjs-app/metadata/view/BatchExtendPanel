@@ -1,0 +1,796 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "batchTrcRptTabPanel",
+        "designer|userClassName": "BatchExtendPanel",
+        "designer|userAlias": "mytabpanel1",
+        "activeTab": 0
+    },
+    "designerId": "0b1a7bd1-ef72-47e3-b23c-0cb0f77fe122",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox",
+                "title": "參數設定"
+            },
+            "designerId": "3166fe73-c613-468f-8b04-a0f232473d54",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "20c308be-2079-4bea-89fa-057f59f97286"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "height": 250,
+                        "itemId": "batchParamsGrid",
+                        "width": null,
+                        "title": null,
+                        "store": "BatchParamsStore"
+                    },
+                    "designerId": "6288c57a-94ec-4981-a54e-25cd44bee22e",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 100,
+                                "dock": "top"
+                            },
+                            "designerId": "55d802a1-c1ad-40d0-8e02-22507d989936",
+                            "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "d0b2315d-4a16-442f-b61a-49e50d28b4af"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id",
+                                "text": "Id"
+                            },
+                            "designerId": "6429635a-bd0f-4e00-9ed0-ff300e156a8a"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "batch_id",
+                                "text": "Batch_id"
+                            },
+                            "designerId": "f38b87fe-625c-460b-a916-769f4a79d0ee"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "title",
+                                "text": "Title"
+                            },
+                            "designerId": "6bbe002a-3a6b-44db-87e0-148cc1ab9b73"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "value",
+                                "text": "Value"
+                            },
+                            "designerId": "52c3db68-f83c-44b7-8152-32ddfbb4ab64"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "title": "履歷收集設定"
+            },
+            "designerId": "3ac553b7-3843-41a3-b446-19e53fd36714",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "ad857b0e-7bfe-45dd-9144-0b212f9c92c3"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "container|align": "stretch",
+                        "layout": "vbox"
+                    },
+                    "designerId": "28be997e-4497-4a8b-a1cb-62b3d0350a3c",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "itemId": "batchTrcRptGrid",
+                                "title": "",
+                                "store": "batchTrcRptStore"
+                            },
+                            "designerId": "9eb4450f-38ac-46ff-9273-f9a957fd6ee8",
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": 100,
+                                        "dock": "top"
+                                    },
+                                    "designerId": "63f9b20d-d9b1-4370-8d9b-60b1f36061c3",
+                                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "a1af0e70-db7b-469c-8f4c-0dbc703d8e02"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "id",
+                                        "text": "Id"
+                                    },
+                                    "designerId": "4903251b-7d9a-45ba-b15e-a2434d9f9ef1"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "batch_id",
+                                        "text": "Batch_id"
+                                    },
+                                    "designerId": "85bcb34a-40b2-464c-8040-8cd18e89d02f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "title",
+                                        "text": "Title"
+                                    },
+                                    "designerId": "d67fab87-b474-4189-9e5a-f7619a3f387c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "note",
+                                        "text": "Note"
+                                    },
+                                    "designerId": "5e88a7db-477a-414f-951b-e3bbef84f6ae"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "description",
+                                        "text": "Description"
+                                    },
+                                    "designerId": "e9fb7125-39d6-42e8-9260-8a0e322d0174"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "itemId": "batchTrcRptRowGrid",
+                                "title": "項目",
+                                "store": "BatchTrcRptRowStore"
+                            },
+                            "designerId": "f5fa702e-b31d-4dda-bb4c-e040d58c44f1",
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": "top"
+                                    },
+                                    "designerId": "fe4277ef-29fb-4d5b-a542-604ef3e8422c",
+                                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "fd474435-ddda-40e7-82a4-77ddc1bcea3b"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "id",
+                                        "text": "Id"
+                                    },
+                                    "designerId": "86c90e9a-50a6-45fc-82f3-aee7f8fc2482"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "batchTrcRpt_id",
+                                        "text": "BatchTrcRpt_id"
+                                    },
+                                    "designerId": "defc2824-d02a-49eb-9785-1e7deb4408cb"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "title",
+                                        "text": "Title"
+                                    },
+                                    "designerId": "8e22dccf-0c47-4afe-9c41-f049ba7d45f2"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "type",
+                                        "text": "Type"
+                                    },
+                                    "designerId": "fa1cbe54-ad30-4e86-8cc1-c7b8e201994d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "MyField65",
+                                        "text": "MyField65"
+                                    },
+                                    "designerId": "03133572-c76d-419b-85ac-9ab24d545974"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "description",
+                                        "text": "Description"
+                                    },
+                                    "designerId": "b6ffc9fa-8cbd-4d6e-a76e-3a69db8619d4"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tab.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "activeTab": 0
+                    },
+                    "designerId": "ebc00302-ddc9-40d1-8e70-4c7f772e6ada",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "fit",
+                                "title": "欄位"
+                            },
+                            "designerId": "525adf54-6628-4e3e-a5d4-a119e7c5765d",
+                            "cn": [
+                                {
+                                    "type": "Ext.tab.Tab",
+                                    "reference": {
+                                        "name": "tabConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "5448043e-e60b-4ad1-bca6-4c71da640050"
+                                },
+                                {
+                                    "type": "Ext.grid.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": null,
+                                        "itemId": "trcRptColGrid",
+                                        "title": "",
+                                        "store": "BatchTrcRptColStore"
+                                    },
+                                    "designerId": "48f45b0e-3ca9-4197-92d9-bef443b51e70",
+                                    "cn": [
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "width": 100,
+                                                "dock": "top"
+                                            },
+                                            "designerId": "ffbfb818-e453-4b01-b9a2-146e92e93f47",
+                                            "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                                        },
+                                        {
+                                            "type": "Ext.grid.View",
+                                            "reference": {
+                                                "name": "viewConfig",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "designerId": "48ede3e0-fd08-4e81-b65b-b36a01356bfc"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "id",
+                                                "text": "Id"
+                                            },
+                                            "designerId": "389bd6e9-0582-47b8-a371-faf525741623"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "BatchTrcRptRow_id",
+                                                "text": "BatchTrcRptRow_id"
+                                            },
+                                            "designerId": "5e8bbc8b-e776-4eae-98d2-38eca0a20b31"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "title",
+                                                "text": "Title"
+                                            },
+                                            "designerId": "d3bb5a38-4057-44c1-ae32-2f8132b1e9e3"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "type",
+                                                "text": "Type"
+                                            },
+                                            "designerId": "a59dee6c-3493-4705-a33f-03fb18e9c6df"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "value",
+                                                "text": "Value"
+                                            },
+                                            "designerId": "c9d3b7d7-67ea-4b6a-b1e4-f90047d7831e"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "description",
+                                                "text": "Description"
+                                            },
+                                            "designerId": "458bbe30-5d0a-457a-b76b-13f240a23e19"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "effectiveDate",
+                                                "text": "EffectiveDate"
+                                            },
+                                            "designerId": "6e52fa32-f7a9-43fd-b00d-37c32a43db77"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "expityDate",
+                                                "text": "ExpityDate"
+                                            },
+                                            "designerId": "c2edd868-76b5-4bb6-8d5d-a512ac36624c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "fit",
+                                "title": "圖檔"
+                            },
+                            "designerId": "b7e3f95c-6237-490a-81d8-b505c2453c90",
+                            "cn": [
+                                {
+                                    "type": "Ext.tab.Tab",
+                                    "reference": {
+                                        "name": "tabConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "880adf2a-35c6-4ba1-bc30-67b5d72fc22a"
+                                },
+                                {
+                                    "type": "Ext.grid.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "trcRptRowImgGrid",
+                                        "title": "",
+                                        "store": "BatchTrcRptRowImgStore"
+                                    },
+                                    "designerId": "f4ffd6b7-13ae-4a5a-a9d1-1db5bb40a2d9",
+                                    "cn": [
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "width": 100,
+                                                "dock": "top"
+                                            },
+                                            "designerId": "fc45e3af-0d84-46bc-882b-ea338bad9569",
+                                            "masterInstanceId": "488f236d-f82d-4b41-9d75-22a0869df350"
+                                        },
+                                        {
+                                            "type": "Ext.grid.View",
+                                            "reference": {
+                                                "name": "viewConfig",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "designerId": "4e7d35eb-1452-4a40-85c1-2eb7ec7d107f"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "id",
+                                                "text": "Id"
+                                            },
+                                            "designerId": "c67de6fc-874a-44d4-ad78-d145586dd026"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "BatchTrcRptRow_id",
+                                                "text": "BatchTrcRptRow_id"
+                                            },
+                                            "designerId": "a91acde5-a20f-4e24-b16f-ac91a6090cef"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "name",
+                                                "text": "Name"
+                                            },
+                                            "designerId": "942a04c4-cafa-4958-8de4-73a360e8e612"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "變更記錄"
+            },
+            "designerId": "2b42a411-8ea0-4cac-bb7f-6c917172ab9d",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "0c475fad-1fdf-44cf-a66f-1b6a6b80a2e7"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "",
+                        "store": "BatchChangeHistStore"
+                    },
+                    "designerId": "2f713465-5f4f-4bb5-9c84-5cc83578e171",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "19d1c848-123a-4a1a-94a7-bbfd3db8cbd3"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id",
+                                "text": "Id"
+                            },
+                            "designerId": "b1824b16-4d08-45a9-b678-8e2aeec34e82"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "batch_id",
+                                "text": "Batch_id"
+                            },
+                            "designerId": "e2966fae-6ccb-49ac-b50b-81964d596747"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "changeType",
+                                "text": "ChangeType"
+                            },
+                            "designerId": "fcbeca9b-9b87-47c3-b054-d9ff25a91e3b"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "changeQty",
+                                "text": "ChangeQty"
+                            },
+                            "designerId": "6bf35229-72d5-44e9-9eac-a143fffd2ce1"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "description",
+                                "text": "Description"
+                            },
+                            "designerId": "c8435bd0-f4a4-4099-8d28-4ac9aaaae7c4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "LoginContainer"
+        ],
+        "designer|userClassName": "LoginController"
+    },
+    "designerId": "cacaa675-bcf1-4bc6-a580-889600ecf055",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'form[itemId=loginForm] button[itemId=loginBtn]': {",
+                    "        click: this.doLogin",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "b2abdb09-97ac-4400-9f7a-8c29ecbdce61"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doLogin",
+                "designer|params": [
+                    "btn",
+                    "e",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "var form = btn.up('form').getForm();",
+                    "if (form.isValid()) {",
+                    "    form.submit({",
+                    "        success: this.loginSuccess,",
+                    "        failure: this.loginFailed",
+                    "    });",
+                    "}",
+                    "else {",
+                    "    Ext.Msg.alert('無法登入', '請檢查表單資料！');",
+                    "}"
+                ]
+            },
+            "designerId": "9759bc69-18bb-4fe5-aed9-3b22c1786c25"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loginSuccess",
+                "implHandler": [
+                    "var mainVP = Ext.getCmp('mainVP');",
+                    "mainVP.removeAll();",
+                    "mainVP.add({xtype: 'maincontainer'});"
+                ]
+            },
+            "designerId": "a7f7d7d3-69bb-4fac-8b32-a07e44e47122"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loginFailed",
+                "implHandler": [
+                    "Ext.Msg.alert('無法登入', '無法通過驗證！');"
+                ]
+            },
+            "designerId": "dc1f1efb-b8f8-4755-8e8c-7bab418f2345"
+        }
+    ]
+}

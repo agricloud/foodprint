@@ -1,0 +1,129 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|snapToGrid": 10,
+        "saveDelay": null,
+        "frame": true,
+        "height": 614,
+        "id": null,
+        "width": 829,
+        "designer|userClassName": "LoginContainer",
+        "designer|userAlias": "logincontainer1",
+        "defaults": [
+            "{",
+            "        anchor: '100%'",
+            "    }"
+        ],
+        "layout": "absolute"
+    },
+    "designerId": "5875c1cf-7496-49e4-aabb-59e4448471e4",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|x": 80,
+                "layout|y": 210,
+                "container|align": "stretch",
+                "height": 150,
+                "itemId": "loginForm",
+                "maxHeight": 190,
+                "maxWidth": 300,
+                "layout": "vbox",
+                "bodyPadding": 10,
+                "title": "Login",
+                "url": "j_spring_security_check"
+            },
+            "designerId": "f300fab5-fece-4bc4-b36b-6562ef8cd589",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "designerId": "ea7a24af-e169-4a7f-9b3e-54e09351a31a",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "border": null,
+                                "itemId": "loginBtn",
+                                "text": "Login"
+                            },
+                            "designerId": "b8f39922-8f38-4a80-b312-9a6514d6b3e5"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "cancelBtn",
+                                "text": "cancel"
+                            },
+                            "designerId": "50a7089f-cb5c-4bb1-a8c7-754c3e117282"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "username",
+                        "fieldLabel": "username",
+                        "name": "j_username",
+                        "value": [
+                            "'admin'"
+                        ]
+                    },
+                    "designerId": "97852eed-91b9-4dc9-ad88-5500a5940f21"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "password",
+                        "width": 150,
+                        "fieldLabel": "password",
+                        "name": "j_password",
+                        "value": [
+                            "'admin'"
+                        ]
+                    },
+                    "designerId": "03ceac74-f355-47d9-ad48-9cf378d83a47"
+                }
+            ]
+        }
+    ]
+}

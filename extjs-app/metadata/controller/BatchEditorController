@@ -1,0 +1,127 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "BatchEditor"
+        ],
+        "designer|userClassName": "BatchEditorController",
+        "mixins": [
+            "{",
+            "\t\tBatchViewerCtrl: 'finder_extjs.controller.BatchViewerController',",
+            "        BatchGridCtrl: 'finder_extjs.controller.BatchGridController'",
+            "}"
+        ]
+    },
+    "designerId": "718ab505-ce89-4fc5-95b3-f0d0ca40d8ac",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'batcheditorct button[itemId=readBtn]':{",
+                    "",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'batcheditorct grid[itemId=batch]':{",
+                    "        itemdblclick:this.readBatch",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "bebd6d86-a252-4f7a-aab9-dda38b5b3e99"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchGrid",
+                "selector": "batchgrid"
+            },
+            "designerId": "df4a83f1-f566-4ab2-a899-5b01e74ac132"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchEditor",
+                "selector": "batcheditor"
+            },
+            "designerId": "50fe5272-fdb6-4ccc-b352-c433e1a4d9b2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchEditorCt",
+                "selector": "batcheditorct"
+            },
+            "designerId": "57a03edb-a092-4b41-ad00-9fa458c18ff7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchViewer",
+                "selector": "batchviewer"
+            },
+            "designerId": "eb6d2ac3-5d63-47c5-849d-b5b624f1dde8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readBatch",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "//this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "this.batcheditor.setActiveTab(this.batchviewer.up());",
+                    "",
+                    "console.log(record);",
+                    "",
+                    "",
+                    "this.doDisplay(record);",
+                    ""
+                ]
+            },
+            "designerId": "f5b956d8-b9f0-463d-88dd-e617d2166477"
+        }
+    ]
+}

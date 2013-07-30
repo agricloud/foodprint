@@ -1,0 +1,63 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Item",
+            "ItemImage"
+        ],
+        "views": [
+            "ItemViewer"
+        ],
+        "designer|userClassName": "ItemViewerController"
+    },
+    "designerId": "4192f643-8fa7-41cf-a905-7a5a11c27e6a",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"itemViewer.doDisplay\");",
+                    "",
+                    "",
+                    "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
+                    "",
+                    "var itemImages=record.itemImages();",
+                    "itemImages.load();",
+                    "",
+                    "console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",
+                    "",
+                    "this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore().loadRecords(itemImages.getRange());"
+                ]
+            },
+            "designerId": "303132c6-f3c0-46d1-ba0c-2fce25ba1e04"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemGrid",
+                "selector": "itemgrid",
+                "xtype": null
+            },
+            "designerId": "9c282006-2570-4ad9-af9d-3bf679ca1b8e"
+        }
+    ]
+}

@@ -1,0 +1,245 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 544,
+        "id": "mainCt",
+        "width": 776,
+        "designer|userClassName": "MainContainer",
+        "designer|userAlias": "maincontainer",
+        "designer|initialView": true,
+        "layout": "border"
+    },
+    "designerId": "8cadcbdc-ab9f-4da0-8ac5-c53915c074e4",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "north",
+                "height": 50,
+                "id": "topPanel",
+                "designer|displayName": "TopPanel",
+                "title": null
+            },
+            "designerId": "19d6f7e5-7b11-421d-bc00-4f009ec3cd06"
+        },
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "id": "TabPanel",
+                "designer|displayName": "TabPanel",
+                "title": "",
+                "activeTab": 0
+            },
+            "designerId": "bcdb724b-dabc-44a8-b2b4-3be76b29a812",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "fit",
+                        "title": "品項維護"
+                    },
+                    "designerId": "7f976a56-6f44-4765-b9d3-3a50ea4fb421",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "designerId": "b7cf91da-4722-4fd4-958b-20c27d3940bc",
+                            "masterInstanceId": "6615344b-e66b-4920-8248-efe4676fd3e2"
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "c46a1266-c9ad-4bd8-b413-7b869129b0de"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "批號維護"
+                    },
+                    "designerId": "75578b7f-3b42-413e-abb1-f9d1f9ce0bb7",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "designerId": "de73b1bc-2c50-4e06-b8d4-34e185ddb116",
+                            "masterInstanceId": "0d1e180c-90d5-4066-b7ae-80def2594f38"
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "95117664-542b-4e64-be0c-fdeb8a0150c7"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "west",
+                "frame": true,
+                "id": "menuPanel",
+                "width": 150,
+                "designer|displayName": "MenuPanel",
+                "layout": "accordion",
+                "bodyBorder": false,
+                "title": ""
+            },
+            "designerId": "fa7b7a71-28e6-4f4b-a744-69baa1d7442c",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
+                        "width": 400,
+                        "designer|displayName": "BasicMenu",
+                        "layout": "vbox",
+                        "title": "基礎資料維護"
+                    },
+                    "designerId": "3496945d-c7bb-4f61-9de3-f469562c4fdf",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "品項維護"
+                            },
+                            "designerId": "0e77c526-564c-41f3-84fc-073ea98dbd16"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "批號維護"
+                            },
+                            "designerId": "e389716f-1115-452a-82c4-65d6d1afedaf"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "履歷維護"
+                            },
+                            "designerId": "63d75290-9e88-4d13-8640-cb15a3dbae47"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
+                        "width": 400,
+                        "designer|displayName": "BasicMenu",
+                        "layout": "vbox",
+                        "title": "履歷收集"
+                    },
+                    "designerId": "1cb33d61-d7f1-46c5-a839-84edc74222f8",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "ITEM"
+                            },
+                            "designerId": "c5a6e0f1-8d03-4570-b253-6f4bd113e122"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "BATCH"
+                            },
+                            "designerId": "b31a6ad4-f426-44e0-b4e6-c984a9ed0f6e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

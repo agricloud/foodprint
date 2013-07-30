@@ -1,0 +1,138 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 250,
+        "itemId": "trcRptGrid",
+        "width": 400,
+        "designer|userClassName": "BatchGrid",
+        "designer|userAlias": "batchgrid",
+        "title": null,
+        "store": "BatchStore"
+    },
+    "designerId": "6a21aa5b-e61f-4b47-8fbb-5331a09533a0",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "aabe1e9d-2614-4239-b6e6-f7ecf5da2cf7"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "id",
+                "text": "Id"
+            },
+            "designerId": "b5087356-edea-4b05-89a5-2551a0b41d88"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "item_id",
+                "text": "Item_id"
+            },
+            "designerId": "adf7ded7-6ee5-49df-b79a-423cf546f897",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "renderer",
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "implHandler": [
+                            "",
+                            "//record.getItem(function(item, operation) { ",
+                            "//    console.log(item.get('name')); ",
+                            "//}, this);",
+                            "",
+                            "return value;"
+                        ]
+                    },
+                    "designerId": "43ce7d73-296b-4305-bc3f-c9b5529a43a8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name"
+            },
+            "designerId": "7d64a6f3-3118-4ba0-863e-59396ba9ec77"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "otherFields",
+                "text": "OtherFields"
+            },
+            "designerId": "d0335311-064f-446f-b38a-578e6945342a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "dueDate",
+                "text": "DueDate"
+            },
+            "designerId": "68e5e2ab-2edd-43d0-81a5-a592577bae1d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ExpectQty",
+                "text": "ExpectQty"
+            },
+            "designerId": "f473497e-7cc0-4df2-a876-cc03123c85ae"
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "ItemEditor"
+        ],
+        "designer|userClassName": "ItemEditorController",
+        "mixins": [
+            "{",
+            "    itemViewerCtrl:'finder_extjs.controller.ItemViewerController',",
+            "    ItemGridCtrl:'finder_extjs.controller.ItemGridController'",
+            "",
+            "}"
+        ]
+    },
+    "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'itemeditorct button[itemId=readBtn]':{",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'itemeditorct grid[itemId=itemGrid]':{",
+                    "        itemdblclick:this.readItem",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "613965a1-c9a7-4f83-90f5-c6fd32a29428"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readItem",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "",
+                    "console.log(record);",
+                    "",
+                    "",
+                    "this.doDisplay(record);",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "561c3aba-1c4d-42e3-b36f-936278674bfc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemViewer",
+                "selector": "itemviewer"
+            },
+            "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemGrid",
+                "selector": "itemgrid"
+            },
+            "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemEditor",
+                "selector": "itemeditor"
+            },
+            "designerId": "fe2764a7-4eeb-4679-8065-2990c86e41c3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemEditorCt",
+                "selector": "itemeditorct"
+            },
+            "designerId": "c07965a1-607a-401d-a81f-23a77b6fcc91"
+        }
+    ]
+}

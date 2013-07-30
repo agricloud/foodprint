@@ -1,0 +1,150 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Item"
+    },
+    "designerId": "06735cc6-0b22-43e5-96a3-075edde666ee",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "id"
+            },
+            "designerId": "fa0601e4-f168-4453-9345-2a856fd908b2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "2c3a3056-ce6b-4da4-b75e-a6075345f03c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "77f3c801-6f76-4770-a978-d6ac5a76fd3c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "designerId": "66415481-b2b0-45eb-9830-4e9ab3c5f746"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "effectiveDays"
+            },
+            "designerId": "32630fb4-24bf-40b0-af44-85285af1250f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "effectiveDate"
+            },
+            "designerId": "e8d58668-8796-4030-a704-59d4aa84f6cd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "expiryDate"
+            },
+            "designerId": "92da4128-5896-41e3-9ac0-1a5dc7f27e34"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": "/rest/item"
+            },
+            "designerId": "15b37ae0-8a1e-45bc-be35-dcb7d179d131",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "itemInstanceList",
+                        "totalProperty": "itemInstanceTotal"
+                    },
+                    "designerId": "705c0e01-56cd-4290-8d8d-c187a3e2916a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.association.HasMany",
+            "reference": {
+                "name": "hasMany",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "associationKey": "itemImages",
+                "model": "ItemImage",
+                "designer|displayName": "hasManyItemImage",
+                "foreignKey": "item_id",
+                "name": "itemImages"
+            },
+            "designerId": "6d679594-b869-432a-ab68-02b3e5e36ead"
+        }
+    ]
+}
