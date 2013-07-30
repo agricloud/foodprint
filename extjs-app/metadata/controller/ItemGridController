@@ -44,6 +44,102 @@
                 "selector": "itemviewer"
             },
             "designerId": "86898d09-c47f-47b2-928b-c00981afc80a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "designer|params": [
+                    "doSave"
+                ],
+                "implHandler": [
+                    "console.log(\"doSave\");",
+                    "var tabs = doSave.up().up().down('itemeditor[itemId=itemEditor]');",
+                    "var grid = this.getItemGrid();",
+                    "var form = doSave.up().up().down('itemeditor[itemId=itemEditor]').down('panel[itemId=itemViewer]').down('form[itemId=itemForm]');",
+                    "var formRecord = form.getValues();",
+                    "var item = Ext.ModelManager.getModel('finder_extjs.model.Item');",
+                    "var n = grid.getStore().getCount();// 獲得總行數",
+                    "var p = new item({",
+                    "    id: formRecord.id, // 需要再確認",
+                    "    name: formRecord.name,",
+                    "\ttitle: formRecord.title,",
+                    "\tdescription: formRecord.decription,",
+                    "\teffectiveDays: formRecord.effectiveDays,",
+                    "    effectiveDate: formRecord.effectiveDate,",
+                    "\texpiryDate: formRecord.expityDate",
+                    "});",
+                    "",
+                    "grid.getStore().insert(n, p);\t// 插入到最後一行",
+                    "tabs.setActiveTab(0);",
+                    "Ext.Msg.alert('Status',\"更新完成：\"+Ext.encode(formRecord));"
+                ]
+            },
+            "designerId": "58e79a91-733f-4596-9b50-28a26990a5b8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "doDelete"
+                ],
+                "implHandler": [
+                    "console.log(\"doDelete\");   ",
+                    "var grid = this.getItemGrid();",
+                    "var sm = grid.getSelectionModel();",
+                    "    ",
+                    "grid.store.remove(sm.getSelection());",
+                    "if (grid.store.getCount() > 0) {",
+                    "\tsm.select(0);",
+                    "}"
+                ]
+            },
+            "designerId": "ec8f94bd-1785-4a91-9b2c-75cbc2f2322a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "designer|params": [
+                    "doCreate"
+                ],
+                "implHandler": [
+                    "console.log(\"doCreate\");",
+                    "var tabs = doCreate.up().up().down('itemeditor[itemId=itemEditor]');",
+                    "var grid = this.getItemGrid();",
+                    "var form = this.getItemViewer().down('form[itemId=itemForm]').getForm();",
+                    "",
+                    "var n = grid.getStore().getCount();// 獲得總行數",
+                    "var item = Ext.ModelManager.getModel('finder_extjs.model.Item');",
+                    "",
+                    "tabs.setActiveTab(1);",
+                    "// this.getItemViewer().down('form[itemId=itemForm]').show();",
+                    "",
+                    "form.findField('id').setValue(n+1); // 再確認",
+                    "form.findField('name').setValue('Item' + (n+1));",
+                    "form.findField('title').setValue('請輸入標題');",
+                    "form.findField('effectiveDays').setValue(10);",
+                    "form.findField('effectiveDate').setValue(new Date());",
+                    "form.findField('expiryDate').setValue(new Date());"
+                ]
+            },
+            "designerId": "61eb9ce5-5496-4fc7-bcd1-74d6f3bb9c06"
         }
     ]
 }
