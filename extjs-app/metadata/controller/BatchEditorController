@@ -34,11 +34,13 @@
                 "implHandler": [
                     "",
                     "this.control({",
+                    "    'batcheditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
                     "    'batcheditorct button[itemId=readBtn]':{",
-                    "",
                     "        click:this.doRead",
                     "    },",
-                    "    'batcheditorct grid[itemId=batch]':{",
+                    "    'batcheditorct grid[itemId=trcRptGrid]':{",
                     "        itemdblclick:this.readBatch",
                     "    }",
                     "});"
@@ -112,16 +114,51 @@
                 ],
                 "implHandler": [
                     "//this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "this.batcheditor.setActiveTab(this.batchviewer.up());",
+                    "console.log('batchEditorCtrl.dblClick--readBatch');",
                     "",
-                    "console.log(record);",
-                    "",
-                    "",
+                    "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
+                    "//console.log(record);",
                     "this.doDisplay(record);",
                     ""
                 ]
             },
             "designerId": "f5b956d8-b9f0-463d-88dd-e617d2166477"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "",
+                    "console.log('BatchEditorCtrl.doSave');",
+                    "",
+                    "var that=this;",
+                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "    url: '/batch/update',",
+                    "    //url: '/rest/batch',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success...');",
+                    "        that.getBatchGrid().getStore().load();",
+                    "        console.log(that.getBatchGrid().up());",
+                    "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed...');",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "d868068e-d50d-4df0-85ba-1d9e9f59b7da"
         }
     ]
 }

@@ -17,7 +17,7 @@
     "designerId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e",
     "cn": [
         {
-            "type": "Ext.panel.Panel",
+            "type": "Ext.form.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -27,6 +27,7 @@
                 "layout|flex": null,
                 "container|align": "stretch",
                 "container|padding": 10,
+                "itemId": "trcRptFields",
                 "designer|displayName": "trcRptFields",
                 "layout": "vbox",
                 "title": ""
@@ -57,7 +58,7 @@
                     "userConfig": {
                         "designer|displayName": "name",
                         "fieldLabel": "name",
-                        "name": "title"
+                        "name": "name"
                     },
                     "designerId": "604c3cdc-7dca-4257-beed-5fbc9149eb43"
                 },
@@ -84,7 +85,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
-                        "fieldLabel": "expectQty"
+                        "fieldLabel": "expectQty",
+                        "name": "expectQty"
                     },
                     "designerId": "f56f64a8-fb31-4092-8d55-9b530b0c10b7"
                 },
@@ -97,8 +99,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "designer|displayName": "",
                         "fieldLabel": "item_id",
-                        "displayField": "name",
+                        "name": "item_id",
+                        "displayField": "id",
                         "store": "ItemStore",
                         "valueField": "id"
                     },
