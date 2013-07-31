@@ -90,6 +90,7 @@ class BatchController {
     def update(){
 
         def batchInstance=Batch.get(params.id)
+        
         if (!batchInstance) {
             println"BatchController--updateBatch--Cant find BatchInstance"
             render (contentType: 'text/json') {
