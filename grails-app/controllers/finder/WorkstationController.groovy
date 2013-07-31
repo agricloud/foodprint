@@ -15,6 +15,14 @@ class WorkstationController {
         [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
     }
 
+    def listJson(Integer max) {
+
+        render (contentType: 'text/json') {
+            list(max)        
+        }
+        
+    }
+
     def create() {
         [workstationInstance: new Workstation(params)]
     }
