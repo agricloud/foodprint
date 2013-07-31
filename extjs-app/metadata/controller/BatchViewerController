@@ -8,5 +8,42 @@
     "userConfig": {
         "designer|userClassName": "BatchViewerController"
     },
-    "designerId": "ccbd068c-0c2b-4308-acca-acbd5b788073"
+    "designerId": "ccbd068c-0c2b-4308-acca-acbd5b788073",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"batchViewerCtrl.doDisplay\");",
+                    "",
+                    "",
+                    "this.getBatchViewer().down('form[itemId=trcRptFields]').loadRecord(record);",
+                    ""
+                ]
+            },
+            "designerId": "f77313c4-f8df-4d6a-81f4-d4ca60875114"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchGrid",
+                "selector": "batchgrid"
+            },
+            "designerId": "aeb9179f-1507-4c1a-a519-c61a8cc4f412"
+        }
+    ]
 }

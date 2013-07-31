@@ -9,14 +9,14 @@ class UrlMappings {
 
 		
 		"/rest/$controller/$id"{
-			action = [GET: "show", PUT:"update", DELETE:"delete"]
+			action = [GET: "show"]
 			constraints {
 				// apply constraints here
 			}
 		}
 		
-		"/rest/$controller"{
-			action = [GET:"listJson", POST: "create"]
+		"/rest/$controller"(parseRequest:true){
+			action = [GET:"listJson", POST: "create", PUT:"update", DELETE:"delete"]
 			constraints {
 				// apply constraints here
 			}
