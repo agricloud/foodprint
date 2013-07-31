@@ -142,8 +142,7 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": 1,
-                "designer|displayName": "trcRptDetail",
-                "activeTab": 0
+                "designer|displayName": "trcRptDetail"
             },
             "designerId": "d42c0f6b-871e-440e-b450-1892ddadf0d1",
             "cn": [
@@ -156,114 +155,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "container|align": "stretch",
-                        "layout": "vbox",
-                        "title": "圖檔"
-                    },
-                    "designerId": "72427135-29f0-4896-802a-ba302458ddbe",
-                    "cn": [
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "designerId": "46016a81-31f3-4931-add8-74ca0cb88cc9"
-                        },
-                        {
-                            "type": "Ext.grid.Panel",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": 1,
-                                "height": 250,
-                                "itemId": "trcRptImgGrid",
-                                "width": 400,
-                                "title": null,
-                                "store": "TrcRptImg"
-                            },
-                            "designerId": "bd99a52b-ebe6-42c9-88c7-bb14845ef557",
-                            "cn": [
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "dockedItems",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": 100,
-                                        "dock": "top"
-                                    },
-                                    "designerId": "e53efc86-c08a-4a95-b8d2-e8b15b5aa9d2",
-                                    "masterInstanceId": "488f236d-f82d-4b41-9d75-22a0869df350"
-                                },
-                                {
-                                    "type": "Ext.grid.View",
-                                    "reference": {
-                                        "name": "viewConfig",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "c3687d15-7395-477e-8c83-78903c540372"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "id",
-                                        "text": "Id"
-                                    },
-                                    "designerId": "8fb89d74-8c51-4a13-b1e7-84e0fa7331e8"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "trc_id",
-                                        "text": "Trc_id"
-                                    },
-                                    "designerId": "6146833b-41f1-43f1-afe8-0907a1bf78dd"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "name",
-                                        "text": "Name"
-                                    },
-                                    "designerId": "c1440c24-68b8-4c29-9e1d-b8324088b7ba"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "container|align": "stretch",
                         "layout": "hbox",
-                        "title": "細項設定"
+                        "title": "履歷內容"
                     },
                     "designerId": "6a6398b1-8b53-4935-ad37-0366f10fd679",
                     "cn": [
@@ -446,7 +339,7 @@
                                     "userConfig": {
                                         "container|align": "stretch",
                                         "layout": "vbox",
-                                        "title": "欄位"
+                                        "title": "細項"
                                     },
                                     "designerId": "2c6d1ddd-e614-408a-be86-935145f6a208",
                                     "cn": [
@@ -573,107 +466,6 @@
                                                         "text": "Description"
                                                     },
                                                     "designerId": "9281db95-c49a-4d85-a43c-d21c63814283"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.panel.Panel",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "title": "圖檔"
-                                    },
-                                    "designerId": "973a7ce6-b1b9-4077-8e15-06f5b04967c3",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.tab.Tab",
-                                            "reference": {
-                                                "name": "tabConfig",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "designerId": "5195e279-e778-4db7-bb0e-08f2114956d8"
-                                        },
-                                        {
-                                            "type": "Ext.grid.Panel",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "itemId": "trcRptRowImgGrid",
-                                                "title": "",
-                                                "store": "TrcRptRowImgStore"
-                                            },
-                                            "designerId": "c087769f-23aa-44b0-8048-d11242be795e",
-                                            "cn": [
-                                                {
-                                                    "type": "linkedinstance",
-                                                    "reference": {
-                                                        "name": "dockedItems",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "width": 100,
-                                                        "dock": "top"
-                                                    },
-                                                    "designerId": "7e61ec09-feef-4d9f-968f-178bbdfd492e",
-                                                    "masterInstanceId": "488f236d-f82d-4b41-9d75-22a0869df350"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.View",
-                                                    "reference": {
-                                                        "name": "viewConfig",
-                                                        "type": "object"
-                                                    },
-                                                    "codeClass": null,
-                                                    "designerId": "bf453f67-fe6e-431a-a626-2fe365bb060b"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "id",
-                                                        "text": "Id"
-                                                    },
-                                                    "designerId": "ec060226-a3f0-49ee-9952-36ed9871abea"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "trc_id",
-                                                        "text": "Trc_id"
-                                                    },
-                                                    "designerId": "6d4d2b92-3b4b-4588-a5fc-b0fe7dad8cc6"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "name",
-                                                        "text": "Name"
-                                                    },
-                                                    "designerId": "c49716de-f327-4b27-a53f-3378c6c24b84"
                                                 }
                                             ]
                                         }
