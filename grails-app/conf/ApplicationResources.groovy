@@ -1,6 +1,6 @@
 
 import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
-def __bundleName = 'finder'
+def __bundleName = 'foodprint'
 
 
 modules = {
@@ -23,7 +23,7 @@ modules = {
 	// }	
  //  extjs4 {
 	// 	defaultBundle __bundleName
-	// 	resource url: 'extjs4/resources/finder_extjs-all.css'
+	// 	resource url: 'extjs4/resources/foodprint-all.css'
 	// 	resource url: 'extjs4/all-classes.js'
 	// }	
 }

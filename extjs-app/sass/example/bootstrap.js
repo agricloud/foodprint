@@ -8,10 +8,10 @@ Ext.Loader.addClassPathMappings({
   "ExtThemeNeptune": "../../packages/ext-theme-neptune/overrides",
   "Ext": "../../ext/src",
   "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js",
-  "finder_extjs": "../../app"
+  "foodprint": "../../app"
 });
 Ext.ClassManager.addNameAlternateMappings({
-  "finder_extjs.store.BatchChangeHistStore": [],
+  "foodprint.store.BatchChangeHistStore": [],
   "Ext.draw.engine.ImageExporter": [],
   "Ext.layout.component.Auto": [],
   "Ext.grid.property.Store": [
@@ -20,10 +20,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.container.Box": [
     "Ext.layout.BoxLayout"
   ],
-  "finder_extjs.view.UploadBtn": [],
+  "foodprint.view.UploadBtn": [],
   "Ext.rtl.resizer.BorderSplitterTracker": [],
   "Ext.direct.JsonProvider": [],
-  "finder_extjs.view.BatchGrid": [],
+  "foodprint.view.BatchGrid": [],
   "Ext.tree.Panel": [
     "Ext.tree.TreePanel",
     "Ext.TreePanel"
@@ -31,20 +31,20 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.Model": [
     "Ext.data.Record"
   ],
-  "finder_extjs.store.IndTrcRptColStore": [],
+  "foodprint.store.IndTrcRptColStore": [],
   "Ext.data.reader.Reader": [
     "Ext.data.Reader",
     "Ext.data.DataReader"
   ],
-  "finder_extjs.store.batchTrcRptStore": [],
+  "foodprint.store.batchTrcRptStore": [],
   "Ext.tab.Tab": [],
-  "finder_extjs.model.TrcRptImg": [],
+  "foodprint.model.TrcRptImg": [],
   "Ext.button.Button": [
     "Ext.Button"
   ],
   "Ext.util.Grouper": [],
   "Ext.direct.RemotingProvider": [],
-  "finder_extjs.model.TrcRptRow": [],
+  "foodprint.model.TrcRptRow": [],
   "Ext.data.NodeInterface": [],
   "Ext.view.NodeCache": [],
   "Ext.grid.column.Date": [
@@ -72,7 +72,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.rtl.layout.container.Column": [],
   "Ext.data.JsonPStore": [],
   "Ext.ux.ajax.Simlet": [],
-  "finder_extjs.model.ItemImage": [],
+  "foodprint.model.ItemImage": [],
   "Ext.layout.component.field.TextArea": [],
   "Ext.layout.container.Container": [
     "Ext.layout.ContainerLayout"
@@ -82,8 +82,8 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.AbstractSelectionModel"
   ],
   "Ext.draw.CompositeSprite": [],
-  "finder_extjs.store.IndTrcRptRowStore": [],
-  "finder_extjs.store.ItemParamsStore": [],
+  "foodprint.store.IndTrcRptRowStore": [],
+  "foodprint.store.ItemParamsStore": [],
   "Ext.fx.Queue": [],
   "Ext.dd.StatusProxy": [],
   "Ext.form.field.Checkbox": [
@@ -115,17 +115,17 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.panel.Proxy": [
     "Ext.dd.PanelProxy"
   ],
-  "finder_extjs.view.MainViewport": [],
+  "foodprint.view.MainViewport": [],
   "Ext.fx.target.Target": [],
   "Ext.ComponentManager": [
     "Ext.ComponentMgr"
   ],
-  "finder_extjs.view.IndTrcRptEditor": [],
+  "foodprint.view.IndTrcRptEditor": [],
   "Ext.grid.feature.GroupingSummary": [],
   "Ext.grid.property.HeaderContainer": [
     "Ext.grid.PropertyColumnModel"
   ],
-  "finder_extjs.view.SaveBtn": [],
+  "foodprint.view.SaveBtn": [],
   "Ext.layout.component.BoundList": [],
   "Ext.tab.Bar": [],
   "Ext.app.Application": [],
@@ -135,7 +135,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ShadowPool": [],
   "Ext.grid.locking.HeaderContainer": [],
   "Ext.resizer.ResizeTracker": [],
-  "finder_extjs.model.batch": [],
+  "foodprint.model.batch": [],
   "Ext.panel.Tool": [],
   "Ext.layout.container.boxOverflow.None": [
     "Ext.layout.boxOverflow.None"
@@ -151,11 +151,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.component.FieldSet": [],
   "Ext.util.Bindable": [],
   "Ext.data.SortTypes": [],
-  "finder_extjs.store.TrcRptRowImgStore": [],
-  "finder_extjs.store.TrcRptRow": [],
+  "foodprint.store.TrcRptRowImgStore": [],
+  "foodprint.store.TrcRptRow": [],
   "Ext.rtl.layout.container.HBox": [],
   "Ext.ux.FieldReplicator": [],
-  "finder_extjs.view.ItemGrid": [],
+  "foodprint.view.ItemGrid": [],
   "Ext.util.Animate": [],
   "Ext.data.flash.BinaryXhr": [],
   "Ext.form.field.Date": [
@@ -181,7 +181,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.layout.component.AbstractDock"
   ],
   "Ext.util.Filter": [],
-  "finder_extjs.store.BatchTrcRptRowImgStore": [],
+  "foodprint.store.BatchTrcRptRowImgStore": [],
   "Ext.dd.DragDrop": [],
   "Ext.view.View": [
     "Ext.DataView"
@@ -220,7 +220,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.resizer.Handle": [],
   "Ext.util.ElementContainer": [],
   "Ext.grid.feature.Grouping": [],
-  "finder_extjs.view.ItemViewer": [],
+  "foodprint.view.ItemViewer": [],
   "Ext.tab.Panel": [
     "Ext.TabPanel"
   ],
@@ -232,7 +232,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.dd.DDTarget": [],
   "Ext.chart.Chart": [],
   "Ext.ux.grid.FiltersFeature": [],
-  "finder_extjs.store.TrcRptImg": [],
+  "foodprint.store.TrcRptImg": [],
   "Ext.data.Field": [],
   "Ext.form.field.FileButton": [],
   "Ext.chart.series.Gauge": [],
@@ -246,7 +246,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.QuickTips"
   ],
   "Ext.grid.plugin.Editing": [],
-  "finder_extjs.store.IndTrcRptStore": [],
+  "foodprint.store.IndTrcRptStore": [],
   "Ext.state.LocalStorageProvider": [],
   "Ext.grid.RowEditor": [],
   "Ext.ux.grid.TransformGrid": [],
@@ -254,7 +254,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.form.action.Action": [
     "Ext.form.Action"
   ],
-  "finder_extjs.model.TrcRptRowImg": [],
+  "foodprint.model.TrcRptRowImg": [],
   "Ext.fx.Easing": [],
   "Ext.ProgressBar": [],
   "Ext.tree.ViewDragZone": [],
@@ -267,20 +267,20 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [],
   "Ext.rtl.grid.column.Column": [],
-  "finder_extjs.model.IndTcrRptRowImg": [],
+  "foodprint.model.IndTcrRptRowImg": [],
   "Ext.data.proxy.JsonP": [
     "Ext.data.ScriptTagProxy"
   ],
-  "finder_extjs.view.TrcRptEditor": [],
+  "foodprint.view.TrcRptEditor": [],
   "Ext.chart.series.Area": [],
   "Ext.fx.Anim": [],
   "Ext.menu.Item": [
     "Ext.menu.TextItem"
   ],
-  "finder_extjs.model.Item": [],
+  "foodprint.model.Item": [],
   "Ext.rtl.dom.Element_position": [],
   "Ext.chart.Legend": [],
-  "finder_extjs.store.ItemImageStore": [],
+  "foodprint.store.ItemImageStore": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
@@ -290,7 +290,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.layout.VBoxLayout"
   ],
   "Ext.rtl.util.Floating": [],
-  "finder_extjs.view.LoginContainer": [],
+  "foodprint.view.LoginContainer": [],
   "Ext.view.DropZone": [],
   "Ext.rtl.tree.Column": [],
   "Ext.layout.component.Button": [],
@@ -299,9 +299,9 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.form.FieldContainer": [],
   "Ext.rtl.grid.plugin.RowEditing": [],
-  "finder_extjs.controller.ItemGridController": [],
+  "foodprint.controller.ItemGridController": [],
   "Ext.ux.event.RecorderManager": [],
-  "finder_extjs.controller.ItemEditorController": [],
+  "foodprint.controller.ItemEditorController": [],
   "Ext.data.proxy.Server": [
     "Ext.data.ServerProxy"
   ],
@@ -309,7 +309,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.chart.CartesianSeries",
     "Ext.chart.CartesianChart"
   ],
-  "finder_extjs.store.ItemStore": [],
+  "foodprint.store.ItemStore": [],
   "Ext.rtl.layout.component.Dock": [],
   "Ext.grid.column.Column": [
     "Ext.grid.Column"
@@ -337,7 +337,7 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.view.BoundListKeyNav": [],
   "Ext.form.FieldSet": [],
-  "finder_extjs.view.ItemEditor": [],
+  "foodprint.view.ItemEditor": [],
   "Ext.form.field.VTypes": [
     "Ext.form.VTypes"
   ],
@@ -345,7 +345,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.form.CheckboxGroup": [],
   "Ext.data.JsonP": [],
   "Ext.draw.engine.Vml": [],
-  "finder_extjs.view.BatchViewer": [],
+  "foodprint.view.BatchViewer": [],
   "Ext.layout.container.CheckboxGroup": [],
   "Ext.app.domain.Direct": [],
   "Ext.panel.Header": [],
@@ -364,20 +364,20 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.app.domain.Global": [],
   "Ext.ux.grid.filter.DateFilter": [],
-  "finder_extjs.model.IndTrcRptCol": [],
+  "foodprint.model.IndTrcRptCol": [],
   "Ext.data.Tree": [],
   "Ext.ModelManager": [
     "Ext.ModelMgr"
   ],
   "Ext.data.XmlStore": [],
   "Ext.grid.ViewDropZone": [],
-  "finder_extjs.store.ItemTrcRptStore": [],
+  "foodprint.store.ItemTrcRptStore": [],
   "Ext.ux.BoxReorderer": [],
   "Ext.rtl.slider.Multi": [],
   "Ext.grid.header.DropZone": [],
   "Ext.rtl.layout.component.field.Text": [],
   "Ext.util.HashMap": [],
-  "finder_extjs.view.StdEditorToolbar": [],
+  "foodprint.view.StdEditorToolbar": [],
   "Ext.grid.column.Template": [
     "Ext.grid.TemplateColumn"
   ],
@@ -396,7 +396,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.data.HasOneAssociation"
   ],
   "Ext.draw.Text": [],
-  "finder_extjs.view.TrcRptViewer": [],
+  "foodprint.view.TrcRptViewer": [],
   "Ext.window.MessageBox": [],
   "Ext.fx.target.CompositeElementCSS": [],
   "Ext.diag.layout.ContextItem": [],
@@ -407,7 +407,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.chart.LineChart"
   ],
   "Ext.view.Table": [],
-  "finder_extjs.model.BatchParams": [],
+  "foodprint.model.BatchParams": [],
   "Ext.fx.target.CompositeElement": [],
   "Ext.fx.Manager": [],
   "Ext.data.writer.Json": [
@@ -415,7 +415,7 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.chart.Label": [],
   "Ext.grid.View": [],
-  "finder_extjs.view.PickToolbar": [],
+  "foodprint.view.PickToolbar": [],
   "Ext.Action": [],
   "Ext.form.Basic": [
     "Ext.form.BasicForm"
@@ -423,8 +423,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.container.Viewport": [
     "Ext.Viewport"
   ],
-  "finder_extjs.model.ItemParams": [],
-  "finder_extjs.store.TrcRptCol": [],
+  "foodprint.model.ItemParams": [],
+  "foodprint.store.TrcRptCol": [],
   "Ext.state.Stateful": [],
   "Ext.ux.grid.menu.RangeMenu": [],
   "Ext.grid.feature.RowBody": [],
@@ -478,7 +478,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.data.proxy.Client": [
     "Ext.data.ClientProxy"
   ],
-  "finder_extjs.model.IndTrcRptRow": [],
+  "foodprint.model.IndTrcRptRow": [],
   "Ext.data.Types": [],
   "Ext.draw.SpriteDD": [],
   "Ext.layout.container.boxOverflow.Menu": [
@@ -522,7 +522,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.chart.series.Series": [],
   "Ext.ux.PreviewPlugin": [],
   "Ext.data.Request": [],
-  "finder_extjs.view.ImageEditorToolbar": [],
+  "foodprint.view.ImageEditorToolbar": [],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.dd.DD": [],
   "Ext.ux.CellDragDrop": [],
@@ -555,15 +555,15 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.container.Anchor": [
     "Ext.layout.AnchorLayout"
   ],
-  "finder_extjs.view.ListToolbar": [],
+  "foodprint.view.ListToolbar": [],
   "Ext.layout.component.field.Text": [],
   "Ext.data.DirectStore": [],
   "Ext.ux.grid.filter.BooleanFilter": [],
   "Ext.dom.Layer": [
     "Ext.Layer"
   ],
-  "finder_extjs.model.ItemTrcRpt": [],
-  "finder_extjs.view.MainContainer": [],
+  "foodprint.model.ItemTrcRpt": [],
+  "foodprint.view.MainContainer": [],
   "Ext.grid.RowEditorButtons": [],
   "Ext.data.BufferStore": [],
   "Ext.ux.form.SearchField": [],
@@ -583,7 +583,7 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.form.Field",
     "Ext.form.BaseField"
   ],
-  "finder_extjs.model.TrcRptCol": [],
+  "foodprint.model.TrcRptCol": [],
   "ExtThemeNeptune.grid.RowEditor": [],
   "Ext.grid.feature.GroupStore": [],
   "Ext.data.SequentialIdGenerator": [],
@@ -601,11 +601,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.container.AbstractContainer": [],
   "Ext.ux.grid.filter.ListFilter": [],
   "Ext.data.ArrayStore": [],
-  "finder_extjs.view.Viewport": [],
+  "foodprint.view.Viewport": [],
   "Ext.window.Window": [
     "Ext.Window"
   ],
-  "finder_extjs.controller.LoginController": [],
+  "foodprint.controller.LoginController": [],
   "Ext.picker.Color": [
     "Ext.ColorPalette"
   ],
@@ -613,7 +613,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.GMapPanel": [],
   "Ext.chart.theme.Theme": [],
   "Ext.util.ClickRepeater": [],
-  "finder_extjs.store.BatchStore": [],
+  "foodprint.store.BatchStore": [],
   "Ext.form.field.Spinner": [
     "Ext.form.Spinner"
   ],
@@ -641,7 +641,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.statusbar.StatusBar": [
     "Ext.ux.StatusBar"
   ],
-  "finder_extjs.store.IndTrcRptRowImgStore": [],
+  "foodprint.store.IndTrcRptRowImgStore": [],
   "Ext.data.proxy.Direct": [
     "Ext.data.DirectProxy"
   ],
@@ -651,7 +651,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.form.field.TextArea": [
     "Ext.form.TextArea"
   ],
-  "finder_extjs.model.BatchTrcRptCol": [],
+  "foodprint.model.BatchTrcRptCol": [],
   "Ext.rtl.layout.container.VBox": [],
   "Ext.form.field.Radio": [
     "Ext.form.Radio"
@@ -661,11 +661,11 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.chart.PieSeries",
     "Ext.chart.PieChart"
   ],
-  "finder_extjs.view.BatchTrcRptDisplay": [],
+  "foodprint.view.BatchTrcRptDisplay": [],
   "Ext.tree.plugin.TreeViewDragDrop": [],
   "Ext.direct.Provider": [],
   "Ext.data.TreeModel": [],
-  "finder_extjs.model.batchTrcRpt": [],
+  "foodprint.model.batchTrcRpt": [],
   "Ext.layout.Layout": [],
   "Ext.toolbar.TextItem": [
     "Ext.Toolbar.TextItem"
@@ -691,11 +691,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.component.Draw": [],
   "Ext.AbstractPlugin": [],
   "Ext.Editor": [],
-  "finder_extjs.store.BatchTrcRptColStore": [],
+  "foodprint.store.BatchTrcRptColStore": [],
   "Ext.chart.axis.Radial": [],
   "Ext.chart.Tip": [],
   "Ext.ux.ajax.DataSimlet": [],
-  "finder_extjs.model.batchChangeHist": [],
+  "foodprint.model.batchChangeHist": [],
   "Ext.layout.container.Table": [
     "Ext.layout.TableLayout"
   ],
@@ -715,7 +715,7 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.util.Sorter": [],
   "Ext.resizer.SplitterTracker": [],
-  "finder_extjs.view.TrcRptGrid": [],
+  "foodprint.view.TrcRptGrid": [],
   "Ext.panel.Table": [],
   "Ext.draw.Color": [],
   "Ext.chart.series.Bar": [
@@ -739,8 +739,8 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.data.Proxy"
   ],
   "Ext.menu.CheckItem": [],
-  "finder_extjs.view.BatchEditor": [],
-  "finder_extjs.view.ReadBtn": [],
+  "foodprint.view.BatchEditor": [],
+  "foodprint.view.ReadBtn": [],
   "Ext.ux.ProgressBarPager": [],
   "Ext.layout.container.Card": [
     "Ext.layout.CardLayout"
@@ -753,7 +753,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.rtl.tab.Bar": [],
   "Ext.rtl.form.field.Trigger": [],
   "Ext.slider.Thumb": [],
-  "finder_extjs.model.IndTrcRpt": [],
+  "foodprint.model.IndTrcRpt": [],
   "Ext.grid.header.DragZone": [],
   "Ext.rtl.resizer.ResizeTracker": [],
   "Ext.form.action.DirectLoad": [
@@ -761,7 +761,7 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.picker.Time": [],
   "Ext.grid.plugin.BufferedRenderer": [],
-  "finder_extjs.controller.ItemViewerController": [],
+  "foodprint.controller.ItemViewerController": [],
   "Ext.resizer.BorderSplitter": [],
   "Ext.menu.ColorPicker": [],
   "Ext.ZIndexManager": [
@@ -789,7 +789,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ComponentQuery": [],
   "Ext.draw.engine.SvgExporter": [],
   "Ext.layout.container.Auto": [],
-  "finder_extjs.store.BatchTrcRptRowStore": [],
+  "foodprint.store.BatchTrcRptRowStore": [],
   "Ext.grid.locking.Lockable": [
     "Ext.grid.Lockable"
   ],
@@ -827,16 +827,16 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.rtl.dom.Element_scroll": [],
   "ExtThemeNeptune.tab.Tab": [],
   "Ext.state.Provider": [],
-  "finder_extjs.model.TrcRpt": [],
-  "finder_extjs.model.BatchTrcRptRow": [],
+  "foodprint.model.TrcRpt": [],
+  "foodprint.model.BatchTrcRptRow": [],
   "Ext.ux.DataView.LabelEditor": [],
   "Ext.layout.container.Editor": [],
   "Ext.data.Errors": [],
   "Ext.grid.plugin.RowExpander": [],
   "Ext.selection.TreeModel": [],
   "Ext.form.Labelable": [],
-  "finder_extjs.store.BatchParamsStore": [],
-  "finder_extjs.store.TrcRptStore": [],
+  "foodprint.store.BatchParamsStore": [],
+  "foodprint.store.TrcRptStore": [],
   "Ext.grid.column.Number": [
     "Ext.grid.NumberColumn"
   ],
@@ -850,7 +850,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.AbstractManager": [],
   "Ext.chart.series.Radar": [],
   "Ext.rtl.dom.Element_insertion": [],
-  "finder_extjs.view.DeleteBtn": [],
+  "foodprint.view.DeleteBtn": [],
   "Ext.ux.RowExpander": [],
   "Ext.grid.property.Property": [
     "Ext.PropGridProperty"
@@ -873,7 +873,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.panel.AbstractPanel": [],
   "Ext.ux.event.Maker": [],
   "Ext.layout.component.field.Slider": [],
-  "finder_extjs.model.BatchTrcRptRowImg": [],
+  "foodprint.model.BatchTrcRptRowImg": [],
   "Ext.chart.axis.Numeric": [
     "Ext.chart.NumericAxis"
   ],
@@ -887,14 +887,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.container.HBox": [
     "Ext.layout.HBoxLayout"
   ],
-  "finder_extjs.view.CreateBtn": [],
+  "foodprint.view.CreateBtn": [],
   "Ext.selection.RowModel": [],
   "Ext.layout.ContextItem": [],
   "ExtThemeNeptune.Component": [],
   "Ext.util.MixedCollection": []
 });
 Ext.ClassManager.addNameAliasMappings({
-  "finder_extjs.store.BatchChangeHistStore": [],
+  "foodprint.store.BatchChangeHistStore": [],
   "Ext.draw.engine.ImageExporter": [],
   "Ext.layout.component.Auto": [
     "layout.autocomponent"
@@ -903,27 +903,27 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.container.Box": [
     "layout.box"
   ],
-  "finder_extjs.view.UploadBtn": [
+  "foodprint.view.UploadBtn": [
     "widget.uploadbtn"
   ],
   "Ext.rtl.resizer.BorderSplitterTracker": [],
   "Ext.direct.JsonProvider": [
     "direct.jsonprovider"
   ],
-  "finder_extjs.view.BatchGrid": [
+  "foodprint.view.BatchGrid": [
     "widget.batchgrid"
   ],
   "Ext.tree.Panel": [
     "widget.treepanel"
   ],
   "Ext.data.Model": [],
-  "finder_extjs.store.IndTrcRptColStore": [],
+  "foodprint.store.IndTrcRptColStore": [],
   "Ext.data.reader.Reader": [],
-  "finder_extjs.store.batchTrcRptStore": [],
+  "foodprint.store.batchTrcRptStore": [],
   "Ext.tab.Tab": [
     "widget.tab"
   ],
-  "finder_extjs.model.TrcRptImg": [],
+  "foodprint.model.TrcRptImg": [],
   "Ext.button.Button": [
     "widget.button"
   ],
@@ -931,7 +931,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.direct.RemotingProvider": [
     "direct.remotingprovider"
   ],
-  "finder_extjs.model.TrcRptRow": [],
+  "foodprint.model.TrcRptRow": [],
   "Ext.data.NodeInterface": [],
   "Ext.view.NodeCache": [],
   "Ext.grid.column.Date": [
@@ -965,7 +965,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.ajax.Simlet": [
     "simlet.basic"
   ],
-  "finder_extjs.model.ItemImage": [],
+  "foodprint.model.ItemImage": [],
   "Ext.layout.component.field.TextArea": [
     "layout.textareafield"
   ],
@@ -975,8 +975,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.util.Sortable": [],
   "Ext.selection.Model": [],
   "Ext.draw.CompositeSprite": [],
-  "finder_extjs.store.IndTrcRptRowStore": [],
-  "finder_extjs.store.ItemParamsStore": [],
+  "foodprint.store.IndTrcRptRowStore": [],
+  "foodprint.store.ItemParamsStore": [],
   "Ext.fx.Queue": [],
   "Ext.dd.StatusProxy": [],
   "Ext.form.field.Checkbox": [
@@ -1004,15 +1004,15 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.sliderfield"
   ],
   "Ext.panel.Proxy": [],
-  "finder_extjs.view.MainViewport": [],
+  "foodprint.view.MainViewport": [],
   "Ext.fx.target.Target": [],
   "Ext.ComponentManager": [],
-  "finder_extjs.view.IndTrcRptEditor": [],
+  "foodprint.view.IndTrcRptEditor": [],
   "Ext.grid.feature.GroupingSummary": [
     "feature.groupingsummary"
   ],
   "Ext.grid.property.HeaderContainer": [],
-  "finder_extjs.view.SaveBtn": [
+  "foodprint.view.SaveBtn": [
     "widget.savebtn"
   ],
   "Ext.layout.component.BoundList": [
@@ -1028,7 +1028,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ShadowPool": [],
   "Ext.grid.locking.HeaderContainer": [],
   "Ext.resizer.ResizeTracker": [],
-  "finder_extjs.model.batch": [],
+  "foodprint.model.batch": [],
   "Ext.panel.Tool": [
     "widget.tool"
   ],
@@ -1050,11 +1050,11 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.util.Bindable": [],
   "Ext.data.SortTypes": [],
-  "finder_extjs.store.TrcRptRowImgStore": [],
-  "finder_extjs.store.TrcRptRow": [],
+  "foodprint.store.TrcRptRowImgStore": [],
+  "foodprint.store.TrcRptRow": [],
   "Ext.rtl.layout.container.HBox": [],
   "Ext.ux.FieldReplicator": [],
-  "finder_extjs.view.ItemGrid": [
+  "foodprint.view.ItemGrid": [
     "widget.itemgrid"
   ],
   "Ext.util.Animate": [],
@@ -1088,7 +1088,7 @@ Ext.ClassManager.addNameAliasMappings({
     "layout.dock"
   ],
   "Ext.util.Filter": [],
-  "finder_extjs.store.BatchTrcRptRowImgStore": [],
+  "foodprint.store.BatchTrcRptRowImgStore": [],
   "Ext.dd.DragDrop": [],
   "Ext.view.View": [
     "widget.dataview"
@@ -1125,7 +1125,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.grid.feature.Grouping": [
     "feature.grouping"
   ],
-  "finder_extjs.view.ItemViewer": [
+  "foodprint.view.ItemViewer": [
     "widget.itemviewer"
   ],
   "Ext.tab.Panel": [
@@ -1151,7 +1151,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.FiltersFeature": [
     "feature.filters"
   ],
-  "finder_extjs.store.TrcRptImg": [],
+  "foodprint.store.TrcRptImg": [],
   "Ext.data.Field": [
     "data.field"
   ],
@@ -1167,7 +1167,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.grid.plugin.Editing": [
     "editing.editing"
   ],
-  "finder_extjs.store.IndTrcRptStore": [],
+  "foodprint.store.IndTrcRptStore": [],
   "Ext.state.LocalStorageProvider": [
     "state.localstorage"
   ],
@@ -1177,7 +1177,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.TransformGrid": [],
   "Ext.app.EventDomain": [],
   "Ext.form.action.Action": [],
-  "finder_extjs.model.TrcRptRowImg": [],
+  "foodprint.model.TrcRptRowImg": [],
   "Ext.fx.Easing": [],
   "Ext.ProgressBar": [
     "widget.progressbar"
@@ -1194,12 +1194,12 @@ Ext.ClassManager.addNameAliasMappings({
     "simlet.xml"
   ],
   "Ext.rtl.grid.column.Column": [],
-  "finder_extjs.model.IndTcrRptRowImg": [],
+  "foodprint.model.IndTcrRptRowImg": [],
   "Ext.data.proxy.JsonP": [
     "proxy.jsonp",
     "proxy.scripttag"
   ],
-  "finder_extjs.view.TrcRptEditor": [],
+  "foodprint.view.TrcRptEditor": [],
   "Ext.chart.series.Area": [
     "series.area"
   ],
@@ -1207,10 +1207,10 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.menu.Item": [
     "widget.menuitem"
   ],
-  "finder_extjs.model.Item": [],
+  "foodprint.model.Item": [],
   "Ext.rtl.dom.Element_position": [],
   "Ext.chart.Legend": [],
-  "finder_extjs.store.ItemImageStore": [],
+  "foodprint.store.ItemImageStore": [],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselect",
     "widget.multiselectfield"
@@ -1223,7 +1223,7 @@ Ext.ClassManager.addNameAliasMappings({
     "layout.vbox"
   ],
   "Ext.rtl.util.Floating": [],
-  "finder_extjs.view.LoginContainer": [
+  "foodprint.view.LoginContainer": [
     "widget.logincontainer1"
   ],
   "Ext.view.DropZone": [],
@@ -1239,16 +1239,16 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.fieldcontainer"
   ],
   "Ext.rtl.grid.plugin.RowEditing": [],
-  "finder_extjs.controller.ItemGridController": [],
+  "foodprint.controller.ItemGridController": [],
   "Ext.ux.event.RecorderManager": [
     "widget.eventrecordermanager"
   ],
-  "finder_extjs.controller.ItemEditorController": [],
+  "foodprint.controller.ItemEditorController": [],
   "Ext.data.proxy.Server": [
     "proxy.server"
   ],
   "Ext.chart.series.Cartesian": [],
-  "finder_extjs.store.ItemStore": [],
+  "foodprint.store.ItemStore": [],
   "Ext.rtl.layout.component.Dock": [],
   "Ext.grid.column.Column": [
     "widget.gridcolumn"
@@ -1280,7 +1280,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.form.FieldSet": [
     "widget.fieldset"
   ],
-  "finder_extjs.view.ItemEditor": [
+  "foodprint.view.ItemEditor": [
     "widget.itemeditor"
   ],
   "Ext.form.field.VTypes": [],
@@ -1290,7 +1290,7 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.data.JsonP": [],
   "Ext.draw.engine.Vml": [],
-  "finder_extjs.view.BatchViewer": [
+  "foodprint.view.BatchViewer": [
     "widget.batchviewer"
   ],
   "Ext.layout.container.CheckboxGroup": [
@@ -1320,7 +1320,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.DateFilter": [
     "gridfilter.date"
   ],
-  "finder_extjs.model.IndTrcRptCol": [],
+  "foodprint.model.IndTrcRptCol": [],
   "Ext.data.Tree": [
     "data.tree"
   ],
@@ -1329,13 +1329,13 @@ Ext.ClassManager.addNameAliasMappings({
     "store.xml"
   ],
   "Ext.grid.ViewDropZone": [],
-  "finder_extjs.store.ItemTrcRptStore": [],
+  "foodprint.store.ItemTrcRptStore": [],
   "Ext.ux.BoxReorderer": [],
   "Ext.rtl.slider.Multi": [],
   "Ext.grid.header.DropZone": [],
   "Ext.rtl.layout.component.field.Text": [],
   "Ext.util.HashMap": [],
-  "finder_extjs.view.StdEditorToolbar": [
+  "foodprint.view.StdEditorToolbar": [
     "widget.stdeditortoolbar"
   ],
   "Ext.grid.column.Template": [
@@ -1364,7 +1364,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.draw.Text": [
     "widget.text"
   ],
-  "finder_extjs.view.TrcRptViewer": [
+  "foodprint.view.TrcRptViewer": [
     "widget.trcrptviewer"
   ],
   "Ext.window.MessageBox": [
@@ -1382,7 +1382,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.view.Table": [
     "widget.tableview"
   ],
-  "finder_extjs.model.BatchParams": [],
+  "foodprint.model.BatchParams": [],
   "Ext.fx.target.CompositeElement": [],
   "Ext.fx.Manager": [],
   "Ext.data.writer.Json": [
@@ -1392,7 +1392,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.grid.View": [
     "widget.gridview"
   ],
-  "finder_extjs.view.PickToolbar": [
+  "foodprint.view.PickToolbar": [
     "widget.picktoolbar"
   ],
   "Ext.Action": [],
@@ -1400,8 +1400,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.container.Viewport": [
     "widget.viewport"
   ],
-  "finder_extjs.model.ItemParams": [],
-  "finder_extjs.store.TrcRptCol": [],
+  "foodprint.model.ItemParams": [],
+  "foodprint.store.TrcRptCol": [],
   "Ext.state.Stateful": [],
   "Ext.ux.grid.menu.RangeMenu": [],
   "Ext.grid.feature.RowBody": [
@@ -1462,7 +1462,7 @@ Ext.ClassManager.addNameAliasMappings({
     "feature.rowwrap"
   ],
   "Ext.data.proxy.Client": [],
-  "finder_extjs.model.IndTrcRptRow": [],
+  "foodprint.model.IndTrcRptRow": [],
   "Ext.data.Types": [],
   "Ext.draw.SpriteDD": [],
   "Ext.layout.container.boxOverflow.Menu": [],
@@ -1506,7 +1506,7 @@ Ext.ClassManager.addNameAliasMappings({
     "plugin.preview"
   ],
   "Ext.data.Request": [],
-  "finder_extjs.view.ImageEditorToolbar": [
+  "foodprint.view.ImageEditorToolbar": [
     "widget.imageeditortoolbar"
   ],
   "Ext.ux.ajax.SimXhr": [],
@@ -1546,7 +1546,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.container.Anchor": [
     "layout.anchor"
   ],
-  "finder_extjs.view.ListToolbar": [
+  "foodprint.view.ListToolbar": [
     "widget.listtoolbar"
   ],
   "Ext.layout.component.field.Text": [
@@ -1559,8 +1559,8 @@ Ext.ClassManager.addNameAliasMappings({
     "gridfilter.boolean"
   ],
   "Ext.dom.Layer": [],
-  "finder_extjs.model.ItemTrcRpt": [],
-  "finder_extjs.view.MainContainer": [
+  "foodprint.model.ItemTrcRpt": [],
+  "foodprint.view.MainContainer": [
     "widget.maincontainer"
   ],
   "Ext.grid.RowEditorButtons": [
@@ -1589,7 +1589,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.form.field.Base": [
     "widget.field"
   ],
-  "finder_extjs.model.TrcRptCol": [],
+  "foodprint.model.TrcRptCol": [],
   "ExtThemeNeptune.grid.RowEditor": [],
   "Ext.grid.feature.GroupStore": [],
   "Ext.data.SequentialIdGenerator": [
@@ -1619,11 +1619,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.data.ArrayStore": [
     "store.array"
   ],
-  "finder_extjs.view.Viewport": [],
+  "foodprint.view.Viewport": [],
   "Ext.window.Window": [
     "widget.window"
   ],
-  "finder_extjs.controller.LoginController": [],
+  "foodprint.controller.LoginController": [],
   "Ext.picker.Color": [
     "widget.colorpicker"
   ],
@@ -1635,7 +1635,7 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.chart.theme.Theme": [],
   "Ext.util.ClickRepeater": [],
-  "finder_extjs.store.BatchStore": [],
+  "foodprint.store.BatchStore": [],
   "Ext.form.field.Spinner": [
     "widget.spinnerfield"
   ],
@@ -1661,7 +1661,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.statusbar.StatusBar": [
     "widget.statusbar"
   ],
-  "finder_extjs.store.IndTrcRptRowImgStore": [],
+  "foodprint.store.IndTrcRptRowImgStore": [],
   "Ext.data.proxy.Direct": [
     "proxy.direct"
   ],
@@ -1674,7 +1674,7 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.textarea",
     "widget.textareafield"
   ],
-  "finder_extjs.model.BatchTrcRptCol": [],
+  "foodprint.model.BatchTrcRptCol": [],
   "Ext.rtl.layout.container.VBox": [],
   "Ext.form.field.Radio": [
     "widget.radio",
@@ -1686,7 +1686,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.chart.series.Pie": [
     "series.pie"
   ],
-  "finder_extjs.view.BatchTrcRptDisplay": [],
+  "foodprint.view.BatchTrcRptDisplay": [],
   "Ext.tree.plugin.TreeViewDragDrop": [
     "plugin.treeviewdragdrop"
   ],
@@ -1694,7 +1694,7 @@ Ext.ClassManager.addNameAliasMappings({
     "direct.provider"
   ],
   "Ext.data.TreeModel": [],
-  "finder_extjs.model.batchTrcRpt": [],
+  "foodprint.model.batchTrcRpt": [],
   "Ext.layout.Layout": [],
   "Ext.toolbar.TextItem": [
     "widget.tbtext"
@@ -1729,13 +1729,13 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.Editor": [
     "widget.editor"
   ],
-  "finder_extjs.store.BatchTrcRptColStore": [],
+  "foodprint.store.BatchTrcRptColStore": [],
   "Ext.chart.axis.Radial": [
     "axis.radial"
   ],
   "Ext.chart.Tip": [],
   "Ext.ux.ajax.DataSimlet": [],
-  "finder_extjs.model.batchChangeHist": [],
+  "foodprint.model.batchChangeHist": [],
   "Ext.layout.container.Table": [
     "layout.table"
   ],
@@ -1756,7 +1756,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.button.Manager": [],
   "Ext.util.Sorter": [],
   "Ext.resizer.SplitterTracker": [],
-  "finder_extjs.view.TrcRptGrid": [
+  "foodprint.view.TrcRptGrid": [
     "widget.trcrptgrid"
   ],
   "Ext.panel.Table": [
@@ -1787,10 +1787,10 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.menu.CheckItem": [
     "widget.menucheckitem"
   ],
-  "finder_extjs.view.BatchEditor": [
+  "foodprint.view.BatchEditor": [
     "widget.batcheditor"
   ],
-  "finder_extjs.view.ReadBtn": [
+  "foodprint.view.ReadBtn": [
     "widget.readbtn"
   ],
   "Ext.ux.ProgressBarPager": [],
@@ -1809,7 +1809,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.rtl.tab.Bar": [],
   "Ext.rtl.form.field.Trigger": [],
   "Ext.slider.Thumb": [],
-  "finder_extjs.model.IndTrcRpt": [],
+  "foodprint.model.IndTrcRpt": [],
   "Ext.grid.header.DragZone": [],
   "Ext.rtl.resizer.ResizeTracker": [],
   "Ext.form.action.DirectLoad": [
@@ -1821,7 +1821,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.grid.plugin.BufferedRenderer": [
     "plugin.bufferedrenderer"
   ],
-  "finder_extjs.controller.ItemViewerController": [],
+  "foodprint.controller.ItemViewerController": [],
   "Ext.resizer.BorderSplitter": [
     "widget.bordersplitter"
   ],
@@ -1858,7 +1858,7 @@ Ext.ClassManager.addNameAliasMappings({
     "layout.auto",
     "layout.autocontainer"
   ],
-  "finder_extjs.store.BatchTrcRptRowStore": [],
+  "foodprint.store.BatchTrcRptRowStore": [],
   "Ext.grid.locking.Lockable": [],
   "Ext.ux.TreePicker": [
     "widget.treepicker"
@@ -1906,8 +1906,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.rtl.dom.Element_scroll": [],
   "ExtThemeNeptune.tab.Tab": [],
   "Ext.state.Provider": [],
-  "finder_extjs.model.TrcRpt": [],
-  "finder_extjs.model.BatchTrcRptRow": [],
+  "foodprint.model.TrcRpt": [],
+  "foodprint.model.BatchTrcRptRow": [],
   "Ext.ux.DataView.LabelEditor": [],
   "Ext.layout.container.Editor": [
     "layout.editor"
@@ -1920,8 +1920,8 @@ Ext.ClassManager.addNameAliasMappings({
     "selection.treemodel"
   ],
   "Ext.form.Labelable": [],
-  "finder_extjs.store.BatchParamsStore": [],
-  "finder_extjs.store.TrcRptStore": [],
+  "foodprint.store.BatchParamsStore": [],
+  "foodprint.store.TrcRptStore": [],
   "Ext.grid.column.Number": [
     "widget.numbercolumn"
   ],
@@ -1935,7 +1935,7 @@ Ext.ClassManager.addNameAliasMappings({
     "series.radar"
   ],
   "Ext.rtl.dom.Element_insertion": [],
-  "finder_extjs.view.DeleteBtn": [
+  "foodprint.view.DeleteBtn": [
     "widget.deletebtn"
   ],
   "Ext.ux.RowExpander": [],
@@ -1966,7 +1966,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.component.field.Slider": [
     "layout.sliderfield"
   ],
-  "finder_extjs.model.BatchTrcRptRowImg": [],
+  "foodprint.model.BatchTrcRptRowImg": [],
   "Ext.chart.axis.Numeric": [
     "axis.numeric"
   ],
@@ -1976,7 +1976,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.container.HBox": [
     "layout.hbox"
   ],
-  "finder_extjs.view.CreateBtn": [
+  "foodprint.view.CreateBtn": [
     "widget.createbtn"
   ],
   "Ext.selection.RowModel": [

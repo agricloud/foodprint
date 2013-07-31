@@ -1,5 +1,5 @@
 
-<%@ page import="finder.Item" %>
+<%@ page import="foodprint.Item" %>
 <!DOCTYPE html>
 <html>
 	<head>

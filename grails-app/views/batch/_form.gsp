@@ -1,4 +1,4 @@
-<%@ page import="finder.Batch" %>
+<%@ page import="foodprint.Batch" %>
 
 
 
@@ -39,7 +39,7 @@
 		<g:message code="batch.item.label" default="Item" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="item" name="item.id" from="${finder.Item.list()}" optionKey="id" required="" value="${batchInstance?.item?.id}" class="many-to-one"/>
+	<g:select id="item" name="item.id" from="${foodprint.Item.list()}" optionKey="id" required="" value="${batchInstance?.item?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: batchInstance, field: 'name', 'error')} ">

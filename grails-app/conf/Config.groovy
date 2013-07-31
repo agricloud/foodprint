@@ -97,9 +97,9 @@ log4j = {
 
 
 
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'finder.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'finder.UserRole'
-grails.plugins.springsecurity.authority.className = 'finder.Role'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'foodprint.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'foodprint.UserRole'
+grails.plugins.springsecurity.authority.className = 'foodprint.Role'
 
 grails.plugins.springsecurity.useSwitchUserFilter = true
 grails.plugins.springsecurity.controllerAnnotations.staticRules = [

@@ -7,7 +7,7 @@
 Ext.Loader.addClassPathMappings({
   "Ext": "ext/src",
   "Ext.rtl.EventObjectImpl": "ext/src/rtl/EventObject.js",
-  "finder_extjs": "app"
+  "foodprint": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.BoxReorderer": [],
@@ -21,7 +21,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.event.Driver": [],
   "Ext.ux.dd.PanelFieldDragZone": [],
   "Ext.ux.DataView.DragSelector": [],
-  "finder_extjs.view.Viewport": [],
+  "foodprint.view.Viewport": [],
   "Ext.ux.grid.menu.ListMenu": [],
   "Ext.ux.GMapPanel": [],
   "Ext.ux.form.MultiSelect": [
@@ -53,10 +53,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.grid.filter.BooleanFilter": [],
   "Ext.ux.ToolbarDroppable": [],
   "Ext.ux.event.Maker": [],
-  "finder_extjs.view.Main": [],
+  "foodprint.view.Main": [],
   "Ext.ux.TabScrollerMenu": [],
   "Ext.ux.IFrame": [],
-  "finder_extjs.controller.Main": [],
+  "foodprint.controller.Main": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
   "Ext.ux.form.SearchField": [],
@@ -94,7 +94,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.event.Driver": [],
   "Ext.ux.dd.PanelFieldDragZone": [],
   "Ext.ux.DataView.DragSelector": [],
-  "finder_extjs.view.Viewport": [],
+  "foodprint.view.Viewport": [],
   "Ext.ux.grid.menu.ListMenu": [],
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
@@ -147,14 +147,14 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.ux.ToolbarDroppable": [],
   "Ext.ux.event.Maker": [],
-  "finder_extjs.view.Main": [],
+  "foodprint.view.Main": [],
   "Ext.ux.TabScrollerMenu": [
     "plugin.tabscrollermenu"
   ],
   "Ext.ux.IFrame": [
     "widget.uxiframe"
   ],
-  "finder_extjs.controller.Main": [],
+  "foodprint.controller.Main": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [
     "plugin.tabclosemenu"

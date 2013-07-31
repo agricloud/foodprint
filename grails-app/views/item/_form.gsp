@@ -1,4 +1,4 @@
-<%@ page import="finder.Item" %>
+<%@ page import="foodprint.Item" %>
 
 
 

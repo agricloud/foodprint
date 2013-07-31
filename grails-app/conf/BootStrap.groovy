@@ -1,4 +1,4 @@
-import finder.*
+import foodprint.*
 
 class BootStrap {
 

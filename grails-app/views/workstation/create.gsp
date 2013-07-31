@@ -1,4 +1,4 @@
-<%@ page import="finder.Workstation" %>
+<%@ page import="foodprint.Workstation" %>
 <!DOCTYPE html>
 <html>
 	<head>

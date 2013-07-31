@@ -1,5 +1,5 @@
 
-<%@ page import="finder.Batch" %>
+<%@ page import="foodprint.Batch" %>
 <!DOCTYPE html>
 <html>
 	<head>
