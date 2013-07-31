@@ -97,14 +97,16 @@ class BatchController {
         //else
         //    println"BatchController--updateBatch--has find BatchInstance"
 
-        if (!batchInstance.delete()) {//flush:true?
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        else{
+        try {
+            batchInstance.delete(failOnError: true)
             render (contentType: 'text/json') {
                 return [success:true]
+                
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
             }
         }
     }
