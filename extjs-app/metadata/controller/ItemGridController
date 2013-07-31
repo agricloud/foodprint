@@ -44,6 +44,109 @@
                 "selector": "itemviewer"
             },
             "designerId": "86898d09-c47f-47b2-928b-c00981afc80a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "designer|params": [
+                    "doSave"
+                ],
+                "implHandler": [
+                    "console.log(\"doSave\");",
+                    "var grid = this.getItemGrid();",
+                    "var form = doSave.up().up().down('itemeditor[itemId=itemEditor]').down('panel[itemId=itemViewer]').down('form[itemId=itemForm]');",
+                    "var sm = grid.getSelectionModel();",
+                    "var record = sm.getSelection()[0];",
+                    "var formRecord = form.getValues();",
+                    "",
+                    "record.set('id', formRecord.id);",
+                    "record.set('name', formRecord.name);",
+                    "record.set('title', formRecord.title);",
+                    "//record.set('description', formRecord.decription);",
+                    "record.set('effectiveDays', formRecord.effectiveDays);",
+                    "record.set('effectiveDate', formRecord.effectiveDate);",
+                    "record.set('expiryDate', formRecord.expityDate);",
+                    "",
+                    "Ext.Msg.alert('Status',\"更新完成：\"+Ext.encode(formRecord));"
+                ]
+            },
+            "designerId": "58e79a91-733f-4596-9b50-28a26990a5b8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "doDelete"
+                ],
+                "implHandler": [
+                    "console.log(\"doDelete\");   ",
+                    "var grid = this.getItemGrid();",
+                    "var sm = grid.getSelectionModel();",
+                    "",
+                    "grid.store.remove(sm.getSelection());"
+                ]
+            },
+            "designerId": "ec8f94bd-1785-4a91-9b2c-75cbc2f2322a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "designer|params": [
+                    "doCreate"
+                ],
+                "implHandler": [
+                    "console.log(\"doCreate\");",
+                    "var tabs = doCreate.up().up().down('itemeditor[itemId=itemEditor]');",
+                    "var grid = this.getItemGrid();",
+                    "var form = this.getItemViewer().down('form[itemId=itemForm]').getForm();",
+                    "var sm = grid.getSelectionModel();",
+                    "var n = grid.getStore().getCount();// 獲得總行數",
+                    "var item = Ext.ModelManager.getModel('finder_extjs.model.Item');",
+                    "",
+                    "var p = new item({",
+                    "    id: n+1, // 需要再確認",
+                    "    name: 'Item' + (n+1),",
+                    "    title: '請輸入標題',",
+                    "    description: '',",
+                    "    effectiveDays: 10,",
+                    "    effectiveDate: new Date(),",
+                    "    expiryDate: new Date()",
+                    "});",
+                    "",
+                    "grid.getStore().insert(n, p);\t// 插入到最後一行",
+                    "if (grid.store.getCount() > 0) {",
+                    "    sm.select(n);",
+                    "}",
+                    "",
+                    "tabs.setActiveTab(1);",
+                    "",
+                    "form.findField('id').setValue(n+1); // 再確認",
+                    "form.findField('name').setValue('Item' + (n+1));",
+                    "form.findField('title').setValue('請輸入標題');",
+                    "form.findField('effectiveDays').setValue(10);",
+                    "form.findField('effectiveDate').setValue(new Date());",
+                    "form.findField('expiryDate').setValue(new Date());"
+                ]
+            },
+            "designerId": "61eb9ce5-5496-4fc7-bcd1-74d6f3bb9c06"
         }
     ]
 }
