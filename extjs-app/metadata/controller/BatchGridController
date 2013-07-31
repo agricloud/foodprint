@@ -26,7 +26,7 @@
             "userConfig": {
                 "fn": "doRead",
                 "implHandler": [
-                    "console.log(\"batchGridController.doRead\");",
+                    "console.log(\"doRead-batchGridController\");",
                     "//alert('doRead Start');",
                     "this.getBatchGrid().getStore().load();//對應ref",
                     "//alert('doRead End');"
@@ -60,10 +60,29 @@
                     "record"
                 ],
                 "implHandler": [
-                    ""
+                    "console.log(\"batchViewerCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "//this.getBatchGrid().getStore().getSelectionModel().",
+                    "//this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "//    url: '/rest/batch',",
+                    "//    submitEmptyText: false,",
+                    "//    waitMsg: 'Deleting Data...',",
+                    "//    method:'DELETE',",
+                    "//    success: function() {",
+                    "//        console.log('Deleting Success！');",
+                    "//        that.getBatchGrid().getStore().load();",
+                    "//        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
+                    "//        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "//    },",
+                    "//    failure: function() {",
+                    "//        console.log('Deleting Failed！');",
+                    "//    }",
+                    "//});"
                 ]
             },
-            "designerId": "e851a600-ba0f-4da4-8d56-8fe73352091f"
+            "designerId": "443d8a71-20e1-4b0c-94af-de0815051c92"
         }
     ]
 }

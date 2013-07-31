@@ -16,7 +16,7 @@ class UrlMappings {
 		}
 		
 		"/rest/$controller"(parseRequest:true){
-			action = [GET:"listJson", POST: "save", PUT:"", DELETE:"delete"]
+			action = [GET:"listJson", POST: "create", PUT:"update", DELETE:"delete"]
 			constraints {
 				// apply constraints here
 			}

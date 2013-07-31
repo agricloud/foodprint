@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class BatchController {
 
-    static allowedMethods = [save: "POST",  delete: "DELETE"]
+    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -21,30 +21,45 @@ class BatchController {
         }
     }
 
-    def save(){
-
-        def batchInstance=Batch.get(params.id)
-        if(!batchInstance){
-            println"BatchController--create"
-            batchInstance=new Batch(params)
-            batchInstance.item=Item.findById(params.item_id)
+    def save(Batch batchInstance){
+        if (!batchInstance.validate()) {
+            batchInstance.errors.each {
+                println it
+            }
+            return [success:false]
         }
-        else{
-            println"BatchController--update"
-            batchInstance.properties = params
-        }
-       
         if (!batchInstance.save(failOnError: true)) {//flush:true?
-            println batchInstance
-            render (contentType: 'text/json') {
                 return [success:false]
-            }
         }
         else{
-            render (contentType: 'text/json') {
                 return [success:true]
-            }
         }
+    }
+    def create(){
+        println"BatchController--create"
+
+        def batchInstance=new Batch(params)
+        batchInstance.item=Item.findById(params.item_id)
+
+        render (contentType: 'text/json') {
+            save(batchInstance);
+        }
+    }
+
+
+    def update(){
+        println"BatchController--update"
+        def batchInstance=Batch.get(params.id)
+        
+        if(!batchInstance){
+            println"BatchController--update--cant find batchInstance"
+            return render (contentType: 'text/json') {[success:false]}
+        }
+
+        batchInstance.properties = params
+        render (contentType: 'text/json') {
+            save(batchInstance);
+        }         
     }
 
     def show(Long id) {
@@ -69,26 +84,8 @@ class BatchController {
         [batchInstance: batchInstance]
     }
 
-    def delete2(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            batchInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "show", id: id)
-        }
-    }
-
     def delete(){
+        println"BatchController--delete"
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
@@ -100,9 +97,7 @@ class BatchController {
         //else
         //    println"BatchController--updateBatch--has find BatchInstance"
 
-        batchInstance.properties = params
-
-        if (!batchInstance.save()) {//flush:true?
+        if (!batchInstance.delete()) {//flush:true?
             render (contentType: 'text/json') {
                 return [success:false]
             }

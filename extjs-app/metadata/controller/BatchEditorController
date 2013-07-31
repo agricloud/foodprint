@@ -34,11 +34,20 @@
                 "implHandler": [
                     "",
                     "this.control({",
+                    "    'batcheditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'batcheditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
                     "    'batcheditorct button[itemId=saveBtn]':{",
                     "        click:this.doSave",
                     "    },",
                     "    'batcheditorct button[itemId=readBtn]':{",
                     "        click:this.doRead",
+                    "    },",
+                    "    'batcheditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
                     "    },",
                     "    'batcheditorct grid[itemId=trcRptGrid]':{",
                     "        itemdblclick:this.readBatch",
@@ -114,7 +123,7 @@
                 ],
                 "implHandler": [
                     "//this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "console.log('batchEditorCtrl.dblClick--readBatch');",
+                    "console.log('batchEditorCtrl.readBatch[dblClick]');",
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
                     "//console.log(record);",
@@ -159,6 +168,56 @@
                 ]
             },
             "designerId": "d868068e-d50d-4df0-85ba-1d9e9f59b7da"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('BatchEditorCtrl.doCreate');",
+                    "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
+                    "this.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();"
+                ]
+            },
+            "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "",
+                    "console.log('BatchEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "    url: '/rest/batch',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        that.getBatchGrid().getStore().load();",
+                    "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
+                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "f2145365-1dd1-422d-a030-c81bfe620253"
         }
     ]
 }
