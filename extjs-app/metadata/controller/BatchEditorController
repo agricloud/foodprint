@@ -218,6 +218,44 @@
                 ]
             },
             "designerId": "f2145365-1dd1-422d-a030-c81bfe620253"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(\"batchEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "//console.log(this.getBatchGrid().getSelectionModel().getStore());",
+                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "    url: '/rest/batch',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        that.getBatchGrid().getStore().load();",
+                    "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
+                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "82fe2f44-a435-47f0-8362-1bff5278fb25"
         }
     ]
 }
