@@ -26,7 +26,7 @@
             "userConfig": {
                 "fn": "doRead",
                 "implHandler": [
-                    "console.log(\"doRead-batchGridController\");",
+                    "console.log(\"batchGridController.doRead\");",
                     "//alert('doRead Start');",
                     "this.getBatchGrid().getStore().load();//對應ref",
                     "//alert('doRead End');"
@@ -46,6 +46,24 @@
                 "selector": "batchgrid"
             },
             "designerId": "bab8e0b9-73a5-4241-905e-6e9e5701597d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "e851a600-ba0f-4da4-8d56-8fe73352091f"
         }
     ]
 }
