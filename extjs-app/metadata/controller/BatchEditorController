@@ -34,6 +34,12 @@
                 "implHandler": [
                     "",
                     "this.control({",
+                    "    'batcheditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'batcheditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
                     "    'batcheditorct button[itemId=saveBtn]':{",
                     "        click:this.doSave",
                     "    },",
@@ -139,25 +145,43 @@
                     "",
                     "var that=this;",
                     "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
-                    "    url: '/batch/update',",
-                    "    //url: '/rest/batch',",
+                    "    //url: '/batch/update'",
+                    "    //url: '/rest/batch?update=true',//傳url參數用extj的config params較標準",
+                    "    url: '/rest/batch',",
+                    "    //params:{ update: true},//url參數",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Saving Data...',",
                     "    method:'POST',",
                     "    success: function() {",
-                    "        console.log('Saving Success...');",
+                    "        console.log('Saving Success！');",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
+                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
-                    "        console.log('Saving Failed...');",
+                    "        console.log('Saving Failed！');",
                     "    }",
-                    "});",
-                    "",
-                    ""
+                    "});"
                 ]
             },
             "designerId": "d868068e-d50d-4df0-85ba-1d9e9f59b7da"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('BatchEditorCtrl.doCreate');",
+                    "",
+                    "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());"
+                ]
+            },
+            "designerId": "a443244e-f2b5-4abe-957f-a3e0c5d6a12d"
         }
     ]
 }

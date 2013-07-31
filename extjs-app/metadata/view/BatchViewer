@@ -44,7 +44,8 @@
                     "userConfig": {
                         "layout|flex": 1,
                         "fieldLabel": "id",
-                        "name": "id"
+                        "name": "id",
+                        "readOnly": true
                     },
                     "designerId": "e53dd3f7-9392-4286-b860-c167bb019168"
                 },
@@ -58,7 +59,8 @@
                     "userConfig": {
                         "designer|displayName": "name",
                         "fieldLabel": "name",
-                        "name": "name"
+                        "name": "name",
+                        "allowBlank": false
                     },
                     "designerId": "604c3cdc-7dca-4257-beed-5fbc9149eb43"
                 },
@@ -86,7 +88,8 @@
                     "userConfig": {
                         "layout|flex": 1,
                         "fieldLabel": "expectQty",
-                        "name": "expectQty"
+                        "name": "expectQty",
+                        "allowBlank": false
                     },
                     "designerId": "f56f64a8-fb31-4092-8d55-9b530b0c10b7"
                 },
@@ -102,7 +105,9 @@
                         "designer|displayName": "",
                         "fieldLabel": "item_id",
                         "name": "item_id",
+                        "allowBlank": false,
                         "displayField": "id",
+                        "forceSelection": true,
                         "store": "ItemStore",
                         "valueField": "id"
                     },
