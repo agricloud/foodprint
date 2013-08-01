@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class WorkstationController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -23,19 +23,43 @@ class WorkstationController {
         
     }
 
-    def create() {
-        [workstationInstance: new Workstation(params)]
+    def create(){
+        println"WorkstationController--create"
+
+        def workstationInstance=new Workstation(params)
+        render (contentType: 'text/json') {
+            save(workstationInstance);
+        }
     }
 
-    def save() {
-        def workstationInstance = new Workstation(params)
-        if (!workstationInstance.save(flush: true)) {
-            render(view: "create", model: [workstationInstance: workstationInstance])
-            return
+    def update(){
+        println"WorkstationController--update"
+        def workstationInstance=Workstation.get(params.id)
+
+        if(!workstationInstance){
+            println"WorkstationController--update--cant find workstationInstance"
+            return render (contentType: 'text/json') {[success:false]}
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'workstation.label', default: 'Workstation'), workstationInstance.id])
-        redirect(action: "show", id: workstationInstance.id)
+       workstationInstance.properties = params
+        render (contentType: 'text/json') {
+            save(workstationInstance);
+        }         
+    }
+
+    def save(Workstation workstationInstance){
+        if (!workstationInstance.validate()) {
+                workstationInstance.errors.each {
+                println it
+            }
+            return [success:false]
+        }
+        if (!workstationInstance.save(failOnError: true)) {//flush:true?
+                return [success:false]
+        }
+        else{
+                return [success:true]
+        }
     }
 
     def show(Long id) {
@@ -60,51 +84,29 @@ class WorkstationController {
         [workstationInstance: workstationInstance]
     }
 
-    def update(Long id, Long version) {
-        def workstationInstance = Workstation.get(id)
+    def delete(){
+        println"WorkstationController--delete"
+        def workstationInstance=Workstation.get(params.id)
         if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
+            println"WorkstationController--delete--Cant find workstationInstance"
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
         }
+        //else
+        //    println"BatchController--updateBatch--has find BatchInstance"
 
-        if (version != null) {
-            if (workstationInstance.version > version) {
-                workstationInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'workstation.label', default: 'Workstation')] as Object[],
-                          "Another user has updated this Workstation while you were editing")
-                render(view: "edit", model: [workstationInstance: workstationInstance])
-                return
+        try {
+            workstationInstance.delete()
+            render (contentType: 'text/json') {
+                return [success:true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
             }
         }
 
-        workstationInstance.properties = params
-
-        if (!workstationInstance.save(flush: true)) {
-            render(view: "edit", model: [workstationInstance: workstationInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'workstation.label', default: 'Workstation'), workstationInstance.id])
-        redirect(action: "show", id: workstationInstance.id)
-    }
-
-    def delete(Long id) {
-        def workstationInstance = Workstation.get(id)
-        if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            workstationInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "show", id: id)
-        }
     }
 }
