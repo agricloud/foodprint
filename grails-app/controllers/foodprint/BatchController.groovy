@@ -89,7 +89,7 @@ class BatchController {
     def delete(){
         println"BatchController--delete"
         def batchInstance=Batch.get(params.id)
-        batchInstance=null
+        
         if (!batchInstance) {
             println"BatchController--delete--Cant find BatchInstance"
             render (contentType: 'text/json') {
@@ -100,7 +100,7 @@ class BatchController {
         //    println"BatchController--updateBatch--has find BatchInstance"
 
         try {
-            batchInstance.delete()
+            batchInstance.delete(failOnError: true)
             render (contentType: 'text/json') {
                 return [success:true]
             }
