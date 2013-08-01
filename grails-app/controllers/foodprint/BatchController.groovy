@@ -16,6 +16,7 @@ class BatchController {
     }
 
     def listJson(Integer max) {
+        println"BatchController--listJson"
         render (contentType: 'text/json') {
             list(max)        
         }
@@ -50,7 +51,8 @@ class BatchController {
     def update(){
         println"BatchController--update"
         def batchInstance=Batch.get(params.id)
-        
+        println "dueDate="+params.dueDate
+        batchInstance.dueDate=params.dueDate
         if(!batchInstance){
             println"BatchController--update--cant find batchInstance"
             return render (contentType: 'text/json') {[success:false]}
@@ -87,7 +89,7 @@ class BatchController {
     def delete(){
         println"BatchController--delete"
         def batchInstance=Batch.get(params.id)
-        
+        batchInstance=null
         if (!batchInstance) {
             println"BatchController--delete--Cant find BatchInstance"
             render (contentType: 'text/json') {
@@ -97,15 +99,17 @@ class BatchController {
         //else
         //    println"BatchController--updateBatch--has find BatchInstance"
 
-        if (!batchInstance.delete()) {//flush:true?
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        else{
+        try {
+            batchInstance.delete()
             render (contentType: 'text/json') {
                 return [success:true]
             }
         }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
+        }
+
     }
 }

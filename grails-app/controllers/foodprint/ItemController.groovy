@@ -90,6 +90,7 @@ class ItemController {
     }
 
     def delete(Long id) {
+        log.info 
         def itemInstance = Item.get(id)
         if (!itemInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'item.label', default: 'Item'), id])
