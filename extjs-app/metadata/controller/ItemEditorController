@@ -46,7 +46,11 @@
                     "    'itemeditorct button[itemId=readBtn]':{",
                     "        click:this.doRead",
                     "    },",
+                    "    'itemeditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
+                    "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
+                    "        itemclick:this.selectItem,",
                     "        itemdblclick:this.readItem",
                     "    }",
                     "});"
@@ -67,17 +71,31 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
+                    "//console.log(record);",
                     "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "",
-                    "console.log(record);",
-                    "",
-                    "",
-                    "this.doDisplay(record);",
-                    "",
-                    ""
+                    "this.doDisplay(record);"
                 ]
             },
             "designerId": "561c3aba-1c4d-42e3-b36f-936278674bfc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "selectItem",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log(record);",
+                    "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);"
+                ]
+            },
+            "designerId": "92f7b24c-7fa9-4cdd-866e-b38f330b120d"
         },
         {
             "type": "controllerref",
