@@ -27,7 +27,8 @@
                 "fn": "doRead",
                 "implHandler": [
                     "console.log(\"doRead-workstationGridController\");",
-                    "this.getWorkstationGrid().getStore().load();"
+                    "this.getWorkstationGrid().getStore().load();",
+                    "this.getWorkstationEditor().setActiveTab(this.getWorkstationGrid().up());"
                 ]
             },
             "designerId": "447df0d1-3bc7-45a5-bdca-29bea035dda6"
