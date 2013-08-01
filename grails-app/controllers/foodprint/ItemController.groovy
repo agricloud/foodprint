@@ -80,23 +80,19 @@ class ItemController {
             redirect(action: "list")
             return
         }
-
         [itemInstance: itemInstance]
     }
 
     def update(){
         println"ItemController--update"
         def itemInstance=Item.get(params.id)
-        
-        if(!itemInstance){
-            println"itemController--update--cant find itemInstance"
-            return render (contentType: 'text/json') {
-                [success: false]
-            }
+        if(!itemInstance) {
+            println"ItemController--update--cant find itemInstance"
+            return render (contentType: 'text/json') {[success: false]}
         }
         itemInstance.properties = params
         render (contentType: 'text/json') {
-            save(itemInstance)
+            save(itemInstance);
         }         
     }
     /*
@@ -130,7 +126,7 @@ class ItemController {
     }
     */
      def delete() {
-        println "ItemController--delete"
+        println"ItemController--delete"
         def itemInstance = Item.get(params.id)
         if (!itemInstance) {
             println "ItemController--delete--Cant find itemInstance"

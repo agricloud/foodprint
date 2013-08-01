@@ -17,22 +17,6 @@
     "designerId": "ddaa1a97-8a5c-4003-8cfe-b7c51a8320b5",
     "cn": [
         {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "console.log(\"doRead\");",
-                    "this.getItemGrid().getStore().load();"
-                ]
-            },
-            "designerId": "2e6a9bb4-8c54-4355-8229-699e4389e2de"
-        },
-        {
             "type": "controllerref",
             "reference": {
                 "name": "items",
@@ -54,10 +38,28 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doSave",
-                "designer|params": [
-                    "doSave"
-                ],
                 "implHandler": [
+                    "console.log('ItemEditorCtrl.doSave');",
+                    "var that = this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Save Success.');",
+                    "        grid.getStore().load();",
+                    "        editor.setActiveTab(grid.up());",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Save Failed.');",
+                    "    }",
+                    "});",
+                    "/*",
                     "console.log(\"doSave\");",
                     "var grid = this.getItemGrid();",
                     "var form = doSave.up().up().down('itemeditor[itemId=itemEditor]').down('panel[itemId=itemViewer]').down('form[itemId=itemForm]');",
@@ -72,8 +74,8 @@
                     "record.set('effectiveDays', formRecord.effectiveDays);",
                     "record.set('effectiveDate', formRecord.effectiveDate);",
                     "record.set('expiryDate', formRecord.expityDate);",
-                    "",
-                    "Ext.Msg.alert('Status',\"更新完成：\"+Ext.encode(formRecord));"
+                    "Ext.Msg.alert('Status',\"更新完成：\"+Ext.encode(formRecord));",
+                    "*/"
                 ]
             },
             "designerId": "58e79a91-733f-4596-9b50-28a26990a5b8"
@@ -87,15 +89,33 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doDelete",
-                "designer|params": [
-                    "doDelete"
-                ],
                 "implHandler": [
+                    "console.log(\"ItemEditorCtrl.doDelete\");",
+                    "var that=this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success.');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed.');",
+                    "    }",
+                    "});",
+                    "/*",
                     "console.log(\"doDelete\");   ",
                     "var grid = this.getItemGrid();",
                     "var sm = grid.getSelectionModel();",
-                    "",
-                    "grid.store.remove(sm.getSelection());"
+                    "grid.store.remove(sm.getSelection());",
+                    "*/"
                 ]
             },
             "designerId": "ec8f94bd-1785-4a91-9b2c-75cbc2f2322a"
@@ -109,10 +129,11 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doCreate",
-                "designer|params": [
-                    "doCreate"
-                ],
                 "implHandler": [
+                    "console.log('ItemEditorCtrl.doCreate');",
+                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().reset();",
+                    "/*",
                     "console.log(\"doCreate\");",
                     "var tabs = doCreate.up().up().down('itemeditor[itemId=itemEditor]');",
                     "var grid = this.getItemGrid();",
@@ -122,18 +143,18 @@
                     "var item = Ext.ModelManager.getModel('foodprint.model.Item');",
                     "",
                     "var p = new item({",
-                    "    id: n+1, // 需要再確認",
-                    "    name: 'Item' + (n+1),",
-                    "    title: '請輸入標題',",
-                    "    description: '',",
-                    "    effectiveDays: 10,",
-                    "    effectiveDate: new Date(),",
-                    "    expiryDate: new Date()",
+                    "id: n+1, // 需要再確認",
+                    "name: 'Item' + (n+1),",
+                    "title: '請輸入標題',",
+                    "description: '',",
+                    "effectiveDays: 10,",
+                    "effectiveDate: new Date(),",
+                    "expiryDate: new Date()",
                     "});",
                     "",
                     "grid.getStore().insert(n, p);\t// 插入到最後一行",
                     "if (grid.store.getCount() > 0) {",
-                    "    sm.select(n);",
+                    "sm.select(n);",
                     "}",
                     "",
                     "tabs.setActiveTab(1);",
@@ -143,10 +164,61 @@
                     "form.findField('title').setValue('請輸入標題');",
                     "form.findField('effectiveDays').setValue(10);",
                     "form.findField('effectiveDate').setValue(new Date());",
-                    "form.findField('expiryDate').setValue(new Date());"
+                    "form.findField('expiryDate').setValue(new Date());",
+                    "*/"
                 ]
             },
             "designerId": "61eb9ce5-5496-4fc7-bcd1-74d6f3bb9c06"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "console.log(\"doRead\");",
+                    "this.getItemGrid().getStore().load();"
+                ]
+            },
+            "designerId": "2e6a9bb4-8c54-4355-8229-699e4389e2de"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('ItemEditorCtrl.doUpdate');",
+                    "var that = this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "0c49ffc1-f967-40e5-ac4d-f53dbc30f644"
         }
     ]
 }
