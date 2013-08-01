@@ -1,16 +1,15 @@
 package foodprint
 
-class ResumesRow {
+class Report {
 
-		String name
-		String type=""
-		String description=""
+	String name
+	String title
+	String decription=""
+	Date effectStartDate
+	Date effectEndDate
 
-		Date effectStartDate
-		Date effectEndDate
-
-		String editor=""			//修改者
-		String creator=""		//建立者
+	String editor=""			//修改者
+	String creator=""		//建立者
     Date dateCreated    //建立日期
     Date lastUpdated    //修改日期
     static constraints = {
