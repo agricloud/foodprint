@@ -30,7 +30,7 @@ class ExtJSFilters {
                         params["${key}_second"] = value.substring(17,19)
 
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
-                        log.info "params[${key}] = ${value}"
+                        log.info "params[${key}] = ${params[key]}"
                     }
                 }
             }
