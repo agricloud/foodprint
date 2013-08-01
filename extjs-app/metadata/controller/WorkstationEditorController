@@ -85,13 +85,26 @@
                 ],
                 "implHandler": [
                     "this.control({",
+                    "    'workstationeditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'workstationeditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'workstationeditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
                     "    'workstationeditorct button[itemId=readBtn]':{",
                     "        click:this.doRead",
+                    "    },",
+                    "    'workstationeditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
                     "    },",
                     "    'workstationeditorct grid[itemId=workstationGrid]':{",
                     "        itemdblclick:this.readWorkstation",
                     "    }",
-                    "});"
+                    "});",
+                    ""
                 ]
             },
             "designerId": "15760532-63cc-4d7e-9c55-9c07094aca8f"
@@ -118,6 +131,128 @@
                 ]
             },
             "designerId": "1c4d0586-9062-4f4b-8412-d51593ab342e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('workstationEditorCtrl.doCreate');",
+                    "",
+                    "var form=this.getWorkstationViewer().down('form[itemId=workstationForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "var grid=this.getWorkstationGrid();",
+                    "var datacount=grid.getStore().getCount();",
+                    "form.findField('id').setValue(datacount+1);",
+                    "",
+                    "this.getWorkstationEditor().setActiveTab(this.getWorkstationViewer().up());",
+                    ""
+                ]
+            },
+            "designerId": "721c6c63-1220-429e-86cf-100d5494f94d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"workstationEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
+                    "    url: '/rest/workstation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        that.getWorkstationGrid().getStore().load();",
+                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
+                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "3ba8b6e4-79f0-485b-9e86-45c48914ab5e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"workstationEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
+                    "    url: '/rest/workstation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        that.getWorkstationGrid().getStore().load();",
+                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
+                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "3a9b76ca-f4a9-4370-8866-1d5f62464b47"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('workstationEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
+                    "    url: '/rest/workstation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        that.getWorkstationGrid().getStore().load();",
+                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
+                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "d2ac09e6-fbcf-4b86-a2ec-4fde6500471d"
         }
     ]
 }
