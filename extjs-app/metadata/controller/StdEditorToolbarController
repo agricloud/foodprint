@@ -1,0 +1,162 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StdEditorToolbarController"
+    },
+    "designerId": "dd23bc06-6fcd-4c99-8d07-142a850b58a9",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initial",
+                "designer|params": [
+                    "tbar"
+                ],
+                "implHandler": [
+                    "var crebtn=tbar.down('button[itemId=createBtn]');",
+                    "var delbtn=tbar.down('button[itemId=deleteBtn]');",
+                    "var savbtn=tbar.down('button[itemId=saveBtn]');",
+                    "var updbtn=tbar.down('button[itemId=updateBtn]');",
+                    "",
+                    "",
+                    "",
+                    "this.control({",
+                    "    'stdeditortoolbar button[itemId=createBtn]':{",
+                    "        click:function(btn){this.onCreateBtnClick(btn);}",
+                    "    },",
+                    "    'stdeditortoolbar button[itemId=deleteBtn]':{",
+                    "        click:function(btn){this.onDeleteBtnClick(btn);}",
+                    "    },",
+                    "    'stdeditortoolbar button[itemId=saveBtn]':{",
+                    "        click:function(btn){this.onSaveBtnClick(btn);}",
+                    "    },",
+                    "    'stdeditortoolbar button[itemId=updateBtn]':{",
+                    "        click:function(btn){this.onUpdateBtnClick(btn);}",
+                    "    }",
+                    "});",
+                    "",
+                    "delbtn.setDisabled(true);",
+                    "savbtn.setDisabled(true);",
+                    "updbtn.setDisabled(true);"
+                ]
+            },
+            "designerId": "5d91767b-9a1e-4133-b021-34536ee647b5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCreateBtnClick",
+                "designer|params": [
+                    "btn"
+                ],
+                "implHandler": [
+                    "var crebtn=btn;",
+                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
+                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
+                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "",
+                    "savbtn.setDisabled(false);",
+                    "redbtn.setDisabled(true);"
+                ]
+            },
+            "designerId": "37633af4-63aa-4760-9bf5-5d5a588cce83"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDeleteBtnClick",
+                "designer|params": [
+                    "btn"
+                ],
+                "implHandler": [
+                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
+                    "var delbtn=btn;",
+                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
+                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "",
+                    "delbtn.setDisabled(true);",
+                    "savbtn.setDisabled(true);",
+                    "updbtn.setDisabled(true);",
+                    "redbtn.setDisabled(false);"
+                ]
+            },
+            "designerId": "ecfb9d95-19af-48f1-9b53-6d5ee495f481"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onSaveBtnClick",
+                "designer|params": [
+                    "btn"
+                ],
+                "implHandler": [
+                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
+                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
+                    "var savbtn=btn;",
+                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "",
+                    "delbtn.setDisabled(true);",
+                    "savbtn.setDisabled(true);",
+                    "updbtn.setDisabled(true);",
+                    "redbtn.setDisabled(false);"
+                ]
+            },
+            "designerId": "ea1f6858-288c-43dc-8a1d-744f9a8053f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onUpdateBtnClick",
+                "designer|params": [
+                    "btn"
+                ],
+                "implHandler": [
+                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
+                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
+                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
+                    "var updbtn=btn;",
+                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "",
+                    "delbtn.setDisabled(true);",
+                    "savbtn.setDisabled(true);",
+                    "updbtn.setDisabled(true);",
+                    "redbtn.setDisabled(false);"
+                ]
+            },
+            "designerId": "8e017113-8cbd-4c5b-a34c-8b7843392e12"
+        }
+    ]
+}
