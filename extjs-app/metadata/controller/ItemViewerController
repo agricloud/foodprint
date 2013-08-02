@@ -31,15 +31,10 @@
                 ],
                 "implHandler": [
                     "console.log(\"itemViewer.doDisplay\");",
-                    "",
-                    "",
-                    "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
-                    "",
+                    "//this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
                     "var itemImages=record.itemImages();",
                     "itemImages.load();",
-                    "",
                     "console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",
-                    "",
                     "this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore().loadRecords(itemImages.getRange());"
                 ]
             },

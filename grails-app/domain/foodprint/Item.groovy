@@ -2,7 +2,6 @@ package foodprint
 
 class Item {
 
-
 	String name
 	String title=""
 	String description=""
@@ -17,7 +16,7 @@ class Item {
 	Date lastUpdated    //修改日期
 
 	static hasMany=[itemImages:ItemImage]
-	  
+
 	static constraints = {
 		dueDays nullable:true
 		effectStartDate nullable:true

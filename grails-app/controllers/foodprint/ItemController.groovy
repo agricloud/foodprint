@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ItemController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -20,14 +20,37 @@ class ItemController {
         render (contentType: 'text/json') {
             list(max)        
         }
-        
     }
 
     def create() {
+        println"ItemController--create"
+        def itemInstance= new Item(params)
+        render (contentType: 'text/json') {
+            save(itemInstance)
+        }
+    }
+
+    def save(Item itemInstance) {
+        println"ItemController--save"
+        if(!itemInstance.validate()) { // validate id
+            itemInstance.errors.each {
+               println it
+            }
+            return [success: false]
+        }
+        if (!itemInstance.save(failOnError: true)) {
+            return [success: false]
+        }
+        else{
+            return [success:true]
+        }
+    }
+    /*
+    def create() { // origin
         [itemInstance: new Item(params)]
     }
 
-    def save() {
+    def save() { // origin
         def itemInstance = new Item(params)
         if (!itemInstance.save(flush: true)) {
             render(view: "create", model: [itemInstance: itemInstance])
@@ -37,6 +60,7 @@ class ItemController {
         flash.message = message(code: 'default.created.message', args: [message(code: 'item.label', default: 'Item'), itemInstance.id])
         redirect(action: "show", id: itemInstance.id)
     }
+    */
 
     def show(Long id) {
         def itemInstance = Item.get(id)
@@ -56,10 +80,22 @@ class ItemController {
             redirect(action: "list")
             return
         }
-
         [itemInstance: itemInstance]
     }
 
+    def update(){
+        println"ItemController--update"
+        def itemInstance=Item.get(params.id)
+        if(!itemInstance) {
+            println"ItemController--update--cant find itemInstance"
+            return render (contentType: 'text/json') {[success: false]}
+        }
+        itemInstance.properties = params
+        render (contentType: 'text/json') {
+            save(itemInstance);
+        }         
+    }
+    /*
     def update(Long id, Long version) {
         def itemInstance = Item.get(id)
         if (!itemInstance) {
@@ -88,9 +124,34 @@ class ItemController {
         flash.message = message(code: 'default.updated.message', args: [message(code: 'item.label', default: 'Item'), itemInstance.id])
         redirect(action: "show", id: itemInstance.id)
     }
-
-    def delete(Long id) {
-        log.info 
+    */
+     def delete() {
+        println"ItemController--delete"
+        def itemInstance = Item.get(params.id)
+        if (!itemInstance) {
+            println "ItemController--delete--Cant find itemInstance"
+            render(contentType: 'text/json') {
+                return [success: false]
+            }
+        }
+        itemInstance.delete(failOnError: true)
+            render(contentType: 'text/json') {
+                return [success: true]
+            }
+        try {
+            itemInstance.delete(failOnError: true)
+            render(contentType: 'text/json') {
+                return [success: true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success: false]
+            }
+        }
+    }
+    /*
+    def delete(Long id) { // origin
         def itemInstance = Item.get(id)
         if (!itemInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'item.label', default: 'Item'), id])
@@ -108,4 +169,5 @@ class ItemController {
             redirect(action: "show", id: id)
         }
     }
+    */
 }
