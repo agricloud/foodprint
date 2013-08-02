@@ -128,9 +128,7 @@
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
                     "this.doDisplay(record);",
-                    "this.getBatchEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getBatchEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getBatchEditorCt().down('button[itemId=readBtn]').setDisabled(true);"
+                    ""
                 ]
             },
             "designerId": "f5b956d8-b9f0-463d-88dd-e617d2166477"
@@ -165,6 +163,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=saveBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -215,6 +214,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=updateBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -253,6 +253,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=deleteBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]

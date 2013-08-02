@@ -6,6 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "views": [
+            "StdEditorToolbar"
+        ],
         "designer|userClassName": "StdEditorToolbarController"
     },
     "designerId": "dd23bc06-6fcd-4c99-8d07-142a850b58a9",
@@ -29,19 +32,24 @@
                     "var updbtn=tbar.down('button[itemId=updateBtn]');",
                     "",
                     "",
-                    "",
                     "this.control({",
-                    "    'stdeditortoolbar button[itemId=createBtn]':{",
+                    "    'createbtn':{",
                     "        click:function(btn){this.onCreateBtnClick(btn);}",
                     "    },",
-                    "    'stdeditortoolbar button[itemId=deleteBtn]':{",
+                    "    'deletebtn':{",
                     "        click:function(btn){this.onDeleteBtnClick(btn);}",
                     "    },",
-                    "    'stdeditortoolbar button[itemId=saveBtn]':{",
+                    "    'savebtn':{",
                     "        click:function(btn){this.onSaveBtnClick(btn);}",
                     "    },",
-                    "    'stdeditortoolbar button[itemId=updateBtn]':{",
+                    "    'updatebtn':{",
                     "        click:function(btn){this.onUpdateBtnClick(btn);}",
+                    "    },",
+                    "    'grid':{",
+                    "        itemdblclick:function(grid){this.onGridDblClick(grid);}",
+                    "    },",
+                    "    'batcheditor':{",
+                    "        tabchange:function(tp, newCard, oldCard, eOpts ){this.onTabChange(tp, newCard, oldCard, eOpts );}",
                     "    }",
                     "});",
                     "",
@@ -66,13 +74,16 @@
                 ],
                 "implHandler": [
                     "var crebtn=btn;",
-                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
-                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
-                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
-                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "var delbtn=btn.ownerCt.down('button[itemId=deleteBtn]');",
+                    "var savbtn=btn.ownerCt.down('button[itemId=saveBtn]');",
+                    "var updbtn=btn.ownerCt.down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.ownerCt.down('button[itemId=readBtn]');",
                     "",
+                    "delbtn.setDisabled(true);",
                     "savbtn.setDisabled(false);",
-                    "redbtn.setDisabled(true);"
+                    "updbtn.setDisabled(true);",
+                    "redbtn.setDisabled(true);",
+                    ""
                 ]
             },
             "designerId": "37633af4-63aa-4760-9bf5-5d5a588cce83"
@@ -90,16 +101,14 @@
                     "btn"
                 ],
                 "implHandler": [
-                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
+                    "var crebtn=btn.ownerCt.down('button[itemId=createBtn]');",
                     "var delbtn=btn;",
-                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
-                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
-                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "var savbtn=btn.ownerCt.down('button[itemId=saveBtn]');",
+                    "var updbtn=btn.ownerCt.down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.ownerCt.down('button[itemId=readBtn]');",
                     "",
                     "delbtn.setDisabled(true);",
-                    "savbtn.setDisabled(true);",
-                    "updbtn.setDisabled(true);",
-                    "redbtn.setDisabled(false);"
+                    ""
                 ]
             },
             "designerId": "ecfb9d95-19af-48f1-9b53-6d5ee495f481"
@@ -117,16 +126,16 @@
                     "btn"
                 ],
                 "implHandler": [
-                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
-                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
+                    "var crebtn=btn.ownerCt.down('button[itemId=createBtn]');",
+                    "var delbtn=btn.ownerCt.down('button[itemId=deleteBtn]');",
                     "var savbtn=btn;",
-                    "var updbtn=btn.up().down('button[itemId=updateBtn]');",
-                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "var updbtn=btn.ownerCt.down('button[itemId=updateBtn]');",
+                    "var redbtn=btn.ownerCt.down('button[itemId=readBtn]');",
                     "",
-                    "delbtn.setDisabled(true);",
+                    "",
                     "savbtn.setDisabled(true);",
-                    "updbtn.setDisabled(true);",
-                    "redbtn.setDisabled(false);"
+                    "",
+                    ""
                 ]
             },
             "designerId": "ea1f6858-288c-43dc-8a1d-744f9a8053f3"
@@ -144,19 +153,88 @@
                     "btn"
                 ],
                 "implHandler": [
-                    "var crebtn=btn.up().down('button[itemId=createBtn]');",
-                    "var delbtn=btn.up().down('button[itemId=deleteBtn]');",
-                    "var savbtn=btn.up().down('button[itemId=saveBtn]');",
+                    "var crebtn=btn.ownerCt.down('button[itemId=createBtn]');",
+                    "var delbtn=btn.ownerCt.down('button[itemId=deleteBtn]');",
+                    "var savbtn=btn.ownerCt.down('button[itemId=saveBtn]');",
                     "var updbtn=btn;",
-                    "var redbtn=btn.up().down('button[itemId=readBtn]');",
+                    "var redbtn=btn.ownerCt.down('button[itemId=readBtn]');",
                     "",
-                    "delbtn.setDisabled(true);",
-                    "savbtn.setDisabled(true);",
                     "updbtn.setDisabled(true);",
-                    "redbtn.setDisabled(false);"
+                    ""
                 ]
             },
             "designerId": "8e017113-8cbd-4c5b-a34c-8b7843392e12"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridDblClick",
+                "designer|params": [
+                    "grid"
+                ],
+                "implHandler": [
+                    "",
+                    "var gridct=grid.up().up().up().up();",
+                    "",
+                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
+                    "gridct.down('button[itemId=savBtn]').setDisabled(true);"
+                ]
+            },
+            "designerId": "c3e7cfb8-6a84-4cf3-bccf-2ce4654a042a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tp, newCard, oldCard, eOpts "
+                ],
+                "implHandler": [
+                    "console.log(tp.up());",
+                    "var crebtn=tp.up().down('button[itemId=createBtn]');",
+                    "var delbtn=tp.up().down('button[itemId=deleteBtn]');",
+                    "var savbtn=tp.up().down('button[itemId=saveBtn]');",
+                    "var updbtn=tp.up().down('button[itemId=updateBtn]');",
+                    "var redbtn=tp.up().down('button[itemId=readBtn]');",
+                    "",
+                    "if(newCard.title=='瀏覽'){",
+                    "\tdelbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard.title=='資料維護'){",
+                    "    redbtn.setDisabled(true);",
+                    "}"
+                ]
+            },
+            "designerId": "90c64f1a-ba11-49f9-ad73-86678cc46a66"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "stdEditorToolbar",
+                "selector": "stdeditortoolbar"
+            },
+            "designerId": "db858511-5079-4a9d-bf54-e95ca8d0bb97"
         }
     ]
 }
