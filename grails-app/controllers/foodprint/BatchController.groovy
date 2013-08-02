@@ -36,6 +36,7 @@ class BatchController {
                 return [success:true]
         }
     }
+    
     def create(){
         println"BatchController--create"
 
@@ -50,18 +51,25 @@ class BatchController {
 
     def update(){
         println"BatchController--update"
+
         def batchInstance=Batch.get(params.id)
-        println "dueDate="+params.dueDate
-        batchInstance.dueDate=params.dueDate
-        if(!batchInstance){
-            println"BatchController--update--cant find batchInstance"
-            return render (contentType: 'text/json') {[success:false]}
+        
+        if (!batchInstance) {
+
+            log.warning "${controllerName}--${actionName}--batchInstance not found"
+            render (contentType: 'text/json') {
+                [success:false]
+            }
+            return null
         }
 
         batchInstance.properties = params
+
+        log.info "dueDate = ${batchInstance.dueDate}"
+
         render (contentType: 'text/json') {
-            save(batchInstance);
-        }         
+            save(batchInstance)
+        }
     }
 
     def show(Long id) {
