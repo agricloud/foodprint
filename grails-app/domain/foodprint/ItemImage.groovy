@@ -1,5 +1,5 @@
 package foodprint
-import foodprint.*
+
 class ItemImage {
 
 	Item item
