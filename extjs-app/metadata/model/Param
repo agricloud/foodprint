@@ -1,0 +1,102 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Param"
+    },
+    "designerId": "63dca4c5-6510-43af-a9c0-a9d5bf1ae277",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "id"
+            },
+            "designerId": "e34e5d9f-8cba-4d4b-be3b-aa3d7bc3442c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "8978e3ae-bb6c-48ba-9f8e-62e44ffa2c6d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "defaultValue"
+            },
+            "designerId": "4149268c-cbe2-43fa-9d3d-f43a4c5f2af8"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "valueType"
+            },
+            "designerId": "ad534b2f-04d0-42d3-80ac-69c7b42fc1dc"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "designerId": "174b7767-59ac-45f5-aeba-52d79821db22"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/param"
+            },
+            "designerId": "ebf4cc4a-e508-499e-848e-dd709f6a21d2",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "paramInstanceList",
+                        "totalProperty": "paramInstanceTotal"
+                    },
+                    "designerId": "a1e417f0-0b82-4880-89a4-495a42190955"
+                }
+            ]
+        }
+    ]
+}
