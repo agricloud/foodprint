@@ -16,10 +16,11 @@ class ParamController {
     }
 
     def listJson(Integer max) {
-
+       // println"paramController--listJson"
         render (contentType: 'text/json') {
             list(max)        
-        }    
+        }
+        
     }
 
     def create() {

@@ -22,6 +22,8 @@ class BootStrap {
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def workstation1 = new Workstation(name:"workstation1",title:"wstitle1").save(failOnError: true, flush: true)
 				def workstation2 = new Workstation(name:"workstation2",title:"wstitle2").save(failOnError: true, flush: true)
+				def param1= new Param(title:"param1").save(failOnError: true, flush: true)
+				def param2 = new Param(title:"param2").save(failOnError: true, flush: true)
 
 
 				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)

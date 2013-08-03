@@ -13,7 +13,8 @@
         "mixins": [
             "{",
             "\t\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
-            "        BatchGridCtrl: 'foodprint.controller.BatchGridController'",
+            "        BatchGridCtrl: 'foodprint.controller.BatchGridController',",
+            "    \tStdEditorToolbarCtrl: 'foodprint.controller.StdEditorToolbarController'",
             "}"
         ]
     },
@@ -122,11 +123,10 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "//this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "",
                     "console.log('batchEditorCtrl.readBatch[dblClick]');",
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
-                    "//console.log(record);",
                     "this.doDisplay(record);",
                     ""
                 ]
@@ -163,6 +163,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=saveBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -213,6 +214,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=updateBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -251,11 +253,27 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=deleteBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
             },
             "designerId": "82fe2f44-a435-47f0-8362-1bff5278fb25"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "this.initial(this.getBatchEditorCt().down('toolbar[itemId=stdEditorToolbar]'));"
+                ]
+            },
+            "designerId": "2c9da521-ce8e-4988-86e7-2a5691277052"
         }
     ]
 }
