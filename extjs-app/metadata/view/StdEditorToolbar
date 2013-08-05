@@ -23,7 +23,35 @@
                 "layout|flex": null
             },
             "designerId": "d1227d0a-6504-4d96-a4fd-77249868722d",
-            "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03"
+            "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCreateBtnClick",
+                        "implHandler": [
+                            "var crebtn=btn;",
+                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
+                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
+                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
+                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
+                            "",
+                            "delbtn.setDisabled(true);",
+                            "savbtn.setDisabled(false);",
+                            "updbtn.setDisabled(true);",
+                            "redbtn.setDisabled(true);"
+                        ],
+                        "name": "click",
+                        "scope": "me"
+                    },
+                    "designerId": "b0fe6f4b-0762-46ba-9990-b6ea9c43b377"
+                }
+            ]
         },
         {
             "type": "linkedinstance",
@@ -33,10 +61,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "disabled": true,
                 "layout|flex": null
             },
             "designerId": "f5b0c21d-4bb6-4204-abd0-4982b6453de0",
-            "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
+            "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDeleteBtnClick",
+                        "implHandler": [
+                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
+                            "var delbtn=button;",
+                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
+                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
+                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
+                            "",
+                            "delbtn.setDisabled(true);"
+                        ],
+                        "name": "click",
+                        "scope": "me"
+                    },
+                    "designerId": "b045a2cc-7d82-4b66-8244-bb85ce6173ea"
+                }
+            ]
         },
         {
             "type": "linkedinstance",
@@ -46,10 +100,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "disabled": true,
                 "layout|flex": null
             },
             "designerId": "47c9b7f8-d571-4e3b-ad7c-4f36ff9897ab",
-            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
+            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onSaveBtnClick",
+                        "implHandler": [
+                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
+                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
+                            "var savbtn=button;",
+                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
+                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
+                            "",
+                            "savbtn.setDisabled(true);"
+                        ],
+                        "name": "click",
+                        "scope": "me"
+                    },
+                    "designerId": "df648050-55f5-4cd2-8d35-a7f1b8bccd80"
+                }
+            ]
         },
         {
             "type": "linkedinstance",
@@ -72,10 +152,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "disabled": true,
                 "layout|flex": null
             },
             "designerId": "1c33a2ca-315e-4ae8-84fb-b2cf470ebd72",
-            "masterInstanceId": "4df4416d-12ea-4c72-b914-994f977f24a9"
+            "masterInstanceId": "4df4416d-12ea-4c72-b914-994f977f24a9",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onUpdateBtnClick",
+                        "implHandler": [
+                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
+                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
+                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
+                            "var updbtn=button;",
+                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
+                            "",
+                            "updbtn.setDisabled(true);"
+                        ],
+                        "name": "click",
+                        "scope": "me"
+                    },
+                    "designerId": "3a568c8b-e61c-44f3-a5e2-39e249042459"
+                }
+            ]
         }
     ]
 }
