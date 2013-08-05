@@ -202,21 +202,21 @@
                     "tp, newCard, oldCard, eOpts "
                 ],
                 "implHandler": [
-                    "console.log(tp.up());",
+                    "",
                     "var crebtn=tp.up().down('button[itemId=createBtn]');",
                     "var delbtn=tp.up().down('button[itemId=deleteBtn]');",
                     "var savbtn=tp.up().down('button[itemId=saveBtn]');",
                     "var updbtn=tp.up().down('button[itemId=updateBtn]');",
                     "var redbtn=tp.up().down('button[itemId=readBtn]');",
                     "",
-                    "if(newCard.title=='瀏覽'){",
-                    "\tdelbtn.setDisabled(true);",
+                    "if(newCard==tp.down('panel[itemId=batchBrowse]')){",
+                    "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
                     "    redbtn.setDisabled(false);",
                     "",
                     "}",
-                    "if(newCard.title=='資料維護'){",
+                    "if(newCard==tp.down('panel[itemId=batchMainten]')){",
                     "    redbtn.setDisabled(true);",
                     "}"
                 ]
