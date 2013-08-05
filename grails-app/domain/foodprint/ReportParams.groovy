@@ -22,6 +22,9 @@ class ReportParams {
 	Date lastUpdated    //修改日期
     static constraints = {
     	// site nullable:true
-
+    	workstation nullable:true
+    	item nullable:true
+    	operation nullable:true
+    	site nullable:true
     }
 }
