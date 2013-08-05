@@ -6,11 +6,22 @@
     },
     "codeClass": null,
     "userConfig": {
+        "initialize": null,
         "itemId": "stdEditorToolbar",
         "designer|userClassName": "StdEditorToolbar",
         "designer|userAlias": "stdeditortoolbar"
     },
+    "configAlternates": {
+        "initialize": "object"
+    },
     "designerId": "1d596850-54ca-4052-8a62-d0928dcdc887",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "initialize",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "linkedinstance",
@@ -35,16 +46,10 @@
                     "userConfig": {
                         "fn": "onCreateBtnClick",
                         "implHandler": [
-                            "var crebtn=btn;",
-                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
-                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
-                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
-                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
-                            "",
-                            "delbtn.setDisabled(true);",
-                            "savbtn.setDisabled(false);",
-                            "updbtn.setDisabled(true);",
-                            "redbtn.setDisabled(true);"
+                            "this.delbtn.setDisabled(true);",
+                            "this.savbtn.setDisabled(false);",
+                            "this.updbtn.setDisabled(true);",
+                            "this.redbtn.setDisabled(true);"
                         ],
                         "name": "click",
                         "scope": "me"
@@ -77,13 +82,7 @@
                     "userConfig": {
                         "fn": "onDeleteBtnClick",
                         "implHandler": [
-                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
-                            "var delbtn=button;",
-                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
-                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
-                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
-                            "",
-                            "delbtn.setDisabled(true);"
+                            "this.delbtn.setDisabled(true);"
                         ],
                         "name": "click",
                         "scope": "me"
@@ -116,13 +115,7 @@
                     "userConfig": {
                         "fn": "onSaveBtnClick",
                         "implHandler": [
-                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
-                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
-                            "var savbtn=button;",
-                            "var updbtn=button.ownerCt.down('button[itemId=updateBtn]');",
-                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
-                            "",
-                            "savbtn.setDisabled(true);"
+                            "this.savbtn.setDisabled(true);"
                         ],
                         "name": "click",
                         "scope": "me"
@@ -168,13 +161,7 @@
                     "userConfig": {
                         "fn": "onUpdateBtnClick",
                         "implHandler": [
-                            "var crebtn=button.ownerCt.down('button[itemId=createBtn]');",
-                            "var delbtn=button.ownerCt.down('button[itemId=deleteBtn]');",
-                            "var savbtn=button.ownerCt.down('button[itemId=saveBtn]');",
-                            "var updbtn=button;",
-                            "var redbtn=button.ownerCt.down('button[itemId=readBtn]');",
-                            "",
-                            "updbtn.setDisabled(true);"
+                            "this.updbtn.setDisabled(true);"
                         ],
                         "name": "click",
                         "scope": "me"
@@ -182,6 +169,30 @@
                     "designerId": "3a568c8b-e61c-44f3-a5e2-39e249042459"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onStdEditorToolbarRender",
+                "implHandler": [
+                    "    this.crebtn=component.down('button[itemId=createBtn]');",
+                    "    this.delbtn=component.down('button[itemId=deleteBtn]');",
+                    "    this.savbtn=component.down('button[itemId=saveBtn]');",
+                    "    this.updbtn=component.down('button[itemId=updateBtn]');",
+                    "    this.redbtn=component.down('button[itemId=readBtn]');",
+                    "",
+                    "\tconsole.log(this);",
+                    "\t//updbtn.setDisabled(true);"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "14127238-0dae-4419-b742-191232d3325c"
         }
     ]
 }
