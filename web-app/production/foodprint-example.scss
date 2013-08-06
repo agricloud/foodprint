@@ -635,11 +635,11 @@ $include-foodprint-view-workstationeditor: true;
 $include-foodprint-view-workstationeditorct: true;
 $include-foodprint-view-workstationgrid: true;
 $include-foodprint-view-wrokstationviewer: true;
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-base */
 @import '../../../packages/ext-theme-base/sass/etc/all';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-neptune */
 @import '../../../packages/ext-theme-neptune/sass/etc/all';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-neptune */
 @import '../../../packages/ext-theme-neptune/sass/var/Component';
 @import '../../../packages/ext-theme-neptune/sass/var/LoadMask';
 @import '../../../packages/ext-theme-neptune/sass/var/ProgressBar';
@@ -674,7 +674,7 @@ $relative-image-path-for-uis: 'images';
 @import '../../../packages/ext-theme-neptune/sass/var/resizer/Resizer';
 @import '../../../packages/ext-theme-neptune/sass/var/tab/Panel';
 @import '../../../packages/ext-theme-neptune/sass/var/tree/Panel';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-neutral */
 @import '../../../packages/ext-theme-neutral/sass/var/Component';
 @import '../../../packages/ext-theme-neutral/sass/var/FocusManager';
 @import '../../../packages/ext-theme-neutral/sass/var/LoadMask';
@@ -721,9 +721,11 @@ $relative-image-path-for-uis: 'images';
 @import '../../../packages/ext-theme-neutral/sass/var/slider/Multi';
 @import '../../../packages/ext-theme-neutral/sass/var/tab/Panel';
 @import '../../../packages/ext-theme-neutral/sass/var/tree/Panel';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-base */
 @import '../../../packages/ext-theme-base/sass/var/Component';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-base */
+$ext-theme-base-resource-path: 'images' !default;
+$relative-image-path-for-uis: $ext-theme-base-resource-path;
 @import '../../../packages/ext-theme-base/sass/src/rtl/util/Renderable';
 @import '../../../packages/ext-theme-base/sass/src/Component';
 @import '../../../packages/ext-theme-base/sass/src/layout/container/Container';
@@ -768,7 +770,9 @@ $relative-image-path-for-uis: 'images';
 @import '../../../packages/ext-theme-base/sass/src/resizer/SplitterTracker';
 @import '../../../packages/ext-theme-base/sass/src/slider/Multi';
 @import '../../../packages/ext-theme-base/sass/src/tab/Panel';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-neutral */
+$ext-theme-neutral-resource-path: 'images' !default;
+$relative-image-path-for-uis: $ext-theme-neutral-resource-path;
 @import '../../../packages/ext-theme-neutral/sass/src/Component';
 @import '../../../packages/ext-theme-neutral/sass/src/Editor';
 @import '../../../packages/ext-theme-neutral/sass/src/FocusManager';
@@ -828,7 +832,9 @@ $relative-image-path-for-uis: 'images';
 @import '../../../packages/ext-theme-neutral/sass/src/tab/Panel';
 @import '../../../packages/ext-theme-neutral/sass/src/tree/Panel';
 @import '../../../packages/ext-theme-neutral/sass/src/tree/ViewDropZone';
-$relative-image-path-for-uis: 'images';
+/* including package ext-theme-neptune */
+$ext-theme-neptune-resource-path: 'images' !default;
+$relative-image-path-for-uis: $ext-theme-neptune-resource-path;
 @import '../../../packages/ext-theme-neptune/sass/src/Component';
 @import '../../../packages/ext-theme-neptune/sass/src/button/Button';
 @import '../../../packages/ext-theme-neptune/sass/src/toolbar/Toolbar';
