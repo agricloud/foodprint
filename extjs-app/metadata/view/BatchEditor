@@ -24,6 +24,7 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
+                "itemId": "batchBrowse",
                 "layout": "vbox",
                 "title": "瀏覽"
             },
@@ -62,6 +63,7 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
+                "itemId": "batchMainten",
                 "layout": "vbox",
                 "title": "資料維護"
             },
@@ -90,6 +92,41 @@
                     "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchEditorTabChange",
+                "implHandler": [
+                    "var crebtn=tabPanel.up().down('button[itemId=createBtn]');",
+                    "var delbtn=tabPanel.up().down('button[itemId=deleteBtn]');",
+                    "var savbtn=tabPanel.up().down('button[itemId=saveBtn]');",
+                    "var updbtn=tabPanel.up().down('button[itemId=updateBtn]');",
+                    "var redbtn=tabPanel.up().down('button[itemId=readBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=batchBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=batchMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=trcRptFields]').getForm().reset();",
+                    "}"
+                ],
+                "name": "tabchange",
+                "scope": "me"
+            },
+            "designerId": "ff4a0d32-0d64-4d18-b680-d8f98a209c19"
         }
     ]
 }

@@ -8,5 +8,40 @@
     "userConfig": {
         "designer|userClassName": "WorkstationViewerController"
     },
-    "designerId": "4b50304b-cb2e-4034-87c4-99ca0b663af9"
+    "designerId": "4b50304b-cb2e-4034-87c4-99ca0b663af9",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "workstationGrid",
+                "selector": "workstationgrid"
+            },
+            "designerId": "1dc37303-281f-45ca-ace3-995b37303e0d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"workstationViewerCtrl.doDisplay\");",
+                    "",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').loadRecord(record);"
+                ]
+            },
+            "designerId": "8f29172c-c1da-4643-a13c-1174745afb36"
+        }
+    ]
 }

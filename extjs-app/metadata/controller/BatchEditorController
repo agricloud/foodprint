@@ -122,11 +122,10 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "//this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "",
                     "console.log('batchEditorCtrl.readBatch[dblClick]');",
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
-                    "//console.log(record);",
                     "this.doDisplay(record);",
                     ""
                 ]
@@ -163,6 +162,8 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        alert('儲存失敗');",
+                    "        that.getBatchEditorCt().down('button[itemId=saveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -213,6 +214,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=updateBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -251,6 +253,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
+                    "        this.getBatchEditorCt().down(button[itemId=deleteBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]

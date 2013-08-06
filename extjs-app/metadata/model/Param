@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "batch"
+        "designer|userClassName": "Param"
     },
-    "designerId": "42ad4213-4bd6-4b7a-9a07-cd9d96c31264",
+    "designerId": "63dca4c5-6510-43af-a9c0-a9d5bf1ae277",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -18,9 +18,10 @@
             },
             "codeClass": null,
             "userConfig": {
+                "mapping": "id",
                 "name": "id"
             },
-            "designerId": "addd6210-0a7c-49c0-ac97-4d9f7ff56501"
+            "designerId": "e34e5d9f-8cba-4d4b-be3b-aa3d7bc3442c"
         },
         {
             "type": "Ext.data.Field",
@@ -30,10 +31,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "item.id",
-                "name": "item_id"
+                "name": "title"
             },
-            "designerId": "6a30d6a0-575a-4902-a592-f5578894dd77"
+            "designerId": "8978e3ae-bb6c-48ba-9f8e-62e44ffa2c6d"
         },
         {
             "type": "Ext.data.Field",
@@ -43,9 +43,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "name"
+                "name": "defaultValue"
             },
-            "designerId": "99f9b6f6-d868-4724-8527-b2b8dc366643"
+            "designerId": "4149268c-cbe2-43fa-9d3d-f43a4c5f2af8"
         },
         {
             "type": "Ext.data.Field",
@@ -55,9 +55,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "otherFields"
+                "name": "valueType"
             },
-            "designerId": "0db877a7-ca47-468b-8725-5782de4fe454"
+            "designerId": "ad534b2f-04d0-42d3-80ac-69c7b42fc1dc"
         },
         {
             "type": "Ext.data.Field",
@@ -67,25 +67,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dateFormat": null,
-                "dateReadFormat": null,
-                "dateWriteFormat": null,
-                "name": "dueDate",
-                "type": "date"
+                "name": "description"
             },
-            "designerId": "d3796dd4-3b94-4610-968b-211b9d9c6bb6"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "expectQty"
-            },
-            "designerId": "358c8b54-ddec-4fc1-a5b2-b01fb7adda61"
+            "designerId": "174b7767-59ac-45f5-aeba-52d79821db22"
         },
         {
             "type": "Ext.data.proxy.Rest",
@@ -95,9 +79,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "/rest/batch"
+                "url": "/rest/param"
             },
-            "designerId": "2af9e052-d37f-4104-80f8-1b2ec64b2ba6",
+            "designerId": "ebf4cc4a-e508-499e-848e-dd709f6a21d2",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -107,26 +91,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "root": "batchInstanceList",
-                        "totalProperty": "batchInstanceTotal"
+                        "root": "paramInstanceList",
+                        "totalProperty": "paramInstanceTotal"
                     },
-                    "designerId": "7ea66f74-c046-4c9b-a314-3bd492f5b0ee"
+                    "designerId": "a1e417f0-0b82-4880-89a4-495a42190955"
                 }
             ]
-        },
-        {
-            "type": "Ext.data.association.BelongsTo",
-            "reference": {
-                "name": "belongsTo",
-                "type": "object"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "model": "Item",
-                "designer|displayName": "belongsToItem",
-                "getterName": "getItem"
-            },
-            "designerId": "c6e9d32c-1ab9-4636-97bc-e4b53d1c7d57"
         }
     ]
 }
