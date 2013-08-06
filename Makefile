@@ -74,3 +74,25 @@ log:
 
 done:
 	make clean war upload && make remote-deploy
+
+
+# extjs make file
+
+# 產生空的 extjs project
+extjsappgen: 
+	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
+
+extjsproduction:
+	mkdir -p extjs-app/resources
+	cd extjs-app && sencha app build production
+
+extjstesting:
+	mkdir -p extjs-app/resources
+	cd extjs-app && sencha app build testing
+
+extjsdeploy:
+	rsync -a extjs-app/build/foodprint/production/ web-app/production/
+
+
+extjsdone:
+	make extjsproduction extjsdeploy

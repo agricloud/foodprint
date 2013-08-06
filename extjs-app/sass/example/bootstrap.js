@@ -11,1978 +11,493 @@ Ext.Loader.addClassPathMappings({
   "foodprint": "../../app"
 });
 Ext.ClassManager.addNameAlternateMappings({
-  "foodprint.store.BatchChangeHistStore": [],
-  "Ext.draw.engine.ImageExporter": [],
-  "Ext.layout.component.Auto": [],
-  "Ext.grid.property.Store": [
-    "Ext.grid.PropertyStore"
-  ],
-  "Ext.layout.container.Box": [
-    "Ext.layout.BoxLayout"
-  ],
-  "foodprint.view.UploadBtn": [],
-  "Ext.rtl.resizer.BorderSplitterTracker": [],
-  "Ext.direct.JsonProvider": [],
-  "foodprint.view.BatchGrid": [],
-  "Ext.tree.Panel": [
-    "Ext.tree.TreePanel",
-    "Ext.TreePanel"
-  ],
-  "Ext.data.Model": [
-    "Ext.data.Record"
-  ],
-  "foodprint.store.IndTrcRptColStore": [],
-  "Ext.data.reader.Reader": [
-    "Ext.data.Reader",
-    "Ext.data.DataReader"
-  ],
-  "foodprint.store.batchTrcRptStore": [],
-  "Ext.tab.Tab": [],
-  "foodprint.model.TrcRptImg": [],
-  "Ext.button.Button": [
-    "Ext.Button"
-  ],
-  "Ext.util.Grouper": [],
-  "Ext.direct.RemotingProvider": [],
-  "foodprint.model.TrcRptRow": [],
-  "Ext.data.NodeInterface": [],
-  "Ext.view.NodeCache": [],
-  "Ext.grid.column.Date": [
-    "Ext.grid.DateColumn"
-  ],
-  "Ext.form.field.Trigger": [
-    "Ext.form.TriggerField",
-    "Ext.form.TwinTriggerField",
-    "Ext.form.Trigger"
-  ],
-  "Ext.grid.plugin.RowEditing": [],
-  "Ext.tip.QuickTip": [
-    "Ext.QuickTip"
-  ],
-  "Ext.rtl.grid.plugin.HeaderResizer": [],
-  "Ext.form.action.Load": [
-    "Ext.form.Action.Load"
-  ],
-  "Ext.form.field.ComboBox": [
-    "Ext.form.ComboBox"
-  ],
-  "Ext.layout.container.Border": [
-    "Ext.layout.BorderLayout"
-  ],
-  "Ext.rtl.layout.container.Column": [],
-  "Ext.data.JsonPStore": [],
-  "Ext.ux.ajax.Simlet": [],
-  "foodprint.model.ItemImage": [],
-  "Ext.layout.component.field.TextArea": [],
-  "Ext.layout.container.Container": [
-    "Ext.layout.ContainerLayout"
-  ],
-  "Ext.util.Sortable": [],
-  "Ext.selection.Model": [
-    "Ext.AbstractSelectionModel"
-  ],
-  "Ext.draw.CompositeSprite": [],
-  "foodprint.store.IndTrcRptRowStore": [],
-  "foodprint.store.ItemParamsStore": [],
-  "Ext.fx.Queue": [],
-  "Ext.dd.StatusProxy": [],
-  "Ext.form.field.Checkbox": [
-    "Ext.form.Checkbox"
-  ],
-  "Ext.direct.Transaction": [
-    "Ext.Direct.Transaction"
-  ],
-  "Ext.util.Offset": [],
-  "Ext.container.Monitor": [],
-  "Ext.view.DragZone": [],
-  "Ext.util.KeyNav": [
-    "Ext.KeyNav"
-  ],
-  "Ext.rtl.dom.Element_static": [],
-  "ExtThemeNeptune.menu.Separator": [],
-  "Ext.form.field.File": [
-    "Ext.form.FileUploadField",
-    "Ext.ux.form.FileUploadField",
-    "Ext.form.File"
-  ],
-  "Ext.ux.IFrame": [],
-  "Ext.slider.Single": [
-    "Ext.Slider",
-    "Ext.form.SliderField",
-    "Ext.slider.SingleSlider",
-    "Ext.slider.Slider"
-  ],
-  "Ext.panel.Proxy": [
-    "Ext.dd.PanelProxy"
-  ],
-  "foodprint.view.MainViewport": [],
-  "Ext.fx.target.Target": [],
-  "Ext.ComponentManager": [
-    "Ext.ComponentMgr"
-  ],
-  "foodprint.view.IndTrcRptEditor": [],
-  "Ext.grid.feature.GroupingSummary": [],
-  "Ext.grid.property.HeaderContainer": [
-    "Ext.grid.PropertyColumnModel"
-  ],
-  "foodprint.view.SaveBtn": [],
-  "Ext.layout.component.BoundList": [],
-  "Ext.tab.Bar": [],
-  "Ext.app.Application": [],
-  "Ext.layout.container.Accordion": [
-    "Ext.layout.AccordionLayout"
-  ],
-  "Ext.ShadowPool": [],
-  "Ext.grid.locking.HeaderContainer": [],
-  "Ext.resizer.ResizeTracker": [],
-  "foodprint.model.batch": [],
-  "Ext.panel.Tool": [],
-  "Ext.layout.container.boxOverflow.None": [
-    "Ext.layout.boxOverflow.None"
-  ],
-  "Ext.tree.View": [],
-  "Ext.ElementLoader": [],
-  "Ext.grid.ColumnComponentLayout": [],
-  "Ext.toolbar.Separator": [
-    "Ext.Toolbar.Separator"
-  ],
-  "Ext.dd.DragZone": [],
-  "Ext.util.Renderable": [],
-  "Ext.layout.component.FieldSet": [],
-  "Ext.util.Bindable": [],
-  "Ext.data.SortTypes": [],
-  "foodprint.store.TrcRptRowImgStore": [],
-  "foodprint.store.TrcRptRow": [],
-  "Ext.rtl.layout.container.HBox": [],
-  "Ext.ux.FieldReplicator": [],
-  "foodprint.view.ItemGrid": [],
-  "Ext.util.Animate": [],
-  "Ext.data.flash.BinaryXhr": [],
-  "Ext.form.field.Date": [
-    "Ext.form.DateField",
-    "Ext.form.Date"
-  ],
-  "Ext.ux.dd.PanelFieldDragZone": [],
-  "Ext.Component": [],
-  "Ext.chart.axis.Axis": [
-    "Ext.chart.Axis"
-  ],
-  "Ext.menu.DatePicker": [],
-  "Ext.fx.target.CompositeSprite": [],
-  "Ext.ux.GroupTabPanel": [],
-  "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.form.field.Picker": [
-    "Ext.form.Picker"
-  ],
-  "Ext.fx.Animator": [],
-  "Ext.ux.layout.Center": [],
-  "Ext.Ajax": [],
-  "Ext.layout.component.Dock": [
-    "Ext.layout.component.AbstractDock"
-  ],
-  "Ext.util.Filter": [],
-  "foodprint.store.BatchTrcRptRowImgStore": [],
-  "Ext.dd.DragDrop": [],
-  "Ext.view.View": [
-    "Ext.DataView"
-  ],
-  "Ext.data.association.BelongsTo": [
-    "Ext.data.BelongsToAssociation"
-  ],
-  "Ext.fx.target.Element": [],
-  "Ext.draw.Surface": [],
-  "Ext.dd.DDProxy": [],
-  "Ext.data.AbstractStore": [],
-  "Ext.grid.plugin.BufferedRendererTreeView": [],
-  "Ext.grid.locking.View": [
-    "Ext.grid.LockingView"
-  ],
-  "ExtThemeNeptune.layout.component.Dock": [],
-  "Ext.form.action.StandardSubmit": [],
-  "Ext.diag.layout.Context": [],
-  "Ext.dd.Registry": [],
-  "Ext.ux.event.Player": [],
-  "Ext.picker.Month": [
-    "Ext.MonthPicker"
-  ],
-  "Ext.menu.Manager": [
-    "Ext.menu.MenuMgr"
-  ],
-  "Ext.container.Container": [
-    "Ext.Container"
-  ],
-  "Ext.rtl.form.field.Spinner": [],
-  "Ext.util.KeyMap": [
-    "Ext.KeyMap"
-  ],
-  "Ext.ux.ToolbarDroppable": [],
-  "Ext.data.Batch": [],
-  "Ext.resizer.Handle": [],
-  "Ext.util.ElementContainer": [],
-  "Ext.grid.feature.Grouping": [],
-  "foodprint.view.ItemViewer": [],
-  "Ext.tab.Panel": [
-    "Ext.TabPanel"
-  ],
-  "Ext.ux.TabCloseMenu": [],
-  "Ext.layout.Context": [],
-  "Ext.layout.component.Body": [],
-  "Ext.ux.grid.filter.DateTimeFilter": [],
-  "Ext.layout.component.field.ComboBox": [],
-  "Ext.dd.DDTarget": [],
-  "Ext.chart.Chart": [],
-  "Ext.ux.grid.FiltersFeature": [],
-  "foodprint.store.TrcRptImg": [],
-  "Ext.data.Field": [],
-  "Ext.form.field.FileButton": [],
-  "Ext.chart.series.Gauge": [],
-  "Ext.data.StoreManager": [
-    "Ext.StoreMgr",
-    "Ext.data.StoreMgr",
-    "Ext.StoreManager"
-  ],
-  "Ext.data.IdGenerator": [],
-  "Ext.tip.QuickTipManager": [
-    "Ext.QuickTips"
-  ],
-  "Ext.grid.plugin.Editing": [],
-  "foodprint.store.IndTrcRptStore": [],
-  "Ext.state.LocalStorageProvider": [],
-  "Ext.grid.RowEditor": [],
+  "foodprint.store.WorkstationStore": [],
+  "ExtThemeNeptune.container.ButtonGroup": [],
+  "foodprint.view.ItemEditor": [],
+  "foodprint.model.IndTcrRptRowImg": [],
+  "Ext.ux.ajax.DataSimlet": [],
   "Ext.ux.grid.TransformGrid": [],
-  "Ext.app.EventDomain": [],
-  "Ext.form.action.Action": [
-    "Ext.form.Action"
-  ],
+  "foodprint.store.batchTrcRptStore": [],
+  "foodprint.store.TrcRptRowImgStore": [],
+  "foodprint.model.IndTrcRpt": [],
+  "foodprint.store.BatchChangeHistStore": [],
+  "foodprint.view.WorkstationGrid": [],
+  "ExtThemeNeptune.toolbar.Paging": [],
   "foodprint.model.TrcRptRowImg": [],
-  "Ext.fx.Easing": [],
-  "Ext.ProgressBar": [],
-  "Ext.tree.ViewDragZone": [],
-  "Ext.data.reader.Array": [
-    "Ext.data.ArrayReader"
-  ],
-  "Ext.picker.Date": [
-    "Ext.DatePicker"
-  ],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [],
-  "Ext.rtl.grid.column.Column": [],
-  "foodprint.model.IndTcrRptRowImg": [],
-  "Ext.data.proxy.JsonP": [
-    "Ext.data.ScriptTagProxy"
-  ],
-  "foodprint.view.TrcRptEditor": [],
-  "Ext.chart.series.Area": [],
-  "Ext.fx.Anim": [],
-  "Ext.menu.Item": [
-    "Ext.menu.TextItem"
-  ],
-  "foodprint.model.Item": [],
-  "Ext.rtl.dom.Element_position": [],
-  "Ext.chart.Legend": [],
-  "foodprint.store.ItemImageStore": [],
+  "foodprint.view.DeleteBtn": [],
+  "foodprint.controller.BatchViewerController": [],
+  "Ext.ux.DataView.DragSelector": [],
+  "Ext.ux.grid.menu.ListMenu": [],
+  "foodprint.view.CreateBtn": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
-  "Ext.grid.plugin.HeaderReorderer": [],
-  "Ext.rtl.view.Table": [],
-  "Ext.layout.container.VBox": [
-    "Ext.layout.VBoxLayout"
-  ],
-  "Ext.rtl.util.Floating": [],
-  "foodprint.view.LoginContainer": [],
-  "Ext.view.DropZone": [],
-  "Ext.rtl.tree.Column": [],
-  "Ext.layout.component.Button": [],
-  "Ext.form.field.Hidden": [
-    "Ext.form.Hidden"
-  ],
-  "Ext.form.FieldContainer": [],
-  "Ext.rtl.grid.plugin.RowEditing": [],
-  "foodprint.controller.ItemGridController": [],
-  "Ext.ux.event.RecorderManager": [],
-  "foodprint.controller.ItemEditorController": [],
-  "Ext.data.proxy.Server": [
-    "Ext.data.ServerProxy"
-  ],
-  "Ext.chart.series.Cartesian": [
-    "Ext.chart.CartesianSeries",
-    "Ext.chart.CartesianChart"
-  ],
-  "foodprint.store.ItemStore": [],
-  "Ext.rtl.layout.component.Dock": [],
-  "Ext.grid.column.Column": [
-    "Ext.grid.Column"
-  ],
-  "Ext.data.ResultSet": [],
-  "Ext.data.association.HasMany": [
-    "Ext.data.HasManyAssociation"
-  ],
-  "Ext.layout.container.Fit": [
-    "Ext.layout.FitLayout"
-  ],
-  "Ext.util.CSS": [],
-  "Ext.rtl.AbstractComponent": [],
-  "Ext.layout.component.field.Field": [],
-  "Ext.data.proxy.Ajax": [
-    "Ext.data.HttpProxy",
-    "Ext.data.AjaxProxy"
-  ],
-  "Ext.rtl.EventObjectImpl": [],
-  "Ext.app.domain.Component": [],
-  "Ext.form.Label": [],
-  "Ext.data.writer.Writer": [
-    "Ext.data.DataWriter",
-    "Ext.data.Writer"
-  ],
-  "Ext.view.BoundListKeyNav": [],
-  "Ext.form.FieldSet": [],
-  "foodprint.view.ItemEditor": [],
-  "Ext.form.field.VTypes": [
-    "Ext.form.VTypes"
-  ],
-  "Ext.fx.PropertyHandler": [],
-  "Ext.form.CheckboxGroup": [],
-  "Ext.data.JsonP": [],
-  "Ext.draw.engine.Vml": [],
+  "foodprint.store.BatchStore": [],
   "foodprint.view.BatchViewer": [],
-  "Ext.layout.container.CheckboxGroup": [],
-  "Ext.app.domain.Direct": [],
-  "Ext.panel.Header": [],
-  "Ext.ux.TabScrollerMenu": [],
-  "Ext.app.Controller": [],
-  "Ext.rtl.dom.Layer": [],
-  "Ext.grid.plugin.CellEditing": [],
-  "Ext.form.field.Time": [
-    "Ext.form.TimeField",
-    "Ext.form.Time"
-  ],
-  "Ext.fx.CubicBezier": [],
-  "Ext.ux.LiveSearchGridPanel": [],
-  "Ext.button.Cycle": [
-    "Ext.CycleButton"
-  ],
-  "Ext.app.domain.Global": [],
-  "Ext.ux.grid.filter.DateFilter": [],
-  "foodprint.model.IndTrcRptCol": [],
-  "Ext.data.Tree": [],
-  "Ext.ModelManager": [
-    "Ext.ModelMgr"
-  ],
-  "Ext.data.XmlStore": [],
-  "Ext.grid.ViewDropZone": [],
-  "foodprint.store.ItemTrcRptStore": [],
-  "Ext.ux.BoxReorderer": [],
-  "Ext.rtl.slider.Multi": [],
-  "Ext.grid.header.DropZone": [],
-  "Ext.rtl.layout.component.field.Text": [],
-  "Ext.util.HashMap": [],
-  "foodprint.view.StdEditorToolbar": [],
-  "Ext.grid.column.Template": [
-    "Ext.grid.TemplateColumn"
-  ],
-  "Ext.ComponentLoader": [],
-  "Ext.form.FieldAncestor": [],
-  "Ext.app.domain.Controller": [],
-  "Ext.chart.axis.Gauge": [],
-  "Ext.data.validations": [],
-  "ExtThemeNeptune.toolbar.Toolbar": [],
-  "Ext.data.Connection": [],
-  "Ext.resizer.Splitter": [],
-  "Ext.dd.DropZone": [],
-  "Ext.direct.ExceptionEvent": [],
-  "Ext.form.RadioManager": [],
-  "Ext.data.association.HasOne": [
-    "Ext.data.HasOneAssociation"
-  ],
-  "Ext.draw.Text": [],
-  "foodprint.view.TrcRptViewer": [],
-  "Ext.window.MessageBox": [],
-  "Ext.fx.target.CompositeElementCSS": [],
-  "Ext.diag.layout.ContextItem": [],
-  "Ext.ux.grid.filter.StringFilter": [],
-  "Ext.rtl.layout.ContextItem": [],
-  "Ext.chart.series.Line": [
-    "Ext.chart.LineSeries",
-    "Ext.chart.LineChart"
-  ],
-  "Ext.view.Table": [],
-  "foodprint.model.BatchParams": [],
-  "Ext.fx.target.CompositeElement": [],
-  "Ext.fx.Manager": [],
-  "Ext.data.writer.Json": [
-    "Ext.data.JsonWriter"
-  ],
-  "Ext.chart.Label": [],
-  "Ext.grid.View": [],
-  "foodprint.view.PickToolbar": [],
-  "Ext.Action": [],
-  "Ext.form.Basic": [
-    "Ext.form.BasicForm"
-  ],
-  "Ext.container.Viewport": [
-    "Ext.Viewport"
-  ],
-  "foodprint.model.ItemParams": [],
-  "foodprint.store.TrcRptCol": [],
-  "Ext.state.Stateful": [],
-  "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.grid.feature.RowBody": [],
-  "Ext.form.field.Text": [
-    "Ext.form.TextField",
-    "Ext.form.Text"
-  ],
-  "Ext.rtl.layout.component.field.Trigger": [],
-  "Ext.data.reader.Xml": [
-    "Ext.data.XmlReader"
-  ],
-  "Ext.grid.feature.AbstractSummary": [],
-  "Ext.chart.axis.Category": [
-    "Ext.chart.CategoryAxis"
-  ],
-  "Ext.rtl.layout.container.boxOverflow.Scroller": [],
-  "Ext.grid.plugin.BufferedRendererTableView": [],
-  "Ext.layout.container.Absolute": [
-    "Ext.layout.AbsoluteLayout"
-  ],
-  "Ext.rtl.layout.container.Box": [],
-  "Ext.data.reader.Json": [
-    "Ext.data.JsonReader"
-  ],
-  "Ext.util.TextMetrics": [],
-  "Ext.data.TreeStore": [],
-  "Ext.view.BoundList": [
-    "Ext.BoundList"
-  ],
-  "Ext.form.field.HtmlEditor": [
-    "Ext.form.HtmlEditor"
-  ],
-  "Ext.layout.container.Form": [
-    "Ext.layout.FormLayout"
-  ],
-  "Ext.chart.MaskLayer": [],
-  "Ext.ux.DataTip": [],
-  "Ext.ux.ajax.JsonSimlet": [],
-  "ExtThemeNeptune.form.field.HtmlEditor": [],
-  "Ext.resizer.BorderSplitterTracker": [],
-  "Ext.util.LruCache": [],
-  "Ext.tip.Tip": [
-    "Ext.Tip"
-  ],
-  "Ext.grid.column.CheckColumn": [
-    "Ext.ux.CheckColumn"
-  ],
-  "ExtThemeNeptune.container.ButtonGroup": [],
-  "Ext.rtl.resizer.SplitterTracker": [],
-  "Ext.grid.feature.RowWrap": [],
-  "Ext.data.proxy.Client": [
-    "Ext.data.ClientProxy"
-  ],
-  "foodprint.model.IndTrcRptRow": [],
-  "Ext.data.Types": [],
-  "Ext.draw.SpriteDD": [],
-  "Ext.layout.container.boxOverflow.Menu": [
-    "Ext.layout.boxOverflow.Menu"
-  ],
-  "ExtThemeNeptune.toolbar.Paging": [],
-  "Ext.LoadMask": [],
-  "Ext.rtl.grid.RowEditor": [],
-  "Ext.toolbar.Paging": [
-    "Ext.PagingToolbar"
-  ],
-  "Ext.data.association.Association": [
-    "Ext.data.Association"
-  ],
-  "Ext.tree.ViewDropZone": [],
-  "Ext.toolbar.Toolbar": [
-    "Ext.Toolbar"
-  ],
-  "Ext.tip.ToolTip": [
-    "Ext.ToolTip"
-  ],
-  "Ext.ux.DataView.DragSelector": [],
-  "Ext.chart.Highlight": [],
-  "Ext.state.Manager": [],
-  "Ext.ux.grid.menu.ListMenu": [],
-  "Ext.util.Inflector": [],
-  "Ext.grid.Panel": [
-    "Ext.list.ListView",
-    "Ext.ListView",
-    "Ext.grid.GridPanel"
-  ],
-  "Ext.data.NodeStore": [],
-  "Ext.Shadow": [],
-  "Ext.form.action.Submit": [
-    "Ext.form.Action.Submit"
-  ],
-  "Ext.form.Panel": [
-    "Ext.FormPanel",
-    "Ext.form.FormPanel"
-  ],
-  "Ext.chart.series.Series": [],
-  "Ext.ux.PreviewPlugin": [],
-  "Ext.data.Request": [],
-  "foodprint.view.ImageEditorToolbar": [],
-  "Ext.ux.ajax.SimXhr": [],
-  "Ext.dd.DD": [],
-  "Ext.ux.CellDragDrop": [],
-  "Ext.toolbar.Fill": [
-    "Ext.Toolbar.Fill"
-  ],
-  "Ext.grid.RowNumberer": [],
-  "Ext.ux.SlidingPager": [],
-  "Ext.data.proxy.WebStorage": [
-    "Ext.data.WebStorageProxy"
-  ],
-  "Ext.util.Floating": [],
-  "Ext.ux.TabReorderer": [],
-  "Ext.form.action.DirectSubmit": [
-    "Ext.form.Action.DirectSubmit"
-  ],
-  "Ext.ux.grid.filter.NumericFilter": [],
-  "Ext.util.Cookies": [],
-  "ExtThemeNeptune.panel.Table": [],
-  "Ext.data.UuidGenerator": [],
-  "Ext.util.Point": [],
-  "Ext.fx.target.Component": [],
-  "Ext.form.CheckboxManager": [],
-  "Ext.ux.event.Recorder": [],
-  "Ext.form.field.Field": [],
-  "Ext.form.field.Display": [
-    "Ext.form.DisplayField",
-    "Ext.form.Display"
-  ],
-  "Ext.layout.container.Anchor": [
-    "Ext.layout.AnchorLayout"
-  ],
-  "foodprint.view.ListToolbar": [],
-  "Ext.layout.component.field.Text": [],
-  "Ext.data.DirectStore": [],
-  "Ext.ux.grid.filter.BooleanFilter": [],
-  "Ext.dom.Layer": [
-    "Ext.Layer"
-  ],
   "foodprint.model.ItemTrcRpt": [],
-  "foodprint.view.MainContainer": [],
-  "Ext.grid.RowEditorButtons": [],
-  "Ext.data.BufferStore": [],
+  "foodprint.model.BatchParams": [],
+  "foodprint.store.BatchTrcRptColStore": [],
+  "Ext.ux.PreviewPlugin": [],
+  "foodprint.view.BatchGrid": [],
+  "foodprint.model.IndTrcRptCol": [],
+  "Ext.ux.ajax.SimXhr": [],
+  "Ext.ux.event.RecorderManager": [],
+  "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [],
+  "Ext.ux.ajax.Simlet": [],
+  "Ext.ux.SlidingPager": [],
+  "Ext.ux.TabReorderer": [],
+  "Ext.ux.grid.filter.NumericFilter": [],
+  "foodprint.store.ItemStore": [],
+  "foodprint.store.IndTrcRptStore": [],
+  "ExtThemeNeptune.panel.Table": [],
+  "foodprint.store.IndTrcRptRowStore": [],
+  "Ext.ux.event.Recorder": [],
+  "foodprint.model.Report": [],
+  "foodprint.view.ParamEditor": [],
+  "foodprint.view.BatchTrcRptDisplay": [],
+  "foodprint.controller.BatchGridController": [],
+  "foodprint.view.ItemViewer": [],
+  "foodprint.view.Viewport": [],
+  "foodprint.store.IndTrcRptColStore": [],
+  "Ext.ux.ajax.SimManager": [],
+  "foodprint.store.TrcRptStore": [],
+  "foodprint.view.PickToolbar": [],
+  "foodprint.store.ItemImageStore": [],
+  "Ext.ux.grid.filter.BooleanFilter": [],
+  "foodprint.view.ItemEditorCt": [],
+  "foodprint.controller.ItemEditorController": [],
+  "foodprint.view.MainViewport": [],
+  "foodprint.model.TrcRptBodyDet": [],
+  "Ext.ux.TabScrollerMenu": [],
+  "ExtThemeNeptune.menu.Separator": [],
+  "foodprint.view.UploadBtn": [],
+  "Ext.ux.IFrame": [],
+  "foodprint.view.WorkstationEditor": [],
+  "foodprint.store.ItemParamsStore": [],
+  "foodprint.store.IndTrcRptRowImgStore": [],
+  "foodprint.view.IndTrcRptEditor": [],
   "Ext.ux.form.SearchField": [],
   "Ext.ux.dd.CellFieldDropZone": [],
-  "Ext.grid.plugin.DivRenderer": [],
-  "Ext.grid.ColumnLayout": [],
-  "Ext.chart.series.Column": [
-    "Ext.chart.ColumnSeries",
-    "Ext.chart.ColumnChart",
-    "Ext.chart.StackedColumnChart"
-  ],
-  "Ext.AbstractComponent": [],
-  "Ext.flash.Component": [
-    "Ext.FlashComponent"
-  ],
-  "Ext.form.field.Base": [
-    "Ext.form.Field",
-    "Ext.form.BaseField"
-  ],
-  "foodprint.model.TrcRptCol": [],
-  "ExtThemeNeptune.grid.RowEditor": [],
-  "Ext.grid.feature.GroupStore": [],
-  "Ext.data.SequentialIdGenerator": [],
-  "Ext.grid.header.Container": [],
-  "Ext.container.ButtonGroup": [
-    "Ext.ButtonGroup"
-  ],
-  "Ext.grid.column.Action": [
-    "Ext.grid.ActionColumn"
-  ],
-  "Ext.layout.component.field.Trigger": [],
-  "Ext.layout.component.field.FieldContainer": [],
-  "Ext.chart.Shape": [],
-  "Ext.panel.DD": [],
-  "Ext.container.AbstractContainer": [],
-  "Ext.ux.grid.filter.ListFilter": [],
-  "Ext.data.ArrayStore": [],
-  "foodprint.view.Viewport": [],
-  "Ext.window.Window": [
-    "Ext.Window"
-  ],
-  "foodprint.controller.LoginController": [],
-  "Ext.picker.Color": [
-    "Ext.ColorPalette"
-  ],
-  "Ext.grid.feature.Feature": [],
-  "Ext.ux.GMapPanel": [],
-  "Ext.chart.theme.Theme": [],
-  "Ext.util.ClickRepeater": [],
-  "foodprint.store.BatchStore": [],
-  "Ext.form.field.Spinner": [
-    "Ext.form.Spinner"
-  ],
-  "Ext.container.DockingContainer": [],
-  "Ext.selection.DataViewModel": [],
-  "Ext.ux.DataView.Animated": [],
-  "ExtThemeNeptune.resizer.Splitter": [],
-  "Ext.dd.DragTracker": [],
-  "Ext.data.Group": [],
-  "Ext.dd.DragDropManager": [
-    "Ext.dd.DragDropMgr",
-    "Ext.dd.DDM"
-  ],
-  "Ext.selection.CheckboxModel": [],
-  "Ext.menu.KeyNav": [],
-  "Ext.layout.container.Column": [
-    "Ext.layout.ColumnLayout"
-  ],
-  "Ext.draw.Matrix": [],
-  "Ext.form.field.Number": [
-    "Ext.form.NumberField",
-    "Ext.form.Number"
-  ],
-  "Ext.rtl.util.Renderable": [],
-  "Ext.ux.statusbar.StatusBar": [
-    "Ext.ux.StatusBar"
-  ],
-  "foodprint.store.IndTrcRptRowImgStore": [],
-  "Ext.data.proxy.Direct": [
-    "Ext.data.DirectProxy"
-  ],
-  "Ext.chart.Navigation": [],
-  "Ext.slider.Tip": [],
-  "Ext.chart.theme.Base": [],
-  "Ext.form.field.TextArea": [
-    "Ext.form.TextArea"
-  ],
-  "foodprint.model.BatchTrcRptCol": [],
-  "Ext.rtl.layout.container.VBox": [],
-  "Ext.form.field.Radio": [
-    "Ext.form.Radio"
-  ],
-  "Ext.layout.component.ProgressBar": [],
-  "Ext.chart.series.Pie": [
-    "Ext.chart.PieSeries",
-    "Ext.chart.PieChart"
-  ],
-  "foodprint.view.BatchTrcRptDisplay": [],
-  "Ext.tree.plugin.TreeViewDragDrop": [],
-  "Ext.direct.Provider": [],
-  "Ext.data.TreeModel": [],
-  "foodprint.model.batchTrcRpt": [],
-  "Ext.layout.Layout": [],
-  "Ext.toolbar.TextItem": [
-    "Ext.Toolbar.TextItem"
-  ],
-  "Ext.ux.DataView.Draggable": [],
-  "Ext.rtl.button.Button": [],
-  "Ext.util.AbstractMixedCollection": [],
-  "Ext.data.JsonStore": [],
-  "Ext.button.Split": [
-    "Ext.SplitButton"
-  ],
-  "Ext.dd.DropTarget": [],
-  "Ext.direct.RemotingEvent": [],
-  "Ext.ux.form.ItemSelector": [
-    "Ext.ux.ItemSelector"
-  ],
-  "Ext.draw.Sprite": [],
-  "Ext.ux.Spotlight": [],
-  "Ext.fx.target.Sprite": [],
-  "Ext.data.proxy.LocalStorage": [
-    "Ext.data.LocalStorageProxy"
-  ],
-  "Ext.layout.component.Draw": [],
-  "Ext.AbstractPlugin": [],
-  "Ext.Editor": [],
-  "foodprint.store.BatchTrcRptColStore": [],
-  "Ext.chart.axis.Radial": [],
-  "Ext.chart.Tip": [],
-  "Ext.ux.ajax.DataSimlet": [],
-  "foodprint.model.batchChangeHist": [],
-  "Ext.layout.container.Table": [
-    "Ext.layout.TableLayout"
-  ],
-  "Ext.chart.axis.Abstract": [],
-  "Ext.data.proxy.Rest": [
-    "Ext.data.RestProxy"
-  ],
-  "Ext.rtl.layout.container.Absolute": [],
-  "Ext.util.Queue": [],
-  "Ext.state.CookieProvider": [],
-  "Ext.Img": [],
-  "Ext.dd.DragSource": [],
-  "Ext.grid.CellEditor": [],
-  "Ext.layout.ClassList": [],
-  "Ext.button.Manager": [
-    "Ext.ButtonToggleManager"
-  ],
-  "Ext.util.Sorter": [],
-  "Ext.resizer.SplitterTracker": [],
-  "foodprint.view.TrcRptGrid": [],
-  "Ext.panel.Table": [],
-  "Ext.draw.Color": [],
-  "Ext.chart.series.Bar": [
-    "Ext.chart.BarSeries",
-    "Ext.chart.BarChart",
-    "Ext.chart.StackedBarChart"
-  ],
-  "Ext.PluginManager": [
-    "Ext.PluginMgr"
-  ],
-  "Ext.util.ComponentDragger": [],
-  "Ext.chart.series.Scatter": [],
-  "Ext.chart.Callout": [],
-  "Ext.data.Store": [],
-  "Ext.grid.feature.Summary": [],
-  "Ext.util.ProtoElement": [],
-  "Ext.layout.component.Component": [],
-  "Ext.direct.Manager": [],
-  "Ext.data.proxy.Proxy": [
-    "Ext.data.DataProxy",
-    "Ext.data.Proxy"
-  ],
-  "Ext.menu.CheckItem": [],
-  "foodprint.view.BatchEditor": [],
+  "foodprint.store.BatchParamsStore": [],
+  "Ext.ux.LiveSearchGridPanel": [],
+  "foodprint.store.ItemTrcRptStore": [],
+  "Ext.ux.grid.filter.DateFilter": [],
+  "foodprint.model.IndTrcRptRow": [],
   "foodprint.view.ReadBtn": [],
-  "Ext.ux.ProgressBarPager": [],
-  "Ext.layout.container.Card": [
-    "Ext.layout.CardLayout"
-  ],
-  "Ext.draw.Component": [],
-  "Ext.toolbar.Item": [
-    "Ext.Toolbar.Item"
-  ],
-  "Ext.form.RadioGroup": [],
-  "Ext.rtl.tab.Bar": [],
-  "Ext.rtl.form.field.Trigger": [],
-  "Ext.slider.Thumb": [],
-  "foodprint.model.IndTrcRpt": [],
-  "Ext.grid.header.DragZone": [],
-  "Ext.rtl.resizer.ResizeTracker": [],
-  "Ext.form.action.DirectLoad": [
-    "Ext.form.Action.DirectLoad"
-  ],
-  "Ext.picker.Time": [],
-  "Ext.grid.plugin.BufferedRenderer": [],
-  "foodprint.controller.ItemViewerController": [],
-  "Ext.resizer.BorderSplitter": [],
-  "Ext.menu.ColorPicker": [],
-  "Ext.ZIndexManager": [
-    "Ext.WindowGroup"
-  ],
-  "Ext.ux.ajax.SimManager": [],
-  "Ext.menu.Menu": [],
-  "Ext.chart.LegendItem": [],
-  "Ext.toolbar.Spacer": [
-    "Ext.Toolbar.Spacer"
-  ],
-  "Ext.rtl.dd.DD": [],
-  "Ext.panel.Panel": [
-    "Ext.Panel"
-  ],
-  "Ext.util.Memento": [],
-  "Ext.data.proxy.Memory": [
-    "Ext.data.MemoryProxy"
-  ],
-  "Ext.app.domain.Store": [],
-  "Ext.chart.axis.Time": [
-    "Ext.chart.TimeAxis"
-  ],
-  "Ext.grid.plugin.DragDrop": [],
-  "Ext.ComponentQuery": [],
-  "Ext.draw.engine.SvgExporter": [],
-  "Ext.layout.container.Auto": [],
-  "foodprint.store.BatchTrcRptRowStore": [],
-  "Ext.grid.locking.Lockable": [
-    "Ext.grid.Lockable"
-  ],
+  "foodprint.view.StdEditorToolbar": [],
   "Ext.ux.TreePicker": [],
-  "Ext.view.AbstractView": [],
-  "Ext.util.Region": [],
+  "foodprint.view.UpdateBtn": [],
+  "foodprint.model.ItemImage": [],
+  "ExtThemeNeptune.grid.RowEditor": [],
   "ExtThemeNeptune.picker.Month": [],
-  "Ext.draw.Draw": [],
-  "Ext.fx.target.ElementCSS": [],
   "Ext.ux.data.PagingMemoryProxy": [
     "Ext.data.PagingMemoryProxy"
   ],
+  "foodprint.view.ItemExtendPanel": [],
   "ExtThemeNeptune.menu.Menu": [],
-  "Ext.rtl.panel.Panel": [],
-  "Ext.ux.grid.filter.Filter": [],
-  "Ext.layout.component.field.HtmlEditor": [],
-  "Ext.ux.GroupTabRenderer": [],
-  "Ext.data.proxy.SessionStorage": [
-    "Ext.data.SessionStorageProxy"
-  ],
-  "Ext.app.EventBus": [],
-  "Ext.menu.Separator": [],
-  "ExtThemeNeptune.panel.Panel": [],
-  "Ext.util.History": [
-    "Ext.History"
-  ],
-  "Ext.direct.Event": [],
-  "Ext.direct.RemotingMethod": [],
-  "Ext.dd.ScrollManager": [],
-  "Ext.chart.Mask": [],
-  "Ext.rtl.dom.Element_anim": [],
-  "Ext.selection.CellModel": [],
-  "Ext.view.TableLayout": [],
-  "Ext.rtl.panel.Header": [],
-  "Ext.rtl.dom.Element_scroll": [],
-  "ExtThemeNeptune.tab.Tab": [],
-  "Ext.state.Provider": [],
-  "foodprint.model.TrcRpt": [],
+  "Ext.ux.BoxReorderer": [],
+  "foodprint.store.BatchTrcRptRowStore": [],
   "foodprint.model.BatchTrcRptRow": [],
-  "Ext.ux.DataView.LabelEditor": [],
-  "Ext.layout.container.Editor": [],
-  "Ext.data.Errors": [],
-  "Ext.grid.plugin.RowExpander": [],
-  "Ext.selection.TreeModel": [],
-  "Ext.form.Labelable": [],
-  "foodprint.store.BatchParamsStore": [],
-  "foodprint.store.TrcRptStore": [],
-  "Ext.grid.column.Number": [
-    "Ext.grid.NumberColumn"
-  ],
-  "Ext.draw.engine.Svg": [],
-  "Ext.grid.property.Grid": [
-    "Ext.grid.PropertyGrid"
-  ],
-  "Ext.FocusManager": [
-    "Ext.FocusMgr"
-  ],
-  "Ext.AbstractManager": [],
-  "Ext.chart.series.Radar": [],
-  "Ext.rtl.dom.Element_insertion": [],
-  "foodprint.view.DeleteBtn": [],
-  "Ext.ux.RowExpander": [],
-  "Ext.grid.property.Property": [
-    "Ext.PropGridProperty"
-  ],
-  "Ext.chart.TipSurface": [],
-  "Ext.layout.SizeModel": [],
-  "Ext.grid.column.Boolean": [
-    "Ext.grid.BooleanColumn"
-  ],
-  "Ext.direct.PollingProvider": [],
-  "Ext.grid.plugin.HeaderResizer": [],
-  "ExtThemeNeptune.panel.Tool": [],
-  "Ext.tree.Column": [],
-  "Ext.data.writer.Xml": [
-    "Ext.data.XmlWriter"
-  ],
-  "Ext.slider.Multi": [
-    "Ext.slider.MultiSlider"
-  ],
-  "Ext.panel.AbstractPanel": [],
-  "Ext.ux.event.Maker": [],
-  "Ext.layout.component.field.Slider": [],
+  "Ext.ux.grid.filter.Filter": [],
+  "foodprint.controller.WorkstationGridController": [],
+  "foodprint.view.TrcRptGrid": [],
+  "Ext.ux.GroupTabRenderer": [],
+  "foodprint.model.batchChangeHist": [],
+  "foodprint.view.BatchEditorCt": [],
+  "foodprint.controller.WorkstationEditorController": [],
+  "foodprint.view.ReportGrid": [],
+  "Ext.ux.FieldReplicator": [],
+  "foodprint.view.BatchExtendPanel": [],
+  "ExtThemeNeptune.panel.Panel": [],
+  "Ext.ux.grid.filter.ListFilter": [],
+  "foodprint.controller.ItemGridController": [],
+  "foodprint.view.ParamEditorCt": [],
   "foodprint.model.BatchTrcRptRowImg": [],
-  "Ext.chart.axis.Numeric": [
-    "Ext.chart.NumericAxis"
+  "foodprint.model.batchTrcRpt": [],
+  "foodprint.store.TrcRptBodyStore": [],
+  "foodprint.view.ItemGrid": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
+  "foodprint.model.Item": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
+  "foodprint.model.Param": [],
+  "ExtThemeNeptune.tab.Tab": [],
+  "foodprint.store.TrcRptImgStroe": [],
+  "Ext.ux.GMapPanel": [],
+  "foodprint.store.TrcRptBodyDet": [],
+  "Ext.ux.GroupTabPanel": [],
+  "Ext.ux.DataView.LabelEditor": [],
+  "foodprint.view.ParamViewer": [],
+  "foodprint.model.ItemParams": [],
+  "foodprint.model.batch": [],
+  "foodprint.view.MainContainer": [],
+  "Ext.ux.grid.filter.StringFilter": [],
+  "Ext.ux.statusbar.ValidationStatus": [],
+  "Ext.ux.layout.Center": [],
+  "foodprint.store.TrcRptBody": [],
+  "foodprint.store.BatchTrcRptRowImgStore": [],
+  "Ext.ux.DataView.Animated": [],
+  "foodprint.controller.LoginController": [],
+  "foodprint.view.ParamGrid": [],
+  "ExtThemeNeptune.resizer.Splitter": [],
+  "foodprint.view.BatchEditor": [],
+  "foodprint.model.TrcRptBody": [],
+  "foodprint.model.TrcRpt": [],
+  "foodprint.view.ReportViewer": [],
+  "Ext.ux.statusbar.StatusBar": [
+    "Ext.ux.StatusBar"
   ],
-  "Ext.layout.container.boxOverflow.Scroller": [
-    "Ext.layout.boxOverflow.Scroller"
+  "foodprint.controller.ItemViewerController": [],
+  "foodprint.store.TrcRptBodyDetStore": [],
+  "foodprint.controller.WorkstationViewerController": [],
+  "foodprint.store.ParamStore": [],
+  "foodprint.view.ImageEditorToolbar": [],
+  "foodprint.view.TrcRptEditorCt": [],
+  "ExtThemeNeptune.layout.component.Dock": [],
+  "foodprint.model.TrcRptImg": [],
+  "foodprint.store.ReportStore": [],
+  "Ext.ux.grid.menu.RangeMenu": [],
+  "Ext.ux.RowExpander": [],
+  "foodprint.view.TrcRptViewer": [],
+  "Ext.ux.event.Player": [],
+  "foodprint.view.SaveBtn": [],
+  "ExtThemeNeptune.panel.Tool": [],
+  "Ext.ux.ToolbarDroppable": [],
+  "foodprint.view.LoginContainer": [],
+  "Ext.ux.event.Maker": [],
+  "foodprint.view.WrokstationViewer": [],
+  "foodprint.controller.BatchEditorController": [],
+  "Ext.ux.DataView.Draggable": [],
+  "foodprint.view.TrcRptEditor": [],
+  "Ext.ux.TabCloseMenu": [],
+  "foodprint.view.ReportEditorCt": [],
+  "foodprint.view.WorkstationEditorCt": [],
+  "foodprint.model.BatchTrcRptCol": [],
+  "Ext.ux.DataTip": [],
+  "Ext.ux.grid.filter.DateTimeFilter": [],
+  "Ext.ux.form.ItemSelector": [
+    "Ext.ux.ItemSelector"
   ],
-  "Ext.data.Operation": [],
-  "Ext.resizer.Resizer": [
-    "Ext.Resizable"
-  ],
-  "Ext.layout.container.HBox": [
-    "Ext.layout.HBoxLayout"
-  ],
-  "foodprint.view.CreateBtn": [],
-  "Ext.selection.RowModel": [],
-  "Ext.layout.ContextItem": [],
-  "ExtThemeNeptune.Component": [],
-  "Ext.util.MixedCollection": []
+  "foodprint.model.Wroksation": [],
+  "Ext.ux.ajax.JsonSimlet": [],
+  "foodprint.view.ReportEditor": [],
+  "Ext.ux.Spotlight": [],
+  "ExtThemeNeptune.form.field.HtmlEditor": [],
+  "Ext.ux.grid.FiltersFeature": [],
+  "ExtThemeNeptune.Component": []
 });
 Ext.ClassManager.addNameAliasMappings({
-  "foodprint.store.BatchChangeHistStore": [],
-  "Ext.draw.engine.ImageExporter": [],
-  "Ext.layout.component.Auto": [
-    "layout.autocomponent"
+  "foodprint.store.WorkstationStore": [],
+  "ExtThemeNeptune.container.ButtonGroup": [],
+  "foodprint.view.ItemEditor": [
+    "widget.itemeditor"
   ],
-  "Ext.grid.property.Store": [],
-  "Ext.layout.container.Box": [
-    "layout.box"
-  ],
-  "foodprint.view.UploadBtn": [
-    "widget.uploadbtn"
-  ],
-  "Ext.rtl.resizer.BorderSplitterTracker": [],
-  "Ext.direct.JsonProvider": [
-    "direct.jsonprovider"
-  ],
-  "foodprint.view.BatchGrid": [
-    "widget.batchgrid"
-  ],
-  "Ext.tree.Panel": [
-    "widget.treepanel"
-  ],
-  "Ext.data.Model": [],
-  "foodprint.store.IndTrcRptColStore": [],
-  "Ext.data.reader.Reader": [],
-  "foodprint.store.batchTrcRptStore": [],
-  "Ext.tab.Tab": [
-    "widget.tab"
-  ],
-  "foodprint.model.TrcRptImg": [],
-  "Ext.button.Button": [
-    "widget.button"
-  ],
-  "Ext.util.Grouper": [],
-  "Ext.direct.RemotingProvider": [
-    "direct.remotingprovider"
-  ],
-  "foodprint.model.TrcRptRow": [],
-  "Ext.data.NodeInterface": [],
-  "Ext.view.NodeCache": [],
-  "Ext.grid.column.Date": [
-    "widget.datecolumn"
-  ],
-  "Ext.form.field.Trigger": [
-    "widget.trigger",
-    "widget.triggerfield"
-  ],
-  "Ext.grid.plugin.RowEditing": [
-    "plugin.rowediting"
-  ],
-  "Ext.tip.QuickTip": [
-    "widget.quicktip"
-  ],
-  "Ext.rtl.grid.plugin.HeaderResizer": [],
-  "Ext.form.action.Load": [
-    "formaction.load"
-  ],
-  "Ext.form.field.ComboBox": [
-    "widget.combo",
-    "widget.combobox"
-  ],
-  "Ext.layout.container.Border": [
-    "layout.border"
-  ],
-  "Ext.rtl.layout.container.Column": [],
-  "Ext.data.JsonPStore": [
-    "store.jsonp"
-  ],
-  "Ext.ux.ajax.Simlet": [
-    "simlet.basic"
-  ],
-  "foodprint.model.ItemImage": [],
-  "Ext.layout.component.field.TextArea": [
-    "layout.textareafield"
-  ],
-  "Ext.layout.container.Container": [
-    "layout.container"
-  ],
-  "Ext.util.Sortable": [],
-  "Ext.selection.Model": [],
-  "Ext.draw.CompositeSprite": [],
-  "foodprint.store.IndTrcRptRowStore": [],
-  "foodprint.store.ItemParamsStore": [],
-  "Ext.fx.Queue": [],
-  "Ext.dd.StatusProxy": [],
-  "Ext.form.field.Checkbox": [
-    "widget.checkbox",
-    "widget.checkboxfield"
-  ],
-  "Ext.direct.Transaction": [
-    "direct.transaction"
-  ],
-  "Ext.util.Offset": [],
-  "Ext.container.Monitor": [],
-  "Ext.view.DragZone": [],
-  "Ext.util.KeyNav": [],
-  "Ext.rtl.dom.Element_static": [],
-  "ExtThemeNeptune.menu.Separator": [],
-  "Ext.form.field.File": [
-    "widget.filefield",
-    "widget.fileuploadfield"
-  ],
-  "Ext.ux.IFrame": [
-    "widget.uxiframe"
-  ],
-  "Ext.slider.Single": [
-    "widget.slider",
-    "widget.sliderfield"
-  ],
-  "Ext.panel.Proxy": [],
-  "foodprint.view.MainViewport": [],
-  "Ext.fx.target.Target": [],
-  "Ext.ComponentManager": [],
-  "foodprint.view.IndTrcRptEditor": [],
-  "Ext.grid.feature.GroupingSummary": [
-    "feature.groupingsummary"
-  ],
-  "Ext.grid.property.HeaderContainer": [],
-  "foodprint.view.SaveBtn": [
-    "widget.savebtn"
-  ],
-  "Ext.layout.component.BoundList": [
-    "layout.boundlist"
-  ],
-  "Ext.tab.Bar": [
-    "widget.tabbar"
-  ],
-  "Ext.app.Application": [],
-  "Ext.layout.container.Accordion": [
-    "layout.accordion"
-  ],
-  "Ext.ShadowPool": [],
-  "Ext.grid.locking.HeaderContainer": [],
-  "Ext.resizer.ResizeTracker": [],
-  "foodprint.model.batch": [],
-  "Ext.panel.Tool": [
-    "widget.tool"
-  ],
-  "Ext.layout.container.boxOverflow.None": [],
-  "Ext.tree.View": [
-    "widget.treeview"
-  ],
-  "Ext.ElementLoader": [],
-  "Ext.grid.ColumnComponentLayout": [
-    "layout.columncomponent"
-  ],
-  "Ext.toolbar.Separator": [
-    "widget.tbseparator"
-  ],
-  "Ext.dd.DragZone": [],
-  "Ext.util.Renderable": [],
-  "Ext.layout.component.FieldSet": [
-    "layout.fieldset"
-  ],
-  "Ext.util.Bindable": [],
-  "Ext.data.SortTypes": [],
-  "foodprint.store.TrcRptRowImgStore": [],
-  "foodprint.store.TrcRptRow": [],
-  "Ext.rtl.layout.container.HBox": [],
-  "Ext.ux.FieldReplicator": [],
-  "foodprint.view.ItemGrid": [
-    "widget.itemgrid"
-  ],
-  "Ext.util.Animate": [],
-  "Ext.data.flash.BinaryXhr": [],
-  "Ext.form.field.Date": [
-    "widget.datefield"
-  ],
-  "Ext.ux.dd.PanelFieldDragZone": [],
-  "Ext.Component": [
-    "widget.box",
-    "widget.component"
-  ],
-  "Ext.chart.axis.Axis": [],
-  "Ext.menu.DatePicker": [
-    "widget.datemenu"
-  ],
-  "Ext.fx.target.CompositeSprite": [],
-  "Ext.ux.GroupTabPanel": [
-    "widget.grouptabpanel"
-  ],
-  "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.form.field.Picker": [
-    "widget.pickerfield"
-  ],
-  "Ext.fx.Animator": [],
-  "Ext.ux.layout.Center": [
-    "layout.ux.center"
-  ],
-  "Ext.Ajax": [],
-  "Ext.layout.component.Dock": [
-    "layout.dock"
-  ],
-  "Ext.util.Filter": [],
-  "foodprint.store.BatchTrcRptRowImgStore": [],
-  "Ext.dd.DragDrop": [],
-  "Ext.view.View": [
-    "widget.dataview"
-  ],
-  "Ext.data.association.BelongsTo": [
-    "association.belongsto"
-  ],
-  "Ext.fx.target.Element": [],
-  "Ext.draw.Surface": [],
-  "Ext.dd.DDProxy": [],
-  "Ext.data.AbstractStore": [],
-  "Ext.grid.plugin.BufferedRendererTreeView": [],
-  "Ext.grid.locking.View": [],
-  "ExtThemeNeptune.layout.component.Dock": [],
-  "Ext.form.action.StandardSubmit": [
-    "formaction.standardsubmit"
-  ],
-  "Ext.diag.layout.Context": [],
-  "Ext.dd.Registry": [],
-  "Ext.ux.event.Player": [],
-  "Ext.picker.Month": [
-    "widget.monthpicker"
-  ],
-  "Ext.menu.Manager": [],
-  "Ext.container.Container": [
-    "widget.container"
-  ],
-  "Ext.rtl.form.field.Spinner": [],
-  "Ext.util.KeyMap": [],
-  "Ext.ux.ToolbarDroppable": [],
-  "Ext.data.Batch": [],
-  "Ext.resizer.Handle": [],
-  "Ext.util.ElementContainer": [],
-  "Ext.grid.feature.Grouping": [
-    "feature.grouping"
-  ],
-  "foodprint.view.ItemViewer": [
-    "widget.itemviewer"
-  ],
-  "Ext.tab.Panel": [
-    "widget.tabpanel"
-  ],
-  "Ext.ux.TabCloseMenu": [
-    "plugin.tabclosemenu"
-  ],
-  "Ext.layout.Context": [],
-  "Ext.layout.component.Body": [
-    "layout.body"
-  ],
-  "Ext.ux.grid.filter.DateTimeFilter": [
-    "gridfilter.datetime"
-  ],
-  "Ext.layout.component.field.ComboBox": [
-    "layout.combobox"
-  ],
-  "Ext.dd.DDTarget": [],
-  "Ext.chart.Chart": [
-    "widget.chart"
-  ],
-  "Ext.ux.grid.FiltersFeature": [
-    "feature.filters"
-  ],
-  "foodprint.store.TrcRptImg": [],
-  "Ext.data.Field": [
-    "data.field"
-  ],
-  "Ext.form.field.FileButton": [
-    "widget.filebutton"
-  ],
-  "Ext.chart.series.Gauge": [
-    "series.gauge"
-  ],
-  "Ext.data.StoreManager": [],
-  "Ext.data.IdGenerator": [],
-  "Ext.tip.QuickTipManager": [],
-  "Ext.grid.plugin.Editing": [
-    "editing.editing"
-  ],
-  "foodprint.store.IndTrcRptStore": [],
-  "Ext.state.LocalStorageProvider": [
-    "state.localstorage"
-  ],
-  "Ext.grid.RowEditor": [
-    "widget.roweditor"
-  ],
+  "foodprint.model.IndTcrRptRowImg": [],
+  "Ext.ux.ajax.DataSimlet": [],
   "Ext.ux.grid.TransformGrid": [],
-  "Ext.app.EventDomain": [],
-  "Ext.form.action.Action": [],
+  "foodprint.store.batchTrcRptStore": [],
+  "foodprint.store.TrcRptRowImgStore": [],
+  "foodprint.model.IndTrcRpt": [],
+  "foodprint.store.BatchChangeHistStore": [],
+  "foodprint.view.WorkstationGrid": [
+    "widget.workstationgrid"
+  ],
+  "ExtThemeNeptune.toolbar.Paging": [],
   "foodprint.model.TrcRptRowImg": [],
-  "Ext.fx.Easing": [],
-  "Ext.ProgressBar": [
-    "widget.progressbar"
-  ],
-  "Ext.tree.ViewDragZone": [],
-  "Ext.data.reader.Array": [
-    "reader.array"
-  ],
-  "Ext.picker.Date": [
-    "widget.datepicker"
-  ],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
   ],
-  "Ext.rtl.grid.column.Column": [],
-  "foodprint.model.IndTcrRptRowImg": [],
-  "Ext.data.proxy.JsonP": [
-    "proxy.jsonp",
-    "proxy.scripttag"
+  "foodprint.view.DeleteBtn": [
+    "widget.deletebtn"
   ],
-  "foodprint.view.TrcRptEditor": [],
-  "Ext.chart.series.Area": [
-    "series.area"
+  "foodprint.controller.BatchViewerController": [],
+  "Ext.ux.DataView.DragSelector": [],
+  "Ext.ux.grid.menu.ListMenu": [],
+  "foodprint.view.CreateBtn": [
+    "widget.createbtn"
   ],
-  "Ext.fx.Anim": [],
-  "Ext.menu.Item": [
-    "widget.menuitem"
-  ],
-  "foodprint.model.Item": [],
-  "Ext.rtl.dom.Element_position": [],
-  "Ext.chart.Legend": [],
-  "foodprint.store.ItemImageStore": [],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselect",
     "widget.multiselectfield"
   ],
-  "Ext.grid.plugin.HeaderReorderer": [
-    "plugin.gridheaderreorderer"
-  ],
-  "Ext.rtl.view.Table": [],
-  "Ext.layout.container.VBox": [
-    "layout.vbox"
-  ],
-  "Ext.rtl.util.Floating": [],
-  "foodprint.view.LoginContainer": [
-    "widget.logincontainer1"
-  ],
-  "Ext.view.DropZone": [],
-  "Ext.rtl.tree.Column": [],
-  "Ext.layout.component.Button": [
-    "layout.button"
-  ],
-  "Ext.form.field.Hidden": [
-    "widget.hidden",
-    "widget.hiddenfield"
-  ],
-  "Ext.form.FieldContainer": [
-    "widget.fieldcontainer"
-  ],
-  "Ext.rtl.grid.plugin.RowEditing": [],
-  "foodprint.controller.ItemGridController": [],
-  "Ext.ux.event.RecorderManager": [
-    "widget.eventrecordermanager"
-  ],
-  "foodprint.controller.ItemEditorController": [],
-  "Ext.data.proxy.Server": [
-    "proxy.server"
-  ],
-  "Ext.chart.series.Cartesian": [],
-  "foodprint.store.ItemStore": [],
-  "Ext.rtl.layout.component.Dock": [],
-  "Ext.grid.column.Column": [
-    "widget.gridcolumn"
-  ],
-  "Ext.data.ResultSet": [],
-  "Ext.data.association.HasMany": [
-    "association.hasmany"
-  ],
-  "Ext.layout.container.Fit": [
-    "layout.fit"
-  ],
-  "Ext.util.CSS": [],
-  "Ext.rtl.AbstractComponent": [],
-  "Ext.layout.component.field.Field": [
-    "layout.field"
-  ],
-  "Ext.data.proxy.Ajax": [
-    "proxy.ajax"
-  ],
-  "Ext.rtl.EventObjectImpl": [],
-  "Ext.app.domain.Component": [],
-  "Ext.form.Label": [
-    "widget.label"
-  ],
-  "Ext.data.writer.Writer": [
-    "writer.base"
-  ],
-  "Ext.view.BoundListKeyNav": [],
-  "Ext.form.FieldSet": [
-    "widget.fieldset"
-  ],
-  "foodprint.view.ItemEditor": [
-    "widget.itemeditor"
-  ],
-  "Ext.form.field.VTypes": [],
-  "Ext.fx.PropertyHandler": [],
-  "Ext.form.CheckboxGroup": [
-    "widget.checkboxgroup"
-  ],
-  "Ext.data.JsonP": [],
-  "Ext.draw.engine.Vml": [],
+  "foodprint.store.BatchStore": [],
   "foodprint.view.BatchViewer": [
     "widget.batchviewer"
   ],
-  "Ext.layout.container.CheckboxGroup": [
-    "layout.checkboxgroup"
-  ],
-  "Ext.app.domain.Direct": [],
-  "Ext.panel.Header": [
-    "widget.header"
-  ],
-  "Ext.ux.TabScrollerMenu": [
-    "plugin.tabscrollermenu"
-  ],
-  "Ext.app.Controller": [],
-  "Ext.rtl.dom.Layer": [],
-  "Ext.grid.plugin.CellEditing": [
-    "plugin.cellediting"
-  ],
-  "Ext.form.field.Time": [
-    "widget.timefield"
-  ],
-  "Ext.fx.CubicBezier": [],
-  "Ext.ux.LiveSearchGridPanel": [],
-  "Ext.button.Cycle": [
-    "widget.cycle"
-  ],
-  "Ext.app.domain.Global": [],
-  "Ext.ux.grid.filter.DateFilter": [
-    "gridfilter.date"
-  ],
-  "foodprint.model.IndTrcRptCol": [],
-  "Ext.data.Tree": [
-    "data.tree"
-  ],
-  "Ext.ModelManager": [],
-  "Ext.data.XmlStore": [
-    "store.xml"
-  ],
-  "Ext.grid.ViewDropZone": [],
-  "foodprint.store.ItemTrcRptStore": [],
-  "Ext.ux.BoxReorderer": [],
-  "Ext.rtl.slider.Multi": [],
-  "Ext.grid.header.DropZone": [],
-  "Ext.rtl.layout.component.field.Text": [],
-  "Ext.util.HashMap": [],
-  "foodprint.view.StdEditorToolbar": [
-    "widget.stdeditortoolbar"
-  ],
-  "Ext.grid.column.Template": [
-    "widget.templatecolumn"
-  ],
-  "Ext.ComponentLoader": [],
-  "Ext.form.FieldAncestor": [],
-  "Ext.app.domain.Controller": [],
-  "Ext.chart.axis.Gauge": [
-    "axis.gauge"
-  ],
-  "Ext.data.validations": [],
-  "ExtThemeNeptune.toolbar.Toolbar": [],
-  "Ext.data.Connection": [],
-  "Ext.resizer.Splitter": [
-    "widget.splitter"
-  ],
-  "Ext.dd.DropZone": [],
-  "Ext.direct.ExceptionEvent": [
-    "direct.exception"
-  ],
-  "Ext.form.RadioManager": [],
-  "Ext.data.association.HasOne": [
-    "association.hasone"
-  ],
-  "Ext.draw.Text": [
-    "widget.text"
-  ],
-  "foodprint.view.TrcRptViewer": [
-    "widget.trcrptviewer"
-  ],
-  "Ext.window.MessageBox": [
-    "widget.messagebox"
-  ],
-  "Ext.fx.target.CompositeElementCSS": [],
-  "Ext.diag.layout.ContextItem": [],
-  "Ext.ux.grid.filter.StringFilter": [
-    "gridfilter.string"
-  ],
-  "Ext.rtl.layout.ContextItem": [],
-  "Ext.chart.series.Line": [
-    "series.line"
-  ],
-  "Ext.view.Table": [
-    "widget.tableview"
-  ],
+  "foodprint.model.ItemTrcRpt": [],
   "foodprint.model.BatchParams": [],
-  "Ext.fx.target.CompositeElement": [],
-  "Ext.fx.Manager": [],
-  "Ext.data.writer.Json": [
-    "writer.json"
-  ],
-  "Ext.chart.Label": [],
-  "Ext.grid.View": [
-    "widget.gridview"
-  ],
-  "foodprint.view.PickToolbar": [
-    "widget.picktoolbar"
-  ],
-  "Ext.Action": [],
-  "Ext.form.Basic": [],
-  "Ext.container.Viewport": [
-    "widget.viewport"
-  ],
-  "foodprint.model.ItemParams": [],
-  "foodprint.store.TrcRptCol": [],
-  "Ext.state.Stateful": [],
-  "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.grid.feature.RowBody": [
-    "feature.rowbody"
-  ],
-  "Ext.form.field.Text": [
-    "widget.textfield"
-  ],
-  "Ext.rtl.layout.component.field.Trigger": [],
-  "Ext.data.reader.Xml": [
-    "reader.xml"
-  ],
-  "Ext.grid.feature.AbstractSummary": [
-    "feature.abstractsummary"
-  ],
-  "Ext.chart.axis.Category": [
-    "axis.category"
-  ],
-  "Ext.rtl.layout.container.boxOverflow.Scroller": [],
-  "Ext.grid.plugin.BufferedRendererTableView": [],
-  "Ext.layout.container.Absolute": [
-    "layout.absolute"
-  ],
-  "Ext.rtl.layout.container.Box": [],
-  "Ext.data.reader.Json": [
-    "reader.json"
-  ],
-  "Ext.util.TextMetrics": [],
-  "Ext.data.TreeStore": [
-    "store.tree"
-  ],
-  "Ext.view.BoundList": [
-    "widget.boundlist"
-  ],
-  "Ext.form.field.HtmlEditor": [
-    "widget.htmleditor"
-  ],
-  "Ext.layout.container.Form": [
-    "layout.form"
-  ],
-  "Ext.chart.MaskLayer": [],
-  "Ext.ux.DataTip": [
-    "plugin.datatip"
-  ],
-  "Ext.ux.ajax.JsonSimlet": [
-    "simlet.json"
-  ],
-  "ExtThemeNeptune.form.field.HtmlEditor": [],
-  "Ext.resizer.BorderSplitterTracker": [],
-  "Ext.util.LruCache": [],
-  "Ext.tip.Tip": [],
-  "Ext.grid.column.CheckColumn": [
-    "widget.checkcolumn"
-  ],
-  "ExtThemeNeptune.container.ButtonGroup": [],
-  "Ext.rtl.resizer.SplitterTracker": [],
-  "Ext.grid.feature.RowWrap": [
-    "feature.rowwrap"
-  ],
-  "Ext.data.proxy.Client": [],
-  "foodprint.model.IndTrcRptRow": [],
-  "Ext.data.Types": [],
-  "Ext.draw.SpriteDD": [],
-  "Ext.layout.container.boxOverflow.Menu": [],
-  "ExtThemeNeptune.toolbar.Paging": [],
-  "Ext.LoadMask": [
-    "widget.loadmask"
-  ],
-  "Ext.rtl.grid.RowEditor": [],
-  "Ext.toolbar.Paging": [
-    "widget.pagingtoolbar"
-  ],
-  "Ext.data.association.Association": [],
-  "Ext.tree.ViewDropZone": [],
-  "Ext.toolbar.Toolbar": [
-    "widget.toolbar"
-  ],
-  "Ext.tip.ToolTip": [
-    "widget.tooltip"
-  ],
-  "Ext.ux.DataView.DragSelector": [],
-  "Ext.chart.Highlight": [],
-  "Ext.state.Manager": [],
-  "Ext.ux.grid.menu.ListMenu": [],
-  "Ext.util.Inflector": [],
-  "Ext.grid.Panel": [
-    "widget.grid",
-    "widget.gridpanel"
-  ],
-  "Ext.data.NodeStore": [
-    "store.node"
-  ],
-  "Ext.Shadow": [],
-  "Ext.form.action.Submit": [
-    "formaction.submit"
-  ],
-  "Ext.form.Panel": [
-    "widget.form"
-  ],
-  "Ext.chart.series.Series": [],
+  "foodprint.store.BatchTrcRptColStore": [],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
-  "Ext.data.Request": [],
-  "foodprint.view.ImageEditorToolbar": [
-    "widget.imageeditortoolbar"
+  "foodprint.view.BatchGrid": [
+    "widget.batchgrid"
   ],
+  "foodprint.model.IndTrcRptCol": [],
   "Ext.ux.ajax.SimXhr": [],
-  "Ext.dd.DD": [],
+  "Ext.ux.event.RecorderManager": [
+    "widget.eventrecordermanager"
+  ],
+  "Ext.ux.ProgressBarPager": [],
   "Ext.ux.CellDragDrop": [
     "plugin.celldragdrop"
   ],
-  "Ext.toolbar.Fill": [
-    "widget.tbfill"
-  ],
-  "Ext.grid.RowNumberer": [
-    "widget.rownumberer"
+  "Ext.ux.ajax.Simlet": [
+    "simlet.basic"
   ],
   "Ext.ux.SlidingPager": [],
-  "Ext.data.proxy.WebStorage": [],
-  "Ext.util.Floating": [],
   "Ext.ux.TabReorderer": [],
-  "Ext.form.action.DirectSubmit": [
-    "formaction.directsubmit"
-  ],
   "Ext.ux.grid.filter.NumericFilter": [
     "gridfilter.numeric"
   ],
-  "Ext.util.Cookies": [],
+  "foodprint.store.ItemStore": [],
+  "foodprint.store.IndTrcRptStore": [],
   "ExtThemeNeptune.panel.Table": [],
-  "Ext.data.UuidGenerator": [
-    "idgen.uuid"
-  ],
-  "Ext.util.Point": [],
-  "Ext.fx.target.Component": [],
-  "Ext.form.CheckboxManager": [],
+  "foodprint.store.IndTrcRptRowStore": [],
   "Ext.ux.event.Recorder": [],
-  "Ext.form.field.Field": [],
-  "Ext.form.field.Display": [
-    "widget.displayfield"
+  "foodprint.model.Report": [],
+  "foodprint.view.ParamEditor": [
+    "widget.parameditor"
   ],
-  "Ext.layout.container.Anchor": [
-    "layout.anchor"
+  "foodprint.view.BatchTrcRptDisplay": [],
+  "foodprint.controller.BatchGridController": [],
+  "foodprint.view.ItemViewer": [
+    "widget.itemviewer"
   ],
-  "foodprint.view.ListToolbar": [
-    "widget.listtoolbar"
+  "foodprint.view.Viewport": [],
+  "foodprint.store.IndTrcRptColStore": [],
+  "Ext.ux.ajax.SimManager": [],
+  "foodprint.store.TrcRptStore": [],
+  "foodprint.view.PickToolbar": [
+    "widget.picktoolbar"
   ],
-  "Ext.layout.component.field.Text": [
-    "layout.textfield"
-  ],
-  "Ext.data.DirectStore": [
-    "store.direct"
-  ],
+  "foodprint.store.ItemImageStore": [],
   "Ext.ux.grid.filter.BooleanFilter": [
     "gridfilter.boolean"
   ],
-  "Ext.dom.Layer": [],
-  "foodprint.model.ItemTrcRpt": [],
-  "foodprint.view.MainContainer": [
-    "widget.maincontainer"
+  "foodprint.view.ItemEditorCt": [
+    "widget.itemeditorct"
   ],
-  "Ext.grid.RowEditorButtons": [
-    "widget.roweditorbuttons"
+  "foodprint.controller.ItemEditorController": [],
+  "foodprint.view.MainViewport": [],
+  "foodprint.model.TrcRptBodyDet": [],
+  "Ext.ux.TabScrollerMenu": [
+    "plugin.tabscrollermenu"
   ],
-  "Ext.data.BufferStore": [
-    "store.buffer"
+  "ExtThemeNeptune.menu.Separator": [],
+  "foodprint.view.UploadBtn": [
+    "widget.uploadbtn"
   ],
+  "Ext.ux.IFrame": [
+    "widget.uxiframe"
+  ],
+  "foodprint.view.WorkstationEditor": [
+    "widget.workstationeditor"
+  ],
+  "foodprint.store.ItemParamsStore": [],
+  "foodprint.store.IndTrcRptRowImgStore": [],
+  "foodprint.view.IndTrcRptEditor": [],
   "Ext.ux.form.SearchField": [
     "widget.searchfield"
   ],
   "Ext.ux.dd.CellFieldDropZone": [],
-  "Ext.grid.plugin.DivRenderer": [
-    "plugin.divrenderer"
+  "foodprint.store.BatchParamsStore": [],
+  "Ext.ux.LiveSearchGridPanel": [],
+  "foodprint.store.ItemTrcRptStore": [],
+  "Ext.ux.grid.filter.DateFilter": [
+    "gridfilter.date"
   ],
-  "Ext.grid.ColumnLayout": [
-    "layout.gridcolumn"
+  "foodprint.model.IndTrcRptRow": [],
+  "foodprint.view.ReadBtn": [
+    "widget.readbtn"
   ],
-  "Ext.chart.series.Column": [
-    "series.column"
+  "foodprint.view.StdEditorToolbar": [
+    "widget.stdeditortoolbar"
   ],
-  "Ext.AbstractComponent": [],
-  "Ext.flash.Component": [
-    "widget.flash"
+  "Ext.ux.TreePicker": [
+    "widget.treepicker"
   ],
-  "Ext.form.field.Base": [
-    "widget.field"
+  "foodprint.view.UpdateBtn": [
+    "widget.updatebtn"
   ],
-  "foodprint.model.TrcRptCol": [],
+  "foodprint.model.ItemImage": [],
   "ExtThemeNeptune.grid.RowEditor": [],
-  "Ext.grid.feature.GroupStore": [],
-  "Ext.data.SequentialIdGenerator": [
-    "idgen.sequential"
+  "ExtThemeNeptune.picker.Month": [],
+  "Ext.ux.data.PagingMemoryProxy": [
+    "proxy.pagingmemory"
   ],
-  "Ext.grid.header.Container": [
-    "widget.headercontainer"
+  "foodprint.view.ItemExtendPanel": [
+    "widget.mytabpanel"
   ],
-  "Ext.container.ButtonGroup": [
-    "widget.buttongroup"
+  "ExtThemeNeptune.menu.Menu": [],
+  "Ext.ux.BoxReorderer": [],
+  "foodprint.store.BatchTrcRptRowStore": [],
+  "foodprint.model.BatchTrcRptRow": [],
+  "Ext.ux.grid.filter.Filter": [],
+  "foodprint.controller.WorkstationGridController": [],
+  "foodprint.view.TrcRptGrid": [
+    "widget.trcrptgrid"
   ],
-  "Ext.grid.column.Action": [
-    "widget.actioncolumn"
+  "Ext.ux.GroupTabRenderer": [
+    "plugin.grouptabrenderer"
   ],
-  "Ext.layout.component.field.Trigger": [
-    "layout.triggerfield"
+  "foodprint.model.batchChangeHist": [],
+  "foodprint.view.BatchEditorCt": [
+    "widget.batcheditorct"
   ],
-  "Ext.layout.component.field.FieldContainer": [
-    "layout.fieldcontainer"
+  "foodprint.controller.WorkstationEditorController": [],
+  "foodprint.view.ReportGrid": [
+    "widget.reportgrid"
   ],
-  "Ext.chart.Shape": [],
-  "Ext.panel.DD": [],
-  "Ext.container.AbstractContainer": [],
+  "Ext.ux.FieldReplicator": [],
+  "foodprint.view.BatchExtendPanel": [
+    "widget.mytabpanel1"
+  ],
+  "ExtThemeNeptune.panel.Panel": [],
   "Ext.ux.grid.filter.ListFilter": [
     "gridfilter.list"
   ],
-  "Ext.data.ArrayStore": [
-    "store.array"
+  "foodprint.controller.ItemGridController": [],
+  "foodprint.view.ParamEditorCt": [
+    "widget.parameditorct"
   ],
-  "foodprint.view.Viewport": [],
-  "Ext.window.Window": [
-    "widget.window"
+  "foodprint.model.BatchTrcRptRowImg": [],
+  "foodprint.model.batchTrcRpt": [],
+  "foodprint.store.TrcRptBodyStore": [],
+  "foodprint.view.ItemGrid": [
+    "widget.itemgrid"
   ],
-  "foodprint.controller.LoginController": [],
-  "Ext.picker.Color": [
-    "widget.colorpicker"
-  ],
-  "Ext.grid.feature.Feature": [
-    "feature.feature"
-  ],
+  "Ext.ux.dd.PanelFieldDragZone": [],
+  "foodprint.model.Item": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
+  "foodprint.model.Param": [],
+  "ExtThemeNeptune.tab.Tab": [],
+  "foodprint.store.TrcRptImgStroe": [],
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
   ],
-  "Ext.chart.theme.Theme": [],
-  "Ext.util.ClickRepeater": [],
-  "foodprint.store.BatchStore": [],
-  "Ext.form.field.Spinner": [
-    "widget.spinnerfield"
+  "foodprint.store.TrcRptBodyDet": [],
+  "Ext.ux.GroupTabPanel": [
+    "widget.grouptabpanel"
   ],
-  "Ext.container.DockingContainer": [],
-  "Ext.selection.DataViewModel": [],
+  "Ext.ux.DataView.LabelEditor": [],
+  "foodprint.view.ParamViewer": [
+    "widget.paramviewer"
+  ],
+  "foodprint.model.ItemParams": [],
+  "foodprint.model.batch": [],
+  "foodprint.view.MainContainer": [
+    "widget.maincontainer"
+  ],
+  "Ext.ux.grid.filter.StringFilter": [
+    "gridfilter.string"
+  ],
+  "Ext.ux.statusbar.ValidationStatus": [],
+  "Ext.ux.layout.Center": [
+    "layout.ux.center"
+  ],
+  "foodprint.store.TrcRptBody": [],
+  "foodprint.store.BatchTrcRptRowImgStore": [],
   "Ext.ux.DataView.Animated": [],
+  "foodprint.controller.LoginController": [],
+  "foodprint.view.ParamGrid": [
+    "widget.paramgrid"
+  ],
   "ExtThemeNeptune.resizer.Splitter": [],
-  "Ext.dd.DragTracker": [],
-  "Ext.data.Group": [],
-  "Ext.dd.DragDropManager": [],
-  "Ext.selection.CheckboxModel": [
-    "selection.checkboxmodel"
+  "foodprint.view.BatchEditor": [
+    "widget.batcheditor"
   ],
-  "Ext.menu.KeyNav": [],
-  "Ext.layout.container.Column": [
-    "layout.column"
+  "foodprint.model.TrcRptBody": [],
+  "foodprint.model.TrcRpt": [],
+  "foodprint.view.ReportViewer": [
+    "widget.reportviewer"
   ],
-  "Ext.draw.Matrix": [],
-  "Ext.form.field.Number": [
-    "widget.numberfield"
-  ],
-  "Ext.rtl.util.Renderable": [],
   "Ext.ux.statusbar.StatusBar": [
     "widget.statusbar"
   ],
-  "foodprint.store.IndTrcRptRowImgStore": [],
-  "Ext.data.proxy.Direct": [
-    "proxy.direct"
+  "foodprint.controller.ItemViewerController": [],
+  "foodprint.store.TrcRptBodyDetStore": [],
+  "foodprint.controller.WorkstationViewerController": [],
+  "foodprint.store.ParamStore": [],
+  "foodprint.view.ImageEditorToolbar": [
+    "widget.imageeditortoolbar"
   ],
-  "Ext.chart.Navigation": [],
-  "Ext.slider.Tip": [
-    "widget.slidertip"
+  "foodprint.view.TrcRptEditorCt": [],
+  "ExtThemeNeptune.layout.component.Dock": [],
+  "foodprint.model.TrcRptImg": [],
+  "foodprint.store.ReportStore": [],
+  "Ext.ux.grid.menu.RangeMenu": [],
+  "Ext.ux.RowExpander": [],
+  "foodprint.view.TrcRptViewer": [
+    "widget.trcrptviewer"
   ],
-  "Ext.chart.theme.Base": [],
-  "Ext.form.field.TextArea": [
-    "widget.textarea",
-    "widget.textareafield"
+  "Ext.ux.event.Player": [],
+  "foodprint.view.SaveBtn": [
+    "widget.savebtn"
+  ],
+  "ExtThemeNeptune.panel.Tool": [],
+  "Ext.ux.ToolbarDroppable": [],
+  "foodprint.view.LoginContainer": [
+    "widget.logincontainer1"
+  ],
+  "Ext.ux.event.Maker": [],
+  "foodprint.view.WrokstationViewer": [
+    "widget.workstationviewer"
+  ],
+  "foodprint.controller.BatchEditorController": [],
+  "Ext.ux.DataView.Draggable": [],
+  "foodprint.view.TrcRptEditor": [
+    "widget.trcrpteditor"
+  ],
+  "Ext.ux.TabCloseMenu": [
+    "plugin.tabclosemenu"
+  ],
+  "foodprint.view.ReportEditorCt": [
+    "widget.reporteditorct"
+  ],
+  "foodprint.view.WorkstationEditorCt": [
+    "widget.workstationeditorct"
   ],
   "foodprint.model.BatchTrcRptCol": [],
-  "Ext.rtl.layout.container.VBox": [],
-  "Ext.form.field.Radio": [
-    "widget.radio",
-    "widget.radiofield"
+  "Ext.ux.DataTip": [
+    "plugin.datatip"
   ],
-  "Ext.layout.component.ProgressBar": [
-    "layout.progressbar"
-  ],
-  "Ext.chart.series.Pie": [
-    "series.pie"
-  ],
-  "foodprint.view.BatchTrcRptDisplay": [],
-  "Ext.tree.plugin.TreeViewDragDrop": [
-    "plugin.treeviewdragdrop"
-  ],
-  "Ext.direct.Provider": [
-    "direct.provider"
-  ],
-  "Ext.data.TreeModel": [],
-  "foodprint.model.batchTrcRpt": [],
-  "Ext.layout.Layout": [],
-  "Ext.toolbar.TextItem": [
-    "widget.tbtext"
-  ],
-  "Ext.ux.DataView.Draggable": [],
-  "Ext.rtl.button.Button": [],
-  "Ext.util.AbstractMixedCollection": [],
-  "Ext.data.JsonStore": [
-    "store.json"
-  ],
-  "Ext.button.Split": [
-    "widget.splitbutton"
-  ],
-  "Ext.dd.DropTarget": [],
-  "Ext.direct.RemotingEvent": [
-    "direct.rpc"
+  "Ext.ux.grid.filter.DateTimeFilter": [
+    "gridfilter.datetime"
   ],
   "Ext.ux.form.ItemSelector": [
     "widget.itemselector",
     "widget.itemselectorfield"
   ],
-  "Ext.draw.Sprite": [],
+  "foodprint.model.Wroksation": [],
+  "Ext.ux.ajax.JsonSimlet": [
+    "simlet.json"
+  ],
+  "foodprint.view.ReportEditor": [
+    "widget.reporteditor"
+  ],
   "Ext.ux.Spotlight": [],
-  "Ext.fx.target.Sprite": [],
-  "Ext.data.proxy.LocalStorage": [
-    "proxy.localstorage"
+  "ExtThemeNeptune.form.field.HtmlEditor": [],
+  "Ext.ux.grid.FiltersFeature": [
+    "feature.filters"
   ],
-  "Ext.layout.component.Draw": [
-    "layout.draw"
-  ],
-  "Ext.AbstractPlugin": [],
-  "Ext.Editor": [
-    "widget.editor"
-  ],
-  "foodprint.store.BatchTrcRptColStore": [],
-  "Ext.chart.axis.Radial": [
-    "axis.radial"
-  ],
-  "Ext.chart.Tip": [],
-  "Ext.ux.ajax.DataSimlet": [],
-  "foodprint.model.batchChangeHist": [],
-  "Ext.layout.container.Table": [
-    "layout.table"
-  ],
-  "Ext.chart.axis.Abstract": [],
-  "Ext.data.proxy.Rest": [
-    "proxy.rest"
-  ],
-  "Ext.rtl.layout.container.Absolute": [],
-  "Ext.util.Queue": [],
-  "Ext.state.CookieProvider": [],
-  "Ext.Img": [
-    "widget.image",
-    "widget.imagecomponent"
-  ],
-  "Ext.dd.DragSource": [],
-  "Ext.grid.CellEditor": [],
-  "Ext.layout.ClassList": [],
-  "Ext.button.Manager": [],
-  "Ext.util.Sorter": [],
-  "Ext.resizer.SplitterTracker": [],
-  "foodprint.view.TrcRptGrid": [
-    "widget.trcrptgrid"
-  ],
-  "Ext.panel.Table": [
-    "widget.tablepanel"
-  ],
-  "Ext.draw.Color": [],
-  "Ext.chart.series.Bar": [
-    "series.bar"
-  ],
-  "Ext.PluginManager": [],
-  "Ext.util.ComponentDragger": [],
-  "Ext.chart.series.Scatter": [
-    "series.scatter"
-  ],
-  "Ext.chart.Callout": [],
-  "Ext.data.Store": [
-    "store.store"
-  ],
-  "Ext.grid.feature.Summary": [
-    "feature.summary"
-  ],
-  "Ext.util.ProtoElement": [],
-  "Ext.layout.component.Component": [],
-  "Ext.direct.Manager": [],
-  "Ext.data.proxy.Proxy": [
-    "proxy.proxy"
-  ],
-  "Ext.menu.CheckItem": [
-    "widget.menucheckitem"
-  ],
-  "foodprint.view.BatchEditor": [
-    "widget.batcheditor"
-  ],
-  "foodprint.view.ReadBtn": [
-    "widget.readbtn"
-  ],
-  "Ext.ux.ProgressBarPager": [],
-  "Ext.layout.container.Card": [
-    "layout.card"
-  ],
-  "Ext.draw.Component": [
-    "widget.draw"
-  ],
-  "Ext.toolbar.Item": [
-    "widget.tbitem"
-  ],
-  "Ext.form.RadioGroup": [
-    "widget.radiogroup"
-  ],
-  "Ext.rtl.tab.Bar": [],
-  "Ext.rtl.form.field.Trigger": [],
-  "Ext.slider.Thumb": [],
-  "foodprint.model.IndTrcRpt": [],
-  "Ext.grid.header.DragZone": [],
-  "Ext.rtl.resizer.ResizeTracker": [],
-  "Ext.form.action.DirectLoad": [
-    "formaction.directload"
-  ],
-  "Ext.picker.Time": [
-    "widget.timepicker"
-  ],
-  "Ext.grid.plugin.BufferedRenderer": [
-    "plugin.bufferedrenderer"
-  ],
-  "foodprint.controller.ItemViewerController": [],
-  "Ext.resizer.BorderSplitter": [
-    "widget.bordersplitter"
-  ],
-  "Ext.menu.ColorPicker": [
-    "widget.colormenu"
-  ],
-  "Ext.ZIndexManager": [],
-  "Ext.ux.ajax.SimManager": [],
-  "Ext.menu.Menu": [
-    "widget.menu"
-  ],
-  "Ext.chart.LegendItem": [],
-  "Ext.toolbar.Spacer": [
-    "widget.tbspacer"
-  ],
-  "Ext.rtl.dd.DD": [],
-  "Ext.panel.Panel": [
-    "widget.panel"
-  ],
-  "Ext.util.Memento": [],
-  "Ext.data.proxy.Memory": [
-    "proxy.memory"
-  ],
-  "Ext.app.domain.Store": [],
-  "Ext.chart.axis.Time": [
-    "axis.time"
-  ],
-  "Ext.grid.plugin.DragDrop": [
-    "plugin.gridviewdragdrop"
-  ],
-  "Ext.ComponentQuery": [],
-  "Ext.draw.engine.SvgExporter": [],
-  "Ext.layout.container.Auto": [
-    "layout.auto",
-    "layout.autocontainer"
-  ],
-  "foodprint.store.BatchTrcRptRowStore": [],
-  "Ext.grid.locking.Lockable": [],
-  "Ext.ux.TreePicker": [
-    "widget.treepicker"
-  ],
-  "Ext.view.AbstractView": [],
-  "Ext.util.Region": [],
-  "ExtThemeNeptune.picker.Month": [],
-  "Ext.draw.Draw": [],
-  "Ext.fx.target.ElementCSS": [],
-  "Ext.ux.data.PagingMemoryProxy": [
-    "proxy.pagingmemory"
-  ],
-  "ExtThemeNeptune.menu.Menu": [],
-  "Ext.rtl.panel.Panel": [],
-  "Ext.ux.grid.filter.Filter": [],
-  "Ext.layout.component.field.HtmlEditor": [
-    "layout.htmleditor"
-  ],
-  "Ext.ux.GroupTabRenderer": [
-    "plugin.grouptabrenderer"
-  ],
-  "Ext.data.proxy.SessionStorage": [
-    "proxy.sessionstorage"
-  ],
-  "Ext.app.EventBus": [],
-  "Ext.menu.Separator": [
-    "widget.menuseparator"
-  ],
-  "ExtThemeNeptune.panel.Panel": [],
-  "Ext.util.History": [],
-  "Ext.direct.Event": [
-    "direct.event"
-  ],
-  "Ext.direct.RemotingMethod": [],
-  "Ext.dd.ScrollManager": [],
-  "Ext.chart.Mask": [],
-  "Ext.rtl.dom.Element_anim": [],
-  "Ext.selection.CellModel": [
-    "selection.cellmodel"
-  ],
-  "Ext.view.TableLayout": [
-    "layout.tableview"
-  ],
-  "Ext.rtl.panel.Header": [],
-  "Ext.rtl.dom.Element_scroll": [],
-  "ExtThemeNeptune.tab.Tab": [],
-  "Ext.state.Provider": [],
-  "foodprint.model.TrcRpt": [],
-  "foodprint.model.BatchTrcRptRow": [],
-  "Ext.ux.DataView.LabelEditor": [],
-  "Ext.layout.container.Editor": [
-    "layout.editor"
-  ],
-  "Ext.data.Errors": [],
-  "Ext.grid.plugin.RowExpander": [
-    "plugin.rowexpander"
-  ],
-  "Ext.selection.TreeModel": [
-    "selection.treemodel"
-  ],
-  "Ext.form.Labelable": [],
-  "foodprint.store.BatchParamsStore": [],
-  "foodprint.store.TrcRptStore": [],
-  "Ext.grid.column.Number": [
-    "widget.numbercolumn"
-  ],
-  "Ext.draw.engine.Svg": [],
-  "Ext.grid.property.Grid": [
-    "widget.propertygrid"
-  ],
-  "Ext.FocusManager": [],
-  "Ext.AbstractManager": [],
-  "Ext.chart.series.Radar": [
-    "series.radar"
-  ],
-  "Ext.rtl.dom.Element_insertion": [],
-  "foodprint.view.DeleteBtn": [
-    "widget.deletebtn"
-  ],
-  "Ext.ux.RowExpander": [],
-  "Ext.grid.property.Property": [],
-  "Ext.chart.TipSurface": [],
-  "Ext.layout.SizeModel": [],
-  "Ext.grid.column.Boolean": [
-    "widget.booleancolumn"
-  ],
-  "Ext.direct.PollingProvider": [
-    "direct.pollingprovider"
-  ],
-  "Ext.grid.plugin.HeaderResizer": [
-    "plugin.gridheaderresizer"
-  ],
-  "ExtThemeNeptune.panel.Tool": [],
-  "Ext.tree.Column": [
-    "widget.treecolumn"
-  ],
-  "Ext.data.writer.Xml": [
-    "writer.xml"
-  ],
-  "Ext.slider.Multi": [
-    "widget.multislider"
-  ],
-  "Ext.panel.AbstractPanel": [],
-  "Ext.ux.event.Maker": [],
-  "Ext.layout.component.field.Slider": [
-    "layout.sliderfield"
-  ],
-  "foodprint.model.BatchTrcRptRowImg": [],
-  "Ext.chart.axis.Numeric": [
-    "axis.numeric"
-  ],
-  "Ext.layout.container.boxOverflow.Scroller": [],
-  "Ext.data.Operation": [],
-  "Ext.resizer.Resizer": [],
-  "Ext.layout.container.HBox": [
-    "layout.hbox"
-  ],
-  "foodprint.view.CreateBtn": [
-    "widget.createbtn"
-  ],
-  "Ext.selection.RowModel": [
-    "selection.rowmodel"
-  ],
-  "Ext.layout.ContextItem": [],
-  "ExtThemeNeptune.Component": [],
-  "Ext.util.MixedCollection": []
+  "ExtThemeNeptune.Component": []
 });
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/Component.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/panel/Panel.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/layout/component/Dock.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/toolbar/Toolbar.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/container/ButtonGroup.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/toolbar/Paging.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/picker/Month.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/form/field/HtmlEditor.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/panel/Table.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/grid/RowEditor.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/resizer/Splitter.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/menu/Menu.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/menu/Separator.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/panel/Tool.js");
+Ext.Loader.loadScript("../../packages/ext-theme-neptune/overrides/tab/Tab.js");
