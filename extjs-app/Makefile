@@ -5,9 +5,11 @@ extjsappgen:
 	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
 
 extjsproduction:
+	mkdir -p resources
 	sencha app build production
 
 extjstesting:
+	mkdir -p resources
 	sencha app build testing
 
 extjsdeploy:
