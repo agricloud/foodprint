@@ -7,14 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": 250,
-        "itemId": "batchGrid",
-        "width": 400,
-        "designer|userClassName": "BatchGrid",
-        "designer|userAlias": "batchgrid",
+        "itemId": "batchReportParamRouteGrid",
+        "width": 504,
+        "designer|userClassName": "BatchReportParamRouteGrid",
+        "designer|userAlias": "batchreportparamroutegrid",
         "title": null,
         "store": "BatchStore"
     },
-    "designerId": "6a21aa5b-e61f-4b47-8fbb-5331a09533a0",
+    "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -23,7 +23,7 @@
                 "type": "object"
             },
             "codeClass": null,
-            "designerId": "aabe1e9d-2614-4239-b6e6-f7ecf5da2cf7"
+            "designerId": "dc846501-ccfc-41ba-bde2-600b52aaef14"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -36,7 +36,7 @@
                 "dataIndex": "id",
                 "text": "Id"
             },
-            "designerId": "b5087356-edea-4b05-89a5-2551a0b41d88"
+            "designerId": "b9905d77-ce00-44fb-8409-c35f0523bbbe"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -49,38 +49,7 @@
                 "dataIndex": "item_id",
                 "text": "Item_id"
             },
-            "designerId": "adf7ded7-6ee5-49df-b79a-423cf546f897",
-            "cn": [
-                {
-                    "type": "fixedfunction",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "renderer",
-                        "designer|params": [
-                            "value",
-                            "metaData",
-                            "record",
-                            "rowIndex",
-                            "colIndex",
-                            "store",
-                            "view"
-                        ],
-                        "implHandler": [
-                            "",
-                            "//record.getItem(function(item, operation) { ",
-                            "//    console.log(item.get('name')); ",
-                            "//}, this);",
-                            "",
-                            "return value;"
-                        ]
-                    },
-                    "designerId": "43ce7d73-296b-4305-bc3f-c9b5529a43a8"
-                }
-            ]
+            "designerId": "18bb91d2-a6e3-4ae4-bcd2-029022ca6455"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -90,10 +59,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "name",
-                "text": "Name"
+                "dataIndex": "title",
+                "text": "Title"
             },
-            "designerId": "7d64a6f3-3118-4ba0-863e-59396ba9ec77"
+            "designerId": "bc83653a-72b5-4f31-bdae-adab6ca84846"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -103,24 +72,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "otherFields",
-                "text": "OtherFields"
+                "dataIndex": "paramType",
+                "text": "ParamType"
             },
-            "designerId": "d0335311-064f-446f-b38a-578e6945342a"
-        },
-        {
-            "type": "Ext.grid.column.Date",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "dueDate",
-                "text": "DueDate",
-                "format": "Y-m-d"
-            },
-            "designerId": "68e5e2ab-2edd-43d0-81a5-a592577bae1d"
+            "designerId": "54a2a10b-b10b-46b2-b4a4-d464c706d1bf"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -130,10 +85,23 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "expectQty",
-                "text": "ExpectQty"
+                "dataIndex": "defaultValue",
+                "text": "DefaultValue"
             },
-            "designerId": "f473497e-7cc0-4df2-a876-cc03123c85ae"
+            "designerId": "85a6e1bf-cc74-4478-94d8-7eef486bbfdc"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "decription",
+                "text": "Decription"
+            },
+            "designerId": "ffa62d2f-76fa-4290-9986-26c68e74e087"
         },
         {
             "type": "basiceventbinding",
@@ -143,7 +111,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onBatchGridItemDblClick",
+                "fn": "onBatchReportParamGridRouteDblClick",
                 "implHandler": [
                     "var gridct=dataview.up().up().up().up().up();",
                     "",
@@ -155,7 +123,7 @@
                 "name": "itemdblclick",
                 "scope": "me"
             },
-            "designerId": "7ea13f7b-b1ad-4067-899d-0673b391b5fa"
+            "designerId": "b8be2c46-1d1f-456f-a710-6ad59017859c"
         }
     ]
 }

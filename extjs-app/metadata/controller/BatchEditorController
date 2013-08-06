@@ -49,7 +49,7 @@
                     "    'batcheditorct button[itemId=updateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
-                    "    'batcheditorct grid[itemId=trcRptGrid]':{",
+                    "    'batcheditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
                     "    }",
                     "});"
@@ -146,7 +146,7 @@
                     "console.log('BatchEditorCtrl.doSave');",
                     "",
                     "var that=this;",
-                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    //url: '/batch/update'",
                     "    //url: '/rest/batch?update=true',//傳url參數用extj的config params較標準",
                     "    url: '/rest/batch',",
@@ -158,7 +158,7 @@
                     "        console.log('Saving Success！');",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
-                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "        that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
@@ -182,7 +182,7 @@
                 "implHandler": [
                     "console.log('BatchEditorCtrl.doCreate');",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
-                    "this.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();"
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();"
                 ]
             },
             "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
@@ -201,7 +201,7 @@
                     "console.log('BatchEditorCtrl.doUpdate');",
                     "",
                     "var that=this;",
-                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    url: '/rest/batch',",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Updating Data...',",
@@ -210,7 +210,7 @@
                     "        console.log('Updating Success！');",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
-                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "        that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
@@ -240,7 +240,7 @@
                     "var that=this;",
                     "",
                     "//console.log(this.getBatchGrid().getSelectionModel().getStore());",
-                    "this.getBatchViewer().down('form[itemId=trcRptFields]').submit({",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    url: '/rest/batch',",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Deleting Data...',",
@@ -249,7 +249,7 @@
                     "        console.log('Deleting Success！');",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
-                    "        that.getBatchViewer().down('form[itemId=trcRptFields]').getForm().reset();",
+                    "        that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
