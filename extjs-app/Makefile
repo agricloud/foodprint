@@ -4,6 +4,9 @@ genapp:
 production:
 	sencha app build production
 
+testing:
+	sencha app build testing
+
 deploy:
 	rsync -a build/foodprint/production/ ~/projects/foodprint/web-app/production/
 
