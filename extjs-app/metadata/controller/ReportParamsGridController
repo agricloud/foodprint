@@ -1,0 +1,52 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ReportParams"
+        ],
+        "views": [
+            "ReportParamsGrid"
+        ],
+        "designer|userClassName": "ReportParamsGridController"
+    },
+    "designerId": "0f0fb8df-ad71-4164-ac21-20194de881cd",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "2d0170d4-f30a-4494-85e6-ac5f10445182"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramsdoRead",
+                "designer|params": [
+                    "reportid"
+                ],
+                "implHandler": [
+                    "console.log(reportid);",
+                    "this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore().load(reportid);"
+                ]
+            },
+            "designerId": "cdf6efb6-0701-41b8-bcbc-74da1f6a767a"
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 300,
+        "itemId": "reportparamsGrid",
+        "width": null,
+        "designer|userClassName": "ReportParamsGrid",
+        "designer|userAlias": "reportparamsgrid",
+        "title": null,
+        "store": "ReportParamsStore"
+    },
+    "designerId": "818d1024-c5db-4b7f-ab81-2e73878332b6",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "f992a8fa-cf71-4275-93c2-a0834e70ef28"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "param_id",
+                "text": "Param_id"
+            },
+            "designerId": "e42511d6-906a-449b-b063-3a338b5cba1d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "paramIdCombobox",
+                        "displayField": "title",
+                        "store": "ParamStore",
+                        "valueField": "id"
+                    },
+                    "designerId": "06b195f7-175b-4c8f-95b9-053946895c2f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "workstation_id",
+                "text": "Workstation_id"
+            },
+            "designerId": "88e351cb-e4f9-43b2-bdc0-8fee0dbc7b7e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "workstationIdCombobox",
+                        "displayField": "title",
+                        "store": "WorkstationStore",
+                        "valueField": "id"
+                    },
+                    "designerId": "7dd002f6-d6ef-4f00-97d5-039fc4aa5aaa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "item_id",
+                "text": "Item_id"
+            },
+            "designerId": "e1a27272-3e34-4e26-9609-81cedd2228a2",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "itemIdCombobox",
+                        "displayField": "name",
+                        "store": "ItemStore",
+                        "valueField": "id"
+                    },
+                    "designerId": "b6223a96-c56e-4212-81db-fbbb53ca3dba"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.plugin.RowEditing",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": "Ext.grid.plugin.RowEditing",
+            "userConfig": {
+                "pluginId": "reportParamsEditplugin",
+                "autoCancel": false,
+                "clicksToMoveEditor": 1
+            },
+            "designerId": "21290c01-ddd2-4474-8213-d6c78f2bff53"
+        }
+    ]
+}
