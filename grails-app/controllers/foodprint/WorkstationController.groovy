@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class WorkstationController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
