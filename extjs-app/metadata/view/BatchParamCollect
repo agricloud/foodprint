@@ -6,14 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "height": 595,
-        "itemId": "batchReportEditor",
+        "height": 376,
+        "itemId": "batchReportParamEditor",
         "width": 722,
-        "designer|userClassName": "BatchReportEditor",
-        "designer|userAlias": "batchreporteditor",
-        "activeTab": 0
+        "designer|userClassName": "BatchParamCollect",
+        "designer|userAlias": "batchparamcollect"
     },
-    "designerId": "a62a900e-1a70-479c-89e7-1b156809b489",
+    "designerId": "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
     "cn": [
         {
             "type": "Ext.panel.Panel",
@@ -24,11 +23,11 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
-                "itemId": "batchReportBrowse",
+                "itemId": "batchParamItemCollect",
                 "layout": "vbox",
-                "title": "瀏覽"
+                "title": "品項參數收集"
             },
-            "designerId": "793670a7-ecf4-4c00-a778-0cb7f6a2c10c",
+            "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
             "cn": [
                 {
                     "type": "Ext.tab.Tab",
@@ -37,7 +36,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "92263f82-57da-4df8-87c1-ee7e9862f23f"
+                    "designerId": "b4f36c84-db5f-4bb2-8b5f-9d923784c3c4"
                 },
                 {
                     "type": "linkedinstance",
@@ -47,10 +46,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "batchParamItemGrid",
                         "layout|flex": 1
                     },
-                    "designerId": "48337adb-705c-46a3-b7c7-b9f60bbf5ea2",
-                    "masterInstanceId": "ee29d022-16ef-43df-a225-050ec624cf49"
+                    "designerId": "c61b06bf-3199-4cb5-83ff-47edd4bb29ac",
+                    "masterInstanceId": "f0b331a7-8f73-49bf-8cea-939034cd6db4"
                 }
             ]
         },
@@ -63,11 +63,11 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
-                "itemId": "batchReportMainten",
+                "itemId": "batchParamWorkstationCollect",
                 "layout": "vbox",
-                "title": "資料維護"
+                "title": "工作站參數收集"
             },
-            "designerId": "7bfbc8f0-989f-4b31-a50e-41a5322b815f",
+            "designerId": "9fa83ba5-4f0d-45c7-a23d-91c1e1347c7a",
             "cn": [
                 {
                     "type": "Ext.tab.Tab",
@@ -76,7 +76,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "042e3322-97d7-4492-96f9-91c35e50ff6c"
+                    "designerId": "de937dc0-63bb-41a8-b368-b2d9a41db662"
                 },
                 {
                     "type": "linkedinstance",
@@ -86,10 +86,51 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "batchParamWorkstationGrid",
                         "layout|flex": 1
                     },
-                    "designerId": "53a15e62-10e7-4145-8c99-4f977cbcc630",
-                    "masterInstanceId": "25af571e-a5c7-4bde-b194-45e8a7ef7d8d"
+                    "designerId": "0d349a3f-0ab2-490e-862d-7ada1ffab74a",
+                    "masterInstanceId": "9b3f425b-7b64-405e-8a74-a9a16cd10473"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "itemId": "batchParamRouteCollect",
+                "layout": "vbox",
+                "title": "途程參數收集"
+            },
+            "designerId": "5b026e94-7399-44e4-9f7f-da73070b96bd",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "d6397ce0-5b1f-4d0c-bced-b0f97a264c1c"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "batchParamRouteGrid",
+                        "layout|flex": 1
+                    },
+                    "designerId": "3a01cdd1-bc78-470a-9299-86029a82ef75",
+                    "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
                 }
             ]
         },
@@ -101,7 +142,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onBatchReportEditorTabChange",
+                "fn": "onBatchReportParamEditorTabChange",
                 "implHandler": [
                     "var crebtn=tabPanel.up().down('button[itemId=createBtn]');",
                     "var delbtn=tabPanel.up().down('button[itemId=deleteBtn]');",
@@ -119,14 +160,12 @@
                     "if(newCard==tabPanel.down('panel[itemId=batchMainten]')){",
                     "    redbtn.setDisabled(true);",
                     "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=trcRptFields]').getForm().reset();",
-                    "}"
+                    ""
                 ],
                 "name": "tabchange",
                 "scope": "me"
             },
-            "designerId": "e0d4a3e9-2d8e-4740-9177-468ce9d84f86"
+            "designerId": "171890f2-3569-493f-90e7-4ffe96eeae6b"
         }
     ]
 }

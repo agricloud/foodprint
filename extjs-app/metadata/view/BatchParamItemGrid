@@ -7,14 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": 250,
-        "itemId": "batchReportParamWorkstationGrid",
+        "itemId": "batchReportParamItemGrid",
         "width": 504,
-        "designer|userClassName": "BatchReportParamWorkstationGrid",
-        "designer|userAlias": "batchreportparamworkstationgrid",
+        "designer|userClassName": "BatchParamItemGrid",
+        "designer|userAlias": "batchparamitemgrid",
         "title": null,
         "store": "BatchStore"
     },
-    "designerId": "9b3f425b-7b64-405e-8a74-a9a16cd10473",
+    "designerId": "f0b331a7-8f73-49bf-8cea-939034cd6db4",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -23,7 +23,7 @@
                 "type": "object"
             },
             "codeClass": null,
-            "designerId": "5e8ff7b4-206a-4bc8-8862-be09a5e12c2d"
+            "designerId": "197235e9-f336-4fe5-a1d4-efc29fa5c0e0"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -36,7 +36,7 @@
                 "dataIndex": "id",
                 "text": "Id"
             },
-            "designerId": "7d94632e-e56c-49f4-8e38-f02954e948e3"
+            "designerId": "dc524d2d-4bc4-4312-a0dd-06a6df887640"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -46,10 +46,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "workstation_id",
-                "text": "Workstation_id"
+                "dataIndex": "item_id",
+                "text": "Item_id"
             },
-            "designerId": "17077b87-f7e1-43a2-8352-446caddac161"
+            "designerId": "bc4b8c3f-c40c-418c-ac82-a9e6587301ad"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -62,7 +62,7 @@
                 "dataIndex": "title",
                 "text": "Title"
             },
-            "designerId": "a031b827-f02c-47da-90cf-a2bda3d395bf"
+            "designerId": "5a89eace-b7df-43fb-ab5d-97e99ab15e86"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -75,7 +75,7 @@
                 "dataIndex": "paramType",
                 "text": "ParamType"
             },
-            "designerId": "21840841-788b-4028-b11a-5d69affa6725"
+            "designerId": "b446f882-fc09-47eb-acd1-7801ba84809e"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -88,7 +88,7 @@
                 "dataIndex": "defaultValue",
                 "text": "DefaultValue"
             },
-            "designerId": "0b1894ed-3ddf-4d89-a934-6f6b7492b4af"
+            "designerId": "78fa6ffe-ef7e-459f-8407-ac8085803695"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -101,7 +101,7 @@
                 "dataIndex": "decription",
                 "text": "Decription"
             },
-            "designerId": "f19331cf-f448-497b-b146-ee4fdd921a03"
+            "designerId": "48a38550-4f78-4054-b8d4-a0b3bef9d98d"
         },
         {
             "type": "basiceventbinding",
@@ -111,7 +111,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onBatchReportParamGridWorkstationDblClick",
+                "fn": "onBatchReportParamGridItemDblClick",
                 "implHandler": [
                     "var gridct=dataview.up().up().up().up().up();",
                     "",
@@ -123,7 +123,7 @@
                 "name": "itemdblclick",
                 "scope": "me"
             },
-            "designerId": "65b64521-e9b7-4b7d-bd35-3040052bcf2d"
+            "designerId": "2985ff16-04f7-4fb8-9cd3-30205017d093"
         }
     ]
 }
