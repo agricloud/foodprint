@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BatchParam"
+    },
+    "designerId": "ffa61c09-2464-43f0-87a8-134fb2c92782",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "3ee3115f-98c2-4964-bd7e-80d2f4847aab"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": null,
+                "url": "/rest/batchParam/batch1"
+            },
+            "designerId": "4ddff8ec-d61d-41c5-9c85-c7c9f8b49a24",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchParamInstanceList",
+                        "totalProperty": "batchParamInstanceTotal"
+                    },
+                    "designerId": "dddafb8d-164a-480b-8be7-4e08a28eb682"
+                }
+            ]
+        }
+    ]
+}

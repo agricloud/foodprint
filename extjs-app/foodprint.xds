@@ -115,8 +115,7 @@
             "paths": [
                 "metadata/view/MainViewport",
                 "app/view/override/MainViewport.js",
-                "app/view/MainViewport.js",
-                "app/view/Viewport.js"
+                "app/view/MainViewport.js"
             ],
             "className": "MainViewport"
         },
@@ -199,14 +198,6 @@
                 "app/store/BatchChangeHistStore.js"
             ],
             "className": "BatchChangeHistStore"
-        },
-        "d0da6f01-6e6d-4edd-8f5c-e490673e39de": {
-            "paths": [
-                "metadata/store/BatchParamsStore",
-                "app/store/override/BatchParamsStore.js",
-                "app/store/BatchParamsStore.js"
-            ],
-            "className": "BatchParamsStore"
         },
         "66fd7034-eaf8-47a2-95ef-0022e2f219a0": {
             "paths": [
@@ -354,11 +345,11 @@
         },
         "ffa61c09-2464-43f0-87a8-134fb2c92782": {
             "paths": [
-                "metadata/model/BatchParams",
-                "app/model/override/BatchParams.js",
-                "app/model/BatchParams.js"
+                "metadata/model/BatchParam",
+                "app/model/override/BatchParam.js",
+                "app/model/BatchParam.js"
             ],
-            "className": "BatchParams"
+            "className": "BatchParam"
         },
         "3474c5fc-3887-430d-943d-0520bd057242": {
             "paths": [
@@ -784,8 +775,7 @@
             "paths": [
                 "metadata/view/BatchParamEditorCt",
                 "app/view/override/BatchParamEditorCt.js",
-                "app/view/BatchParamEditorCt.js",
-                "app/view/Viewport.js"
+                "app/view/BatchParamEditorCt.js"
             ],
             "className": "BatchParamEditorCt"
         },
@@ -793,7 +783,8 @@
             "paths": [
                 "metadata/view/BatchParamEditor",
                 "app/view/override/BatchParamEditor.js",
-                "app/view/BatchParamEditor.js"
+                "app/view/BatchParamEditor.js",
+                "app/view/Viewport.js"
             ],
             "className": "BatchParamEditor"
         },
@@ -876,6 +867,30 @@
                 "app/controller/MainPageController.js"
             ],
             "className": "MainPageController"
+        },
+        "42ad4213-4bd6-4b7a-9a07-cd9d96c31264": {
+            "paths": [
+                "metadata/model/Batch",
+                "app/model/override/Batch.js",
+                "app/model/Batch.js"
+            ],
+            "className": "Batch"
+        },
+        "b45ae00c-f10f-4e06-afac-1db682d3ce23": {
+            "paths": [
+                "metadata/controller/BatchParamCollectController",
+                "app/controller/override/BatchParamCollectController.js",
+                "app/controller/BatchParamCollectController.js"
+            ],
+            "className": "BatchParamCollectController"
+        },
+        "c4d94e6c-7dc4-49fc-99e5-8cb6b649cb83": {
+            "paths": [
+                "metadata/store/BatchParamStore",
+                "app/store/override/BatchParamStore.js",
+                "app/store/BatchParamStore.js"
+            ],
+            "className": "BatchParamStore"
         }
     },
     "viewOrderMap": {
@@ -936,7 +951,6 @@
             "4dce03aa-6ba1-4934-aac2-f7587f3dd15a",
             "117130cd-a4be-4d3b-be93-15b1611ded32",
             "f8008bbc-7cfc-4204-a853-8ab698963ff1",
-            "d0da6f01-6e6d-4edd-8f5c-e490673e39de",
             "66fd7034-eaf8-47a2-95ef-0022e2f219a0",
             "3644885f-c889-43fe-95b8-c53b5771f419",
             "c3da46d0-ef35-47f6-8f29-ff3407e2c5ce",
@@ -952,7 +966,8 @@
             "63acbf68-4adb-464d-8ad1-97c84530d005",
             "d7a5148f-1ffa-4d5d-9fc3-597c4bda58de",
             "083ae47e-d17d-4b42-a054-83fcdbfe91c3",
-            "a6f685ed-8172-42fd-92da-fa27d64bb7a3"
+            "a6f685ed-8172-42fd-92da-fa27d64bb7a3",
+            "c4d94e6c-7dc4-49fc-99e5-8cb6b649cb83"
         ],
         "controller": [
             "bf908441-d95a-46f9-8f91-b12d6aa009f0",
@@ -966,12 +981,14 @@
             "3108df2a-6163-414d-8730-490767127f63",
             "86a2642b-3fbc-4a52-90ac-1c99026ec748",
             "4b50304b-cb2e-4034-87c4-99ca0b663af9",
-            "69b8bd03-5295-4a0d-abdc-5a914a5089c0"
+            "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
+            "b45ae00c-f10f-4e06-afac-1db682d3ce23"
         ],
         "model": [
             "2ef6c215-43f9-4c64-8e60-667d8ba71d58",
             "26a3f2eb-ead4-4a06-ba42-0fee0511a839",
             "1ea8bf23-ba15-4e43-96b0-2aeece2aeedd",
+            "42ad4213-4bd6-4b7a-9a07-cd9d96c31264",
             "ffa61c09-2464-43f0-87a8-134fb2c92782",
             "3474c5fc-3887-430d-943d-0520bd057242",
             "be4d4bef-6d30-4b80-9c8d-1332485afa5c",

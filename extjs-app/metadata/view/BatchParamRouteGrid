@@ -12,7 +12,7 @@
         "designer|userClassName": "BatchParamRouteGrid",
         "designer|userAlias": "batchparamroutegrid",
         "title": null,
-        "store": "BatchStore"
+        "store": "BatchParamStore"
     },
     "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
     "cn": [
@@ -102,28 +102,6 @@
                 "text": "Decription"
             },
             "designerId": "ffa62d2f-76fa-4290-9986-26c68e74e087"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onBatchReportParamGridRouteDblClick",
-                "implHandler": [
-                    "var gridct=dataview.up().up().up().up().up();",
-                    "",
-                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
-                    "gridct.down('button[itemId=saveBtn]').setDisabled(true);"
-                ],
-                "name": "itemdblclick",
-                "scope": "me"
-            },
-            "designerId": "b8be2c46-1d1f-456f-a710-6ad59017859c"
         }
     ]
 }

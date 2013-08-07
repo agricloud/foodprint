@@ -66,7 +66,7 @@ class Item {
     /**
      * 一對多關係（項目圖片）
      */
-	static hasMany=[itemImages:ItemImage]
+	static hasMany=[itemImages:ItemImage,itemRoutes:ItemRoute]
 
     /**
      * 廠別可以不設定<br/>

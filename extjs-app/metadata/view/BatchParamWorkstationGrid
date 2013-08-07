@@ -102,28 +102,6 @@
                 "text": "Decription"
             },
             "designerId": "f19331cf-f448-497b-b146-ee4fdd921a03"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onBatchReportParamGridWorkstationDblClick",
-                "implHandler": [
-                    "var gridct=dataview.up().up().up().up().up();",
-                    "",
-                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
-                    "gridct.down('button[itemId=saveBtn]').setDisabled(true);"
-                ],
-                "name": "itemdblclick",
-                "scope": "me"
-            },
-            "designerId": "65b64521-e9b7-4b7d-bd35-3040052bcf2d"
         }
     ]
 }

@@ -2,7 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 
-class BatchController {
+class BatchParamController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
@@ -10,15 +10,20 @@ class BatchController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()]
+    def list() {
+        log.info "params.id=${params.id}"
+        def item=Batch.read(1).item
+        log.info "item.id=${item.id}"
+        log.info "item.itemImages=${item.itemImages}"
+        log.info "item.itemRoutes=${item.itemRoutes}"
+        [item,item.itemRoutes]
+        //[batchParamInstanceList: item, batchParamInstanceTotal: ]
     }
 
-    def listJson(Integer max) {
-        log.debug "BatchController--listJson"
+    def listJson() {
+        log.info "BatchController--listJson"
         render (contentType: 'text/json') {
-            list(max)        
+            list()        
         }
     }
 
@@ -38,7 +43,7 @@ class BatchController {
     }
     
     def create(){
-        log.debug"BatchController--create"
+        println"BatchController--create"
 
         def batchInstance=new Batch(params)
         batchInstance.item=Item.findById(params.item_id)
@@ -50,7 +55,7 @@ class BatchController {
 
 
     def update(){
-        log.debug "BatchController--update"
+        println"BatchController--update"
 
         def batchInstance=Batch.get(params.id)
         

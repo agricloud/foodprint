@@ -50,6 +50,12 @@
                     "    },",
                     "    'batcheditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
+                    "    },",
+                    "    'batcheditorct panel[itemId=batchEditor]':{",
+                    "        tabchange:",
+                    "        function(tabPanel, newCard, oldCard, eOpts){",
+                    "            this.onTabChange(tabPanel, newCard, oldCard, eOpts);",
+                    "        }",
                     "    }",
                     "});"
                 ]
@@ -126,6 +132,12 @@
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
                     "this.doDisplay(record);",
+                    "",
+                    "",
+                    "this.getBatchEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getBatchEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getBatchEditorCt().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getBatchEditorCt().down('button[itemId=saveBtn]').setDisabled(true);",
                     ""
                 ]
             },
@@ -258,6 +270,42 @@
                 ]
             },
             "designerId": "82fe2f44-a435-47f0-8362-1bff5278fb25"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tabPanel, newCard, oldCard, eOpts"
+                ],
+                "implHandler": [
+                    "var crebtn=this.getBatchEditorCt().down('button[itemId=createBtn]');",
+                    "var delbtn=this.getBatchEditorCt().down('button[itemId=deleteBtn]');",
+                    "var savbtn=this.getBatchEditorCt().down('button[itemId=saveBtn]');",
+                    "var updbtn=this.getBatchEditorCt().down('button[itemId=updateBtn]');",
+                    "var redbtn=this.getBatchEditorCt().down('button[itemId=readBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=batchBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=batchMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=batchForm]').getForm().reset();",
+                    "}"
+                ]
+            },
+            "designerId": "b95dd95b-52b3-4455-9aea-e8904245ae44"
         }
     ]
 }

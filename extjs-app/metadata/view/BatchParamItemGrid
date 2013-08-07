@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "height": 250,
-        "itemId": "batchReportParamItemGrid",
+        "itemId": "batchParamItemGrid",
         "width": 504,
         "designer|userClassName": "BatchParamItemGrid",
         "designer|userAlias": "batchparamitemgrid",
@@ -102,28 +102,6 @@
                 "text": "Decription"
             },
             "designerId": "48a38550-4f78-4054-b8d4-a0b3bef9d98d"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onBatchReportParamGridItemDblClick",
-                "implHandler": [
-                    "var gridct=dataview.up().up().up().up().up();",
-                    "",
-                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
-                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
-                    "gridct.down('button[itemId=saveBtn]').setDisabled(true);"
-                ],
-                "name": "itemdblclick",
-                "scope": "me"
-            },
-            "designerId": "2985ff16-04f7-4fb8-9cd3-30205017d093"
         }
     ]
 }

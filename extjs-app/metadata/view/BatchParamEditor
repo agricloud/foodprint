@@ -7,10 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "height": 595,
-        "itemId": "batchReportEditor",
+        "itemId": "batchParamEditor",
         "width": 722,
         "designer|userClassName": "BatchParamEditor",
         "designer|userAlias": "batchparameditor",
+        "designer|initialView": true,
         "activeTab": 0
     },
     "designerId": "a62a900e-1a70-479c-89e7-1b156809b489",
@@ -47,6 +48,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "height": 559,
                         "width": 722,
                         "layout|flex": 1
                     },
@@ -87,8 +89,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 279,
-                        "layout|flex": 1
+                        "height": null,
+                        "layout|flex": null
                     },
                     "designerId": "5e1df8cd-7ff6-40fe-a547-856679002feb",
                     "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e"
@@ -103,45 +105,10 @@
                     "userConfig": {
                         "layout|flex": 1
                     },
-                    "designerId": "5bb15ef9-d7a6-4626-928b-1410d2230c09",
+                    "designerId": "c70c5b91-1f91-4eb5-a2a8-6d22729037bf",
                     "masterInstanceId": "47dbde0e-01a1-474d-abd7-984435da0088"
                 }
             ]
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onBatchReportEditorTabChange",
-                "implHandler": [
-                    "var crebtn=tabPanel.up().down('button[itemId=createBtn]');",
-                    "var delbtn=tabPanel.up().down('button[itemId=deleteBtn]');",
-                    "var savbtn=tabPanel.up().down('button[itemId=saveBtn]');",
-                    "var updbtn=tabPanel.up().down('button[itemId=updateBtn]');",
-                    "var redbtn=tabPanel.up().down('button[itemId=readBtn]');",
-                    "",
-                    "if(newCard==tabPanel.down('panel[itemId=batchBrowse]')){",
-                    "    delbtn.setDisabled(true);",
-                    "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
-                    "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=batchMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=batchForm]').getForm().reset();",
-                    "}"
-                ],
-                "name": "tabchange",
-                "scope": "me"
-            },
-            "designerId": "e0d4a3e9-2d8e-4740-9177-468ce9d84f86"
         }
     ]
 }
