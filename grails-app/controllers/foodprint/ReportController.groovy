@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ReportController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -22,19 +22,43 @@ class ReportController {
         
     }
 
-    def create() {
-        [reportInstance: new Report(params)]
+    def create(){
+        println"ReportController--create"
+
+        def reportInstance=new Report(params)
+        render (contentType: 'text/json') {
+            save(reportInstance);
+        }
     }
 
-    def save() {
-        def reportInstance = new Report(params)
-        if (!reportInstance.save(flush: true)) {
-            render(view: "create", model: [reportInstance: reportInstance])
-            return
+    def update(){
+        println"ReportController--update"
+        def reportInstance=Report.get(params.id)
+
+        if(!reportInstance){
+            println"ReportController--update--cant find reportInstance"
+            return render (contentType: 'text/json') {[success:false]}
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'report.label', default: 'Report'), reportInstance.id])
-        redirect(action: "show", id: reportInstance.id)
+       reportInstance.properties = params
+        render (contentType: 'text/json') {
+            save(reportInstance);
+        }         
+    }
+
+    def save(Report reportInstance){
+        if (!reportInstance.validate()) {
+                reportInstance.errors.each {
+                println it
+            }
+            return [success:false]
+        }
+        if (!reportInstance.save(failOnError: true)) {//flush:true?
+                return [success:false]
+        }
+        else{
+                return [success:true]
+        }
     }
 
     def show(Long id) {
@@ -59,51 +83,29 @@ class ReportController {
         [reportInstance: reportInstance]
     }
 
-    def update(Long id, Long version) {
-        def reportInstance = Report.get(id)
+    def delete(){
+        println"ReportController--delete"
+        def reportInstance=Report.get(params.id)
         if (!reportInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "list")
-            return
+            println"ReportController--delete--Cant find reportInstance"
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
         }
+        //else
+        //    println"BatchController--updateBatch--has find BatchInstance"
 
-        if (version != null) {
-            if (reportInstance.version > version) {
-                reportInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'report.label', default: 'Report')] as Object[],
-                          "Another user has updated this Report while you were editing")
-                render(view: "edit", model: [reportInstance: reportInstance])
-                return
+        try {
+            reportInstance.delete()
+            render (contentType: 'text/json') {
+                return [success:true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
             }
         }
 
-        reportInstance.properties = params
-
-        if (!reportInstance.save(flush: true)) {
-            render(view: "edit", model: [reportInstance: reportInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'report.label', default: 'Report'), reportInstance.id])
-        redirect(action: "show", id: reportInstance.id)
-    }
-
-    def delete(Long id) {
-        def reportInstance = Report.get(id)
-        if (!reportInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            reportInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "show", id: id)
-        }
     }
 }

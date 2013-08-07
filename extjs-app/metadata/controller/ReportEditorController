@@ -1,0 +1,166 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "ReportEditor"
+        ],
+        "designer|userClassName": "ReportEditorController",
+        "mixins": [
+            "{",
+            "    ReportViewerCtrl: 'foodprint.controller.ReportViewerController',",
+            "    ReportGridCtrl: 'foodprint.controller.ReportGridController',",
+            "    ReportParamsEditorCtrl:'foodprint.controller.ReportParamsEditorController',",
+            "    ReportParamsGridCtrl:'foodprint.controller.ReportParamsGridController'",
+            "}"
+        ]
+    },
+    "designerId": "a38b6ddf-7d7e-49b3-b090-e5e1ed5972b1",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportGrid",
+                "selector": "reportgrid"
+            },
+            "designerId": "10006695-aced-4990-a351-dabfe4793b02"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportViewer",
+                "selector": "reportviewer"
+            },
+            "designerId": "76d6ba40-07ce-48ea-988c-c76cef82d7ee"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportEditor",
+                "selector": "reporteditor"
+            },
+            "designerId": "33f0e4ce-dae3-448b-89a2-fd975cd525fe"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportEditorct",
+                "selector": "reporteditorct"
+            },
+            "designerId": "71c892a4-1e75-42d3-9534-5e6b14d7a906"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'reporteditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'reporteditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'reporteditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'reporteditorct button[itemId=readBtn]':{",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'reporteditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
+                    "    },",
+                    "    'reporteditorct grid[itemId=reportGrid]':{",
+                    "        itemdblclick:this.readReport",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "6e55d75b-583e-4271-af66-79372c1395a3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readReport",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "this.getReportEditor().setActiveTab(this.getReportViewer().up());",
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "",
+                    "console.log(record);",
+                    "this.paramsdoRead(reportid);",
+                    "",
+                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
+                    "this.doDisplay(record);",
+                    ""
+                ]
+            },
+            "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsEditor",
+                "selector": "reportparamseditor"
+            },
+            "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
+        }
+    ]
+}

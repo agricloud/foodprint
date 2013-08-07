@@ -1,0 +1,168 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Report"
+        ],
+        "views": [
+            "ReportGrid"
+        ],
+        "designer|userClassName": "ReportGridController"
+    },
+    "designerId": "f5b61975-b804-4a82-bc2b-809bbe247280",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportGrid",
+                "selector": "reportgrid"
+            },
+            "designerId": "7780903f-5fcd-472d-b584-b526fea795c2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "console.log(\"doRead-reportGridController\");",
+                    "this.getReportGrid().getStore().load();",
+                    "this.getReportEditor().setActiveTab(this.getReportGrid().up());"
+                ]
+            },
+            "designerId": "a960dfcd-5fd1-408b-8f42-5dd161372175"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('reportEditorCtrl.doCreate');",
+                    "",
+                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').hide();",
+                    "var form=this.getReportViewer().down('form[itemId=reportForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "this.getReportEditor().setActiveTab(this.getReportViewer().up());"
+                ]
+            },
+            "designerId": "54029709-b0a1-48b6-928e-d7d68cb0fb1a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"reportEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "44537ab0-60e6-4862-add2-c4b3317bdc4a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"reportEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "b58aabfa-d0cf-4562-b867-20826d3e643a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('reportEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "66821f67-fa51-403b-9513-4daf43873e7a"
+        }
+    ]
+}

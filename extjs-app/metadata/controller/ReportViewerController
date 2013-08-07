@@ -1,0 +1,47 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ReportViewerController"
+    },
+    "designerId": "e7580abd-661a-4751-9218-83e019ea3b26",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportViewer",
+                "selector": "reportviewer"
+            },
+            "designerId": "8b68adbd-7825-470a-b4bd-663e9d346723"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"reportViewerCtrl.doDisplay\");",
+                    "",
+                    "this.getReportViewer().down('form[itemId=reportForm]').loadRecord(record);"
+                ]
+            },
+            "designerId": "17e777d3-a972-4d77-8d93-6237ac03e8ab"
+        }
+    ]
+}
