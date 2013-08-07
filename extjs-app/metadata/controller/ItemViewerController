@@ -8,9 +8,16 @@
     "userConfig": {
         "models": [
             "Item",
-            "ItemImage"
+            "ItemRoute",
+            "Wroksation"
+        ],
+        "stores": [
+            "ItemStore",
+            "ItemRouteStore",
+            "WorkstationStore"
         ],
         "views": [
+            "StdEditorToolbar",
             "ItemViewer"
         ],
         "designer|userClassName": "ItemViewerController"
@@ -18,27 +25,17 @@
     "designerId": "4192f643-8fa7-41cf-a905-7a5a11c27e6a",
     "cn": [
         {
-            "type": "basicfunction",
+            "type": "controllerref",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doDisplay",
-                "designer|params": [
-                    "record"
-                ],
-                "implHandler": [
-                    "console.log(\"itemViewer.doDisplay\");",
-                    "//this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
-                    "var itemImages=record.itemImages();",
-                    "itemImages.load();",
-                    "console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",
-                    "this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore().loadRecords(itemImages.getRange());"
-                ]
+                "ref": "itemViewer",
+                "selector": "itemviewer"
             },
-            "designerId": "303132c6-f3c0-46d1-ba0c-2fce25ba1e04"
+            "designerId": "afb23db4-d89a-499e-81bf-ef86ad46e384"
         },
         {
             "type": "controllerref",
@@ -55,22 +52,45 @@
             "designerId": "9c282006-2570-4ad9-af9d-3bf679ca1b8e"
         },
         {
-            "type": "fixedfunction",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "init",
+                "fn": "doDisplay",
                 "designer|params": [
-                    "application"
+                    "record"
                 ],
                 "implHandler": [
-                    ""
+                    "console.log(\"itemViewer.doDisplay\");",
+                    "//this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
+                    "//var itemImages=record.itemImages();",
+                    "//itemImages.load();",
+                    "//console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",
+                    "//his.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore().loadRecords(itemImages.getRange());"
                 ]
             },
-            "designerId": "9ee85e88-bd9d-42aa-8ce9-e00d8122982e"
+            "designerId": "303132c6-f3c0-46d1-ba0c-2fce25ba1e04"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('ItemRouteGridCtrl.doCreate');",
+                    "var grid = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "store.insert(store.getCount(),data);"
+                ]
+            },
+            "designerId": "d5578833-8c7e-4534-a5f0-d4de5c9f8525"
         }
     ]
 }
