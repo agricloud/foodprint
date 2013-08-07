@@ -6,6 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "Item"
+        ],
+        "stores": [
+            "ItemStore"
+        ],
         "designer|userClassName": "BatchViewerController"
     },
     "designerId": "ccbd068c-0c2b-4308-acca-acbd5b788073",
@@ -25,7 +31,7 @@
                 "implHandler": [
                     "console.log(\"batchViewerCtrl.doDisplay\");",
                     "",
-                    "this.getBatchViewer().down('form[itemId=trcRptFields]').loadRecord(record);",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);",
                     ""
                 ]
             },

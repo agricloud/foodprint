@@ -1,0 +1,129 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 250,
+        "itemId": "batchReportParamRouteGrid",
+        "width": 504,
+        "designer|userClassName": "BatchReportParamRouteGrid",
+        "designer|userAlias": "batchreportparamroutegrid",
+        "title": null,
+        "store": "BatchStore"
+    },
+    "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "dc846501-ccfc-41ba-bde2-600b52aaef14"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "id",
+                "text": "Id"
+            },
+            "designerId": "b9905d77-ce00-44fb-8409-c35f0523bbbe"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "item_id",
+                "text": "Item_id"
+            },
+            "designerId": "18bb91d2-a6e3-4ae4-bcd2-029022ca6455"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "title",
+                "text": "Title"
+            },
+            "designerId": "bc83653a-72b5-4f31-bdae-adab6ca84846"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "paramType",
+                "text": "ParamType"
+            },
+            "designerId": "54a2a10b-b10b-46b2-b4a4-d464c706d1bf"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "defaultValue",
+                "text": "DefaultValue"
+            },
+            "designerId": "85a6e1bf-cc74-4478-94d8-7eef486bbfdc"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "decription",
+                "text": "Decription"
+            },
+            "designerId": "ffa62d2f-76fa-4290-9986-26c68e74e087"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchReportParamGridRouteDblClick",
+                "implHandler": [
+                    "var gridct=dataview.up().up().up().up().up();",
+                    "",
+                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
+                    "gridct.down('button[itemId=saveBtn]').setDisabled(true);"
+                ],
+                "name": "itemdblclick",
+                "scope": "me"
+            },
+            "designerId": "b8be2c46-1d1f-456f-a710-6ad59017859c"
+        }
+    ]
+}

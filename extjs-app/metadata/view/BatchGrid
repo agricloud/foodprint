@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "height": 250,
-        "itemId": "trcRptGrid",
+        "itemId": "batchGrid",
         "width": 400,
         "designer|userClassName": "BatchGrid",
         "designer|userAlias": "batchgrid",
@@ -134,6 +134,27 @@
                 "text": "ExpectQty"
             },
             "designerId": "f473497e-7cc0-4df2-a876-cc03123c85ae"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchGridItemDblClick",
+                "implHandler": [
+                    "var gridct=dataview.up().up().up().up();",
+                    "gridct.down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=updateBtn]').setDisabled(false);",
+                    "gridct.down('button[itemId=readBtn]').setDisabled(true);",
+                    "gridct.down('button[itemId=saveBtn]').setDisabled(true);"
+                ],
+                "name": "itemdblclick",
+                "scope": "me"
+            },
+            "designerId": "7ea13f7b-b1ad-4067-899d-0673b391b5fa"
         }
     ]
 }

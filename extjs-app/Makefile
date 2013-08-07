@@ -1,12 +1,20 @@
-genapp:
+# extjs make file
+
+# 產生空的 extjs project
+extjsappgen: 
 	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
 
-production:
+extjsproduction:
+	mkdir -p resources
 	sencha app build production
 
-deploy:
-	rsync -a build/foodprint/production/ ~/projects/foodprint/web-app/production/
+extjstesting:
+	mkdir -p resources
+	sencha app build testing
+
+extjsdeploy:
+	rsync -a build/foodprint/production/ ../web-app/production/
 
 
-done:
-	make production deploy
+extjsdone:
+	make extjsproduction extjsdeploy
