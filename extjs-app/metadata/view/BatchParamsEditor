@@ -7,10 +7,10 @@
     "codeClass": null,
     "userConfig": {
         "height": 595,
-        "itemId": "batchParamEditor",
+        "itemId": "batchParamsEditor",
         "width": 722,
-        "designer|userClassName": "BatchParamEditor",
-        "designer|userAlias": "batchparameditor",
+        "designer|userClassName": "BatchParamsEditor",
+        "designer|userAlias": "batchparamseditor",
         "activeTab": 0
     },
     "designerId": "a62a900e-1a70-479c-89e7-1b156809b489",
@@ -92,7 +92,35 @@
                         "layout|flex": null
                     },
                     "designerId": "5e1df8cd-7ff6-40fe-a547-856679002feb",
-                    "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e"
+                    "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBatchViewerBeforeRender",
+                                "implHandler": [
+                                    "this.down('textfield[itemId=name]').setReadOnly(true);",
+                                    "this.down('datefield[itemId=dueDate]').setReadOnly(true);",
+                                    "this.down('numberfield[itemId=expectQty]').setReadOnly(true);",
+                                    "this.down('combobox[itemId=item_id]').setReadOnly(true);",
+                                    "",
+                                    "this.down('textfield[itemId=id]').allowBlank=true;",
+                                    "this.down('textfield[itemId=name]').allowBlank=true;",
+                                    "this.down('datefield[itemId=dueDate]').allowBlank=true;",
+                                    "this.down('numberfield[itemId=expectQty]').allowBlank=true;",
+                                    "this.down('combobox[itemId=item_id]').allowBlank=true;"
+                                ],
+                                "name": "beforerender",
+                                "scope": "me"
+                            },
+                            "designerId": "5e33414a-7acd-480e-9cf3-881b9932ae8c"
+                        }
+                    ]
                 },
                 {
                     "type": "linkedinstance",

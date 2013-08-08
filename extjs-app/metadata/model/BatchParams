@@ -1,0 +1,141 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BatchParams"
+    },
+    "designerId": "ffa61c09-2464-43f0-87a8-134fb2c92782",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "3ee3115f-98c2-4964-bd7e-80d2f4847aab"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "report"
+            },
+            "designerId": "9c961c1b-8cd8-4de1-82a3-42a455a83800"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "param"
+            },
+            "designerId": "e7135c3e-8b96-439b-a49f-5bb421a4822a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "param.id",
+                "name": "paramid"
+            },
+            "designerId": "1951df78-8cda-4488-8cd4-b73cdf11312f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "param.title",
+                "name": "paramtitle"
+            },
+            "designerId": "3860a024-592d-4007-926e-d763ffa4fdc5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "workstation.id",
+                "name": "workstationid"
+            },
+            "designerId": "9cc9313c-cf3f-44b5-895d-aadd1ef9fc39"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item"
+            },
+            "designerId": "268b2df9-2197-4596-adc2-aaf652164c92"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "operation"
+            },
+            "designerId": "7d21f620-16b3-4365-88d4-6ff4ced6aed1"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": null,
+                "url": "/rest/batchParams/"
+            },
+            "designerId": "4ddff8ec-d61d-41c5-9c85-c7c9f8b49a24",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchParamsList",
+                        "totalProperty": "batchParamsTotal"
+                    },
+                    "designerId": "dddafb8d-164a-480b-8be7-4e08a28eb682"
+                }
+            ]
+        }
+    ]
+}

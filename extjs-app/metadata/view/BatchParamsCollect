@@ -7,40 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": 376,
-        "itemId": "batchParamCollect",
+        "itemId": "batchParamsCollect",
         "width": 722,
-        "designer|userClassName": "BatchParamCollect",
-        "designer|userAlias": "batchparamcollect",
-        "activeTab": 0
+        "designer|userClassName": "BatchParamsCollect",
+        "designer|userAlias": "batchparamscollect",
+        "activeTab": 1
     },
     "designerId": "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
     "cn": [
-        {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "container|align": "stretch",
-                "itemId": "batchParamItemCollect",
-                "layout": "vbox",
-                "title": "品項參數收集"
-            },
-            "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
-            "cn": [
-                {
-                    "type": "Ext.tab.Tab",
-                    "reference": {
-                        "name": "tabConfig",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "b4f36c84-db5f-4bb2-8b5f-9d923784c3c4"
-                }
-            ]
-        },
         {
             "type": "Ext.panel.Panel",
             "reference": {
@@ -73,11 +47,40 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "batchParamRouteGrid",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": null
                     },
                     "designerId": "feea775c-58e2-4d6c-a283-aa6d1050207f",
                     "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "itemId": "batchParamItemCollect",
+                "layout": "vbox",
+                "title": "品項參數收集"
+            },
+            "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true
+                    },
+                    "designerId": "b4f36c84-db5f-4bb2-8b5f-9d923784c3c4"
                 }
             ]
         }

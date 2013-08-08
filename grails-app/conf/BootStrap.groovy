@@ -20,6 +20,7 @@ class BootStrap {
 				def item2 = new Item(name:"item2").save(failOnError: true, flush: true)
 				def batch1 = new Batch(name:"batch1",item:item1).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
+				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
 				def workstation1 = new Workstation(name:"檢驗站01",title:"workstation1").save(failOnError: true, flush: true)
 				def workstation2 = new Workstation(name:"檢驗站02",title:"workstation2").save(failOnError: true, flush: true)
 				def param1= new Param(title:"water",defaultValue:"100",paramType:ParamType.INTEGER).save(failOnError: true, flush: true)
