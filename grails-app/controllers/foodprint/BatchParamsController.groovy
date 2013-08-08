@@ -11,17 +11,18 @@ class BatchParamController {
     }
 
     def list() {
-        log.info "params.id=${params.id}"
-        def item=Batch.read(1).item
-        log.info "item.id=${item.id}"
-        log.info "item.itemImages=${item.itemImages}"
-        log.info "item.itemRoutes=${item.itemRoutes}"
-        [item,item.itemRoutes]
-        //[batchParamInstanceList: item, batchParamInstanceTotal: ]
+        def item=Batch.get(params.id).item
+        def workstations=item.itemRoutes*.workstation.unique()
+
+        def batchParams=ReportParams.findAll(){
+            workstation in workstations || item == item
+        }
+
+        [batchParamsList:batchParams, batchParamsTotal: batchParams.size()]
     }
 
     def listJson() {
-        log.info "BatchController--listJson"
+        log.info "BatchParamsController--listJson"
         render (contentType: 'text/json') {
             list()        
         }
