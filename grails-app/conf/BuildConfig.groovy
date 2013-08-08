@@ -62,6 +62,7 @@ grails.project.dependency.resolution = {
 
         compile ':spring-security-core:latest.release'
 
+        runtime ":cors:1.1.0"
 
         // compile ':spring-security-core:latest.release'
 

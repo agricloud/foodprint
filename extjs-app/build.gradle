@@ -1,0 +1,14 @@
+/**
+ * Minimum Web Server for Testing using Gradle and Jetty Plugin
+ * Usage:
+ * (1) install gradle with gvm
+ * (2) type 'gradle' and done
+ */
+
+apply plugin: 'jetty'
+
+jettyRun.contextPath = ''
+jettyRun.webAppSourceDirectory = file('.')
+jettyRun.httpPort = 8100
+
+defaultTasks 'jettyRun'
