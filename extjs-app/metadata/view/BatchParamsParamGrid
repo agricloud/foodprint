@@ -7,14 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": 250,
-        "itemId": "batchReportParamsWorkstationGrid",
-        "width": 504,
-        "designer|userClassName": "BatchParamsWorkstationGrid",
-        "designer|userAlias": "batchparamsworkstationgrid",
+        "itemId": "batchParamsParamGrid",
+        "width": 532,
+        "designer|userClassName": "BatchParamsParamGrid",
+        "designer|userAlias": "batchparamsparamgrid",
         "title": null,
-        "store": null
+        "store": "BatchParamsStore"
     },
-    "designerId": "9b3f425b-7b64-405e-8a74-a9a16cd10473",
+    "designerId": "d0628cea-93a5-448d-9e7c-18a3511fcca0",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -23,7 +23,16 @@
                 "type": "object"
             },
             "codeClass": null,
-            "designerId": "5e8ff7b4-206a-4bc8-8862-be09a5e12c2d"
+            "designerId": "d264c15c-7931-4fec-baff-a59fae502929"
+        },
+        {
+            "type": "Ext.grid.plugin.RowEditing",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": "Ext.grid.plugin.RowEditing",
+            "designerId": "1114253e-edf1-4a9a-977a-9a84d316cc4d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -33,10 +42,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "id",
-                "text": "Id"
+                "dataIndex": "param_id",
+                "text": "Param_id"
             },
-            "designerId": "7d94632e-e56c-49f4-8e38-f02954e948e3"
+            "designerId": "3658cb84-d0de-4c11-a4a2-300d2299979b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -46,10 +55,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "workstation_id",
-                "text": "Workstation_id"
+                "dataIndex": "param_title",
+                "text": "Param_title"
             },
-            "designerId": "17077b87-f7e1-43a2-8352-446caddac161"
+            "designerId": "fabfbbf7-79a2-4ba3-bd7a-b66b9d8d0bbe"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -59,23 +68,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "title",
-                "text": "Title"
-            },
-            "designerId": "a031b827-f02c-47da-90cf-a2bda3d395bf"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "paramType",
+                "dataIndex": "param_paramType",
                 "text": "ParamType"
             },
-            "designerId": "21840841-788b-4028-b11a-5d69affa6725"
+            "designerId": "0a7fea1a-3bdb-48b8-ade8-986a2dbb4b04"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -85,10 +81,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "defaultValue",
+                "dataIndex": "param_defaultValue",
                 "text": "DefaultValue"
             },
-            "designerId": "0b1894ed-3ddf-4d89-a934-6f6b7492b4af"
+            "designerId": "fcf562a7-d7b0-4e5c-9e6f-2ce249c75a72"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -98,10 +94,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "decription",
+                "width": 131,
+                "dataIndex": "param_description",
                 "text": "Decription"
             },
-            "designerId": "f19331cf-f448-497b-b146-ee4fdd921a03"
+            "designerId": "dc4711e9-1e3a-41e0-bfda-aae822bf92cc"
         }
     ]
 }

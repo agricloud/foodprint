@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "idProperty": null,
-        "designer|userClassName": "BatchParams"
+        "designer|userClassName": "ReportParams"
     },
     "designerId": "ffa61c09-2464-43f0-87a8-134fb2c92782",
     "cn": [
@@ -88,18 +88,6 @@
                 "name": "param_description"
             },
             "designerId": "8baaa660-1b3a-4477-8ccf-6784d3907610"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "report"
-            },
-            "designerId": "9c961c1b-8cd8-4de1-82a3-42a455a83800"
         },
         {
             "type": "Ext.data.Field",
@@ -203,34 +191,6 @@
                 "name": "item"
             },
             "designerId": "268b2df9-2197-4596-adc2-aaf652164c92"
-        },
-        {
-            "type": "Ext.data.proxy.Rest",
-            "reference": {
-                "name": "proxy",
-                "type": "object"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "extraParams": null,
-                "url": "/rest/batchParams/"
-            },
-            "designerId": "4ddff8ec-d61d-41c5-9c85-c7c9f8b49a24",
-            "cn": [
-                {
-                    "type": "Ext.data.reader.Json",
-                    "reference": {
-                        "name": "reader",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "root": "batchParamsList",
-                        "totalProperty": "batchParamsTotal"
-                    },
-                    "designerId": "dddafb8d-164a-480b-8be7-4e08a28eb682"
-                }
-            ]
         }
     ]
 }

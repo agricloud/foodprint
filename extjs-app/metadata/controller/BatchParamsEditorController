@@ -9,7 +9,7 @@
         "models": [
             "Batch",
             "ItemRoute",
-            "BatchParams"
+            "ReportParams"
         ],
         "stores": [
             "BatchStore",
@@ -17,7 +17,8 @@
             "BatchItemRouteStore"
         ],
         "views": [
-            "BatchParamsEditorCt"
+            "BatchParamsEditorCt",
+            "BatchParamsCollectWindow"
         ],
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": [
@@ -41,6 +42,19 @@
                 "selector": "batchparamseditorct"
             },
             "designerId": "7cbf55b4-dda1-49ae-a354-396c4e269377"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsEditor",
+                "selector": "batchparamseditor"
+            },
+            "designerId": "7afc0ef2-5b70-47ba-b132-f491b44d9bb5"
         },
         {
             "type": "controllerref",
@@ -80,6 +94,32 @@
                 "selector": "batchviewer"
             },
             "designerId": "cdd2ad0f-374a-4918-b823-b5260cc22b9b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchForm",
+                "selector": "form"
+            },
+            "designerId": "1286dca8-4881-4c0e-bc69-1eaf7fd61fcf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsCollect",
+                "selector": "batchparamscollect"
+            },
+            "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
         },
         {
             "type": "fixedfunction",
@@ -146,56 +186,22 @@
                 "implHandler": [
                     "this.getBatchParamsCollect().setActiveTab(this.getBatchParamsRouteGrid().up());",
                     "var store=this.getBatchParamsRouteGrid().getStore();",
-                    "var proxy=store.getProxy();",
                     "store.data.clear();",
                     "",
                     "store.load({",
                     "    id:id",
-                    "",
                     "});",
-                    ""
+                    "",
+                    "Ext.widget('batchparamscollectwindow');",
+                    "",
+                    "var bpstore=this.getBatchParamsParamGrid().getStore();",
+                    "bpstore.data.clear();",
+                    "bpstore.load({",
+                    "    id:id",
+                    "});"
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "batchParamsEditor",
-                "selector": "batchparamseditor"
-            },
-            "designerId": "7afc0ef2-5b70-47ba-b132-f491b44d9bb5"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "batchForm",
-                "selector": "form"
-            },
-            "designerId": "1286dca8-4881-4c0e-bc69-1eaf7fd61fcf"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "batchParamsCollect",
-                "selector": "batchparamscollect"
-            },
-            "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
         },
         {
             "type": "basicfunction",
@@ -210,11 +216,40 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "var store=this.getBatchParamsRouteGrid().getStore();",
-                    ""
+                    "",
+                    "var bpstore=this.getBatchParamsParamGrid().getStore();",
+                    "bpstore.clearFilter();",
+                    "bpstore.filter('workstation_id',record.data.workstation_id);",
+                    "this.getBatchParamsCollectWindow().show();"
                 ]
             },
             "designerId": "f597b3f8-c1ed-4ac6-b931-68c26157061e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsCollectWindow",
+                "selector": "batchparamscollectwindow"
+            },
+            "designerId": "a094a472-92c9-449a-a513-fcd7dc230e87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsParamGrid",
+                "selector": "batchparamsparamgrid"
+            },
+            "designerId": "f7b6c830-5912-4121-ae01-2cf770849a48"
         }
     ]
 }
