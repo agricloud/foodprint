@@ -5,6 +5,26 @@ import org.springframework.dao.DataIntegrityViolationException
 class ItemRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+/*
+    def findMax() {
+        def itemRouteInstance= new Item(params)
+        def_item getValue(itemRouteInstance.id)
+        // save
+        if(!itemRouteInstance.validate()) { // validate id
+            itemRouteInstance.errors.each {
+               println it
+            }
+            return [success: false]
+        }
+        if (!itemRouteInstance.save(failOnError: true)) {
+            return [success: false]
+        }
+        else{
+            return [success:true]
+        }
+        
+    }
+*/
 
     def index() {
         redirect(action: "list", params: params)
@@ -16,7 +36,6 @@ class ItemRouteController {
     }
 
     def listJson(Integer max) {
-
         render (contentType: 'text/json') {
             list(max)        
         }
@@ -24,6 +43,7 @@ class ItemRouteController {
 
     def create() {
         println"ItemRouteController--create"
+        //int ItemRouteCount = ItemRoute.count()
         def itemRouteInstance= new Item(params)
         render (contentType: 'text/json') {
             save(itemRouteInstance)

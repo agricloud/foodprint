@@ -1,6 +1,14 @@
 {
     "name": "foodprintTouch",
-    "settings": {},
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "",
+        "exportPath": "../web-app/touchDevelopment",
+        "buildShouldOverwriteIndex": true
+    },
     "xdsVersion": "2.2.2",
     "xdsBuild": 991,
     "schemaVersion": 1,
@@ -12,10 +20,20 @@
                 "metadata/resource/Library"
             ],
             "className": "Library"
+        },
+        "2cf8daf4-6fb2-4864-802a-74f23c5a6fa3": {
+            "paths": [
+                "metadata/view/MyContainer",
+                "app/view/override/MyContainer.js",
+                "app/view/MyContainer.js"
+            ],
+            "className": "MyContainer"
         }
     },
     "viewOrderMap": {
-        "view": [],
+        "view": [
+            "2cf8daf4-6fb2-4864-802a-74f23c5a6fa3"
+        ],
         "store": [],
         "controller": [],
         "model": [],
