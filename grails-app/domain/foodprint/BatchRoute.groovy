@@ -1,12 +1,13 @@
 package foodprint
 
-class ItemRoute {
+class BatchRoute {
 
-	Item item
-	int sequence
+	Batch batch
 	Workstation workstation
+	Operation operation
+	int sequence
+	 
 
     static constraints = {
-    	item(unique: ['sequence'])
     }
 }
