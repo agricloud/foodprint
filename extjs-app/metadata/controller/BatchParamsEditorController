@@ -8,7 +8,7 @@
     "userConfig": {
         "models": [
             "Batch",
-            "BatchParams"
+            "BatchParamsBatch"
         ],
         "stores": [
             "BatchStore",
@@ -27,19 +27,6 @@
     },
     "designerId": "b45ae00c-f10f-4e06-afac-1db682d3ce23",
     "cn": [
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "batchParamsCollectCt",
-                "selector": "batchparamscollectct"
-            },
-            "designerId": "7b8d8935-7f00-4fc1-9658-b62727f307be"
-        },
         {
             "type": "controllerref",
             "reference": {
@@ -106,23 +93,11 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batchparamseditorct button[itemId=createBtn]':{",
-                    "        click:this.doCreate",
-                    "    },",
-                    "    'batchparamseditorct button[itemId=deleteBtn]':{",
-                    "        click:this.doDelete",
-                    "    },",
-                    "    'batchparamseditorct button[itemId=saveBtn]':{",
-                    "        click:this.doSave",
-                    "    },",
-                    "    'batchparamseditorct button[itemId=readBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
-                    "    'batchparamseditorct button[itemId=updateBtn]':{",
-                    "        click:this.doUpdate",
-                    "    },",
                     "    'batchparamseditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
+                    "    },",
+                    "    'batchparamscollect grid[itemId=batchParamRouteGrid]':{",
+                    "        itemdblclick:this.collectParams",
                     "    }",
                     "});"
                 ]
@@ -149,7 +124,6 @@
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchViewer().up());",
                     "this.doDisplay(record);",
                     "",
-                    "console.log(record);",
                     "this.loadBatchParams(record.data.id);"
                 ]
             },
@@ -172,10 +146,18 @@
                     "var store=this.getBatchParamsRouteGrid().getStore();",
                     "var proxy=store.getProxy();",
                     "store.data.clear();",
+                    "",
                     "store.load({",
-                    "    id:id",
+                    "    id:id,",
+                    "    callback:function(){",
+                    "        console.log(this.collect('workstation_id'));//name",
+                    "        this.data=this.collect('workstation_id');",
+                    "    }",
                     "});",
-                    ""
+                    "",
+                    "",
+                    "",
+                    "console.log(store);"
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"
@@ -218,6 +200,30 @@
                 "selector": "batchparamscollect"
             },
             "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "collectParams",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "var store=this.getBatchParamsRouteGrid().getStore();",
+                    "store.clearFilter();",
+                    "",
+                    "store.filter('workstation.id',\"1\");",
+                    " console.log(store);",
+                    "    ",
+                    "    //record.workstation_id"
+                ]
+            },
+            "designerId": "f597b3f8-c1ed-4ac6-b931-68c26157061e"
         }
     ]
 }

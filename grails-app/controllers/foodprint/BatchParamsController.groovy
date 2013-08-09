@@ -23,7 +23,7 @@ class BatchParamsController {
         [batchParamsList:batchParams, batchParamsTotal: batchParams.size()]
     }
 
-    def listJson() {
+    def show() {
         log.info "BatchParamsController--listJson"
         JSON.use('deep')
         def converter=list() as JSON
