@@ -12,7 +12,7 @@
         "designer|userClassName": "BatchParamsRouteGrid",
         "designer|userAlias": "batchparamsroutegrid",
         "title": null,
-        "store": "BatchParamsStore"
+        "store": "BatchItemRouteStore"
     },
     "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
     "cn": [
@@ -35,8 +35,24 @@
             "userConfig": {
                 "width": 134,
                 "defaultWidth": null,
+                "dataIndex": "sequence",
+                "groupable": null,
+                "text": "sequence"
+            },
+            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": 134,
+                "defaultWidth": null,
                 "dataIndex": "workstation_id",
-                "groupable": false,
+                "groupable": null,
                 "text": "Workstation_id"
             },
             "designerId": "880d0596-991e-4da2-9291-17759e41be0d"
@@ -68,6 +84,22 @@
                 "text": "Workstation_title"
             },
             "designerId": "9405d5c9-51b8-446c-a698-bb70ce3aa7db"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": 134,
+                "defaultWidth": null,
+                "dataIndex": "item_id",
+                "groupable": null,
+                "text": "Item_id"
+            },
+            "designerId": "e72c6f7e-f498-4304-9583-d8aca2732919"
         }
     ]
 }

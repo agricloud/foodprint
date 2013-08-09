@@ -1,0 +1,1479 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fbf4b065f57, pid=11384, tid=140459142629120
+#
+# JRE version: 6.0_27-b27
+# Java VM: OpenJDK 64-Bit Server VM (20.0-b12 mixed mode linux-amd64 compressed oops)
+# Derivative: IcedTea6 1.12.6
+# Distribution: Ubuntu 13.04, package 6b27-1.12.6-1ubuntu0.13.04.2
+# Problematic frame:
+# V  [libjvm.so+0x3b7f57]  constantPoolOopDesc::klass_at_impl(constantPoolHandle, int, Thread*)+0x87
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-6/
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fbeb6d69000):  JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@3a43a905" daemon [_thread_in_vm, id=12218, stack(0x00007fbf313d4000,0x00007fbf314d5000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000000000008
+
+Registers:
+RAX=0x00007fbf4b851950, RBX=0x00007fbf0c39e668, RCX=0x00007fbeb6d69000, RDX=0x00007fbeb6d69000
+RSP=0x00007fbf314d2bb0, RBP=0x00007fbf314d2fb0, RSI=0x0000000000000000, RDI=0x00007fbf0c39e668
+R8 =0x00007fbf0c39e660, R9 =0x000000000000e5c0, R10=0x00007fbf0c39e660, R11=0x00000000cfe2c600
+R12=0x0000000000000000, R13=0x00007fbeb6d69000, R14=0x0000000000000000, R15=0x0000000000000000
+RIP=0x00007fbf4b065f57, EFLAGS=0x0000000000010202, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fbf314d2bb0)
+0x00007fbf314d2bb0:   00007fbf314d2cc0 00007fbf0ce070d0
+0x00007fbf314d2bc0:   00007fbf314d2be0 00007fbf4aee3864
+0x00007fbf314d2bd0:   00007fbf0ce070d0 00007fbeb5c69670
+0x00007fbf314d2be0:   00007fbf314d2c90 00007fbf4b379e7c
+0x00007fbf314d2bf0:   00007fbf314d2f00 00007fbf00000000
+0x00007fbf314d2c00:   00007fbf0ce074b8 00007fbf0ce070e0
+0x00007fbf314d2c10:   00007fbf0c39e710 00007fbf0c39e720
+0x00007fbf314d2c20:   00007fbf0c39e718 00007fbf314d2c60
+0x00007fbf314d2c30:   00007fff06978d01 0000000000000000
+0x00007fbf314d2c40:   0000000118a4bd40 00007fbf314d2d30
+0x00007fbf314d2c50:   0000000004ffafa2 00007fbf0c39e6f8
+0x00007fbf314d2c60:   00007fbf314d2c80 00007fbf4b30a5d3
+0x00007fbf314d2c70:   0000000052048a6a 00000000000830d9
+0x00007fbf314d2c80:   00007fbf314d2ca0 00007fbf4b40ed87
+0x00007fbf314d2c90:   00007fbf314d2cc0 00007fbf314d2d30
+0x00007fbf314d2ca0:   00007fbf314d2cc0 00007fbf4b007c90
+0x00007fbf314d2cb0:   00007fbeb6d69000 00007fbf0c39e6f0
+0x00007fbf314d2cc0:   00007fbf314d2e00 00007fbf4b133563
+0x00007fbf314d2cd0:   00000000c2fb7ab3 00000000f4ff8bef
+0x00007fbf314d2ce0:   00007fbf314d2f00 000000004b40a4e6
+0x00007fbf314d2cf0:   00007fbf0c39e700 00007fbf314d2d30
+0x00007fbf314d2d00:   00007fbf0c39e708 00007fbf0c39e6b8
+0x00007fbf314d2d10:   00007fbeb6d69000 00007fbf0c39e6f8
+0x00007fbf314d2d20:   0000000000000001 00007fbefc011701
+0x00007fbf314d2d30:   0000000004ffafa9 00000001119cb2e3
+0x00007fbf314d2d40:   00007fbeb5c69600 00007fbf4400c560
+0x00007fbf314d2d50:   00007fbf4400c5d0 00007fbf4400c6d0
+0x00007fbf314d2d60:   00007fbeb6e055e4 00007fbeb6e05600
+0x00007fbf314d2d70:   ffffffff00000002 00007fbeb6d69000
+0x00007fbf314d2d80:   0000000000000006 00000001119cb2e4
+0x00007fbf314d2d90:   00007fbeb6d69000 00007fbf4400c470
+0x00007fbf314d2da0:   00007fbf4400c4e0 00007fbf4400c740 
+
+Instructions: (pc=0x00007fbf4b065f57)
+0x00007fbf4b065f37:   d8 4c 8b 65 e0 4c 8b 6d e8 4c 8b 75 f0 4c 8b 7d
+0x00007fbf4b065f47:   f8 c9 c3 66 0f 1f 44 00 00 48 8b 05 31 48 7d 00
+0x00007fbf4b065f57:   41 8b 54 24 08 8b 48 08 48 d3 e2 48 03 10 eb b8
+0x00007fbf4b065f67:   66 0f 1f 84 00 00 00 00 00 48 8d bd d0 fc ff ff 
+
+Register to memory mapping:
+
+RAX=0x00007fbf4b851950: <offset 0xba3950> in /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server/libjvm.so at 0x00007fbf4acae000
+RBX=0x00007fbf0c39e668 is an unknown value
+RCX=0x00007fbeb6d69000 is a thread
+RDX=0x00007fbeb6d69000 is a thread
+RSP=0x00007fbf314d2bb0 is pointing into the stack for thread: 0x00007fbeb6d69000
+RBP=0x00007fbf314d2fb0 is pointing into the stack for thread: 0x00007fbeb6d69000
+RSI=0x0000000000000000 is an unknown value
+RDI=0x00007fbf0c39e668 is an unknown value
+R8 =0x00007fbf0c39e660 is an unknown value
+R9 =0x000000000000e5c0 is an unknown value
+R10=0x00007fbf0c39e660 is an unknown value
+R11=0x00000000cfe2c600 is an oop
+{constant pool} 
+ - klass: {other class}
+ - cache: 0x00000000cfffc8b8
+ -   1 :  : 'foodprint/ItemRoute$__clinit__closure1$$EODzplKa'
+ -   2 :  : 'foodprint/ItemRoute$__clinit__closure1$$EODzplKa'
+ -   3 :  : 'java/lang/Object'
+ -   4 :  : 'java/lang/Object'
+ -   5 :  : 'ItemRoute.groovy'
+ -   6 :  : '$staticClassInfo'
+ -   7 :  : 'Lorg/codehaus/groovy/reflection/ClassInfo;'
+ -   8 :  : '__$stMC'
+ -   9 :  : 'Z'
+ -  10 :  : '$callSiteArray'
+ -  11 :  : 'Ljava/lang/ref/SoftReference;'
+ -  12 :  : '___init___'
+ -  13 :  : '(Lfoodprint/ItemRoute$__clinit__closure1;Ljava/lang/Object;Ljava/lang/Object;)V'
+ -  14 :  : '$getCallSiteArray'
+ -  15 :  : '()[Lorg/codehaus/groovy/runtime/callsite/CallSite;'
+ -  16 :  : name_index=14 signature_index=15
+ -  17 :  : klass_index=2 name_and_type_index=16
+ -  18 :  : 'thiz'
+ -  19 :  : 'Lfoodprint/ItemRoute$__clinit__closure1;'
+ -  20 :  : '_outerInstance'
+ -  21 :  : 'Ljava/lang/Object;'
+ -  22 :  : '_thisObject'
+ -  23 :  : 'doCall'
+ -  24 :  : '(Lfoodprint/ItemRoute$__clinit__closure1;Ljava/lang/Object;)Ljava/lang/Object;'
+ -  25 :  : 0
+ -  26 :  : 'unique'
+ -  27 :  : "unique" {0xc0b75000}
+ -  28 :  : 'sequence'
+ -  29 :  : "sequence" {0xc1509868}
+ -  30 :  : 'org/codehaus/groovy/runtime/ScriptBytecodeAdapter'
+ -  31 :  : 'org/codehaus/groovy/runtime/ScriptBytecodeAdapter'
+ -  32 :  : 'createList'
+ -  33 :  : '([Ljava/lang/Object;)Ljava/util/List;'
+ -  34 :  : name_index=32 signature_index=33
+ -  35 :  : klass_index=31 name_and_type_index=34
+ -  36 :  : 'createMap'
+ -  37 :  : '([Ljava/lang/Object;)Ljava/util/Map;'
+ -  38 :  : name_index=36 signature_index=37
+ -  39 :  : klass_index=31 name_and_type_index=38
+ -  40 :  : 'org/codehaus/groovy/runtime/callsite/CallSite'
+ -  41 :  : 'org/codehaus/groovy/runtime/callsite/CallSite'
+ -  42 :  : 'callCurrent'
+ -  43 :  : '(Lgroovy/lang/GroovyObject;Ljava/lang/Object;)Ljava/lang/Object;'
+ -  44 :  : name_index=42 signature_index=43
+ -  45 :  : klass_index=41 name_and_type_index=44
+ -  46 :  : 'it'
+ -  47 :  : '(Lfoodprint/ItemRoute$__clinit__closure1;)Ljava/lang/Object;'
+ -  48 :  : 27133633
+ -  49 :  : 'doCall(Ljava/lang/Object;)Ljava/lang/Object;'
+ -  50 :  : "doCall(Ljava/lang/Object;)Ljava/lang/Object;" {0xc1bc16b8}
+ -  51 :  : 'org/springsource/loaded/TypeRegistry'
+ -  52 :  : 'org/springsource/loaded/TypeRegistry'
+ -  53 :  : 'ivicheck'
+ -  54 :  : '(ILjava/lang/String;)Z'
+ -  55 :  : name_index=53 signature_index=54
+ -  56 :  : klass_index=52 name_and_type_index=55
+ -  57 :  : 1
+ -  58 :  : 'foodprint/ItemRoute$__clinit__closure1'
+ -  59 :  : 'foodprint/ItemRoute$__clinit__closure1'
+ -  60 :  : '__execute'
+ -  61 :  : '([Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;'
+ -  62 :  : name_index=60 signature_index=61
+ -  63 :  : klass_index=59 name_and_type_index=62
+ -  64 :  : '(Ljava/lang/Object;)Ljava/lang/Object;'
+ -  65 :  : name_index=23 signature_index=64
+ -  66 :  : klass_index=59 name_and_type_index=65
+ -  67 :  : '$getStaticMetaClass'
+ -  68 :  : '(Lfoodprint/ItemRoute$__clinit__closure1;)Lgroovy/lang/MetaClass;'
+ -  69 :  : 'getClass'
+ -  70 :  : '()Ljava/lang/Class;'
+ -  71 :  : name_index=69 signature_index=70
+ -  72 :  : klass_index=4 name_and_type_index=71
+ -  73 :  : 'initMetaClass'
+ -  74 :  : '(Ljava/lang/Object;)Lgroovy/lang/MetaClass;'
+ -  75 :  : name_index=73 signature_index=74
+ -  76 :  : klass_index=31 name_and_type_index=75
+ -  77 :  : name_index=6 signature_index=7
+ -  78 :  : klass_index=59 name_and_type_index=77
+ -  79 :  : 'org/codehaus/groovy/reflection/ClassInfo'
+ -  80 :  : 'org/codehaus/groovy/reflection/ClassInfo'
+ -  81 :  : 'getClassInfo'
+ -  82 :  : '(Ljava/lang/Class;)Lorg/codehaus/groovy/reflection/ClassInfo;'
+ -  83 :  : name_index=81 signature_index=82
+ -  84 :  : klass_index=80 name_and_type_index=83
+ -  85 :  : "$staticClassInfo" {0xc09ba790}
+ -  86 :  : 'staticFieldInterceptionRequired'
+ -  87 :  : name_index=86 signature_index=54
+ -  88 :  : klass_index=52 name_and_type_index=87
+ -  89 :  : 'r$sets'
+ -  90 :  : '(Ljava/lang/Object;Ljava/lang/String;)V'
+ -  91 :  : name_index=89 signature_index=90
+ -  92 :  : klass_index=59 name_and_type_index=91
+ -  93 :  : 'getMetaClass'
+ -  94 :  : '()Lgroovy/lang/MetaClass;'
+ -  95 :  : name_index=93 signature_index=94
+ -  96 :  : klass_index=80 name_and_type_index=95
+ -  97 :  : '__$swapInit'
+ -  98 :  : '()V'
+ -  99 :  : "$callSiteArray" {0xc09ba948}
+ - 100 :  : name_index=10 signature_index=11
+ - 101 :  : klass_index=59 name_and_type_index=100
+ - 102 :  : '___clinit___'
+ - 103 :  : '__$swapInit()V'
+ - 104 :  : "__$swapInit()V" {0xc1b963c8}
+ - 105 :  : 'istcheck'
+ - 106 :  : '(ILjava/lang/String;)Ljava/lang/Object;'
+ - 107 :  : name_index=105 signature_index=106
+ - 108 :  : klass_index=52 name_and_type_index=107
+ - 109 :  : 'foodprint/ItemRoute$__clinit__closure1__I'
+ - 110 :  : 'foodprint/ItemRoute$__clinit__closure1__I'
+ - 111 :  : klass_index=110 name_and_type_index=62
+ - 112 :  : name_index=97 signature_index=98
+ - 113 :  : klass_index=59 name_and_type_index=112
+ - 114 :  : '$createCallSiteArray_1'
+ - 115 :  : '([Ljava/lang/String;)V'
+ - 116 :  : 'item'
+ - 117 :  : "item" {0xc1084f70}
+ - 118 :  : '$createCallSiteArray'
+ - 119 :  : '()Lorg/codehaus/groovy/runtime/callsite/CallSiteArray;'
+ - 120 :  : 'java/lang/String'
+ - 121 :  : 'java/lang/String'
+ - 122 :  : '$createCallSiteArray_1([Ljava/lang/String;)V'
+ - 123 :  : "$createCallSiteArray_1([Ljava/lang/String;)V" {0xc1b964e0}
+ - 124 :  : name_index=114 signature_index=115
+ - 125 :  : klass_index=2 name_and_type_index=124
+ - 126 :  : 'org/codehaus/groovy/runtime/callsite/CallSiteArray'
+ - 127 :  : 'org/codehaus/groovy/runtime/callsite/CallSiteArray'
+ - 128 :  : '<init>'
+ - 129 :  : '(Ljava/lang/Class;[Ljava/lang/String;)V'
+ - 130 :  : name_index=128 signature_index=129
+ - 131 :  : klass_index=127 name_and_type_index=130
+ - 132 :  : 'java/lang/ref/SoftReference'
+ - 133 :  : 'java/lang/ref/SoftReference'
+ - 134 :  : 'get'
+ - 135 :  : '()Ljava/lang/Object;'
+ - 136 :  : name_index=134 signature_index=135
+ - 137 :  : klass_index=133 name_and_type_index=136
+ - 138 :  : '$createCallSiteArray()Lorg/codehaus/groovy/runtime/callsite/CallSiteArray;'
+ - 139 :  : "$createCallSiteArray()Lorg/codehaus/groovy/runtime/callsite/CallSiteArray;" {0xc1b96418}
+ - 140 :  : name_index=118 signature_index=119
+ - 141 :  : klass_index=2 name_and_type_index=140
+ - 142 :  : '(Ljava/lang/Object;)V'
+ - 143 :  : name_index=128 signature_index=142
+ - 144 :  : klass_index=133 name_and_type_index=143
+ - 145 :  : 'array'
+ - 146 :  : '[Lorg/codehaus/groovy/runtime/callsite/CallSite;'
+ - 147 :  : name_index=145 signature_index=146
+ - 148 :  : klass_index=127 name_and_type_index=147
+ - 149 :  : 'class$'
+ - 150 :  : '(Ljava/lang/String;)Ljava/lang/Class;'
+ - 151 :  : 'java/lang/ClassNotFoundException'
+ - 152 :  : 'java/lang/ClassNotFoundException'
+ - 153 :  : 'java/lang/Class'
+ - 154 :  : 'java/lang/Class'
+ - 155 :  : 'forName'
+ - 156 :  : name_index=155 signature_index=150
+ - 157 :  : klass_index=154 name_and_type_index=156
+ - 158 :  : 'java/lang/NoClassDefFoundError'
+ - 159 :  : 'java/lang/NoClassDefFoundError'
+ - 160 :  : 'getMessage'
+ - 161 :  : '()Ljava/lang/String;'
+ - 162 :  : name_index=160 signature_index=161
+ - 163 :  : klass_index=152 name_and_type_index=162
+ - 164 :  : '(Ljava/lang/String;)V'
+ - 165 :  : name_index=128 signature_index=164
+ - 166 :  : klass_index=159 name_and_type_index=165
+ - 167 :  : 'Code'
+ - 168 :  : 'LocalVariableTable'
+ - 169 :  : 'LineNumberTable'
+ - 170 :  : 'SourceFile'
+
+R12=0x0000000000000000 is an unknown value
+R13=0x00007fbeb6d69000 is a thread
+R14=0x0000000000000000 is an unknown value
+R15=0x0000000000000000 is an unknown value
+
+
+Stack: [0x00007fbf313d4000,0x00007fbf314d5000],  sp=0x00007fbf314d2bb0,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x3b7f57]  constantPoolOopDesc::klass_at_impl(constantPoolHandle, int, Thread*)+0x87
+V  [libjvm.so+0x3b9187]  constantPoolOopDesc::klass_ref_at(int, Thread*)+0x77
+V  [libjvm.so+0x5ae23a]  LinkResolver::resolve_klass(KlassHandle&, constantPoolHandle, int, Thread*)+0x2a
+V  [libjvm.so+0x5b289a]  LinkResolver::resolve_pool(KlassHandle&, symbolHandle&, symbolHandle&, KlassHandle&, constantPoolHandle, int, Thread*)+0x3a
+V  [libjvm.so+0x5b2a90]  LinkResolver::resolve_invokestatic(CallInfo&, constantPoolHandle, int, Thread*)+0x50
+V  [libjvm.so+0x4b2c8f]  InterpreterRuntime::resolve_invoke(JavaThread*, Bytecodes::Code)+0x23f
+j  foodprint.ItemRoute$__clinit__closure1$$EODzplKa.___clinit___()V+4
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x4bae97]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x2a7
+V  [libjvm.so+0x4ba2f5]  JavaCalls::call(JavaValue*, methodHandle, JavaCallArguments*, Thread*)+0x25
+V  [libjvm.so+0x6ba691]  Reflection::invoke(instanceKlassHandle, methodHandle, Handle, bool, objArrayHandle, BasicType, objArrayHandle, bool, Thread*)+0x4f1
+V  [libjvm.so+0x6bbe96]  Reflection::invoke_method(oopDesc*, Handle, objArrayHandle, Thread*)+0x1d6
+V  [libjvm.so+0x4fd9c2]  JVM_InvokeMethod+0x142
+J  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  foodprint.ItemRoute$__clinit__closure1$$EODzplKa.___clinit___()V+4
+v  ~StubRoutines::call_stub
+J  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+J  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+J  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+j  org.springsource.loaded.CurrentLiveVersion.runStaticInitializer()V+50
+j  org.springsource.loaded.ReloadableType.loadNewVersion(Ljava/lang/String;[B)Z+613
+j  org.springsource.loaded.TypeRegistry.loadNewVersion(Lorg/springsource/loaded/ReloadableType;Ljava/io/File;)V+43
+j  org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(Ljava/io/File;)V+60
+j  org.springsource.loaded.agent.Watcher.determineChangesSince(Ljava/io/File;J)V+5
+J  org.springsource.loaded.agent.Watcher.run()V
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fbf14056000 JavaThread "SIGHUP handler" daemon [_thread_blocked, id=13474, stack(0x00007fbea49ca000,0x00007fbea4acb000)]
+  0x00007fbf14055800 JavaThread "SIGINT handler" daemon [_thread_blocked, id=13473, stack(0x00007fbea4acb000,0x00007fbea4bcc000)]
+  0x00007fbeaa2eb000 JavaThread "FileSystemWatcher: files=#1 cl=groovy.lang.GroovyClassLoader@14017fec" daemon [_thread_blocked, id=13351, stack(0x00007fbea4bcc000,0x00007fbea4ccd000)]
+  0x00007fbed4231800 JavaThread "http-bio-8080-exec-10" daemon [_thread_blocked, id=13343, stack(0x00007fbea4ccd000,0x00007fbea4dce000)]
+  0x00007fbed4275000 JavaThread "http-bio-8080-exec-9" daemon [_thread_blocked, id=13342, stack(0x00007fbea4dce000,0x00007fbea4ecf000)]
+  0x00007fbed4273000 JavaThread "http-bio-8080-exec-8" daemon [_thread_blocked, id=13340, stack(0x00007fbea4ecf000,0x00007fbea4fd0000)]
+  0x00007fbea0c72800 JavaThread "FileSystemWatcher: files=#1 cl=groovy.lang.GroovyClassLoader@136c2849" daemon [_thread_blocked, id=13339, stack(0x00007fbea4fd0000,0x00007fbea50d1000)]
+  0x00007fbed4272800 JavaThread "http-bio-8080-exec-7" daemon [_thread_blocked, id=13338, stack(0x00007fbea6aeb000,0x00007fbea6bec000)]
+  0x00007fbed4279800 JavaThread "http-bio-8080-exec-6" daemon [_thread_blocked, id=13336, stack(0x00007fbea6ff0000,0x00007fbea70f1000)]
+  0x00007fbed42d7800 JavaThread "http-bio-8080-exec-5" daemon [_thread_blocked, id=13331, stack(0x00007fbea50d1000,0x00007fbea51d2000)]
+  0x00007fbed46ce800 JavaThread "http-bio-8080-exec-4" daemon [_thread_blocked, id=13329, stack(0x00007fbea51d2000,0x00007fbea52d3000)]
+  0x00007fbed422a800 JavaThread "http-bio-8080-exec-3" daemon [_thread_blocked, id=13327, stack(0x00007fbea52d3000,0x00007fbea53d4000)]
+  0x00007fbed42e8000 JavaThread "http-bio-8080-exec-2" daemon [_thread_blocked, id=13326, stack(0x00007fbea5edf000,0x00007fbea5fe0000)]
+  0x00007fbed42e9000 JavaThread "http-bio-8080-exec-1" daemon [_thread_blocked, id=13324, stack(0x00007fbea5cdd000,0x00007fbea5dde000)]
+  0x00007fbed4270800 JavaThread "Thread-202" [_thread_blocked, id=13323, stack(0x00007fbea53d4000,0x00007fbea54d5000)]
+  0x00007fbed426f800 JavaThread "http-bio-8080-AsyncTimeout" daemon [_thread_blocked, id=13322, stack(0x00007fbea54d5000,0x00007fbea55d6000)]
+  0x00007fbed426e000 JavaThread "http-bio-8080-Acceptor-0" daemon [_thread_in_native, id=13321, stack(0x00007fbea55d6000,0x00007fbea56d7000)]
+  0x00007fbed426c800 JavaThread "ContainerBackgroundProcessor[StandardEngine[Tomcat]]" daemon [_thread_blocked, id=13320, stack(0x00007fbea56d7000,0x00007fbea57d8000)]
+  0x00007fbed4264800 JavaThread "foodprint.Role.data" daemon [_thread_blocked, id=13318, stack(0x00007fbea66e7000,0x00007fbea67e8000)]
+  0x00007fbed4277800 JavaThread "net.sf.ehcache.CacheManager@31e1437" daemon [_thread_blocked, id=13317, stack(0x00007fbea67e8000,0x00007fbea68e9000)]
+  0x00007fbed4268800 JavaThread "pool-31-thread-5" [_thread_blocked, id=13313, stack(0x00007fbea60e1000,0x00007fbea61e2000)]
+  0x00007fbed4268000 JavaThread "pool-31-thread-4" [_thread_blocked, id=13312, stack(0x00007fbea6bec000,0x00007fbea6ced000)]
+  0x00007fbed4267000 JavaThread "pool-31-thread-3" [_thread_blocked, id=13311, stack(0x00007fbea61e2000,0x00007fbea62e3000)]
+  0x00007fbed42e6800 JavaThread "pool-31-thread-2" [_thread_blocked, id=13310, stack(0x00007fbea6ced000,0x00007fbea6dee000)]
+  0x00007fbed4617800 JavaThread "pool-31-thread-1" [_thread_blocked, id=13309, stack(0x00007fbea5fe0000,0x00007fbea60e1000)]
+  0x00007fbed46c9800 JavaThread "pool-30-thread-5" [_thread_blocked, id=13307, stack(0x00007fbeacfd0000,0x00007fbead0d1000)]
+  0x00007fbed42e2800 JavaThread "pool-30-thread-4" [_thread_blocked, id=13306, stack(0x00007fbea57d8000,0x00007fbea58d9000)]
+  0x00007fbed46c7000 JavaThread "pool-30-thread-3" [_thread_blocked, id=13305, stack(0x00007fbea65e6000,0x00007fbea66e7000)]
+  0x00007fbed46cc800 JavaThread "pool-30-thread-2" [_thread_blocked, id=13304, stack(0x00007fbea64e5000,0x00007fbea65e6000)]
+  0x00007fbed48c3000 JavaThread "pool-30-thread-1" [_thread_blocked, id=13303, stack(0x00007fbea63e4000,0x00007fbea64e5000)]
+  0x00007fbea0764800 JavaThread "FileSystemWatcher: files=#1 cl=groovy.lang.GroovyClassLoader@568653d9" daemon [_thread_blocked, id=13290, stack(0x00007fbea58d9000,0x00007fbea59da000)]
+  0x00007fbea08df000 JavaThread "FileSystemWatcher: files=#1 cl=groovy.lang.GroovyClassLoader@1c0b914c" daemon [_thread_blocked, id=13284, stack(0x00007fbea59da000,0x00007fbea5adb000)]
+  0x00007fbea0a72800 JavaThread "FileSystemWatcher: files=#13 cl=groovy.lang.GroovyClassLoader@69f54863" daemon [_thread_blocked, id=13279, stack(0x00007fbea5adb000,0x00007fbea5bdc000)]
+  0x00007fbeb65c7000 JavaThread "FileSystemWatcher: files=#13 cl=groovy.lang.GroovyClassLoader@5f44755d" daemon [_thread_blocked, id=13277, stack(0x00007fbea5bdc000,0x00007fbea5cdd000)]
+  0x00007fbeab733800 JavaThread "FileSystemWatcher: files=#13 cl=groovy.lang.GroovyClassLoader@36d813db" daemon [_thread_blocked, id=13268, stack(0x00007fbea5dde000,0x00007fbea5edf000)]
+  0x00007fbeab0d8000 JavaThread "FileSystemWatcher: files=#1 cl=groovy.lang.GroovyClassLoader@2bcd64dd" daemon [_thread_blocked, id=13260, stack(0x00007fbead6d7000,0x00007fbead7d8000)]
+  0x00007fbed46d1000 JavaThread "Thread-186" [_thread_blocked, id=13251, stack(0x00007fbea62e3000,0x00007fbea63e4000)]
+  0x00007fbed48ad800 JavaThread "pool-28-thread-5" [_thread_blocked, id=13241, stack(0x00007fbea71f2000,0x00007fbea72f3000)]
+  0x00007fbed45c3800 JavaThread "pool-28-thread-4" [_thread_blocked, id=13240, stack(0x00007fbea6dee000,0x00007fbea6eef000)]
+  0x00007fbed48af800 JavaThread "pool-28-thread-3" [_thread_blocked, id=13239, stack(0x00007fbea70f1000,0x00007fbea71f2000)]
+  0x00007fbed48d0000 JavaThread "pool-28-thread-2" [_thread_blocked, id=13238, stack(0x00007fbea73f4000,0x00007fbea74f5000)]
+  0x00007fbed4289800 JavaThread "pool-28-thread-1" [_thread_blocked, id=13237, stack(0x00007fbead4d5000,0x00007fbead5d6000)]
+  0x00007fbed45e4800 JavaThread "pool-27-thread-5" [_thread_blocked, id=13235, stack(0x00007fbea6eef000,0x00007fbea6ff0000)]
+  0x00007fbed4288800 JavaThread "pool-27-thread-4" [_thread_blocked, id=13234, stack(0x00007fbea72f3000,0x00007fbea73f4000)]
+  0x00007fbed40cc000 JavaThread "pool-27-thread-3" [_thread_blocked, id=13233, stack(0x00007fbea68e9000,0x00007fbea69ea000)]
+  0x00007fbed48b4000 JavaThread "pool-27-thread-2" [_thread_blocked, id=13232, stack(0x00007fbead5d6000,0x00007fbead6d7000)]
+  0x00007fbed48bb000 JavaThread "pool-27-thread-1" [_thread_blocked, id=13231, stack(0x00007fbea75f6000,0x00007fbea76f7000)]
+  0x00007fbeabd1c800 JavaThread "FileSystemWatcher: files=#13 cl=groovy.lang.GroovyClassLoader@7300e4ce" daemon [_thread_blocked, id=13218, stack(0x00007fbea69ea000,0x00007fbea6aeb000)]
+  0x00007fbeab50a000 JavaThread "FileSystemWatcher: files=#5 cl=groovy.lang.GroovyClassLoader@4bfb80cf" daemon [_thread_blocked, id=13217, stack(0x00007fbead7d8000,0x00007fbead8d9000)]
+  0x00007fbeabfdc800 JavaThread "FileSystemWatcher: files=#5 cl=groovy.lang.GroovyClassLoader@63f3ca72" daemon [_thread_blocked, id=13208, stack(0x00007fbeacacb000,0x00007fbeacbcc000)]
+  0x00007fbed48bc000 JavaThread "Thread-173" [_thread_blocked, id=13187, stack(0x00007fbea74f5000,0x00007fbea75f6000)]
+  0x00007fbed42c3000 JavaThread "pool-25-thread-5" [_thread_blocked, id=13177, stack(0x00007fbeac8c9000,0x00007fbeac9ca000)]
+  0x00007fbed4575000 JavaThread "pool-25-thread-4" [_thread_blocked, id=13176, stack(0x00007fbeacdce000,0x00007fbeacecf000)]
+  0x00007fbed460a000 JavaThread "pool-25-thread-3" [_thread_blocked, id=13175, stack(0x00007fbeac9ca000,0x00007fbeacacb000)]
+  0x00007fbed40c7800 JavaThread "pool-25-thread-2" [_thread_blocked, id=13174, stack(0x00007fbeac6c7000,0x00007fbeac7c8000)]
+  0x00007fbed46d9800 JavaThread "pool-25-thread-1" [_thread_blocked, id=13173, stack(0x00007fbeac7c8000,0x00007fbeac8c9000)]
+  0x00007fbed42c6000 JavaThread "pool-24-thread-5" [_thread_blocked, id=13171, stack(0x00007fbeacccd000,0x00007fbeacdce000)]
+  0x00007fbed40c4800 JavaThread "pool-24-thread-4" [_thread_blocked, id=13170, stack(0x00007fbea76f7000,0x00007fbea77f8000)]
+  0x00007fbed46eb800 JavaThread "pool-24-thread-3" [_thread_blocked, id=13169, stack(0x00007fbead3d4000,0x00007fbead4d5000)]
+  0x00007fbed45f7800 JavaThread "pool-24-thread-2" [_thread_blocked, id=13168, stack(0x00007fbead2d3000,0x00007fbead3d4000)]
+  0x00007fbed45ee800 JavaThread "pool-24-thread-1" [_thread_blocked, id=13167, stack(0x00007fbead1d2000,0x00007fbead2d3000)]
+  0x00007fbeab46f000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@4c389dc6" daemon [_thread_blocked, id=13135, stack(0x00007fbea77f8000,0x00007fbea78f9000)]
+  0x00007fbeabba4800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@2a979091" daemon [_thread_blocked, id=13133, stack(0x00007fbea78f9000,0x00007fbea79fa000)]
+  0x00007fbeaaeb1800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@2e746c8e" daemon [_thread_blocked, id=13120, stack(0x00007fbea79fa000,0x00007fbea7afb000)]
+  0x00007fbeaaa78800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@65306276" daemon [_thread_blocked, id=13111, stack(0x00007fbea7afb000,0x00007fbea7bfc000)]
+  0x00007fbeab333800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@7f928e73" daemon [_thread_blocked, id=13107, stack(0x00007fbea7bfc000,0x00007fbea7cfd000)]
+  0x00007fbeaa9dd000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@5b51c408" daemon [_thread_blocked, id=13101, stack(0x00007fbea7cfd000,0x00007fbea7dfe000)]
+  0x00007fbeb6e1e800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@7cbc2c83" daemon [_thread_blocked, id=13098, stack(0x00007fbea7dfe000,0x00007fbea7eff000)]
+  0x00007fbeaacde000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@e15911" daemon [_thread_blocked, id=13092, stack(0x00007fbea7eff000,0x00007fbea8000000)]
+  0x00007fbeaa0be800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@34df5a9d" daemon [_thread_blocked, id=13089, stack(0x00007fbeac0c1000,0x00007fbeac1c2000)]
+  0x00007fbeaa440000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@65e9a0da" daemon [_thread_in_Java, id=13087, stack(0x00007fbeac1c2000,0x00007fbeac2c3000)]
+  0x00007fbea9bc2000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@27e2ce0e" daemon [_thread_blocked, id=13042, stack(0x00007fbeac2c3000,0x00007fbeac3c4000)]
+  0x00007fbea9eb4800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@51719505" daemon [_thread_blocked, id=13032, stack(0x00007fbeac3c4000,0x00007fbeac4c5000)]
+  0x00007fbea996d800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@5a57e77f" daemon [_thread_blocked, id=13024, stack(0x00007fbeac4c5000,0x00007fbeac5c6000)]
+  0x00007fbea9c85800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@7e83a12a" daemon [_thread_blocked, id=13018, stack(0x00007fbeac5c6000,0x00007fbeac6c7000)]
+  0x00007fbea9e19800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@6e445622" daemon [_thread_blocked, id=12997, stack(0x00007fbeacbcc000,0x00007fbeacccd000)]
+  0x00007fbea97ab000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@69aebe35" daemon [_thread_blocked, id=12992, stack(0x00007fbeacecf000,0x00007fbeacfd0000)]
+  0x00007fbed40c8800 JavaThread "Thread-147" [_thread_blocked, id=12984, stack(0x00007fbead0d1000,0x00007fbead1d2000)]
+  0x00007fbed457a800 JavaThread "pool-23-thread-5" [_thread_blocked, id=12973, stack(0x00007fbead8d9000,0x00007fbead9da000)]
+  0x00007fbed46e2800 JavaThread "pool-23-thread-4" [_thread_blocked, id=12972, stack(0x00007fbead9da000,0x00007fbeadadb000)]
+  0x00007fbed40ee800 JavaThread "pool-23-thread-3" [_thread_blocked, id=12971, stack(0x00007fbeadcdd000,0x00007fbeaddde000)]
+  0x00007fbed46e1800 JavaThread "pool-23-thread-2" [_thread_blocked, id=12970, stack(0x00007fbeadadb000,0x00007fbeadbdc000)]
+  0x00007fbed40ef800 JavaThread "pool-23-thread-1" [_thread_blocked, id=12969, stack(0x00007fbeadbdc000,0x00007fbeadcdd000)]
+  0x00007fbed457e000 JavaThread "pool-22-thread-5" [_thread_blocked, id=12967, stack(0x00007fbeaddde000,0x00007fbeadedf000)]
+  0x00007fbed432c000 JavaThread "pool-22-thread-4" [_thread_blocked, id=12966, stack(0x00007fbeae8e9000,0x00007fbeae9ea000)]
+  0x00007fbed40d4000 JavaThread "pool-22-thread-3" [_thread_blocked, id=12965, stack(0x00007fbeae9ea000,0x00007fbeaeaeb000)]
+  0x00007fbed40ae800 JavaThread "pool-22-thread-2" [_thread_blocked, id=12964, stack(0x00007fbeae5e6000,0x00007fbeae6e7000)]
+  0x00007fbed40ab000 JavaThread "pool-22-thread-1" [_thread_blocked, id=12963, stack(0x00007fbeafafb000,0x00007fbeafbfc000)]
+  0x00007fbea958f800 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@6e21b5ab" daemon [_thread_blocked, id=12953, stack(0x00007fbeafbfc000,0x00007fbeafcfd000)]
+  0x00007fbed457f000 JavaThread "Thread-139" [_thread_blocked, id=12951, stack(0x00007fbf303c4000,0x00007fbf304c5000)]
+  0x00007fbed40e8800 JavaThread "pool-20-thread-5" [_thread_blocked, id=12940, stack(0x00007fbeae7e8000,0x00007fbeae8e9000)]
+  0x00007fbed40ce800 JavaThread "pool-20-thread-4" [_thread_blocked, id=12939, stack(0x00007fbeaebec000,0x00007fbeaeced000)]
+  0x00007fbed40f1800 JavaThread "pool-20-thread-3" [_thread_blocked, id=12938, stack(0x00007fbeaeced000,0x00007fbeaedee000)]
+  0x00007fbed4569000 JavaThread "pool-20-thread-2" [_thread_blocked, id=12937, stack(0x00007fbeaeaeb000,0x00007fbeaebec000)]
+  0x00007fbed4086000 JavaThread "pool-20-thread-1" [_thread_blocked, id=12936, stack(0x00007fbeae6e7000,0x00007fbeae7e8000)]
+  0x00007fbed408d800 JavaThread "pool-19-thread-5" [_thread_blocked, id=12934, stack(0x00007fbeae4e5000,0x00007fbeae5e6000)]
+  0x00007fbed409b800 JavaThread "pool-19-thread-4" [_thread_blocked, id=12933, stack(0x00007fbeaeeef000,0x00007fbeaeff0000)]
+  0x00007fbed40e1000 JavaThread "pool-19-thread-3" [_thread_blocked, id=12932, stack(0x00007fbeadedf000,0x00007fbeadfe0000)]
+  0x00007fbed4098000 JavaThread "pool-19-thread-2" [_thread_blocked, id=12931, stack(0x00007fbf33afb000,0x00007fbf33bfc000)]
+  0x00007fbed40cf800 JavaThread "pool-19-thread-1" [_thread_blocked, id=12930, stack(0x00007fbeaeff0000,0x00007fbeaf0f1000)]
+  0x00007fbea8f1f000 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@7c3a18c1" daemon [_thread_blocked, id=12917, stack(0x00007fbeadfe0000,0x00007fbeae0e1000)]
+  0x00007fbea8982800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@bb28af6" daemon [_thread_blocked, id=12893, stack(0x00007fbeae0e1000,0x00007fbeae1e2000)]
+  0x00007fbea81c4800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@6f8587fe" daemon [_thread_blocked, id=12877, stack(0x00007fbeae1e2000,0x00007fbeae2e3000)]
+  0x00007fbea9176800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@674775d" daemon [_thread_blocked, id=12876, stack(0x00007fbeae2e3000,0x00007fbeae3e4000)]
+  0x00007fbeb4971000 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@2772d440" daemon [_thread_blocked, id=12872, stack(0x00007fbeae3e4000,0x00007fbeae4e5000)]
+  0x00007fbeb6ef3800 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@2e9771eb" daemon [_thread_blocked, id=12871, stack(0x00007fbeaf4f5000,0x00007fbeaf5f6000)]
+  0x00007fbea854f800 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@78af2ac3" daemon [_thread_blocked, id=12869, stack(0x00007fbeaf9fa000,0x00007fbeafafb000)]
+  0x00007fbed4097000 JavaThread "Thread-122" [_thread_blocked, id=12847, stack(0x00007fbeaedee000,0x00007fbeaeeef000)]
+  0x00007fbed432b800 JavaThread "pool-17-thread-5" [_thread_blocked, id=12837, stack(0x00007fbeaf6f7000,0x00007fbeaf7f8000)]
+  0x00007fbed4072800 JavaThread "pool-17-thread-4" [_thread_blocked, id=12836, stack(0x00007fbf337f8000,0x00007fbf338f9000)]
+  0x00007fbed40ae000 JavaThread "pool-17-thread-3" [_thread_blocked, id=12835, stack(0x00007fbeaf5f6000,0x00007fbeaf6f7000)]
+  0x00007fbed4070800 JavaThread "pool-17-thread-2" [_thread_blocked, id=12834, stack(0x00007fbf307c8000,0x00007fbf308c9000)]
+  0x00007fbed4203800 JavaThread "pool-17-thread-1" [_thread_blocked, id=12833, stack(0x00007fbeafcfd000,0x00007fbeafdfe000)]
+  0x00007fbed408b800 JavaThread "pool-16-thread-5" [_thread_blocked, id=12831, stack(0x00007fbeaf8f9000,0x00007fbeaf9fa000)]
+  0x00007fbed4577800 JavaThread "pool-16-thread-4" [_thread_blocked, id=12830, stack(0x00007fbeaf0f1000,0x00007fbeaf1f2000)]
+  0x00007fbed400b000 JavaThread "pool-16-thread-3" [_thread_blocked, id=12829, stack(0x00007fbf3a1fe000,0x00007fbf3a2ff000)]
+  0x00007fbed4089000 JavaThread "pool-16-thread-2" [_thread_blocked, id=12828, stack(0x00007fbf300c1000,0x00007fbf301c2000)]
+  0x00007fbed4574000 JavaThread "pool-16-thread-1" [_thread_blocked, id=12827, stack(0x00007fbeafeff000,0x00007fbeb0000000)]
+  0x00007fbea8109800 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@7276db4c" daemon [_thread_blocked, id=12812, stack(0x00007fbeaf1f2000,0x00007fbeaf2f3000)]
+  0x00007fbea86e3800 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@1dfedd5c" daemon [_thread_blocked, id=12810, stack(0x00007fbeaf2f3000,0x00007fbeaf3f4000)]
+  0x00007fbeb6f3f800 JavaThread "FileSystemWatcher: files=#15 cl=groovy.lang.GroovyClassLoader@11787eea" daemon [_thread_blocked, id=12806, stack(0x00007fbeaf3f4000,0x00007fbeaf4f5000)]
+  0x00007fbeb7e59000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@69a42eb8" daemon [_thread_blocked, id=12506, stack(0x00007fbf305c6000,0x00007fbf306c7000)]
+  0x00007fbeb6f51800 JavaThread "FileSystemWatcher: files=#6 cl=groovy.lang.GroovyClassLoader@3d8119d7" daemon [_thread_blocked, id=12360, stack(0x00007fbeaf7f8000,0x00007fbeaf8f9000)]
+  0x00007fbed4572000 JavaThread "Thread-107" [_thread_blocked, id=12351, stack(0x00007fbeafdfe000,0x00007fbeafeff000)]
+  0x00007fbed4570000 JavaThread "pool-14-thread-5" [_thread_blocked, id=12341, stack(0x00007fbf309ca000,0x00007fbf30acb000)]
+  0x00007fbed4076800 JavaThread "pool-14-thread-4" [_thread_blocked, id=12340, stack(0x00007fbf30acb000,0x00007fbf30bcc000)]
+  0x00007fbed4075800 JavaThread "pool-14-thread-3" [_thread_blocked, id=12339, stack(0x00007fbf395e0000,0x00007fbf396e1000)]
+  0x00007fbed4075000 JavaThread "pool-14-thread-2" [_thread_blocked, id=12338, stack(0x00007fbf304c5000,0x00007fbf305c6000)]
+  0x00007fbed4074000 JavaThread "pool-14-thread-1" [_thread_blocked, id=12337, stack(0x00007fbf30bcc000,0x00007fbf30ccd000)]
+  0x00007fbed4061000 JavaThread "pool-13-thread-5" [_thread_blocked, id=12335, stack(0x00007fbf308c9000,0x00007fbf309ca000)]
+  0x00007fbed4015000 JavaThread "pool-13-thread-4" [_thread_blocked, id=12334, stack(0x00007fbf301c2000,0x00007fbf302c3000)]
+  0x00007fbed400a000 JavaThread "pool-13-thread-3" [_thread_blocked, id=12333, stack(0x00007fbf393de000,0x00007fbf394df000)]
+  0x00007fbed4021800 JavaThread "pool-13-thread-2" [_thread_blocked, id=12332, stack(0x00007fbf30ecf000,0x00007fbf30fd0000)]
+  0x00007fbed4063800 JavaThread "pool-13-thread-1" [_thread_blocked, id=12331, stack(0x00007fbf30dce000,0x00007fbf30ecf000)]
+  0x00007fbeb6e9a800 JavaThread "FileSystemWatcher: files=#6 cl=groovy.lang.GroovyClassLoader@10283bd3" daemon [_thread_in_Java, id=12310, stack(0x00007fbf302c3000,0x00007fbf303c4000)]
+  0x00007fbeb77fa800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@74f508b9" daemon [_thread_blocked, id=12290, stack(0x00007fbf306c7000,0x00007fbf307c8000)]
+  0x00007fbeb75d7000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@6bfcc2a1" daemon [_thread_blocked, id=12283, stack(0x00007fbf331f2000,0x00007fbf332f3000)]
+  0x00007fbedc0af800 JavaThread "Thread-94" [_thread_blocked, id=12274, stack(0x00007fbf30ccd000,0x00007fbf30dce000)]
+  0x00007fbedca40000 JavaThread "pool-11-thread-5" [_thread_blocked, id=12264, stack(0x00007fbf339fa000,0x00007fbf33afb000)]
+  0x00007fbedca44800 JavaThread "pool-11-thread-4" [_thread_blocked, id=12263, stack(0x00007fbf332f3000,0x00007fbf333f4000)]
+  0x00007fbedca43000 JavaThread "pool-11-thread-3" [_thread_blocked, id=12262, stack(0x00007fbf333f4000,0x00007fbf334f5000)]
+  0x00007fbedca42000 JavaThread "pool-11-thread-2" [_thread_blocked, id=12261, stack(0x00007fbf394df000,0x00007fbf395e0000)]
+  0x00007fbedca40800 JavaThread "pool-11-thread-1" [_thread_blocked, id=12260, stack(0x00007fbf338f9000,0x00007fbf339fa000)]
+  0x00007fbedca16000 JavaThread "pool-10-thread-5" [_thread_blocked, id=12258, stack(0x00007fbf390db000,0x00007fbf391dc000)]
+  0x00007fbedca14800 JavaThread "pool-10-thread-4" [_thread_blocked, id=12257, stack(0x00007fbf33dfe000,0x00007fbf33eff000)]
+  0x00007fbedca13000 JavaThread "pool-10-thread-3" [_thread_blocked, id=12256, stack(0x00007fbf30fd0000,0x00007fbf310d1000)]
+  0x00007fbedca12000 JavaThread "pool-10-thread-2" [_thread_blocked, id=12255, stack(0x00007fbf392dd000,0x00007fbf393de000)]
+  0x00007fbedc620800 JavaThread "pool-10-thread-1" [_thread_blocked, id=12254, stack(0x00007fbf33cfd000,0x00007fbf33dfe000)]
+  0x00007fbeb73ba800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@592c5cc" daemon [_thread_blocked, id=12236, stack(0x00007fbf310d1000,0x00007fbf311d2000)]
+  0x00007fbeb719e800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@20a6cee5" daemon [_thread_blocked, id=12232, stack(0x00007fbf311d2000,0x00007fbf312d3000)]
+  0x00007fbeb69cc000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@3f92f599" daemon [_thread_blocked, id=12225, stack(0x00007fbf312d3000,0x00007fbf313d4000)]
+=>0x00007fbeb6d69000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@3a43a905" daemon [_thread_in_vm, id=12218, stack(0x00007fbf313d4000,0x00007fbf314d5000)]
+  0x00007fbeb6b4d000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@494c491b" daemon [_thread_blocked, id=12214, stack(0x00007fbf314d5000,0x00007fbf315d6000)]
+  0x00007fbeb6931000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@56d9ea8d" daemon [_thread_blocked, id=12143, stack(0x00007fbf315d6000,0x00007fbf316d7000)]
+  0x00007fbeb67d9000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@65c07f83" daemon [_thread_blocked, id=12141, stack(0x00007fbf316d7000,0x00007fbf317d8000)]
+  0x00007fbeb61e6000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@587b6c50" daemon [_thread_blocked, id=12089, stack(0x00007fbf317d8000,0x00007fbf318d9000)]
+  0x00007fbeb62d6000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@74976292" daemon [_thread_blocked, id=12076, stack(0x00007fbf318d9000,0x00007fbf319da000)]
+  0x00007fbeb5c9a800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@277cd3d6" daemon [_thread_blocked, id=12074, stack(0x00007fbf319da000,0x00007fbf31adb000)]
+  0x00007fbeb5f5b000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@6a739da1" daemon [_thread_blocked, id=12072, stack(0x00007fbf31adb000,0x00007fbf31bdc000)]
+  0x00007fbeb54aa000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@4996b20e" daemon [_thread_blocked, id=12071, stack(0x00007fbf31bdc000,0x00007fbf31cdd000)]
+  0x00007fbeb27aa000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@3c4314fe" daemon [_thread_blocked, id=12059, stack(0x00007fbf31cdd000,0x00007fbf31dde000)]
+  0x00007fbeb652d800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@3606a194" daemon [_thread_blocked, id=12048, stack(0x00007fbf31dde000,0x00007fbf31edf000)]
+  0x00007fbeb5ebf800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@e0b295a" daemon [_thread_blocked, id=12047, stack(0x00007fbf31edf000,0x00007fbf31fe0000)]
+  0x00007fbeb5406800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@13997783" daemon [_thread_blocked, id=12045, stack(0x00007fbf31fe0000,0x00007fbf320e1000)]
+  0x00007fbeb1d57000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@7394547c" daemon [_thread_blocked, id=11971, stack(0x00007fbf320e1000,0x00007fbf321e2000)]
+  0x00007fbeb4dbd800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@22277671" daemon [_thread_blocked, id=11965, stack(0x00007fbf321e2000,0x00007fbf322e3000)]
+  0x00007fbeb4a18800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@202863c" daemon [_thread_blocked, id=11960, stack(0x00007fbf322e3000,0x00007fbf323e4000)]
+  0x00007fbeb1d59000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@1783206b" daemon [_thread_blocked, id=11956, stack(0x00007fbf323e4000,0x00007fbf324e5000)]
+  0x00007fbeb1ca6000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@2b22100b" daemon [_thread_blocked, id=11952, stack(0x00007fbf324e5000,0x00007fbf325e6000)]
+  0x00007fbeb0f4e000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@711e0568" daemon [_thread_blocked, id=11938, stack(0x00007fbf325e6000,0x00007fbf326e7000)]
+  0x00007fbeb3d0d800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@5ce06503" daemon [_thread_in_Java, id=11933, stack(0x00007fbf326e7000,0x00007fbf327e8000)]
+  0x00007fbeb3cbc000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@15e0c73b" daemon [_thread_blocked, id=11919, stack(0x00007fbf327e8000,0x00007fbf328e9000)]
+  0x00007fbeb23e8800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@7f389e4" daemon [_thread_blocked, id=11913, stack(0x00007fbf328e9000,0x00007fbf329ea000)]
+  0x00007fbeb00a8000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@4e5c80e8" daemon [_thread_blocked, id=11907, stack(0x00007fbf329ea000,0x00007fbf32aeb000)]
+  0x00007fbeb0455000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@6c8484c4" daemon [_thread_blocked, id=11906, stack(0x00007fbf32aeb000,0x00007fbf32bec000)]
+  0x00007fbeb1d5c000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@16c4edc7" daemon [_thread_blocked, id=11901, stack(0x00007fbf32bec000,0x00007fbf32ced000)]
+  0x00007fbeb1cc6800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@331545ab" daemon [_thread_blocked, id=11900, stack(0x00007fbf32ced000,0x00007fbf32dee000)]
+  0x00007fbeb1763800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@287fb716" daemon [_thread_blocked, id=11899, stack(0x00007fbf32dee000,0x00007fbf32eef000)]
+  0x00007fbeb30c7000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@50c50bee" daemon [_thread_blocked, id=11898, stack(0x00007fbf32eef000,0x00007fbf32ff0000)]
+  0x00007fbeb00a9800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@735fda93" daemon [_thread_blocked, id=11893, stack(0x00007fbf32ff0000,0x00007fbf330f1000)]
+  0x00007fbeb0456800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@2cf63e26" daemon [_thread_blocked, id=11891, stack(0x00007fbf330f1000,0x00007fbf331f2000)]
+  0x00007fbeb325a800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@121c8b94" daemon [_thread_blocked, id=11880, stack(0x00007fbf334f5000,0x00007fbf335f6000)]
+  0x00007fbeb2bec800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@43f52b8" daemon [_thread_blocked, id=11878, stack(0x00007fbf335f6000,0x00007fbf336f7000)]
+  0x00007fbeb10c2800 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@7ad66ecc" daemon [_thread_blocked, id=11877, stack(0x00007fbf336f7000,0x00007fbf337f8000)]
+  0x00007fbf14058800 JavaThread "Thread-48" [_thread_blocked, id=11862, stack(0x00007fbf33bfc000,0x00007fbf33cfd000)]
+  0x00007fbf14531000 JavaThread "pool-8-thread-5" [_thread_blocked, id=11853, stack(0x00007fbf38dd8000,0x00007fbf38ed9000)]
+  0x00007fbf1452f800 JavaThread "pool-8-thread-4" [_thread_blocked, id=11852, stack(0x00007fbf3a0fd000,0x00007fbf3a1fe000)]
+  0x00007fbf1452f000 JavaThread "pool-8-thread-3" [_thread_blocked, id=11851, stack(0x00007fbf39dfa000,0x00007fbf39efb000)]
+  0x00007fbf1452e000 JavaThread "pool-8-thread-2" [_thread_blocked, id=11850, stack(0x00007fbf33eff000,0x00007fbf34000000)]
+  0x00007fbf1452b800 JavaThread "pool-8-thread-1" [_thread_blocked, id=11849, stack(0x00007fbf391dc000,0x00007fbf392dd000)]
+  0x00007fbf1452d000 JavaThread "pool-7-thread-5" [_thread_blocked, id=11847, stack(0x00007fbf38fda000,0x00007fbf390db000)]
+  0x00007fbf14062800 JavaThread "pool-7-thread-4" [_thread_blocked, id=11846, stack(0x00007fbf3a2ff000,0x00007fbf3a400000)]
+  0x00007fbf14061800 JavaThread "pool-7-thread-3" [_thread_blocked, id=11845, stack(0x00007fbf38cd7000,0x00007fbf38dd8000)]
+  0x00007fbf14061000 JavaThread "pool-7-thread-2" [_thread_blocked, id=11844, stack(0x00007fbf39af7000,0x00007fbf39bf8000)]
+  0x00007fbf14499800 JavaThread "pool-7-thread-1" [_thread_blocked, id=11843, stack(0x00007fbf3a602000,0x00007fbf3a703000)]
+  0x00007fbeb00ab000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@e9a398d" daemon [_thread_in_Java, id=11833, stack(0x00007fbf380cb000,0x00007fbf381cc000)]
+  0x00007fbeb1a2e000 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@4556a792" daemon [_thread_blocked, id=11831, stack(0x00007fbf381cc000,0x00007fbf382cd000)]
+  0x00007fbeb1dc3000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@cbc5ae4" daemon [_thread_blocked, id=11830, stack(0x00007fbf382cd000,0x00007fbf383ce000)]
+  0x00007fbeb1ff1800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@16834d8d" daemon [_thread_blocked, id=11828, stack(0x00007fbf383ce000,0x00007fbf384cf000)]
+  0x00007fbeb1ffa800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@524406b8" daemon [_thread_blocked, id=11827, stack(0x00007fbf384cf000,0x00007fbf385d0000)]
+  0x00007fbeb0226000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@2d010b62" daemon [_thread_blocked, id=11820, stack(0x00007fbf385d0000,0x00007fbf386d1000)]
+  0x00007fbeb1f56800 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@1b7347df" daemon [_thread_blocked, id=11819, stack(0x00007fbf386d1000,0x00007fbf387d2000)]
+  0x00007fbeb10d2800 JavaThread "FileSystemWatcher: files=#11 cl=groovy.lang.GroovyClassLoader@2b1d8ca6" daemon [_thread_blocked, id=11818, stack(0x00007fbf387d2000,0x00007fbf388d3000)]
+  0x00007fbeb0f53000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@68a2af21" daemon [_thread_blocked, id=11817, stack(0x00007fbf388d3000,0x00007fbf389d4000)]
+  0x00007fbeb0035000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@4e636942" daemon [_thread_blocked, id=11801, stack(0x00007fbf389d4000,0x00007fbf38ad5000)]
+  0x00007fbeb0f18000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@266a1b46" daemon [_thread_blocked, id=11800, stack(0x00007fbf38ad5000,0x00007fbf38bd6000)]
+  0x00007fbeb044b000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@580ddf89" daemon [_thread_blocked, id=11793, stack(0x00007fbf38bd6000,0x00007fbf38cd7000)]
+  0x00007fbeb8040000 JavaThread "Thread-26" [_thread_blocked, id=11779, stack(0x00007fbf38ed9000,0x00007fbf38fda000)]
+  0x00007fbeb8943800 JavaThread "pool-5-thread-5" [_thread_blocked, id=11770, stack(0x00007fbf3aa22000,0x00007fbf3ab23000)]
+  0x00007fbeb8942000 JavaThread "pool-5-thread-4" [_thread_blocked, id=11769, stack(0x00007fbf3ab23000,0x00007fbf3ac24000)]
+  0x00007fbeb8940800 JavaThread "pool-5-thread-3" [_thread_blocked, id=11768, stack(0x00007fbf39efb000,0x00007fbf39ffc000)]
+  0x00007fbeb893f000 JavaThread "pool-5-thread-2" [_thread_blocked, id=11767, stack(0x00007fbf39bf8000,0x00007fbf39cf9000)]
+  0x00007fbeb893e000 JavaThread "pool-5-thread-1" [_thread_blocked, id=11766, stack(0x00007fbf39ffc000,0x00007fbf3a0fd000)]
+  0x00007fbeb893b800 JavaThread "pool-4-thread-5" [_thread_blocked, id=11764, stack(0x00007fbf39cf9000,0x00007fbf39dfa000)]
+  0x00007fbeb801b000 JavaThread "pool-4-thread-4" [_thread_blocked, id=11763, stack(0x00007fbf3a804000,0x00007fbf3a905000)]
+  0x00007fbeb893a000 JavaThread "pool-4-thread-3" [_thread_blocked, id=11762, stack(0x00007fbf396f3000,0x00007fbf397f4000)]
+  0x00007fbeb8938800 JavaThread "pool-4-thread-2" [_thread_blocked, id=11761, stack(0x00007fbf3a921000,0x00007fbf3aa22000)]
+  0x00007fbeb800f000 JavaThread "pool-4-thread-1" [_thread_blocked, id=11760, stack(0x00007fbf3a703000,0x00007fbf3a804000)]
+  0x00007fbeb0413800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@4f02d3d2" daemon [_thread_blocked, id=11694, stack(0x00007fbf397f4000,0x00007fbf398f5000)]
+  0x00007fbeb0228800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@5c5e3f6d" daemon [_thread_blocked, id=11689, stack(0x00007fbf398f5000,0x00007fbf399f6000)]
+  0x00007fbeb0397000 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@64277469" daemon [_thread_blocked, id=11484, stack(0x00007fbf399f6000,0x00007fbf39af7000)]
+  0x00007fbeb0683800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@184dd658" daemon [_thread_blocked, id=11471, stack(0x00007fbf3b63a000,0x00007fbf3b73b000)]
+  0x00007fbeb0696800 JavaThread "FileSystemWatcher: files=#7 cl=groovy.lang.GroovyClassLoader@73383d8a" daemon [_thread_blocked, id=11470, stack(0x00007fbf3ac24000,0x00007fbf3ad25000)]
+  0x00007fbf44025000 JavaThread "Thread-11" [_thread_blocked, id=11464, stack(0x00007fbf3a400000,0x00007fbf3a501000)]
+  0x00007fbf45135800 JavaThread "Thread-10" daemon [_thread_blocked, id=11463, stack(0x00007fbf3a501000,0x00007fbf3a602000)]
+  0x00007fbf44d56800 JavaThread "pool-2-thread-5" [_thread_blocked, id=11451, stack(0x00007fbf3b135000,0x00007fbf3b236000)]
+  0x00007fbf44d55800 JavaThread "pool-2-thread-4" [_thread_blocked, id=11450, stack(0x00007fbf3b236000,0x00007fbf3b337000)]
+  0x00007fbf44f69000 JavaThread "pool-2-thread-3" [_thread_blocked, id=11449, stack(0x00007fbf3b337000,0x00007fbf3b438000)]
+  0x00007fbf44f67000 JavaThread "pool-2-thread-2" [_thread_blocked, id=11448, stack(0x00007fbf3b438000,0x00007fbf3b539000)]
+  0x00007fbf44f65000 JavaThread "pool-2-thread-1" [_thread_blocked, id=11447, stack(0x00007fbf3b539000,0x00007fbf3b63a000)]
+  0x00007fbf45378000 JavaThread "pool-1-thread-5" [_thread_blocked, id=11438, stack(0x00007fbf3b73b000,0x00007fbf3b83c000)]
+  0x00007fbf45376000 JavaThread "pool-1-thread-4" [_thread_blocked, id=11437, stack(0x00007fbf3b83c000,0x00007fbf3b93d000)]
+  0x00007fbf45374800 JavaThread "pool-1-thread-3" [_thread_blocked, id=11436, stack(0x00007fbf3b93d000,0x00007fbf3ba3e000)]
+  0x00007fbf44718800 JavaThread "pool-1-thread-2" [_thread_blocked, id=11435, stack(0x00007fbf3ba3e000,0x00007fbf3bb3f000)]
+  0x00007fbf45363800 JavaThread "pool-1-thread-1" [_thread_blocked, id=11434, stack(0x00007fbf3bb3f000,0x00007fbf3bc40000)]
+  0x00007fbf451fd800 JavaThread "FileSystemWatcher: files=#324 cl=java.net.URLClassLoader@5caccd65" daemon [_thread_blocked, id=11427, stack(0x00007fbf4017e000,0x00007fbf4027f000)]
+  0x00007fbf4411d000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=11407, stack(0x00007fbf40519000,0x00007fbf4061a000)]
+  0x00007fbf4411a800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=11406, stack(0x00007fbf4061a000,0x00007fbf4071b000)]
+  0x00007fbf4410d000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=11405, stack(0x00007fbf4071b000,0x00007fbf4081c000)]
+  0x00007fbf44098800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11404, stack(0x00007fbf4081c000,0x00007fbf4091d000)]
+  0x00007fbf44079800 JavaThread "Finalizer" daemon [_thread_blocked, id=11403, stack(0x00007fbf4807b000,0x00007fbf4817c000)]
+  0x00007fbf44077800 JavaThread "Reference Handler" daemon [_thread_blocked, id=11402, stack(0x00007fbf4817c000,0x00007fbf4827d000)]
+  0x00007fbf44009000 JavaThread "main" [_thread_blocked, id=11396, stack(0x00007fbf4c58b000,0x00007fbf4c68c000)]
+
+Other Threads:
+  0x00007fbf44072800 VMThread [stack: 0x00007fbf4827d000,0x00007fbf4837e000] [id=11401]
+  0x00007fbf4412f000 WatcherThread [stack: 0x00007fbf40418000,0x00007fbf40519000] [id=11408]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fbf44005d80] Safepoint_lock - owner thread: 0x00007fbf44072800
+[0x00007fbf44005e00] Threads_lock - owner thread: 0x00007fbf44072800
+[0x00007fbf44006300] Heap_lock - owner thread: 0x00007fbeabd1c800
+
+Heap
+ PSYoungGen      total 259136K, used 19403K [0x00000000f0000000, 0x00000000ffd80000, 0x0000000100000000)
+  eden space 258816K, 7% used [0x00000000f0000000,0x00000000f12f2c98,0x00000000ffcc0000)
+  from space 320K, 0% used [0x00000000ffd30000,0x00000000ffd30000,0x00000000ffd80000)
+  to   space 384K, 0% used [0x00000000ffcc0000,0x00000000ffcc0000,0x00000000ffd20000)
+ PSOldGen        total 524288K, used 377061K [0x00000000d0000000, 0x00000000f0000000, 0x00000000f0000000)
+  object space 524288K, 71% used [0x00000000d0000000,0x00000000e7039700,0x00000000f0000000)
+ PSPermGen       total 262144K, used 262136K [0x00000000c0000000, 0x00000000d0000000, 0x00000000d0000000)
+  object space 262144K, 99% used [0x00000000c0000000,0x00000000cfffe398,0x00000000d0000000)
+
+Code Cache  [0x00007fbf41000000, 0x00007fbf41e00000, 0x00007fbf44000000)
+ total_blobs=3202 nmethods=2525 adapters=629 free_code_cache=35820864 largest_free_block=9792
+
+Dynamic libraries:
+00400000-00409000 r-xp 00000000 08:07 675833                             /usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java
+00608000-00609000 r--p 00008000 08:07 675833                             /usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java
+00609000-0060a000 rw-p 00009000 08:07 675833                             /usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java
+01933000-01afd000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-d0000000 rw-p 00000000 00:00 0 
+d0000000-f0000000 rw-p 00000000 00:00 0 
+f0000000-ffd80000 rw-p 00000000 00:00 0 
+ffd80000-100000000 ---p 00000000 00:00 0 
+7fbea0000000-7fbea0f50000 rw-p 00000000 00:00 0 
+7fbea0f50000-7fbea4000000 ---p 00000000 00:00 0 
+7fbea49ca000-7fbea49cd000 ---p 00000000 00:00 0 
+7fbea49cd000-7fbea4acb000 rw-p 00000000 00:00 0                          [stack:13474]
+7fbea4acb000-7fbea4ace000 ---p 00000000 00:00 0 
+7fbea4ace000-7fbea4bcc000 rw-p 00000000 00:00 0                          [stack:13473]
+7fbea4bcc000-7fbea4bcf000 ---p 00000000 00:00 0 
+7fbea4bcf000-7fbea4ccd000 rw-p 00000000 00:00 0                          [stack:13351]
+7fbea4ccd000-7fbea4cd0000 ---p 00000000 00:00 0 
+7fbea4cd0000-7fbea4dce000 rw-p 00000000 00:00 0                          [stack:13343]
+7fbea4dce000-7fbea4dd1000 ---p 00000000 00:00 0 
+7fbea4dd1000-7fbea4ecf000 rw-p 00000000 00:00 0                          [stack:13342]
+7fbea4ecf000-7fbea4ed2000 ---p 00000000 00:00 0 
+7fbea4ed2000-7fbea4fd0000 rw-p 00000000 00:00 0                          [stack:13340]
+7fbea4fd0000-7fbea4fd3000 ---p 00000000 00:00 0 
+7fbea4fd3000-7fbea50d1000 rw-p 00000000 00:00 0                          [stack:13339]
+7fbea50d1000-7fbea50d4000 ---p 00000000 00:00 0 
+7fbea50d4000-7fbea51d2000 rw-p 00000000 00:00 0                          [stack:13331]
+7fbea51d2000-7fbea51d5000 ---p 00000000 00:00 0 
+7fbea51d5000-7fbea52d3000 rw-p 00000000 00:00 0                          [stack:13329]
+7fbea52d3000-7fbea52d6000 ---p 00000000 00:00 0 
+7fbea52d6000-7fbea53d4000 rw-p 00000000 00:00 0                          [stack:13327]
+7fbea53d4000-7fbea53d7000 ---p 00000000 00:00 0 
+7fbea53d7000-7fbea54d5000 rw-p 00000000 00:00 0                          [stack:13323]
+7fbea54d5000-7fbea54d8000 ---p 00000000 00:00 0 
+7fbea54d8000-7fbea55d6000 rw-p 00000000 00:00 0                          [stack:13322]
+7fbea55d6000-7fbea55d9000 ---p 00000000 00:00 0 
+7fbea55d9000-7fbea56d7000 rw-p 00000000 00:00 0                          [stack:13321]
+7fbea56d7000-7fbea56da000 ---p 00000000 00:00 0 
+7fbea56da000-7fbea57d8000 rw-p 00000000 00:00 0                          [stack:13320]
+7fbea57d8000-7fbea57db000 ---p 00000000 00:00 0 
+7fbea57db000-7fbea58d9000 rw-p 00000000 00:00 0                          [stack:13306]
+7fbea58d9000-7fbea58dc000 ---p 00000000 00:00 0 
+7fbea58dc000-7fbea59da000 rw-p 00000000 00:00 0                          [stack:13290]
+7fbea59da000-7fbea59dd000 ---p 00000000 00:00 0 
+7fbea59dd000-7fbea5adb000 rw-p 00000000 00:00 0                          [stack:13284]
+7fbea5adb000-7fbea5ade000 ---p 00000000 00:00 0 
+7fbea5ade000-7fbea5bdc000 rw-p 00000000 00:00 0                          [stack:13279]
+7fbea5bdc000-7fbea5bdf000 ---p 00000000 00:00 0 
+7fbea5bdf000-7fbea5cdd000 rw-p 00000000 00:00 0                          [stack:13277]
+7fbea5cdd000-7fbea5ce0000 ---p 00000000 00:00 0 
+7fbea5ce0000-7fbea5dde000 rw-p 00000000 00:00 0                          [stack:13324]
+7fbea5dde000-7fbea5de1000 ---p 00000000 00:00 0 
+7fbea5de1000-7fbea5edf000 rw-p 00000000 00:00 0                          [stack:13268]
+7fbea5edf000-7fbea5ee2000 ---p 00000000 00:00 0 
+7fbea5ee2000-7fbea5fe0000 rw-p 00000000 00:00 0                          [stack:13326]
+7fbea5fe0000-7fbea5fe3000 ---p 00000000 00:00 0 
+7fbea5fe3000-7fbea60e1000 rw-p 00000000 00:00 0                          [stack:13309]
+7fbea60e1000-7fbea60e4000 ---p 00000000 00:00 0 
+7fbea60e4000-7fbea61e2000 rw-p 00000000 00:00 0                          [stack:13313]
+7fbea61e2000-7fbea61e5000 ---p 00000000 00:00 0 
+7fbea61e5000-7fbea62e3000 rw-p 00000000 00:00 0                          [stack:13311]
+7fbea62e3000-7fbea62e6000 ---p 00000000 00:00 0 
+7fbea62e6000-7fbea63e4000 rw-p 00000000 00:00 0                          [stack:13251]
+7fbea63e4000-7fbea63e7000 ---p 00000000 00:00 0 
+7fbea63e7000-7fbea64e5000 rw-p 00000000 00:00 0                          [stack:13303]
+7fbea64e5000-7fbea64e8000 ---p 00000000 00:00 0 
+7fbea64e8000-7fbea65e6000 rw-p 00000000 00:00 0                          [stack:13304]
+7fbea65e6000-7fbea65e9000 ---p 00000000 00:00 0 
+7fbea65e9000-7fbea66e7000 rw-p 00000000 00:00 0                          [stack:13305]
+7fbea66e7000-7fbea66ea000 ---p 00000000 00:00 0 
+7fbea66ea000-7fbea67e8000 rw-p 00000000 00:00 0                          [stack:13318]
+7fbea67e8000-7fbea67eb000 ---p 00000000 00:00 0 
+7fbea67eb000-7fbea68e9000 rw-p 00000000 00:00 0                          [stack:13317]
+7fbea68e9000-7fbea68ec000 ---p 00000000 00:00 0 
+7fbea68ec000-7fbea69ea000 rw-p 00000000 00:00 0                          [stack:13233]
+7fbea69ea000-7fbea69ed000 ---p 00000000 00:00 0 
+7fbea69ed000-7fbea6aeb000 rw-p 00000000 00:00 0                          [stack:13218]
+7fbea6aeb000-7fbea6aee000 ---p 00000000 00:00 0 
+7fbea6aee000-7fbea6bec000 rw-p 00000000 00:00 0                          [stack:13338]
+7fbea6bec000-7fbea6bef000 ---p 00000000 00:00 0 
+7fbea6bef000-7fbea6ced000 rw-p 00000000 00:00 0                          [stack:13312]
+7fbea6ced000-7fbea6cf0000 ---p 00000000 00:00 0 
+7fbea6cf0000-7fbea6dee000 rw-p 00000000 00:00 0                          [stack:13310]
+7fbea6dee000-7fbea6df1000 ---p 00000000 00:00 0 
+7fbea6df1000-7fbea6eef000 rw-p 00000000 00:00 0                          [stack:13240]
+7fbea6eef000-7fbea6ef2000 ---p 00000000 00:00 0 
+7fbea6ef2000-7fbea6ff0000 rw-p 00000000 00:00 0                          [stack:13235]
+7fbea6ff0000-7fbea6ff3000 ---p 00000000 00:00 0 
+7fbea6ff3000-7fbea70f1000 rw-p 00000000 00:00 0                          [stack:13336]
+7fbea70f1000-7fbea70f4000 ---p 00000000 00:00 0 
+7fbea70f4000-7fbea71f2000 rw-p 00000000 00:00 0                          [stack:13239]
+7fbea71f2000-7fbea71f5000 ---p 00000000 00:00 0 
+7fbea71f5000-7fbea72f3000 rw-p 00000000 00:00 0                          [stack:13241]
+7fbea72f3000-7fbea72f6000 ---p 00000000 00:00 0 
+7fbea72f6000-7fbea73f4000 rw-p 00000000 00:00 0                          [stack:13234]
+7fbea73f4000-7fbea73f7000 ---p 00000000 00:00 0 
+7fbea73f7000-7fbea74f5000 rw-p 00000000 00:00 0                          [stack:13238]
+7fbea74f5000-7fbea74f8000 ---p 00000000 00:00 0 
+7fbea74f8000-7fbea75f6000 rw-p 00000000 00:00 0                          [stack:13187]
+7fbea75f6000-7fbea75f9000 ---p 00000000 00:00 0 
+7fbea75f9000-7fbea76f7000 rw-p 00000000 00:00 0                          [stack:13231]
+7fbea76f7000-7fbea76fa000 ---p 00000000 00:00 0 
+7fbea76fa000-7fbea77f8000 rw-p 00000000 00:00 0                          [stack:13170]
+7fbea77f8000-7fbea77fb000 ---p 00000000 00:00 0 
+7fbea77fb000-7fbea78f9000 rw-p 00000000 00:00 0                          [stack:13135]
+7fbea78f9000-7fbea78fc000 ---p 00000000 00:00 0 
+7fbea78fc000-7fbea79fa000 rw-p 00000000 00:00 0                          [stack:13133]
+7fbea79fa000-7fbea79fd000 ---p 00000000 00:00 0 
+7fbea79fd000-7fbea7afb000 rw-p 00000000 00:00 0                          [stack:13120]
+7fbea7afb000-7fbea7afe000 ---p 00000000 00:00 0 
+7fbea7afe000-7fbea7bfc000 rw-p 00000000 00:00 0                          [stack:13111]
+7fbea7bfc000-7fbea7bff000 ---p 00000000 00:00 0 
+7fbea7bff000-7fbea7cfd000 rw-p 00000000 00:00 0                          [stack:13107]
+7fbea7cfd000-7fbea7d00000 ---p 00000000 00:00 0 
+7fbea7d00000-7fbea7dfe000 rw-p 00000000 00:00 0                          [stack:13101]
+7fbea7dfe000-7fbea7e01000 ---p 00000000 00:00 0 
+7fbea7e01000-7fbea7eff000 rw-p 00000000 00:00 0                          [stack:13098]
+7fbea7eff000-7fbea7f02000 ---p 00000000 00:00 0 
+7fbea7f02000-7fbea8000000 rw-p 00000000 00:00 0                          [stack:13092]
+7fbea8000000-7fbeabffc000 rw-p 00000000 00:00 0 
+7fbeabffc000-7fbeac000000 ---p 00000000 00:00 0 
+7fbeac0c1000-7fbeac0c4000 ---p 00000000 00:00 0 
+7fbeac0c4000-7fbeac1c2000 rw-p 00000000 00:00 0                          [stack:13089]
+7fbeac1c2000-7fbeac1c5000 ---p 00000000 00:00 0 
+7fbeac1c5000-7fbeac2c3000 rw-p 00000000 00:00 0                          [stack:13087]
+7fbeac2c3000-7fbeac2c6000 ---p 00000000 00:00 0 
+7fbeac2c6000-7fbeac3c4000 rw-p 00000000 00:00 0                          [stack:13042]
+7fbeac3c4000-7fbeac3c7000 ---p 00000000 00:00 0 
+7fbeac3c7000-7fbeac4c5000 rw-p 00000000 00:00 0                          [stack:13032]
+7fbeac4c5000-7fbeac4c8000 ---p 00000000 00:00 0 
+7fbeac4c8000-7fbeac5c6000 rw-p 00000000 00:00 0                          [stack:13024]
+7fbeac5c6000-7fbeac5c9000 ---p 00000000 00:00 0 
+7fbeac5c9000-7fbeac6c7000 rw-p 00000000 00:00 0                          [stack:13018]
+7fbeac6c7000-7fbeac6ca000 ---p 00000000 00:00 0 
+7fbeac6ca000-7fbeac7c8000 rw-p 00000000 00:00 0                          [stack:13174]
+7fbeac7c8000-7fbeac7cb000 ---p 00000000 00:00 0 
+7fbeac7cb000-7fbeac8c9000 rw-p 00000000 00:00 0                          [stack:13173]
+7fbeac8c9000-7fbeac8cc000 ---p 00000000 00:00 0 
+7fbeac8cc000-7fbeac9ca000 rw-p 00000000 00:00 0                          [stack:13177]
+7fbeac9ca000-7fbeac9cd000 ---p 00000000 00:00 0 
+7fbeac9cd000-7fbeacacb000 rw-p 00000000 00:00 0                          [stack:13175]
+7fbeacacb000-7fbeacace000 ---p 00000000 00:00 0 
+7fbeacace000-7fbeacbcc000 rw-p 00000000 00:00 0                          [stack:13208]
+7fbeacbcc000-7fbeacbcf000 ---p 00000000 00:00 0 
+7fbeacbcf000-7fbeacccd000 rw-p 00000000 00:00 0                          [stack:12997]
+7fbeacccd000-7fbeaccd0000 ---p 00000000 00:00 0 
+7fbeaccd0000-7fbeacdce000 rw-p 00000000 00:00 0                          [stack:13171]
+7fbeacdce000-7fbeacdd1000 ---p 00000000 00:00 0 
+7fbeacdd1000-7fbeacecf000 rw-p 00000000 00:00 0                          [stack:13176]
+7fbeacecf000-7fbeaced2000 ---p 00000000 00:00 0 
+7fbeaced2000-7fbeacfd0000 rw-p 00000000 00:00 0                          [stack:12992]
+7fbeacfd0000-7fbeacfd3000 ---p 00000000 00:00 0 
+7fbeacfd3000-7fbead0d1000 rw-p 00000000 00:00 0                          [stack:13307]
+7fbead0d1000-7fbead0d4000 ---p 00000000 00:00 0 
+7fbead0d4000-7fbead1d2000 rw-p 00000000 00:00 0                          [stack:12984]
+7fbead1d2000-7fbead1d5000 ---p 00000000 00:00 0 
+7fbead1d5000-7fbead2d3000 rw-p 00000000 00:00 0                          [stack:13167]
+7fbead2d3000-7fbead2d6000 ---p 00000000 00:00 0 
+7fbead2d6000-7fbead3d4000 rw-p 00000000 00:00 0                          [stack:13168]
+7fbead3d4000-7fbead3d7000 ---p 00000000 00:00 0 
+7fbead3d7000-7fbead4d5000 rw-p 00000000 00:00 0                          [stack:13169]
+7fbead4d5000-7fbead4d8000 ---p 00000000 00:00 0 
+7fbead4d8000-7fbead5d6000 rw-p 00000000 00:00 0                          [stack:13237]
+7fbead5d6000-7fbead5d9000 ---p 00000000 00:00 0 
+7fbead5d9000-7fbead6d7000 rw-p 00000000 00:00 0                          [stack:13232]
+7fbead6d7000-7fbead6da000 ---p 00000000 00:00 0 
+7fbead6da000-7fbead7d8000 rw-p 00000000 00:00 0                          [stack:13260]
+7fbead7d8000-7fbead7db000 ---p 00000000 00:00 0 
+7fbead7db000-7fbead8d9000 rw-p 00000000 00:00 0                          [stack:13217]
+7fbead8d9000-7fbead8dc000 ---p 00000000 00:00 0 
+7fbead8dc000-7fbead9da000 rw-p 00000000 00:00 0                          [stack:12973]
+7fbead9da000-7fbead9dd000 ---p 00000000 00:00 0 
+7fbead9dd000-7fbeadadb000 rw-p 00000000 00:00 0                          [stack:12972]
+7fbeadadb000-7fbeadade000 ---p 00000000 00:00 0 
+7fbeadade000-7fbeadbdc000 rw-p 00000000 00:00 0                          [stack:12970]
+7fbeadbdc000-7fbeadbdf000 ---p 00000000 00:00 0 
+7fbeadbdf000-7fbeadcdd000 rw-p 00000000 00:00 0                          [stack:12969]
+7fbeadcdd000-7fbeadce0000 ---p 00000000 00:00 0 
+7fbeadce0000-7fbeaddde000 rw-p 00000000 00:00 0                          [stack:12971]
+7fbeaddde000-7fbeadde1000 ---p 00000000 00:00 0 
+7fbeadde1000-7fbeadedf000 rw-p 00000000 00:00 0                          [stack:12967]
+7fbeadedf000-7fbeadee2000 ---p 00000000 00:00 0 
+7fbeadee2000-7fbeadfe0000 rw-p 00000000 00:00 0                          [stack:12932]
+7fbeadfe0000-7fbeadfe3000 ---p 00000000 00:00 0 
+7fbeadfe3000-7fbeae0e1000 rw-p 00000000 00:00 0                          [stack:12917]
+7fbeae0e1000-7fbeae0e4000 ---p 00000000 00:00 0 
+7fbeae0e4000-7fbeae1e2000 rw-p 00000000 00:00 0                          [stack:12893]
+7fbeae1e2000-7fbeae1e5000 ---p 00000000 00:00 0 
+7fbeae1e5000-7fbeae2e3000 rw-p 00000000 00:00 0                          [stack:12877]
+7fbeae2e3000-7fbeae2e6000 ---p 00000000 00:00 0 
+7fbeae2e6000-7fbeae3e4000 rw-p 00000000 00:00 0                          [stack:12876]
+7fbeae3e4000-7fbeae3e7000 ---p 00000000 00:00 0 
+7fbeae3e7000-7fbeae4e5000 rw-p 00000000 00:00 0                          [stack:12872]
+7fbeae4e5000-7fbeae4e8000 ---p 00000000 00:00 0 
+7fbeae4e8000-7fbeae5e6000 rw-p 00000000 00:00 0                          [stack:12934]
+7fbeae5e6000-7fbeae5e9000 ---p 00000000 00:00 0 
+7fbeae5e9000-7fbeae6e7000 rw-p 00000000 00:00 0                          [stack:12964]
+7fbeae6e7000-7fbeae6ea000 ---p 00000000 00:00 0 
+7fbeae6ea000-7fbeae7e8000 rw-p 00000000 00:00 0                          [stack:12936]
+7fbeae7e8000-7fbeae7eb000 ---p 00000000 00:00 0 
+7fbeae7eb000-7fbeae8e9000 rw-p 00000000 00:00 0                          [stack:12940]
+7fbeae8e9000-7fbeae8ec000 ---p 00000000 00:00 0 
+7fbeae8ec000-7fbeae9ea000 rw-p 00000000 00:00 0                          [stack:12966]
+7fbeae9ea000-7fbeae9ed000 ---p 00000000 00:00 0 
+7fbeae9ed000-7fbeaeaeb000 rw-p 00000000 00:00 0                          [stack:12965]
+7fbeaeaeb000-7fbeaeaee000 ---p 00000000 00:00 0 
+7fbeaeaee000-7fbeaebec000 rw-p 00000000 00:00 0                          [stack:12937]
+7fbeaebec000-7fbeaebef000 ---p 00000000 00:00 0 
+7fbeaebef000-7fbeaeced000 rw-p 00000000 00:00 0                          [stack:12939]
+7fbeaeced000-7fbeaecf0000 ---p 00000000 00:00 0 
+7fbeaecf0000-7fbeaedee000 rw-p 00000000 00:00 0                          [stack:12938]
+7fbeaedee000-7fbeaedf1000 ---p 00000000 00:00 0 
+7fbeaedf1000-7fbeaeeef000 rw-p 00000000 00:00 0                          [stack:12847]
+7fbeaeeef000-7fbeaeef2000 ---p 00000000 00:00 0 
+7fbeaeef2000-7fbeaeff0000 rw-p 00000000 00:00 0                          [stack:12933]
+7fbeaeff0000-7fbeaeff3000 ---p 00000000 00:00 0 
+7fbeaeff3000-7fbeaf0f1000 rw-p 00000000 00:00 0                          [stack:12930]
+7fbeaf0f1000-7fbeaf0f4000 ---p 00000000 00:00 0 
+7fbeaf0f4000-7fbeaf1f2000 rw-p 00000000 00:00 0                          [stack:12830]
+7fbeaf1f2000-7fbeaf1f5000 ---p 00000000 00:00 0 
+7fbeaf1f5000-7fbeaf2f3000 rw-p 00000000 00:00 0                          [stack:12812]
+7fbeaf2f3000-7fbeaf2f6000 ---p 00000000 00:00 0 
+7fbeaf2f6000-7fbeaf3f4000 rw-p 00000000 00:00 0                          [stack:12810]
+7fbeaf3f4000-7fbeaf3f7000 ---p 00000000 00:00 0 
+7fbeaf3f7000-7fbeaf4f5000 rw-p 00000000 00:00 0                          [stack:12806]
+7fbeaf4f5000-7fbeaf4f8000 ---p 00000000 00:00 0 
+7fbeaf4f8000-7fbeaf5f6000 rw-p 00000000 00:00 0                          [stack:12871]
+7fbeaf5f6000-7fbeaf5f9000 ---p 00000000 00:00 0 
+7fbeaf5f9000-7fbeaf6f7000 rw-p 00000000 00:00 0                          [stack:12835]
+7fbeaf6f7000-7fbeaf6fa000 ---p 00000000 00:00 0 
+7fbeaf6fa000-7fbeaf7f8000 rw-p 00000000 00:00 0                          [stack:12837]
+7fbeaf7f8000-7fbeaf7fb000 ---p 00000000 00:00 0 
+7fbeaf7fb000-7fbeaf8f9000 rw-p 00000000 00:00 0                          [stack:12360]
+7fbeaf8f9000-7fbeaf8fc000 ---p 00000000 00:00 0 
+7fbeaf8fc000-7fbeaf9fa000 rw-p 00000000 00:00 0                          [stack:12831]
+7fbeaf9fa000-7fbeaf9fd000 ---p 00000000 00:00 0 
+7fbeaf9fd000-7fbeafafb000 rw-p 00000000 00:00 0                          [stack:12869]
+7fbeafafb000-7fbeafafe000 ---p 00000000 00:00 0 
+7fbeafafe000-7fbeafbfc000 rw-p 00000000 00:00 0                          [stack:12963]
+7fbeafbfc000-7fbeafbff000 ---p 00000000 00:00 0 
+7fbeafbff000-7fbeafcfd000 rw-p 00000000 00:00 0                          [stack:12953]
+7fbeafcfd000-7fbeafd00000 ---p 00000000 00:00 0 
+7fbeafd00000-7fbeafdfe000 rw-p 00000000 00:00 0                          [stack:12833]
+7fbeafdfe000-7fbeafe01000 ---p 00000000 00:00 0 
+7fbeafe01000-7fbeafeff000 rw-p 00000000 00:00 0                          [stack:12351]
+7fbeafeff000-7fbeaff02000 ---p 00000000 00:00 0 
+7fbeaff02000-7fbeb0000000 rw-p 00000000 00:00 0                          [stack:12827]
+7fbeb0000000-7fbeb3ff9000 rw-p 00000000 00:00 0 
+7fbeb3ff9000-7fbeb4000000 ---p 00000000 00:00 0 
+7fbeb4000000-7fbeb8000000 rw-p 00000000 00:00 0 
+7fbeb8000000-7fbeb8952000 rw-p 00000000 00:00 0 
+7fbeb8952000-7fbebc000000 ---p 00000000 00:00 0 
+7fbebc000000-7fbebfff9000 rw-p 00000000 00:00 0 
+7fbebfff9000-7fbec0000000 ---p 00000000 00:00 0 
+7fbec0000000-7fbec10df000 rw-p 00000000 00:00 0 
+7fbec10df000-7fbec4000000 ---p 00000000 00:00 0 
+7fbec4000000-7fbec4052000 rw-p 00000000 00:00 0 
+7fbec4052000-7fbec8000000 ---p 00000000 00:00 0 
+7fbec8000000-7fbecbffe000 rw-p 00000000 00:00 0 
+7fbecbffe000-7fbecc000000 ---p 00000000 00:00 0 
+7fbecc000000-7fbecc13e000 rw-p 00000000 00:00 0 
+7fbecc13e000-7fbed0000000 ---p 00000000 00:00 0 
+7fbed0000000-7fbed005f000 rw-p 00000000 00:00 0 
+7fbed005f000-7fbed4000000 ---p 00000000 00:00 0 
+7fbed4000000-7fbed4945000 rw-p 00000000 00:00 0 
+7fbed4945000-7fbed8000000 ---p 00000000 00:00 0 
+7fbed8000000-7fbed93fe000 rw-p 00000000 00:00 0 
+7fbed93fe000-7fbedc000000 ---p 00000000 00:00 0 
+7fbedc000000-7fbedca4a000 rw-p 00000000 00:00 0 
+7fbedca4a000-7fbee0000000 ---p 00000000 00:00 0 
+7fbee0000000-7fbee0041000 rw-p 00000000 00:00 0 
+7fbee0041000-7fbee4000000 ---p 00000000 00:00 0 
+7fbee4000000-7fbee4050000 rw-p 00000000 00:00 0 
+7fbee4050000-7fbee8000000 ---p 00000000 00:00 0 
+7fbee8000000-7fbee8051000 rw-p 00000000 00:00 0 
+7fbee8051000-7fbeec000000 ---p 00000000 00:00 0 
+7fbeec000000-7fbeec058000 rw-p 00000000 00:00 0 
+7fbeec058000-7fbef0000000 ---p 00000000 00:00 0 
+7fbef0000000-7fbef008f000 rw-p 00000000 00:00 0 
+7fbef008f000-7fbef4000000 ---p 00000000 00:00 0 
+7fbef4000000-7fbef4070000 rw-p 00000000 00:00 0 
+7fbef4070000-7fbef8000000 ---p 00000000 00:00 0 
+7fbef8000000-7fbef8069000 rw-p 00000000 00:00 0 
+7fbef8069000-7fbefc000000 ---p 00000000 00:00 0 
+7fbefc000000-7fbefc223000 rw-p 00000000 00:00 0 
+7fbefc223000-7fbf00000000 ---p 00000000 00:00 0 
+7fbf00000000-7fbf0005f000 rw-p 00000000 00:00 0 
+7fbf0005f000-7fbf04000000 ---p 00000000 00:00 0 
+7fbf04000000-7fbf04046000 rw-p 00000000 00:00 0 
+7fbf04046000-7fbf08000000 ---p 00000000 00:00 0 
+7fbf08000000-7fbf0817c000 rw-p 00000000 00:00 0 
+7fbf0817c000-7fbf0c000000 ---p 00000000 00:00 0 
+7fbf0c000000-7fbf0fffe000 rw-p 00000000 00:00 0 
+7fbf0fffe000-7fbf10000000 ---p 00000000 00:00 0 
+7fbf10000000-7fbf10058000 rw-p 00000000 00:00 0 
+7fbf10058000-7fbf14000000 ---p 00000000 00:00 0 
+7fbf14000000-7fbf14541000 rw-p 00000000 00:00 0 
+7fbf14541000-7fbf18000000 ---p 00000000 00:00 0 
+7fbf18000000-7fbf1c000000 rw-p 00000000 00:00 0 
+7fbf1c000000-7fbf1c04a000 rw-p 00000000 00:00 0 
+7fbf1c04a000-7fbf20000000 ---p 00000000 00:00 0 
+7fbf20000000-7fbf20048000 rw-p 00000000 00:00 0 
+7fbf20048000-7fbf24000000 ---p 00000000 00:00 0 
+7fbf24000000-7fbf240d4000 rw-p 00000000 00:00 0 
+7fbf240d4000-7fbf28000000 ---p 00000000 00:00 0 
+7fbf28000000-7fbf28a63000 rw-p 00000000 00:00 0 
+7fbf28a63000-7fbf2c000000 ---p 00000000 00:00 0 
+7fbf2c000000-7fbf2c0d5000 rw-p 00000000 00:00 0 
+7fbf2c0d5000-7fbf30000000 ---p 00000000 00:00 0 
+7fbf300c1000-7fbf300c4000 ---p 00000000 00:00 0 
+7fbf300c4000-7fbf301c2000 rw-p 00000000 00:00 0                          [stack:12828]
+7fbf301c2000-7fbf301c5000 ---p 00000000 00:00 0 
+7fbf301c5000-7fbf302c3000 rw-p 00000000 00:00 0                          [stack:12334]
+7fbf302c3000-7fbf302c6000 ---p 00000000 00:00 0 
+7fbf302c6000-7fbf303c4000 rw-p 00000000 00:00 0                          [stack:12310]
+7fbf303c4000-7fbf303c7000 ---p 00000000 00:00 0 
+7fbf303c7000-7fbf304c5000 rw-p 00000000 00:00 0                          [stack:12951]
+7fbf304c5000-7fbf304c8000 ---p 00000000 00:00 0 
+7fbf304c8000-7fbf305c6000 rw-p 00000000 00:00 0                          [stack:12338]
+7fbf305c6000-7fbf305c9000 ---p 00000000 00:00 0 
+7fbf305c9000-7fbf306c7000 rw-p 00000000 00:00 0                          [stack:12506]
+7fbf306c7000-7fbf306ca000 ---p 00000000 00:00 0 
+7fbf306ca000-7fbf307c8000 rw-p 00000000 00:00 0                          [stack:12290]
+7fbf307c8000-7fbf307cb000 ---p 00000000 00:00 0 
+7fbf307cb000-7fbf308c9000 rw-p 00000000 00:00 0                          [stack:12834]
+7fbf308c9000-7fbf308cc000 ---p 00000000 00:00 0 
+7fbf308cc000-7fbf309ca000 rw-p 00000000 00:00 0                          [stack:12335]
+7fbf309ca000-7fbf309cd000 ---p 00000000 00:00 0 
+7fbf309cd000-7fbf30acb000 rw-p 00000000 00:00 0                          [stack:12341]
+7fbf30acb000-7fbf30ace000 ---p 00000000 00:00 0 
+7fbf30ace000-7fbf30bcc000 rw-p 00000000 00:00 0                          [stack:12340]
+7fbf30bcc000-7fbf30bcf000 ---p 00000000 00:00 0 
+7fbf30bcf000-7fbf30ccd000 rw-p 00000000 00:00 0                          [stack:12337]
+7fbf30ccd000-7fbf30cd0000 ---p 00000000 00:00 0 
+7fbf30cd0000-7fbf30dce000 rw-p 00000000 00:00 0                          [stack:12274]
+7fbf30dce000-7fbf30dd1000 ---p 00000000 00:00 0 
+7fbf30dd1000-7fbf30ecf000 rw-p 00000000 00:00 0                          [stack:12331]
+7fbf30ecf000-7fbf30ed2000 ---p 00000000 00:00 0 
+7fbf30ed2000-7fbf30fd0000 rw-p 00000000 00:00 0                          [stack:12332]
+7fbf30fd0000-7fbf30fd3000 ---p 00000000 00:00 0 
+7fbf30fd3000-7fbf310d1000 rw-p 00000000 00:00 0                          [stack:12256]
+7fbf310d1000-7fbf310d4000 ---p 00000000 00:00 0 
+7fbf310d4000-7fbf311d2000 rw-p 00000000 00:00 0                          [stack:12236]
+7fbf311d2000-7fbf311d5000 ---p 00000000 00:00 0 
+7fbf311d5000-7fbf312d3000 rw-p 00000000 00:00 0                          [stack:12232]
+7fbf312d3000-7fbf312d6000 ---p 00000000 00:00 0 
+7fbf312d6000-7fbf313d4000 rw-p 00000000 00:00 0                          [stack:12225]
+7fbf313d4000-7fbf313d7000 ---p 00000000 00:00 0 
+7fbf313d7000-7fbf314d5000 rw-p 00000000 00:00 0                          [stack:12218]
+7fbf314d5000-7fbf314d8000 ---p 00000000 00:00 0 
+7fbf314d8000-7fbf315d6000 rw-p 00000000 00:00 0                          [stack:12214]
+7fbf315d6000-7fbf315d9000 ---p 00000000 00:00 0 
+7fbf315d9000-7fbf316d7000 rw-p 00000000 00:00 0                          [stack:12143]
+7fbf316d7000-7fbf316da000 ---p 00000000 00:00 0 
+7fbf316da000-7fbf317d8000 rw-p 00000000 00:00 0                          [stack:12141]
+7fbf317d8000-7fbf317db000 ---p 00000000 00:00 0 
+7fbf317db000-7fbf318d9000 rw-p 00000000 00:00 0                          [stack:12089]
+7fbf318d9000-7fbf318dc000 ---p 00000000 00:00 0 
+7fbf318dc000-7fbf319da000 rw-p 00000000 00:00 0                          [stack:12076]
+7fbf319da000-7fbf319dd000 ---p 00000000 00:00 0 
+7fbf319dd000-7fbf31adb000 rw-p 00000000 00:00 0                          [stack:12074]
+7fbf31adb000-7fbf31ade000 ---p 00000000 00:00 0 
+7fbf31ade000-7fbf31bdc000 rw-p 00000000 00:00 0                          [stack:12072]
+7fbf31bdc000-7fbf31bdf000 ---p 00000000 00:00 0 
+7fbf31bdf000-7fbf31cdd000 rw-p 00000000 00:00 0                          [stack:12071]
+7fbf31cdd000-7fbf31ce0000 ---p 00000000 00:00 0 
+7fbf31ce0000-7fbf31dde000 rw-p 00000000 00:00 0                          [stack:12059]
+7fbf31dde000-7fbf31de1000 ---p 00000000 00:00 0 
+7fbf31de1000-7fbf31edf000 rw-p 00000000 00:00 0                          [stack:12048]
+7fbf31edf000-7fbf31ee2000 ---p 00000000 00:00 0 
+7fbf31ee2000-7fbf31fe0000 rw-p 00000000 00:00 0                          [stack:12047]
+7fbf31fe0000-7fbf31fe3000 ---p 00000000 00:00 0 
+7fbf31fe3000-7fbf320e1000 rw-p 00000000 00:00 0                          [stack:12045]
+7fbf320e1000-7fbf320e4000 ---p 00000000 00:00 0 
+7fbf320e4000-7fbf321e2000 rw-p 00000000 00:00 0                          [stack:11971]
+7fbf321e2000-7fbf321e5000 ---p 00000000 00:00 0 
+7fbf321e5000-7fbf322e3000 rw-p 00000000 00:00 0                          [stack:11965]
+7fbf322e3000-7fbf322e6000 ---p 00000000 00:00 0 
+7fbf322e6000-7fbf323e4000 rw-p 00000000 00:00 0                          [stack:11960]
+7fbf323e4000-7fbf323e7000 ---p 00000000 00:00 0 
+7fbf323e7000-7fbf324e5000 rw-p 00000000 00:00 0                          [stack:11956]
+7fbf324e5000-7fbf324e8000 ---p 00000000 00:00 0 
+7fbf324e8000-7fbf325e6000 rw-p 00000000 00:00 0                          [stack:11952]
+7fbf325e6000-7fbf325e9000 ---p 00000000 00:00 0 
+7fbf325e9000-7fbf326e7000 rw-p 00000000 00:00 0                          [stack:11938]
+7fbf326e7000-7fbf326ea000 ---p 00000000 00:00 0 
+7fbf326ea000-7fbf327e8000 rw-p 00000000 00:00 0                          [stack:11933]
+7fbf327e8000-7fbf327eb000 ---p 00000000 00:00 0 
+7fbf327eb000-7fbf328e9000 rw-p 00000000 00:00 0                          [stack:11919]
+7fbf328e9000-7fbf328ec000 ---p 00000000 00:00 0 
+7fbf328ec000-7fbf329ea000 rw-p 00000000 00:00 0                          [stack:11913]
+7fbf329ea000-7fbf329ed000 ---p 00000000 00:00 0 
+7fbf329ed000-7fbf32aeb000 rw-p 00000000 00:00 0                          [stack:11907]
+7fbf32aeb000-7fbf32aee000 ---p 00000000 00:00 0 
+7fbf32aee000-7fbf32bec000 rw-p 00000000 00:00 0                          [stack:11906]
+7fbf32bec000-7fbf32bef000 ---p 00000000 00:00 0 
+7fbf32bef000-7fbf32ced000 rw-p 00000000 00:00 0                          [stack:11901]
+7fbf32ced000-7fbf32cf0000 ---p 00000000 00:00 0 
+7fbf32cf0000-7fbf32dee000 rw-p 00000000 00:00 0                          [stack:11900]
+7fbf32dee000-7fbf32df1000 ---p 00000000 00:00 0 
+7fbf32df1000-7fbf32eef000 rw-p 00000000 00:00 0                          [stack:11899]
+7fbf32eef000-7fbf32ef2000 ---p 00000000 00:00 0 
+7fbf32ef2000-7fbf32ff0000 rw-p 00000000 00:00 0                          [stack:11898]
+7fbf32ff0000-7fbf32ff3000 ---p 00000000 00:00 0 
+7fbf32ff3000-7fbf330f1000 rw-p 00000000 00:00 0                          [stack:11893]
+7fbf330f1000-7fbf330f4000 ---p 00000000 00:00 0 
+7fbf330f4000-7fbf331f2000 rw-p 00000000 00:00 0                          [stack:11891]
+7fbf331f2000-7fbf331f5000 ---p 00000000 00:00 0 
+7fbf331f5000-7fbf332f3000 rw-p 00000000 00:00 0                          [stack:12283]
+7fbf332f3000-7fbf332f6000 ---p 00000000 00:00 0 
+7fbf332f6000-7fbf333f4000 rw-p 00000000 00:00 0                          [stack:12263]
+7fbf333f4000-7fbf333f7000 ---p 00000000 00:00 0 
+7fbf333f7000-7fbf334f5000 rw-p 00000000 00:00 0                          [stack:12262]
+7fbf334f5000-7fbf334f8000 ---p 00000000 00:00 0 
+7fbf334f8000-7fbf335f6000 rw-p 00000000 00:00 0                          [stack:11880]
+7fbf335f6000-7fbf335f9000 ---p 00000000 00:00 0 
+7fbf335f9000-7fbf336f7000 rw-p 00000000 00:00 0                          [stack:11878]
+7fbf336f7000-7fbf336fa000 ---p 00000000 00:00 0 
+7fbf336fa000-7fbf337f8000 rw-p 00000000 00:00 0                          [stack:11877]
+7fbf337f8000-7fbf337fb000 ---p 00000000 00:00 0 
+7fbf337fb000-7fbf338f9000 rw-p 00000000 00:00 0                          [stack:12836]
+7fbf338f9000-7fbf338fc000 ---p 00000000 00:00 0 
+7fbf338fc000-7fbf339fa000 rw-p 00000000 00:00 0                          [stack:12260]
+7fbf339fa000-7fbf339fd000 ---p 00000000 00:00 0 
+7fbf339fd000-7fbf33afb000 rw-p 00000000 00:00 0                          [stack:12264]
+7fbf33afb000-7fbf33afe000 ---p 00000000 00:00 0 
+7fbf33afe000-7fbf33bfc000 rw-p 00000000 00:00 0                          [stack:12931]
+7fbf33bfc000-7fbf33bff000 ---p 00000000 00:00 0 
+7fbf33bff000-7fbf33cfd000 rw-p 00000000 00:00 0                          [stack:11862]
+7fbf33cfd000-7fbf33d00000 ---p 00000000 00:00 0 
+7fbf33d00000-7fbf33dfe000 rw-p 00000000 00:00 0                          [stack:12254]
+7fbf33dfe000-7fbf33e01000 ---p 00000000 00:00 0 
+7fbf33e01000-7fbf33eff000 rw-p 00000000 00:00 0                          [stack:12257]
+7fbf33eff000-7fbf33f02000 ---p 00000000 00:00 0 
+7fbf33f02000-7fbf34000000 rw-p 00000000 00:00 0                          [stack:11850]
+7fbf34000000-7fbf340c4000 rw-p 00000000 00:00 0 
+7fbf340c4000-7fbf38000000 ---p 00000000 00:00 0 
+7fbf380cb000-7fbf380ce000 ---p 00000000 00:00 0 
+7fbf380ce000-7fbf381cc000 rw-p 00000000 00:00 0                          [stack:11833]
+7fbf381cc000-7fbf381cf000 ---p 00000000 00:00 0 
+7fbf381cf000-7fbf382cd000 rw-p 00000000 00:00 0                          [stack:11831]
+7fbf382cd000-7fbf382d0000 ---p 00000000 00:00 0 
+7fbf382d0000-7fbf383ce000 rw-p 00000000 00:00 0                          [stack:11830]
+7fbf383ce000-7fbf383d1000 ---p 00000000 00:00 0 
+7fbf383d1000-7fbf384cf000 rw-p 00000000 00:00 0                          [stack:11828]
+7fbf384cf000-7fbf384d2000 ---p 00000000 00:00 0 
+7fbf384d2000-7fbf385d0000 rw-p 00000000 00:00 0                          [stack:11827]
+7fbf385d0000-7fbf385d3000 ---p 00000000 00:00 0 
+7fbf385d3000-7fbf386d1000 rw-p 00000000 00:00 0                          [stack:11820]
+7fbf386d1000-7fbf386d4000 ---p 00000000 00:00 0 
+7fbf386d4000-7fbf387d2000 rw-p 00000000 00:00 0                          [stack:11819]
+7fbf387d2000-7fbf387d5000 ---p 00000000 00:00 0 
+7fbf387d5000-7fbf388d3000 rw-p 00000000 00:00 0                          [stack:11818]
+7fbf388d3000-7fbf388d6000 ---p 00000000 00:00 0 
+7fbf388d6000-7fbf389d4000 rw-p 00000000 00:00 0                          [stack:11817]
+7fbf389d4000-7fbf389d7000 ---p 00000000 00:00 0 
+7fbf389d7000-7fbf38ad5000 rw-p 00000000 00:00 0                          [stack:11801]
+7fbf38ad5000-7fbf38ad8000 ---p 00000000 00:00 0 
+7fbf38ad8000-7fbf38bd6000 rw-p 00000000 00:00 0                          [stack:11800]
+7fbf38bd6000-7fbf38bd9000 ---p 00000000 00:00 0 
+7fbf38bd9000-7fbf38cd7000 rw-p 00000000 00:00 0                          [stack:11793]
+7fbf38cd7000-7fbf38cda000 ---p 00000000 00:00 0 
+7fbf38cda000-7fbf38dd8000 rw-p 00000000 00:00 0                          [stack:11845]
+7fbf38dd8000-7fbf38ddb000 ---p 00000000 00:00 0 
+7fbf38ddb000-7fbf38ed9000 rw-p 00000000 00:00 0                          [stack:11853]
+7fbf38ed9000-7fbf38edc000 ---p 00000000 00:00 0 
+7fbf38edc000-7fbf38fda000 rw-p 00000000 00:00 0                          [stack:11779]
+7fbf38fda000-7fbf38fdd000 ---p 00000000 00:00 0 
+7fbf38fdd000-7fbf390db000 rw-p 00000000 00:00 0                          [stack:11847]
+7fbf390db000-7fbf390de000 ---p 00000000 00:00 0 
+7fbf390de000-7fbf391dc000 rw-p 00000000 00:00 0                          [stack:12258]
+7fbf391dc000-7fbf391df000 ---p 00000000 00:00 0 
+7fbf391df000-7fbf392dd000 rw-p 00000000 00:00 0                          [stack:11849]
+7fbf392dd000-7fbf392e0000 ---p 00000000 00:00 0 
+7fbf392e0000-7fbf393de000 rw-p 00000000 00:00 0                          [stack:12255]
+7fbf393de000-7fbf393e1000 ---p 00000000 00:00 0 
+7fbf393e1000-7fbf394df000 rw-p 00000000 00:00 0                          [stack:12333]
+7fbf394df000-7fbf394e2000 ---p 00000000 00:00 0 
+7fbf394e2000-7fbf395e0000 rw-p 00000000 00:00 0                          [stack:12261]
+7fbf395e0000-7fbf395e3000 ---p 00000000 00:00 0 
+7fbf395e3000-7fbf396e1000 rw-p 00000000 00:00 0                          [stack:12339]
+7fbf396f3000-7fbf396f6000 ---p 00000000 00:00 0 
+7fbf396f6000-7fbf397f4000 rw-p 00000000 00:00 0                          [stack:11762]
+7fbf397f4000-7fbf397f7000 ---p 00000000 00:00 0 
+7fbf397f7000-7fbf398f5000 rw-p 00000000 00:00 0                          [stack:11694]
+7fbf398f5000-7fbf398f8000 ---p 00000000 00:00 0 
+7fbf398f8000-7fbf399f6000 rw-p 00000000 00:00 0                          [stack:11689]
+7fbf399f6000-7fbf399f9000 ---p 00000000 00:00 0 
+7fbf399f9000-7fbf39af7000 rw-p 00000000 00:00 0                          [stack:11484]
+7fbf39af7000-7fbf39afa000 ---p 00000000 00:00 0 
+7fbf39afa000-7fbf39bf8000 rw-p 00000000 00:00 0                          [stack:11844]
+7fbf39bf8000-7fbf39bfb000 ---p 00000000 00:00 0 
+7fbf39bfb000-7fbf39cf9000 rw-p 00000000 00:00 0                          [stack:11767]
+7fbf39cf9000-7fbf39cfc000 ---p 00000000 00:00 0 
+7fbf39cfc000-7fbf39dfa000 rw-p 00000000 00:00 0                          [stack:11764]
+7fbf39dfa000-7fbf39dfd000 ---p 00000000 00:00 0 
+7fbf39dfd000-7fbf39efb000 rw-p 00000000 00:00 0                          [stack:11851]
+7fbf39efb000-7fbf39efe000 ---p 00000000 00:00 0 
+7fbf39efe000-7fbf39ffc000 rw-p 00000000 00:00 0                          [stack:11768]
+7fbf39ffc000-7fbf39fff000 ---p 00000000 00:00 0 
+7fbf39fff000-7fbf3a0fd000 rw-p 00000000 00:00 0                          [stack:11766]
+7fbf3a0fd000-7fbf3a100000 ---p 00000000 00:00 0 
+7fbf3a100000-7fbf3a1fe000 rw-p 00000000 00:00 0                          [stack:11852]
+7fbf3a1fe000-7fbf3a201000 ---p 00000000 00:00 0 
+7fbf3a201000-7fbf3a2ff000 rw-p 00000000 00:00 0                          [stack:12829]
+7fbf3a2ff000-7fbf3a302000 ---p 00000000 00:00 0 
+7fbf3a302000-7fbf3a400000 rw-p 00000000 00:00 0                          [stack:11846]
+7fbf3a400000-7fbf3a403000 ---p 00000000 00:00 0 
+7fbf3a403000-7fbf3a501000 rw-p 00000000 00:00 0                          [stack:11464]
+7fbf3a501000-7fbf3a504000 ---p 00000000 00:00 0 
+7fbf3a504000-7fbf3a602000 rw-p 00000000 00:00 0                          [stack:11463]
+7fbf3a602000-7fbf3a605000 ---p 00000000 00:00 0 
+7fbf3a605000-7fbf3a703000 rw-p 00000000 00:00 0                          [stack:11843]
+7fbf3a703000-7fbf3a706000 ---p 00000000 00:00 0 
+7fbf3a706000-7fbf3a804000 rw-p 00000000 00:00 0                          [stack:11760]
+7fbf3a804000-7fbf3a807000 ---p 00000000 00:00 0 
+7fbf3a807000-7fbf3a905000 rw-p 00000000 00:00 0                          [stack:11763]
+7fbf3a905000-7fbf3a913000 r--s 00351000 08:07 669092                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/charsets.jar
+7fbf3a913000-7fbf3a921000 r--s 00351000 08:07 669092                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/charsets.jar
+7fbf3a921000-7fbf3a924000 ---p 00000000 00:00 0 
+7fbf3a924000-7fbf3aa22000 rw-p 00000000 00:00 0                          [stack:11761]
+7fbf3aa22000-7fbf3aa25000 ---p 00000000 00:00 0 
+7fbf3aa25000-7fbf3ab23000 rw-p 00000000 00:00 0                          [stack:11770]
+7fbf3ab23000-7fbf3ab26000 ---p 00000000 00:00 0 
+7fbf3ab26000-7fbf3ac24000 rw-p 00000000 00:00 0                          [stack:11769]
+7fbf3ac24000-7fbf3ac27000 ---p 00000000 00:00 0 
+7fbf3ac27000-7fbf3ad25000 rw-p 00000000 00:00 0                          [stack:11470]
+7fbf3ad25000-7fbf3ad2b000 r-xp 00000000 08:07 675813                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7fbf3ad2b000-7fbf3af2a000 ---p 00006000 08:07 675813                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7fbf3af2a000-7fbf3af2b000 r--p 00005000 08:07 675813                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7fbf3af2b000-7fbf3af2c000 rw-p 00006000 08:07 675813                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7fbf3af2c000-7fbf3af34000 r-xp 00000000 08:07 675803                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnio.so
+7fbf3af34000-7fbf3b133000 ---p 00008000 08:07 675803                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnio.so
+7fbf3b133000-7fbf3b134000 r--p 00007000 08:07 675803                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnio.so
+7fbf3b134000-7fbf3b135000 rw-p 00008000 08:07 675803                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnio.so
+7fbf3b135000-7fbf3b138000 ---p 00000000 00:00 0 
+7fbf3b138000-7fbf3b236000 rw-p 00000000 00:00 0                          [stack:11451]
+7fbf3b236000-7fbf3b239000 ---p 00000000 00:00 0 
+7fbf3b239000-7fbf3b337000 rw-p 00000000 00:00 0                          [stack:11450]
+7fbf3b337000-7fbf3b33a000 ---p 00000000 00:00 0 
+7fbf3b33a000-7fbf3b438000 rw-p 00000000 00:00 0                          [stack:11449]
+7fbf3b438000-7fbf3b43b000 ---p 00000000 00:00 0 
+7fbf3b43b000-7fbf3b539000 rw-p 00000000 00:00 0                          [stack:11448]
+7fbf3b539000-7fbf3b53c000 ---p 00000000 00:00 0 
+7fbf3b53c000-7fbf3b63a000 rw-p 00000000 00:00 0                          [stack:11447]
+7fbf3b63a000-7fbf3b63d000 ---p 00000000 00:00 0 
+7fbf3b63d000-7fbf3b73b000 rw-p 00000000 00:00 0                          [stack:11471]
+7fbf3b73b000-7fbf3b73e000 ---p 00000000 00:00 0 
+7fbf3b73e000-7fbf3b83c000 rw-p 00000000 00:00 0                          [stack:11438]
+7fbf3b83c000-7fbf3b83f000 ---p 00000000 00:00 0 
+7fbf3b83f000-7fbf3b93d000 rw-p 00000000 00:00 0                          [stack:11437]
+7fbf3b93d000-7fbf3b940000 ---p 00000000 00:00 0 
+7fbf3b940000-7fbf3ba3e000 rw-p 00000000 00:00 0                          [stack:11436]
+7fbf3ba3e000-7fbf3ba41000 ---p 00000000 00:00 0 
+7fbf3ba41000-7fbf3bb3f000 rw-p 00000000 00:00 0                          [stack:11435]
+7fbf3bb3f000-7fbf3bb42000 ---p 00000000 00:00 0 
+7fbf3bb42000-7fbf3bc40000 rw-p 00000000 00:00 0                          [stack:11434]
+7fbf3bc40000-7fbf3bc45000 r--s 00034000 08:07 400093                     /home/pipi/.grails/ivy-cache/org.springframework/spring-test/jars/spring-test-3.1.4.RELEASE.jar
+7fbf3bc45000-7fbf3bc49000 r--s 0002a000 08:07 400091                     /home/pipi/.grails/ivy-cache/org.grails/grails-test/jars/grails-test-2.2.3.jar
+7fbf3bc49000-7fbf3bc50000 r--s 00061000 08:07 400089                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-testing/jars/grails-plugin-testing-2.2.3.jar
+7fbf3bc50000-7fbf3bc57000 r--s 00037000 08:07 400087                     /home/pipi/.grails/ivy-cache/junit/junit/jars/junit-4.10.jar
+7fbf3bc57000-7fbf3bc68000 r--s 000d2000 08:07 530318                     /home/pipi/.grails/ivy-cache/org.liquibase/liquibase-core/jars/liquibase-core-2.0.5.jar
+7fbf3bc68000-7fbf3bc71000 r--s 00098000 08:07 530316                     /home/pipi/.grails/ivy-cache/org.javassist/javassist/jars/javassist-3.16.1-GA.jar
+7fbf3bc71000-7fbf3bc76000 r--s 00068000 08:07 530314                     /home/pipi/.grails/ivy-cache/antlr/antlr/jars/antlr-2.7.7.jar
+7fbf3bc76000-7fbf3bc77000 r--s 00002000 08:07 530312                     /home/pipi/.grails/ivy-cache/org.hibernate/hibernate-ehcache/jars/hibernate-ehcache-3.6.10.Final.jar
+7fbf3bc77000-7fbf3bc7c000 r--s 00048000 08:07 530310                     /home/pipi/.grails/ivy-cache/dom4j/dom4j/jars/dom4j-1.6.1.jar
+7fbf3bc7c000-7fbf3bcae000 r--s 002c9000 08:07 530306                     /home/pipi/.grails/ivy-cache/org.hibernate/hibernate-core/jars/hibernate-core-3.6.10.Final.jar
+7fbf3bcae000-7fbf3bcb1000 r--s 0000f000 08:07 530304                     /home/pipi/.grails/ivy-cache/org.hibernate/hibernate-commons-annotations/jars/hibernate-commons-annotations-3.2.0.Final.jar
+7fbf3bcb1000-7fbf3bcb4000 r--s 00009000 08:07 530308                     /home/pipi/.grails/ivy-cache/javax.validation/validation-api/jars/validation-api-1.0.0.GA.jar
+7fbf3bcb4000-7fbf3bcbb000 r--s 00040000 08:07 530302                     /home/pipi/.grails/ivy-cache/org.hibernate/hibernate-validator/jars/hibernate-validator-4.1.0.Final.jar
+7fbf3bcbb000-7fbf3bcbd000 r--s 00000000 08:07 400085                     /home/pipi/.grails/ivy-cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.6.2.jar
+7fbf3bcbd000-7fbf3bcc6000 r--s 0006d000 08:07 400083                     /home/pipi/.grails/ivy-cache/log4j/log4j/bundles/log4j-1.2.16.jar
+7fbf3bcc6000-7fbf3bcdb000 r--s 000e3000 08:07 400081                     /home/pipi/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar
+7fbf3bcdb000-7fbf3bcdd000 r--s 00005000 08:07 400079                     /home/pipi/.grails/ivy-cache/xpp3/xpp3_min/jars/xpp3_min-1.1.4c.jar
+7fbf3bcdd000-7fbf3bcdf000 r--s 00004000 08:07 400077                     /home/pipi/.grails/ivy-cache/javax.servlet/jstl/jars/jstl-1.1.2.jar
+7fbf3bcdf000-7fbf3bce9000 r--s 0012c000 08:07 400075                     /home/pipi/.grails/ivy-cache/com.h2database/h2/jars/h2-1.3.164.jar
+7fbf3bce9000-7fbf3bcec000 r--s 00016000 08:07 400073                     /home/pipi/.grails/ivy-cache/commons-pool/commons-pool/jars/commons-pool-1.5.6.jar
+7fbf3bcec000-7fbf3bcef000 r--s 00025000 08:07 400071                     /home/pipi/.grails/ivy-cache/commons-dbcp/commons-dbcp/jars/commons-dbcp-1.4.jar
+7fbf3bcef000-7fbf3bcf1000 r--s 0000e000 08:07 400069                     /home/pipi/.grails/ivy-cache/oro/oro/jars/oro-2.0.8.jar
+7fbf3bcf1000-7fbf3bcf3000 r--s 0000d000 08:07 400067                     /home/pipi/.grails/ivy-cache/commons-fileupload/commons-fileupload/jars/commons-fileupload-1.2.2.jar
+7fbf3bcf3000-7fbf3bcf4000 r--s 0000a000 08:07 400065                     /home/pipi/.grails/ivy-cache/asm/asm/jars/asm-3.1.jar
+7fbf3bcf4000-7fbf3bcfb000 r--s 0003e000 08:07 400063                     /home/pipi/.grails/ivy-cache/cglib/cglib/jars/cglib-2.2.jar
+7fbf3bcfb000-7fbf3bcff000 r--s 00019000 08:07 400061                     /home/pipi/.grails/ivy-cache/org.aspectj/aspectjrt/jars/aspectjrt-1.6.10.jar
+7fbf3bcff000-7fbf3bd15000 r--s 00184000 08:07 400059                     /home/pipi/.grails/ivy-cache/org.aspectj/aspectjweaver/jars/aspectjweaver-1.6.10.jar
+7fbf3bd15000-7fbf3bd1c000 r--s 00035000 08:07 530292                     /home/pipi/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.7.RELEASE.jar
+7fbf3bd1c000-7fbf3bd26000 r--s 00043000 08:07 530290                     /home/pipi/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.7.RELEASE.jar
+7fbf3bd26000-7fbf3bd2d000 r--s 00058000 08:07 400057                     /home/pipi/.grails/ivy-cache/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.1.8.RELEASE.jar
+7fbf3bd2d000-7fbf3bd37000 r--s 00046000 08:07 400055                     /home/pipi/.grails/ivy-cache/org.grails/grails-datastore-core/jars/grails-datastore-core-1.1.8.RELEASE.jar
+7fbf3bd37000-7fbf3bd3c000 r--s 0004c000 08:07 400053                     /home/pipi/.grails/ivy-cache/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-1.1.8.RELEASE.jar
+7fbf3bd3c000-7fbf3bd48000 r--s 00082000 08:07 400051                     /home/pipi/.grails/ivy-cache/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.4.RELEASE.jar
+7fbf3bd48000-7fbf3bd55000 r--s 0007b000 08:07 400049                     /home/pipi/.grails/ivy-cache/org.springframework/spring-web/jars/spring-web-3.1.4.RELEASE.jar
+7fbf3bd55000-7fbf3bd5c000 r--s 00035000 08:07 400047                     /home/pipi/.grails/ivy-cache/org.springframework/spring-tx/jars/spring-tx-3.1.4.RELEASE.jar
+7fbf3bd5c000-7fbf3bd64000 r--s 00055000 08:07 400045                     /home/pipi/.grails/ivy-cache/org.springframework/spring-orm/jars/spring-orm-3.1.4.RELEASE.jar
+7fbf3bd64000-7fbf3bd69000 r--s 0002d000 08:07 400043                     /home/pipi/.grails/ivy-cache/org.springframework/spring-jms/jars/spring-jms-3.1.4.RELEASE.jar
+7fbf3bd69000-7fbf3bd74000 r--s 00059000 08:07 400041                     /home/pipi/.grails/ivy-cache/org.springframework/spring-jdbc/jars/spring-jdbc-3.1.4.RELEASE.jar
+7fbf3bd74000-7fbf3bd78000 r--s 00028000 08:07 400039                     /home/pipi/.grails/ivy-cache/org.springframework/spring-expression/jars/spring-expression-3.1.4.RELEASE.jar
+7fbf3bd78000-7fbf3bd7b000 r--s 00018000 08:07 400037                     /home/pipi/.grails/ivy-cache/org.springframework/spring-context-support/jars/spring-context-support-3.1.4.RELEASE.jar
+7fbf3bd7b000-7fbf3bd90000 r--s 000b8000 08:07 400035                     /home/pipi/.grails/ivy-cache/org.springframework/spring-context/jars/spring-context-3.1.4.RELEASE.jar
+7fbf3bd90000-7fbf3bd9c000 r--s 00086000 08:07 400033                     /home/pipi/.grails/ivy-cache/org.springframework/spring-beans/jars/spring-beans-3.1.4.RELEASE.jar
+7fbf3bd9c000-7fbf3bd9d000 r--s 0000c000 08:07 400031                     /home/pipi/.grails/ivy-cache/org.springframework/spring-asm/jars/spring-asm-3.1.4.RELEASE.jar
+7fbf3bd9d000-7fbf3bd9f000 r--s 0000b000 08:07 400029                     /home/pipi/.grails/ivy-cache/org.springframework/spring-aspects/jars/spring-aspects-3.1.4.RELEASE.jar
+7fbf3bd9f000-7fbf3bda8000 r--s 00049000 08:07 400027                     /home/pipi/.grails/ivy-cache/org.springframework/spring-aop/jars/spring-aop-3.1.4.RELEASE.jar
+7fbf3bda8000-7fbf3bdb3000 r--s 00064000 08:07 400025                     /home/pipi/.grails/ivy-cache/org.springframework/spring-core/jars/spring-core-3.1.4.RELEASE.jar
+7fbf3bdb3000-7fbf3bdb5000 r--s 00008000 08:07 400023                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-validation/jars/grails-plugin-validation-2.2.3.jar
+7fbf3bdb5000-7fbf3bdb8000 r--s 0001b000 08:07 400021                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-url-mappings/jars/grails-plugin-url-mappings-2.2.3.jar
+7fbf3bdb8000-7fbf3bdba000 r--s 0000d000 08:07 400019                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-mimetypes/jars/grails-plugin-mimetypes-2.2.3.jar
+7fbf3bdba000-7fbf3bdbc000 r--s 00005000 08:07 400017                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-servlets/jars/grails-plugin-servlets-2.2.3.jar
+7fbf3bdbc000-7fbf3bdbd000 r--s 00008000 08:07 400015                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-services/jars/grails-plugin-services-2.2.3.jar
+7fbf3bdbd000-7fbf3bdbf000 r--s 00005000 08:07 400013                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-scaffolding/jars/grails-plugin-scaffolding-2.2.3.jar
+7fbf3bdbf000-7fbf3bdc2000 r--s 0000d000 08:07 400011                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-log4j/jars/grails-plugin-log4j-2.2.3.jar
+7fbf3bdc2000-7fbf3bdc3000 r--s 00005000 08:07 400009                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-i18n/jars/grails-plugin-i18n-2.2.3.jar
+7fbf3bdc3000-7fbf3bdca000 r--s 00063000 08:07 400007                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-gsp/jars/grails-plugin-gsp-2.2.3.jar
+7fbf3bdca000-7fbf3bdcc000 r--s 0000c000 08:07 400005                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-filters/jars/grails-plugin-filters-2.2.3.jar
+7fbf3bdcc000-7fbf3bdce000 r--s 00009000 08:07 400003                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-datasource/jars/grails-plugin-datasource-2.2.3.jar
+7fbf3bdce000-7fbf3bdd2000 r--s 00022000 08:07 400001                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-converters/jars/grails-plugin-converters-2.2.3.jar
+7fbf3bdd2000-7fbf3bdd5000 r--s 00017000 08:07 399999                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-domain-class/jars/grails-plugin-domain-class-2.2.3.jar
+7fbf3bdd5000-7fbf3bdd8000 r--s 00025000 08:07 399997                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-controllers/jars/grails-plugin-controllers-2.2.3.jar
+7fbf3bdd8000-7fbf3bdda000 r--s 00013000 08:07 399995                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-codecs/jars/grails-plugin-codecs-2.2.3.jar
+7fbf3bdda000-7fbf3bddb000 r--s 00000000 08:07 399993                     /home/pipi/.grails/ivy-cache/org.grails/grails-logging/jars/grails-logging-2.2.3.jar
+7fbf3bddb000-7fbf3bde9000 r--s 000b7000 08:07 399991                     /home/pipi/.grails/ivy-cache/org.grails/grails-web/jars/grails-web-2.2.3.jar
+7fbf3bde9000-7fbf3bdea000 r--s 00009000 08:07 399989                     /home/pipi/.grails/ivy-cache/org.grails/grails-spring/jars/grails-spring-2.2.3.jar
+7fbf3bdea000-7fbf3bdff000 r-xp 00000000 08:07 675807                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnet.so
+7fbf3bdff000-7fbf3bffe000 ---p 00015000 08:07 675807                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnet.so
+7fbf3bffe000-7fbf3bfff000 r--p 00014000 08:07 675807                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnet.so
+7fbf3bfff000-7fbf3c000000 rw-p 00015000 08:07 675807                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libnet.so
+7fbf3c000000-7fbf3c0d1000 rw-p 00000000 00:00 0 
+7fbf3c0d1000-7fbf40000000 ---p 00000000 00:00 0 
+7fbf40000000-7fbf40002000 r--s 00027000 08:07 399987                     /home/pipi/.grails/ivy-cache/org.grails/grails-resources/jars/grails-resources-2.2.3.jar
+7fbf40002000-7fbf4000c000 r--s 00085000 08:07 399985                     /home/pipi/.grails/ivy-cache/org.grails/grails-hibernate/jars/grails-hibernate-2.2.3.jar
+7fbf4000c000-7fbf4000d000 r--s 00009000 08:07 399983                     /home/pipi/.grails/ivy-cache/org.grails/grails-crud/jars/grails-crud-2.2.3.jar
+7fbf4000d000-7fbf4001d000 r--s 000c1000 08:07 399981                     /home/pipi/.grails/ivy-cache/org.grails/grails-core/jars/grails-core-2.2.3.jar
+7fbf4001d000-7fbf40023000 r--s 00027000 08:07 399979                     /home/pipi/.grails/ivy-cache/opensymphony/sitemesh/jars/sitemesh-2.4.jar
+7fbf40023000-7fbf40028000 r--s 00015000 08:07 399977                     /home/pipi/.grails/ivy-cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar
+7fbf40028000-7fbf40029000 r--s 00003000 08:07 399975                     /home/pipi/.grails/ivy-cache/javax.transaction/jta/jars/jta-1.1.jar
+7fbf40029000-7fbf4002e000 r--s 00041000 08:07 399973                     /home/pipi/.grails/ivy-cache/commons-lang/commons-lang/jars/commons-lang-2.6.jar
+7fbf4002e000-7fbf40031000 r--s 00025000 08:07 399971                     /home/pipi/.grails/ivy-cache/commons-io/commons-io/jars/commons-io-2.1.jar
+7fbf40031000-7fbf4003f000 r--s 0007f000 08:07 399969                     /home/pipi/.grails/ivy-cache/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar
+7fbf4003f000-7fbf40041000 r--s 00010000 08:07 399967                     /home/pipi/.grails/ivy-cache/commons-codec/commons-codec/jars/commons-codec-1.5.jar
+7fbf40041000-7fbf40044000 r--s 0000b000 08:07 399965                     /home/pipi/.grails/ivy-cache/com.googlecode.concurrentlinkedhashmap/concurrentlinkedhashmap-lru/jars/concurrentlinkedhashmap-lru-1.3.1.jar
+7fbf40044000-7fbf40046000 r--s 00000000 08:07 399963                     /home/pipi/.grails/ivy-cache/aopalliance/aopalliance/jars/aopalliance-1.0.jar
+7fbf40046000-7fbf40049000 r--s 0001f000 08:07 399961                     /home/pipi/.grails/ivy-cache/commons-validator/commons-validator/jars/commons-validator-1.3.1.jar
+7fbf40049000-7fbf4004c000 r--s 00019000 08:07 399959                     /home/pipi/.grails/ivy-cache/commons-el/commons-el/jars/commons-el-1.0.jar
+7fbf4004c000-7fbf40051000 r--s 00034000 08:07 399957                     /home/pipi/.grails/ivy-cache/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.8.3.jar
+7fbf40051000-7fbf400b1000 r--s 00596000 08:07 399955                     /home/pipi/.grails/ivy-cache/org.codehaus.groovy/groovy-all/jars/groovy-all-2.0.8.jar
+7fbf400b1000-7fbf400b3000 r--s 00013000 08:07 399669                     /home/pipi/.grails/ivy-cache/org.apache.tomcat.embed/tomcat-embed-logging-log4j/jars/tomcat-embed-logging-log4j-7.0.39.jar
+7fbf400b3000-7fbf400b5000 r--s 00008000 08:07 530206                     /home/pipi/.grails/ivy-cache/org.apache.tomcat.embed/tomcat-embed-logging-juli/jars/tomcat-embed-logging-juli-7.0.39.jar
+7fbf400b5000-7fbf400c5000 r--s 0019c000 08:07 530204                     /home/pipi/.grails/ivy-cache/org.eclipse.jdt.core.compiler/ecj/jars/ecj-3.7.2.jar
+7fbf400c5000-7fbf400d0000 r--s 000b8000 08:07 399667                     /home/pipi/.grails/ivy-cache/org.apache.tomcat.embed/tomcat-embed-jasper/jars/tomcat-embed-jasper-7.0.39.jar
+7fbf400d0000-7fbf400d2000 r--s 0000c000 08:07 404613                     /home/pipi/.grails/ivy-cache/org.apache.tomcat/tomcat-catalina-ant/jars/tomcat-catalina-ant-7.0.39.jar
+7fbf400d2000-7fbf400f4000 r--s 00257000 08:07 399665                     /home/pipi/.grails/ivy-cache/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.39.jar
+7fbf400f4000-7fbf400f6000 r--s 00011000 08:07 404611                     /home/pipi/.grails/ivy-cache/org.grails/grails-plugin-tomcat/jars/grails-plugin-tomcat-2.2.3.jar
+7fbf400f6000-7fbf400f7000 r--s 00001000 08:07 399647                     /home/pipi/.grails/ivy-cache/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar
+7fbf400f7000-7fbf400f9000 r--s 00017000 08:07 399645                     /home/pipi/.grails/ivy-cache/org.apache.ant/ant-junit/jars/ant-junit-1.8.2.jar
+7fbf400f9000-7fbf400fb000 r--s 00002000 08:07 399643                     /home/pipi/.grails/ivy-cache/org.apache.ant/ant-launcher/jars/ant-launcher-1.8.2.jar
+7fbf400fb000-7fbf40119000 r--s 001bb000 08:07 399641                     /home/pipi/.grails/ivy-cache/org.apache.ant/ant/jars/ant-1.8.2.jar
+7fbf40119000-7fbf4011b000 r--s 00003000 08:07 399639                     /home/pipi/.grails/ivy-cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.2.jar
+7fbf4011b000-7fbf4011d000 r--s 00005000 08:07 399637                     /home/pipi/.grails/ivy-cache/org.slf4j/slf4j-api/jars/slf4j-api-1.6.2.jar
+7fbf4011d000-7fbf40126000 r--s 000cd000 08:07 399635                     /home/pipi/.grails/ivy-cache/org.grails/grails-scripts/jars/grails-scripts-2.2.3.jar
+7fbf40126000-7fbf40131000 r--s 000ab000 08:07 399633                     /home/pipi/.grails/ivy-cache/org.grails/grails-bootstrap/jars/grails-bootstrap-2.2.3.jar
+7fbf40131000-7fbf40134000 r--s 00044000 08:07 399631                     /home/pipi/.grails/ivy-cache/org.grails/grails-docs/jars/grails-docs-2.2.3.jar
+7fbf40134000-7fbf40137000 r--s 00041000 08:07 399629                     /home/pipi/.grails/ivy-cache/xalan/serializer/jars/serializer-2.7.1.jar
+7fbf40137000-7fbf4013a000 r--s 000cf000 08:07 399627                     /home/pipi/.grails/ivy-cache/net.java.dev.jna/jna/jars/jna-3.2.3.jar
+7fbf4013a000-7fbf4013c000 r--s 00008000 08:07 399625                     /home/pipi/.grails/ivy-cache/org.fusesource.jansi/jansi/jars/jansi-1.2.1.jar
+7fbf4013c000-7fbf4014b000 r--s 000d9000 08:07 399623                     /home/pipi/.grails/ivy-cache/org.apache.ivy/ivy/jars/ivy-2.2.0.jar
+7fbf4014b000-7fbf40170000 r--s 00172000 08:07 399619                     /home/pipi/.grails/ivy-cache/org.bouncycastle/bcprov-jdk15/jars/bcprov-jdk15-1.45.jar
+7fbf40170000-7fbf40175000 r--s 00024000 08:07 399617                     /home/pipi/.grails/ivy-cache/org.bouncycastle/bcpg-jdk15/jars/bcpg-jdk15-1.45.jar
+7fbf40175000-7fbf4017b000 r--s 00068000 08:07 399613                     /home/pipi/.grails/ivy-cache/com.google.protobuf/protobuf-java/jars/protobuf-java-2.4.1.jar
+7fbf4017b000-7fbf4017e000 r--s 0001a000 08:07 399611                     /home/pipi/.grails/ivy-cache/org.springframework.uaa/org.springframework.uaa.client/bundles/org.springframework.uaa.client-1.0.1.RELEASE.jar
+7fbf4017e000-7fbf40181000 ---p 00000000 00:00 0 
+7fbf40181000-7fbf4027f000 rw-p 00000000 00:00 0                          [stack:11427]
+7fbf4027f000-7fbf40294000 r-xp 00000000 08:07 524318                     /tmp/jna1289766056602220128.tmp
+7fbf40294000-7fbf40393000 ---p 00015000 08:07 524318                     /tmp/jna1289766056602220128.tmp
+7fbf40393000-7fbf40395000 rw-p 00014000 08:07 524318                     /tmp/jna1289766056602220128.tmp
+7fbf40395000-7fbf403f5000 r--s 00dc0000 08:07 676024                     /usr/lib/jvm/java-6-openjdk-amd64/lib/tools.jar
+7fbf403f5000-7fbf403fa000 r--s 00050000 08:07 1061403                    /usr/share/grails/lib/org.codehaus.gant/gant_groovy1.8/jars/gant_groovy1.8-1.9.6.jar
+7fbf403fa000-7fbf40418000 r--s 001bb000 08:07 930046                     /usr/share/grails/lib/org.apache.ant/ant/jars/ant-1.8.2.jar
+7fbf40418000-7fbf40419000 ---p 00000000 00:00 0 
+7fbf40419000-7fbf40519000 rw-p 00000000 00:00 0                          [stack:11408]
+7fbf40519000-7fbf4051c000 ---p 00000000 00:00 0 
+7fbf4051c000-7fbf4061a000 rw-p 00000000 00:00 0                          [stack:11407]
+7fbf4061a000-7fbf4061d000 ---p 00000000 00:00 0 
+7fbf4061d000-7fbf4071b000 rw-p 00000000 00:00 0                          [stack:11406]
+7fbf4071b000-7fbf4071e000 ---p 00000000 00:00 0 
+7fbf4071e000-7fbf4081c000 rw-p 00000000 00:00 0                          [stack:11405]
+7fbf4081c000-7fbf4081f000 ---p 00000000 00:00 0 
+7fbf4081f000-7fbf4091d000 rw-p 00000000 00:00 0                          [stack:11404]
+7fbf4091d000-7fbf41000000 r--p 00000000 08:07 662564                     /usr/lib/locale/locale-archive
+7fbf41000000-7fbf41e00000 rwxp 00000000 00:00 0 
+7fbf41e00000-7fbf4537c000 rw-p 00000000 00:00 0 
+7fbf4537c000-7fbf48000000 ---p 00000000 00:00 0 
+7fbf48000000-7fbf48002000 r--s 00015000 08:07 399621                     /home/pipi/.grails/ivy-cache/jline/jline/jars/jline-1.0.jar
+7fbf48002000-7fbf48011000 r--s 000d9000 08:07 1061185                    /usr/share/grails/lib/org.apache.ivy/ivy/jars/ivy-2.2.0.jar
+7fbf48011000-7fbf48014000 r--s 000cf000 08:07 930024                     /usr/share/grails/lib/net.java.dev.jna/jna/jars/jna-3.2.3.jar
+7fbf48014000-7fbf4801b000 r--s 000fc000 08:07 669093                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/resources.jar
+7fbf4801b000-7fbf4807b000 r--s 00596000 08:07 1061417                    /usr/share/grails/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-2.0.8.jar
+7fbf4807b000-7fbf4807e000 ---p 00000000 00:00 0 
+7fbf4807e000-7fbf4817c000 rw-p 00000000 00:00 0                          [stack:11403]
+7fbf4817c000-7fbf4817f000 ---p 00000000 00:00 0 
+7fbf4817f000-7fbf4827d000 rw-p 00000000 00:00 0                          [stack:11402]
+7fbf4827d000-7fbf4827e000 ---p 00000000 00:00 0 
+7fbf4827e000-7fbf488b6000 rw-p 00000000 00:00 0                          [stack:11401]
+7fbf488b6000-7fbf48a4a000 r--s 03807000 08:07 675786                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/rt.jar
+7fbf48a4a000-7fbf48a72000 rw-p 00000000 00:00 0 
+7fbf48a72000-7fbf48a73000 ---p 00000000 00:00 0 
+7fbf48a73000-7fbf48b73000 rw-p 00000000 00:00 0                          [stack:11400]
+7fbf48b73000-7fbf48b74000 ---p 00000000 00:00 0 
+7fbf48b74000-7fbf48c74000 rw-p 00000000 00:00 0                          [stack:11399]
+7fbf48c74000-7fbf48c75000 ---p 00000000 00:00 0 
+7fbf48c75000-7fbf48d75000 rw-p 00000000 00:00 0                          [stack:11398]
+7fbf48d75000-7fbf48d76000 ---p 00000000 00:00 0 
+7fbf48d76000-7fbf48ef6000 rw-p 00000000 00:00 0                          [stack:11397]
+7fbf48ef6000-7fbf48ff6000 rw-p 00000000 00:00 0 
+7fbf48ff6000-7fbf49076000 rw-p 00000000 00:00 0 
+7fbf49076000-7fbf49176000 rw-p 00000000 00:00 0 
+7fbf49176000-7fbf491f5000 rw-p 00000000 00:00 0 
+7fbf491f5000-7fbf491f6000 ---p 00000000 00:00 0 
+7fbf491f6000-7fbf491f7000 rw-p 00000000 00:00 0 
+7fbf491f7000-7fbf491fe000 r-xp 00000000 08:07 675831                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libzip.so
+7fbf491fe000-7fbf493fd000 ---p 00007000 08:07 675831                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libzip.so
+7fbf493fd000-7fbf493fe000 r--p 00006000 08:07 675831                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libzip.so
+7fbf493fe000-7fbf493ff000 rw-p 00007000 08:07 675831                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libzip.so
+7fbf493ff000-7fbf4940b000 r-xp 00000000 08:07 1707983                    /lib/x86_64-linux-gnu/libnss_files-2.17.so
+7fbf4940b000-7fbf4960a000 ---p 0000c000 08:07 1707983                    /lib/x86_64-linux-gnu/libnss_files-2.17.so
+7fbf4960a000-7fbf4960b000 r--p 0000b000 08:07 1707983                    /lib/x86_64-linux-gnu/libnss_files-2.17.so
+7fbf4960b000-7fbf4960c000 rw-p 0000c000 08:07 1707983                    /lib/x86_64-linux-gnu/libnss_files-2.17.so
+7fbf4960c000-7fbf49617000 r-xp 00000000 08:07 1707987                    /lib/x86_64-linux-gnu/libnss_nis-2.17.so
+7fbf49617000-7fbf49816000 ---p 0000b000 08:07 1707987                    /lib/x86_64-linux-gnu/libnss_nis-2.17.so
+7fbf49816000-7fbf49817000 r--p 0000a000 08:07 1707987                    /lib/x86_64-linux-gnu/libnss_nis-2.17.so
+7fbf49817000-7fbf49818000 rw-p 0000b000 08:07 1707987                    /lib/x86_64-linux-gnu/libnss_nis-2.17.so
+7fbf49818000-7fbf4982f000 r-xp 00000000 08:07 1707977                    /lib/x86_64-linux-gnu/libnsl-2.17.so
+7fbf4982f000-7fbf49a2e000 ---p 00017000 08:07 1707977                    /lib/x86_64-linux-gnu/libnsl-2.17.so
+7fbf49a2e000-7fbf49a2f000 r--p 00016000 08:07 1707977                    /lib/x86_64-linux-gnu/libnsl-2.17.so
+7fbf49a2f000-7fbf49a30000 rw-p 00017000 08:07 1707977                    /lib/x86_64-linux-gnu/libnsl-2.17.so
+7fbf49a30000-7fbf49a32000 rw-p 00000000 00:00 0 
+7fbf49a32000-7fbf49a3a000 r-xp 00000000 08:07 1707979                    /lib/x86_64-linux-gnu/libnss_compat-2.17.so
+7fbf49a3a000-7fbf49c39000 ---p 00008000 08:07 1707979                    /lib/x86_64-linux-gnu/libnss_compat-2.17.so
+7fbf49c39000-7fbf49c3a000 r--p 00007000 08:07 1707979                    /lib/x86_64-linux-gnu/libnss_compat-2.17.so
+7fbf49c3a000-7fbf49c3b000 rw-p 00008000 08:07 1707979                    /lib/x86_64-linux-gnu/libnss_compat-2.17.so
+7fbf49c3b000-7fbf49c45000 r-xp 00000000 08:07 675795                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libinstrument.so
+7fbf49c45000-7fbf49e44000 ---p 0000a000 08:07 675795                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libinstrument.so
+7fbf49e44000-7fbf49e45000 r--p 00009000 08:07 675795                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libinstrument.so
+7fbf49e45000-7fbf49e46000 rw-p 0000a000 08:07 675795                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libinstrument.so
+7fbf49e46000-7fbf49e73000 r-xp 00000000 08:07 675816                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libjava.so
+7fbf49e73000-7fbf4a073000 ---p 0002d000 08:07 675816                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libjava.so
+7fbf4a073000-7fbf4a074000 r--p 0002d000 08:07 675816                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libjava.so
+7fbf4a074000-7fbf4a077000 rw-p 0002e000 08:07 675816                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libjava.so
+7fbf4a077000-7fbf4a086000 r-xp 00000000 08:07 675815                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libverify.so
+7fbf4a086000-7fbf4a285000 ---p 0000f000 08:07 675815                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libverify.so
+7fbf4a285000-7fbf4a287000 r--p 0000e000 08:07 675815                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libverify.so
+7fbf4a287000-7fbf4a288000 rw-p 00010000 08:07 675815                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/libverify.so
+7fbf4a288000-7fbf4a28f000 r-xp 00000000 08:07 1708030                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fbf4a28f000-7fbf4a48e000 ---p 00007000 08:07 1708030                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fbf4a48e000-7fbf4a48f000 r--p 00006000 08:07 1708030                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fbf4a48f000-7fbf4a490000 rw-p 00007000 08:07 1708030                    /lib/x86_64-linux-gnu/librt-2.17.so
+7fbf4a490000-7fbf4a4a4000 r-xp 00000000 08:07 1707935                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbf4a4a4000-7fbf4a6a4000 ---p 00014000 08:07 1707935                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbf4a6a4000-7fbf4a6a5000 r--p 00014000 08:07 1707935                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbf4a6a5000-7fbf4a6a6000 rw-p 00015000 08:07 1707935                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbf4a6a6000-7fbf4a7a9000 r-xp 00000000 08:07 1707958                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fbf4a7a9000-7fbf4a9a9000 ---p 00103000 08:07 1707958                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fbf4a9a9000-7fbf4a9aa000 r--p 00103000 08:07 1707958                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fbf4a9aa000-7fbf4a9ab000 rw-p 00104000 08:07 1707958                    /lib/x86_64-linux-gnu/libm-2.17.so
+7fbf4a9ab000-7fbf4aa90000 r-xp 00000000 08:07 665048                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.17
+7fbf4aa90000-7fbf4ac8f000 ---p 000e5000 08:07 665048                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.17
+7fbf4ac8f000-7fbf4ac97000 r--p 000e4000 08:07 665048                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.17
+7fbf4ac97000-7fbf4ac99000 rw-p 000ec000 08:07 665048                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.17
+7fbf4ac99000-7fbf4acae000 rw-p 00000000 00:00 0 
+7fbf4acae000-7fbf4b5c3000 r-xp 00000000 08:07 675821                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fbf4b5c3000-7fbf4b7c2000 ---p 00915000 08:07 675821                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fbf4b7c2000-7fbf4b843000 r--p 00914000 08:07 675821                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fbf4b843000-7fbf4b85e000 rw-p 00995000 08:07 675821                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7fbf4b85e000-7fbf4b887000 rw-p 00000000 00:00 0 
+7fbf4b887000-7fbf4b89d000 r-xp 00000000 08:07 1708063                    /lib/x86_64-linux-gnu/libz.so.1.2.7
+7fbf4b89d000-7fbf4ba9c000 ---p 00016000 08:07 1708063                    /lib/x86_64-linux-gnu/libz.so.1.2.7
+7fbf4ba9c000-7fbf4ba9d000 r--p 00015000 08:07 1708063                    /lib/x86_64-linux-gnu/libz.so.1.2.7
+7fbf4ba9d000-7fbf4ba9e000 rw-p 00016000 08:07 1708063                    /lib/x86_64-linux-gnu/libz.so.1.2.7
+7fbf4ba9e000-7fbf4bc5c000 r-xp 00000000 08:07 1707910                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fbf4bc5c000-7fbf4be5b000 ---p 001be000 08:07 1707910                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fbf4be5b000-7fbf4be5f000 r--p 001bd000 08:07 1707910                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fbf4be5f000-7fbf4be61000 rw-p 001c1000 08:07 1707910                    /lib/x86_64-linux-gnu/libc-2.17.so
+7fbf4be61000-7fbf4be66000 rw-p 00000000 00:00 0 
+7fbf4be66000-7fbf4be69000 r-xp 00000000 08:07 1707925                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fbf4be69000-7fbf4c068000 ---p 00003000 08:07 1707925                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fbf4c068000-7fbf4c069000 r--p 00002000 08:07 1707925                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fbf4c069000-7fbf4c06a000 rw-p 00003000 08:07 1707925                    /lib/x86_64-linux-gnu/libdl-2.17.so
+7fbf4c06a000-7fbf4c06e000 r-xp 00000000 08:07 675798                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fbf4c06e000-7fbf4c26d000 ---p 00004000 08:07 675798                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fbf4c26d000-7fbf4c26e000 r--p 00003000 08:07 675798                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fbf4c26e000-7fbf4c26f000 rw-p 00004000 08:07 675798                     /usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7fbf4c26f000-7fbf4c287000 r-xp 00000000 08:07 1708022                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fbf4c287000-7fbf4c486000 ---p 00018000 08:07 1708022                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fbf4c486000-7fbf4c487000 r--p 00017000 08:07 1708022                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fbf4c487000-7fbf4c488000 rw-p 00018000 08:07 1708022                    /lib/x86_64-linux-gnu/libpthread-2.17.so
+7fbf4c488000-7fbf4c48c000 rw-p 00000000 00:00 0 
+7fbf4c48c000-7fbf4c4af000 r-xp 00000000 08:07 1707886                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fbf4c4af000-7fbf4c4b1000 r--s 00009000 08:07 793207                     /usr/share/grails/lib/commons-cli/commons-cli/jars/commons-cli-1.2.jar
+7fbf4c4b1000-7fbf4c4b3000 r--s 00008000 08:07 1061445                    /usr/share/grails/lib/org.fusesource.jansi/jansi/jars/jansi-1.2.1.jar
+7fbf4c4b3000-7fbf4c4b5000 r--s 00015000 08:07 930006                     /usr/share/grails/lib/jline/jline/jars/jline-1.0.jar
+7fbf4c4b5000-7fbf4c4b8000 r--s 0007f000 08:07 669134                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/jsse.jar
+7fbf4c4b8000-7fbf4c4c0000 r--s 00068000 08:07 1188571                    /usr/share/grails/lib/org.springsource.springloaded/springloaded-core/jars/springloaded-core-1.1.3.jar
+7fbf4c4c0000-7fbf4c4cb000 r--s 000ab000 08:07 793494                     /usr/share/grails/dist/grails-bootstrap-2.2.3.jar
+7fbf4c4cb000-7fbf4c503000 rw-p 00000000 00:00 0 
+7fbf4c503000-7fbf4c58b000 rw-p 00000000 00:00 0 
+7fbf4c58b000-7fbf4c58e000 ---p 00000000 00:00 0 
+7fbf4c58e000-7fbf4c691000 rw-p 00000000 00:00 0                          [stack:11396]
+7fbf4c691000-7fbf4c692000 r--s 00003000 08:07 399615                     /home/pipi/.grails/ivy-cache/com.googlecode.json-simple/json-simple/jars/json-simple-1.1.jar
+7fbf4c692000-7fbf4c694000 r--s 00006000 08:07 929509                     /usr/share/java/java-atk-wrapper.jar
+7fbf4c694000-7fbf4c697000 r--s 00031000 08:07 669100                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunjce_provider.jar
+7fbf4c697000-7fbf4c699000 r--s 0000f000 08:07 669101                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/pulse-java.jar
+7fbf4c699000-7fbf4c69c000 r--s 00077000 08:07 669099                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/localedata.jar
+7fbf4c69c000-7fbf4c6a0000 r--s 00039000 08:07 669095                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunpkcs11.jar
+7fbf4c6a0000-7fbf4c6a2000 r--s 00001000 08:07 669102                     /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/dnsns.jar
+7fbf4c6a2000-7fbf4c6aa000 rw-s 00000000 08:07 1075635                    /tmp/hsperfdata_pipi/11384
+7fbf4c6aa000-7fbf4c6ab000 rw-p 00000000 00:00 0 
+7fbf4c6ab000-7fbf4c6ac000 ---p 00000000 00:00 0 
+7fbf4c6ac000-7fbf4c6ae000 rw-p 00000000 00:00 0 
+7fbf4c6ae000-7fbf4c6af000 r--p 00022000 08:07 1707886                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fbf4c6af000-7fbf4c6b1000 rw-p 00023000 08:07 1707886                    /lib/x86_64-linux-gnu/ld-2.17.so
+7fff06847000-7fff06868000 rw-p 00000000 00:00 0                          [stack]
+7fff06978000-7fff0697a000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx768M -Xms64M -XX:PermSize=32m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -javaagent:/usr/share/grails/lib/org.springsource.springloaded/springloaded-core/jars/springloaded-core-1.1.3.jar -Xverify:none -Dspringloaded=profile=grails;cacheDir=/home/pipi/.grails/2.2.3/ -Dgrails.home=/usr/share/grails -Dtools.jar=/usr/lib/jvm/java-1.6.0-openjdk-amd64/lib/tools.jar 
+java_command: org.codehaus.groovy.grails.cli.support.GrailsStarter --main org.codehaus.groovy.grails.cli.GrailsScriptRunner --conf /usr/share/grails/conf/groovy-starter.conf --classpath 
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-amd64
+PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:/usr/share/grails/bin
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server:/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-6-openjdk-amd64/jre/../lib/amd64
+SHELL=/bin/bash
+DISPLAY=:1
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x792b50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x792b50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x65b230], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x65b230], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x65b230], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x65b230], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x65b430], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x65dc30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x65dc30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x65dc30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x65dc30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Ubuntu 13.04 (raring)
+uname:Linux 3.8.0-27-generic #40-Ubuntu SMP Tue Jul 9 00:17:05 UTC 2013 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 62997, NOFILE 4096, AS infinity
+load average:1.80 0.97 0.55
+
+/proc/meminfo:
+MemTotal:        8082796 kB
+MemFree:         4137176 kB
+Buffers:          199044 kB
+Cached:          1532748 kB
+SwapCached:            0 kB
+Active:          2567740 kB
+Inactive:        1043244 kB
+Active(anon):    1881952 kB
+Inactive(anon):   358808 kB
+Active(file):     685788 kB
+Inactive(file):   684436 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       1994748 kB
+SwapFree:        1994748 kB
+Dirty:              2988 kB
+Writeback:             0 kB
+AnonPages:       1879224 kB
+Mapped:           179864 kB
+Shmem:            361412 kB
+Slab:             201292 kB
+SReclaimable:     163276 kB
+SUnreclaim:        38016 kB
+KernelStack:        6136 kB
+PageTables:        39328 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6036144 kB
+Committed_AS:    5224708 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      363216 kB
+VmallocChunk:   34359367676 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       81564 kB
+DirectMap2M:     8218624 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 8082796k(4137176k free), swap 1994748k(1994748k free)
+
+vm_info: OpenJDK 64-Bit Server VM (20.0-b12) for linux-amd64 JRE (1.6.0_27-b27), built on Jul 17 2013 15:55:57 by "buildd" with gcc 4.7.3
+
+time: Fri Aug  9 14:21:54 2013
+elapsed time: 4698 seconds
+

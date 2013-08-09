@@ -1,6 +1,7 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class BatchController {
 
@@ -119,5 +120,19 @@ class BatchController {
             }
         }
 
+    }
+
+def getItemRoute2(){
+        //render (contentType: 'text/json') {
+        //    [itemRouteList:Batch.get(params.id).item.itemRoutes]
+        //}
+        
+        [itemRouteList:Batch.get(params.id).item.itemRoutes ]
+
+    }
+    def getItemRoute(){
+        JSON.use('deep')
+        def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
+        converter.render(response)
     }
 }

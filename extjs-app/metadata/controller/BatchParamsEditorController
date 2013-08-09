@@ -8,11 +8,13 @@
     "userConfig": {
         "models": [
             "Batch",
-            "BatchParamsBatch"
+            "ItemRoute",
+            "BatchParams"
         ],
         "stores": [
             "BatchStore",
-            "BatchParamsStore"
+            "BatchParamsStore",
+            "BatchItemRouteStore"
         ],
         "views": [
             "BatchParamsEditorCt"
@@ -148,16 +150,10 @@
                     "store.data.clear();",
                     "",
                     "store.load({",
-                    "    id:id,",
-                    "    callback:function(){",
-                    "        console.log(this.collect('workstation_id'));//name",
-                    "        this.data=this.collect('workstation_id');",
-                    "    }",
+                    "    id:id",
+                    "",
                     "});",
-                    "",
-                    "",
-                    "",
-                    "console.log(store);"
+                    ""
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"
@@ -215,12 +211,7 @@
                 ],
                 "implHandler": [
                     "var store=this.getBatchParamsRouteGrid().getStore();",
-                    "store.clearFilter();",
-                    "",
-                    "store.filter('workstation.id',\"1\");",
-                    " console.log(store);",
-                    "    ",
-                    "    //record.workstation_id"
+                    ""
                 ]
             },
             "designerId": "f597b3f8-c1ed-4ac6-b931-68c26157061e"
