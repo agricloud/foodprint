@@ -6,10 +6,36 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "ItemRoute"
+        ],
+        "stores": [
+            "ItemRouteStore"
+        ],
         "views": [
-            "MyContainer"
+            "MainContainer",
+            "ReportParamsForm",
+            "Fileupload"
         ],
         "name": "foodprintTouch"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "paths": [
+                    "{",
+                    "   'Ext.ux': 'src/ux'",
+                    "}"
+                ]
+            },
+            "designerId": "c8bf7acd-7626-4e53-bd9b-a900de93297b"
+        }
+    ]
 }

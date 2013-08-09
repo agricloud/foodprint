@@ -1,0 +1,113 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainContainer",
+        "layout": "fit"
+    },
+    "designerId": "2cf8daf4-6fb2-4864-802a-74f23c5a6fa3",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "vbox"
+            },
+            "designerId": "0722228c-e434-457e-b702-ee84e2bc2796",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top",
+                        "title": "選擇批號及作業"
+                    },
+                    "designerId": "bd709d7e-84fb-452b-8fa6-cab3d090b09b"
+                },
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "輸入批號"
+                    },
+                    "designerId": "f359250a-5d5f-4a8f-b369-379ece0995c6"
+                },
+                {
+                    "type": "Ext.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "layout": "vbox"
+                    },
+                    "designerId": "57c79090-6c10-4a01-98a9-69e17d49d865",
+                    "cn": [
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "top",
+                                "title": " 選擇作業"
+                            },
+                            "designerId": "807f62d6-9dd0-41e5-bf43-e53a22d9ee7a"
+                        },
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "store": "itemRouteStore",
+                                "onItemDisclosure": false
+                            },
+                            "designerId": "4c8a70d3-5ac7-4ba1-8deb-76b57c454d38",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "implHandler": [
+                                            "<div>{title}</div>"
+                                        ],
+                                        "designer|displayName": "itemTpl"
+                                    },
+                                    "designerId": "eb2f8f27-29f0-4a10-a897-3ad6d0ea9aff"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        id:0,",
+            "        title:'無作業收集'",
+            "\t},",
+            "    {",
+            "        id:1,",
+            "        title:'撥種'",
+            "\t},",
+            "    ",
+            "    {",
+            "        id:2,",
+            "        title:'澆水'",
+            "\t},",
+            "    {",
+            "        id:3,",
+            "        title:'收成'",
+            "\t}",
+            "]"
+        ],
+        "model": "ItemRoute",
+        "storeId": "itemRouteStore",
+        "designer|userClassName": "ItemRouteStore"
+    },
+    "designerId": "3dc9c672-01b8-4208-853f-66da83ff5b49",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Memory",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": null
+            },
+            "designerId": "4f149f0a-3054-4b41-8d83-017f785aeaa4",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "216c17da-d760-4ba5-8a5b-de0b93861f4f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "7def32b6-7e03-4e2e-a7b4-7b65dce31b39"
+        }
+    ]
+}
