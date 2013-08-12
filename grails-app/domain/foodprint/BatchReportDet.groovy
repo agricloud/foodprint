@@ -31,6 +31,6 @@ class BatchReportDet {
 
 
     static constraints = {
-    	batch(unique: ['reportParam'])
+    	batch(unique: ['reportParams'])
     }
 }
