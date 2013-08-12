@@ -172,18 +172,150 @@
                             "designerId": "a7ae62ac-9b27-475a-ae7c-2cc659253bd6",
                             "cn": [
                                 {
-                                    "type": "linkedinstance",
+                                    "type": "Ext.toolbar.Toolbar",
                                     "reference": {
                                         "name": "dockedItems",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "width": 100,
-                                        "dock": "top"
+                                        "initialize": null,
+                                        "dock": "top",
+                                        "itemId": "stdEditorToolbar1"
                                     },
-                                    "designerId": "ebdda536-4ebf-4d80-a70b-11fb96a0beb3",
-                                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                                    "configAlternates": {
+                                        "initialize": "object"
+                                    },
+                                    "designerId": "086a7721-0be1-473e-b6d0-18d45185e8e6",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "initialize",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": null
+                                            },
+                                            "designerId": "d17cd707-2132-4d4b-b9c7-eeb830ed589e",
+                                            "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onCreateBtnClick",
+                                                        "implHandler": [
+                                                            ""
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "designerId": "1cf0fc5c-be97-4cf7-9c23-3aeb0afbe54d"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "disabled": false,
+                                                "layout|flex": null
+                                            },
+                                            "designerId": "15b3193c-d6c6-454f-b889-a3b4d4a2c706",
+                                            "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onDeleteBtnClick",
+                                                        "implHandler": [
+                                                            "this.delbtn.setDisabled(true);"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "designerId": "f4628a10-ba1d-4411-bbca-9a16a3c3d7c7"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "disabled": false,
+                                                "layout|flex": null
+                                            },
+                                            "designerId": "3d47e48a-4e43-4255-aaa5-c7571a577b2b",
+                                            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onSaveBtnClick",
+                                                        "implHandler": [
+                                                            "this.savbtn.setDisabled(true);",
+                                                            "var grid = this.getItemRouteGrid();",
+                                                            "var sm = grid.getSelectionModel();",
+                                                            "var itemRouteId = sm.getSelection()[0].get('id');",
+                                                            "",
+                                                            "var store = grid.getStore();",
+                                                            "store.sync({",
+                                                            "    url: '/rest/itemRoute',",
+                                                            "    waitMsg: 'Saving Data...',",
+                                                            "    //method:'PUT',",
+                                                            "    success: function() {",
+                                                            "        console.log('Saving Success！');",
+                                                            "        store.load({",
+                                                            "            params:{",
+                                                            "                id:id",
+                                                            "            }",
+                                                            "        });",
+                                                            "",
+                                                            "    },",
+                                                            "    failure: function() {",
+                                                            "        console.log('Saving Failed！');",
+                                                            "    }",
+                                                            "});"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "designerId": "7faa94eb-0154-40cf-89cd-d02d1e709441"
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.grid.View",
@@ -279,6 +411,68 @@
                                                 "valueField": "id"
                                             },
                                             "designerId": "529b9fe9-687a-4797-b1f1-5668b8c4cac7"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.plugin.RowEditing",
+                                    "reference": {
+                                        "name": "plugins",
+                                        "type": "array"
+                                    },
+                                    "codeClass": "Ext.grid.plugin.RowEditing",
+                                    "designerId": "7f938af9-c145-47bf-be23-7ae28675ab2a",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onRowEditingEdit",
+                                                "implHandler": [
+                                                    "this.savbtn.setDisabled(false);",
+                                                    "var grid = this.getItemRouteGrid();",
+                                                    "var sm = grid.getSelectionModel();",
+                                                    "var store = grid.getStore();",
+                                                    "var activeRow = context.rowIdx;",
+                                                    "var totalRow = store.getCount();",
+                                                    "var itemId = store.getAt(activeRow).get('item_id');",
+                                                    "var itemSquence = store.getAt(activeRow).get('squence');",
+                                                    "",
+                                                    "// 將totalRow縮小範圍至途程順序異動的那一種item，計算他的個數",
+                                                    "var startRow = 0;",
+                                                    "var itemNum = 0;",
+                                                    "for (var i = 0; i < totalRow; i++) {",
+                                                    "    if (store.getAt(i).get('item_id')==itemId){",
+                                                    "        if (itemNum == 0){",
+                                                    "        \tstartRow = i;",
+                                                    "        }",
+                                                    "        itemNum++;",
+                                                    "    }",
+                                                    "\telse if (itemNum != 0){",
+                                                    "\t\ti = totalRow; // exit for",
+                                                    "\t}",
+                                                    "}",
+                                                    "",
+                                                    "for (var j = startRow+itemSquence-1 ; j < startRow+itemNum; j++){",
+                                                    "\tstore.getAt(j).get('squence').setValue(i+1);",
+                                                    "}",
+                                                    "",
+                                                    "if (itemSquence > activeRow-startRow+1){",
+                                                    "    for(var k = activeRow+1; k < startRow+itemSquence; k++){",
+                                                    "        store.getAt(k).get('squence').setValue(store.getAt(k).get('squence')-1);",
+                                                    "    }",
+                                                    "}",
+                                                    "",
+                                                    "store.sort();"
+                                                ],
+                                                "name": "edit",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "233f19cf-2770-460d-95bc-de1050843ff5"
                                         }
                                     ]
                                 }
