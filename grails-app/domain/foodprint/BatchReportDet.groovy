@@ -10,7 +10,7 @@ class BatchReportDet {
 	/*
 	* 記錄收集的項目
 	*/
-	ReportParam reportParam
+	ReportParams reportParams
 
 	/*
 	* 記錄收集項目的值
