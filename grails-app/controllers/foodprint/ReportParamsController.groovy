@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ReportParamsController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -12,7 +12,13 @@ class ReportParamsController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [reportParamsInstanceList: ReportParams.list(params), reportParamsInstanceTotal: ReportParams.count()]
+        def report_id=params.reportid
+        //print report_id
+        def reportob=Report.findById(report_id,params);
+        //print reportob
+        def resultList= ReportParams.findAllByReport(reportob)
+
+        [reportParamsInstanceList: resultList, reportParamsInstanceTotal: ReportParams.count()]
     }
     def listJson(Integer max) {
         render (contentType: 'text/json') {
@@ -21,20 +27,33 @@ class ReportParamsController {
         
     }
 
+    def create(){
+        println"reportParamsController--create"
 
-    def create() {
-        [reportParamsInstance: new ReportParams(params)]
+        def reportParamsInstance=new ReportParams(params)
+        reportParamsInstance.report=Report.findById(params.report_id)
+        reportParamsInstance.param=Param.findById(params.param_id)
+        reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
+        reportParamsInstance.item=Item.findById(params.item_id)
+
+        render (contentType: 'text/json') {
+            save(reportParamsInstance);
+        }
     }
 
-    def save() {
-        def reportParamsInstance = new ReportParams(params)
-        if (!reportParamsInstance.save(flush: true)) {
-            render(view: "create", model: [reportParamsInstance: reportParamsInstance])
-            return
+    def save(ReportParams reportParamsInstance){
+        if (!reportParamsInstance.validate()) {
+            reportParamsInstance.errors.each {
+                println it
+            }
+            return [success:false]
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), reportParamsInstance.id])
-        redirect(action: "show", id: reportParamsInstance.id)
+        if (!reportParamsInstance.save(failOnError: true)) {//flush:true?
+               return [success:false]
+        }
+        else{
+               return [success:true]
+        }
     }
 
     def show(Long id) {
@@ -59,51 +78,57 @@ class ReportParamsController {
         [reportParamsInstance: reportParamsInstance]
     }
 
-    def update(Long id, Long version) {
-        def reportParamsInstance = ReportParams.get(id)
-        if (!reportParamsInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "list")
-            return
-        }
+    def update() {
+        println"reportParamsController--update"
+         def reportParamsInstance=ReportParams.get(params.id)
 
-        if (version != null) {
-            if (reportParamsInstance.version > version) {
-                reportParamsInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'reportParams.label', default: 'ReportParams')] as Object[],
-                          "Another user has updated this ReportParams while you were editing")
-                render(view: "edit", model: [reportParamsInstance: reportParamsInstance])
-                return
+        if(!reportParamsInstance){
+            println"reportParamsController--update--cant find reportParamsInstance"
+            return render (contentType: 'text/json') {[success:false]}
+        }
+        if(!params.report_id.equals(null)){
+            reportParamsInstance.report=Report.findById(params.report_id)
+        }
+        if(!params.param_id.equals(null)){
+            reportParamsInstance.param=Param.findById(params.param_id)
+        }
+        if(params.workstation_id.equals(null)){
+            reportParamsInstance.workstation=null
+        }else{
+            reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
+        }
+        if(params.item_id.equals(null)){
+            reportParamsInstance.item=null
+        }else{
+            reportParamsInstance.item=Item.findById(params.item_id)
+        }
+        render (contentType: 'text/json') {
+            save(reportParamsInstance);
+        }   
+    }
+
+    def delete(){
+        println"reportParamsController--delete"
+
+        def reportParamsInstance = ReportParams.get(params.id)
+        if (!reportParamsInstance) {
+            println"reportParamsController--delete--Cant find reportParamsInstance"
+            render (contentType: 'text/json') {
+               return [success:false]
             }
         }
 
-        reportParamsInstance.properties = params
-
-        if (!reportParamsInstance.save(flush: true)) {
-            render(view: "edit", model: [reportParamsInstance: reportParamsInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), reportParamsInstance.id])
-        redirect(action: "show", id: reportParamsInstance.id)
-    }
-
-    def delete(Long id) {
-        def reportParamsInstance = ReportParams.get(id)
-        if (!reportParamsInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "list")
-            return
-        }
-
         try {
-            reportParamsInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "list")
+            reportParamsInstance.delete()
+            render (contentType: 'text/json') {
+               return [success:true]
+            }
         }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "show", id: id)
+        catch (e) {
+            render (contentType: 'text/json') {
+               return [success:false]
+            }
         }
+
     }
 }

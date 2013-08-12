@@ -27,7 +27,8 @@ class BootStrap {
 				def report1=new Report(name:"01",title:"water").save(failOnError: true, flush: true)
 				def report2=new Report(name:"02",title:"temperature").save(failOnError: true, flush: true)
 				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation1).save(failOnError: true, flush: true)
-				def reportparam2=new  ReportParams (report:report2,param:param2,workstation:workstation2).save(failOnError: true, flush: true)
+				def reportparam2=new  ReportParams (report:report1,param:param2,workstation:workstation1).save(failOnError: true, flush: true)
+				def reportparam3=new  ReportParams (report:report2,param:param2,workstation:workstation2).save(failOnError: true, flush: true)
 				def itemRoute1=new ItemRoute(item:item1,sequence:1,workstation:workstation1)
 				def itemRoute2=new ItemRoute(item:item1,sequence:2,workstation:workstation2)
 
