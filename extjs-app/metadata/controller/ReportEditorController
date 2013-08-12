@@ -74,6 +74,32 @@
             "designerId": "71c892a4-1e75-42d3-9534-5e6b14d7a906"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsEditor",
+                "selector": "reportparamseditor"
+            },
+            "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
+        },
+        {
             "type": "fixedfunction",
             "reference": {
                 "name": "items",
@@ -87,23 +113,32 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'reporteditorct button[itemId=createBtn]':{",
+                    "    '#reportToolbar button[itemId=createBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'reporteditorct button[itemId=deleteBtn]':{",
+                    "    '#reportToolbar button[itemId=deleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'reporteditorct button[itemId=saveBtn]':{",
+                    "    '#reportToolbar button[itemId=saveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'reporteditorct button[itemId=readBtn]':{",
+                    "    '#reportToolbar button[itemId=readBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'reporteditorct button[itemId=updateBtn]':{",
+                    "    '#reportToolbar button[itemId=updateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'reporteditorct grid[itemId=reportGrid]':{",
                     "        itemdblclick:this.readReport",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=createBtn]':{",
+                    "        click:this.paramsdoCreate",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=deleteBtn]':{",
+                    "        click:this.paramsdoDelete",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=saveBtn]':{",
+                    "        click:this.paramsdoSave",
                     "    }",
                     "});"
                 ]
@@ -137,30 +172,122 @@
             "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
         },
         {
-            "type": "controllerref",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "reportparamsGrid",
-                "selector": "reportparamsgrid"
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('reportEditorCtrl.doCreate');",
+                    "",
+                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').hide();",
+                    "var form=this.getReportViewer().down('form[itemId=reportForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "this.getReportEditor().setActiveTab(this.getReportViewer().up());"
+                ]
             },
-            "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
+            "designerId": "7bc66138-dd2e-4687-b129-0d74b72f54f7"
         },
         {
-            "type": "controllerref",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "reportparamsEditor",
-                "selector": "reportparamseditor"
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"reportEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "    }",
+                    "});"
+                ]
             },
-            "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
+            "designerId": "a13d7f12-e1cd-4a23-92ac-3040c5be08a9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"reportEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "19c64dfc-2390-493d-8105-646addb48449"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('reportEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "87d6bb47-f0be-45c9-9fa4-f6835b5e9bca"
         }
     ]
 }
