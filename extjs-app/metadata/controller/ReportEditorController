@@ -7,17 +7,19 @@
     "codeClass": null,
     "userConfig": {
         "views": [
-            "WorkstationEditor"
+            "ReportEditor"
         ],
-        "designer|userClassName": "WorkstationEditorController",
+        "designer|userClassName": "ReportEditorController",
         "mixins": [
             "{",
-            "    WorksatationViewerCtrl: 'foodprint.controller.WorkstationViewerController',",
-            "    WorksatationGridCtrl: 'foodprint.controller.WorkstationGridController'",
+            "    ReportViewerCtrl: 'foodprint.controller.ReportViewerController',",
+            "    ReportGridCtrl: 'foodprint.controller.ReportGridController',",
+            "    ReportParamsEditorCtrl:'foodprint.controller.ReportParamsEditorController',",
+            "    ReportParamsGridCtrl:'foodprint.controller.ReportParamsGridController'",
             "}"
         ]
     },
-    "designerId": "3108df2a-6163-414d-8730-490767127f63",
+    "designerId": "a38b6ddf-7d7e-49b3-b090-e5e1ed5972b1",
     "cn": [
         {
             "type": "controllerref",
@@ -27,10 +29,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "workstationViewer",
-                "selector": "workstationviewer"
+                "ref": "reportGrid",
+                "selector": "reportgrid"
             },
-            "designerId": "807798d2-9ccb-4654-941d-b5ff675e0fd5"
+            "designerId": "10006695-aced-4990-a351-dabfe4793b02"
         },
         {
             "type": "controllerref",
@@ -40,10 +42,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "workstationGrid",
-                "selector": "workstationgrid"
+                "ref": "reportViewer",
+                "selector": "reportviewer"
             },
-            "designerId": "d71625f7-732b-48ac-ac2d-8c06f45fe06b"
+            "designerId": "76d6ba40-07ce-48ea-988c-c76cef82d7ee"
         },
         {
             "type": "controllerref",
@@ -53,10 +55,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "workstationEditor",
-                "selector": "workstationeditor"
+                "ref": "reportEditor",
+                "selector": "reporteditor"
             },
-            "designerId": "dbffe005-839d-469a-bfca-d500e42704ad"
+            "designerId": "33f0e4ce-dae3-448b-89a2-fd975cd525fe"
         },
         {
             "type": "controllerref",
@@ -66,10 +68,36 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "workstationEditorct",
-                "selector": "workstationeditorct"
+                "ref": "reportEditorct",
+                "selector": "reporteditorct"
             },
-            "designerId": "4bae169c-8fa7-4336-8891-78530415aaf3"
+            "designerId": "71c892a4-1e75-42d3-9534-5e6b14d7a906"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsEditor",
+                "selector": "reportparamseditor"
+            },
+            "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
         },
         {
             "type": "fixedfunction",
@@ -85,29 +113,37 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'workstationeditorct button[itemId=createBtn]':{",
+                    "    '#reportToolbar button[itemId=createBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'workstationeditorct button[itemId=deleteBtn]':{",
+                    "    '#reportToolbar button[itemId=deleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'workstationeditorct button[itemId=saveBtn]':{",
+                    "    '#reportToolbar button[itemId=saveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'workstationeditorct button[itemId=readBtn]':{",
+                    "    '#reportToolbar button[itemId=readBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'workstationeditorct button[itemId=updateBtn]':{",
+                    "    '#reportToolbar button[itemId=updateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
-                    "    'workstationeditorct grid[itemId=workstationGrid]':{",
-                    "        itemdblclick:this.readWorkstation",
+                    "    'reporteditorct grid[itemId=reportGrid]':{",
+                    "        itemdblclick:this.readReport",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=createBtn]':{",
+                    "        click:this.paramsdoCreate",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=deleteBtn]':{",
+                    "        click:this.paramsdoDelete",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=saveBtn]':{",
+                    "        click:this.paramsdoSave",
                     "    }",
-                    "});",
-                    ""
+                    "});"
                 ]
             },
-            "designerId": "15760532-63cc-4d7e-9c55-9c07094aca8f"
+            "designerId": "6e55d75b-583e-4271-af66-79372c1395a3"
         },
         {
             "type": "basicfunction",
@@ -117,20 +153,23 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "readWorkstation",
+                "fn": "readReport",
                 "designer|params": [
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "this.getWorkstationEditor().setActiveTab(this.getWorkstationViewer().up());",
+                    "this.getReportEditor().setActiveTab(this.getReportViewer().up());",
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
                     "",
                     "console.log(record);",
+                    "this.paramsdoRead(reportid);",
                     "",
-                    "",
-                    "this.doDisplay(record);"
+                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
+                    "this.doDisplay(record);",
+                    ""
                 ]
             },
-            "designerId": "1c4d0586-9062-4f4b-8412-d51593ab342e"
+            "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
         },
         {
             "type": "basicfunction",
@@ -142,16 +181,16 @@
             "userConfig": {
                 "fn": "doCreate",
                 "implHandler": [
-                    "console.log('workstationEditorCtrl.doCreate');",
+                    "console.log('reportEditorCtrl.doCreate');",
                     "",
-                    "var form=this.getWorkstationViewer().down('form[itemId=workstationForm]').getForm();",
+                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').hide();",
+                    "var form=this.getReportViewer().down('form[itemId=reportForm]').getForm();",
                     "form.reset();",
                     "",
-                    "this.getWorkstationEditor().setActiveTab(this.getWorkstationViewer().up());",
-                    ""
+                    "this.getReportEditor().setActiveTab(this.getReportViewer().up());"
                 ]
             },
-            "designerId": "721c6c63-1220-429e-86cf-100d5494f94d"
+            "designerId": "7bc66138-dd2e-4687-b129-0d74b72f54f7"
         },
         {
             "type": "basicfunction",
@@ -163,20 +202,20 @@
             "userConfig": {
                 "fn": "doDelete",
                 "implHandler": [
-                    "console.log(\"workstationEditorCtrl.doDelete\");",
+                    "console.log(\"reportEditorCtrl.doDelete\");",
                     "",
                     "var that=this;",
                     "",
-                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
-                    "    url: '/rest/workstation',",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Deleting Data...',",
                     "    method:'DELETE',",
                     "    success: function() {",
                     "        console.log('Deleting Success！');",
-                    "        that.getWorkstationGrid().getStore().load();",
-                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
-                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
@@ -184,7 +223,7 @@
                     "});"
                 ]
             },
-            "designerId": "3ba8b6e4-79f0-485b-9e86-45c48914ab5e"
+            "designerId": "a13d7f12-e1cd-4a23-92ac-3040c5be08a9"
         },
         {
             "type": "basicfunction",
@@ -196,19 +235,19 @@
             "userConfig": {
                 "fn": "doSave",
                 "implHandler": [
-                    "console.log(\"workstationEditorCtrl.doSave\");",
+                    "console.log(\"reportEditorCtrl.doSave\");",
                     "",
                     "var that=this;",
-                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
-                    "    url: '/rest/workstation',",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Saving Data...',",
                     "    method:'POST',",
                     "    success: function() {",
                     "        console.log('Saving Success！');",
-                    "        that.getWorkstationGrid().getStore().load();",
-                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
-                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
@@ -216,7 +255,7 @@
                     "});"
                 ]
             },
-            "designerId": "3a9b76ca-f4a9-4370-8866-1d5f62464b47"
+            "designerId": "19c64dfc-2390-493d-8105-646addb48449"
         },
         {
             "type": "basicfunction",
@@ -228,19 +267,19 @@
             "userConfig": {
                 "fn": "doUpdate",
                 "implHandler": [
-                    "console.log('workstationEditorCtrl.doUpdate');",
+                    "console.log('reportEditorCtrl.doUpdate');",
                     "",
                     "var that=this;",
-                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').submit({",
-                    "    url: '/rest/workstation',",
+                    "this.getReportViewer().down('form[itemId=reportForm]').submit({",
+                    "    url: '/rest/report',",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Updating Data...',",
                     "    method:'PUT',",
                     "    success: function() {",
                     "        console.log('Updating Success！');",
-                    "        that.getWorkstationGrid().getStore().load();",
-                    "        that.getWorkstationEditor().setActiveTab(that.getWorkstationGrid().up());",
-                    "        that.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().reset();",
+                    "        that.getReportGrid().getStore().load();",
+                    "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
+                    "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
@@ -248,7 +287,7 @@
                     "});"
                 ]
             },
-            "designerId": "d2ac09e6-fbcf-4b86-a2ec-4fde6500471d"
+            "designerId": "87d6bb47-f0be-45c9-9fa4-f6835b5e9bca"
         }
     ]
 }

@@ -8,8 +8,8 @@ class UrlMappings {
 		}
 
 		
-		"/rest/$controller/$id"{
-			action = [GET: "show"]
+		"/rest/$controller/$id"(parseRequest:true){
+			action = [GET: "show", PUT:"update", DELETE:"delete"]
 			constraints {
 				// apply constraints here
 			}

@@ -1,0 +1,76 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "ReportParamsEditor"
+        ],
+        "designer|userClassName": "ReportParamsEditorController",
+        "mixins": [
+            "{",
+            "\tReportParamsGridCtrl: 'foodprint.controller.ReportParamsGridController'",
+            "}"
+        ]
+    },
+    "designerId": "994b25cb-5581-4543-a2c8-6c611d12a6a9",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsEditor",
+                "selector": "reportparamseditor"
+            },
+            "designerId": "0c7023f9-41e6-476c-9cb1-d95c7385f897"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "acf804ed-7f4b-4b3f-b39e-b013c884acd8"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    '#reportparamsToolbar button[itemId=createBtn]':{",
+                    "        click:this.paramsdoCreate",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=deleteBtn]':{",
+                    "        click:this.paramsdoDelete",
+                    "    },",
+                    "    '#reportparamsToolbar button[itemId=saveBtn]':{",
+                    "        click:this.paramsdoSave",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "4c61fad3-91a3-449d-9c32-07df29effe0c"
+        }
+    ]
+}

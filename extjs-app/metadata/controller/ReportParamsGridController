@@ -1,0 +1,145 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ReportParams"
+        ],
+        "stores": [
+            "ReportParamsStore"
+        ],
+        "views": [
+            "ReportParamsGrid"
+        ],
+        "designer|userClassName": "ReportParamsGridController"
+    },
+    "designerId": "0f0fb8df-ad71-4164-ac21-20194de881cd",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reportparamsGrid",
+                "selector": "reportparamsgrid"
+            },
+            "designerId": "2d0170d4-f30a-4494-85e6-ac5f10445182"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramsdoRead",
+                "designer|params": [
+                    "reportid"
+                ],
+                "implHandler": [
+                    "//console.log(reportid);",
+                    "this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore().load({",
+                    "    params:{",
+                    "        reportid:reportid",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "cdf6efb6-0701-41b8-bcbc-74da1f6a767a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramsdoCreate",
+                "implHandler": [
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore();",
+                    "paramstore.insert(0,{",
+                    "    id:'',",
+                    "    report_id: reportid,",
+                    "    param_id:'',",
+                    "    workstation_id:'',",
+                    "    item_id:''",
+                    "});"
+                ]
+            },
+            "designerId": "14b442d5-ee15-4fdd-8b5d-a46c31cce200"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramsdoDelete",
+                "implHandler": [
+                    "sm=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getSelectionModel();",
+                    "",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore();",
+                    "paramstore.remove(sm.getSelection());",
+                    ""
+                ]
+            },
+            "designerId": "e729ae03-05e2-41d9-bae2-a0dba2b41fb2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramsdoSave",
+                "implHandler": [
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.completeEdit();",
+                    "",
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore();",
+                    "paramstore.sync({",
+                    "    url: '/rest/reportParams',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        paramstore.load({",
+                    "            params:{",
+                    "                reportid:reportid",
+                    "            }",
+                    "        });",
+                    "",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "33c5454b-159c-4cc9-9701-7eab386b7d2f"
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Param"
+        ],
+        "stores": [
+            "ParamStore"
+        ],
+        "views": [
+            "ParamGrid"
+        ],
+        "designer|userClassName": "ParamGridController"
+    },
+    "designerId": "8b029e48-549a-43db-aa62-bede0c9c05bb",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paramGrid",
+                "selector": "paramgrid"
+            },
+            "designerId": "6022c841-21d7-435a-8824-fe1ad5f0c4ce"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "console.log(\"doRead-paramGridController\");",
+                    "this.getParamGrid().getStore().load();",
+                    "this.getParamEditor().setActiveTab(this.getParamGrid().up());"
+                ]
+            },
+            "designerId": "6e28f90a-25b7-40a5-b79d-c55d79802089"
+        }
+    ]
+}
