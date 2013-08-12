@@ -6,10 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "idProperty": null,
         "designer|userClassName": "ReportParams"
     },
-    "designerId": "ffa61c09-2464-43f0-87a8-134fb2c92782",
+    "designerId": "81a78ceb-403b-46a8-8a5c-1c52ee357878",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -19,10 +18,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "id",
-                "name": "reportParams_id"
+                "name": "id"
             },
-            "designerId": "3ee3115f-98c2-4964-bd7e-80d2f4847aab"
+            "designerId": "3575a1cd-967c-48a9-be67-46a40b748b14"
         },
         {
             "type": "Ext.data.Field",
@@ -32,76 +30,23 @@
             },
             "codeClass": null,
             "userConfig": {
-<<<<<<< HEAD
+                "mapping": "report.id",
+                "name": "report_id"
+            },
+            "designerId": "823c5148-7a67-4752-b0b3-2e4251d76a74"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "mapping": "param.id",
                 "name": "param_id"
             },
-            "designerId": "2024a108-e792-4d7e-971c-a6501e1d8793"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "param.title",
-                "name": "param_title"
-            },
-            "designerId": "55571bc3-2380-48ea-a61d-e0d4ebb0ff92"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "param.defaultValue",
-                "name": "param_defaultValue"
-            },
-            "designerId": "a97e3a8c-c344-4d40-8bd3-b4f071a394b8"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-<<<<<<< HEAD
-                "mapping": "param.paramType",
-                "name": "param_paramType"
-            },
-            "designerId": "67c2afb6-2ad5-4766-b631-3b509c7fc692"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "param.description",
-                "name": "param_description"
-            },
-            "designerId": "8baaa660-1b3a-4477-8ccf-6784d3907610"
+            "designerId": "b20f2fa5-9ba0-4cfb-bb38-0f77f7deb1bb"
         },
         {
             "type": "Ext.data.Field",
@@ -114,7 +59,7 @@
                 "mapping": "workstation.id",
                 "name": "workstation_id"
             },
-            "designerId": "9cc9313c-cf3f-44b5-895d-aadd1ef9fc39"
+            "designerId": "a8de7177-c579-4872-97b6-4775746d8698"
         },
         {
             "type": "Ext.data.Field",
@@ -124,87 +69,37 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "workstation.name",
-                "name": "workstation_name"
+                "mapping": "item.id",
+                "name": "item_id"
             },
-            "designerId": "8d98ac12-89f5-4540-ac23-30d917816107"
+            "designerId": "93f99550-7160-461f-abb2-ca1c9f8dc103"
         },
         {
-            "type": "Ext.data.Field",
+            "type": "Ext.data.proxy.Rest",
             "reference": {
-                "name": "fields",
-                "type": "array"
+                "name": "proxy",
+                "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "workstation.title",
-                "name": "workstation_title"
+                "url": "/rest/reportParams"
             },
-            "designerId": "053f3593-744b-43a3-ba1d-ca94c2d36aa6"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "operation.id",
-                "name": "operation_id"
-            },
-            "designerId": "7d21f620-16b3-4365-88d4-6ff4ced6aed1"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "operation.name",
-                "name": "operation_name"
-            },
-            "designerId": "44b46ce8-ead9-4516-8cce-f4bf6cd80e72"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "operation.title",
-                "name": "operation_title"
-            },
-            "designerId": "d32a18ed-f922-426f-84c7-ba32abe9d4e9"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "operation.description",
-                "name": "operation_description"
-            },
-            "designerId": "a59868e7-20df-45ed-b16e-c19366f7cf77"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "item"
-            },
-            "designerId": "268b2df9-2197-4596-adc2-aaf652164c92"
+            "designerId": "af0b4aed-f304-4f6f-a6eb-edff6a1be36a",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "reportParamsInstanceList",
+                        "totalProperty": "reportParamsInstanceTotal"
+                    },
+                    "designerId": "b35f1f93-07ab-4cbf-95c9-095f3afaa99d"
+                }
+            ]
         }
     ]
 }
