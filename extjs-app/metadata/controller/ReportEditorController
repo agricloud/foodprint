@@ -166,7 +166,11 @@
                     "",
                     "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
                     "this.doDisplay(record);",
-                    ""
+                    "",
+                    "this.getReportEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getReportEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getReportEditorct().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getReportEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
