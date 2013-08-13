@@ -217,12 +217,15 @@
                     "    method:'DELETE',",
                     "    success: function() {",
                     "        console.log('Deleting Success！');",
+                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
                     "        that.getReportGrid().getStore().load();",
                     "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
                     "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
+                    "        that.getReportEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -249,12 +252,15 @@
                     "    method:'POST',",
                     "    success: function() {",
                     "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
                     "        that.getReportGrid().getStore().load();",
                     "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
                     "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
+                    "        that.getReportEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -281,12 +287,15 @@
                     "    method:'PUT',",
                     "    success: function() {",
                     "        console.log('Updating Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
                     "        that.getReportGrid().getStore().load();",
                     "        that.getReportEditor().setActiveTab(that.getReportGrid().up());",
                     "        that.getReportViewer().down('form[itemId=reportForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "        that.getReportEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
