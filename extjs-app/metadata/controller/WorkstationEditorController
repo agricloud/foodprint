@@ -125,9 +125,12 @@
                     "this.getWorkstationEditor().setActiveTab(this.getWorkstationViewer().up());",
                     "",
                     "console.log(record);",
+                    "this.doDisplay(record);",
                     "",
-                    "",
-                    "this.doDisplay(record);"
+                    "this.getWorkstationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorct().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getWorkstationEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "1c4d0586-9062-4f4b-8412-d51593ab342e"
