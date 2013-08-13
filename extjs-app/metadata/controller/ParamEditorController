@@ -127,7 +127,12 @@
                     "console.log(record);",
                     "",
                     "",
-                    "this.doDisplay(record);"
+                    "this.doDisplay(record);",
+                    "",
+                    "this.getParamEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getParamEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getParamEditorct().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getParamEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "42860764-2f2d-4bb6-8856-0d4571642cf0"
@@ -174,12 +179,15 @@
                     "    method:'DELETE',",
                     "    success: function() {",
                     "        console.log('Deleting Success！');",
+                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
                     "        that.getParamGrid().getStore().load();",
                     "        that.getParamEditor().setActiveTab(that.getParamGrid().up());",
                     "        that.getParamViewer().down('form[itemId=paramForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
+                    "        that.getParamEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -206,12 +214,15 @@
                     "    method:'POST',",
                     "    success: function() {",
                     "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
                     "        that.getParamGrid().getStore().load();",
                     "        that.getParamEditor().setActiveTab(that.getParamGrid().up());",
                     "        that.getParamViewer().down('form[itemId=paramForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
+                    "        that.getParamEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -238,12 +249,15 @@
                     "    method:'PUT',",
                     "    success: function() {",
                     "        console.log('Updating Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
                     "        that.getParamGrid().getStore().load();",
                     "        that.getParamEditor().setActiveTab(that.getParamGrid().up());",
                     "        that.getParamViewer().down('form[itemId=paramForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "        that.getParamEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
