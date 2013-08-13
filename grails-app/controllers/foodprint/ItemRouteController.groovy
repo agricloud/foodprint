@@ -2,7 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 
-class ItemRouteRouteController {
+class ItemRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
 /*
