@@ -16,8 +16,9 @@ class BootStrap {
 			}
 
 			development {
-				def item1 = new Item(name:"item1").save(failOnError: true, flush: true)
-				def item2 = new Item(name:"item2").save(failOnError: true, flush: true)
+				def item1 = new Item(name:"01",title:"柳丁").save(failOnError: true, flush: true)
+				def item2 = new Item(name:"02",title:"橘子").save(failOnError: true, flush: true)
+				def item3 = new Item(name:"03",title:"柚子").save(failOnError: true, flush: true)
 				def batch1 = new Batch(name:"batch1",item:item1).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
@@ -41,7 +42,11 @@ class BootStrap {
 				def itemRoute1=new ItemRoute(item:item1,sequence:1,workstation:workstation1).save(failOnError: true, flush: true)
 				def itemRoute2=new ItemRoute(item:item1,sequence:2,workstation:workstation1).save(failOnError: true, flush: true)
 				def itemRoute3=new ItemRoute(item:item1,sequence:3,workstation:workstation2).save(failOnError: true, flush: true)
-
+				def itemRoute4=new ItemRoute(item:item1,sequence:4,workstation:workstation1).save(failOnError: true, flush: true)
+				def itemRoute5=new ItemRoute(item:item2,sequence:1,workstation:workstation1).save(failOnError: true, flush: true)
+				def itemRoute6=new ItemRoute(item:item2,sequence:2,workstation:workstation2).save(failOnError: true, flush: true)
+				def itemRoute7=new ItemRoute(item:item3,sequence:1,workstation:workstation1).save(failOnError: true, flush: true)
+				def itemRoute8=new ItemRoute(item:item3,sequence:2,workstation:workstation2).save(failOnError: true, flush: true)
 
 				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)
 				def itemImage2 = new ItemImage(name:"itemImage2.jpg",item:item1).save(failOnError: true, flush: true)
