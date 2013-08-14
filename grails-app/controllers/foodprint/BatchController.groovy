@@ -121,10 +121,22 @@ class BatchController {
         }
 
     }
-
-    def getItemRoute(){
-        JSON.use('deep')
-        def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
-        converter.render(response)
+    /**
+    * @param batch.id
+    * 取得Batch對應之Item的ItemRoute
+    * 可直接呼叫ItemRoute中已有的listJson方法
+    * 由於ItemRoute篩選的params為item.id
+    * 而Batch接收的params為batch.id
+    * 因此需method中找出item.id才可call ItemRoute.listJson
+    * 使用redirect重新導向ItemRoute較為精簡
+    * 也可避免params中屬性命名相同等衝突
+    */
+    def itemRouteList(){
+        log.debug "BatchController--itemRouteList"
+        redirect(controller: "ItemRoute",action: "listJson" ,params:["item.id":Batch.get(params.id).item.id])
+        //old version
+        // JSON.use('deep')
+        // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
+        // converter.render(response)
     }
 }
