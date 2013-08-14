@@ -196,120 +196,206 @@
                                     ],
                                     "cn": [
                                         {
-                                            "type": "linkedinstance",
+                                            "type": "Ext.button.Button",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": null
+                                                "layout|flex": null,
+                                                "itemId": "createBtn1",
+                                                "text": "Create"
                                             },
-                                            "designerId": "d17cd707-2132-4d4b-b9c7-eeb830ed589e",
-                                            "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03",
+                                            "designerId": "25d954f9-145e-4aac-86c5-a80385872156",
                                             "cn": [
                                                 {
-                                                    "type": "basiceventbinding",
+                                                    "type": "fixedfunction",
                                                     "reference": {
-                                                        "name": "listeners",
+                                                        "name": "items",
                                                         "type": "array"
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "fn": "onCreateBtnClick",
-                                                        "implHandler": [
-                                                            ""
+                                                        "fn": "handler",
+                                                        "designer|params": [
+                                                            "button",
+                                                            "event"
                                                         ],
-                                                        "name": "click",
-                                                        "scope": "me"
-                                                    },
-                                                    "designerId": "1cf0fc5c-be97-4cf7-9c23-3aeb0afbe54d"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "linkedinstance",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null
-                                            },
-                                            "designerId": "15b3193c-d6c6-454f-b889-a3b4d4a2c706",
-                                            "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d",
-                                            "cn": [
-                                                {
-                                                    "type": "basiceventbinding",
-                                                    "reference": {
-                                                        "name": "listeners",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "fn": "onDeleteBtnClick",
                                                         "implHandler": [
-                                                            "this.delbtn.setDisabled(true);"
-                                                        ],
-                                                        "name": "click",
-                                                        "scope": "me"
-                                                    },
-                                                    "designerId": "f4628a10-ba1d-4411-bbca-9a16a3c3d7c7"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "linkedinstance",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null
-                                            },
-                                            "designerId": "3d47e48a-4e43-4255-aaa5-c7571a577b2b",
-                                            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d",
-                                            "cn": [
-                                                {
-                                                    "type": "basiceventbinding",
-                                                    "reference": {
-                                                        "name": "listeners",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "fn": "onSaveBtnClick",
-                                                        "implHandler": [
-                                                            "this.savbtn.setDisabled(true);",
-                                                            "var grid = this.getItemRouteGrid();",
-                                                            "var sm = grid.getSelectionModel();",
-                                                            "var itemRouteId = sm.getSelection()[0].get('id');",
+                                                            "var grid = this.up().up();",
+                                                            "var store = grid.getStore();",
+                                                            "var form = grid.up().up().up().down('form[itemId=itemForm]');//.getForm();",
                                                             "",
+                                                            "// Ext.Msg.alert(form.down('numberfield[name=id]').getValue());",
+                                                            "var itemId = form.down('numberfield[name=id]').getValue();",
+                                                            "var data = {",
+                                                            "    id:'',",
+                                                            "    item_id:itemId,",
+                                                            "    sequence:store.getCount()+1,",
+                                                            "    workstation_id:''",
+                                                            "};",
+                                                            "store.insert(store.getCount(),data);"
+                                                        ]
+                                                    },
+                                                    "designerId": "fe53f5d1-a655-44d2-b90b-391bb9a3dd27"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": null,
+                                                "itemId": "deleteBtn1",
+                                                "text": "Remove(not yet saved)"
+                                            },
+                                            "designerId": "a544b4ca-63f5-46a8-9765-1a574a3d71cf",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "designer|params": [
+                                                            "button",
+                                                            "event"
+                                                        ],
+                                                        "implHandler": [
+                                                            "console.log('itemRouteGrid.doStoreRemove NOT Yet Saved！');",
+                                                            "var grid = this.up().up();",
+                                                            "var sm = grid.getSelectionModel();",
+                                                            "",
+                                                            "editPlugin = grid.getPlugin('itemRouteEditPlugin');",
+                                                            "editPlugin.cancelEdit();",
+                                                            "",
+                                                            "store=grid.getStore();",
+                                                            "store.remove(sm.getSelection());",
+                                                            "",
+                                                            "/*",
+                                                            "var grid = this.up().up();",
+                                                            "var sm = grid.getSelectionModel();",
+                                                            "var store = grid.getStore();",
+                                                            "var activeRow = context.rowIdx;",
+                                                            "var totalRow = store.getCount();",
+                                                            "var itemId = store.getAt(activeRow).get('item_id');",
+                                                            "var itemSquence = store.getAt(activeRow).get('squence');",
+                                                            "",
+                                                            "// 將totalRow縮小範圍至途程順序異動的那一種item，計算他的個數",
+                                                            "var startRow = 0;",
+                                                            "var itemNum = 0;",
+                                                            "for (var i = 0; i < totalRow; i++) {",
+                                                            "    if (store.getAt(i).get('item_id')==itemId){",
+                                                            "        if (itemNum == 0){",
+                                                            "            startRow = i;",
+                                                            "        }",
+                                                            "        itemNum++;",
+                                                            "    }",
+                                                            "    else if (itemNum != 0){",
+                                                            "        i = totalRow; // exit for",
+                                                            "    }",
+                                                            "}",
+                                                            "",
+                                                            "if (itemSquence > activeRow-startRow+1){",
+                                                            "    for(var k = activeRow+1; k < startRow+itemSquence; k++){",
+                                                            "        store.getAt(k).get('squence').setValue(store.getAt(k).get('squence')-1);",
+                                                            "    }",
+                                                            "}",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "console.log(\"ItemEditorCtrl.doDelete\");",
+                                                            "var that=this;",
+                                                            "var editor = that.getItemEditor();",
+                                                            "var grid = that.getItemGrid();",
+                                                            "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                                                            "form.submit({",
+                                                            "    url: '/rest/item',",
+                                                            "    submitEmptyText: false,",
+                                                            "    waitMsg: 'Deleting Data...',",
+                                                            "    method:'DELETE',",
+                                                            "    success: function() {",
+                                                            "        console.log('Deleting Success.');",
+                                                            "        editor.setActiveTab(grid.up());",
+                                                            "        grid.getStore().load();",
+                                                            "        form.getForm().reset();",
+                                                            "    },",
+                                                            "    failure: function() {",
+                                                            "        console.log('Deleting Failed.');",
+                                                            "    }",
+                                                            "});",
+                                                            "*/"
+                                                        ]
+                                                    },
+                                                    "designerId": "0d0cc862-73b2-4371-96da-0e058246ae17"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": null,
+                                                "itemId": "saveBtn1",
+                                                "text": "Save"
+                                            },
+                                            "designerId": "c6f4c7e2-5e56-4b8b-b1de-6626d9696730",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "designer|params": [
+                                                            "button",
+                                                            "event"
+                                                        ],
+                                                        "implHandler": [
+                                                            "var grid = this.up().up();",
+                                                            "var editPlugin=grid.getPlugin('itemRouteEditPlugin');",
+                                                            "editPlugin.completeEdit();",
+                                                            "",
+                                                            "// var sm = grid.getSelectionModel();",
+                                                            "// var id = sm.getSelection()[0].get('id');",
+                                                            "var form = grid.up().up().up().down('form');",
+                                                            "var id = form.down('numberfield[name=id]').getValue();",
                                                             "var store = grid.getStore();",
                                                             "store.sync({",
                                                             "    url: '/rest/itemRoute',",
                                                             "    waitMsg: 'Saving Data...',",
-                                                            "    //method:'PUT',",
                                                             "    success: function() {",
                                                             "        console.log('Saving Success！');",
+                                                            "        Ext.MessageBox.alert('Success','資料更新完成');",
+                                                            "        store.data.clear();",
                                                             "        store.load({",
                                                             "            params:{",
-                                                            "                id:id",
+                                                            "            \tid:id",
                                                             "            }",
                                                             "        });",
-                                                            "",
                                                             "    },",
                                                             "    failure: function() {",
                                                             "        console.log('Saving Failed！');",
                                                             "    }",
                                                             "});"
-                                                        ],
-                                                        "name": "click",
-                                                        "scope": "me"
+                                                        ]
                                                     },
-                                                    "designerId": "7faa94eb-0154-40cf-89cd-d02d1e709441"
+                                                    "designerId": "da1aa85d-84a0-4aba-8fcb-1bbb75be6801"
                                                 }
                                             ]
                                         }
@@ -345,10 +431,10 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "item",
-                                        "text": "Item_id"
+                                        "dataIndex": "item_id",
+                                        "text": "item_id"
                                     },
-                                    "designerId": "3c33f1d3-b37f-4aa9-b56a-148b0596e108",
+                                    "designerId": "0488f28d-a2db-41a4-8c4f-694b80d05c2a",
                                     "cn": [
                                         {
                                             "type": "Ext.form.field.ComboBox",
@@ -360,7 +446,7 @@
                                             "userConfig": {
                                                 "editable": false,
                                                 "displayField": "title",
-                                                "hiddenName": "item",
+                                                "hiddenName": null,
                                                 "store": "ItemStore",
                                                 "valueField": "id"
                                             },
@@ -376,10 +462,22 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "title",
-                                        "text": "Sequence"
+                                        "dataIndex": "sequence",
+                                        "text": "Sequence",
+                                        "format": "0000"
                                     },
-                                    "designerId": "b8c86d4b-4e70-4287-90d0-c6d489a75c73"
+                                    "designerId": "b8c86d4b-4e70-4287-90d0-c6d489a75c73",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Number",
+                                            "reference": {
+                                                "name": "editor",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "designerId": "0943a68c-37b0-4259-9041-29d8a8f49a7a"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -389,8 +487,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "description",
-                                        "text": "Workstation_id"
+                                        "dataIndex": "workstation_id",
+                                        "text": "Workstation"
                                     },
                                     "designerId": "96e889eb-3ab1-4952-936e-93e9320482d8",
                                     "cn": [
@@ -404,7 +502,7 @@
                                             "userConfig": {
                                                 "editable": false,
                                                 "displayField": "title",
-                                                "hiddenName": "workstation",
+                                                "hiddenName": null,
                                                 "store": "WorkstationStore",
                                                 "valueField": "id"
                                             },
@@ -419,6 +517,9 @@
                                         "type": "array"
                                     },
                                     "codeClass": "Ext.grid.plugin.RowEditing",
+                                    "userConfig": {
+                                        "pluginId": "itemRouteEditPlugin"
+                                    },
                                     "designerId": "7f938af9-c145-47bf-be23-7ae28675ab2a",
                                     "cn": [
                                         {
@@ -431,8 +532,30 @@
                                             "userConfig": {
                                                 "fn": "onRowEditingEdit",
                                                 "implHandler": [
-                                                    "this.savbtn.setDisabled(false);",
-                                                    "var grid = this.getItemRouteGrid();",
+                                                    "/*",
+                                                    "var grid = context.grid;",
+                                                    "//var sm = grid.getSelectionModel();",
+                                                    "//var id = sm.getSelection()[0].get('id');",
+                                                    "var id = context.record.data.id;",
+                                                    "var store = grid.getStore();",
+                                                    "store.sync({",
+                                                    "    url: '/rest/itemRoute',",
+                                                    "    waitMsg: 'Saving Data...',",
+                                                    "    method:'PUT',",
+                                                    "    success: function() {",
+                                                    "        console.log('Saving Success！');",
+                                                    "        store.load(",
+                                                    "            {params:{id:id}}",
+                                                    "        );",
+                                                    "    },",
+                                                    "    failure: function() {",
+                                                    "        console.log('Saving Failed！');",
+                                                    "    }",
+                                                    "});",
+                                                    "",
+                                                    "*/",
+                                                    "/*",
+                                                    "var grid = this.();",
                                                     "var sm = grid.getSelectionModel();",
                                                     "var store = grid.getStore();",
                                                     "var activeRow = context.rowIdx;",
@@ -446,17 +569,17 @@
                                                     "for (var i = 0; i < totalRow; i++) {",
                                                     "    if (store.getAt(i).get('item_id')==itemId){",
                                                     "        if (itemNum == 0){",
-                                                    "        \tstartRow = i;",
+                                                    "            startRow = i;",
                                                     "        }",
                                                     "        itemNum++;",
                                                     "    }",
-                                                    "\telse if (itemNum != 0){",
-                                                    "\t\ti = totalRow; // exit for",
-                                                    "\t}",
+                                                    "    else if (itemNum != 0){",
+                                                    "        i = totalRow; // exit for",
+                                                    "    }",
                                                     "}",
                                                     "",
                                                     "for (var j = startRow+itemSquence-1 ; j < startRow+itemNum; j++){",
-                                                    "\tstore.getAt(j).get('squence').setValue(i+1);",
+                                                    "    store.getAt(j).get('squence').setValue(i+1);",
                                                     "}",
                                                     "",
                                                     "if (itemSquence > activeRow-startRow+1){",
@@ -464,8 +587,7 @@
                                                     "        store.getAt(k).get('squence').setValue(store.getAt(k).get('squence')-1);",
                                                     "    }",
                                                     "}",
-                                                    "",
-                                                    "store.sort();"
+                                                    "store.sort();*/"
                                                 ],
                                                 "name": "edit",
                                                 "scope": "me"
@@ -473,6 +595,15 @@
                                             "designerId": "233f19cf-2770-460d-95bc-de1050843ff5"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.selection.RowModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": "Ext.selection.RowModel",
+                                    "designerId": "1609f475-70b6-45b5-81f8-b051037d5a71"
                                 }
                             ]
                         }

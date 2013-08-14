@@ -123,9 +123,24 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "//console.log(record);",
-                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "this.doDisplay(record);"
+                    "console.log('list.readItem[dbclick]');",
+                    "var viewer = this.getItemViewer();",
+                    "this.getItemEditor().setActiveTab(viewer.up());",
+                    "this.doDisplay(record);",
+                    "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "var item_id =record.data.id;",
+                    "Ext.Msg.alert('item_id',item_id);",
+                    "store.data.clear();",
+                    "store.load({",
+                    "            params:{id:item_id}",
+                    "        });",
+                    "//store.load({params:{itemid:record.data.id}});",
+                    "//store.load({'item_id':record.data.id});",
+                    "//store.clearFilter();",
+                    "//store.filter('workstation_id',record.data.workstation_id);",
+                    "//this.getParamsWindow().show();",
+                    "//store.sort();"
                 ]
             },
             "designerId": "561c3aba-1c4d-42e3-b36f-936278674bfc"
