@@ -26,7 +26,7 @@ class BatchController {
     def save(Batch batchInstance){
         if (!batchInstance.validate()) {
             batchInstance.errors.each {
-                println it
+                log.debug  it
             }
             return [success:false]
         }
@@ -66,7 +66,7 @@ class BatchController {
 
         batchInstance.properties = params
 
-        log.info "dueDate = ${batchInstance.dueDate}"
+        log.debug "dueDate = ${batchInstance.dueDate}"
 
         render (contentType: 'text/json') {
             save(batchInstance)
@@ -96,17 +96,17 @@ class BatchController {
     }
 
     def delete(){
-        println"BatchController--delete"
+        log.debug "BatchController--delete"
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
-            println"BatchController--delete--Cant find BatchInstance"
+            log.debug "BatchController--delete--Cant find BatchInstance"
             render (contentType: 'text/json') {
                 return [success:false]
             }
         }
         //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
+        //    log.debug "BatchController--updateBatch--has find BatchInstance"
 
         try {
             batchInstance.delete(failOnError: true)
@@ -122,14 +122,6 @@ class BatchController {
 
     }
 
-def getItemRoute2(){
-        //render (contentType: 'text/json') {
-        //    [itemRouteList:Batch.get(params.id).item.itemRoutes]
-        //}
-        
-        [itemRouteList:Batch.get(params.id).item.itemRoutes ]
-
-    }
     def getItemRoute(){
         JSON.use('deep')
         def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
