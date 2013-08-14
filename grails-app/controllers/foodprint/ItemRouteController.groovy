@@ -13,7 +13,7 @@ class ItemRouteController {
     
     def list(Integer max) {
         // find itemForm id
-        def itemRoute=Item.findById(params.id).itemRoutes
+        def itemRoute=Item.findById(params.item.id).itemRoutes
         // findAllByItem use item
         //def itemRoute=ItemRoute.findAllByItem(item)
         // return array
@@ -50,8 +50,8 @@ class ItemRouteController {
     def create(){
         println"ItemRouteRouteController--create"
         def itemRouteInstance= new ItemRoute(params)
-        itemRouteInstance.item=Item.findById(params.item_id)
-        itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
+        //itemRouteInstance.item=Item.findById(params.item_id)
+        //itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
         render (contentType: 'text/json') {
             save(itemRouteInstance)
         }
@@ -128,7 +128,7 @@ class ItemRouteController {
         log.info "sequence = ${itemRouteInstance.sequence}"
         //  顯示儲存前，傳入的 workstation_id
         // println "input workstation_id: "+params.workstation_id
-        itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
+       // itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
         render (contentType: 'text/json') {
             save(itemRouteInstance)
         }
