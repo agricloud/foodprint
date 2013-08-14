@@ -82,7 +82,7 @@
                     "designerId": "adc87d57-9720-4d02-947e-562c7fe0f1f1"
                 },
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -90,10 +90,14 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
-                        "fieldLabel": "valueType",
-                        "name": "valueType"
+                        "designer|displayName": null,
+                        "fieldLabel": "paramType",
+                        "name": "paramType",
+                        "displayField": "name",
+                        "store": "ParamTypeStore",
+                        "valueField": "name"
                     },
-                    "designerId": "8fe552c1-37d1-4fac-906e-86266e168817"
+                    "designerId": "7f962486-3b82-405d-82f0-7b942984b9d3"
                 },
                 {
                     "type": "Ext.form.field.Text",

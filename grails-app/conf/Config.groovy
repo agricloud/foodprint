@@ -82,7 +82,7 @@ log4j = {
     //}
     info "grails.app"
 
-    debug "foodprint"
+    debug "grails.app.controllers"
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP

@@ -37,16 +37,14 @@
                     "designerId": "bd709d7e-84fb-452b-8fa6-cab3d090b09b"
                 },
                 {
-                    "type": "Ext.field.Search",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "label": "輸入批號"
-                    },
-                    "designerId": "f359250a-5d5f-4a8f-b369-379ece0995c6"
+                    "designerId": "a63c239a-7db7-4ebb-8df1-0047de00a9c9",
+                    "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
                 },
                 {
                     "type": "Ext.Panel",
@@ -72,7 +70,18 @@
                                 "docked": "top",
                                 "title": " 選擇作業"
                             },
-                            "designerId": "807f62d6-9dd0-41e5-bf43-e53a22d9ee7a"
+                            "designerId": "807f62d6-9dd0-41e5-bf43-e53a22d9ee7a",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "d695cbd0-fb4b-4e97-96ed-50be50938bb3"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.dataview.List",
@@ -97,7 +106,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "implHandler": [
-                                            "<div>{title}</div>"
+                                            "<div>{title}-{id}</div>"
                                         ],
                                         "designer|displayName": "itemTpl"
                                     },
