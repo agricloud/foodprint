@@ -3,7 +3,7 @@ package foodprint
 class Batch {
 
 	static belongsTo =[item:Item]
-	static hasMany =[batchRoute:BatchRoute]
+	static hasMany =[batchRoutes:BatchRoute]
 
 	String name
 	Long expectQty=0
