@@ -30,8 +30,16 @@
                 ],
                 "implHandler": [
                     "console.log(\"batchViewerCtrl.doDisplay\");",
+                    "var viewer = this.getBatchViewer();",
+                    "viewer.down('form[itemId=batchForm]').loadRecord(record);",
                     "",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);",
+                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "var id =record.data.id;",
+                    "store.data.clear();",
+                    "store.load({",
+                    "    params:{'batch.id':id}",
+                    "});",
                     ""
                 ]
             },

@@ -21,7 +21,7 @@ class ItemRouteController {
     }
 
     def show() {
-        log.info "ItemRouteController--show"
+        log.debug "${controllerName}-${actionName}"
     }
 
     /*
@@ -31,7 +31,7 @@ class ItemRouteController {
     }
     */
     def listJson(Integer max) {
-        log.info "ItemRouteController--listJson"
+        log.debug "${controllerName}-${actionName}"
         // JSON.use('deep')
         // def converter=list() as JSON
         // converter.render(response)
@@ -48,7 +48,7 @@ class ItemRouteController {
     */
 
     def create(){
-        println"ItemRouteRouteController--create"
+        log.debug "${controllerName}-${actionName}"
         def itemRouteInstance= new ItemRoute(params)
         //itemRouteInstance.item=Item.findById(params.item_id)
         //itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
@@ -58,7 +58,7 @@ class ItemRouteController {
     }
 
     def save(ItemRoute itemRouteInstance) {
-        println"ItemRouteRouteController--save"
+        log.debug "${controllerName}-${actionName}"
         if(!itemRouteInstance.validate()) { // validate id
             itemRouteInstance.errors.each {
                println it
@@ -115,17 +115,17 @@ class ItemRouteController {
     }
 
      def update(){
-        println"ItemRouteRouteController--update"
+        log.debug "${controllerName}-${actionName}"
         def itemRouteInstance=ItemRoute.findById(params.id)
         //def itemRouteInstance=ItemRoute.get(params.id)
         if(!itemRouteInstance) {
-            log.warning "${controllerName}--${actionName}--itemRouteInstance not found"
+            log.warning "${controllerName}-${actionName}-itemRouteInstance not found"
             return render (contentType: 'text/json') {
                 [success:false]
             }
         }
         itemRouteInstance.properties = params
-        log.info "sequence = ${itemRouteInstance.sequence}"
+        // log.debug "sequence = ${itemRouteInstance.sequence}"
         //  顯示儲存前，傳入的 workstation_id
         // println "input workstation_id: "+params.workstation_id
        // itemRouteInstance.workstation=Workstation.findById(params.workstation.id)
@@ -166,10 +166,10 @@ class ItemRouteController {
     }
     */
      def delete() {
-        println"ItemRouteRouteController--delete"
+        log.debug "${controllerName}-${actionName}"
         def itemRouteInstance = ItemRoute.get(params.id)
         if (!itemRouteInstance) {
-            println "ItemRouteRouteController--delete--Cant find itemRouteInstance"
+            log.warning "${controllerName}-${actionName}-Cant find itemRouteInstance"
             render(contentType: 'text/json') {
                 return [success: false]
             }
