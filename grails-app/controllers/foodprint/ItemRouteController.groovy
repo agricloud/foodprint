@@ -128,7 +128,7 @@ class ItemRouteController {
         log.info "sequence = ${itemRouteInstance.sequence}"
         //  顯示儲存前，傳入的 workstation_id
         // println "input workstation_id: "+params.workstation_id
-       // itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
+       // itemRouteInstance.workstation=Workstation.findById(params.workstation.id)
         render (contentType: 'text/json') {
             save(itemRouteInstance)
         }
