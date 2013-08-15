@@ -64,8 +64,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchParamsRouteGrid",
-                "selector": "batchparamsroutegrid"
+                "ref": "batchItemRouteGrid",
+                "selector": "batchitemroutegrid"
             },
             "designerId": "983d1235-9083-4028-9722-5dd9162dd43f"
         },
@@ -116,8 +116,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchParamsCollect",
-                "selector": "batchparamscollect"
+                "ref": "batchItemTp",
+                "selector": "batchitemtp"
             },
             "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
         },
@@ -138,7 +138,7 @@
                     "    'batchparamseditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
                     "    },",
-                    "    'batchparamscollect grid[itemId=batchParamRouteGrid]':{",
+                    "    'batchparamscollect grid[itemId=batchItemRouteGrid]':{",
                     "        itemdblclick:this.collectParams",
                     "    }",
                     "});"
@@ -184,12 +184,14 @@
                     "id"
                 ],
                 "implHandler": [
-                    "this.getBatchParamsCollect().setActiveTab(this.getBatchParamsRouteGrid().up());",
-                    "var store=this.getBatchParamsRouteGrid().getStore();",
+                    "this.getBatchItemTp().setActiveTab(this.getBatchItemRouteGrid().up());",
+                    "var store=this.getBatchItemRouteGrid().getStore();",
                     "store.data.clear();",
                     "",
                     "store.load({",
-                    "    id:id",
+                    "    params:{",
+                    "        id:id",
+                    "    }",
                     "});",
                     "",
                     "Ext.widget('batchparamscollectwindow');",
@@ -197,10 +199,10 @@
                     "var bpstore=this.getBatchParamsParamGrid().getStore();",
                     "bpstore.data.clear();",
                     "bpstore.load({",
-                    "    id:id",
-                    "});",
-                    "",
-                    ""
+                    "    params:{",
+                    "        id:id",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"

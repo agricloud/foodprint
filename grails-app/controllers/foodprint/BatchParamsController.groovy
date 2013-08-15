@@ -22,8 +22,8 @@ class BatchParamsController {
         [batchParamsList:batchParams, batchParamsTotal: batchParams.size()]
     }
 
-    def show() {
-        log.info "BatchParamsController--listJson"
+    def listJson() {
+        log.debug "BatchParamsController--listJson"
         JSON.use('deep')
         def converter=list() as JSON
         converter.render(response)
@@ -32,7 +32,7 @@ class BatchParamsController {
     def save(Batch batchInstance){
         if (!batchInstance.validate()) {
             batchInstance.errors.each {
-                println it
+                log.debug it
             }
             return [success:false]
         }
@@ -45,7 +45,7 @@ class BatchParamsController {
     }
     
     def create(){
-        println"BatchController--create"
+        log.debug "BatchController--create"
 
         def batchInstance=new Batch(params)
         batchInstance.item=Item.findById(params.item_id)
@@ -57,7 +57,7 @@ class BatchParamsController {
 
 
     def update(){
-        println"BatchController--update"
+        log.debug "BatchController--update"
 
         def batchInstance=Batch.get(params.id)
         
@@ -91,17 +91,17 @@ class BatchParamsController {
     }
 
     def delete(){
-        println"BatchController--delete"
+        log.debug "BatchController--delete"
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
-            println"BatchController--delete--Cant find BatchInstance"
+            log.debug "BatchController--delete--Cant find BatchInstance"
             render (contentType: 'text/json') {
                 return [success:false]
             }
         }
         //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
+        //    log.debug "BatchController--updateBatch--has find BatchInstance"
 
         try {
             batchInstance.delete(failOnError: true)
