@@ -31,10 +31,10 @@ class ReportParamsController {
         println"reportParamsController--create"
 
         def reportParamsInstance=new ReportParams(params)
-        reportParamsInstance.report=Report.findById(params.report_id)
-        reportParamsInstance.param=Param.findById(params.param_id)
-        reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
-        reportParamsInstance.item=Item.findById(params.item_id)
+        //reportParamsInstance.report=Report.findById(params.report_id)
+        //reportParamsInstance.param=Param.findById(params.param_id)
+        //reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
+        //reportParamsInstance.item=Item.findById(params.item_id)
 
         render (contentType: 'text/json') {
             save(reportParamsInstance);
@@ -86,22 +86,33 @@ class ReportParamsController {
             println"reportParamsController--update--cant find reportParamsInstance"
             return render (contentType: 'text/json') {[success:false]}
         }
-        if(!params.report_id.equals(null)){
-            reportParamsInstance.report=Report.findById(params.report_id)
-        }
-        if(!params.param_id.equals(null)){
-            reportParamsInstance.param=Param.findById(params.param_id)
-        }
-        if(params.workstation_id.equals(null)){
-            reportParamsInstance.workstation=null
-        }else{
-            reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
-        }
-        if(params.item_id.equals(null)){
-            reportParamsInstance.item=null
-        }else{
-            reportParamsInstance.item=Item.findById(params.item_id)
-        }
+
+        println "params="+params
+        println "params.param.id="+params["param.id"]
+        println "params.item.id="+params["item.id"]
+
+        println !params["item.id"]
+
+        if(!params["item.id"])params["param.id"]=""
+        reportParamsInstance.properties = params
+
+        //if(!params.report_id.equals(null)){
+        //    reportParamsInstance.report=Report.findById(params.report_id)
+        //}
+        //if(!params.param_id.equals(null)){
+        //   reportParamsInstance.param=Param.findById(params.param_id)
+        //}
+        //if(params.workstation_id.equals(null)){
+        //   reportParamsInstance.workstation=null
+        //}//else{
+        //   reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
+        //}
+        //if(params.item_id.equals(null)){
+        //    reportParamsInstance.item=null
+        //}//else{
+        //    reportParamsInstance.item=Item.findById(params.item_id)
+        //}
+        
         render (contentType: 'text/json') {
             save(reportParamsInstance);
         }   

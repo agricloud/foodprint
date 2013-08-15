@@ -66,17 +66,17 @@
                 "fn": "paramsdoCreate",
                 "implHandler": [
                     "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
-                    "",
+                    "console.log(reportid);",
                     "paramsplugin=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getPlugin('reportParamsEditplugin');",
                     "paramsplugin.cancelEdit();",
                     "",
                     "paramstore=this.getReportViewer().down('grid[itemId=reportparamsGrid]').getStore();",
                     "paramstore.insert(0,{",
                     "    id:'',",
-                    "    report_id: reportid,",
-                    "    param_id:'',",
-                    "    workstation_id:'',",
-                    "    item_id:''",
+                    "    'report.id': reportid,",
+                    "    'param.id':'',",
+                    "    'workstation.id':'',",
+                    "    'item.id':''",
                     "});"
                 ]
             },
