@@ -32,6 +32,13 @@ class ExtJSFilters {
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                         log.info "params[${key}] = ${params[key]}"
                     }
+
+                    // 參考連結 http://grails.org/doc/latest/guide/single.html#dataBinding
+                    // 其中：An association property can be set to null by passing the literal String "null".
+                    // 可能風險，null 值是真的要作為 null 值，而不是文字的 'null' 值 
+                    if(!params[key]){
+                        params[key]="null"
+                    }
                 }
             }
             after = { Map model ->
