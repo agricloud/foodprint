@@ -18,9 +18,13 @@ class BatchController {
 
     def listJson(Integer max) {
         log.debug "BatchController--listJson"
-        render (contentType: 'text/json') {
-            list(max)        
-        }
+        JSON.use('deep')
+        def converter=list() as JSON
+        converter.render(response)
+
+        // render (contentType: 'text/json') {
+        //     list(max)        
+        // }
     }
 
     def save(Batch batchInstance){

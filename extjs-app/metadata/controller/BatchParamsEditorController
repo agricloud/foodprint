@@ -13,8 +13,7 @@
         ],
         "stores": [
             "BatchStore",
-            "BatchParamsStore",
-            "BatchItemRouteStore"
+            "BatchParamsStore"
         ],
         "views": [
             "BatchParamsEditorCt",
@@ -64,8 +63,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchItemRouteGrid",
-                "selector": "batchitemroutegrid"
+                "ref": "batchRouteGrid",
+                "selector": "batchroutegrid"
             },
             "designerId": "983d1235-9083-4028-9722-5dd9162dd43f"
         },
@@ -116,8 +115,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchItemTp",
-                "selector": "batchitemtp"
+                "ref": "batchParamsTp",
+                "selector": "batchparamstp"
             },
             "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
         },
@@ -166,7 +165,7 @@
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchViewer().up());",
                     "this.doDisplay(record);",
                     "",
-                    "this.loadBatchParams(record.data.id);"
+                    "//this.loadBatchParams(record.data.id);"
                 ]
             },
             "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
@@ -184,8 +183,8 @@
                     "id"
                 ],
                 "implHandler": [
-                    "this.getBatchItemTp().setActiveTab(this.getBatchItemRouteGrid().up());",
-                    "var store=this.getBatchItemRouteGrid().getStore();",
+                    "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
+                    "var store=this.getBatchRouteGrid().getStore();",
                     "store.data.clear();",
                     "",
                     "store.load({",

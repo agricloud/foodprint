@@ -107,8 +107,7 @@
             "paths": [
                 "metadata/view/MainContainer",
                 "app/view/override/MainContainer.js",
-                "app/view/MainContainer.js",
-                "app/view/Viewport.js"
+                "app/view/MainContainer.js"
             ],
             "className": "MainContainer"
         },
@@ -768,7 +767,8 @@
             "paths": [
                 "metadata/view/BatchParamsEditorCt",
                 "app/view/override/BatchParamsEditorCt.js",
-                "app/view/BatchParamsEditorCt.js"
+                "app/view/BatchParamsEditorCt.js",
+                "app/view/Viewport.js"
             ],
             "className": "BatchParamsEditorCt"
         },
@@ -780,14 +780,6 @@
             ],
             "className": "BatchParamsEditor"
         },
-        "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b": {
-            "paths": [
-                "metadata/view/BatchItemTp",
-                "app/view/override/BatchItemTp.js",
-                "app/view/BatchItemTp.js"
-            ],
-            "className": "BatchItemTp"
-        },
         "f0b331a7-8f73-49bf-8cea-939034cd6db4": {
             "paths": [
                 "metadata/view/BatchParamsItemGrid",
@@ -795,14 +787,6 @@
                 "app/view/BatchParamsItemGrid.js"
             ],
             "className": "BatchParamsItemGrid"
-        },
-        "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f": {
-            "paths": [
-                "metadata/view/BatchItemRouteGrid",
-                "app/view/override/BatchItemRouteGrid.js",
-                "app/view/BatchItemRouteGrid.js"
-            ],
-            "className": "BatchItemRouteGrid"
         },
         "96d32dea-d5eb-47ad-9681-086d2de7908c": {
             "paths": [
@@ -867,14 +851,6 @@
                 "app/view/BatchParamsParamGrid.js"
             ],
             "className": "BatchParamsParamGrid"
-        },
-        "5d263a47-5886-4ac3-a101-3d1cc4033d82": {
-            "paths": [
-                "metadata/store/BatchItemRouteStore",
-                "app/store/override/BatchItemRouteStore.js",
-                "app/store/BatchItemRouteStore.js"
-            ],
-            "className": "BatchItemRouteStore"
         },
         "bd418b31-7786-4963-8703-55db0231c8ee": {
             "paths": [
@@ -1051,6 +1027,30 @@
                 "app/controller/BatchExtendController.js"
             ],
             "className": "BatchExtendController"
+        },
+        "1769fe5b-6b1b-473a-8a3f-e54fd6d13fdc": {
+            "paths": [
+                "metadata/controller/BatchParamsTpController",
+                "app/controller/override/BatchParamsTpController.js",
+                "app/controller/BatchParamsTpController.js"
+            ],
+            "className": "BatchParamsTpController"
+        },
+        "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b": {
+            "paths": [
+                "metadata/view/BatchParamsTp",
+                "app/view/override/BatchParamsTp.js",
+                "app/view/BatchParamsTp.js"
+            ],
+            "className": "BatchParamsTp"
+        },
+        "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f": {
+            "paths": [
+                "metadata/view/BatchRouteGrid",
+                "app/view/override/BatchRouteGrid.js",
+                "app/view/BatchRouteGrid.js"
+            ],
+            "className": "BatchRouteGrid"
         }
     },
     "viewOrderMap": {
@@ -1097,16 +1097,16 @@
             "7e63d424-8ee8-489a-a0c8-fecf1411dc27",
             "8e3cc936-02f1-41a5-aa59-6a32f3da9c18",
             "1e262ef3-7b93-402b-8f4f-1648e0afb0e6",
-            "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
             "d0dac498-08f5-438d-811f-48e567347666",
             "a62a900e-1a70-479c-89e7-1b156809b489",
+            "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
             "d0628cea-93a5-448d-9e7c-18a3511fcca0",
-            "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
             "bd418b31-7786-4963-8703-55db0231c8ee",
             "f0b331a7-8f73-49bf-8cea-939034cd6db4",
             "d62b41b6-0726-43b7-82ec-245693e0912c",
             "818d1024-c5db-4b7f-ab81-2e73878332b6",
-            "16401427-0ea5-4b68-b95e-bc3efcf45e9c"
+            "16401427-0ea5-4b68-b95e-bc3efcf45e9c",
+            "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
         ],
         "store": [
             "d6e70edd-125f-47d8-9909-2be13f232330",
@@ -1133,12 +1133,12 @@
             "d7a5148f-1ffa-4d5d-9fc3-597c4bda58de",
             "083ae47e-d17d-4b42-a054-83fcdbfe91c3",
             "a6f685ed-8172-42fd-92da-fa27d64bb7a3",
-            "5d263a47-5886-4ac3-a101-3d1cc4033d82",
             "c4d94e6c-7dc4-49fc-99e5-8cb6b649cb83",
             "c5c299a4-e019-455d-9f68-88b25bbda247",
             "37b0a532-a362-4d8c-823e-96cf0099a854"
         ],
         "controller": [
+            "1769fe5b-6b1b-473a-8a3f-e54fd6d13fdc",
             "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
             "cacaa675-bcf1-4bc6-a580-889600ecf055",
             "184c2517-e05b-4277-8738-1b38575d27dd",
