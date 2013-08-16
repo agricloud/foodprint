@@ -41,8 +41,13 @@ class BatchController {
     def create(){
         log.debug"BatchController--create"
 
+        if(params.dueDate==null)
+            println "params.due=" + params.dueDate
+        else{
+            print "its not null"
+            params.dueDate=null
+        }
         def batchInstance=new Batch(params)
-        batchInstance.item=Item.findById(params.item_id)
 
         render (contentType: 'text/json') {
             save(batchInstance);
