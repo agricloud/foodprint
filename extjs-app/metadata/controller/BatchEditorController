@@ -12,8 +12,9 @@
         "designer|userClassName": "BatchEditorController",
         "mixins": [
             "{",
-            "\t\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
-            "        BatchGridCtrl: 'foodprint.controller.BatchGridController'",
+            "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
+            "    BatchGridCtrl: 'foodprint.controller.BatchGridController',",
+            "    BatchExtendCtrl: 'foodprint.controller.BatchExtendController'",
             "}"
         ]
     },
@@ -53,6 +54,15 @@
                     "    },",
                     "    'batcheditorct panel[itemId=batchEditor]':{",
                     "        tabchange:this.onTabChange",
+                    "    },",
+                    "    'batchextendtab createbtn[itemId=routeCreateBtn]':{",
+                    "        click:this.batchRouteDoCreate",
+                    "    },",
+                    "    'batchextendtab deletebtn[itemId=routeDeleteBtn]':{",
+                    "        click:this.batchRouteDoDelete",
+                    "    },",
+                    "    'batchextendtab savebtn[itemId=routeSaveBtn]':{",
+                    "        click:this.batchRouteDoSave",
                     "    }",
                     "});"
                 ]
