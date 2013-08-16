@@ -7,5 +7,6 @@ class Operation {
 	String description // 製程敘述
 
     static constraints = {
+    	name unique:true
     }
 }
