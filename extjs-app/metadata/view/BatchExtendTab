@@ -1,0 +1,329 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 2,
+        "itemId": "BatchExtendTab",
+        "designer|userClassName": "BatchExtendTab",
+        "designer|userAlias": "batchextendtab",
+        "activeTab": 0
+    },
+    "designerId": "9cab6b56-c7aa-412b-a72a-6d3f31ad8e53",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "批號途程"
+            },
+            "designerId": "bfdf137f-541c-4492-9c9c-00dc77b0a119",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "c38d0937-6e93-4ffd-b71c-e60f28c4dcd6"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 250,
+                        "itemId": "batchRouteGrid",
+                        "width": null,
+                        "title": null,
+                        "store": "BatchRouteStore"
+                    },
+                    "designerId": "083c93bf-e8b4-4eae-a9e8-0fccaeef35ea",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "initialize": null,
+                                "dock": "top",
+                                "itemId": "batchRouteToolbar"
+                            },
+                            "configAlternates": {
+                                "initialize": "object"
+                            },
+                            "designerId": "4c8f633e-5175-4e27-9fd3-51d400880a8c",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "initialize",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeCreateBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "092f173a-0ceb-4c35-aab4-e982c2996ebf",
+                                    "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeDeleteBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "ac410c0c-8203-4259-a5df-8a7406e29044",
+                                    "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeSaveBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "9be94e38-c9ae-4a86-970f-27c03dadebf8",
+                                    "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "175a3ae2-16f4-47f1-acb5-dfeab03576f4"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id",
+                                "text": "Id"
+                            },
+                            "designerId": "6a6f0213-6da2-43fe-b7f3-6dc75855531c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "batch.id",
+                                "text": "Batch"
+                            },
+                            "designerId": "f2cf0f53-d8d6-4b8c-b640-6ec0ade5663a",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "editable": false,
+                                        "displayField": "title",
+                                        "hiddenName": null,
+                                        "store": "BatchStore",
+                                        "valueField": "id"
+                                    },
+                                    "designerId": "34a5b8c5-cf11-4236-81a2-8b2d1cb55d6e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "workstation.id",
+                                "text": "Workstation"
+                            },
+                            "designerId": "3262793e-95b5-437f-b374-d64c3daa892d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "editable": false,
+                                        "displayField": "title",
+                                        "hiddenName": null,
+                                        "store": "WorkstationStore",
+                                        "valueField": "id"
+                                    },
+                                    "designerId": "c92e6de1-e7cb-4175-9592-4cb12f4adc1a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "operation.id",
+                                "text": "Operation"
+                            },
+                            "designerId": "03a86f7b-159f-4816-b850-436b807e67a1",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "displayField": null,
+                                        "hiddenName": null,
+                                        "store": null,
+                                        "valueField": null
+                                    },
+                                    "designerId": "a697d69a-938a-4c54-b558-f5e15b26d622"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "sequence",
+                                "text": "Sequence",
+                                "format": "0000"
+                            },
+                            "designerId": "df51dcb1-7b82-4f32-bdcd-f77859821f2d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "d3357091-20ec-4d0e-a1f4-93742457ea12"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.plugin.RowEditing",
+                            "reference": {
+                                "name": "plugins",
+                                "type": "array"
+                            },
+                            "codeClass": "Ext.grid.plugin.RowEditing",
+                            "userConfig": {
+                                "pluginId": "batchRouteEditPlugin"
+                            },
+                            "designerId": "f473bc86-a206-4f6a-9052-5e79dc441235",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onRowEditingEdit1",
+                                        "implHandler": [
+                                            "/*",
+                                            "var grid = this.down('gridpanel[itemId=itemRouteGrid]');",
+                                            "var sm = grid.getSelectionModel();",
+                                            "var store = grid.getStore();",
+                                            "var models = store.getRange();",
+                                            "var activeRow = context.rowIdx; // 從0起算",
+                                            "",
+                                            "if (activeRow+1 != store.getAt(activeRow).get('sequence')){",
+                                            "var totalRow = store.getCount(); // 從1起算",
+                                            "var itemId = store.getAt(activeRow).get('item.id');",
+                                            "var itemSequence = store.getAt(activeRow).get('sequence');",
+                                            "if (itemSequence < activeRow+1){ // 插入後，其他途程下移調整",
+                                            "for (var j = itemSequence-1; j < activeRow; j++){",
+                                            "models[j].set('sequence', j+2);",
+                                            "}",
+                                            "}",
+                                            "else if (itemSequence > activeRow+1){ // 插入後，其他途程上移調整",
+                                            "for(var k = activeRow+1; k < totalRow; k++){",
+                                            "models[k].set('sequence', k);",
+                                            "}",
+                                            "}",
+                                            "models[activeRow].set('sequence', Math.min(totalRow,itemSequence));",
+                                            "store.sort();",
+                                            "}*/"
+                                        ],
+                                        "name": "edit",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "00b20166-8ad3-426f-9680-b75bcc20aac8"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.selection.RowModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": "Ext.selection.RowModel",
+                            "designerId": "e6d02319-db52-45f3-9d34-a3679165ed55"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
