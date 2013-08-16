@@ -12,9 +12,9 @@
         "designer|userClassName": "ItemEditorController",
         "mixins": [
             "{",
-            "    itemViewerCtrl:'foodprint.controller.ItemViewerController',",
-            "    ItemGridCtrl:'foodprint.controller.ItemGridController'",
-            "",
+            "    ItemViewerCtrl:'foodprint.controller.ItemViewerController',",
+            "    ItemGridCtrl:'foodprint.controller.ItemGridController',",
+            "    ItemRouteCtrl:'foodprint.controller.ItemExtendController'",
             "}"
         ]
     },
@@ -104,6 +104,15 @@
                     "    'itemeditorct grid[itemId=itemGrid]':{",
                     "        itemclick:this.selectItem,",
                     "        itemdblclick:this.readItem",
+                    "    },",
+                    "    'itemextendtab createbtn[itemId=routeCreateBtn]':{",
+                    "        click:this.itemRouteDoCreate",
+                    "    },",
+                    "    'itemextendtab deletebtn[itemId=routeDeleteBtn]':{",
+                    "        click:this.itemRouteDoDelete",
+                    "    },",
+                    "    'itemextendtab savebtn[itemId=routeSaveBtn]':{",
+                    "        click:this.itemRouteDoSave",
                     "    }",
                     "});"
                 ]
@@ -130,15 +139,14 @@
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
                     "var store = grid.getStore();",
                     "var item_id =record.data.id;",
-                    "//Ext.Msg.alert('item.id',item_id);",
                     "store.data.clear();",
                     "store.load({",
                     "    params:{'item.id':item_id}",
                     "});",
                     "//store.load({params:{itemid:record.data.id}});",
-                    "//store.load({'item_id':record.data.id});",
+                    "//store.load({'item.id':record.data.id});",
                     "//store.clearFilter();",
-                    "//store.filter('workstation_id',record.data.workstation_id);",
+                    "//store.filter('workstation_id',record.data.workstation.id);",
                     "//this.getParamsWindow().show();",
                     "//store.sort();"
                 ]

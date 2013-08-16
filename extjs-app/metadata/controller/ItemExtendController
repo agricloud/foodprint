@@ -1,0 +1,157 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ItemExtendController"
+    },
+    "designerId": "b24020e6-ad72-4441-9806-60592407a713",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteDoCreate",
+                "implHandler": [
+                    "var viewer = this.getItemViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "var form = viewer.down('form[itemId=itemForm]');",
+                    "",
+                    "var itemId = form.down('numberfield[name=id]').getRawValue();",
+                    "var data = {",
+                    "    id:'',",
+                    "    'item.id':itemId,",
+                    "    sequence:store.getCount()+1,",
+                    "    'workstation.id':''",
+                    "};",
+                    "store.insert(store.getCount(),data);"
+                ]
+            },
+            "designerId": "50535bd5-e595-4529-bb6f-6bd2b8acc4ef"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteDoDelete",
+                "implHandler": [
+                    "var viewer = this.getItemViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
+                    "var sm = grid.getSelectionModel();",
+                    "",
+                    "editPlugin = grid.getPlugin('itemRouteEditPlugin');",
+                    "editPlugin.cancelEdit();",
+                    "",
+                    "store=grid.getStore();",
+                    "store.remove(sm.getSelection());",
+                    "",
+                    "/*",
+                    "var grid = this.up().up();",
+                    "var sm = grid.getSelectionModel();",
+                    "var store = grid.getStore();",
+                    "var activeRow = context.rowIdx;",
+                    "var totalRow = store.getCount();",
+                    "var itemId = store.getAt(activeRow).get('item_id');",
+                    "var itemSquence = store.getAt(activeRow).get('squence');",
+                    "",
+                    "// 將totalRow縮小範圍至途程順序異動的那一種item，計算他的個數",
+                    "var startRow = 0;",
+                    "var itemNum = 0;",
+                    "for (var i = 0; i < totalRow; i++) {",
+                    "    if (store.getAt(i).get('item_id')==itemId){",
+                    "        if (itemNum == 0){",
+                    "            startRow = i;",
+                    "        }",
+                    "        itemNum++;",
+                    "    }",
+                    "    else if (itemNum != 0){",
+                    "        i = totalRow; // exit for",
+                    "    }",
+                    "}",
+                    "",
+                    "if (itemSquence > activeRow-startRow+1){",
+                    "    for(var k = activeRow+1; k < startRow+itemSquence; k++){",
+                    "        store.getAt(k).get('squence').setValue(store.getAt(k).get('squence')-1);",
+                    "    }",
+                    "}",
+                    "",
+                    "",
+                    "",
+                    "console.log(\"ItemEditorCtrl.doDelete\");",
+                    "var that=this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success.');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed.');",
+                    "    }",
+                    "});",
+                    "*/"
+                ]
+            },
+            "designerId": "1fff56d0-7531-49cb-9785-89b81f0ef761"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteDoSave",
+                "implHandler": [
+                    "var viewer = this.getItemViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
+                    "var editPlugin=grid.getPlugin('itemRouteEditPlugin');",
+                    "editPlugin.completeEdit();",
+                    "",
+                    "//var sm = grid.getSelectionModel();",
+                    "//var id = sm.getSelection()[0].get('id');",
+                    "var form = viewer.down('form');",
+                    "var id = form.down('numberfield[name=id]').getValue();",
+                    "var store = grid.getStore();",
+                    "store.sync({",
+                    "    url: '/rest/itemRoute',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        store.data.clear();",
+                    "        store.load({",
+                    "            params:{'item.id':id}",
+                    "        });",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "142323cf-e835-47b9-8b22-0e86177b436c"
+        }
+    ]
+}
