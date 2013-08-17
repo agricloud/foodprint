@@ -123,6 +123,7 @@ class BatchController {
 
     }
     /**
+    * 此方法已不使用 僅供參考寫法
     * @param batch.id
     * 取得Batch對應之Item的ItemRoute
     * 可直接呼叫ItemRoute中已有的listJson方法

@@ -12,8 +12,8 @@
         "views": [
             "BatchRouteGrid"
         ],
-        "designer|userClassName": "batchRouteGridController",
-        "designer|userAlias": "batchroutegridcontroller"
+        "designer|userClassName": "BatchRouteGridController",
+        "designer|userAlias": null
     },
     "designerId": "5dcf9a20-1e96-4e3c-824e-2f5a936cd04b",
     "cn": [
@@ -31,7 +31,7 @@
                 ],
                 "implHandler": [
                     "console.log(\"batchRouteGridCtrl.loadBatchRoute\");",
-                    "var store = thisBatchRouteGrid().getStore();",
+                    "var store = this.getBatchRouteGrid().getStore();",
                     "store.data.clear();",
                     "store.load({",
                     "    params:{'batch.id':record.data.id}",

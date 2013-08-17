@@ -22,8 +22,8 @@
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": [
             "{",
-            "        BatchViewerCtrl: 'foodprint.controller.BatchViewerController'",
-            "",
+            "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
+            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'",
             "}"
         ]
     },
@@ -164,6 +164,8 @@
                     "",
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchViewer().up());",
                     "this.doDisplay(record);",
+                    "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
+                    "this.loadBatchRoute(record);",
                     "",
                     "this.loadBatchParams(record.data.id);"
                 ]
