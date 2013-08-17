@@ -44,13 +44,6 @@ class BatchController {
     
     def create(){
         log.debug"BatchController--create"
-
-        if(params.dueDate==null)
-            println "params.due=" + params.dueDate
-        else{
-            print "its not null"
-            params.dueDate=null
-        }
         def batchInstance=new Batch(params)
 
         render (contentType: 'text/json') {
@@ -72,7 +65,6 @@ class BatchController {
             }
             return null
         }
-
         batchInstance.properties = params
 
         log.debug "dueDate = ${batchInstance.dueDate}"
