@@ -165,7 +165,7 @@
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchViewer().up());",
                     "this.doDisplay(record);",
                     "",
-                    "//this.loadBatchParams(record.data.id);"
+                    "this.loadBatchParams(record.data.id);"
                 ]
             },
             "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
@@ -185,23 +185,23 @@
                 "implHandler": [
                     "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
                     "var store=this.getBatchRouteGrid().getStore();",
-                    "store.data.clear();",
+                    "//store.data.clear();",
                     "",
-                    "store.load({",
-                    "    params:{",
-                    "        id:id",
-                    "    }",
-                    "});",
-                    "",
-                    "Ext.widget('batchparamscollectwindow');",
-                    "",
-                    "var bpstore=this.getBatchParamsParamGrid().getStore();",
-                    "bpstore.data.clear();",
-                    "bpstore.load({",
-                    "    params:{",
-                    "        id:id",
-                    "    }",
-                    "});"
+                    "//store.load({",
+                    "//    params:{",
+                    "//        'batch.id':id",
+                    "//    }",
+                    "//});",
+                    "//",
+                    "//Ext.widget('batchparamscollectwindow');",
+                    "//",
+                    "//var bpstore=this.getBatchParamsParamGrid().getStore();",
+                    "//bpstore.data.clear();",
+                    "//bpstore.load({",
+                    "//    params:{",
+                    "//        id:id",
+                    "//    }",
+                    "//});"
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"
