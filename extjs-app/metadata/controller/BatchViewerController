@@ -30,16 +30,9 @@
                 ],
                 "implHandler": [
                     "console.log(\"batchViewerCtrl.doDisplay\");",
-                    "var viewer = this.getBatchViewer();",
-                    "viewer.down('form[itemId=batchForm]').loadRecord(record);",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);",
                     "",
-                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
-                    "var store = grid.getStore();",
-                    "var id =record.data.id;",
-                    "store.data.clear();",
-                    "store.load({",
-                    "    params:{'batch.id':id}",
-                    "});",
+                    "",
                     ""
                 ]
             },
@@ -57,6 +50,31 @@
                 "selector": "batchgrid"
             },
             "designerId": "aeb9179f-1507-4c1a-a519-c61a8cc4f412"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRouteTemp",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"batchViewerCtrl.loadBatchRouteTemp\");",
+                    "var grid = this.getBatchViewer().down('gridpanel[itemId=batchRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "var id =record.data.id;",
+                    "store.data.clear();",
+                    "store.load({",
+                    "    params:{'batch.id':id}",
+                    "});"
+                ]
+            },
+            "designerId": "7649b14a-b177-4a1a-bcf0-f656690cb986"
         }
     ]
 }
