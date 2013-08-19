@@ -8,12 +8,13 @@
     "userConfig": {
         "models": [
             "Batch",
-            "ItemRoute",
-            "ReportParams"
+            "BatchRotue",
+            "BatchReportDet"
         ],
         "stores": [
             "BatchStore",
-            "BatchParamsStore"
+            "BatchRouteStore",
+            "BatchReportDetStore"
         ],
         "views": [
             "BatchParamsEditorCt",
@@ -24,7 +25,7 @@
             "{",
             "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
             "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController',",
-            "    BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormCtrl'",
+            "    BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormController'",
             "}"
         ]
     },
@@ -109,19 +110,6 @@
             "designerId": "1286dca8-4881-4c0e-bc69-1eaf7fd61fcf"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "batchParamsTp",
-                "selector": "batchparamstp"
-            },
-            "designerId": "3fdade66-f40e-40b4-9a7a-cf88c0e8e7c9"
-        },
-        {
             "type": "fixedfunction",
             "reference": {
                 "name": "items",
@@ -138,7 +126,7 @@
                     "    'batchparamseditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
                     "    },",
-                    "    'batchparamscollect grid[itemId=batchItemRouteGrid]':{",
+                    "    'batchparamseditor grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.loadBatchRouteParams",
                     "    }",
                     "});"
@@ -165,7 +153,8 @@
                     "",
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchViewer().up());",
                     "this.doDisplay(record);",
-                    "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
+                    "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
+                    "",
                     "this.loadBatchRoute(record);",
                     "this.loadBatchParams(record.data.id);"
                 ]
@@ -185,25 +174,23 @@
                     "id"
                 ],
                 "implHandler": [
-                    "//this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
-                    "var store=this.getBatchReportDetStore();",
-                    "//store.data.clear();",
+                    "console.log(\"batchParamsEditorCtrl.loadBatchParams\");",
                     "",
-                    "//store.load({",
-                    "//    params:{",
-                    "//        'batch.id':id",
-                    "//    }",
-                    "//});",
-                    "//",
-                    "//Ext.widget('batchparamscollectwindow');",
-                    "//",
-                    "//var bpstore=this.getBatchParamsParamGrid().getStore();",
-                    "//bpstore.data.clear();",
-                    "//bpstore.load({",
-                    "//    params:{",
-                    "//        id:id",
-                    "//    }",
-                    "//});"
+                    "var store=this.getStore('BatchReportDetStore');",
+                    "store.data.clear();",
+                    "",
+                    "store.load({",
+                    "    params:{'batch.id':id},",
+                    "    //在同一個function中",
+                    "    //因為ajax的關係 ",
+                    "    //若不在callback後再getRange 可能因為data仍在loading而找不到data",
+                    "    callback :function(){",
+                    "        //console.log(store.getRange());",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    ""
                 ]
             },
             "designerId": "465ad607-e839-48b9-b294-a59e6d16552a"
@@ -221,10 +208,58 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "var bpstore=this.getBatchParamsParamGrid().getStore();",
-                    "bpstore.clearFilter();",
-                    "bpstore.filter('workstation_id',record.data.workstation_id);",
-                    "this.getBatchParamsCollectWindow().show();"
+                    "console.log(\"batchParamsEditorCtrl.loadBatchRouteParams\");",
+                    "var store=this.getStore('BatchReportDetStore');",
+                    "",
+                    "Ext.widget('batchrouteparamswindow');",
+                    "",
+                    "store.clearFilter();",
+                    "store.filter('reportParams.operation.id',record.data['operation.id']);",
+                    "",
+                    "var form=this.getBatchRouteParamsForm();",
+                    "form.removeAll();",
+                    "for(var i=0;i<store.getCount();i++){",
+                    "    var field=null;",
+                    "    switch(store.getAt(i).data['reportParams.param.paramType']){",
+                    "        case \"INTEGER\":",
+                    "        field={",
+                    "            xtype: 'numberfield'",
+                    "        };",
+                    "        break;",
+                    "        case \"STRING\":",
+                    "        field={",
+                    "            xtype: 'textfield'",
+                    "        };",
+                    "        break;",
+                    "        case \"BOOLEAN\":",
+                    "        field={",
+                    "            xtype: 'textfield'",
+                    "        };",
+                    "        break;",
+                    "        case \"LIST\":",
+                    "        //field={",
+                    "        //    xtype: 'triggerfield'",
+                    "        //};",
+                    "        break;",
+                    "        default:",
+                    "        console.log('error: not defined paramType');",
+                    "        break;",
+                    "",
+                    "    }",
+                    "    field.flex=1;",
+                    "    field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
+                    "    if(store.getAt(i).data['value']==null || store.getAt(i).data['value']=='')",
+                    "    field.value= store.getAt(i).data['reportParams.param.defaultValue'];",
+                    "    else",
+                    "    field.value= store.getAt(i).data['value'];",
+                    "",
+                    "    form.add(field);",
+                    "",
+                    "}",
+                    "",
+                    "this.getBatchRouteParamsWindow().show();",
+                    "",
+                    ""
                 ]
             },
             "designerId": "f597b3f8-c1ed-4ac6-b931-68c26157061e"
@@ -250,8 +285,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchParamsParamGrid",
-                "selector": "batchparamsparamgrid"
+                "ref": "batchRouteParamsForm",
+                "selector": "batchrouteparamsform"
             },
             "designerId": "f7b6c830-5912-4121-ae01-2cf770849a48"
         }

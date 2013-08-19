@@ -33,8 +33,8 @@ class BootStrap {
 
 				def param1= new Param(title:"water",defaultValue:"100",paramType:ParamType.INTEGER).save(failOnError: true, flush: true)
 				def param2 = new Param(title:"temperature",defaultValue:"45",paramType:ParamType.INTEGER).save(failOnError: true, flush: true)
-				def param100 = new Param(title:"益多松",defaultValue:"0.0",paramType:ParamType.STRING).save(failOnError: true, flush: true)
-				def param101 = new Param(title:"芬殺蟎",defaultValue:"0.5",paramType:ParamType.STRING).save(failOnError: true, flush: true)
+				def param100 = new Param(title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save(failOnError: true, flush: true)
+				def param101 = new Param(title:"芬殺蟎",defaultValue:"0.5",paramType:ParamType.BOOLEAN).save(failOnError: true, flush: true)
 				def param102 = new Param(title:"芬普蟎",defaultValue:"0.5",paramType:ParamType.STRING).save(failOnError: true, flush: true)
 
 				def report1=new Report(name:"01",title:"water").save(failOnError: true, flush: true)

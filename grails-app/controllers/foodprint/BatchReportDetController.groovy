@@ -21,7 +21,7 @@ class BatchReportDetController {
         def batchReportDet=BatchReportDet.findAll(){
             batch==batch
         }
-        [batchReportDetList:batchReportDet, batchReportDetTotal: batchReportDet.size()]
+        [batchReportDetInstanceList:batchReportDet, batchReportDetInstanceTotal: batchReportDet.size()]
     }
 
     def listJson() {
