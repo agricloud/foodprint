@@ -33,6 +33,7 @@ class BatchRouteController {
     def create() {
         log.debug "${controllerName}-${actionName}"
         def batchRouteInstance = new BatchRoute(params)
+        print params
         render (contentType: 'text/json') {
             save(batchRouteInstance)
         }
@@ -72,7 +73,6 @@ class BatchRouteController {
 */
 
 
-
     def update() {
         log.debug "${controllerName}-${actionName}"
         def batchRouteInstance=BatchRoute.findById(params.id)
@@ -87,8 +87,6 @@ class BatchRouteController {
             save(batchRouteInstance)
         }
     }
-
-
 
 
     def delete() {

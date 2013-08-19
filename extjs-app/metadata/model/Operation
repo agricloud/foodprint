@@ -1,0 +1,81 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Operation"
+    },
+    "designerId": "5d3e1852-7641-4cc6-b2c7-0cc8803ebb6b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "301b1c44-9c7b-425c-93f8-477ee1a359d1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "e3a334e8-3c0d-4d3d-ba0a-bfd32dc632e1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": null,
+                "dateReadFormat": null,
+                "dateWriteFormat": null,
+                "name": "operation",
+                "type": null
+            },
+            "designerId": "e28bc166-2651-48e9-98c0-6916398caaba"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "rest/operation"
+            },
+            "designerId": "f258357e-5a3c-44a7-a275-4e03ea169f1b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "operationInstanceList",
+                        "totalProperty": "operationInstanceTotal"
+                    },
+                    "designerId": "9f973fe3-ae5d-4b7b-aca9-b87c1ed18a6e"
+                }
+            ]
+        }
+    ]
+}
