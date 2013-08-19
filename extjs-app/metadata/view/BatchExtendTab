@@ -204,7 +204,7 @@
                             ]
                         },
                         {
-                            "type": "Ext.grid.column.Column",
+                            "type": "Ext.grid.column.Number",
                             "reference": {
                                 "name": "columns",
                                 "type": "array"
@@ -224,10 +224,10 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "displayField": null,
+                                        "displayField": "operation",
                                         "hiddenName": null,
                                         "store": null,
-                                        "valueField": null
+                                        "valueField": "id"
                                     },
                                     "designerId": "a697d69a-938a-4c54-b558-f5e15b26d622"
                                 }
@@ -288,21 +288,21 @@
                                             "var activeRow = context.rowIdx; // 從0起算",
                                             "",
                                             "if (activeRow+1 != store.getAt(activeRow).get('sequence')){",
-                                            "    var totalRow = store.getCount(); // 從1起算",
-                                            "    var itemId = store.getAt(activeRow).get('item.id');",
-                                            "    var itemSequence = store.getAt(activeRow).get('sequence');",
-                                            "    if (itemSequence < activeRow+1){ // 插入後，其他途程下移調整",
-                                            "        for (var j = itemSequence-1; j < activeRow; j++){",
-                                            "            models[j].set('sequence', j+2);",
-                                            "        }",
-                                            "    }",
-                                            "    else if (itemSequence > activeRow+1){ // 插入後，其他途程上移調整",
-                                            "        for(var k = activeRow+1; k < totalRow; k++){",
-                                            "            models[k].set('sequence', k);",
-                                            "        }",
-                                            "    }",
-                                            "    models[activeRow].set('sequence', Math.min(totalRow,itemSequence));",
-                                            "    store.sort();",
+                                            "var totalRow = store.getCount(); // 從1起算",
+                                            "var itemId = store.getAt(activeRow).get('item.id');",
+                                            "var itemSequence = store.getAt(activeRow).get('sequence');",
+                                            "if (itemSequence < activeRow+1){ // 插入後，其他途程下移調整",
+                                            "for (var j = itemSequence-1; j < activeRow; j++){",
+                                            "models[j].set('sequence', j+2);",
+                                            "}",
+                                            "}",
+                                            "else if (itemSequence > activeRow+1){ // 插入後，其他途程上移調整",
+                                            "for(var k = activeRow+1; k < totalRow; k++){",
+                                            "models[k].set('sequence', k);",
+                                            "}",
+                                            "}",
+                                            "models[activeRow].set('sequence', Math.min(totalRow,itemSequence));",
+                                            "store.sort();",
                                             "}*/"
                                         ],
                                         "name": "edit",
