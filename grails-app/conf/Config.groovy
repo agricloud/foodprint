@@ -117,3 +117,6 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFai
 grails.project.fork.run=true
 grails.project.fork.run= [maxMemory:512, minMemory:64, debug:true, maxPerm:256 ]
 
+
+upload.files.path="${userHome}/.grails/image"
+

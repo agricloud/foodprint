@@ -1,0 +1,150 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "domainName": "none",
+        "container|align": "stretch",
+        "height": 185,
+        "width": 617,
+        "designer|userClassName": "imageUploadForm",
+        "designer|userAlias": "imageuploadform",
+        "layout": "vbox",
+        "bodyPadding": 10,
+        "title": null,
+        "standardSubmit": null
+    },
+    "designerId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "domainName",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "text": "開始上傳"
+            },
+            "designerId": "c7daae5a-87f5-49a6-888c-7fb3a99741e0",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "handler",
+                        "designer|params": [
+                            "button",
+                            "event"
+                        ],
+                        "implHandler": [
+                            "button.up('imageuploadform').saveImage();"
+                        ]
+                    },
+                    "designerId": "d668ecb0-a124-49e2-8918-7f60e1e8b08d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.File",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "fieldLabel": null,
+                "name": "file"
+            },
+            "designerId": "f0b6e356-1d38-4b08-b015-9c666e703f30"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "itemId": "mainImg"
+            },
+            "designerId": "ca0800a8-c027-46be-b4c1-cbc21a888daa"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showImage",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+id+\"?domainName=\"+this.domainName);"
+                ]
+            },
+            "designerId": "52872bb3-842e-4ab2-ad08-797015ae78eb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "saveImage",
+                "implHandler": [
+                    "",
+                    "var form = this.getForm();",
+                    "var domainId = this.up().down('numberfield[name=id]').getValue();",
+                    "var image = this.getComponent(\"mainImg\");",
+                    "var domainName = this.domainName;",
+                    "var that=this;",
+                    "",
+                    "if(!domainId){",
+                    "    Ext.Msg.alert('Error', \"can't get id!\");",
+                    "",
+                    "}else if(form.isValid()){",
+                    "",
+                    "",
+                    "    form.submit({",
+                    "        url: '/attachment/save',",
+                    "        waitMsg: 'Uploading your file...',",
+                    "        params: {",
+                    "            domainName: domainName,",
+                    "            domainId: domainId",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', 'Your file has been uploaded.');",
+                    "            that.showImage(domainId);",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "1435a89b-7509-4d88-9d44-84abb1b7bb5c"
+        }
+    ]
+}
