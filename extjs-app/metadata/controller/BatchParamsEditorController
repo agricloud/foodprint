@@ -14,7 +14,7 @@
         "stores": [
             "BatchStore",
             "BatchRouteStore",
-            "BatchReportDetStore"
+            "BatchReportDetDeepStore"
         ],
         "views": [
             "BatchParamsEditorCt",
@@ -24,8 +24,8 @@
         "mixins": [
             "{",
             "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
-            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController',",
-            "    BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormController'",
+            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'//,",
+            "    //BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormController'",
             "}"
         ]
     },
@@ -128,6 +128,9 @@
                     "    },",
                     "    'batchparamseditor grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.loadBatchRouteParams",
+                    "    },",
+                    "    'batchrouteparamswindow button[itemId=saveBtn]':{",
+                    "        click:this.doSaveBatchRouteParamsForm",
                     "    }",
                     "});"
                 ]
@@ -176,7 +179,7 @@
                 "implHandler": [
                     "console.log(\"batchParamsEditorCtrl.loadBatchParams\");",
                     "",
-                    "var store=this.getStore('BatchReportDetStore');",
+                    "var store=this.getStore('BatchReportDetDeepStore');",
                     "store.data.clear();",
                     "",
                     "store.load({",
@@ -209,15 +212,24 @@
                 ],
                 "implHandler": [
                     "console.log(\"batchParamsEditorCtrl.loadBatchRouteParams\");",
-                    "var store=this.getStore('BatchReportDetStore');",
+                    "var store=this.getStore('BatchReportDetDeepStore');",
                     "",
                     "Ext.widget('batchrouteparamswindow');",
                     "",
                     "store.clearFilter();",
                     "store.filter('reportParams.operation.id',record.data['operation.id']);",
                     "",
-                    "var form=this.getBatchRouteParamsForm();",
+                    "var form=this.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]');",
+                    "",
                     "form.removeAll();",
+                    "",
+                    "form.add({",
+                    "    xtype: 'hiddenfield',",
+                    "    flex: 1,",
+                    "    itemId: 'batch.id',",
+                    "    fieldLabel: 'Batch_Id',",
+                    "    value: record.data['batch.id']",
+                    "});",
                     "for(var i=0;i<store.getCount();i++){",
                     "    var field=null;",
                     "    switch(store.getAt(i).data['reportParams.param.paramType']){",
@@ -248,13 +260,14 @@
                     "    }",
                     "    field.flex=1;",
                     "    field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
-                    "    if(store.getAt(i).data['value']==null || store.getAt(i).data['value']=='')",
-                    "    field.value= store.getAt(i).data['reportParams.param.defaultValue'];",
-                    "    else",
-                    "    field.value= store.getAt(i).data['value'];",
-                    "",
+                    "    field.itemId= store.getAt(i).data['reportParams.id'];",
+                    "    if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){",
+                    "        field.value = store.getAt(i).data['reportParams.param.defaultValue'];",
+                    "    }",
+                    "    else{",
+                    "        field.value = store.getAt(i).data['value'];",
+                    "    }",
                     "    form.add(field);",
-                    "",
                     "}",
                     "",
                     "this.getBatchRouteParamsWindow().show();",
@@ -278,17 +291,42 @@
             "designerId": "a094a472-92c9-449a-a513-fcd7dc230e87"
         },
         {
-            "type": "controllerref",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchRouteParamsForm",
-                "selector": "batchrouteparamsform"
+                "fn": "doSaveBatchRouteParamsForm",
+                "implHandler": [
+                    "console.log('BatchParamsEditorCtrl.doSaveBatchRouteParamsForm');",
+                    "",
+                    "var that=this;",
+                    "console.log(",
+                    "this.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]').items.getRange()",
+                    "    );",
+                    "this.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]').submit({",
+                    "    url: '/rest/batchReportDet',",
+                    "    params:{",
+                    "        reportParamsList: this.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]').items.getRange()",
+                    "           },",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        //that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        alert('儲存失敗');",
+                    "        //that.getBatchEditorCt().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
             },
-            "designerId": "f7b6c830-5912-4121-ae01-2cf770849a48"
+            "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
         }
     ]
 }

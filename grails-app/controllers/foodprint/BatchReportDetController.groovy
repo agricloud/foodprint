@@ -31,14 +31,15 @@ class BatchReportDetController {
         converter.render(response)
     }
 
-    def save(Batch batchInstance){
-        if (!batchInstance.validate()) {
-            batchInstance.errors.each {
+    def save(BatchReportDet batchReportDetInstance){
+        
+        if (!batchReportDetInstance.validate()) {
+            batchReportDetInstance.errors.each {
                 log.debug it
             }
             return [success:false]
         }
-        if (!batchInstance.save(failOnError: true)) {//flush:true?
+        if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
                 return [success:false]
         }
         else{
@@ -59,25 +60,34 @@ class BatchReportDetController {
 
 
     def update(){
-        log.debug "BatchController--update"
-
-        def batchInstance=Batch.get(params.id)
+        log.debug "BatchReportDetController--update"
+        log.debug params
+        println 123456789
+        params.each{
+            println "it="+it
+            println "it.id="+it.reportParams.title
+        } 
+        /*
+        def batch=Batch.get(params.batch.id)
+        //def reportParams=ReportParams.get(params.reportParams.id)
+        def batchReportDet=BatchReportDet.findAll(){
+            batch==batch && reportParams in reportParams
+        }
         
-        if (!batchInstance) {
+        if (!batchReportDetInstance) {
 
-            log.warning "${controllerName}--${actionName}--batchInstance not found"
+            log.warning "${controllerName}--${actionName}--batchReportDetInstance not found"
             render (contentType: 'text/json') {
                 [success:false]
             }
             return null
         }
 
-        batchInstance.properties = params
-
-        log.info "dueDate = ${batchInstance.dueDate}"
-
+        batchReportDetInstance.properties = params
+        */
+        def batchReportDet=null;
         render (contentType: 'text/json') {
-            save(batchInstance)
+            save(batchReportDetInstance)
         }
     }
 
