@@ -8,13 +8,13 @@
     "userConfig": {
         "height": 250,
         "itemId": "batchRouteGrid",
-        "width": 504,
+        "width": null,
         "designer|userClassName": "BatchRouteGrid",
         "designer|userAlias": "batchroutegrid",
         "title": null,
         "store": "BatchRouteStore"
     },
-    "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
+    "designerId": "defa7d65-2456-42a1-83ce-9ce973729645",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -23,7 +23,7 @@
                 "type": "object"
             },
             "codeClass": null,
-            "designerId": "dc846501-ccfc-41ba-bde2-600b52aaef14"
+            "designerId": "175a3ae2-16f4-47f1-acb5-dfeab03576f4"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -33,13 +33,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
-                "dataIndex": "sequence",
-                "groupable": null,
-                "text": "sequence"
+                "dataIndex": "id",
+                "text": "Id"
             },
-            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816"
+            "designerId": "6a6f0213-6da2-43fe-b7f3-6dc75855531c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -49,13 +46,28 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
-                "dataIndex": "operation.id",
-                "groupable": null,
-                "text": "Operation_id"
+                "dataIndex": "batch.id",
+                "text": "Batch"
             },
-            "designerId": "880d0596-991e-4da2-9291-17759e41be0d"
+            "designerId": "f2cf0f53-d8d6-4b8c-b640-6ec0ade5663a",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "displayField": "title",
+                        "hiddenName": null,
+                        "store": "BatchStore",
+                        "valueField": "id"
+                    },
+                    "designerId": "34a5b8c5-cf11-4236-81a2-8b2d1cb55d6e"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -65,69 +77,104 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 153,
-                "dataIndex": "operation.name",
-                "text": "Operation_name"
-            },
-            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "width": 148,
-                "dataIndex": "operation.title",
-                "text": "Operation_title"
-            },
-            "designerId": "9405d5c9-51b8-446c-a698-bb70ce3aa7db"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
-                "dataIndex": "workstation.id",
-                "groupable": null,
-                "text": "Workstation_id"
-            },
-            "designerId": "5aed8711-0a9c-44de-bfc8-4f8fad5d86be"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "width": 153,
-                "dataIndex": "workstation.name",
-                "text": "Workstation_name"
-            },
-            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "width": 148,
                 "dataIndex": "workstation.title",
-                "text": "Workstation_title"
+                "text": "Workstation"
             },
-            "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
+            "designerId": "3262793e-95b5-437f-b374-d64c3daa892d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "displayField": "title",
+                        "hiddenName": null,
+                        "store": "WorkstationStore",
+                        "valueField": "id"
+                    },
+                    "designerId": "c92e6de1-e7cb-4175-9592-4cb12f4adc1a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "operation.title",
+                "text": "Operation"
+            },
+            "designerId": "03a86f7b-159f-4816-b850-436b807e67a1",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "operation",
+                        "hiddenName": null,
+                        "store": null,
+                        "valueField": "id"
+                    },
+                    "designerId": "a697d69a-938a-4c54-b558-f5e15b26d622"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sequence",
+                "text": "Sequence",
+                "format": "0000"
+            },
+            "designerId": "df51dcb1-7b82-4f32-bdcd-f77859821f2d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "d3357091-20ec-4d0e-a1f4-93742457ea12"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.plugin.RowEditing",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": "Ext.grid.plugin.RowEditing",
+            "userConfig": {
+                "pluginId": "batchRouteEditPlugin"
+            },
+            "designerId": "f473bc86-a206-4f6a-9052-5e79dc441235"
+        },
+        {
+            "type": "Ext.selection.RowModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": "Ext.selection.RowModel",
+            "designerId": "e6d02319-db52-45f3-9d34-a3679165ed55"
         }
     ]
 }
