@@ -1,0 +1,156 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BatchReportDet"
+    },
+    "designerId": "f327b92e-9194-4e93-af8f-9440b1e21dde",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "5a1e8186-8bb1-41a7-8620-f9c7293111a1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "designerId": "3f1a618d-577d-4679-8499-2c448e36a666"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.id",
+                "name": "reportParams.id"
+            },
+            "designerId": "6277ca4e-267c-4c85-9709-6cf53d6bc194"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.id",
+                "name": "reportParams.param.id"
+            },
+            "designerId": "c0422bf1-eabf-4c3c-9aba-ec5d88545615"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.title",
+                "name": "reportParams.param.title"
+            },
+            "designerId": "df8bffbb-f879-44e7-9ecd-6a4082f200aa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.defaultValue",
+                "name": "reportParams.param.defaultValue"
+            },
+            "designerId": "93b6da3f-6bd3-4c35-92cd-b9010e5fd2ff"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.workstation.id",
+                "name": "reportParams.workstation.id"
+            },
+            "designerId": "92bfe2ab-a292-4a60-a4a8-a80b31b06fa2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.operation.id",
+                "name": "reportParams.operation.id"
+            },
+            "designerId": "bb74254c-da41-410f-88e9-9d4790b907f0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.item.id",
+                "name": "reportParams.item.id"
+            },
+            "designerId": "08e6b21a-2cb4-44b5-b12f-6d86d806e7ea"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/batchReportDet"
+            },
+            "designerId": "7b5be456-c4a3-4d81-b6ab-2ffc6651e4d7",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchReportDetInstanceList",
+                        "totalProperty": "batchReportDetInstanceTotal"
+                    },
+                    "designerId": "348515c2-df19-4d2e-9537-45bcd34f6735"
+                }
+            ]
+        }
+    ]
+}

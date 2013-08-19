@@ -3,7 +3,7 @@ package foodprint
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 
-class BatchParamsController {
+class BatchReportDetController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
@@ -11,15 +11,17 @@ class BatchParamsController {
         redirect(action: "list", params: params)
     }
 
+    /**
+     * @param batch.id
+     * 找出指定批號中所有相關參數
+    **/
     def list() {
-        def item=Batch.get(params.id).item
-        def workstations=item.itemRoutes*.workstation.unique()
-
-        def batchParams=ReportParams.findAll(){
-            workstation in workstations && item == item
+        def batch=Batch.get(params.batch.id)
+        def operations=batch.batchRoutes*.operation.unique()
+        def batchReportDet=BatchReportDet.findAll(){
+            batch==batch
         }
-
-        [batchParamsList:batchParams, batchParamsTotal: batchParams.size()]
+        [batchReportDetList:batchReportDet, batchReportDetTotal: batchReportDet.size()]
     }
 
     def listJson() {

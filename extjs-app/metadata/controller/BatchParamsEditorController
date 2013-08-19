@@ -17,13 +17,14 @@
         ],
         "views": [
             "BatchParamsEditorCt",
-            "BatchParamsCollectWindow"
+            "BatchRouteParamsWindow"
         ],
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": [
             "{",
             "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
-            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'",
+            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController',",
+            "    BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormCtrl'",
             "}"
         ]
     },
@@ -138,7 +139,7 @@
                     "        itemdblclick:this.readBatch",
                     "    },",
                     "    'batchparamscollect grid[itemId=batchItemRouteGrid]':{",
-                    "        itemdblclick:this.collectParams",
+                    "        itemdblclick:this.loadBatchRouteParams",
                     "    }",
                     "});"
                 ]
@@ -166,7 +167,6 @@
                     "this.doDisplay(record);",
                     "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
                     "this.loadBatchRoute(record);",
-                    "",
                     "this.loadBatchParams(record.data.id);"
                 ]
             },
@@ -185,8 +185,8 @@
                     "id"
                 ],
                 "implHandler": [
-                    "this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
-                    "var store=this.getBatchRouteGrid().getStore();",
+                    "//this.getBatchParamsTp().setActiveTab(this.getBatchRouteGrid().up());",
+                    "var store=this.getBatchReportDetStore();",
                     "//store.data.clear();",
                     "",
                     "//store.load({",
@@ -216,7 +216,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "collectParams",
+                "fn": "loadBatchRouteParams",
                 "designer|params": [
                     "obj, record, item, index, e, eOpts"
                 ],
@@ -237,8 +237,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchParamsCollectWindow",
-                "selector": "batchparamscollectwindow"
+                "ref": "batchRouteParamsWindow",
+                "selector": "batchrouteparamswindow"
             },
             "designerId": "a094a472-92c9-449a-a513-fcd7dc230e87"
         },
