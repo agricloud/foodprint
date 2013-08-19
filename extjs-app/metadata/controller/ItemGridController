@@ -166,6 +166,25 @@
                 ]
             },
             "designerId": "0c49ffc1-f967-40e5-ac4d-f53dbc30f644"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "selectItem",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log(record);",
+                    "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);"
+                ]
+            },
+            "designerId": "96851ad7-1b2b-4125-a426-e83a41e72de5"
         }
     ]
 }
