@@ -114,7 +114,10 @@
                     "    'itemeditorct savebtn[itemId=routeSaveBtn]':{",
                     "        click:this.itemRouteDoSave",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    "",
+                    ""
                 ]
             },
             "designerId": "613965a1-c9a7-4f83-90f5-c6fd32a29428"
@@ -162,7 +165,8 @@
                     "    params:{'item.id':item_id}",
                     "});",
                     "",
-                    "viewer.down('imageuploadform').showImage(item_id);",
+                    "this.getImageUploadForm().domainId=item_id;",
+                    "this.getImageUploadForm().showImage();",
                     "//store.load({params:{itemid:record.data.id}});",
                     "//store.load({'item.id':record.data.id});",
                     "//store.clearFilter();",
@@ -191,6 +195,34 @@
                 ]
             },
             "designerId": "61727132-7e2f-494b-a0b6-3e465816a053"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploadForm",
+                "selector": "itemeditorct imageuploadform"
+            },
+            "designerId": "0fc6b0c1-98d3-47f5-8a93-d5064adbf7b2"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "this.getItemViewer().down(\"imageuploadform\").showToolbar();"
+                ]
+            },
+            "designerId": "3df4ecfb-49be-4357-991e-1e0a9fde2519"
         }
     ]
 }

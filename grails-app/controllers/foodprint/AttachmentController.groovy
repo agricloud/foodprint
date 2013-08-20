@@ -105,25 +105,29 @@ class AttachmentController {
             File object = new File("${fileLocation}/${params.domainName}/${id}.jpg")
 
             // def object = s3Service.getObject("${grailsApplication.config.grails.aws.root}/${params.name}/${file}")
-            response.outputStream << new FileInputStream(object);
+            // log.debug resource(dir: 'images', file: 'blank.jpg')
+            File blankImg=grailsApplication.parentContext.getResource('/images/blank.jpg').file
+
+
+            if(object.exists())
+                 response.outputStream << new FileInputStream(object);    
+            else response.outputStream << new FileInputStream(blankImg);  
 
         }
         catch (e) {
             
             e.printStackTrace()
             log.error "Could not read ${file}"
-            // response.sendError 404
+            
         }
     }
 
     // @Secured(['ROLE_OPERATOR','ROLE_MANERGER'])
-    def delete= {
-
-        def file = new File(params.file);
+    def delete= { Long id ->
+        def fileLocation=grailsApplication.config.upload.files.path;
+        def file = new File("${fileLocation}/${params.domainName}/${id}.jpg");
         try {
             file.delete();
-
-            // s3Service.deleteObject "${params.file}"
 
             return render(text: [success:true] as JSON, contentType:'text/json')
         }
