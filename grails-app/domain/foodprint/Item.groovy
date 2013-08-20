@@ -73,9 +73,10 @@ class Item {
      * 有效起始與結束日期可以不設定
      */
 	static constraints = {
-		dueDays nullable:true
-		effectStartDate nullable:true
-		effectEndDate nullable:true
-		site nullable:true
+		name unique: true
+		dueDays nullable: true
+		effectStartDate nullable: true
+		effectEndDate nullable: true
+		site nullable: true
 	}
 }

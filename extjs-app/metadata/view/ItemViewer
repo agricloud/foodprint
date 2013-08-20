@@ -17,26 +17,21 @@
     "designerId": "9ce72285-96c0-40e8-825e-ee52097566ec",
     "cn": [
         {
-            "type": "Ext.form.Panel",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": 1,
+                "layout|flex": null,
                 "container|align": "stretch",
-                "container|padding": 10,
-                "itemId": "itemForm",
-                "designer|displayName": "ItemForm",
-                "layout": "vbox",
-                "title": "",
-                "jsonSubmit": true
+                "layout": "hbox"
             },
-            "designerId": "8df7dca3-8572-41d2-83cd-1cc8df18c85b",
+            "designerId": "a9e4508f-b653-4ad5-a5ba-f9f9321f319a",
             "cn": [
                 {
-                    "type": "Ext.form.field.Number",
+                    "type": "Ext.form.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -44,80 +39,115 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
-                        "fieldLabel": "id",
-                        "name": "id",
-                        "readOnly": true
+                        "container|align": "stretch",
+                        "container|padding": 10,
+                        "itemId": "itemForm",
+                        "designer|displayName": "ItemForm",
+                        "layout": "vbox",
+                        "title": "",
+                        "jsonSubmit": true
                     },
-                    "designerId": "80aadb31-9b79-45d3-8be5-34aaead792ef"
+                    "designerId": "8df7dca3-8572-41d2-83cd-1cc8df18c85b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "id",
+                                "name": "id",
+                                "readOnly": true
+                            },
+                            "designerId": "80aadb31-9b79-45d3-8be5-34aaead792ef"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "name",
+                                "name": "name"
+                            },
+                            "designerId": "662a24f2-885d-4fb2-befd-32efa3c3ab93"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "title",
+                                "name": "title"
+                            },
+                            "designerId": "028dfb25-9d20-4270-a389-4570ad8bebab"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "dueDays",
+                                "name": "dueDays"
+                            },
+                            "designerId": "7d9636df-9395-4d66-a867-0682fc4af078"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "effectStartDate",
+                                "name": "effectStartDate"
+                            },
+                            "designerId": "e34cc488-5a20-4846-830e-160e78cc6ede"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "effectEndDate",
+                                "name": "effectEndDate"
+                            },
+                            "designerId": "7ae00aa6-95d6-42b2-b2f8-d085a8ea207e"
+                        }
+                    ]
                 },
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "name",
-                        "name": "name"
+                        "domainName": "item",
+                        "width": 250
                     },
-                    "designerId": "662a24f2-885d-4fb2-befd-32efa3c3ab93"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "fieldLabel": "title",
-                        "name": "title"
-                    },
-                    "designerId": "028dfb25-9d20-4270-a389-4570ad8bebab"
-                },
-                {
-                    "type": "Ext.form.field.Number",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "fieldLabel": "dueDays",
-                        "name": "dueDays"
-                    },
-                    "designerId": "7d9636df-9395-4d66-a867-0682fc4af078"
-                },
-                {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "fieldLabel": "effectStartDate",
-                        "name": "effectStartDate"
-                    },
-                    "designerId": "e34cc488-5a20-4846-830e-160e78cc6ede"
-                },
-                {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "fieldLabel": "effectEndDate",
-                        "name": "effectEndDate"
-                    },
-                    "designerId": "7ae00aa6-95d6-42b2-b2f8-d085a8ea207e"
+                    "designerId": "f5ad3187-d480-4679-adbf-0ba79fe8a02a",
+                    "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e"
                 }
             ]
         },

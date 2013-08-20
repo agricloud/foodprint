@@ -68,6 +68,11 @@
                 "implHandler": [
                     "console.log(\"itemViewer.doDisplay\");",
                     "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
+                    "",
+                    "",
+                    "this.getItemViewer().down('imageuploadform').setDomainId(record.data.id);",
+                    "this.getItemViewer().down('imageuploadform').showImage();",
+                    "",
                     "//var itemImages=record.itemImages();",
                     "//itemImages.load();",
                     "//console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",

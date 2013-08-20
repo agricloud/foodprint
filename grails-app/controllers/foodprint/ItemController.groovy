@@ -170,4 +170,8 @@ class ItemController {
         }
     }
     */
+
+    def imageUpload(){
+        
+    }
 }

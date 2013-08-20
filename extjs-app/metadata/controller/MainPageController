@@ -8,7 +8,10 @@
     "userConfig": {
         "views": [
             "MainContainer",
-            "ItemEditor"
+            "ItemEditorCt",
+            "BatchEditorCt",
+            "ReportEditorCt",
+            "WorkstationEditorCt"
         ],
         "designer|userClassName": "MainPageController"
     },
@@ -62,6 +65,9 @@
                     "    },",
                     "    'maincontainer button[itemId=workstationMaintain]':{",
                     "        click:this.workstationMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=reportMaintain]':{",
+                    "        click:this.reportMaintain",
                     "    }",
                     "});"
                 ]
