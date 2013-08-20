@@ -51,6 +51,10 @@ class BootStrap {
 				def batchRoute5=new BatchRoute(batch:batch2,workstation:workstation2,sequence:2).save(failOnError: true,flush: true)
 				def batchRoute6=new BatchRoute(batch:batch2,workstation:workstation2,sequence:3).save(failOnError: true,flush: true)
 
+				def batchReportDet1=new BatchReportDet(batch:batch1,reportParams:reportparam1,value:"10").save(failOnError: true,flush: true)
+				def batchReportDet2=new BatchReportDet(batch:batch1,reportParams:reportparam2,value:"30").save(failOnError: true,flush: true)
+				def batchReportDet3=new BatchReportDet(batch:batch2,reportParams:reportparam2,value:"20").save(failOnError: true,flush: true)
+
 				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)
 				def itemImage2 = new ItemImage(name:"itemImage2.jpg",item:item1).save(failOnError: true, flush: true)
     	}
