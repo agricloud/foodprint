@@ -63,7 +63,6 @@ class BatchController {
             render (contentType: 'text/json') {
                 [success:false]
             }
-            return null
         }
         batchInstance.properties = params
 

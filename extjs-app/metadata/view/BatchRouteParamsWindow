@@ -8,9 +8,9 @@
     "userConfig": {
         "container|align": "center",
         "container|pack": "center",
-        "height": 257,
+        "height": 498,
         "id": "batchRouteParamsWindow",
-        "width": 348,
+        "width": 414,
         "designer|userClassName": "BatchRouteParamsWindow",
         "designer|userAlias": "batchrouteparamswindow",
         "autoScroll": true,
@@ -21,6 +21,21 @@
     "designerId": "bd418b31-7786-4963-8703-55db0231c8ee",
     "cn": [
         {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 34,
+                "width": 384,
+                "layout|flex": null
+            },
+            "designerId": "05f0b487-6cc0-43bc-a9f6-0e27d0f69a88",
+            "masterInstanceId": "7a3ed10f-97ec-4c02-9998-871e2c4a6fa8"
+        },
+        {
             "type": "Ext.form.Panel",
             "reference": {
                 "name": "items",
@@ -28,23 +43,55 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 191,
+                "container|align": "stretch",
+                "height": 392,
                 "itemId": "batchRouteParamsForm",
-                "width": 332,
+                "width": 368,
+                "autoScroll": true,
+                "layout": "vbox",
                 "bodyPadding": 10,
-                "title": null
+                "title": null,
+                "jsonSubmit": true
             },
-            "designerId": "9df0f137-b688-4f1c-acbb-ed8771be73fe"
-        },
-        {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "designerId": "b0435152-9c2e-46d9-a8f4-44e3872a2af2",
-            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
+            "designerId": "9df0f137-b688-4f1c-acbb-ed8771be73fe",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 177,
+                        "id": null,
+                        "itemId": "dynamicContainer",
+                        "width": 10,
+                        "designer|displayName": null,
+                        "designer|createAlias": null,
+                        "fieldLabel": null
+                    },
+                    "designerId": "e48b51e8-7acd-47ac-8d4f-24d253f36e74"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 192,
+                        "id": null,
+                        "itemId": "staticContainer",
+                        "width": 10,
+                        "designer|displayName": null,
+                        "designer|createAlias": null,
+                        "fieldLabel": null
+                    },
+                    "designerId": "480def81-1019-4eb1-adac-5e881765c2ba"
+                }
+            ]
         }
     ]
 }

@@ -25,9 +25,29 @@ class BatchReportDetController {
     }
 
     def listJson() {
-        log.debug "BatchParamsController--listJson"
         JSON.use('deep')
         def converter=list() as JSON
+        converter.render(response)
+    }
+
+    /**
+     * @param batch.id
+     * @param operation.id
+     * 找出指定批號及途程中所有相關參數
+    **/
+    def batchRouteReportDetlist(){
+        log.debug "BatchRouteReportDetController--batchRouteReportDetList"
+        def batchInstance=Batch.get(params.batch.id)
+        def operationInstance=Operation.get(params.operation.id)
+        def batchRouteReportDetInstance=BatchReportDet.findAll(){
+            batch==batchInstance && reportParams.operation==operationInstance
+        }
+        [batchRouteReportDetInstanceList:batchRouteReportDetInstance, batchRouteReportDetInstanceTotal: batchRouteReportDetInstance.size()]
+    }
+
+    def batchRouteReportDetListJson(){
+        JSON.use('deep')
+        def converter=batchRouteReportDetlist() as JSON
         converter.render(response)
     }
 
@@ -61,33 +81,36 @@ class BatchReportDetController {
 
     def update(){
         log.debug "BatchReportDetController--update"
-        log.debug params
-        println 123456789
+
+        def failure=[]
         params.each{
-            println "it="+it
-            println "it.id="+it.reportParams.title
-        } 
-        /*
-        def batch=Batch.get(params.batch.id)
-        //def reportParams=ReportParams.get(params.reportParams.id)
-        def batchReportDet=BatchReportDet.findAll(){
-            batch==batch && reportParams in reportParams
-        }
-        
-        if (!batchReportDetInstance) {
 
-            log.warning "${controllerName}--${actionName}--batchReportDetInstance not found"
-            render (contentType: 'text/json') {
-                [success:false]
+            if(it.key!="action" && it.key!="controller"){
+                def batchReportDetInstance=BatchReportDet.get(it.key)
+                if (!batchReportDetInstance) {
+                    log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
+                    render (contentType: 'text/json') {
+                        [success:false]
+                    }
+                }
+
+                batchReportDetInstance.value = it.value
+
+                if(!save(batchReportDetInstance))
+                    failure.add(it.key)
             }
-            return null
-        }
 
-        batchReportDetInstance.properties = params
-        */
-        def batchReportDet=null;
-        render (contentType: 'text/json') {
-            save(batchReportDetInstance)
+        }//end each
+
+        if(failure.size()>0){
+            render (contentType: 'text/json') {
+                [success:false,failure:failue]
+            }
+        }
+        else{
+            render (contentType: 'text/json') {
+                [success:true]
+            }
         }
     }
 
