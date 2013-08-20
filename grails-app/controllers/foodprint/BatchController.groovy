@@ -79,10 +79,10 @@ class BatchController {
         if (!batchInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
             redirect(action: "list")
-            return
         }
-
-        [batchInstance: batchInstance]
+        render (contentType: 'text/json') {
+            [batchInstanceList:batchInstance,batchInstanceTotal: Batch.count()]
+        }
     }
 
     def edit(Long id) {
