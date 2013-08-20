@@ -62,44 +62,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "itemMaintain",
                                 "text": "品項維護"
                             },
-                            "designerId": "0e77c526-564c-41f3-84fc-073ea98dbd16",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onButtonClick",
-                                        "implHandler": [
-                                            "var tabs = getTabPanel();",
-                                            "",
-                                            "  var newPanel=new Panel({id:'myPanel',title:'hello',closable:true,html:'hello'});",
-                                            "",
-                                            "  var myPanel=tabs.getItem('myPanel');",
-                                            "",
-                                            "    if(myPanel==null){",
-                                            "        tabs.add(myPanel).show()",
-                                            "    }",
-                                            "    else{",
-                                            "        tabs.unhideTabStripItem(myPanel.show());",
-                                            "    }",
-                                            "    ",
-                                            "    tabs.on('beforeremove', function(tabs, tab) {",
-                                            "        tabs.hideTabStripItem(tab.hide());",
-                                            "        return false;",
-                                            "    });"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "designerId": "64cee2d0-d4be-4495-b3af-883f2cf0d2b4"
-                                }
-                            ]
+                            "designerId": "0e77c526-564c-41f3-84fc-073ea98dbd16"
                         },
                         {
                             "type": "Ext.button.Button",
@@ -110,6 +76,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "batchMaintain",
                                 "text": "批號維護"
                             },
                             "designerId": "e389716f-1115-452a-82c4-65d6d1afedaf"
@@ -123,6 +90,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "Maintain",
                                 "text": "履歷維護"
                             },
                             "designerId": "63d75290-9e88-4d13-8640-cb15a3dbae47"
@@ -136,6 +104,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "operationMaintain",
                                 "text": "製程維護"
                             },
                             "designerId": "5d71daa1-23c1-4963-8e6d-0c1354de2e3d"
@@ -149,6 +118,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "workstationMaintain",
                                 "text": "工作站維護"
                             },
                             "designerId": "9d3ea341-3052-40bc-8bc3-1809836878a1"
@@ -225,114 +195,9 @@
                 "layout|region": "center",
                 "id": "TabPanel",
                 "designer|displayName": "TabPanel",
-                "title": "",
-                "activeTab": 0
+                "title": ""
             },
-            "designerId": "bcdb724b-dabc-44a8-b2b4-3be76b29a812",
-            "cn": [
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": null,
-                        "layout": "fit",
-                        "title": "品項維護"
-                    },
-                    "designerId": "7f976a56-6f44-4765-b9d3-3a50ea4fb421",
-                    "cn": [
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "designerId": "b7cf91da-4722-4fd4-958b-20c27d3940bc",
-                            "masterInstanceId": "6615344b-e66b-4920-8248-efe4676fd3e2"
-                        },
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "designerId": "c46a1266-c9ad-4bd8-b413-7b869129b0de"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": null,
-                        "title": "批號維護"
-                    },
-                    "designerId": "75578b7f-3b42-413e-abb1-f9d1f9ce0bb7",
-                    "cn": [
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "designerId": "de73b1bc-2c50-4e06-b8d4-34e185ddb116",
-                            "masterInstanceId": "0d1e180c-90d5-4066-b7ae-80def2594f38"
-                        },
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "designerId": "95117664-542b-4e64-be0c-fdeb8a0150c7"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "title": "工作站維護"
-                    },
-                    "designerId": "0ae11619-7f5f-4095-9f4f-6d537a59a048",
-                    "cn": [
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "designerId": "8f48c0db-02ac-4fd4-86fb-168327c23623",
-                            "masterInstanceId": "e09c23ec-5f00-46c7-a31d-5b4176cd1d27"
-                        },
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "designerId": "5f7c3e13-d489-4dd8-a8e7-5350cd5fc03a"
-                        }
-                    ]
-                }
-            ]
+            "designerId": "bcdb724b-dabc-44a8-b2b4-3be76b29a812"
         }
     ]
 }

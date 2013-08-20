@@ -102,7 +102,6 @@
                     "        click:this.doUpdate",
                     "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
-                    "        itemclick:this.selectItem,",
                     "        itemdblclick:this.readItemRouteGrid",
                     "    },",
                     "    'itemeditorct createbtn[itemId=routeCreateBtn]':{",
@@ -160,14 +159,7 @@
                     "store.data.clear();",
                     "store.load({",
                     "    params:{'item.id':item_id}",
-                    "});",
-                    "",
-                    "//store.load({params:{itemid:record.data.id}});",
-                    "//store.load({'item.id':record.data.id});",
-                    "//store.clearFilter();",
-                    "//store.filter('workstation_id',record.data.workstation.id);",
-                    "//this.getParamsWindow().show();",
-                    "//store.sort();"
+                    "});"
                 ]
             },
             "designerId": "6f0d14a8-fe41-48dc-a795-c714f5008034"

@@ -7,9 +7,199 @@
     "codeClass": null,
     "userConfig": {
         "views": [
-            "MainContainer"
+            "MainContainer",
+            "ItemEditor"
         ],
         "designer|userClassName": "MainPageController"
     },
-    "designerId": "69b8bd03-5295-4a0d-abdc-5a914a5089c0"
+    "designerId": "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemMaintain",
+                "selector": "itemmaintain"
+            },
+            "designerId": "f6d85360-b26a-471e-a698-50434bd092e6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemEditor",
+                "selector": "itemediteor"
+            },
+            "designerId": "aa4d061c-26ee-402e-87ac-43284235661f"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'maincontainer button[itemId=itemMaintain]':{",
+                    "        click:this.itemMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchMaintain]':{",
+                    "        click:this.batchMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=workstationMaintain]':{",
+                    "        click:this.workstationMaintain",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "c3cfb16e-3536-4a44-b256-70190eac7149"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "maintainBtn",
+                "designer|params": [
+                    "xtypeStr",
+                    "tabName"
+                ],
+                "implHandler": [
+                    "var tabs = Ext.getCmp('TabPanel');",
+                    "var tab = tabs.down(xtypeStr);",
+                    "if (tab===null){",
+                    "    tab = {",
+                    "        title: tabName,",
+                    "        closable:true,",
+                    "        items: [{ xtype: xtypeStr }]",
+                    "    };",
+                    "    tabs.add(tab).show();",
+                    "}",
+                    "else{",
+                    "    tabs.setActiveTab(tab.up());",
+                    "}"
+                ]
+            },
+            "designerId": "c050570c-d3ef-47c4-8bcc-b06180495a4c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'itemeditorct';",
+                    "var tabName = '品項維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "408d9151-e3f5-4354-9f84-8a828e73f5a8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batcheditorct';",
+                    "var tabName = '批號維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "cfe21988-5b6b-453d-b778-1ce6c24032b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reportMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'reporteditorct';",
+                    "var tabName = '履歷維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "e7f9c793-6be5-4b2d-95a7-b68fde658a77"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "operationMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'operationeditorct';",
+                    "var tabName = '製程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "9964a422-6ec3-4c9d-99e6-13ab5feeaea7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "workstationMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'workstationeditorct';",
+                    "var tabName = '工作站維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "a12b22f4-a32b-483c-a471-64f360912c61"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchReportMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchreporteditorct';",
+                    "var tabName = '批號履歷維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "44e28dda-6777-43b7-b456-4c4d6d886362"
+        }
+    ]
 }
