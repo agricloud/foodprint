@@ -5,7 +5,7 @@ import grails.converters.JSON
 
 class BatchReportDetController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -35,17 +35,6 @@ class BatchReportDetController {
         [batchReportDetInstance: new BatchReportDet(params)]
     }
 
-    def save() {
-        def batchReportDetInstance = new BatchReportDet(params)
-        if (!batchReportDetInstance.save(flush: true)) {
-            render(view: "create", model: [batchReportDetInstance: batchReportDetInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), batchReportDetInstance.id])
-        redirect(action: "show", id: batchReportDetInstance.id)
-    }
-
     def show(Long id) {
         def batchReportDetInstance = BatchReportDet.get(id)
         if (!batchReportDetInstance) {
@@ -68,51 +57,77 @@ class BatchReportDetController {
         [batchReportDetInstance: batchReportDetInstance]
     }
 
-    def update(Long id, Long version) {
-        def batchReportDetInstance = BatchReportDet.get(id)
-        if (!batchReportDetInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "list")
-            return
+    /**
+     * @param batch.id
+     * @param operation.id
+     * 找出指定批號及途程中所有相關參數
+    **/
+    def batchRouteReportDetlist(){
+        log.debug "BatchRouteReportDetController--batchRouteReportDetList"
+        def batchInstance=Batch.get(params.batch.id)
+        def operationInstance=Operation.get(params.operation.id)
+        def batchRouteReportDetInstance=BatchReportDet.findAll(){
+            batch==batchInstance && reportParams.operation==operationInstance
         }
+        [batchRouteReportDetInstanceList:batchRouteReportDetInstance, batchRouteReportDetInstanceTotal: batchRouteReportDetInstance.size()]
+    }
 
-        if (version != null) {
-            if (batchReportDetInstance.version > version) {
-                batchReportDetInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'batchReportDet.label', default: 'BatchReportDet')] as Object[],
-                          "Another user has updated this BatchReportDet while you were editing")
-                render(view: "edit", model: [batchReportDetInstance: batchReportDetInstance])
-                return
+    def batchRouteReportDetListJson(){
+        JSON.use('deep')
+        def converter=batchRouteReportDetlist() as JSON
+        converter.render(response)
+    }
+
+    def save(BatchReportDet batchReportDetInstance){
+        
+        if (!batchReportDetInstance.validate()) {
+            batchReportDetInstance.errors.each {
+                log.debug it
+            }
+            return [success:false]
+        }
+        if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
+                return [success:false]
+        }
+        else{
+                return [success:true]
+        }
+    }
+
+
+    def update(){
+        log.debug "BatchReportDetController--update"
+
+        def failure=[]
+        params.each{
+
+            if(it.key!="action" && it.key!="controller"){
+                def batchReportDetInstance=BatchReportDet.get(it.key)
+                if (!batchReportDetInstance) {
+                    log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
+                    render (contentType: 'text/json') {
+                        [success:false]
+                    }
+                }
+
+                batchReportDetInstance.value = it.value
+
+                if(!save(batchReportDetInstance))
+                    failure.add(it.key)
+            }
+
+        }//end each
+
+        if(failure.size()>0){
+            render (contentType: 'text/json') {
+                [success:false,failure:failue]
             }
         }
-
-        batchReportDetInstance.properties = params
-
-        if (!batchReportDetInstance.save(flush: true)) {
-            render(view: "edit", model: [batchReportDetInstance: batchReportDetInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), batchReportDetInstance.id])
-        redirect(action: "show", id: batchReportDetInstance.id)
-    }
-
-    def delete(Long id) {
-        def batchReportDetInstance = BatchReportDet.get(id)
-        if (!batchReportDetInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            batchReportDetInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "show", id: id)
+        else{
+            render (contentType: 'text/json') {
+                [success:true]
+            }
         }
     }
+
 }
