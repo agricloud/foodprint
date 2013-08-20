@@ -29,6 +29,11 @@
             "group": "(Custom Properties)",
             "name": "domainId",
             "type": "number"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "testbtn",
+            "type": "string"
         }
     ],
     "cn": [
@@ -278,6 +283,24 @@
                 ]
             },
             "designerId": "096cdeaa-44ab-4990-9273-d4c3ea77f954"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setDomainId",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "this.domainId=id;"
+                ]
+            },
+            "designerId": "28bbd530-b5ab-4961-abda-8a7019802dc5"
         }
     ]
 }

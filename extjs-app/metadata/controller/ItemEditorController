@@ -138,7 +138,9 @@
                     "var editor = this.getItemEditor();",
                     "var viewer = this.getItemViewer();",
                     "editor.setActiveTab(viewer.up());",
-                    "this.doDisplay(record);"
+                    "this.doDisplay(record);",
+                    "",
+                    ""
                 ]
             },
             "designerId": "24d7898a-59d3-44a6-b4bf-ec9193abc721"
@@ -165,8 +167,6 @@
                     "    params:{'item.id':item_id}",
                     "});",
                     "",
-                    "this.getImageUploadForm().domainId=item_id;",
-                    "this.getImageUploadForm().showImage();",
                     "//store.load({params:{itemid:record.data.id}});",
                     "//store.load({'item.id':record.data.id});",
                     "//store.clearFilter();",
@@ -219,7 +219,7 @@
             "userConfig": {
                 "fn": "onLaunch",
                 "implHandler": [
-                    "this.getItemViewer().down(\"imageuploadform\").showToolbar();"
+                    "//this.getItemViewer().down(\"imageuploadform\").showToolbar();"
                 ]
             },
             "designerId": "3df4ecfb-49be-4357-991e-1e0a9fde2519"
