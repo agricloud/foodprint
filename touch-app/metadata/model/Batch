@@ -1,0 +1,103 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Batch"
+    },
+    "designerId": "01d2dc31-4ae8-4902-bdd6-487dc600f444",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "ebafe4bf-0c0e-4b2f-a0a1-4dbf2b451b22"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "7f2e00d1-64bd-40c8-94c3-52ce37f07f74"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "item.id",
+                "name": "item_id"
+            },
+            "designerId": "3ada67a4-0f5f-4f47-80ae-932c9bbb773c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dueDate",
+                "type": "date"
+            },
+            "designerId": "7021c58b-ffcf-4591-8f13-4434b5b8d616"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "expectQty"
+            },
+            "designerId": "94341d7f-6934-4d5c-b0c7-fc3ae1c6e40f"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/batch/"
+            },
+            "designerId": "17a277c7-3d46-4fe9-a753-cdafcf754c90",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "batchInstanceList",
+                        "totalProperty": "batchInstanceTotal"
+                    },
+                    "designerId": "1c13aa17-f514-4e68-8cee-1efcc5121f23"
+                }
+            ]
+        }
+    ]
+}

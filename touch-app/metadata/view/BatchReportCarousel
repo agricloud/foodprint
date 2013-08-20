@@ -1,0 +1,91 @@
+{
+    "type": "Ext.carousel.Carousel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "batchreportCarousel",
+        "designer|userClassName": "BatchReportCarousel",
+        "designer|userAlias": "batchreportcarousel",
+        "designer|initialView": true
+    },
+    "designerId": "fffad9cf-d42a-425b-ab10-79c534237e63",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "Report"
+            },
+            "designerId": "1a3b1fa1-0609-4bbb-b8c9-4e517bea0a6a",
+            "cn": [
+                {
+                    "type": "Ext.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "履歷查詢",
+                        "itemId": "ReportData",
+                        "layout": "vbox"
+                    },
+                    "designerId": "fee78c0f-0225-429d-911f-09b4c4215981",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "designerId": "47c96fbb-1863-4721-ad6d-d578b400dce7",
+                            "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
+                        },
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "itemId": "reportbasicList",
+                                "store": "BatchStore"
+                            },
+                            "designerId": "38942c4b-e284-4899-b4ec-3d07b3b74247",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "implHandler": [
+                                            "<div>Id:{id}</div>",
+                                            "<div>Item_id:{item_id}</div>",
+                                            "<div>Name:{name}</div>",
+                                            "<div>ExpectQty:{expectQty}</div>"
+                                        ],
+                                        "designer|displayName": "itemTpl"
+                                    },
+                                    "designerId": "c2dd59fa-d8e4-4810-aea6-5ee7fe5eb91c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

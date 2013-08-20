@@ -1,0 +1,155 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Batch"
+        ],
+        "stores": [
+            "BatchStore"
+        ],
+        "views": [
+            "BatchReportCarousel"
+        ],
+        "designer|userClassName": "BatchReportController"
+    },
+    "designerId": "946d268d-9ef8-4b31-8ae9-6b6b32617ea8",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'batchreportcarousel searchfield[itemId=searchField]':{",
+                    "        action:this.dosearch",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "1d1a4040-b7b9-4934-a0cb-a2588e1c8905"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchreportCarousel",
+                "selector": "batchreportcarousel"
+            },
+            "designerId": "2bdb0665-7ce0-496e-a893-9aa9d0582c90"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "dosearch",
+                "implHandler": [
+                    "batchid=this.getBatchreportCarousel().down('searchfield[itemId=searchField]').getValue();",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getBatchreportCarousel().down('list[itemId=reportbasicList]').getStore().load({",
+                    "    url:'/rest/batch/'+batchid,",
+                    "    callback:function(){",
+                    "\t\tthat.showreport(batchid);",
+                    "\t}",
+                    "});"
+                ]
+            },
+            "designerId": "2cf944a0-dbe2-4966-a212-d1ccb56b4f19"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showreport",
+                "designer|params": [
+                    "batchid"
+                ],
+                "implHandler": [
+                    "var batchcarousel=this.getBatchreportCarousel();",
+                    "var that=this;",
+                    "",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url:'/rest/batchReportDet/',",
+                    "    method :'GET',",
+                    "    params:{",
+                    "        batchid:batchid",
+                    "    },",
+                    "    success:function(resp){",
+                    "        var reportdata=Ext.decode(resp.responseText).batchReportDetInstanceList;",
+                    "        ",
+                    "        console.log(batchcarousel.getInnerItems().length);",
+                    "        var itemsLength=batchcarousel.getInnerItems().length;",
+                    "        var items=batchcarousel.getInnerItems();",
+                    "        //remove",
+                    "        for(j=itemsLength-1;j>0;j--){",
+                    "            //console.log(batchcarousel.getInnerItems()[0]);",
+                    "            console.log(items[j]);",
+                    "            batchcarousel.remove(items[j]);",
+                    "        }",
+                    "        console.log(batchcarousel.getInnerItems().length);",
+                    "        ",
+                    "\t\t//add",
+                    "        for(i=0;i<reportdata.length;i++){",
+                    "            //console.log(reportdata[i].id);",
+                    "            var report=Ext.create('Ext.tab.Panel',{",
+                    "                itemId:'Report'+(i+1),",
+                    "                items:[",
+                    "                    {",
+                    "                        xtype: 'panel',",
+                    "                        title: 'Report'+(i+1),",
+                    "                        layout: {",
+                    "                            type: 'vbox'",
+                    "                        },",
+                    "                        items: [",
+                    "                            {",
+                    "                                xtype: 'list',",
+                    "                                flex: 1,",
+                    "                                itemTpl: [",
+                    "                                  '<div>Id:{id}</div>'",
+                    "                                ],",
+                    "                                data:[",
+                    "                                  {id:reportdata[i].id}",
+                    "                                ]",
+                    "                            }",
+                    "                        ]",
+                    "                    }",
+                    "                ]",
+                    "            });",
+                    "            batchcarousel.add([report]);",
+                    "        }",
+                    "        console.log(batchcarousel.getInnerItems().length);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "f11fabcb-3597-4dba-bcc5-c498bca45e2a"
+        }
+    ]
+}
