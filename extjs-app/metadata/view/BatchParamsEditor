@@ -81,44 +81,32 @@
                     "designerId": "042e3322-97d7-4492-96f9-91c35e50ff6c"
                 },
                 {
-                    "type": "linkedinstance",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": null,
-                        "layout|flex": null
+                        "layout|flex": 1,
+                        "height": 183,
+                        "itemId": "batchViewer",
+                        "title": null
                     },
-                    "designerId": "5e1df8cd-7ff6-40fe-a547-856679002feb",
-                    "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e",
+                    "designerId": "d519bc20-efb8-4fe1-b860-1be0a2cca689",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "linkedinstance",
                             "reference": {
-                                "name": "listeners",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onBatchViewerBeforeRender",
-                                "implHandler": [
-                                    "this.down('textfield[itemId=name]').setReadOnly(true);",
-                                    "this.down('datefield[itemId=dueDate]').setReadOnly(true);",
-                                    "this.down('numberfield[itemId=expectQty]').setReadOnly(true);",
-                                    "this.down('combobox[itemId=item_id]').setReadOnly(true);",
-                                    "",
-                                    "this.down('textfield[itemId=id]').allowBlank=true;",
-                                    "this.down('textfield[itemId=name]').allowBlank=true;",
-                                    "this.down('datefield[itemId=dueDate]').allowBlank=true;",
-                                    "this.down('numberfield[itemId=expectQty]').allowBlank=true;",
-                                    "this.down('combobox[itemId=item_id]').allowBlank=true;"
-                                ],
-                                "name": "beforerender",
-                                "scope": "me"
+                                "height": 164
                             },
-                            "designerId": "5e33414a-7acd-480e-9cf3-881b9932ae8c"
+                            "designerId": "1a01d490-815c-4afb-b5a9-3ecbb884d649",
+                            "masterInstanceId": "63255dc7-478d-4fd1-b4ec-d25eab28ea91"
                         }
                     ]
                 },
