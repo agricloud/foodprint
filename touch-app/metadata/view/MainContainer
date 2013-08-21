@@ -7,60 +7,169 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "MainContainer",
+        "designer|initialView": true,
         "layout": "fit"
     },
     "designerId": "2cf8daf4-6fb2-4864-802a-74f23c5a6fa3",
     "cn": [
         {
-            "type": "Ext.form.Panel",
+            "type": "Ext.tab.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "layout": "vbox"
-            },
-            "designerId": "0722228c-e434-457e-b702-ee84e2bc2796",
+            "designerId": "c56e97b7-ccba-4d0a-b0d7-1de8c4faf99c",
             "cn": [
                 {
-                    "type": "Ext.Toolbar",
+                    "type": "Ext.Container",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "top",
-                        "title": "選擇批號及作業"
+                        "title": "Example"
                     },
-                    "designerId": "bd709d7e-84fb-452b-8fa6-cab3d090b09b"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "designerId": "a63c239a-7db7-4ebb-8df1-0047de00a9c9",
-                    "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
-                },
-                {
-                    "type": "Ext.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "layout": "vbox"
-                    },
-                    "designerId": "57c79090-6c10-4a01-98a9-69e17d49d865",
+                    "designerId": "02da7669-ad95-454b-b3fa-d6541e6a1b04",
                     "cn": [
                         {
-                            "type": "Ext.Toolbar",
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 435,
+                                "layout": "vbox"
+                            },
+                            "designerId": "f59ed481-1554-4aa4-abfc-2e71fb1e3df1",
+                            "cn": [
+                                {
+                                    "type": "Ext.Toolbar",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "top",
+                                        "height": null,
+                                        "title": "選擇批號及作業"
+                                    },
+                                    "designerId": "bd709d7e-84fb-452b-8fa6-cab3d090b09b"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 21,
+                                        "width": null
+                                    },
+                                    "designerId": "aa4e75de-e4ae-4529-83d2-24114b8e2688",
+                                    "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
+                                },
+                                {
+                                    "type": "Ext.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "height": 482,
+                                        "layout": "vbox"
+                                    },
+                                    "designerId": "3d4f151b-b853-4000-ad58-48395fcfbcc7",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Toolbar",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "docked": "top",
+                                                "height": null,
+                                                "title": " 選擇作業"
+                                            },
+                                            "designerId": "807f62d6-9dd0-41e5-bf43-e53a22d9ee7a",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "designerId": "e4b68b38-d7ca-4d4d-8585-3eb6517f5348"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.dataview.List",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "docked": "top",
+                                                "height": 293,
+                                                "scrollable": [
+                                                    "horizontal"
+                                                ],
+                                                "store": "itemRouteStore",
+                                                "itemHeight": 50,
+                                                "onItemDisclosure": false
+                                            },
+                                            "designerId": "5226b783-ca1a-4b10-9224-c5210e6da51d",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.XTemplate",
+                                                    "reference": {
+                                                        "name": "itemTpl",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "implHandler": [
+                                                            "<div>{title}-{id}</div>"
+                                                        ],
+                                                        "designer|displayName": "itemTpl"
+                                                    },
+                                                    "designerId": "eb2f8f27-29f0-4a10-a897-3ad6d0ea9aff"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "批號履歷維護"
+                    },
+                    "designerId": "ffdcf5c3-e95c-4093-af66-9315bb01c904",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -68,53 +177,24 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "top",
-                                "title": " 選擇作業"
+                                "height": 431
                             },
-                            "designerId": "807f62d6-9dd0-41e5-bf43-e53a22d9ee7a",
-                            "cn": [
-                                {
-                                    "type": "Ext.Container",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "d695cbd0-fb4b-4e97-96ed-50be50938bb3"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.dataview.List",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": 1,
-                                "store": "itemRouteStore",
-                                "onItemDisclosure": false
-                            },
-                            "designerId": "4c8a70d3-5ac7-4ba1-8deb-76b57c454d38",
-                            "cn": [
-                                {
-                                    "type": "Ext.XTemplate",
-                                    "reference": {
-                                        "name": "itemTpl",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "implHandler": [
-                                            "<div>{title}-{id}</div>"
-                                        ],
-                                        "designer|displayName": "itemTpl"
-                                    },
-                                    "designerId": "eb2f8f27-29f0-4a10-a897-3ad6d0ea9aff"
-                                }
-                            ]
+                            "designerId": "dc511c0e-c2ba-46c5-bcad-5c7c64f683c3",
+                            "masterInstanceId": "c0170896-ba53-4e4e-b774-1f5ce2e9c9b8"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Tab 3"
+                    },
+                    "designerId": "6165033e-73bd-4233-85d1-0a3fbccf21dc"
                 }
             ]
         }

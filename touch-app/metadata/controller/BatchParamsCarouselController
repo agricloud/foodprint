@@ -1,0 +1,114 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": [
+            "BatchRouteDeepStore"
+        ],
+        "views": [
+            "BatchParamsCarousel"
+        ],
+        "designer|userClassName": "BatchParamsCarouselController"
+    },
+    "designerId": "30293a04-a602-4dba-b2f0-15b6d75b8f38",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'batchparamscarousel searchfield[itemId=batchSearchField]':{",
+                    "        action:this.searchBatch",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "12c6bc0c-2509-401b-a302-5cbf1518713b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "searchBatch",
+                "designer|params": [
+                    "field, e, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getBatchRouteList().getStore().load({",
+                    "    params:{",
+                    "        'batch.id':field.getValue()",
+                    "    }",
+                    "});",
+                    "//batchid=this.getBatchreportCarousel().down('searchfield[itemId=searchField]').getValue();",
+                    "",
+                    "//var that=this;",
+                    "",
+                    "//this.getBatchreportCarousel().down('list[itemId=reportbasicList]').getStore().load({",
+                    "//    url:'/rest/batch/'+batchid,",
+                    "//    callback:function(){",
+                    "//        that.showreport(batchid);",
+                    "//    }",
+                    ""
+                ]
+            },
+            "designerId": "527edd63-f821-4a5e-96bc-802b6b267ddc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchSearchField",
+                "selector": "batchsearchfield"
+            },
+            "designerId": "75a83aef-fe19-44d1-8b22-de0d44377311"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteList",
+                "selector": "batchroutelist"
+            },
+            "designerId": "bbe77704-210b-4958-b0b7-c65607a309ff"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsCarousel",
+                "selector": "batchparamscarousel"
+            },
+            "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
+        }
+    ]
+}
