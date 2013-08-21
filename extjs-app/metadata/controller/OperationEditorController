@@ -1,0 +1,304 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "OperationEditor"
+        ],
+        "designer|userClassName": "OperationEditorController",
+        "mixins": [
+            "{",
+            "OperationViewerCtrl: 'foodprint.controller.OperationViewerController',",
+            "OperationGridCtrl: 'foodprint.controller.OperationGridController'",
+            "}"
+        ]
+    },
+    "designerId": "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "operationGrid",
+                "selector": "operationgrid"
+            },
+            "designerId": "bd4b253a-785b-4386-9b28-192558ecf1c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "operationViewer",
+                "selector": "operationviewer"
+            },
+            "designerId": "a5188cb8-8441-41a0-9e2e-d6ce0f2b2930"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "operationEditor",
+                "selector": "operationeditor"
+            },
+            "designerId": "ff64c994-a042-469a-8a09-a664e2f753c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "operationEditorct",
+                "selector": "operationeditorct"
+            },
+            "designerId": "ce69d91e-9e67-4b56-a158-336c550efc41"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'operationeditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'operationeditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'operationeditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'operationeditorct button[itemId=readBtn]':{",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'operationeditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
+                    "    },",
+                    "    'operationeditorct grid[itemId=operationGrid]':{",
+                    "        itemdblclick:this.readOperation",
+                    "    },",
+                    "    'operationeditorct panel[itemId=operationEditor]':{",
+                    "        tabchange:this.onTabChange",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "131d1781-2ca2-4c97-a2c7-bfd95585b6c1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readOperation",
+                "designer|params": [
+                    "obj,record,item,index,e,eOpts"
+                ],
+                "implHandler": [
+                    "this.getOperationEditor().setActiveTab(this.getOperationViewer().up());",
+                    "",
+                    "console.log(record);",
+                    "this.doDisplay(record);",
+                    "",
+                    "this.getOperationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getOperationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getOperationEditorct().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getOperationEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                ]
+            },
+            "designerId": "2a296c76-0e93-44b5-a234-94fe49ecdb03"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('operationEditorCtrl.doCreate');",
+                    "",
+                    "var form=this.getOperationViewer().down('form[itemId=operationForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "this.getOperationEditor().setActiveTab(this.getOperationViewer().up());",
+                    ""
+                ]
+            },
+            "designerId": "2ff3e60d-9673-45a4-85a0-a1476ddc9061"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"operationEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
+                    "    url: '/rest/operation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
+                    "        that.getOperationGrid().getStore().load();",
+                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
+                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
+                    "        that.getOperationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "5ce243a1-f0de-41b5-aaa5-73de5e95e5a5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"operationEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
+                    "    url: '/rest/operation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
+                    "        that.getOperationGrid().getStore().load();",
+                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
+                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
+                    "        that.getOperationEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "b5d0b31f-7b7d-4263-9201-5552154e7198"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('operationEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
+                    "    url: '/rest/operation',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        that.getOperationGrid().getStore().load();",
+                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
+                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "        that.getOperationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "193ab132-020c-485d-8e0f-7d86d8d9431b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tabPanel, newCard, oldCard, eOpts"
+                ],
+                "implHandler": [
+                    "var crebtn=this.getOperationEditorct().down('button[itemId=createBtn]');",
+                    "var delbtn=this.getOperationEditorct().down('button[itemId=deleteBtn]');",
+                    "var savbtn=this.getOperationEditorct().down('button[itemId=saveBtn]');",
+                    "var updbtn=this.getOperationEditorct().down('button[itemId=updateBtn]');",
+                    "var redbtn=this.getOperationEditorct().down('button[itemId=readBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=opBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=opMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=operationForm]').getForm().reset();",
+                    "}"
+                ]
+            },
+            "designerId": "0efd456e-2968-40db-ad06-2bd3945902ee"
+        }
+    ]
+}
