@@ -1,0 +1,32 @@
+{
+    "type": "Ext.dataview.List",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "batchRouteList",
+        "designer|userClassName": "BatchRouteList",
+        "designer|userAlias": "batchroutelist",
+        "store": "BatchRouteDeepStore"
+    },
+    "designerId": "6b273a91-efef-4316-9344-0565c891c114",
+    "cn": [
+        {
+            "type": "Ext.XTemplate",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "implHandler": [
+                    "<div>{sequence}-{operation__id}-{operation__title}-{workstation__id}-{workstation__title}</div>"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "4d16ec3c-8891-4215-8e99-c7baf567387b"
+        }
+    ]
+}
