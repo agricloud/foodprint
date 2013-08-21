@@ -22,8 +22,7 @@
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": [
             "{",
-            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'//,",
-            "    //BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormController'",
+            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'",
             "}"
         ]
     },
@@ -143,9 +142,7 @@
                     "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
                     "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
                     "",
-                    "this.loadBatchRoute(record);",
-                    "",
-                    "Ext.widget('batchrouteparamswindow');"
+                    "this.loadBatchRoute(record);"
                 ]
             },
             "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
@@ -228,7 +225,9 @@
                     "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field); ",
                     "        }",
                     "",
-                    "        that.getBatchRouteParamsWindow().show();    \t",
+                    "        that.getImageUploadForm().setDomainId(record.data['id']);",
+                    "        that.getBatchRouteParamsWindow().show(); ",
+                    "        that.getImageUploadForm().showImage();",
                     "    }",
                     "});"
                 ]
@@ -279,6 +278,37 @@
                 ]
             },
             "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploadForm",
+                "selector": "imageuploadform"
+            },
+            "designerId": "1196e7fa-62ec-4ca2-b622-e8fe981aeeee"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "",
+                    "Ext.widget('batchrouteparamswindow');",
+                    "this.getImageUploadForm().showToolbar();",
+                    ""
+                ]
+            },
+            "designerId": "d1e6b2ff-5b48-4d0e-9c74-50224b26d772"
         }
     ]
 }
