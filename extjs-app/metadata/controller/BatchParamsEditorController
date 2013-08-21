@@ -22,8 +22,7 @@
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": [
             "{",
-            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'//,",
-            "    //BatchRouteParamsFormCtrl: 'foodprint.controller.BatchRouteParamsFormController'",
+            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'",
             "}"
         ]
     },
@@ -228,6 +227,9 @@
                     "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field); ",
                     "        }",
                     "",
+                    "        that.getImageUploadForm().setDomainId(record.data['id']);",
+                    "\t\tthat.getImageUploadForm().showToolbar();",
+                    "        that.getImageUploadForm().showImage();",
                     "        that.getBatchRouteParamsWindow().show();    \t",
                     "    }",
                     "});"
@@ -279,6 +281,19 @@
                 ]
             },
             "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploadForm",
+                "selector": "imageuploadform"
+            },
+            "designerId": "1196e7fa-62ec-4ca2-b622-e8fe981aeeee"
         }
     ]
 }
