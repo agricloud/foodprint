@@ -1,0 +1,40 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "operationCombo",
+        "designer|userClassName": "Operationcombo",
+        "designer|userAlias": "operationcombo",
+        "displayField": "name",
+        "store": "OperationStore",
+        "valueField": "name"
+    },
+    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onComboboxBeforeSelect",
+                "implHandler": [
+                    "var store = 'operation';",
+                    "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
+                    "gridRecord.set(store+'.id',record.get('id'));",
+                    "gridRecord.set(store+'.name',record.get('name'));",
+                    "gridRecord.set(store+'.title',record.get('title'));"
+                ],
+                "name": "beforeselect",
+                "scope": "me"
+            },
+            "designerId": "1887f4cb-8958-4d74-bbeb-34aa2444c83e"
+        }
+    ]
+}
