@@ -291,7 +291,7 @@
                                     "userConfig": {
                                         "hidden": true,
                                         "dataIndex": "id",
-                                        "text": "ItemRoute_id",
+                                        "text": "ItemRoute.id",
                                         "flex": 1
                                     },
                                     "designerId": "d8750ad3-4d31-4e0a-a0b0-32893acb0a5a"
@@ -306,7 +306,7 @@
                                     "userConfig": {
                                         "hidden": true,
                                         "dataIndex": "item.id",
-                                        "text": "Item_id",
+                                        "text": "Item.id",
                                         "flex": 1
                                     },
                                     "designerId": "0488f28d-a2db-41a4-8c4f-694b80d05c2a"
@@ -347,7 +347,7 @@
                                     "userConfig": {
                                         "hidden": true,
                                         "dataIndex": "workstation.name",
-                                        "text": "Workstation_id",
+                                        "text": "Workstation.id",
                                         "flex": 1
                                     },
                                     "designerId": "96e889eb-3ab1-4952-936e-93e9320482d8"
@@ -361,7 +361,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "workstation.name",
-                                        "text": "Workstation_name",
+                                        "text": "Workstation.name",
                                         "flex": 1
                                     },
                                     "designerId": "1780abbb-5dc0-4274-b7b4-1320627690b2",
@@ -392,74 +392,10 @@
                                                     "userConfig": {
                                                         "fn": "onComboboxBeforeSelect",
                                                         "implHandler": [
-                                                            "// get store index, then set another combobox store.getAt(index).get('workstation.xxxx');",
+                                                            "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
+                                                            "gridRecord.set('workstation.title',record.get('title'));",
                                                             "",
-                                                            "",
-                                                            "var storeField = ['id','name','title'];",
-                                                            "var dataIndex = ['workstation.id','workstation.name','workstation.title'];",
-                                                            "",
-                                                            "var store = combo.getStore();",
-                                                            "var grid = combo.up().up();",
-                                                            "var gridView = grid.down('gridview');",
-                                                            "",
-                                                            "",
-                                                            "var selections = grid.getSelectionModel().getSelection();",
-                                                            "",
-                                                            "",
-                                                            "        console.log(selections[0].get('workstation.title'));",
-                                                            "        console.log(record.get('title'));",
-                                                            "",
-                                                            "        selections[0].set('workstation.title',record.get('title'));",
-                                                            "",
-                                                            "selections[0].set('sequence',999);",
-                                                            "",
-                                                            "",
-                                                            "        //grid.down('textfield[itemId=workstation_title]').setValue(store.getAt(index).get(storeField[2]));",
-                                                            "",
-                                                            "        console.log(dataIndex[2]+'------after set');",
-                                                            "        console.log(selections[0].get('workstation.title'));",
-                                                            "        console.log(record.get('title'));",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "/*",
-                                                            "for (var i = 0; i < dataIndex.length; i++) {",
-                                                            "\tconsole.log(dataIndex[i]+'------before set');",
-                                                            "    console.log(selections[0].get(dataIndex[i]));",
-                                                            "    console.log(store.getAt(index).get(storeField[i]));",
-                                                            "    ",
-                                                            "    selections[0].set(dataIndex[i], store.getAt(index).get(storeField[i]));",
-                                                            "    ",
-                                                            "    console.log(dataIndex[i]+'------after set');",
-                                                            "    console.log(selections[0].get(dataIndex[i]));",
-                                                            "    console.log(store.getAt(index).get(storeField[i]));",
-                                                            "}",
-                                                            "                      ",
-                                                            "*/",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "",
-                                                            "/*",
-                                                            "",
-                                                            "console.log(grid.getSelectionModel().getSelection()); //OK",
-                                                            "console.log(selections[0].get(dataIndex[1])); // OK",
-                                                            "console.log(store.getAt(index).get(storeField[1])); //OK",
-                                                            "",
-                                                            "*/",
-                                                            "",
-                                                            "//console.log(gridView.getSelectionModel().getSelections().get('itemId=Id'));",
-                                                            "",
-                                                            "    ",
-                                                            "//gridView.getSelectionModel().getSelection().get(').value = store.getAt(index).get(dataIndex[i]);",
-                                                            "    ",
-                                                            "    //console.log(dataIndex[0]);",
-                                                            "    //console.log(store.getAt(0).get(dataIndex[0]));"
+                                                            ""
                                                         ],
                                                         "name": "beforeselect",
                                                         "scope": "me"
@@ -479,24 +415,10 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "workstation.title",
-                                        "text": "Workstation_title",
+                                        "text": "Workstation.title",
                                         "flex": 1
                                     },
-                                    "designerId": "cce3676a-3d68-40dd-b0bd-42dcc9c0e19e",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "editor",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "itemId": "workstation_title"
-                                            },
-                                            "designerId": "7d2bdd15-0f77-4fd4-8ca9-d2128aeee871"
-                                        }
-                                    ]
+                                    "designerId": "cce3676a-3d68-40dd-b0bd-42dcc9c0e19e"
                                 },
                                 {
                                     "type": "Ext.grid.plugin.RowEditing",
@@ -509,15 +431,6 @@
                                         "pluginId": "itemRouteEditPlugin"
                                     },
                                     "designerId": "7f938af9-c145-47bf-be23-7ae28675ab2a"
-                                },
-                                {
-                                    "type": "Ext.selection.RowModel",
-                                    "reference": {
-                                        "name": "selModel",
-                                        "type": "object"
-                                    },
-                                    "codeClass": "Ext.selection.RowModel",
-                                    "designerId": "1609f475-70b6-45b5-81f8-b051037d5a71"
                                 }
                             ]
                         }
