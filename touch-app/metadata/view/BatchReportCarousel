@@ -25,7 +25,7 @@
             "designerId": "1a3b1fa1-0609-4bbb-b8c9-4e517bea0a6a",
             "cn": [
                 {
-                    "type": "Ext.Panel",
+                    "type": "Ext.form.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -33,10 +33,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "title": "履歷查詢",
-                        "itemId": "ReportData",
-                        "layout": "vbox"
+                        "itemId": "reportData"
                     },
-                    "designerId": "fee78c0f-0225-429d-911f-09b4c4215981",
+                    "designerId": "f270014c-f2a4-4b05-9276-d04474141f8b",
                     "cn": [
                         {
                             "type": "linkedinstance",
@@ -45,40 +44,85 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "designerId": "47c96fbb-1863-4721-ad6d-d578b400dce7",
+                            "designerId": "7e9bda9f-cf25-4aca-be4d-8b124eb7035f",
                             "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
                         },
                         {
-                            "type": "Ext.dataview.List",
+                            "type": "Ext.form.FieldSet",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
-                                "itemId": "reportbasicList",
-                                "store": "BatchStore"
+                                "itemId": "reportFieldset",
+                                "title": null
                             },
-                            "designerId": "38942c4b-e284-4899-b4ec-3d07b3b74247",
+                            "designerId": "ce07baf2-bd25-4c2d-9aa5-075ff077a702",
                             "cn": [
                                 {
-                                    "type": "Ext.XTemplate",
+                                    "type": "Ext.field.Text",
                                     "reference": {
-                                        "name": "itemTpl",
-                                        "type": "object"
+                                        "name": "items",
+                                        "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "implHandler": [
-                                            "<div>Id:{id}</div>",
-                                            "<div>Item_id:{item_id}</div>",
-                                            "<div>Name:{name}</div>",
-                                            "<div>ExpectQty:{expectQty}</div>"
-                                        ],
-                                        "designer|displayName": "itemTpl"
+                                        "itemId": "batchid",
+                                        "label": "Id:",
+                                        "labelWidth": 120,
+                                        "name": "id",
+                                        "readOnly": true
                                     },
-                                    "designerId": "c2dd59fa-d8e4-4810-aea6-5ee7fe5eb91c"
+                                    "designerId": "a3ff5aba-c99a-48a9-ad8f-37775bfa3fa2"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "btachitem",
+                                        "label": "Item_id:",
+                                        "labelWidth": 120,
+                                        "name": "item_id",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "dd2eda34-2ef8-4ee9-9fef-26f44c99ca09"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "batchname",
+                                        "label": "Name:",
+                                        "labelWidth": 120,
+                                        "name": "name",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "0ccda2d2-5801-4c10-aefc-7b3dd6d7d149"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "batchexpectQty",
+                                        "label": "ExpectQty:",
+                                        "labelWidth": 120,
+                                        "name": "expectQty",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "88f435ee-d17b-4275-ba21-f5b22cc144cc"
                                 }
                             ]
                         }

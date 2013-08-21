@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class OperationController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -14,20 +14,36 @@ class OperationController {
         params.max = Math.min(max ?: 10, 100)
         [operationInstanceList: Operation.list(params), operationInstanceTotal: Operation.count()]
     }
-
-    def create() {
-        [operationInstance: new Operation(params)]
+    
+     def listJson(Integer max) {
+        println"OperationController--listJson"
+        render (contentType: 'text/json') {
+            list(max)        
+        }
     }
 
-    def save() {
-        def operationInstance = new Operation(params)
-        if (!operationInstance.save(flush: true)) {
-            render(view: "create", model: [operationInstance: operationInstance])
-            return
-        }
+    def create() {
+        println"OperationController--create"
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'operation.label', default: 'Operation'), operationInstance.id])
-        redirect(action: "show", id: operationInstance.id)
+        def operationInstance=new Operation(params)
+        render (contentType: 'text/json') {
+            save(operationInstance);
+        }
+    }
+
+    def save(Operation operationInstance){
+        if (!operationInstance.validate()) {
+                operationInstance.errors.each {
+                println it
+            }
+            return [success:false]
+        }
+        if (!operationInstance.save(failOnError: true)) {//flush:true?
+                return [success:false]
+        }
+        else{
+                return [success:true]
+        }
     }
 
     def show(Long id) {
@@ -48,55 +64,44 @@ class OperationController {
             redirect(action: "list")
             return
         }
-
         [operationInstance: operationInstance]
     }
 
-    def update(Long id, Long version) {
-        def operationInstance = Operation.get(id)
-        if (!operationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "list")
-            return
+    def update(){
+        println"OperationController--update"
+        def operationInstance=Operation.get(params.id)
+
+        if(!operationInstance){
+            println"OperationController--update--cant find operationInstance"
+            return render (contentType: 'text/json') {[success:false]}
         }
 
-        if (version != null) {
-            if (operationInstance.version > version) {
-                operationInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'operation.label', default: 'Operation')] as Object[],
-                          "Another user has updated this Operation while you were editing")
-                render(view: "edit", model: [operationInstance: operationInstance])
-                return
+       operationInstance.properties = params
+        render (contentType: 'text/json') {
+            save(operationInstance);
+        }         
+    }
+
+    def delete(){
+        println"OperationController--delete"
+        def operationInstance=Operation.get(params.id)
+        if (!operationInstance) {
+            println"OperationController--delete--Cant find operationInstance"
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
+        }
+        try {
+            operationInstance.delete()
+            render (contentType: 'text/json') {
+                return [success:true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
             }
         }
 
-        operationInstance.properties = params
-
-        if (!operationInstance.save(flush: true)) {
-            render(view: "edit", model: [operationInstance: operationInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'operation.label', default: 'Operation'), operationInstance.id])
-        redirect(action: "show", id: operationInstance.id)
-    }
-
-    def delete(Long id) {
-        def operationInstance = Operation.get(id)
-        if (!operationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            operationInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "show", id: id)
-        }
     }
 }
