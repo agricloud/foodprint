@@ -195,7 +195,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "height": 250,
+                                "height": null,
                                 "itemId": "itemRouteGrid",
                                 "width": null,
                                 "designer|createAlias": "",
@@ -289,8 +289,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "dataIndex": "id",
-                                        "text": "Id",
+                                        "text": "ItemRoute_id",
                                         "flex": 1
                                     },
                                     "designerId": "d8750ad3-4d31-4e0a-a0b0-32893acb0a5a"
@@ -303,93 +304,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "dataIndex": "item.id",
-                                        "text": "Item",
+                                        "text": "Item_id",
                                         "flex": 1
                                     },
-                                    "designerId": "0488f28d-a2db-41a4-8c4f-694b80d05c2a",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "editor",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "editable": false,
-                                                "displayField": "title",
-                                                "hiddenName": null,
-                                                "store": "ItemStore",
-                                                "valueField": "id"
-                                            },
-                                            "designerId": "76f39f82-d443-47cb-971e-6557292e257d"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "item.id",
-                                        "text": "Item",
-                                        "flex": 1
-                                    },
-                                    "designerId": "9f197f0b-8740-492a-aab0-4f0342ff8498",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "editor",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "editable": false,
-                                                "displayField": "title",
-                                                "hiddenName": null,
-                                                "store": "ItemStore",
-                                                "valueField": "id"
-                                            },
-                                            "designerId": "e4737aa8-163a-44b7-958e-b6171d8ac5d5"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "item.id",
-                                        "text": "Item",
-                                        "flex": 1
-                                    },
-                                    "designerId": "a46222e7-5d9e-41b7-a9ea-9e1bffa86b43",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "editor",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "editable": false,
-                                                "displayField": "title",
-                                                "hiddenName": null,
-                                                "store": "ItemStore",
-                                                "valueField": "id"
-                                            },
-                                            "designerId": "708bd875-5bf5-4b82-89e4-2c3e199bd00c"
-                                        }
-                                    ]
+                                    "designerId": "0488f28d-a2db-41a4-8c4f-694b80d05c2a"
                                 },
                                 {
                                     "type": "Ext.grid.column.Number",
@@ -425,29 +345,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "workstation.id",
-                                        "text": "Workstation",
+                                        "hidden": true,
+                                        "dataIndex": "workstation.name",
+                                        "text": "Workstation_id",
                                         "flex": 1
                                     },
-                                    "designerId": "96e889eb-3ab1-4952-936e-93e9320482d8",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "editor",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "editable": false,
-                                                "displayField": "title",
-                                                "hiddenName": null,
-                                                "store": "WorkstationStore",
-                                                "valueField": "id"
-                                            },
-                                            "designerId": "529b9fe9-687a-4797-b1f1-5668b8c4cac7"
-                                        }
-                                    ]
+                                    "designerId": "96e889eb-3ab1-4952-936e-93e9320482d8"
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -457,8 +360,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "workstation.id",
-                                        "text": "Workstation",
+                                        "dataIndex": "workstation.name",
+                                        "text": "Workstation_name",
                                         "flex": 1
                                     },
                                     "designerId": "1780abbb-5dc0-4274-b7b4-1320627690b2",
@@ -472,12 +375,126 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "editable": false,
-                                                "displayField": "title",
+                                                "displayField": "name",
                                                 "hiddenName": null,
                                                 "store": "WorkstationStore",
-                                                "valueField": "id"
+                                                "valueField": "name"
                                             },
-                                            "designerId": "45af1de6-09d8-4583-aac0-bd6a23af4755"
+                                            "designerId": "45af1de6-09d8-4583-aac0-bd6a23af4755",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onComboboxBeforeSelect",
+                                                        "implHandler": [
+                                                            "// get store index, then set another combobox store.getAt(index).get('workstation.xxxx');",
+                                                            "",
+                                                            "",
+                                                            "var storeField = ['id','name','title'];",
+                                                            "var dataIndex = ['workstation.id','workstation.name','workstation.title'];",
+                                                            "",
+                                                            "var store = combo.getStore();",
+                                                            "var grid = combo.up().up();",
+                                                            "var gridView = grid.down('gridview');",
+                                                            "",
+                                                            "",
+                                                            "var selections = grid.getSelectionModel().getSelection();",
+                                                            "",
+                                                            "",
+                                                            "        console.log(selections[0].get('workstation.title'));",
+                                                            "        console.log(record.get('title'));",
+                                                            "",
+                                                            "        selections[0].set('workstation.title',record.get('title'));",
+                                                            "",
+                                                            "selections[0].set('sequence',999);",
+                                                            "",
+                                                            "",
+                                                            "        //grid.down('textfield[itemId=workstation_title]').setValue(store.getAt(index).get(storeField[2]));",
+                                                            "",
+                                                            "        console.log(dataIndex[2]+'------after set');",
+                                                            "        console.log(selections[0].get('workstation.title'));",
+                                                            "        console.log(record.get('title'));",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "/*",
+                                                            "for (var i = 0; i < dataIndex.length; i++) {",
+                                                            "\tconsole.log(dataIndex[i]+'------before set');",
+                                                            "    console.log(selections[0].get(dataIndex[i]));",
+                                                            "    console.log(store.getAt(index).get(storeField[i]));",
+                                                            "    ",
+                                                            "    selections[0].set(dataIndex[i], store.getAt(index).get(storeField[i]));",
+                                                            "    ",
+                                                            "    console.log(dataIndex[i]+'------after set');",
+                                                            "    console.log(selections[0].get(dataIndex[i]));",
+                                                            "    console.log(store.getAt(index).get(storeField[i]));",
+                                                            "}",
+                                                            "                      ",
+                                                            "*/",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            "/*",
+                                                            "",
+                                                            "console.log(grid.getSelectionModel().getSelection()); //OK",
+                                                            "console.log(selections[0].get(dataIndex[1])); // OK",
+                                                            "console.log(store.getAt(index).get(storeField[1])); //OK",
+                                                            "",
+                                                            "*/",
+                                                            "",
+                                                            "//console.log(gridView.getSelectionModel().getSelections().get('itemId=Id'));",
+                                                            "",
+                                                            "    ",
+                                                            "//gridView.getSelectionModel().getSelection().get(').value = store.getAt(index).get(dataIndex[i]);",
+                                                            "    ",
+                                                            "    //console.log(dataIndex[0]);",
+                                                            "    //console.log(store.getAt(0).get(dataIndex[0]));"
+                                                        ],
+                                                        "name": "beforeselect",
+                                                        "scope": "me"
+                                                    },
+                                                    "designerId": "479247ee-53b5-405f-8947-e80ee71ae191"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "workstation.title",
+                                        "text": "Workstation_title",
+                                        "flex": 1
+                                    },
+                                    "designerId": "cce3676a-3d68-40dd-b0bd-42dcc9c0e19e",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "editor",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "workstation_title"
+                                            },
+                                            "designerId": "7d2bdd15-0f77-4fd4-8ca9-d2128aeee871"
                                         }
                                     ]
                                 },
