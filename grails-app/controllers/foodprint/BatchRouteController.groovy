@@ -1,6 +1,7 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class BatchRouteController {
 
@@ -24,9 +25,9 @@ class BatchRouteController {
 
     def listJson(Integer max) {
         log.debug "${controllerName}-${actionName}"
-        render (contentType: 'text/json') {
-            list(max)
-        }
+        JSON.use('deep')
+        def converter=list() as JSON
+        converter.render(response)
     }
 
 
