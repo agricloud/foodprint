@@ -115,7 +115,8 @@
             "paths": [
                 "metadata/view/MainViewport",
                 "app/view/override/MainViewport.js",
-                "app/view/MainViewport.js"
+                "app/view/MainViewport.js",
+                "app/view/Viewport.js"
             ],
             "className": "MainViewport"
         },
@@ -190,14 +191,6 @@
                 "app/store/ItemStore.js"
             ],
             "className": "ItemStore"
-        },
-        "f8008bbc-7cfc-4204-a853-8ab698963ff1": {
-            "paths": [
-                "metadata/store/BatchChangeHistStore",
-                "app/store/override/BatchChangeHistStore.js",
-                "app/store/BatchChangeHistStore.js"
-            ],
-            "className": "BatchChangeHistStore"
         },
         "66fd7034-eaf8-47a2-95ef-0022e2f219a0": {
             "paths": [
@@ -327,14 +320,6 @@
             ],
             "className": "TrcRptStore"
         },
-        "63acbf68-4adb-464d-8ad1-97c84530d005": {
-            "paths": [
-                "metadata/store/batchTrcRptStore",
-                "app/store/override/batchTrcRptStore.js",
-                "app/store/batchTrcRptStore.js"
-            ],
-            "className": "batchTrcRptStore"
-        },
         "cacaa675-bcf1-4bc6-a580-889600ecf055": {
             "paths": [
                 "metadata/controller/LoginController",
@@ -462,22 +447,6 @@
                 "app/model/TrcRptRowImg.js"
             ],
             "className": "TrcRptRowImg"
-        },
-        "e0deb837-0336-4f40-8f37-425b4e6fb75f": {
-            "paths": [
-                "metadata/model/batchChangeHist",
-                "app/model/override/batchChangeHist.js",
-                "app/model/batchChangeHist.js"
-            ],
-            "className": "batchChangeHist"
-        },
-        "17524e62-3903-42d4-8aa4-c141ab913316": {
-            "paths": [
-                "metadata/model/batchTrcRpt",
-                "app/model/override/batchTrcRpt.js",
-                "app/model/batchTrcRpt.js"
-            ],
-            "className": "batchTrcRpt"
         },
         "c97cd047-0316-4065-921d-b7d3da08ddbc": {
             "paths": [
@@ -1076,54 +1045,6 @@
             ],
             "className": "OperationViewer"
         },
-        "741671be-e150-4fa0-b27e-7375ba263788": {
-            "paths": [
-                "metadata/view/WorkstationCombo",
-                "app/view/override/WorkstationCombo.js",
-                "app/view/WorkstationCombo.js"
-            ],
-            "className": "WorkstationCombo"
-        },
-        "3f228c53-fabc-4f54-9602-20702f73e1d2": {
-            "paths": [
-                "metadata/view/ParamCombo",
-                "app/view/override/ParamCombo.js",
-                "app/view/ParamCombo.js"
-            ],
-            "className": "ParamCombo"
-        },
-        "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d": {
-            "paths": [
-                "metadata/view/OperationCombo",
-                "app/view/override/OperationCombo.js",
-                "app/view/OperationCombo.js"
-            ],
-            "className": "OperationCombo"
-        },
-        "21115ea5-f2c9-4cac-9065-5e5f51e7fee8": {
-            "paths": [
-                "metadata/view/ReportCombo",
-                "app/view/override/ReportCombo.js",
-                "app/view/ReportCombo.js"
-            ],
-            "className": "ReportCombo"
-        },
-        "d14af9f3-35cb-4bf0-b10c-33a9c5bce761": {
-            "paths": [
-                "metadata/view/ItemCombo",
-                "app/view/override/ItemCombo.js",
-                "app/view/ItemCombo.js"
-            ],
-            "className": "ItemCombo"
-        },
-        "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f": {
-            "paths": [
-                "metadata/view/OperationEditor",
-                "app/view/override/OperationEditor.js",
-                "app/view/OperationEditor.js"
-            ],
-            "className": "OperationEditor"
-        },
         "7f0e49ec-2fe7-4921-834a-9827de6edeeb": {
             "paths": [
                 "metadata/view/OperationGrid",
@@ -1140,6 +1061,22 @@
             ],
             "className": "OperationEditorCt"
         },
+        "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f": {
+            "paths": [
+                "metadata/view/OperationEditor",
+                "app/view/override/OperationEditor.js",
+                "app/view/OperationEditor.js"
+            ],
+            "className": "OperationEditor"
+        },
+        "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c": {
+            "paths": [
+                "metadata/controller/OperationViewerController",
+                "app/controller/override/OperationViewerController.js",
+                "app/controller/OperationViewerController.js"
+            ],
+            "className": "OperationViewerController"
+        },
         "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38": {
             "paths": [
                 "metadata/controller/OperationEditorController",
@@ -1155,27 +1092,14 @@
                 "app/controller/OperationGridController.js"
             ],
             "className": "OperationGridController"
-        },
-        "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c": {
-            "paths": [
-                "metadata/controller/OperationViewerController",
-                "app/controller/override/OperationViewerController.js",
-                "app/controller/OperationViewerController.js"
-            ],
-            "className": "OperationViewerController"
         }
     },
     "viewOrderMap": {
         "view": [
             "551421d2-5677-41f8-9009-e5b695f59759",
-            "741671be-e150-4fa0-b27e-7375ba263788",
-            "3f228c53-fabc-4f54-9602-20702f73e1d2",
-            "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
-            "21115ea5-f2c9-4cac-9065-5e5f51e7fee8",
-            "d14af9f3-35cb-4bf0-b10c-33a9c5bce761",
-            "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f",
             "7f0e49ec-2fe7-4921-834a-9827de6edeeb",
             "1a6620cf-b9b5-476f-ad2e-8f7d1104a0d7",
+            "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f",
             "7a3ed10f-97ec-4c02-9998-871e2c4a6fa8",
             "d0628cea-93a5-448d-9e7c-18a3511fcca0",
             "4b33d0bd-1204-4ec5-b8b8-8465da75bf8a",
@@ -1186,8 +1110,8 @@
             "2c0cd414-78a3-47da-b3b9-4df678e9ef8c",
             "af88655b-8289-4ddf-8866-ac330249024a",
             "9ce72285-96c0-40e8-825e-ee52097566ec",
-            "96d32dea-d5eb-47ad-9681-086d2de7908c",
             "a8113645-ee09-4427-a371-b7ebde05e37e",
+            "96d32dea-d5eb-47ad-9681-086d2de7908c",
             "aca1cdcd-f2bc-4fcb-b22a-9224aecbeaf3",
             "0d1e180c-90d5-4066-b7ae-80def2594f38",
             "6a21aa5b-e61f-4b47-8fbb-5331a09533a0",
@@ -1238,7 +1162,6 @@
             "190eb12a-6ec2-4b1f-9b7b-9ede4ec181dd",
             "4dce03aa-6ba1-4934-aac2-f7587f3dd15a",
             "117130cd-a4be-4d3b-be93-15b1611ded32",
-            "f8008bbc-7cfc-4204-a853-8ab698963ff1",
             "66fd7034-eaf8-47a2-95ef-0022e2f219a0",
             "3644885f-c889-43fe-95b8-c53b5771f419",
             "c3da46d0-ef35-47f6-8f29-ff3407e2c5ce",
@@ -1251,7 +1174,6 @@
             "862b6b5b-8807-4ffe-9aab-4f8e37db9574",
             "edcde780-7a3a-44c6-b928-d0104835f76d",
             "2330387f-2cb2-40ab-882a-5781d2eef886",
-            "63acbf68-4adb-464d-8ad1-97c84530d005",
             "d7a5148f-1ffa-4d5d-9fc3-597c4bda58de",
             "083ae47e-d17d-4b42-a054-83fcdbfe91c3",
             "a6f685ed-8172-42fd-92da-fa27d64bb7a3",
@@ -1260,9 +1182,9 @@
             "37b0a532-a362-4d8c-823e-96cf0099a854"
         ],
         "controller": [
+            "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c",
             "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
             "cb761cdb-76d5-4fca-b043-8a96e7067a0c",
-            "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c",
             "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
             "cacaa675-bcf1-4bc6-a580-889600ecf055",
             "184c2517-e05b-4277-8738-1b38575d27dd",
@@ -1307,8 +1229,6 @@
             "6ac46e2e-572e-4f8a-9dc5-8170fcae81bf",
             "4fac3dfd-2e59-4e06-81e7-89e2823a6961",
             "46d97e53-88dc-459d-ae4a-bf2bf1d3e8f2",
-            "e0deb837-0336-4f40-8f37-425b4e6fb75f",
-            "17524e62-3903-42d4-8aa4-c141ab913316",
             "c97cd047-0316-4065-921d-b7d3da08ddbc",
             "3c3cb566-e0f7-4408-a60c-e73b1649b186",
             "63dca4c5-6510-43af-a9c0-a9d5bf1ae277",
