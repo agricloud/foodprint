@@ -25,7 +25,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
+                "layout|flex": 1,
                 "itemId": "id",
                 "fieldLabel": "id",
                 "name": "id",
@@ -41,7 +41,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
                 "itemId": "name",
                 "designer|displayName": "name",
                 "fieldLabel": "name",
@@ -58,7 +57,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
+                "layout|flex": 1,
                 "itemId": "dueDate",
                 "fieldLabel": "dueDate",
                 "name": "dueDate"
@@ -73,7 +72,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
+                "layout|flex": 1,
                 "itemId": "expectQty",
                 "fieldLabel": "expectQty",
                 "name": "expectQty",
@@ -89,7 +88,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
+                "layout|flex": 1,
                 "itemId": "item_id",
                 "designer|displayName": "",
                 "fieldLabel": "item_id",
@@ -102,6 +101,25 @@
                 "valueField": "id"
             },
             "designerId": "04bc0f92-7f69-4a17-8183-caff3cdce5c2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"View-batchForm.doDisplay\");",
+                    "this.loadRecord(record);"
+                ]
+            },
+            "designerId": "e1bd6028-6dde-418c-9996-5f6b9a7e2468"
         }
     ]
 }

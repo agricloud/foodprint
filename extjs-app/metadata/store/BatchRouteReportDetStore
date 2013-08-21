@@ -1,0 +1,187 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "model": null,
+        "storeId": "BatchRouteReportDetStore",
+        "designer|userClassName": "BatchRouteReportDetStore"
+    },
+    "designerId": "c4d94e6c-7dc4-49fc-99e5-8cb6b649cb83",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/batchReportDet/batchRouteReportDetListJson/"
+            },
+            "designerId": "00a7c44a-420c-4f6f-95bc-bec8c4577c25",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchRouteReportDetInstanceList",
+                        "totalProperty": "batchRouteReportDetInstanceTotal"
+                    },
+                    "designerId": "a5d15fe8-316d-4d8a-b541-76cb735e799c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "id"
+            },
+            "designerId": "697ab75d-c564-494f-8da3-d2a1c1bfd370"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "name",
+                "name": "name"
+            },
+            "designerId": "10dc6f48-29e3-4655-97c3-1f9de3368a6e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "value",
+                "name": "value"
+            },
+            "designerId": "a6b07733-a7c2-4dbc-8a74-ede2d9d5e499"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.id",
+                "name": "reportParams.id"
+            },
+            "designerId": "5b1466be-a27a-45ab-9345-76a7812d3507"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.id",
+                "name": "reportParams.param.id"
+            },
+            "designerId": "78feddc1-603b-4125-83a2-a805314ec785"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.title",
+                "name": "reportParams.param.title"
+            },
+            "designerId": "312bdd09-a112-4076-a325-643a5ed7f9d0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.paramType.name",
+                "name": "reportParams.param.paramType"
+            },
+            "designerId": "27f3b511-17a9-4f25-a0f2-f0fd4e2f974a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.param.defaultValue",
+                "name": "reportParams.param.defaultValue"
+            },
+            "designerId": "a5489119-3d4b-48f8-898a-548335c6bd07"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.workstation.id",
+                "name": "reportParams.workstation.id"
+            },
+            "designerId": "691c97ff-8f45-4012-9236-a389541f6ac5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.operation.id",
+                "name": "reportParams.operation.id"
+            },
+            "designerId": "bd9f9f98-0d2b-4ef4-af91-9a904824a6ed"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "reportParams.item.id",
+                "name": "reportParams.item.id"
+            },
+            "designerId": "09142e64-df93-4b9f-860f-39b478b2e36d"
+        }
+    ]
+}

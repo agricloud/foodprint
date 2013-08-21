@@ -8,7 +8,7 @@
     "userConfig": {
         "height": null,
         "itemId": "batchParamsEditor",
-        "width": null,
+        "width": 722,
         "designer|userClassName": "BatchParamsEditor",
         "designer|userAlias": "batchparamseditor",
         "activeTab": 0
@@ -81,59 +81,117 @@
                     "designerId": "042e3322-97d7-4492-96f9-91c35e50ff6c"
                 },
                 {
-                    "type": "linkedinstance",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": null,
-                        "layout|flex": null
+                        "layout|flex": 1,
+                        "height": 183,
+                        "itemId": "batchViewer",
+                        "title": null
                     },
-                    "designerId": "5e1df8cd-7ff6-40fe-a547-856679002feb",
-                    "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e",
+                    "designerId": "d519bc20-efb8-4fe1-b860-1be0a2cca689",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "linkedinstance",
                             "reference": {
-                                "name": "listeners",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onBatchViewerBeforeRender",
-                                "implHandler": [
-                                    "this.down('textfield[itemId=name]').setReadOnly(true);",
-                                    "this.down('datefield[itemId=dueDate]').setReadOnly(true);",
-                                    "this.down('numberfield[itemId=expectQty]').setReadOnly(true);",
-                                    "this.down('combobox[itemId=item_id]').setReadOnly(true);",
-                                    "",
-                                    "this.down('textfield[itemId=id]').allowBlank=true;",
-                                    "this.down('textfield[itemId=name]').allowBlank=true;",
-                                    "this.down('datefield[itemId=dueDate]').allowBlank=true;",
-                                    "this.down('numberfield[itemId=expectQty]').allowBlank=true;",
-                                    "this.down('combobox[itemId=item_id]').allowBlank=true;"
-                                ],
-                                "name": "beforerender",
-                                "scope": "me"
+                                "height": 164
                             },
-                            "designerId": "5e33414a-7acd-480e-9cf3-881b9932ae8c"
+                            "designerId": "1a01d490-815c-4afb-b5a9-3ecbb884d649",
+                            "masterInstanceId": "63255dc7-478d-4fd1-b4ec-d25eab28ea91"
                         }
                     ]
                 },
                 {
-                    "type": "linkedinstance",
+                    "type": "Ext.tab.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1
+                        "height": 376,
+                        "itemId": "batchParamsTp",
+                        "width": 722,
+                        "activeTab": 1
                     },
-                    "designerId": "be79ec63-8eb3-4414-819a-5c300f56ad5f",
-                    "masterInstanceId": "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b"
+                    "designerId": "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "itemId": "batchRouteCollect",
+                                "layout": "vbox",
+                                "title": "批號途程"
+                            },
+                            "designerId": "5b026e94-7399-44e4-9f7f-da73070b96bd",
+                            "cn": [
+                                {
+                                    "type": "Ext.tab.Tab",
+                                    "reference": {
+                                        "name": "tabConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "d6397ce0-5b1f-4d0c-bced-b0f97a264c1c"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": null,
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "feea775c-58e2-4d6c-a283-aa6d1050207f",
+                                    "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "itemId": "batchItemCollect",
+                                "layout": null,
+                                "title": "品項參數收集"
+                            },
+                            "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
+                            "cn": [
+                                {
+                                    "type": "Ext.tab.Tab",
+                                    "reference": {
+                                        "name": "tabConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "b4f36c84-db5f-4bb2-8b5f-9d923784c3c4"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

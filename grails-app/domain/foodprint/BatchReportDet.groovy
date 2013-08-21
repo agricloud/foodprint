@@ -32,5 +32,6 @@ class BatchReportDet {
 
     static constraints = {
     	batch(unique: ['reportParams'])
+    	value nullable:true
     }
 }
