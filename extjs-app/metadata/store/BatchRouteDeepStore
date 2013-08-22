@@ -1,0 +1,169 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "model": null,
+        "storeId": "MyJsonStore1",
+        "designer|userClassName": "BatchRouteDeepStore"
+    },
+    "designerId": "9eba278a-570a-4f41-ac61-5235f6026d63",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "id"
+            },
+            "designerId": "bf171c19-c68e-4c14-b8fc-817a16068c96"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "batch.id",
+                "name": "batch.id"
+            },
+            "designerId": "85867036-a25c-417d-a0e1-e0a2ef5a83b2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sequence"
+            },
+            "designerId": "d21a950e-f5b5-461f-bcfb-907a67fa9e8e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "operation.id",
+                "name": "operation.id"
+            },
+            "designerId": "a228ff97-459a-479b-a89c-2233d5e3b007"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "operation.name"
+            },
+            "designerId": "33f66151-f2ac-4e4c-b481-ed7dd3f3ffd3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "operation.title"
+            },
+            "designerId": "d2f8ac49-570d-46a8-9332-29e63dd774b2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "workstation.id",
+                "name": "workstation.id"
+            },
+            "designerId": "ccff3a67-0c63-4904-a7b7-3f2fc08a5809"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.name"
+            },
+            "designerId": "a6431d65-99f8-4c0a-a72f-33cc5c4a7073"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.title"
+            },
+            "designerId": "a5bb1cfe-50d7-47d3-ac0c-1643c86e2a9c"
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "sequence",
+                "designer|displayName": "sequence"
+            },
+            "designerId": "2432273f-a0b1-46ee-999c-c0ad6abbb8d5"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/batchRoute"
+            },
+            "designerId": "961057cf-d3ce-42eb-a118-8634d3f911de",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchRouteInstanceList",
+                        "totalProperty": "batchRouteInstanceTotal"
+                    },
+                    "designerId": "4023d079-8f29-45a9-b4bc-f830f1bbe0ee"
+                }
+            ]
+        }
+    ]
+}

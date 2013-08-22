@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ItemExtendController"
+        "designer|userClassName": "ItemRouteController"
     },
     "designerId": "b24020e6-ad72-4441-9806-60592407a713",
     "cn": [
@@ -18,19 +18,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "itemRouteDoCreate",
+                "fn": "itemRouteCreate",
                 "implHandler": [
                     "var viewer = this.getItemViewer();",
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
                     "var store = grid.getStore();",
                     "var form = viewer.down('form[itemId=itemForm]');",
                     "",
-                    "var itemId = form.down('numberfield[name=id]').getRawValue();",
+                    "var item_id = form.down('numberfield[name=id]').getValue();",
                     "var data = {",
-                    "    id:'',",
-                    "    'item.id':itemId,",
-                    "    sequence:store.getCount()+1,",
-                    "    'workstation.id':''",
+                    "    'item.id':item_id,",
+                    "    'sequence':store.getCount()+1",
                     "};",
                     "store.insert(store.getCount(),data);"
                 ]
@@ -45,7 +43,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "itemRouteDoDelete",
+                "fn": "itemRouteDelete",
                 "implHandler": [
                     "var viewer = this.getItemViewer();",
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
@@ -122,7 +120,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "itemRouteDoSave",
+                "fn": "itemRouteSave",
                 "implHandler": [
                     "var viewer = this.getItemViewer();",
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",

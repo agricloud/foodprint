@@ -22,25 +22,6 @@
     "designerId": "ccbd068c-0c2b-4308-acca-acbd5b788073",
     "cn": [
         {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doDisplay",
-                "designer|params": [
-                    "record"
-                ],
-                "implHandler": [
-                    "console.log(\"batchViewerCtrl.doDisplay\");",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);"
-                ]
-            },
-            "designerId": "f77313c4-f8df-4d6a-81f4-d4ca60875114"
-        },
-        {
             "type": "controllerref",
             "reference": {
                 "name": "items",
@@ -61,6 +42,25 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doDisplay",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "console.log(\"batchViewerCtrl.doDisplay\");",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);"
+                ]
+            },
+            "designerId": "f77313c4-f8df-4d6a-81f4-d4ca60875114"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "loadBatchRouteTemp",
                 "designer|params": [
                     "record"
@@ -69,10 +69,10 @@
                     "console.log(\"batchViewerCtrl.loadBatchRouteTemp\");",
                     "var grid = this.getBatchViewer().down('gridpanel[itemId=batchRouteGrid]');",
                     "var store = grid.getStore();",
-                    "var id =record.data.id;",
+                    "var batch_id =record.data.id;",
                     "store.data.clear();",
                     "store.load({",
-                    "    params:{'batch.id':id}",
+                    "    params:{'batch.id':batch_id}",
                     "});"
                 ]
             },

@@ -11,6 +11,9 @@ class BatchRouteController {
         redirect(action: "list", params: params)
     }
 
+    def show() {
+        log.debug "${controllerName}-${actionName}"
+    }
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -24,10 +27,16 @@ class BatchRouteController {
     }
 
     def listJson(Integer max) {
+        print 'aaa'
         log.debug "${controllerName}-${actionName}"
+        /*
         JSON.use('deep')
-        def converter=list() as JSON
+        def converter=list(max) as JSON
         converter.render(response)
+        */
+        render (contentType: 'text/json') {
+            list(max)
+        }
     }
 
 

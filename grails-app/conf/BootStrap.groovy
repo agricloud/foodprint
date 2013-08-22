@@ -16,9 +16,9 @@ class BootStrap {
 			}
 
 			development {
-				def item1 = new Item(name:"01",title:"柳丁").save(failOnError: true, flush: true)
-				def item2 = new Item(name:"02",title:"橘子").save(failOnError: true, flush: true)
-				def item3 = new Item(name:"03",title:"柚子").save(failOnError: true, flush: true)
+				def item1 = new Item(name:"item1",title:"柳丁").save(failOnError: true, flush: true)
+				def item2 = new Item(name:"item2",title:"橘子").save(failOnError: true, flush: true)
+				def item3 = new Item(name:"item3",title:"柚子").save(failOnError: true, flush: true)
 				def batch1 = new Batch(name:"batch1",item:item1).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
@@ -53,10 +53,10 @@ class BootStrap {
 				def batchReportDet101=new  BatchReportDet (batch:batch1,reportParams:reportparam101,value:"2.2222").save(failOnError: true, flush: true)
 				def batchReportDet102=new  BatchReportDet (batch:batch1,reportParams:reportparam102).save(failOnError: true, flush: true)
 
-				def itemRoute1=new ItemRoute(item:item1,sequence:1,workstation:workstation1,operation:operation1).save(failOnError: true, flush: true)
-				def itemRoute2=new ItemRoute(item:item1,sequence:2,workstation:workstation1,operation:operation2).save(failOnError: true, flush: true)
-				def itemRoute3=new ItemRoute(item:item1,sequence:3,workstation:workstation2,operation:operation3).save(failOnError: true, flush: true)
-				def itemRoute4=new ItemRoute(item:item1,sequence:4,workstation:workstation1,operation:operation4).save(failOnError: true, flush: true)
+				def itemRoute1=new ItemRoute(item:item1,sequence:1,operation:operation1,workstation:workstation1).save(failOnError: true, flush: true)
+				def itemRoute2=new ItemRoute(item:item1,sequence:2,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
+				def itemRoute3=new ItemRoute(item:item1,sequence:3,operation:operation3,workstation:workstation2).save(failOnError: true, flush: true)
+				def itemRoute4=new ItemRoute(item:item1,sequence:4,operation:operation4,workstation:workstation1).save(failOnError: true, flush: true)
 				
 				def batchRoute1=new BatchRoute(batch:batch1,workstation:workstation1,sequence:1,operation:operation1).save(failOnError: true,flush: true)
 				def batchRoute2=new BatchRoute(batch:batch1,workstation:workstation2,sequence:2,operation:operation2).save(failOnError: true,flush: true)

@@ -498,8 +498,7 @@
             "paths": [
                 "metadata/view/ItemEditorCt",
                 "app/view/override/ItemEditorCt.js",
-                "app/view/ItemEditorCt.js",
-                "app/view/Viewport.js"
+                "app/view/ItemEditorCt.js"
             ],
             "className": "ItemEditorCt"
         },
@@ -943,11 +942,11 @@
         },
         "b24020e6-ad72-4441-9806-60592407a713": {
             "paths": [
-                "metadata/controller/ItemExtendController",
-                "app/controller/override/ItemExtendController.js",
-                "app/controller/ItemExtendController.js"
+                "metadata/controller/ItemRouteController",
+                "app/controller/override/ItemRouteController.js",
+                "app/controller/ItemRouteController.js"
             ],
-            "className": "ItemExtendController"
+            "className": "ItemRouteController"
         },
         "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f": {
             "paths": [
@@ -1092,10 +1091,71 @@
                 "app/controller/OperationGridController.js"
             ],
             "className": "OperationGridController"
+        },
+        "21115ea5-f2c9-4cac-9065-5e5f51e7fee8": {
+            "paths": [
+                "metadata/view/ReportCombo",
+                "app/view/override/ReportCombo.js",
+                "app/view/ReportCombo.js"
+            ],
+            "className": "ReportCombo"
+        },
+        "3f228c53-fabc-4f54-9602-20702f73e1d2": {
+            "paths": [
+                "metadata/view/ParamCombo",
+                "app/view/override/ParamCombo.js",
+                "app/view/ParamCombo.js"
+            ],
+            "className": "ParamCombo"
+        },
+        "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d": {
+            "paths": [
+                "metadata/view/OperationCombo",
+                "app/view/override/OperationCombo.js",
+                "app/view/OperationCombo.js"
+            ],
+            "className": "OperationCombo"
+        },
+        "741671be-e150-4fa0-b27e-7375ba263788": {
+            "paths": [
+                "metadata/view/WorkstationCombo",
+                "app/view/override/WorkstationCombo.js",
+                "app/view/WorkstationCombo.js"
+            ],
+            "className": "WorkstationCombo"
+        },
+        "d14af9f3-35cb-4bf0-b10c-33a9c5bce761": {
+            "paths": [
+                "metadata/view/ItemCombo",
+                "app/view/override/ItemCombo.js",
+                "app/view/ItemCombo.js"
+            ],
+            "className": "ItemCombo"
+        },
+        "956969f3-4e49-4592-ae10-f7e11f6f6a85": {
+            "paths": [
+                "metadata/store/ItemRouteDeepStore",
+                "app/store/override/ItemRouteDeepStore.js",
+                "app/store/ItemRouteDeepStore.js"
+            ],
+            "className": "ItemRouteDeepStore"
+        },
+        "9eba278a-570a-4f41-ac61-5235f6026d63": {
+            "paths": [
+                "metadata/store/BatchRouteDeepStore",
+                "app/store/override/BatchRouteDeepStore.js",
+                "app/store/BatchRouteDeepStore.js"
+            ],
+            "className": "BatchRouteDeepStore"
         }
     },
     "viewOrderMap": {
         "view": [
+            "21115ea5-f2c9-4cac-9065-5e5f51e7fee8",
+            "3f228c53-fabc-4f54-9602-20702f73e1d2",
+            "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+            "741671be-e150-4fa0-b27e-7375ba263788",
+            "d14af9f3-35cb-4bf0-b10c-33a9c5bce761",
             "551421d2-5677-41f8-9009-e5b695f59759",
             "7f0e49ec-2fe7-4921-834a-9827de6edeeb",
             "1a6620cf-b9b5-476f-ad2e-8f7d1104a0d7",
@@ -1110,8 +1170,8 @@
             "2c0cd414-78a3-47da-b3b9-4df678e9ef8c",
             "af88655b-8289-4ddf-8866-ac330249024a",
             "9ce72285-96c0-40e8-825e-ee52097566ec",
-            "a8113645-ee09-4427-a371-b7ebde05e37e",
             "96d32dea-d5eb-47ad-9681-086d2de7908c",
+            "a8113645-ee09-4427-a371-b7ebde05e37e",
             "aca1cdcd-f2bc-4fcb-b22a-9224aecbeaf3",
             "0d1e180c-90d5-4066-b7ae-80def2594f38",
             "6a21aa5b-e61f-4b47-8fbb-5331a09533a0",
@@ -1155,6 +1215,8 @@
         "store": [
             "b21e384d-0bb6-4143-a6e9-65bc3c3fb49b",
             "d6e70edd-125f-47d8-9909-2be13f232330",
+            "956969f3-4e49-4592-ae10-f7e11f6f6a85",
+            "9eba278a-570a-4f41-ac61-5235f6026d63",
             "e4d94689-813a-4be2-a933-1339d3699499",
             "1480915b-f705-4a83-bbff-284577ee9639",
             "5c17924b-0e93-4975-bbd3-7502aa47263b",
@@ -1195,10 +1257,10 @@
             "8ac9ebae-a38b-4e19-97d2-b3f1939c275e",
             "ccbd068c-0c2b-4308-acca-acbd5b788073",
             "5dcf9a20-1e96-4e3c-824e-2f5a936cd04b",
+            "b45ae00c-f10f-4e06-afac-1db682d3ce23",
             "3108df2a-6163-414d-8730-490767127f63",
             "86a2642b-3fbc-4a52-90ac-1c99026ec748",
             "4b50304b-cb2e-4034-87c4-99ca0b663af9",
-            "b45ae00c-f10f-4e06-afac-1db682d3ce23",
             "f87f349d-8956-4370-a9ae-9d1ec3e4722d",
             "8b029e48-549a-43db-aa62-bede0c9c05bb",
             "5cef556b-0d95-4eb7-bc09-4be96672d130",
