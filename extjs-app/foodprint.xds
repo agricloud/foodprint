@@ -115,7 +115,8 @@
             "paths": [
                 "metadata/view/MainViewport",
                 "app/view/override/MainViewport.js",
-                "app/view/MainViewport.js"
+                "app/view/MainViewport.js",
+                "app/view/Viewport.js"
             ],
             "className": "MainViewport"
         },
@@ -190,14 +191,6 @@
                 "app/store/ItemStore.js"
             ],
             "className": "ItemStore"
-        },
-        "f8008bbc-7cfc-4204-a853-8ab698963ff1": {
-            "paths": [
-                "metadata/store/BatchChangeHistStore",
-                "app/store/override/BatchChangeHistStore.js",
-                "app/store/BatchChangeHistStore.js"
-            ],
-            "className": "BatchChangeHistStore"
         },
         "66fd7034-eaf8-47a2-95ef-0022e2f219a0": {
             "paths": [
@@ -327,14 +320,6 @@
             ],
             "className": "TrcRptStore"
         },
-        "63acbf68-4adb-464d-8ad1-97c84530d005": {
-            "paths": [
-                "metadata/store/batchTrcRptStore",
-                "app/store/override/batchTrcRptStore.js",
-                "app/store/batchTrcRptStore.js"
-            ],
-            "className": "batchTrcRptStore"
-        },
         "cacaa675-bcf1-4bc6-a580-889600ecf055": {
             "paths": [
                 "metadata/controller/LoginController",
@@ -463,22 +448,6 @@
             ],
             "className": "TrcRptRowImg"
         },
-        "e0deb837-0336-4f40-8f37-425b4e6fb75f": {
-            "paths": [
-                "metadata/model/batchChangeHist",
-                "app/model/override/batchChangeHist.js",
-                "app/model/batchChangeHist.js"
-            ],
-            "className": "batchChangeHist"
-        },
-        "17524e62-3903-42d4-8aa4-c141ab913316": {
-            "paths": [
-                "metadata/model/batchTrcRpt",
-                "app/model/override/batchTrcRpt.js",
-                "app/model/batchTrcRpt.js"
-            ],
-            "className": "batchTrcRpt"
-        },
         "c97cd047-0316-4065-921d-b7d3da08ddbc": {
             "paths": [
                 "metadata/model/BatchTrcRptCol",
@@ -529,7 +498,8 @@
             "paths": [
                 "metadata/view/ItemEditorCt",
                 "app/view/override/ItemEditorCt.js",
-                "app/view/ItemEditorCt.js"
+                "app/view/ItemEditorCt.js",
+                "app/view/Viewport.js"
             ],
             "className": "ItemEditorCt"
         },
@@ -589,11 +559,11 @@
         },
         "3c3cb566-e0f7-4408-a60c-e73b1649b186": {
             "paths": [
-                "metadata/model/Wroksation",
-                "app/model/override/Wroksation.js",
-                "app/model/Wroksation.js"
+                "metadata/model/Wrokstation",
+                "app/model/override/Wrokstation.js",
+                "app/model/Wrokstation.js"
             ],
-            "className": "Wroksation"
+            "className": "Wrokstation"
         },
         "955fa979-57b1-4db8-8c80-b7d0d4263102": {
             "paths": [
@@ -759,8 +729,7 @@
             "paths": [
                 "metadata/view/BatchParamsEditorCt",
                 "app/view/override/BatchParamsEditorCt.js",
-                "app/view/BatchParamsEditorCt.js",
-                "app/view/Viewport.js"
+                "app/view/BatchParamsEditorCt.js"
             ],
             "className": "BatchParamsEditorCt"
         },
@@ -1067,10 +1036,70 @@
                 "app/view/BatchParamsParamGrid.js"
             ],
             "className": "BatchParamsParamGrid"
+        },
+        "551421d2-5677-41f8-9009-e5b695f59759": {
+            "paths": [
+                "metadata/view/OperationViewer",
+                "app/view/override/OperationViewer.js",
+                "app/view/OperationViewer.js"
+            ],
+            "className": "OperationViewer"
+        },
+        "7f0e49ec-2fe7-4921-834a-9827de6edeeb": {
+            "paths": [
+                "metadata/view/OperationGrid",
+                "app/view/override/OperationGrid.js",
+                "app/view/OperationGrid.js"
+            ],
+            "className": "OperationGrid"
+        },
+        "1a6620cf-b9b5-476f-ad2e-8f7d1104a0d7": {
+            "paths": [
+                "metadata/view/OperationEditorCt",
+                "app/view/override/OperationEditorCt.js",
+                "app/view/OperationEditorCt.js"
+            ],
+            "className": "OperationEditorCt"
+        },
+        "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f": {
+            "paths": [
+                "metadata/view/OperationEditor",
+                "app/view/override/OperationEditor.js",
+                "app/view/OperationEditor.js"
+            ],
+            "className": "OperationEditor"
+        },
+        "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c": {
+            "paths": [
+                "metadata/controller/OperationViewerController",
+                "app/controller/override/OperationViewerController.js",
+                "app/controller/OperationViewerController.js"
+            ],
+            "className": "OperationViewerController"
+        },
+        "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38": {
+            "paths": [
+                "metadata/controller/OperationEditorController",
+                "app/controller/override/OperationEditorController.js",
+                "app/controller/OperationEditorController.js"
+            ],
+            "className": "OperationEditorController"
+        },
+        "cb761cdb-76d5-4fca-b043-8a96e7067a0c": {
+            "paths": [
+                "metadata/controller/OperationGridController",
+                "app/controller/override/OperationGridController.js",
+                "app/controller/OperationGridController.js"
+            ],
+            "className": "OperationGridController"
         }
     },
     "viewOrderMap": {
         "view": [
+            "551421d2-5677-41f8-9009-e5b695f59759",
+            "7f0e49ec-2fe7-4921-834a-9827de6edeeb",
+            "1a6620cf-b9b5-476f-ad2e-8f7d1104a0d7",
+            "f78f90a6-74b4-4d6b-abe4-46bc5e4b893f",
             "7a3ed10f-97ec-4c02-9998-871e2c4a6fa8",
             "d0628cea-93a5-448d-9e7c-18a3511fcca0",
             "4b33d0bd-1204-4ec5-b8b8-8465da75bf8a",
@@ -1133,7 +1162,6 @@
             "190eb12a-6ec2-4b1f-9b7b-9ede4ec181dd",
             "4dce03aa-6ba1-4934-aac2-f7587f3dd15a",
             "117130cd-a4be-4d3b-be93-15b1611ded32",
-            "f8008bbc-7cfc-4204-a853-8ab698963ff1",
             "66fd7034-eaf8-47a2-95ef-0022e2f219a0",
             "3644885f-c889-43fe-95b8-c53b5771f419",
             "c3da46d0-ef35-47f6-8f29-ff3407e2c5ce",
@@ -1146,7 +1174,6 @@
             "862b6b5b-8807-4ffe-9aab-4f8e37db9574",
             "edcde780-7a3a-44c6-b928-d0104835f76d",
             "2330387f-2cb2-40ab-882a-5781d2eef886",
-            "63acbf68-4adb-464d-8ad1-97c84530d005",
             "d7a5148f-1ffa-4d5d-9fc3-597c4bda58de",
             "083ae47e-d17d-4b42-a054-83fcdbfe91c3",
             "a6f685ed-8172-42fd-92da-fa27d64bb7a3",
@@ -1155,6 +1182,9 @@
             "37b0a532-a362-4d8c-823e-96cf0099a854"
         ],
         "controller": [
+            "6eb7cc7c-78c6-45f9-8c6d-8ad432e9901c",
+            "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
+            "cb761cdb-76d5-4fca-b043-8a96e7067a0c",
             "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
             "cacaa675-bcf1-4bc6-a580-889600ecf055",
             "184c2517-e05b-4277-8738-1b38575d27dd",
@@ -1199,8 +1229,6 @@
             "6ac46e2e-572e-4f8a-9dc5-8170fcae81bf",
             "4fac3dfd-2e59-4e06-81e7-89e2823a6961",
             "46d97e53-88dc-459d-ae4a-bf2bf1d3e8f2",
-            "e0deb837-0336-4f40-8f37-425b4e6fb75f",
-            "17524e62-3903-42d4-8aa4-c141ab913316",
             "c97cd047-0316-4065-921d-b7d3da08ddbc",
             "3c3cb566-e0f7-4408-a60c-e73b1649b186",
             "63dca4c5-6510-43af-a9c0-a9d5bf1ae277",
