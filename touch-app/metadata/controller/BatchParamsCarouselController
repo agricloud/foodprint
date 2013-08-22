@@ -31,7 +31,10 @@
                 "implHandler": [
                     "this.control({",
                     "    'batchparamscarousel searchfield[itemId=batchSearchField]':{",
-                    "        action:this.searchBatch",
+                    "        action:this.loadBatchRoute",
+                    "    },",
+                    "    'batchparamscarousel list[itemId=batchRouteList]':{",
+                    "        select:this.loadBatchRouteParams",
                     "    }",
                     "});"
                 ]
@@ -46,12 +49,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "searchBatch",
+                "fn": "loadBatchRoute",
                 "designer|params": [
                     "field, e, eOpts"
                 ],
                 "implHandler": [
-                    "",
+                    "console.log('BatchParamsCarouselController-loadBatchRoute');",
                     "this.getBatchRouteList().getStore().load({",
                     "    params:{",
                     "        'batch.id':field.getValue()",
@@ -70,6 +73,33 @@
                 ]
             },
             "designerId": "527edd63-f821-4a5e-96bc-802b6b267ddc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRouteParams",
+                "designer|params": [
+                    "list",
+                    "record",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "console.log('BatchParamsCarouselController-loadBatchRouteParams');",
+                    "",
+                    "console.log(this.getBatchParamsCarousel());",
+                    "console.log(",
+                    "\tthis.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]')",
+                    "",
+                    ");",
+                    ""
+                ]
+            },
+            "designerId": "f7ff9b9d-56ed-4319-8e05-c0dffe405135"
         },
         {
             "type": "controllerref",
