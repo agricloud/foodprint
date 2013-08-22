@@ -6,9 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "stores": [
-            "BatchRouteDeepStore"
-        ],
         "views": [
             "BatchParamsCarousel"
         ],
@@ -60,15 +57,6 @@
                     "        'batch.id':field.getValue()",
                     "    }",
                     "});",
-                    "//batchid=this.getBatchreportCarousel().down('searchfield[itemId=searchField]').getValue();",
-                    "",
-                    "//var that=this;",
-                    "",
-                    "//this.getBatchreportCarousel().down('list[itemId=reportbasicList]').getStore().load({",
-                    "//    url:'/rest/batch/'+batchid,",
-                    "//    callback:function(){",
-                    "//        that.showreport(batchid);",
-                    "//    }",
                     ""
                 ]
             },
@@ -91,12 +79,81 @@
                 "implHandler": [
                     "console.log('BatchParamsCarouselController-loadBatchRouteParams');",
                     "",
-                    "console.log(this.getBatchParamsCarousel());",
-                    "console.log(",
-                    "\tthis.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]')",
                     "",
-                    ");",
-                    ""
+                    "var store=Ext.getStore('BatchRouteParamsStore');",
+                    "console.log(store);",
+                    "store.getData().clear();",
+                    "",
+                    "var that=this;",
+                    "",
+                    "var thatStore=store;",
+                    "store.load({",
+                    "    params:{",
+                    "        //'batch.id':record.data['batch__id'],",
+                    "        //'operation.id':record.data['operation__id']",
+                    "        'batch.id':1,",
+                    "        'operation.id':4",
+                    "    },",
+                    "    callback:function(){",
+                    "",
+                    "        var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');",
+                    "",
+                    "        form.down('fieldset[itemId=dynamicFieldSet]').removeAll(); ",
+                    "        console.log(thatStore);",
+                    "",
+                    "        thatStore.each(function(item, index, length){",
+                    "            console.log(item);",
+                    "            console.log(index);",
+                    "            console.log(length);",
+                    "            console.log(thatStore.getAt(index).raw);",
+                    "            var field=null;",
+                    "",
+                    "            switch(store.getAt(i).data['reportParams__param__paramType']){",
+                    "                case \"INTEGER\":",
+                    "                field={",
+                    "                    xtype: 'numberfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"STRING\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"BOOLEAN\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"LIST\":",
+                    "                //field={",
+                    "                //    xtype: 'triggerfield'",
+                    "                //};",
+                    "                break;",
+                    "                default:",
+                    "                console.log('error: not defined paramType');",
+                    "                break;",
+                    "",
+                    "            }",
+                    "            console.log(field);",
+                    "            field.flex=1;",
+                    "            field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
+                    "            field.name = store.getAt(i).data['id'];",
+                    "",
+                    "            if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){",
+                    "                field.value=store.getAt(i).data['reportParams.param.defaultValue'];",
+                    "            }",
+                    "            else{",
+                    "                field.value=store.getAt(i).data['value'];",
+                    "            }",
+                    "",
+                    "            form.down('fieldset[itemId=dynamicFieldSet]').add(field); ",
+                    "        });",
+                    "",
+                    "        //that.getImageUploadForm().setDomainId(record.data['id']);",
+                    "        that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]');",
+                    "        //that.getImageUploadForm().showImage();",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "f7ff9b9d-56ed-4319-8e05-c0dffe405135"
@@ -139,6 +196,21 @@
                 "selector": "batchparamscarousel"
             },
             "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "//this.loadBatchRouteParams();//測試store問題用"
+                ]
+            },
+            "designerId": "51d49694-e887-4a14-8a24-f5a31d3e1cc8"
         }
     ]
 }
