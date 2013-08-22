@@ -372,11 +372,9 @@
                 "implHandler": [
                     "var viewer = this.getBatchViewer();",
                     "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
-                    "var editPlugin=grid.getPlugin('batchRouteEditPlugin');",
+                    "//var editPlugin=grid.getPlugin('editor');",
                     "//editPlugin.completeEdit();",
                     "",
-                    "//var sm = grid.getSelectionModel();",
-                    "//var id = sm.getSelection()[0].get('id');",
                     "var form = viewer.down('form');",
                     "var batch_id = form.down('numberfield[name=id]').getValue();",
                     "var store = grid.getStore();",

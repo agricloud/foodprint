@@ -9,6 +9,5 @@ class BatchRoute {
 	 
 
     static constraints = {
-    	operation nullable:true
     }
 }
