@@ -6,9 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "stores": [
-            "BatchRouteDeepStore"
-        ],
         "views": [
             "BatchParamsCarousel"
         ],
@@ -31,7 +28,10 @@
                 "implHandler": [
                     "this.control({",
                     "    'batchparamscarousel searchfield[itemId=batchSearchField]':{",
-                    "        action:this.searchBatch",
+                    "        action:this.loadBatchRoute",
+                    "    },",
+                    "    'batchparamscarousel list[itemId=batchRouteList]':{",
+                    "        select:this.loadBatchRouteParamsAjax",
                     "    }",
                     "});"
                 ]
@@ -46,30 +46,117 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "searchBatch",
+                "fn": "loadBatchRoute",
                 "designer|params": [
                     "field, e, eOpts"
                 ],
                 "implHandler": [
-                    "",
+                    "console.log('BatchParamsCarouselController-loadBatchRoute');",
                     "this.getBatchRouteList().getStore().load({",
                     "    params:{",
                     "        'batch.id':field.getValue()",
                     "    }",
                     "});",
-                    "//batchid=this.getBatchreportCarousel().down('searchfield[itemId=searchField]').getValue();",
-                    "",
-                    "//var that=this;",
-                    "",
-                    "//this.getBatchreportCarousel().down('list[itemId=reportbasicList]').getStore().load({",
-                    "//    url:'/rest/batch/'+batchid,",
-                    "//    callback:function(){",
-                    "//        that.showreport(batchid);",
-                    "//    }",
                     ""
                 ]
             },
             "designerId": "527edd63-f821-4a5e-96bc-802b6b267ddc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRouteParams",
+                "designer|params": [
+                    "list",
+                    "record",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "console.log('BatchParamsCarouselController-loadBatchRouteParams');",
+                    "",
+                    "",
+                    "var store=Ext.getStore('BatchRouteParamsStore');",
+                    "console.log(store);",
+                    "store.getData().clear();",
+                    "",
+                    "var that=this;",
+                    "",
+                    "var thatStore=store;",
+                    "store.load({",
+                    "    params:{",
+                    "        //'batch.id':record.data['batch__id'],",
+                    "        //'operation.id':record.data['operation__id']",
+                    "        'batch.id':1,",
+                    "        'operation.id':4",
+                    "    },",
+                    "    callback:function(){",
+                    "",
+                    "        var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');",
+                    "",
+                    "        form.down('fieldset[itemId=dynamicFieldSet]').removeAll(); ",
+                    "        console.log(thatStore);",
+                    "",
+                    "        thatStore.each(function(item, index, length){",
+                    "            console.log(item);",
+                    "            console.log(index);",
+                    "            console.log(length);",
+                    "            console.log(thatStore.getAt(index).raw);",
+                    "            var field=null;",
+                    "",
+                    "            switch(store.getAt(i).data['reportParams__param__paramType']){",
+                    "                case \"INTEGER\":",
+                    "                field={",
+                    "                    xtype: 'numberfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"STRING\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"BOOLEAN\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"LIST\":",
+                    "                //field={",
+                    "                //    xtype: 'triggerfield'",
+                    "                //};",
+                    "                break;",
+                    "                default:",
+                    "                console.log('error: not defined paramType');",
+                    "                break;",
+                    "",
+                    "            }",
+                    "            console.log(field);",
+                    "            field.flex=1;",
+                    "            field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
+                    "            field.name = store.getAt(i).data['id'];",
+                    "",
+                    "            if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){",
+                    "                field.value=store.getAt(i).data['reportParams.param.defaultValue'];",
+                    "            }",
+                    "            else{",
+                    "                field.value=store.getAt(i).data['value'];",
+                    "            }",
+                    "",
+                    "            form.down('fieldset[itemId=dynamicFieldSet]').add(field); ",
+                    "        });",
+                    "",
+                    "        //that.getImageUploadForm().setDomainId(record.data['id']);",
+                    "        that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]');",
+                    "        that.getImageUploadForm().showImage();",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "f7ff9b9d-56ed-4319-8e05-c0dffe405135"
         },
         {
             "type": "controllerref",
@@ -109,6 +196,110 @@
                 "selector": "batchparamscarousel"
             },
             "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "//this.loadBatchRouteParams();//測試store問題用"
+                ]
+            },
+            "designerId": "51d49694-e887-4a14-8a24-f5a31d3e1cc8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRouteParamsAjax",
+                "designer|params": [
+                    "list",
+                    "record",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "var that=this;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url:'/batchReportDet/batchRouteParamsListJson',",
+                    "    params:{",
+                    "        'batch.id':record.data['batch__id'],",
+                    "        'operation.id':record.data['operation__id']",
+                    "    },",
+                    "    callback:function(callback,success,data){",
+                    "",
+                    "        var jsondata=Ext.decode(data.responseText).batchRouteParamsInstanceList;",
+                    "",
+                    "        if(jsondata.length>0){",
+                    "",
+                    "            that.getBatchParamsCarousel().remove(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'),true);",
+                    "",
+                    "            that.getBatchParamsCarousel().add(Ext.widget('batchrouteparamspanel'));",
+                    "            var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');",
+                    "            for(var i=0; i<jsondata.length; i++){",
+                    "",
+                    "                var field=null;",
+                    "",
+                    "                switch(jsondata[i].reportParams.param.paramType.name){",
+                    "                    case \"INTEGER\":",
+                    "                    field={",
+                    "                        xtype: 'numberfield'",
+                    "                    };",
+                    "                    break;",
+                    "                    case \"STRING\":",
+                    "                    field={",
+                    "                        xtype: 'textfield'",
+                    "                    };",
+                    "                    break;",
+                    "                    case \"BOOLEAN\":",
+                    "                    field={",
+                    "                        xtype: 'textfield'",
+                    "                    };",
+                    "                    break;",
+                    "                    case \"LIST\":",
+                    "                    //field={",
+                    "                    //    xtype: 'triggerfield'",
+                    "                    //};",
+                    "                    break;",
+                    "                    default:",
+                    "                    console.log('error: not defined paramType');",
+                    "                    break;",
+                    "",
+                    "                }",
+                    "",
+                    "                field.flex=1;",
+                    "                field.label= jsondata[i].reportParams.param.title;",
+                    "                field.name = jsondata[i].id;",
+                    "                if(jsondata[i].value==null || jsondata[i].value==''){",
+                    "                    field.value=jsondata[i].reportParams.param.defaultValue;",
+                    "                }",
+                    "                else{",
+                    "                    field.value=jsondata[i].value;",
+                    "                }",
+                    "",
+                    "                form.down('fieldset[itemId=dynamicFieldSet]').add(field);",
+                    "                ",
+                    "            }//end for",
+                    "            //form.down('component[itemId=fileupload]').setDomainId(record.data['id']);",
+                    "            //form.down('component[itemId=fileupload').showImage();",
+                    "\t\t\tthat.getBatchParamsCarousel().setActiveItem(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'));",
+                    "",
+                    "        }//end if",
+                    "        ",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "29c4ee6a-508c-4eb3-82e9-9816509e35fc"
         }
     ]
 }
