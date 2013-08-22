@@ -7,14 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": null,
-        "itemId": "batchRouteGrid",
+        "itemId": "itemRouteGrid",
         "width": null,
-        "designer|userClassName": "BatchRouteGrid",
-        "designer|userAlias": "batchroutegrid",
-        "title": null,
-        "store": "BatchRouteDeepStore"
+        "designer|userClassName": "MyGridPanel",
+        "designer|userAlias": "mygridpanel",
+        "title": "",
+        "store": "ItemRouteDeepStore"
     },
-    "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
+    "designerId": "4bbbff03-906d-4de2-8127-93d78842ae49",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -23,24 +23,22 @@
                 "type": "object"
             },
             "codeClass": null,
-            "designerId": "dc846501-ccfc-41ba-bde2-600b52aaef14"
+            "designerId": "450da850-61f2-446b-8c3a-c295dcc4c6d0"
         },
         {
-            "type": "Ext.grid.column.Column",
+            "type": "Ext.grid.column.Number",
             "reference": {
                 "name": "columns",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
                 "dataIndex": "sequence",
-                "groupable": null,
-                "text": "sequence",
-                "flex": 1
+                "text": "Sequence",
+                "flex": 1,
+                "format": "0000"
             },
-            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816",
+            "designerId": "b8c86d4b-4e70-4287-90d0-c6d489a75c73",
             "cn": [
                 {
                     "type": "Ext.form.field.Number",
@@ -49,7 +47,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "77d641dc-c3a7-4451-a527-237056a3dc90"
+                    "designerId": "0943a68c-37b0-4259-9041-29d8a8f49a7a"
                 }
             ]
         },
@@ -61,14 +59,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
-                "dataIndex": "operation.id",
-                "groupable": null,
+                "dataIndex": "operaiton.id",
                 "text": "Operation_id",
                 "flex": 1
             },
-            "designerId": "880d0596-991e-4da2-9291-17759e41be0d"
+            "designerId": "a306c09f-5bef-467f-b63e-954f0c3adc4c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -78,12 +73,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 153,
-                "dataIndex": "operation.name",
+                "dataIndex": "operaiton.name",
                 "text": "Operation_name",
                 "flex": 1
             },
-            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d",
+            "designerId": "0e4828f5-7fad-4529-ad58-aa3ec34f78f2",
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -92,7 +86,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "d2b42cbe-8040-4c31-be83-e50eeab42c56",
+                    "designerId": "aff9d7cb-dd12-46e3-b5ff-2bbdf9fa1615",
                     "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
                 }
             ]
@@ -105,12 +99,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 148,
-                "dataIndex": "operation.title",
+                "dataIndex": "operaiton.title",
                 "text": "Operation_title",
                 "flex": 1
             },
-            "designerId": "9405d5c9-51b8-446c-a698-bb70ce3aa7db"
+            "designerId": "3ecbe1a5-cbe1-490a-b736-27a6bb13a585"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -120,14 +113,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 134,
-                "defaultWidth": null,
                 "dataIndex": "workstation.id",
-                "groupable": null,
                 "text": "Workstation_id",
                 "flex": 1
             },
-            "designerId": "5aed8711-0a9c-44de-bfc8-4f8fad5d86be"
+            "designerId": "1682e9c3-ad26-40ed-a100-dc4559168bee"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -137,12 +127,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 153,
                 "dataIndex": "workstation.name",
                 "text": "Workstation_name",
                 "flex": 1
             },
-            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b",
+            "designerId": "1780abbb-5dc0-4274-b7b4-1320627690b2",
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -151,7 +140,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "4a84d55f-e0ed-4334-9b6d-dfe3d14152b3",
+                    "designerId": "cbd40ed2-561f-4b23-8e1c-53423900ebae",
                     "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
                 }
             ]
@@ -164,21 +153,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "width": 148,
                 "dataIndex": "workstation.title",
                 "text": "Workstation_title",
                 "flex": 1
             },
-            "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
-        },
-        {
-            "type": "Ext.selection.RowModel",
-            "reference": {
-                "name": "selModel",
-                "type": "object"
-            },
-            "codeClass": "Ext.selection.RowModel",
-            "designerId": "252287cc-848c-4410-b263-34fdb2fb0aff"
+            "designerId": "cce3676a-3d68-40dd-b0bd-42dcc9c0e19e"
         },
         {
             "type": "Ext.grid.plugin.RowEditing",
@@ -188,10 +167,10 @@
             },
             "codeClass": "Ext.grid.plugin.RowEditing",
             "userConfig": {
-                "pluginId": "editor",
-                "designer|displayName": null
+                "pluginId": "itemRouteEditPlugin",
+                "designer|displayName": "itemRouteEditPlugin"
             },
-            "designerId": "e1c9340a-379e-4476-8636-2089ed152a81"
+            "designerId": "7f938af9-c145-47bf-be23-7ae28675ab2a"
         }
     ]
 }

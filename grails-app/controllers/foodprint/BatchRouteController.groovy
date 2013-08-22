@@ -27,16 +27,11 @@ class BatchRouteController {
     }
 
     def listJson(Integer max) {
-        print 'aaa'
         log.debug "${controllerName}-${actionName}"
-        /*
+        
         JSON.use('deep')
         def converter=list(max) as JSON
         converter.render(response)
-        */
-        render (contentType: 'text/json') {
-            list(max)
-        }
     }
 
 
