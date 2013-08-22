@@ -1,0 +1,103 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "hidden": false,
+        "itemId": "batchRouteParamsPanel",
+        "ui": "",
+        "designer|userClassName": "BatchRouteParamsPanel",
+        "designer|userAlias": "batchrouteparamspanel",
+        "hideOnMaskTap": false
+    },
+    "designerId": "fdf1ef19-e405-4579-b72c-2fe80af9a3cd",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "height": 10,
+                "title": "途程參數"
+            },
+            "designerId": "24b417d3-5c48-413d-bd18-8bc1bb8995ac"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": null,
+                "height": 411,
+                "itemId": "batchRouteParamsForm",
+                "ui": "dark",
+                "width": 318,
+                "layout": "vbox"
+            },
+            "designerId": "e9972572-18ab-4171-b58b-95d0e79a5522",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 227,
+                        "itemId": "dynamicFieldSet",
+                        "scrollable": "vertical",
+                        "title": null
+                    },
+                    "designerId": "401db005-ff65-473b-b31c-6f107cccad6d"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 112,
+                        "itemId": "staticFieldSet",
+                        "title": null
+                    },
+                    "designerId": "52f4fefa-873d-4458-beda-26ad3b7b1752",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "domainName": "batchRoute"
+                            },
+                            "designerId": "d35af57d-73c4-405c-acd4-1e43e03d80e8",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "domainName",
+                                    "type": "string"
+                                }
+                            ],
+                            "masterInstanceId": "3301c517-4286-430f-b49a-88dae4dcdd2b"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
