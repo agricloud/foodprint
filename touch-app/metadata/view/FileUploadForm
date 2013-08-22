@@ -1,0 +1,41 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "FileUploadForm",
+        "designer|userAlias": "fileuploadform",
+        "designer|initialView": true
+    },
+    "designerId": "fdc2e3bf-b272-4a40-b5ea-cdb0b00acdc3",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "console.log(\"test overrides\");",
+                    "this.callParent();"
+                ]
+            },
+            "designerId": "83c217b2-aa36-4f22-ad29-589f68eee034"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "3e2d66f6-a582-46af-abfa-f637f6f4d375"
+        }
+    ]
+}
