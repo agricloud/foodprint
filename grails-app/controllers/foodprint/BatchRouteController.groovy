@@ -44,7 +44,7 @@ class BatchRouteController {
         }
     }
 
-    def save() {
+    def save(BatchRoute batchRouteInstance) {
 	log.debug "${controllerName}-${actionName}"
 
 	if(!batchRouteInstance.validate()) { // validate id
@@ -92,7 +92,6 @@ class BatchRouteController {
             save(batchRouteInstance)
         }
     }
-
 
     def delete() {
         log.debug "${controllerName}-${actionName}"
