@@ -6,27 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
-        "models": [
-            "ItemRoute"
-        ],
         "stores": [
             "ItemRouteStore",
+            "BatchRouteParamsStore",
             "BatchRouteDeepStore",
-            "BatchRouteParamsStore"
+            "BatchStore"
         ],
         "views": [
-            "MainContainer",
-            "ReportParamsForm",
-            "BatchSearchField",
-            "SelectBatch",
-            "SelectBatchRoute",
-            "BatchRouteList",
+            "FileUploadPanel",
             "BatchRouteParamsPanel"
-            "FileUploadForm"
         ],
         "controllers": [
-            "BatchReportController",
-            "BatchParamsCarouselController"
+            "BatchParamsCarouselController",
+            "BatchReportController"
         ],
         "name": "foodprintTouch"
     },
@@ -41,12 +33,10 @@
             "codeClass": null,
             "userConfig": {
                 "paths": [
-                    "{",
-                    "   'Ext.ux': 'src/ux'",
-                    "}"
+                    "{\"Ext.ux\":\"src/ux\"}"
                 ]
             },
-            "designerId": "c8bf7acd-7626-4e53-bd9b-a900de93297b"
+            "designerId": "1a35b5fa-50ae-4ced-a67d-4397fa78f26a"
         }
     ]
 }

@@ -12,6 +12,13 @@
         "designer|userClassName": "BatchParamsCarouselController"
     },
     "designerId": "30293a04-a602-4dba-b2f0-15b6d75b8f38",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "ref",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "fixedfunction",
@@ -149,11 +156,15 @@
                     "            form.down('fieldset[itemId=dynamicFieldSet]').add(field); ",
                     "        });",
                     "",
-                    "        //that.getImageUploadForm().setDomainId(record.data['id']);",
-                    "        that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]');",
-                    "        that.getImageUploadForm().showImage();",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "f7ff9b9d-56ed-4319-8e05-c0dffe405135"
@@ -207,7 +218,10 @@
             "userConfig": {
                 "fn": "launch",
                 "implHandler": [
-                    "//this.loadBatchRouteParams();//測試store問題用"
+                    "//this.loadBatchRouteParams();//測試store問題用",
+                    "",
+                    "console.log(this.getBatchParamsCarousel());",
+                    ""
                 ]
             },
             "designerId": "51d49694-e887-4a14-8a24-f5a31d3e1cc8"
@@ -228,6 +242,10 @@
                 ],
                 "implHandler": [
                     "var that=this;",
+                    "",
+                    "",
+                    "",
+                    "",
                     "",
                     "Ext.Ajax.request({",
                     "    url:'/batchReportDet/batchRouteParamsListJson',",
@@ -287,19 +305,40 @@
                     "                }",
                     "",
                     "                form.down('fieldset[itemId=dynamicFieldSet]').add(field);",
-                    "                ",
+                    "",
                     "            }//end for",
                     "            //form.down('component[itemId=fileupload]').setDomainId(record.data['id']);",
                     "            //form.down('component[itemId=fileupload').showImage();",
-                    "\t\t\tthat.getBatchParamsCarousel().setActiveItem(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'));",
+                    "            that.getBatchParamsCarousel().setActiveItem(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'));",
+                    "",
+                    "",
+                    "            var fileUploadPanel= that.getBatchParamsCarousel().down('fileuploadpanel');",
+                    "",
+                    "            fileUploadPanel.setDomainId(record.data['batch__id']);",
+                    "            fileUploadPanel.showImage();            ",
                     "",
                     "        }//end if",
-                    "        ",
+                    "",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "29c4ee6a-508c-4eb3-82e9-9816509e35fc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteParamsPanel",
+                "selector": "batchrouteparamspanel"
+            },
+            "designerId": "d84aa26a-6174-4673-8f37-2c5c278acbc5"
         }
     ]
 }
