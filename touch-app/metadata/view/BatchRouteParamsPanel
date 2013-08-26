@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "control": null,
         "hidden": false,
         "itemId": "batchRouteParamsPanel",
         "ui": "",
@@ -13,7 +14,17 @@
         "designer|userAlias": "batchrouteparamspanel",
         "hideOnMaskTap": false
     },
+    "configAlternates": {
+        "control": "object"
+    },
     "designerId": "fdf1ef19-e405-4579-b72c-2fe80af9a3cd",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "control",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "Ext.Toolbar",
@@ -25,9 +36,20 @@
             "userConfig": {
                 "docked": "top",
                 "height": 10,
+                "itemId": null,
                 "title": "途程參數"
             },
             "designerId": "24b417d3-5c48-413d-bd18-8bc1bb8995ac"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "5f17277d-b342-4450-856a-7991cbd5bf87",
+            "masterInstanceId": "29ec5d48-9392-419f-a2fd-a425700b76fa"
         },
         {
             "type": "Ext.form.Panel",
@@ -73,29 +95,7 @@
                         "itemId": "staticFieldSet",
                         "title": null
                     },
-                    "designerId": "52f4fefa-873d-4458-beda-26ad3b7b1752",
-                    "cn": [
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "domainName": "batchRoute"
-                            },
-                            "designerId": "d35af57d-73c4-405c-acd4-1e43e03d80e8",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "domainName",
-                                    "type": "string"
-                                }
-                            ],
-                            "masterInstanceId": "3301c517-4286-430f-b49a-88dae4dcdd2b"
-                        }
-                    ]
+                    "designerId": "52f4fefa-873d-4458-beda-26ad3b7b1752"
                 }
             ]
         }

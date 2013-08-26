@@ -6,8 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
+        "stores": [
+            "BatchRouteDeepStore",
+            "BatchRouteParamsStore"
+        ],
         "views": [
-            "BatchParamsCarousel"
+            "BatchParamsCarousel",
+            "BatchRouteParamsPanel"
         ],
         "designer|userClassName": "BatchParamsCarouselController"
     },
@@ -32,6 +37,9 @@
                     "    },",
                     "    'batchparamscarousel list[itemId=batchRouteList]':{",
                     "        select:this.loadBatchRouteParamsAjax",
+                    "    },",
+                    "    'batchrouteparamspanel button[itemId=saveBtn]':{",
+                    "        tap:this.doSaveBatchRouteParamsForm",
                     "    }",
                     "});"
                 ]
@@ -198,21 +206,6 @@
             "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
         },
         {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "launch",
-                "implHandler": [
-                    "//this.loadBatchRouteParams();//測試store問題用"
-                ]
-            },
-            "designerId": "51d49694-e887-4a14-8a24-f5a31d3e1cc8"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -227,6 +220,7 @@
                     "eOpts"
                 ],
                 "implHandler": [
+                    "console.log('BatchParamsCarouselController-loadBatchRouteParamsAjax');",
                     "var that=this;",
                     "",
                     "Ext.Ajax.request({",
@@ -286,20 +280,87 @@
                     "                    field.value=jsondata[i].value;",
                     "                }",
                     "",
+                    "                field.listeners=[{",
+                    "                    fn: function(){",
+                    "                        this.setValue(null);",
+                    "                    },",
+                    "                    event: 'clearicontap'",
+                    "                }];",
+                    "",
                     "                form.down('fieldset[itemId=dynamicFieldSet]').add(field);",
-                    "                ",
+                    "",
                     "            }//end for",
                     "            //form.down('component[itemId=fileupload]').setDomainId(record.data['id']);",
                     "            //form.down('component[itemId=fileupload').showImage();",
-                    "\t\t\tthat.getBatchParamsCarousel().setActiveItem(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'));",
+                    "            that.getBatchParamsCarousel().setActiveItem(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'));",
                     "",
                     "        }//end if",
-                    "        ",
+                    "",
                     "    }",
                     "});"
                 ]
             },
             "designerId": "29c4ee6a-508c-4eb3-82e9-9816509e35fc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteParamsPanel",
+                "selector": "batchrouteparamspanel"
+            },
+            "designerId": "131c5aa6-6a3b-468c-9428-bcf2f8a2b8da"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "stdEditorToolbar",
+                "selector": "stdeditortoolbar"
+            },
+            "designerId": "75f32f67-76a5-4cae-9a02-2d8b864d54b9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSaveBatchRouteParamsForm",
+                "designer|params": [
+                    "btn, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log('BatchParamsCarouselController-doSaveBatchRouteParamsForm');",
+                    "",
+                    "console.log(this.getBatchRouteParamsPanel().down('formpanel[itemId=batchRouteParamsForm]'));",
+                    "",
+                    "this.getBatchRouteParamsPanel().down('formpanel[itemId=batchRouteParamsForm]').submit({",
+                    "    url: '/rest/batchReportDet',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        alert('儲存失敗');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "3c0550ff-776f-4f02-a7d5-48b60d5d4eb4"
         }
     ]
 }
