@@ -49,7 +49,7 @@
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
                     "var sm = grid.getSelectionModel();",
                     "",
-                    "editPlugin = grid.getPlugin('itemRouteEditPlugin');",
+                    "editPlugin = grid.getPlugin();",
                     "editPlugin.cancelEdit();",
                     "",
                     "store=grid.getStore();",
@@ -124,8 +124,8 @@
                 "implHandler": [
                     "var viewer = this.getItemViewer();",
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
-                    "//var editPlugin=grid.getPlugin('editor');",
-                    "//editPlugin.completeEdit();",
+                    "var editPlugin=grid.getPlugin();",
+                    "editPlugin.completeEdit();",
                     "",
                     "//var sm = grid.getSelectionModel();",
                     "//var id = sm.getSelection()[0].get('id');",
@@ -145,6 +145,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failed','資料儲存錯誤');",
                     "    }",
                     "});"
                 ]

@@ -52,6 +52,94 @@
                 "selector": "batchroutegrid"
             },
             "designerId": "ae0dbf7b-6f90-495d-88b6-7da08f6afd85"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteCreate",
+                "implHandler": [
+                    "var viewer = this.getBatchViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "var form = viewer.down('form[itemId=batchForm]');",
+                    "",
+                    "var batch_id = form.down('numberfield[name=id]').getValue();",
+                    "var data = {",
+                    "    'batch.id':batch_id,",
+                    "    'sequence':store.getCount()+1",
+                    "};",
+                    "store.insert(store.getCount(),data);"
+                ]
+            },
+            "designerId": "9f7ef25b-6d99-4e7c-9e5e-c883ed075a18"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteDelete",
+                "implHandler": [
+                    "var viewer = this.getBatchViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
+                    "var sm = grid.getSelectionModel();",
+                    "",
+                    "editPlugin = grid.getPlugin();",
+                    "console.log(editPlugin);",
+                    "editPlugin.cancelEdit();",
+                    "",
+                    "store=grid.getStore();",
+                    "store.remove(sm.getSelection());"
+                ]
+            },
+            "designerId": "1b16b68e-9c0e-4d3c-a3a7-a0678eee4182"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteSave",
+                "implHandler": [
+                    "var viewer = this.getBatchViewer();",
+                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
+                    "var editPlugin=grid.getPlugin();",
+                    "console.log(editPlugin);",
+                    "editPlugin.completeEdit();",
+                    "",
+                    "var form = viewer.down('form');",
+                    "var id = form.down('numberfield[name=id]').getValue();",
+                    "var store = grid.getStore();",
+                    "store.sync({",
+                    "    url: '/rest/batchRoute',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        store.data.clear();",
+                    "        store.load({",
+                    "            params:{'batch.id':id}",
+                    "        });",
+                    "    },",
+                    "    failure: function() {",
+                    "        Ext.MessageBox.alert('Failed','資料儲存錯誤');",
+                    "        console.log('Saving Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "bf20091b-a59c-4318-a671-b9962784080b"
         }
     ]
 }

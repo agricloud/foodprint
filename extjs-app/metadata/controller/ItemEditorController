@@ -6,8 +6,34 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "ItemImage",
+            "Operation",
+            "Item",
+            "Wrokstation",
+            "ItemRoute"
+        ],
+        "stores": [
+            "OperationStore",
+            "WorkstationStore",
+            "ItemStore",
+            "ItemRouteDeepStore",
+            "ItemImageStore"
+        ],
         "views": [
-            "ItemEditor"
+            "ItemGrid",
+            "imageUploadForm",
+            "CreateBtn",
+            "DeleteBtn",
+            "OperationCombo",
+            "SaveBtn",
+            "WorkstationCombo",
+            "ItemViewer",
+            "ItemEditor",
+            "ReadBtn",
+            "UpdateBtn",
+            "StdEditorToolbar",
+            "ItemEditorCt"
         ],
         "designer|userClassName": "ItemEditorController",
         "mixins": [
@@ -71,6 +97,19 @@
                 "selector": "itemviewer"
             },
             "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploadForm",
+                "selector": "itemeditorct imageuploadform"
+            },
+            "designerId": "0fc6b0c1-98d3-47f5-8a93-d5064adbf7b2"
         },
         {
             "type": "fixedfunction",
@@ -188,19 +227,6 @@
                 ]
             },
             "designerId": "61727132-7e2f-494b-a0b6-3e465816a053"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "imageUploadForm",
-                "selector": "itemeditorct imageuploadform"
-            },
-            "designerId": "0fc6b0c1-98d3-47f5-8a93-d5064adbf7b2"
         },
         {
             "type": "fixedfunction",
