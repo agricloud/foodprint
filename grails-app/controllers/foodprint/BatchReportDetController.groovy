@@ -99,9 +99,10 @@ class BatchReportDetController {
         log.debug "BatchReportDetController--update"
 
         def failure=[]
+        log.debug params
         params.each{
-
-            if(it.key!="action" && it.key!="controller"){
+            log.debug it
+            if(it.key!="_dc" && it.key!="action" && it.key!="controller"){
                 def batchReportDetInstance=BatchReportDet.get(it.key)
                 if (!batchReportDetInstance) {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
