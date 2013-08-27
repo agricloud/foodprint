@@ -248,7 +248,11 @@ Ext.define('Ext.ux.Fileup', {
         /**
          * @cfg {Array} defaultSuccessCodes Http response success codes
          */
-        defaultSuccessCodes: [200, 201]
+        defaultSuccessCodes: [200, 201],
+
+        domainName:'none',
+
+        domainId:-1
     },
     
     // @private
