@@ -32,6 +32,7 @@ Ext.define('foodprintTouch.view.override.FileUploadPanel', {
                             },
                             tap: function( btn, e, eOpts ){
                                 var uploadUrl=this.up().up().getUploadUrl();
+                                console.log(uploadUrl);
                                 btn.setUrl(uploadUrl);
                             
                             }
@@ -55,6 +56,7 @@ Ext.define('foodprintTouch.view.override.FileUploadPanel', {
                 height: 201
             }
         ]
+
     },
     showImage: function() {
         this.getComponent("mainImg").show();
@@ -100,7 +102,8 @@ Ext.define('foodprintTouch.view.override.FileUploadPanel', {
     },
     setDomainId: function(id){
         this.domainId=id;
+    },
+    setDomainName: function(name){
+        this.domainName=name;
     }
-    
-    
 });
