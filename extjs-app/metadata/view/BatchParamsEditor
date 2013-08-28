@@ -195,6 +195,29 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.items[0].title=foodprint.string.list;",
+                    "config.items[1].title=foodprint.string.basic;",
+                    "",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "3b513f8e-197f-4cbd-894c-6601672b3588"
         }
     ]
 }
