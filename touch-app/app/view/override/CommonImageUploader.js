@@ -8,9 +8,14 @@ Ext.define('foodprintTouch.view.override.CommonImageUploader', {
     domainName: 'none',
     
     config: {
+        layout: {
+            align: 'center',
+            type: 'vbox'
+        },
         items: [
 			{
                 xtype: 'segmentedbutton',
+                //docked: 'top',
                 items: [
                     {
                         xtype: 'fileupload',
@@ -53,7 +58,8 @@ Ext.define('foodprintTouch.view.override.CommonImageUploader', {
                 src:'',
                 itemId:'mainImg',
                 hidden:true,
-                height: 201
+                height: 150,
+                width: 310
             }
         ]
 
