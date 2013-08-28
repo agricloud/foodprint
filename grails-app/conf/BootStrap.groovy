@@ -68,6 +68,9 @@ class BootStrap {
 				
 				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)
 				def itemImage2 = new ItemImage(name:"itemImage2.jpg",item:item1).save(failOnError: true, flush: true)
+
+
+				def order=new CustomerOrder(name:'order1').save(failOnError: true, flush: true)
     	}
 			
 
