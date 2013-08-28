@@ -6,6 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "stores": [
+            "BatchRouteStore"
+        ],
+        "views": [
+            "BatchRouteGrid"
+        ],
         "designer|userClassName": "BatchRouteGridController",
         "designer|userAlias": null
     },
@@ -46,110 +52,6 @@
                 "selector": "batchroutegrid"
             },
             "designerId": "ae0dbf7b-6f90-495d-88b6-7da08f6afd85"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "batchRouteCreate",
-                "implHandler": [
-                    "var viewer = this.getBatchViewer();",
-                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
-                    "var store = grid.getStore();",
-                    "var form = viewer.down('form[itemId=batchForm]');",
-                    "",
-                    "var batch_id = form.down('numberfield[name=id]').getValue();",
-                    "var data = {",
-                    "    'batch.id':batch_id,",
-                    "    'sequence':store.getCount()+1",
-                    "};",
-                    "store.insert(store.getCount(),data);"
-                ]
-            },
-            "designerId": "58567fce-be4c-46ec-afa6-db4695b491cc"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "batchRouteDelete",
-                "implHandler": [
-                    "var viewer = this.getItemViewer();",
-                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
-                    "var sm = grid.getSelectionModel();",
-                    "",
-                    "editPlugin = grid.getPlugin();",
-                    "editPlugin.cancelEdit();",
-                    "",
-                    "store=grid.getStore();",
-                    "store.remove(sm.getSelection());"
-                ]
-            },
-            "designerId": "7d2df1fe-ac96-44a1-afdb-5dc9e661dbf2"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "batchRouteSave",
-                "implHandler": [
-                    "var viewer = this.getBatchViewer();",
-                    "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
-                    "var editPlugin=grid.getPlugin();",
-                    "editPlugin.completeEdit();",
-                    "",
-                    "//sequence = sm.getSelection()[0].get('sequence');",
-                    "var form = viewer.down('form');",
-                    "var id = form.down('numberfield[name=id]').getValue();",
-                    "var store = grid.getStore();",
-                    "",
-                    "var sm = grid.getSelectionModel();",
-                    "var sequence = true;",
-                    "var count = store.getCount();",
-                    "for (var i = 0; i < count; i++) {",
-                    "    for (var j = i + 1; j < count-i; j++) {",
-                    "        if (store.getAt(i).get('sequence')==store.getAt(j).get('sequence')){",
-                    "            sequence = false;",
-                    "            Ext.MessageBox.alert('Sequence重複','資料更新錯誤');",
-                    "            j = count;",
-                    "            i = count;",
-                    "        }",
-                    "    }",
-                    "}",
-                    "",
-                    "if (sequence == true){",
-                    "    store.sync({",
-                    "        url: '/rest/batchRoute',",
-                    "        waitMsg: 'Saving Data...',",
-                    "        success: function() {",
-                    "            console.log('Saving Success！');",
-                    "            Ext.MessageBox.alert('Success','資料更新完成');",
-                    "            store.data.clear();",
-                    "            store.load({",
-                    "                params:{'batch.id':id}",
-                    "            });",
-                    "        },",
-                    "        failure: function() {",
-                    "            console.log('Saving Failed！');",
-                    "            Ext.MessageBox.alert('Failed','資料儲存錯誤');",
-                    "        }",
-                    "    });",
-                    "}"
-                ]
-            },
-            "designerId": "8369c19e-f9df-4fc7-98b2-e63e8a1a9442"
         }
     ]
 }
