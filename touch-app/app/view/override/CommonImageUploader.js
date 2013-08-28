@@ -1,6 +1,6 @@
-Ext.define('foodprintTouch.view.override.FileUploadPanel', {
-    override: 'foodprintTouch.view.FileUploadPanel',
-	alias: 'widget.fileuploadpanel',
+Ext.define('foodprintTouch.view.override.CommonImageUploader', {
+    override: 'foodprintTouch.view.CommonImageUploader',
+	alias: 'widget.commonimageuploader',
     requires: [
        'Ext.ux.Fileup'
     ],
