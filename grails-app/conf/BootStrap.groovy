@@ -68,6 +68,10 @@ class BootStrap {
 				
 				def itemImage1 = new ItemImage(name:"itemImage1.jpg",item:item1).save(failOnError: true, flush: true)
 				def itemImage2 = new ItemImage(name:"itemImage2.jpg",item:item1).save(failOnError: true, flush: true)
+    				def user01 = new User(username: 'user01', password: 'user01', enabled: true).save(failOnError: true, flush: true)
+				def user02 = new User(username: 'user02', password: 'user02', enabled: true).save(failOnError: true, flush: true)
+				def user03 = new User(username: 'user03', password: 'user03', enabled: true).save(failOnError: true, flush: true)
+				def user04 = new User(username: 'user04', password: 'user04', enabled: true).save(failOnError: true, flush: true)
     	}
 			
 
