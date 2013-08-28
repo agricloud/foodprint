@@ -32,12 +32,14 @@ class ItemRouteController {
     */
     def listJson(Integer max) {
         log.debug "${controllerName}-${actionName}"
-        // JSON.use('deep')
-        // def converter=list() as JSON
-        // converter.render(response)
+        JSON.use('deep')
+        def converter=list(max) as JSON
+        converter.render(response)
+        /*
         render (contentType: 'text/json') {
             list(max)        
         }
+        */
     }
     /*
     def listJson(Integer max) {
