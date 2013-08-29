@@ -23,7 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "docked": null,
-                "itemId": "pp",
+                "itemId": null,
                 "ui": "",
                 "width": null,
                 "scrollable": "vertical"
@@ -68,6 +68,7 @@
                     "userConfig": {
                         "docked": "top",
                         "height": 386,
+                        "itemId": "mypanel1",
                         "layout": "vbox",
                         "scrollable": false
                     },
@@ -81,28 +82,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "commonSeclectBatchRoute"
+                                "itemId": "commonSelectBatchRoute"
                             },
                             "designerId": "e0d47f54-c7cc-4717-adc4-404927d1f6ed",
-                            "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onCommonSelectInitialize",
-                                        "implHandler": [
-                                            "console.log(111);"
-                                        ],
-                                        "name": "initialize"
-                                    },
-                                    "designerId": "d57e4d8e-f665-48fd-b221-81f3b25da79e"
-                                }
-                            ]
+                            "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
                         },
                         {
                             "type": "linkedinstance",
@@ -121,26 +104,26 @@
                             },
                             "designerId": "a0709ca3-4bfc-4dbf-9687-6065a430a044",
                             "masterInstanceId": "6b273a91-efef-4316-9344-0565c891c114"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onMypanel1Initialize",
+                                "implHandler": [
+                                    "component.down('toolbar[itemId=commonSelectBatchRoute]').down('button[itemId=commonBackBtn]').hide();"
+                                ],
+                                "name": "initialize"
+                            },
+                            "designerId": "40c1902c-8357-41aa-9b0f-f44b1e8884e1"
                         }
                     ]
                 }
             ]
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onBatchParamsCarouselInitialize",
-                "implHandler": [
-                    "console.log('car init');"
-                ],
-                "name": "initialize"
-            },
-            "designerId": "6c8493d1-1fc0-44bb-a71d-5f8ae87da3b9"
         }
     ]
 }
