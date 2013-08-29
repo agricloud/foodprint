@@ -23,6 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "docked": null,
+                "itemId": "pp",
                 "ui": "",
                 "width": null,
                 "scrollable": "vertical"
@@ -37,6 +38,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "commonSelectBatch",
                         "width": null
                     },
                     "designerId": "b8879331-4dde-46f2-a998-cfceb437e8d1",
@@ -79,10 +81,28 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "title": "選擇批號途程"
+                                "itemId": "commonSeclectBatchRoute"
                             },
-                            "designerId": "3967ce5b-92e6-4737-bcea-536fd0723021",
-                            "masterInstanceId": "fc492aef-d7cf-482d-bd4a-43484cfb6813"
+                            "designerId": "e0d47f54-c7cc-4717-adc4-404927d1f6ed",
+                            "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCommonSelectInitialize",
+                                        "implHandler": [
+                                            "console.log(111);"
+                                        ],
+                                        "name": "initialize"
+                                    },
+                                    "designerId": "d57e4d8e-f665-48fd-b221-81f3b25da79e"
+                                }
+                            ]
                         },
                         {
                             "type": "linkedinstance",
@@ -105,6 +125,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchParamsCarouselInitialize",
+                "implHandler": [
+                    "console.log('car init');"
+                ],
+                "name": "initialize"
+            },
+            "designerId": "6c8493d1-1fc0-44bb-a71d-5f8ae87da3b9"
         }
     ]
 }

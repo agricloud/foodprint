@@ -10,7 +10,7 @@
         "itemId": "commonSelect",
         "designer|userClassName": "CommonSeclect",
         "designer|userAlias": "commonselect",
-        "title": "選擇批號"
+        "title": "選擇"
     },
     "designerId": "3f757f81-11bf-4c43-98c5-60a32ee74532",
     "cn": [
@@ -37,13 +37,29 @@
                     "userConfig": {
                         "fn": "onCommonBackBtnTap",
                         "implHandler": [
-                            "history.go(0);"
+                            "//history.go(0);"
                         ],
                         "name": "tap"
                     },
                     "designerId": "e33afa42-4dec-466e-a41a-2ffa0b147b94"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonSelectInitialize",
+                "implHandler": [
+                    "console.log('toolbar init');"
+                ],
+                "name": "initialize"
+            },
+            "designerId": "9356b47c-61bc-49f1-af38-8295c1ff18df"
         }
     ]
 }
