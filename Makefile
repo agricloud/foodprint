@@ -96,3 +96,9 @@ extjsdeploy:
 
 extjsdone:
 	make extjsproduction extjsdeploy
+
+extjsclean:
+	rm -rf extjs-app/app
+	rm -rf touch-app/app
+	rm -rf web-app/development
+	rm -rf touch-app/touchDevelopment

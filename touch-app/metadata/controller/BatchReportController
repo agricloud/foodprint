@@ -33,9 +33,14 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batchreportcarousel searchfield[itemId=batchSearchField]':{",
+                    "    'batchreportcarousel searchfield[itemId=commonSearchField]':{",
                     "        action:this.dosearch",
-                    "    }",
+                    "    },",
+                    "    'batchreportcarousel button[itemId=commonBackBtn]':{",
+                    "        tap:function(){",
+                    "            history.go(0);",
+                    "        }",
+                    "    },",
                     "});"
                 ]
             },
@@ -64,7 +69,7 @@
             "userConfig": {
                 "fn": "dosearch",
                 "implHandler": [
-                    "batchid=this.getBatchreportCarousel().down('searchfield[itemId=batchSearchField]').getValue();",
+                    "batchid=this.getBatchreportCarousel().down('searchfield[itemId=commonSearchField]').getValue();",
                     "fieldset=this.getBatchreportCarousel().down('fieldset[itemId=reportFieldset]');",
                     "var that=this;",
                     "",

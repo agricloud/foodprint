@@ -7,7 +7,7 @@ class Customer {
 	String address=""
 
 
-    static constraints = {
-    	name unique:true
-    }
+    // static constraints = {
+    // 	name unique:true
+    // }
 }

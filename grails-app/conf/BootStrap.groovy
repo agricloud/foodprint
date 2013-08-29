@@ -70,6 +70,7 @@ class BootStrap {
 				
 				def cutstomer1 = new Customer(name:"cutstomer1",title:"A先生").save(failOnError: true, flush: true)
 				def cutstomer2 = new Customer(name:"cutstomer2",title:"B小姐").save(failOnError: true, flush: true)
+				def order=new CustomerOrder(name:'order1').save(failOnError: true, flush: true)
     	}
 			
 
