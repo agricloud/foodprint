@@ -85,7 +85,7 @@
                     "application"
                 ],
                 "implHandler": [
-                    "this.control({",
+                    "this.control({  ",
                     "    'usereditorct button[itemId=createBtn]':{",
                     "        click:this.doCreate",
                     "    },",
@@ -251,7 +251,7 @@
                     "        console.log('Updating Success！');",
                     "        Ext.MessageBox.alert('Success','資料更新完成');",
                     "        that.getUserGrid().getStore().load();",
-                    "        that.getUsernEditor().setActiveTab(that.getUserGrid().up());",
+                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
                     "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
@@ -272,7 +272,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onTabchange",
+                "fn": "onTabChange",
                 "designer|params": [
                     "tabPanel, newCard, oldCard, eOpts"
                 ],

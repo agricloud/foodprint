@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -22,20 +22,28 @@ class UserController {
         }
     }
 
-
     def create() {
-        [userInstance: new User(params)]
+        println"UserController--create"
+
+        def userInstance=new User(params)
+        render (contentType: 'text/json') {
+            save(userInstance);
+        }
     }
 
-    def save() {
-        def userInstance = new User(params)
-        if (!userInstance.save(flush: true)) {
-            render(view: "create", model: [userInstance: userInstance])
-            return
+    def save(User userInstance){
+        if (!userInstance.validate()) {
+                userInstance.errors.each {
+                println it
+            }
+            return [success:false]
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-        redirect(action: "show", id: userInstance.id)
+        if (!userInstance.save(failOnError: true)) {//flush:true?
+                return [success:false]
+        }
+        else{
+                return [success:true]
+        }
     }
 
     def show(Long id) {
@@ -60,15 +68,33 @@ class UserController {
         [userInstance: userInstance]
     }
 
+    def update(){
+        println"UserController--update"
+        def userInstance=User.get(params.id)
+
+        if(!userInstance){
+            println"UserController--update--cant find userInstance"
+            return render (contentType: 'text/json') {[success:false]}
+        }
+
+       userInstance.properties = params
+        render (contentType: 'text/json') {
+            save(userInstance);
+        }         
+    }
+/*
     def update(Long id, Long version) {
+        println"UserController--update"+"---"+id+"---"+version
         def userInstance = User.get(id)
         if (!userInstance) {
+            println"***1"
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
             return
         }
 
         if (version != null) {
+            println"***2"
             if (userInstance.version > version) {
                 userInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
                           [message(code: 'user.label', default: 'User')] as Object[],
@@ -81,6 +107,7 @@ class UserController {
         userInstance.properties = params
 
         if (!userInstance.save(flush: true)) {
+            println"***3"
             render(view: "edit", model: [userInstance: userInstance])
             return
         }
@@ -88,23 +115,28 @@ class UserController {
         flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
+    */
 
-    def delete(Long id) {
-        def userInstance = User.get(id)
+    def delete(){
+        println"UserController--delete"
+        def userInstance=User.get(params.id)
         if (!userInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "list")
-            return
+            println"UserController--delete--Cant find userInstance"
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
+        }
+        try {
+            userInstance.delete()
+            render (contentType: 'text/json') {
+                return [success:true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
         }
 
-        try {
-            userInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "show", id: id)
-        }
     }
 }
