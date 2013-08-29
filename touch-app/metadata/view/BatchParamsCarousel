@@ -21,14 +21,7 @@
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "docked": null,
-                "itemId": null,
-                "ui": "",
-                "width": null,
-                "scrollable": "vertical"
-            },
-            "designerId": "3dc5abcb-68af-44eb-b669-71f341cce81b",
+            "designerId": "c08037ff-edb2-4fe7-8b14-cd4ecadd1d94",
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -66,14 +59,26 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "top",
-                        "height": 386,
-                        "itemId": "mypanel1",
-                        "layout": "vbox",
-                        "scrollable": false
+                        "itemId": "mypanel6"
                     },
-                    "designerId": "65c27262-8fa7-4d35-a68b-84c3805036c1",
+                    "designerId": "7960cade-f314-4294-bac6-fb66b4719841",
                     "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onMypanel1Initialize",
+                                "implHandler": [
+                                    "component.down('toolbar[itemId=commonSelectBatchRoute]').down('button[itemId=commonSelectBackBtn]').hide();"
+                                ],
+                                "name": "initialize"
+                            },
+                            "designerId": "40c1902c-8357-41aa-9b0f-f44b1e8884e1"
+                        },
                         {
                             "type": "linkedinstance",
                             "reference": {
@@ -104,22 +109,6 @@
                             },
                             "designerId": "a0709ca3-4bfc-4dbf-9687-6065a430a044",
                             "masterInstanceId": "6b273a91-efef-4316-9344-0565c891c114"
-                        },
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onMypanel1Initialize",
-                                "implHandler": [
-                                    "component.down('toolbar[itemId=commonSelectBatchRoute]').down('button[itemId=commonSelectBackBtn]').hide();"
-                                ],
-                                "name": "initialize"
-                            },
-                            "designerId": "40c1902c-8357-41aa-9b0f-f44b1e8884e1"
                         }
                     ]
                 }

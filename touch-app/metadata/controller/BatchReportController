@@ -32,9 +32,10 @@
                     "application"
                 ],
                 "implHandler": [
+                    "",
                     "this.control({",
                     "    'batchreportcarousel searchfield[itemId=commonSearchField]':{",
-                    "        action:this.dosearch",
+                    "        action:this.doSearchBatchForm",
                     "    }",
                     "});"
                 ]
@@ -49,7 +50,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchreportCarousel",
+                "ref": "batchReportCarousel",
                 "selector": "batchreportcarousel"
             },
             "designerId": "2bdb0665-7ce0-496e-a893-9aa9d0582c90"
@@ -62,10 +63,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "dosearch",
+                "fn": "doSearchBatchForm",
                 "implHandler": [
-                    "batchid=this.getBatchreportCarousel().down('searchfield[itemId=commonSearchField]').getValue();",
-                    "fieldset=this.getBatchreportCarousel().down('fieldset[itemId=reportFieldset]');",
+                    "",
+                    "",
+                    "batchid=this.getBatchReportCarousel().down('searchfield[itemId=commonSearchField]').getValue();",
+                    "fieldset=this.getBatchReportCarousel().down('fieldset[itemId=reportFieldset]');",
                     "var that=this;",
                     "",
                     "Ext.Ajax.request({",
@@ -74,11 +77,11 @@
                     "    callback:function(callback,success,data){",
                     "        var batchdata=Ext.decode(data.responseText).batchInstanceList;",
                     "        console.log(batchdata);",
-                    "        that.getBatchreportCarousel().down('textfield[itemId=batchid]').setValue(batchdata.id);",
-                    "        that.getBatchreportCarousel().down('textfield[itemId=btachitem]').setValue(batchdata.item.id);",
-                    "        that.getBatchreportCarousel().down('textfield[itemId=batchname]').setValue(batchdata.name);",
-                    "        that.getBatchreportCarousel().down('textfield[itemId=batchexpectQty]').setValue(batchdata.expectQty);",
-                    "        that.showreport(batchid);",
+                    "        that.getBatchReportCarousel().down('textfield[itemId=batchid]').setValue(batchdata.id);",
+                    "        that.getBatchReportCarousel().down('textfield[itemId=btachitem]').setValue(batchdata.item.id);",
+                    "        that.getBatchReportCarousel().down('textfield[itemId=batchname]').setValue(batchdata.name);",
+                    "        that.getBatchReportCarousel().down('textfield[itemId=batchexpectQty]').setValue(batchdata.expectQty);",
+                    "        that.showReport(batchid);",
                     "    }",
                     "});",
                     ""
@@ -94,12 +97,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "showreport",
+                "fn": "showReport",
                 "designer|params": [
                     "batchid"
                 ],
                 "implHandler": [
-                    "var batchcarousel=this.getBatchreportCarousel();",
+                    "var batchcarousel=this.getBatchReportCarousel();",
                     "var that=this;",
                     "",
                     "",

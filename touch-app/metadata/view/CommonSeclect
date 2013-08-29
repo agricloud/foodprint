@@ -22,8 +22,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "commonSelectBackBtn",
-                "handler": null
+                "handler": null,
+                "itemId": "commonSelectBackBtn"
             },
             "configAlternates": {
                 "handler": "object"
@@ -48,7 +48,8 @@
                     "userConfig": {
                         "fn": "onCommonBackBtnTap",
                         "implHandler": [
-                            "history.go(0);"
+                            "history.go(0);",
+                            "console.log('history~~~~~~~~~~~~~~go');"
                         ],
                         "name": "tap",
                         "designer|targetType": "CommonBackBtn"
