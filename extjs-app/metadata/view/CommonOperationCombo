@@ -6,16 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "itemCombo",
-        "designer|userClassName": "ItemCombo",
-        "designer|userAlias": "itemcombo",
-        "editable": false,
+        "itemId": "commonOperationCombo",
+        "designer|userClassName": "CommonOperationCombo",
+        "designer|userAlias": "commonoperationcombo",
         "displayField": "name",
-        "hiddenName": null,
-        "store": "WorkstationStore",
+        "store": "OperationStore",
         "valueField": "name"
     },
-    "designerId": "d14af9f3-35cb-4bf0-b10c-33a9c5bce761",
+    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
     "cn": [
         {
             "type": "basiceventbinding",
@@ -25,9 +23,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onComboboxBeforeSelect1",
+                "fn": "onComboboxBeforeSelect",
                 "implHandler": [
-                    "var store = 'item';",
+                    "var store = 'operation';",
                     "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
                     "gridRecord.set(store+'.id',record.get('id'));",
                     "gridRecord.set(store+'.name',record.get('name'));",
@@ -36,7 +34,7 @@
                 "name": "beforeselect",
                 "scope": "me"
             },
-            "designerId": "96dc3cbc-5fa2-4173-aec4-2fe01de4a494"
+            "designerId": "1887f4cb-8958-4d74-bbeb-34aa2444c83e"
         }
     ]
 }

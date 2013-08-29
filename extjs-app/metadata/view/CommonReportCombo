@@ -6,16 +6,16 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "workstationCombo",
-        "designer|userClassName": "WorkstationCombo",
-        "designer|userAlias": "workstationcombo",
+        "itemId": "commonReportCombo",
+        "designer|userClassName": "CommonReportCombo",
+        "designer|userAlias": "commonreportcombo",
         "editable": false,
         "displayField": "name",
         "hiddenName": null,
         "store": "WorkstationStore",
         "valueField": "name"
     },
-    "designerId": "741671be-e150-4fa0-b27e-7375ba263788",
+    "designerId": "21115ea5-f2c9-4cac-9065-5e5f51e7fee8",
     "cn": [
         {
             "type": "basiceventbinding",
@@ -25,9 +25,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onComboboxBeforeSelect",
+                "fn": "onComboboxBeforeSelect1",
                 "implHandler": [
-                    "var store = 'workstation';",
+                    "var store = 'report';",
                     "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
                     "gridRecord.set(store+'.id',record.get('id'));",
                     "gridRecord.set(store+'.name',record.get('name'));",
@@ -36,7 +36,7 @@
                 "name": "beforeselect",
                 "scope": "me"
             },
-            "designerId": "479247ee-53b5-405f-8947-e80ee71ae191"
+            "designerId": "f4cbe3e6-f426-4fa3-bdf0-d988b2b8ab95"
         }
     ]
 }
