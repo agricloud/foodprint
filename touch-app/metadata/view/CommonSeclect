@@ -1,0 +1,49 @@
+{
+    "type": "Ext.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "docked": "top",
+        "itemId": "commonSelect",
+        "designer|userClassName": "CommonSeclect",
+        "designer|userAlias": "commonselect",
+        "title": "選擇批號"
+    },
+    "designerId": "3f757f81-11bf-4c43-98c5-60a32ee74532",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "commonbackbtn"
+            },
+            "designerId": "855d4b98-7ee1-4bda-99d6-8e168d36735c",
+            "masterInstanceId": "1f9254fd-780d-4718-8889-631cd08bd6f4",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCommonBackBtnTap",
+                        "implHandler": [
+                            " history.go(0);"
+                        ],
+                        "name": "tap"
+                    },
+                    "designerId": "e33afa42-4dec-466e-a41a-2ffa0b147b94"
+                }
+            ]
+        }
+    ]
+}

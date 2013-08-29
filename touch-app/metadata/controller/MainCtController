@@ -1,0 +1,139 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "MainCt"
+        ],
+        "designer|userClassName": "MainCtController"
+    },
+    "designerId": "ffd038eb-e0e5-4329-92b7-664ef47fbcdd",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'mainct button[itemId=batchReportMaintenBtn]':{",
+                    "        tap:function(){",
+                    "            this.getMainCt().removeAll();",
+                    "            this.getMainCt().add({xtype:'batchparamscarousel'});",
+                    "        }",
+                    "    },",
+                    "    'mainct button[itemId=batchReportBrowseBtn]':{",
+                    "        tap:function(){",
+                    "            this.getMainCt().removeAll();",
+                    "            this.getMainCt().add({xtype:'batchreportcarousel'});",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "d0ca46f0-9c90-4a53-a42c-0dc023731a27"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainCt",
+                "selector": "mainct"
+            },
+            "designerId": "a46fea5e-75be-418e-8227-4e4110ceacfe"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchReportCarousel",
+                "selector": "batchreportcarousel"
+            },
+            "designerId": "3caf920c-5718-4683-99c7-90d11a01253f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsCarousel",
+                "selector": "batchparamscarousel"
+            },
+            "designerId": "e40574b8-9b71-4b87-b27c-34b6f859f716"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteList",
+                "selector": "batchroutelist"
+            },
+            "designerId": "f03b032c-3158-4d1b-bcc5-d39faf0e315f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchSearchField",
+                "selector": "batchsearchfield"
+            },
+            "designerId": "2edf08d9-30b0-49f4-ae58-fcb6288a8744"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteParamsPanel",
+                "selector": "batchrouteparamspanel"
+            },
+            "designerId": "14bc11d1-e051-47a5-8c42-44afc56379e1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "stdEditorToolbar",
+                "selector": "stdeditortoolbar"
+            },
+            "designerId": "3ba9aaa0-4558-4da2-a992-a1fe55181cf8"
+        }
+    ]
+}

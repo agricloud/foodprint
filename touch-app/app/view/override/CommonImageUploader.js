@@ -1,6 +1,6 @@
-Ext.define('foodprintTouch.view.override.FileUploadPanel', {
-    override: 'foodprintTouch.view.FileUploadPanel',
-	alias: 'widget.fileuploadpanel',
+Ext.define('foodprintTouch.view.override.CommonImageUploader', {
+    override: 'foodprintTouch.view.CommonImageUploader',
+	alias: 'widget.commonimageuploader',
     requires: [
        'Ext.ux.Fileup'
     ],
@@ -8,9 +8,14 @@ Ext.define('foodprintTouch.view.override.FileUploadPanel', {
     domainName: 'none',
     
     config: {
+        layout: {
+            align: 'center',
+            type: 'vbox'
+        },
         items: [
 			{
                 xtype: 'segmentedbutton',
+                //docked: 'top',
                 items: [
                     {
                         xtype: 'fileupload',
@@ -53,7 +58,8 @@ Ext.define('foodprintTouch.view.override.FileUploadPanel', {
                 src:'',
                 itemId:'mainImg',
                 hidden:true,
-                height: 201
+                height: 150,
+                width: 310
             }
         ]
 
