@@ -55,7 +55,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "height": 385,
-                        "itemId": "reportData"
+                        "itemId": "batchForm",
+                        "modal": null
                     },
                     "designerId": "f270014c-f2a4-4b05-9276-d04474141f8b",
                     "cn": [
@@ -67,7 +68,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "reportFieldset",
+                                "itemId": null,
                                 "title": null
                             },
                             "designerId": "ce07baf2-bd25-4c2d-9aa5-075ff077a702",
@@ -96,10 +97,26 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "itemId": "btachitem",
+                                        "itemId": "batchname",
+                                        "label": "Name:",
+                                        "labelWidth": 120,
+                                        "name": "name",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "0ccda2d2-5801-4c10-aefc-7b3dd6d7d149"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "batchitem",
                                         "label": "Item_id:",
                                         "labelWidth": 120,
-                                        "name": "item_id",
+                                        "name": "item__id",
                                         "readOnly": true
                                     },
                                     "designerId": "dd2eda34-2ef8-4ee9-9fef-26f44c99ca09"
@@ -112,13 +129,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "itemId": "batchname",
-                                        "label": "Name:",
+                                        "itemId": "batchdueDate",
+                                        "label": "DueDate:",
                                         "labelWidth": 120,
-                                        "name": "name",
+                                        "name": "dueDate",
                                         "readOnly": true
                                     },
-                                    "designerId": "0ccda2d2-5801-4c10-aefc-7b3dd6d7d149"
+                                    "designerId": "f1b3219e-b02a-4f79-b647-6fdbcae34f44"
                                 },
                                 {
                                     "type": "Ext.field.Text",

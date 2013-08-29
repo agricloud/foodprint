@@ -78,6 +78,27 @@ class BatchReportDetController {
         converter.render(response)
     }
 
+    /**
+     * @param batch.id
+     * 找出指定批號所有的報表
+    **/
+    def batchReportList(){
+        log.debug "BatchRouteReportDetController--batchRouteReportDetList"
+        def batchInstance=Batch.get(params.batch.id)
+        def operationInstance=Operation.get(params.operation.id)
+        def batchRouteParamsInstance=BatchReportDet.findAll(){
+            batch==batchInstance && reportParams.operation==operationInstance
+        }
+        [batchRouteParamsInstanceList:batchRouteParamsInstance, batchRouteParamsInstanceTotal: batchRouteParamsInstance.size()]
+    }
+
+    def batchReportListJson(){
+        JSON.use('deep')
+        def converter=batchRouteParamsList() as JSON
+        converter.render(response)
+    }
+
+
     def save(BatchReportDet batchReportDetInstance){
         
         if (!batchReportDetInstance.validate()) {

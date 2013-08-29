@@ -1,0 +1,64 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyFormPanel7"
+    },
+    "designerId": "f32b0c07-865a-482e-b477-9ee30267f180",
+    "cn": [
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "label": "Field",
+                "name": "id"
+            },
+            "designerId": "456e34b5-78dd-4a4e-80d6-eb0264088be0"
+        },
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "label": "Field",
+                "name": "title"
+            },
+            "designerId": "662f79e2-5e30-4fd8-a7f2-13c54ee00a0d"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormpanelInitialize",
+                "implHandler": [
+                    "console.log('init');",
+                    "component.setRecord(Ext.getStore('TestStore').getAt(0));",
+                    "",
+                    "//Ext.getStore('TestStore').load({",
+                    "//    callback:function(record){",
+                    "//\tcomponent.setRecord(record);",
+                    "    //component.setRecord(Ext.getStore('BatchStore').getData());",
+                    "//\t}",
+                    "//});"
+                ],
+                "name": "initialize"
+            },
+            "designerId": "196e71ce-432f-4f78-a01e-652db15e000c"
+        }
+    ]
+}

@@ -64,11 +64,24 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doSearchBatchForm",
+                "designer|params": [
+                    "field, e, eOpts"
+                ],
                 "implHandler": [
+                    "var that=this;",
+                    "Ext.getStore('BatchFormStore').load({",
+                    "    params:{",
+                    "        id:field.getValue()",
+                    "    },",
+                    "    callback:function(records, operation, success){",
+                    "\t\tthat.getBatchReportCarousel().down('formpanel[itemId=batchForm]').setRecord(records[0]);",
+                    "    }",
+                    "    ",
+                    "});",
                     "",
-                    "",
+                    "/*",
                     "batchid=this.getBatchReportCarousel().down('searchfield[itemId=commonSearchField]').getValue();",
-                    "fieldset=this.getBatchReportCarousel().down('fieldset[itemId=reportFieldset]');",
+                    "",
                     "var that=this;",
                     "",
                     "Ext.Ajax.request({",
@@ -78,12 +91,14 @@
                     "        var batchdata=Ext.decode(data.responseText).batchInstanceList;",
                     "        console.log(batchdata);",
                     "        that.getBatchReportCarousel().down('textfield[itemId=batchid]').setValue(batchdata.id);",
-                    "        that.getBatchReportCarousel().down('textfield[itemId=btachitem]').setValue(batchdata.item.id);",
+                    "        that.getBatchReportCarousel().down('textfield[itemId=batchitem]').setValue(batchdata.item.id);",
                     "        that.getBatchReportCarousel().down('textfield[itemId=batchname]').setValue(batchdata.name);",
                     "        that.getBatchReportCarousel().down('textfield[itemId=batchexpectQty]').setValue(batchdata.expectQty);",
-                    "        that.showReport(batchid);",
+                    "        that.showBatchReport(batchid);",
                     "    }",
                     "});",
+                    "",
+                    "*/",
                     ""
                 ]
             },
@@ -97,7 +112,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "showReport",
+                "fn": "showBatchReport",
                 "designer|params": [
                     "batchid"
                 ],

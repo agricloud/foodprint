@@ -1,0 +1,43 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "Batch",
+        "storeId": "BatchFormStore",
+        "designer|userClassName": "BatchFormStore"
+    },
+    "designerId": "73349194-3935-45dd-9a78-a56261b8ef18",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/batch"
+            },
+            "designerId": "600b50ca-4751-483b-8d15-0b4db55201bd",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "batchInstanceList",
+                        "totalProperty": null
+                    },
+                    "designerId": "fba3d5a9-2757-4f06-8784-905ddb0b07ff"
+                }
+            ]
+        }
+    ]
+}
