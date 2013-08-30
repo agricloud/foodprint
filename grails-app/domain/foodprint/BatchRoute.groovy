@@ -2,12 +2,13 @@ package foodprint
 
 class BatchRoute {
 
-	Batch batch
+	static belongsTo=[batch:Batch]
 	Workstation workstation
 	Operation operation
 	int sequence
 	 
 
     static constraints = {
+    	sequence unique:true
     }
 }

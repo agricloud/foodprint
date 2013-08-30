@@ -79,4 +79,7 @@ class Item {
 		effectEndDate nullable: true
 		site nullable: true
 	}
+	public String toString(){
+    	"品項編號：${name},品項名稱：${title}"
+    }
 }

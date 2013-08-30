@@ -62,9 +62,13 @@ class CustomerController {
 
         if (version != null) {
             if (customerInstance.version > version) {
-                customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'customer.label', default: 'Customer')] as Object[],
-                          "Another user has updated this Customer while you were editing")
+                
+                customerInstance.errors.rejectValue(
+                    "version",
+                    "default.optimistic.locking.failure",
+                    [message(code: 'customer.label', default: 'Customer')] as Object[],
+                    "Another user has updated this Customer while you were editing")
+
                 render(view: "edit", model: [customerInstance: customerInstance])
                 return
             }
