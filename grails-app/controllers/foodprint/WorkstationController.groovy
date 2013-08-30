@@ -24,7 +24,7 @@ class WorkstationController {
     }
 
     def create(){
-        println"WorkstationController--create"
+        log.debug "${controllerName}-${actionName}"
 
         def workstationInstance=new Workstation(params)
         render (contentType: 'text/json') {
@@ -107,6 +107,6 @@ class WorkstationController {
                 return [success:false]
             }
         }
-
     }
+    
 }

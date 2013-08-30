@@ -10,7 +10,7 @@
         "itemId": "commonSelect",
         "designer|userClassName": "CommonSeclect",
         "designer|userAlias": "commonselect",
-        "title": "選擇批號"
+        "title": "選擇"
     },
     "designerId": "3f757f81-11bf-4c43-98c5-60a32ee74532",
     "cn": [
@@ -22,13 +22,24 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "commonbackbtn"
+                "itemId": "commonSelectBackBtn",
+                "handler": null
+            },
+            "configAlternates": {
+                "handler": "object"
             },
             "designerId": "855d4b98-7ee1-4bda-99d6-8e168d36735c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "handler",
+                    "type": "string"
+                }
+            ],
             "masterInstanceId": "1f9254fd-780d-4718-8889-631cd08bd6f4",
             "cn": [
                 {
-                    "type": "basiceventbinding",
+                    "type": "delegateeventbinding",
                     "reference": {
                         "name": "listeners",
                         "type": "array"
@@ -37,11 +48,12 @@
                     "userConfig": {
                         "fn": "onCommonBackBtnTap",
                         "implHandler": [
-                            " history.go(0);"
+                            "history.go(0);"
                         ],
-                        "name": "tap"
+                        "name": "tap",
+                        "designer|targetType": "CommonBackBtn"
                     },
-                    "designerId": "e33afa42-4dec-466e-a41a-2ffa0b147b94"
+                    "designerId": "15f9171a-83c8-413f-8175-84573c835dc2"
                 }
             ]
         }

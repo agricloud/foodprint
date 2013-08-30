@@ -23,6 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "docked": null,
+                "itemId": null,
                 "ui": "",
                 "width": null,
                 "scrollable": "vertical"
@@ -37,6 +38,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "commonSelectBatch",
                         "width": null
                     },
                     "designerId": "b8879331-4dde-46f2-a998-cfceb437e8d1",
@@ -66,6 +68,7 @@
                     "userConfig": {
                         "docked": "top",
                         "height": 386,
+                        "itemId": "mypanel1",
                         "layout": "vbox",
                         "scrollable": false
                     },
@@ -79,10 +82,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "title": "選擇批號途程"
+                                "itemId": "commonSelectBatchRoute"
                             },
-                            "designerId": "3967ce5b-92e6-4737-bcea-536fd0723021",
-                            "masterInstanceId": "fc492aef-d7cf-482d-bd4a-43484cfb6813"
+                            "designerId": "e0d47f54-c7cc-4717-adc4-404927d1f6ed",
+                            "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
                         },
                         {
                             "type": "linkedinstance",
@@ -101,6 +104,22 @@
                             },
                             "designerId": "a0709ca3-4bfc-4dbf-9687-6065a430a044",
                             "masterInstanceId": "6b273a91-efef-4316-9344-0565c891c114"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onMypanel1Initialize",
+                                "implHandler": [
+                                    "component.down('toolbar[itemId=commonSelectBatchRoute]').down('button[itemId=commonSelectBackBtn]').hide();"
+                                ],
+                                "name": "initialize"
+                            },
+                            "designerId": "40c1902c-8357-41aa-9b0f-f44b1e8884e1"
                         }
                     ]
                 }

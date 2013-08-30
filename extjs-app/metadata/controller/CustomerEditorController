@@ -1,0 +1,315 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Customer"
+        ],
+        "stores": [
+            "CustomerStore"
+        ],
+        "views": [
+            "CustomerEditorCt",
+            "CustomerEditor",
+            "CustomerViewer",
+            "CustomerGrid"
+        ],
+        "designer|userClassName": "CustomerEditorController"
+    },
+    "designerId": "2aa22532-98a4-4a3a-9084-9fe773fba44d",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "customerGrid",
+                "selector": "customergrid"
+            },
+            "designerId": "061836b2-84a6-40af-90a5-ca5091f4540b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "customerViewer",
+                "selector": "customerviewer"
+            },
+            "designerId": "3b2ea5ee-98f0-46c1-879e-74e253b809d2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "customerEditor",
+                "selector": "customereditor"
+            },
+            "designerId": "085531d0-1210-4bec-b5a5-97c3c1362f9b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "customerEditorCt",
+                "selector": "customereditorct"
+            },
+            "designerId": "f3db52ea-c615-4b60-8cfb-163abf6e9ab7"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'customereditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'customereditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'customereditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'customereditorct button[itemId=readBtn]':{",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'customereditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
+                    "    },",
+                    "    'customereditorct grid[itemId=customerGrid]':{",
+                    "        itemdblclick:this.readCustomer",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "27290149-f402-4307-ae65-b8658010fba5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readCustomer",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "var editor = this.getCustomerEditor();",
+                    "var viewer = this.getCustomerViewer();",
+                    "var form = viewer.down('form[itemId=customerForm]');",
+                    "var id =record.data.id;",
+                    "",
+                    "form.loadRecord(record);",
+                    "editor.setActiveTab(viewer.up());",
+                    "",
+                    "/*",
+                    "this.getCustomerEditor().setActiveTab(this.getCustomerViewer().up());",
+                    "",
+                    "console.log(record);",
+                    "this.doDisplay(record);",
+                    "*/",
+                    "this.getCustomerEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getCustomerEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getCustomerEditorCt().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getCustomerEditorCt().down('button[itemId=saveBtn]').setDisabled(true);"
+                ]
+            },
+            "designerId": "070d201b-2d8b-45a2-8f67-c37679ca5fa8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('CustomerEditorCtrl.doCreate');",
+                    "",
+                    "var form=this.getCustomerViewer().down('form[itemId=customerForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "this.getCustomerEditor().setActiveTab(this.getCustomerViewer().up());",
+                    ""
+                ]
+            },
+            "designerId": "c49081e1-9742-4b17-9177-556a5da4cd5e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"CustomerEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getCustomerViewer().down('form[itemId=customerForm]').submit({",
+                    "    url: '/rest/customer',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
+                    "        that.getCustomerGrid().getStore().load();",
+                    "        that.getCustomerEditor().setActiveTab(that.getCustomerGrid().up());",
+                    "        that.getCustomerViewer().down('form[itemId=customerForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
+                    "        that.getCustomerEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "713aac4b-2e3f-4f49-8bda-76aebb8ae1d8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"CustomerEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getCustomerViewer().down('form[itemId=customerForm]').submit({",
+                    "    url: '/rest/customer',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
+                    "        that.getCustomerGrid().getStore().load();",
+                    "        that.getCustomerEditor().setActiveTab(that.getCustomerGrid().up());",
+                    "        that.getCustomerViewer().down('form[itemId=customerForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
+                    "        that.getCustomerEditorCt().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "282db95e-55c8-4c43-9547-94218be77550"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('CustomerEditorCtrl.doUpdate');",
+                    "",
+                    "var that = this;",
+                    "var editor = that.getCustomerEditor();",
+                    "var grid = that.getCustomerGrid();",
+                    "var form = that.getCustomerViewer().down('form[itemId=customerForm]');",
+                    "form.submit({",
+                    "    url: '/rest/customer',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});",
+                    "",
+                    "/*",
+                    "var that=this;",
+                    "this.getCustomerViewer().down('form[itemId=customerForm]').submit({",
+                    "url: '/rest/customer',",
+                    "submitEmptyText: false,",
+                    "waitMsg: 'Updating Data...',",
+                    "method:'PUT',",
+                    "success: function() {",
+                    "console.log('Updating Success！');",
+                    "Ext.MessageBox.alert('Success','資料更新完成');",
+                    "that.getCustomerGrid().getStore().load();",
+                    "that.getCustomerEditor().setActiveTab(that.getCustomerGrid().up());",
+                    "that.getCustomerViewer().down('form[itemId=customerForm]').getForm().reset();",
+                    "},",
+                    "failure: function() {",
+                    "console.log('Updating Failed！');",
+                    "Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "that.getCustomerEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "}",
+                    "});",
+                    "*/"
+                ]
+            },
+            "designerId": "b0cc2dbf-27bf-4b1d-bc6b-19dab073545c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "this.getCustomerGrid().getStore().load();"
+                ]
+            },
+            "designerId": "b51393e4-999d-43f1-8c52-d7523c0d0f97"
+        }
+    ]
+}

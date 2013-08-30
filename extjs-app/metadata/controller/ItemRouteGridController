@@ -121,6 +121,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "itemRouteSave",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
                 "implHandler": [
                     "var viewer = this.getItemViewer();",
                     "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
@@ -143,10 +146,6 @@
                     "        success: function(rec, op) {",
                     "            console.log('Saving Success！');",
                     "            Ext.MessageBox.alert('Success','資料更新完成');",
-                    "            store.data.clear();",
-                    "            store.load({",
-                    "                params:{'item.id':id}",
-                    "            });",
                     "        },",
                     "        failure: function(batch) {",
                     "            console.log(batch.operations[0].request.scope.reader.jsonData[\"message\"]);",
