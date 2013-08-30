@@ -9,6 +9,6 @@ class BatchRoute {
 	 
 
     static constraints = {
-    	sequence unique:true
+    	sequence unique:'batch'
     }
 }
