@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "BatchRouteParamsForm"
+            "BatchRouteDeep",
+            "BatchReportDetDeep"
         ],
         "stores": [
             "BatchRouteDeepStore",
@@ -49,7 +50,12 @@
                     "    'batchparamscarousel list[itemId=batchRouteList]':{",
                     "        select:this.loadBatchRouteParams//Ajax",
                     "    },",
-                    "    'batchrouteparamspanel button[itemId=commonBackBtn]':{",
+                    "    '#selectBatchBackToolbar button[itemId=commonBackBtn]':{",
+                    "        tap:function(btn, e, eOpts){",
+                    "            history.go(0);",
+                    "        }",
+                    "    },",
+                    "    '#batchRouteParamsBackToolbar button[itemId=commonBackBtn]':{",
                     "        tap:function(btn, e, eOpts){",
                     "            this.getBatchParamsCarousel().previous();",
                     "        }",
@@ -246,7 +252,7 @@
                     "        'batch.id':record.data['batch__id'],",
                     "        'operation.id':record.data['operation__id']",
                     "    },",
-                    "    callback:function(){",
+                    "    callback:function(records, operation, success){",
                     "",
                     "        that.getBatchParamsCarousel().remove(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'),true);",
                     "",
@@ -311,7 +317,7 @@
                     "        commonImageUploader.setDomainId(record.data['id']);",
                     "        commonImageUploader.showImage();",
                     "",
-                    "    }//end if",
+                    "    }//end callback",
                     "});"
                 ]
             },

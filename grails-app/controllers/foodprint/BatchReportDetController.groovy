@@ -13,12 +13,12 @@ class BatchReportDetController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def batch_id=params.batchid
+        def batch_id=params.batch.id
         //print report_id
         def batchob=Batch.findById(batch_id,params);
         //print reportob
-        def resultList= BatchReportDet.findAllByBatch(batchob)
-        [batchReportDetInstanceList:resultList, batchReportDetInstanceTotal: BatchReportDet.count()]
+        def batchReportDetInstance= BatchReportDet.findAllByBatch(batchob)
+        [batchReportDetInstanceList:batchReportDetInstance, batchReportDetInstanceTotal: batchReportDetInstance.size()]
     }
 
     def listJson(Integer max) {
@@ -63,7 +63,7 @@ class BatchReportDetController {
      * 找出指定批號及途程中所有相關參數
     **/
     def batchRouteParamsList(){
-        log.debug "BatchRouteReportDetController--batchRouteReportDetList"
+        log.debug "BatchReportDetController--batchRouteParamsDetList"
         def batchInstance=Batch.get(params.batch.id)
         def operationInstance=Operation.get(params.operation.id)
         def batchRouteParamsInstance=BatchReportDet.findAll(){
@@ -80,21 +80,31 @@ class BatchReportDetController {
 
     /**
      * @param batch.id
-     * 找出指定批號所有的報表
+     * 找出指定批號所有的報表及對應參數
     **/
     def batchReportList(){
-        log.debug "BatchRouteReportDetController--batchRouteReportDetList"
+        log.debug "BatchReportDetController--batchReportList"
         def batchInstance=Batch.get(params.batch.id)
-        def operationInstance=Operation.get(params.operation.id)
-        def batchRouteParamsInstance=BatchReportDet.findAll(){
-            batch==batchInstance && reportParams.operation==operationInstance
+        def batchReportDetInstance=BatchReportDet.findAll(){
+           batch==batchInstance 
         }
-        [batchRouteParamsInstanceList:batchRouteParamsInstance, batchRouteParamsInstanceTotal: batchRouteParamsInstance.size()]
+
+        def reportInstance=batchReportDetInstance.reportParams*.report.unique()
+        def batchReportInstance=[]
+
+        reportInstance.each{ rept ->
+            
+            batchReportInstance.add([batchReport:rept, batchRepotDets:BatchReportDet.findAll(){
+                batch==batchInstance && reportParams.report==rept
+            }])
+        }
+
+        [batchReportInstanceList:batchReportInstance, batchReportInstanceTotal: batchReportInstance.size()]
     }
 
     def batchReportListJson(){
         JSON.use('deep')
-        def converter=batchRouteParamsList() as JSON
+        def converter=batchReportList() as JSON
         converter.render(response)
     }
 
