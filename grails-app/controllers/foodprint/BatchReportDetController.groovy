@@ -94,7 +94,7 @@ class BatchReportDetController {
 
         reportInstance.each{ rept ->
             
-            batchReportInstance.add([batchReport:rept, batchRepotDets:BatchReportDet.findAll(){
+            batchReportInstance.add([batchReport:rept, batchReportDets:BatchReportDet.findAll(){
                 batch==batchInstance && reportParams.report==rept
             }])
         }
