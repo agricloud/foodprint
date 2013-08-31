@@ -85,25 +85,25 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'operationeditorct button[itemId=createBtn]':{",
+                    "    'operationeditorct button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'operationeditorct button[itemId=deleteBtn]':{",
+                    "    'operationeditorct button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'operationeditorct button[itemId=saveBtn]':{",
+                    "    'operationeditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'operationeditorct button[itemId=readBtn]':{",
+                    "    'operationeditorct button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'operationeditorct button[itemId=updateBtn]':{",
+                    "    'operationeditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
-                    "    'operationeditorct grid[itemId=operationGrid]':{",
+                    "    'operationeditorct grid[itemId=commonOperationGrid]':{",
                     "        itemdblclick:this.readOperation",
                     "    },",
-                    "    'operationeditorct panel[itemId=operationEditor]':{",
+                    "    'operationeditorct panel[itemId=commonOperationEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    }",
                     "});"
@@ -129,10 +129,10 @@
                     "console.log(record);",
                     "this.doDisplay(record);",
                     "",
-                    "this.getOperationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getOperationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getOperationEditorct().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getOperationEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getOperationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getOperationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getOperationEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getOperationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "2a296c76-0e93-44b5-a234-94fe49ecdb03"
@@ -187,7 +187,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getOperationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -222,7 +222,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getOperationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -257,7 +257,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "        that.getOperationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -277,11 +277,11 @@
                     "tabPanel, newCard, oldCard, eOpts"
                 ],
                 "implHandler": [
-                    "var crebtn=this.getOperationEditorct().down('button[itemId=createBtn]');",
-                    "var delbtn=this.getOperationEditorct().down('button[itemId=deleteBtn]');",
-                    "var savbtn=this.getOperationEditorct().down('button[itemId=saveBtn]');",
-                    "var updbtn=this.getOperationEditorct().down('button[itemId=updateBtn]');",
-                    "var redbtn=this.getOperationEditorct().down('button[itemId=readBtn]');",
+                    "var crebtn=this.getOperationEditorct().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getOperationEditorct().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getOperationEditorct().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getOperationEditorct().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getOperationEditorct().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=opBrowse]')){",
                     "    delbtn.setDisabled(true);",

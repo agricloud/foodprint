@@ -113,31 +113,31 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    '#reportToolbar button[itemId=createBtn]':{",
+                    "    '#reportToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    '#reportToolbar button[itemId=deleteBtn]':{",
+                    "    '#reportToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    '#reportToolbar button[itemId=saveBtn]':{",
+                    "    '#reportToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    '#reportToolbar button[itemId=readBtn]':{",
+                    "    '#reportToolbar button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    '#reportToolbar button[itemId=updateBtn]':{",
+                    "    '#reportToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'reporteditorct grid[itemId=reportGrid]':{",
                     "        itemdblclick:this.readReport",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=createBtn]':{",
+                    "    '#reportparamsToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.paramsdoCreate",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=deleteBtn]':{",
+                    "    '#reportparamsToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.paramsdoDelete",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=saveBtn]':{",
+                    "    '#reportparamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.paramsdoSave",
                     "    }",
                     "});"
@@ -167,10 +167,10 @@
                     "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
                     "this.doDisplay(record);",
                     "",
-                    "this.getReportEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getReportEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getReportEditorct().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getReportEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getReportEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getReportEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
@@ -225,7 +225,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getReportEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -260,7 +260,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getReportEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getReportEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -295,7 +295,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getReportEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "        that.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
