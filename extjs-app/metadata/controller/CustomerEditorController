@@ -139,10 +139,10 @@
                     "console.log(record);",
                     "this.doDisplay(record);",
                     "*/",
-                    "this.getCustomerEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getCustomerEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getCustomerEditorCt().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getCustomerEditorCt().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getCustomerEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getCustomerEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getCustomerEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getCustomerEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "070d201b-2d8b-45a2-8f67-c37679ca5fa8"
@@ -197,7 +197,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getCustomerEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getCustomerEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -232,7 +232,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getCustomerEditorCt().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getCustomerEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -288,7 +288,7 @@
                     "failure: function() {",
                     "console.log('Updating Failed！');",
                     "Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "that.getCustomerEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "that.getCustomerEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "}",
                     "});",
                     "*/"
