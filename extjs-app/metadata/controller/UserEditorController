@@ -1,0 +1,304 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "UserEditor"
+        ],
+        "designer|userClassName": "UserEditorController",
+        "mixins": [
+            "{",
+            "UserViewerCtrl: 'foodprint.controller.UserViewerController',",
+            "UserGridCtrl: 'foodprint.controller.UserGridController'",
+            "}",
+            ""
+        ]
+    },
+    "designerId": "91aa0e65-9365-4ba6-a15d-9ab82902e7a6",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userViewer",
+                "selector": "userviewer"
+            },
+            "designerId": "530008b0-2c5f-4601-9788-40e46311939b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userGrid",
+                "selector": "usergrid"
+            },
+            "designerId": "a7454f3c-eb15-414a-a4ec-5fbeafa9667f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userEditor",
+                "selector": "usereditor"
+            },
+            "designerId": "382ac071-3ac6-4139-b64b-75b062ccc386"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userEditorct",
+                "selector": "usereditorct"
+            },
+            "designerId": "17a2bcf6-b638-49c0-9791-5a2fce1c5e64"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({  ",
+                    "    'usereditorct button[itemId=createBtn]':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'usereditorct button[itemId=deleteBtn]':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'usereditorct button[itemId=saveBtn]':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'usereditorct button[itemId=readBtn]':{",
+                    "        click:this.doRead",
+                    "    },",
+                    "    'usereditorct button[itemId=updateBtn]':{",
+                    "        click:this.doUpdate",
+                    "    },",
+                    "    'usereditorct grid[itemId=userGrid]':{",
+                    "        itemdblclick:this.readUser",
+                    "    },",
+                    "    'usereditorct panel[itemId=userEditor]':{",
+                    "        tabchange:this.onTabChange",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "0fab8cc7-e165-4dbd-9a6c-85302faa57c4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readUser",
+                "designer|params": [
+                    "obj,record,item,index,e,eOpts"
+                ],
+                "implHandler": [
+                    "this.getUserEditor().setActiveTab(this.getUserViewer().up());",
+                    "",
+                    "console.log(record);",
+                    "this.doDisplay(record);",
+                    "",
+                    "this.getUserEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "this.getUserEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "this.getUserEditorct().down('button[itemId=readBtn]').setDisabled(true);",
+                    "this.getUserEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                ]
+            },
+            "designerId": "5e27a84c-e4a9-4975-9cb3-5ac65d4c34c2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('userEditorCtrl.doCreate');",
+                    "",
+                    "var form=this.getUserViewer().down('form[itemId=userForm]').getForm();",
+                    "form.reset();",
+                    "",
+                    "this.getUserEditor().setActiveTab(this.getUserViewer().up());"
+                ]
+            },
+            "designerId": "1240cedc-e644-49ea-bc8c-2817b6590a12"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "console.log(\"userEditorCtrl.doDelete\");",
+                    "",
+                    "var that=this;",
+                    "",
+                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
+                    "    url: '/rest/user',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success！');",
+                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
+                    "        that.getUserGrid().getStore().load();",
+                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
+                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
+                    "        that.getUserEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "bcf6ddd4-d884-4d73-94d5-0cbdc1c755da"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log(\"userEditorCtrl.doSave\");",
+                    "",
+                    "var that=this;",
+                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
+                    "    url: '/rest/user',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
+                    "        that.getUserGrid().getStore().load();",
+                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
+                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
+                    "        that.getUserEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "6901bbf2-671c-4dcd-91d0-5c68153268b4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "console.log('userEditorCtrl.doUpdate');",
+                    "",
+                    "var that=this;",
+                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
+                    "    url: '/rest/user',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        that.getUserGrid().getStore().load();",
+                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
+                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "        that.getUserEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "f470ca2b-5660-4f13-8b78-4f4aff956bb7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tabPanel, newCard, oldCard, eOpts"
+                ],
+                "implHandler": [
+                    "var crebtn=this.getUserEditorct().down('button[itemId=createBtn]');",
+                    "var delbtn=this.getUserEditorct().down('button[itemId=deleteBtn]');",
+                    "var savbtn=this.getUserEditorct().down('button[itemId=saveBtn]');",
+                    "var updbtn=this.getUserEditorct().down('button[itemId=updateBtn]');",
+                    "var redbtn=this.getUserEditorct().down('button[itemId=readBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=userBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=userMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=userForm]').getForm().reset();",
+                    "}"
+                ]
+            },
+            "designerId": "9b3e641f-1fdc-4b09-822b-cca2a73a5a7b"
+        }
+    ]
+}

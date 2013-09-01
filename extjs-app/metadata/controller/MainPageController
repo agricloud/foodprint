@@ -15,7 +15,8 @@
             "ParamEditorCt",
             "BatchParamsEditorCt",
             "OperationEditorCt",
-            "MainViewport"
+            "MainViewport",
+            "UserEditorCt"
         ],
         "designer|userClassName": "MainPageController"
     },
@@ -68,6 +69,9 @@
                     "    },",
                     "    'maincontainer button[itemId=reportMaintain]':{",
                     "        click:this.reportMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=userMaintain]':{",
+                    "        click:this.userMaintain",
                     "    }",
                     "});"
                 ]
@@ -223,6 +227,23 @@
                 ]
             },
             "designerId": "07188dc5-2164-4dcb-bb32-94a25de15900"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "userMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'usereditorct';",
+                    "var tabName = '使用者維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
         }
     ]
 }
