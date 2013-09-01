@@ -6,6 +6,7 @@ import grails.converters.JSON
 class ItemRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+    def messageSource
 
     def index() {
         redirect(action: "list", params: params)
@@ -32,12 +33,14 @@ class ItemRouteController {
     */
     def listJson(Integer max) {
         log.debug "${controllerName}-${actionName}"
-        // JSON.use('deep')
-        // def converter=list() as JSON
-        // converter.render(response)
+        JSON.use('deep')
+        def converter=list(max) as JSON
+        converter.render(response)
+        /*
         render (contentType: 'text/json') {
             list(max)        
         }
+        */
     }
     /*
     def listJson(Integer max) {
@@ -59,15 +62,22 @@ class ItemRouteController {
 
     def save(ItemRoute itemRouteInstance) {
         log.debug "${controllerName}-${actionName}"
+        def errorsMsg=[]
+        // def locale = Locale.getDefault()
         if(!itemRouteInstance.validate()) { // validate id
-            itemRouteInstance.errors.each {
-               println it
+
+            itemRouteInstance.errors.allErrors.each{ 
+                println it as JSON
+                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success: false]
+            return [success: false,
+                    message: errorsMsg.join('<br>')]
         }
+
         if (!itemRouteInstance.save(failOnError: true)) {
             return [success: false]
         }
+
         else{
             // 顯示儲存後，傳入的 workstation_id
             //println "saved workstation_id: "+itemRouteInstance.workstation.id

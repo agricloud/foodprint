@@ -9,6 +9,7 @@
         "container|align": "stretch",
         "container|pack": "center",
         "height": null,
+        "hidden": false,
         "id": "batchRouteParamsWindow",
         "width": null,
         "designer|userClassName": "BatchRouteParamsWindow",
@@ -44,17 +45,17 @@
                 {
                     "type": "linkedinstance",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 34,
-                        "width": 384,
-                        "layout|flex": null
+                        "height": 49,
+                        "layout|flex": 1,
+                        "dock": "top"
                     },
-                    "designerId": "05f0b487-6cc0-43bc-a9f6-0e27d0f69a88",
-                    "masterInstanceId": "7a3ed10f-97ec-4c02-9998-871e2c4a6fa8"
+                    "designerId": "6775986c-a67b-4a11-ac2f-76480f54d1ee",
+                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
                 },
                 {
                     "type": "Ext.form.FieldContainer",
@@ -92,6 +93,31 @@
                         "fieldLabel": null
                     },
                     "designerId": "480def81-1019-4eb1-adac-5e881765c2ba"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onBatchRouteParamsFormRender",
+                        "implHandler": [
+                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonCreateBtn]').hide();",
+                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonDeleteBtn]').hide();",
+                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonReadBtn]').hide();",
+                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonUpdateBtn]').hide();",
+                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "name": "render",
+                        "scope": "me"
+                    },
+                    "designerId": "ae76bcf7-efaf-4b51-a543-5604de17ac9c"
                 }
             ]
         },
@@ -105,7 +131,7 @@
             "userConfig": {
                 "domainName": "batchRoute",
                 "height": 200,
-                "itemId": "imageUploadForm",
+                "itemId": "commonImageUploader",
                 "width": 252
             },
             "designerId": "dd41b7e1-a2cf-4202-8df5-8b8a3572e270",

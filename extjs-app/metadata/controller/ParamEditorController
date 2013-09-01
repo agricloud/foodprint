@@ -33,19 +33,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'parameditorct button[itemId=createBtn]':{",
+                    "    'parameditorct button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'parameditorct button[itemId=deleteBtn]':{",
+                    "    'parameditorct button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'parameditorct button[itemId=saveBtn]':{",
+                    "    'parameditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'parameditorct button[itemId=readBtn]':{",
+                    "    'parameditorct button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'parameditorct button[itemId=updateBtn]':{",
+                    "    'parameditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'parameditorct grid[itemId=paramGrid]':{",
@@ -129,10 +129,10 @@
                     "",
                     "this.doDisplay(record);",
                     "",
-                    "this.getParamEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getParamEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getParamEditorct().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getParamEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getParamEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getParamEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getParamEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getParamEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "42860764-2f2d-4bb6-8856-0d4571642cf0"
@@ -187,7 +187,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getParamEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getParamEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -222,7 +222,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getParamEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getParamEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -257,7 +257,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getParamEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "        that.getParamEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]

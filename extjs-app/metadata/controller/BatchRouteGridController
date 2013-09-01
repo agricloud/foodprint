@@ -6,6 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "stores": [
+            "BatchRouteStore"
+        ],
+        "views": [
+            "BatchRouteGrid"
+        ],
         "designer|userClassName": "BatchRouteGridController",
         "designer|userAlias": null
     },
@@ -62,15 +68,15 @@
                     "var store = grid.getStore();",
                     "var form = viewer.down('form[itemId=batchForm]');",
                     "",
-                    "var batch_id = form.down('numberfield[name=id]').getValue();",
+                    "var item_id = form.down('numberfield[name=id]').getValue();",
                     "var data = {",
-                    "    'batch.id':batch_id,",
+                    "    'item.id':item_id,",
                     "    'sequence':store.getCount()+1",
                     "};",
                     "store.insert(store.getCount(),data);"
                 ]
             },
-            "designerId": "58567fce-be4c-46ec-afa6-db4695b491cc"
+            "designerId": "b707152a-7c6d-45cc-a3ac-7547c8845223"
         },
         {
             "type": "basicfunction",
@@ -82,7 +88,7 @@
             "userConfig": {
                 "fn": "batchRouteDelete",
                 "implHandler": [
-                    "var viewer = this.getItemViewer();",
+                    "var viewer = this.getBatchViewer();",
                     "var grid = viewer.down('gridpanel[itemId=batchRouteGrid]');",
                     "var sm = grid.getSelectionModel();",
                     "",
@@ -93,7 +99,7 @@
                     "store.remove(sm.getSelection());"
                 ]
             },
-            "designerId": "7d2df1fe-ac96-44a1-afdb-5dc9e661dbf2"
+            "designerId": "365ed758-e1c6-48ca-9e34-1c6fe0afe065"
         },
         {
             "type": "basicfunction",
@@ -136,10 +142,6 @@
                     "        success: function() {",
                     "            console.log('Saving Success！');",
                     "            Ext.MessageBox.alert('Success','資料更新完成');",
-                    "            store.data.clear();",
-                    "            store.load({",
-                    "                params:{'batch.id':id}",
-                    "            });",
                     "        },",
                     "        failure: function() {",
                     "            console.log('Saving Failed！');",
@@ -149,7 +151,7 @@
                     "}"
                 ]
             },
-            "designerId": "8369c19e-f9df-4fc7-98b2-e63e8a1a9442"
+            "designerId": "1e7ea369-09cf-47d4-8c3c-0d822b498f5e"
         }
     ]
 }

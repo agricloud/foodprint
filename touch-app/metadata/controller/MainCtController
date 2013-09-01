@@ -1,0 +1,87 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "MainCt"
+        ],
+        "designer|userClassName": "MainCtController"
+    },
+    "designerId": "ffd038eb-e0e5-4329-92b7-664ef47fbcdd",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'mainct button[itemId=batchReportMaintenBtn]':{",
+                    "        tap:function(){",
+                    "            this.getMainCt().removeAll();",
+                    "            this.getMainCt().add({xtype:'batchparamscarousel'});",
+                    "        }",
+                    "    },",
+                    "    'mainct button[itemId=batchReportBrowseBtn]':{",
+                    "        tap:function(){",
+                    "            this.getMainCt().removeAll();",
+                    "            this.getMainCt().add({xtype:'batchreportcarousel'});",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "d0ca46f0-9c90-4a53-a42c-0dc023731a27"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainCt",
+                "selector": "mainct"
+            },
+            "designerId": "a46fea5e-75be-418e-8227-4e4110ceacfe"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchReportCarousel",
+                "selector": "batchreportcarousel"
+            },
+            "designerId": "72961abe-c3a3-44b6-bd83-804629b83833"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsCarousel",
+                "selector": "batchparamscarousel"
+            },
+            "designerId": "21823bf0-3360-441c-8f43-6787f00ed3b9"
+        }
+    ]
+}

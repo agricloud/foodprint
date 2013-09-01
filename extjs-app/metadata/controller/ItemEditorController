@@ -22,17 +22,10 @@
         ],
         "views": [
             "ItemGrid",
-            "imageUploadForm",
-            "CreateBtn",
-            "DeleteBtn",
-            "OperationCombo",
-            "SaveBtn",
-            "WorkstationCombo",
+            "CommonImageUploader",
+            "CommonOperationCombo",
             "ItemViewer",
             "ItemEditor",
-            "ReadBtn",
-            "UpdateBtn",
-            "StdEditorToolbar",
             "ItemEditorCt"
         ],
         "designer|userClassName": "ItemEditorController",
@@ -106,8 +99,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "imageUploadForm",
-                "selector": "itemeditorct imageuploadform"
+                "ref": "commonImageUploader",
+                "selector": "itemeditorct commonimageuploader"
             },
             "designerId": "0fc6b0c1-98d3-47f5-8a93-d5064adbf7b2"
         },
@@ -125,31 +118,31 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'itemeditorct button[itemId=createBtn]':{",
+                    "    'itemeditorct button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'itemeditorct button[itemId=deleteBtn]':{",
+                    "    'itemeditorct button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'itemeditorct button[itemId=saveBtn]':{",
+                    "    'itemeditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'itemeditorct button[itemId=readBtn]':{",
+                    "    'itemeditorct button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'itemeditorct button[itemId=updateBtn]':{",
+                    "    'itemeditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
                     "        itemdblclick:this.readItemRouteGrid",
                     "    },",
-                    "    'itemeditorct createbtn[itemId=routeCreateBtn]':{",
+                    "    'itemeditorct commonCreatebtn[itemId=routeCreateBtn]':{",
                     "        click:this.itemRouteCreate",
                     "    },",
-                    "    'itemeditorct deletebtn[itemId=routeDeleteBtn]':{",
+                    "    'itemeditorct commonDeletebtn[itemId=routeDeleteBtn]':{",
                     "        click:this.itemRouteDelete",
                     "    },",
-                    "    'itemeditorct savebtn[itemId=routeSaveBtn]':{",
+                    "    'itemeditorct commonSavebtn[itemId=routeSaveBtn]':{",
                     "        click:this.itemRouteSave",
                     "    }",
                     "});",
@@ -238,7 +231,7 @@
             "userConfig": {
                 "fn": "onLaunch",
                 "implHandler": [
-                    "//this.getItemViewer().down(\"imageuploadform\").showToolbar();"
+                    "//this.getItemViewer().down(\"commonimageuploader\").showToolbar();"
                 ]
             },
             "designerId": "3df4ecfb-49be-4357-991e-1e0a9fde2519"

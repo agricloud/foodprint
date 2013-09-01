@@ -1,0 +1,42 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonWorkstationCombo",
+        "designer|userClassName": "CommonWorkstationCombo",
+        "designer|userAlias": "commonworkstationcombo",
+        "editable": false,
+        "displayField": "name",
+        "hiddenName": null,
+        "store": "WorkstationStore",
+        "valueField": "name"
+    },
+    "designerId": "741671be-e150-4fa0-b27e-7375ba263788",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onComboboxBeforeSelect",
+                "implHandler": [
+                    "var store = 'workstation';",
+                    "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
+                    "gridRecord.set(store+'.id',record.get('id'));",
+                    "gridRecord.set(store+'.name',record.get('name'));",
+                    "gridRecord.set(store+'.title',record.get('title'));"
+                ],
+                "name": "beforeselect",
+                "scope": "me"
+            },
+            "designerId": "479247ee-53b5-405f-8947-e80ee71ae191"
+        }
+    ]
+}

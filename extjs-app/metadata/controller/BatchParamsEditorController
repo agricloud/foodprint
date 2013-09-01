@@ -114,8 +114,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "imageUploadForm",
-                "selector": "imageuploadform"
+                "ref": "commonImageUploader",
+                "selector": "commonimageuploader"
             },
             "designerId": "1196e7fa-62ec-4ca2-b622-e8fe981aeeee"
         },
@@ -139,7 +139,7 @@
                     "    'batchparamseditor grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.loadBatchRouteParams",
                     "    },",
-                    "    'batchrouteparamswindow button[itemId=saveBtn]':{",
+                    "    'batchrouteparamswindow button[itemId=commonSaveBtn]':{",
                     "        click:this.doSaveBatchRouteParamsForm",
                     "    }",
                     "});"
@@ -251,9 +251,9 @@
                     "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field); ",
                     "        }",
                     "",
-                    "        that.getImageUploadForm().setDomainId(record.data['id']);",
+                    "        that.getCommonImageUploader().setDomainId(record.data['id']);",
                     "        that.getBatchRouteParamsWindow().show(); ",
-                    "        that.getImageUploadForm().showImage();",
+                    "        that.getCommonImageUploader().showImage();",
                     "    }",
                     "});"
                 ]
@@ -304,7 +304,7 @@
                 "implHandler": [
                     "",
                     "Ext.widget('batchrouteparamswindow');",
-                    "this.getImageUploadForm().showToolbar();",
+                    "this.getCommonImageUploader().showToolbar();",
                     ""
                 ]
             },

@@ -1,0 +1,44 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": null,
+        "model": "BatchReportDetDeep",
+        "storeId": "BatchReportDetDeepStore",
+        "designer|userClassName": "BatchReportDetDeepStore"
+    },
+    "designerId": "c9267fcd-4981-482b-98dd-b66096cc26f9",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/batchReportDet"
+            },
+            "designerId": "566c6d76-d6f5-4795-b14e-d3be8b79b1f3",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "batchReportDetInstanceList",
+                        "totalProperty": "batchReportDetInstanceTotal"
+                    },
+                    "designerId": "198223e3-b85d-452c-8f60-9d6693a1f3d5"
+                }
+            ]
+        }
+    ]
+}

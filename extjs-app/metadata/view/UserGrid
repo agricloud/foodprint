@@ -1,0 +1,88 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "itemId": "userGrid",
+        "width": 400,
+        "designer|userClassName": "UserGrid",
+        "designer|userAlias": "usergrid",
+        "title": null,
+        "store": "UserStore"
+    },
+    "designerId": "ac9098aa-6828-4161-a364-b6a880e8cb37",
+    "cn": [
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "id",
+                "flex": 1
+            },
+            "designerId": "b816966a-1a4a-40eb-8e36-22e775b9362d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "username",
+                "text": "username",
+                "flex": 1
+            },
+            "designerId": "993b0d15-2ecb-4525-b4ff-863345b42e70"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "password",
+                "text": "password",
+                "flex": 1
+            },
+            "designerId": "dc25692e-7bda-4d4b-84fc-27ce253d03ba"
+        },
+        {
+            "type": "Ext.grid.column.CheckColumn",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disabled": true,
+                "dataIndex": "enabled",
+                "text": "emabled",
+                "flex": 1
+            },
+            "designerId": "fe0b9038-8e67-40ba-a4a2-0739de31cc49"
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "e4cf7374-2acd-4ba4-8cd9-4119632df631"
+        }
+    ]
+}

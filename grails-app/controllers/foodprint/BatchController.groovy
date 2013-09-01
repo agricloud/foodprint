@@ -79,8 +79,9 @@ class BatchController {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
             redirect(action: "list")
         }
+
         render (contentType: 'text/json') {
-            [batchInstanceList:batchInstance,batchInstanceTotal: Batch.count()]
+            [batchInstanceList:batchInstance]
         }
     }
 
