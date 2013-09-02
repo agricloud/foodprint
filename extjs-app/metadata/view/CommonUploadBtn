@@ -11,5 +11,27 @@
         "designer|userAlias": "commonuploadbtn",
         "text": "Upload"
     },
-    "designerId": "f4b12118-5259-45ba-a1ee-a0951296a52d"
+    "designerId": "f4b12118-5259-45ba-a1ee-a0951296a52d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=foodprint.string.uploadBtn;",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "40c1c9e7-953f-41ee-bced-b75180c4582d"
+        }
+    ]
 }

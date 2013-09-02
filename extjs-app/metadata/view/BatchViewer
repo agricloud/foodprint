@@ -41,7 +41,7 @@
                 "layout|flex": 1,
                 "itemId": "batchRoutePanel",
                 "designer|displayName": "BatchRoutePanel",
-                "title": "批號途程"
+                "title": "batchRoutePanel"
             },
             "designerId": "96d8396c-9ebf-4bee-a0bf-82eade1c8d33",
             "cn": [
@@ -140,6 +140,26 @@
                     "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
                 }
             ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.items[1].title = foodprint.string.batchRoute;",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "a1e10379-bbdc-4875-a16e-d181f39d407b"
         }
     ]
 }

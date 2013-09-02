@@ -11,5 +11,27 @@
         "designer|userAlias": "commonreadbtn",
         "text": "Read"
     },
-    "designerId": "33407e64-08b8-4e1b-a9c3-333d48a2e8f3"
+    "designerId": "33407e64-08b8-4e1b-a9c3-333d48a2e8f3",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=foodprint.string.readBtn;",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "cd5dd392-ae23-43e0-9433-9bde3949c28d"
+        }
+    ]
 }

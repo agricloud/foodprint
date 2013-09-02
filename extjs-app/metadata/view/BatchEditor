@@ -26,7 +26,7 @@
                 "container|align": "stretch",
                 "itemId": "batchBrowse",
                 "layout": "vbox",
-                "title": "瀏覽"
+                "title": "Browse"
             },
             "designerId": "58fdf66b-ffd4-4065-9ea9-0307a85bfccf",
             "cn": [
@@ -65,7 +65,7 @@
                 "container|align": "stretch",
                 "itemId": "batchMainten",
                 "layout": "vbox",
-                "title": "資料維護"
+                "title": "Mainten"
             },
             "designerId": "3649ce22-3cbe-4980-979e-d2964888a8e2",
             "cn": [
@@ -92,6 +92,27 @@
                     "masterInstanceId": "f579f8e9-4abc-4c82-8d98-5113a7d3d33e"
                 }
             ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.items[0].title=foodprint.string.list;",
+                    "config.items[1].title=foodprint.string.listDetail;",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "760a7fa9-c88a-4b4d-bc60-ab36f4fcb361"
         }
     ]
 }

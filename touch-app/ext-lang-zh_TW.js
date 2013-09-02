@@ -14,8 +14,8 @@ foodprintTouch.string.enterBatch = "輸入批號";
 foodprintTouch.string.selectBatchRoute = "選擇批號途程";
 foodprintTouch.string.batchParams = "途程參數";
 
-foodprintTouch.string.id = "系統代號";
-foodprintTouch.string.name = "自訂代號";
-foodprintTouch.string.item = "品項";
+foodprintTouch.string.id = "序號";
+foodprintTouch.string.name = "代號";
+foodprintTouch.string['item.id'] = "品項序號";
 foodprintTouch.string.dueDate = "失效日";
 foodprintTouch.string.expectQty = "預計數量";
