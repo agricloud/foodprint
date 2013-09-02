@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "BatchRouteParamsForm"
+            "BatchRouteDeep",
+            "BatchReportDetDeep"
         ],
         "stores": [
             "BatchRouteDeepStore",
@@ -41,14 +42,20 @@
                     "application"
                 ],
                 "implHandler": [
+                    "",
                     "this.control({",
                     "    'batchparamscarousel searchfield[itemId=commonSearchField]':{",
-                    "        action:this.loadBatchRoute",
+                    "        action:this.doSearchBatchRouteList",
                     "    },",
                     "    'batchparamscarousel list[itemId=batchRouteList]':{",
                     "        select:this.loadBatchRouteParams//Ajax",
                     "    },",
-                    "    'batchrouteparamspanel button[itemId=commonBackBtn]':{",
+                    "    '#selectBatchBackToolbar button[itemId=commonBackBtn]':{",
+                    "        tap:function(btn, e, eOpts){",
+                    "            history.go(0);",
+                    "        }",
+                    "    },",
+                    "    '#batchRouteParamsBackToolbar button[itemId=commonBackBtn]':{",
                     "        tap:function(btn, e, eOpts){",
                     "            this.getBatchParamsCarousel().previous();",
                     "        }",
@@ -69,12 +76,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "loadBatchRoute",
+                "fn": "doSearchBatchRouteList",
                 "designer|params": [
                     "field, e, eOpts"
                 ],
                 "implHandler": [
-                    "console.log('BatchParamsCarouselController-loadBatchRoute');",
+                    "console.log('BatchParamsCarouselController-doSearchBatchRouteList');",
                     "",
                     "this.getBatchRouteList().getStore().load({",
                     "    params:{",
@@ -94,10 +101,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchRouteList",
-                "selector": "batchroutelist"
+                "ref": "batchParamsCarousel",
+                "selector": "batchparamscarousel"
             },
-            "designerId": "bbe77704-210b-4958-b0b7-c65607a309ff"
+            "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
         },
         {
             "type": "controllerref",
@@ -107,10 +114,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchParamsCarousel",
-                "selector": "batchparamscarousel"
+                "ref": "batchRouteList",
+                "selector": "batchroutelist"
             },
-            "designerId": "8e13bb56-0372-4344-8e17-0a52c90d916a"
+            "designerId": "bbe77704-210b-4958-b0b7-c65607a309ff"
         },
         {
             "type": "basicfunction",
@@ -245,11 +252,11 @@
                     "        'batch.id':record.data['batch__id'],",
                     "        'operation.id':record.data['operation__id']",
                     "    },",
-                    "    callback:function(){",
+                    "    callback:function(records, operation, success){",
                     "",
                     "        that.getBatchParamsCarousel().remove(that.getBatchParamsCarousel().down('panel[itemId=batchRouteParamsPanel]'),true);",
                     "",
-                    "        that.getBatchParamsCarousel().add(Ext.widget('batchrouteparamspanel'));",
+                    "        that.getBatchParamsCarousel().add({xtype:'batchrouteparamspanel'});",
                     "        var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');",
                     "",
                     "        store.each(function(item, index, length){",
@@ -310,7 +317,7 @@
                     "        commonImageUploader.setDomainId(record.data['id']);",
                     "        commonImageUploader.showImage();",
                     "",
-                    "    }//end if",
+                    "    }//end callback",
                     "});"
                 ]
             },

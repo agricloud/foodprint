@@ -21,14 +21,7 @@
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "docked": null,
-                "itemId": null,
-                "ui": "",
-                "width": null,
-                "scrollable": "vertical"
-            },
-            "designerId": "3dc5abcb-68af-44eb-b669-71f341cce81b",
+            "designerId": "c08037ff-edb2-4fe7-8b14-cd4ecadd1d94",
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -38,8 +31,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "commonSelectBatch",
-                        "width": null
+                        "itemId": "selectBatchBackToolbar",
+                        "width": null,
+                        "title": "選擇批號"
                     },
                     "designerId": "b8879331-4dde-46f2-a998-cfceb437e8d1",
                     "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
@@ -53,7 +47,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "docked": "top",
-                        "width": ""
+                        "width": "",
+                        "label": "輸入批號"
                     },
                     "designerId": "e4b3fd4a-be78-4f5c-9e02-d95c383c6c5a",
                     "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
@@ -66,26 +61,22 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "top",
-                        "height": 386,
-                        "itemId": "mypanel1",
-                        "layout": "vbox",
-                        "scrollable": false
+                        "itemId": "mypanel6"
                     },
-                    "designerId": "65c27262-8fa7-4d35-a68b-84c3805036c1",
+                    "designerId": "7960cade-f314-4294-bac6-fb66b4719841",
                     "cn": [
                         {
-                            "type": "linkedinstance",
+                            "type": "Ext.Toolbar",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "commonSelectBatchRoute"
+                                "docked": "top",
+                                "title": "選擇批號途程"
                             },
-                            "designerId": "e0d47f54-c7cc-4717-adc4-404927d1f6ed",
-                            "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
+                            "designerId": "f7664ae3-07da-4a80-a287-af9a72268343"
                         },
                         {
                             "type": "linkedinstance",
@@ -104,22 +95,6 @@
                             },
                             "designerId": "a0709ca3-4bfc-4dbf-9687-6065a430a044",
                             "masterInstanceId": "6b273a91-efef-4316-9344-0565c891c114"
-                        },
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onMypanel1Initialize",
-                                "implHandler": [
-                                    "component.down('toolbar[itemId=commonSelectBatchRoute]').down('button[itemId=commonBackBtn]').hide();"
-                                ],
-                                "name": "initialize"
-                            },
-                            "designerId": "40c1902c-8357-41aa-9b0f-f44b1e8884e1"
                         }
                     ]
                 }

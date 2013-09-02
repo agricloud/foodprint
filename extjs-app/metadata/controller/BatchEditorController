@@ -24,9 +24,7 @@
             "BatchEditorCt",
             "BatchGrid",
             "BatchViewer",
-            "BatchRouteGrid",
-            "StdEditorToolbar",
-            "ReportparamsToolbar"
+            "BatchRouteGrid"
         ],
         "designer|userClassName": "BatchEditorController",
         "mixins": [
@@ -53,19 +51,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batcheditorct button[itemId=createBtn]':{",
+                    "    'batcheditorct button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'batcheditorct button[itemId=deleteBtn]':{",
+                    "    'batcheditorct button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'batcheditorct button[itemId=saveBtn]':{",
+                    "    'batcheditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'batcheditorct button[itemId=readBtn]':{",
+                    "    'batcheditorct button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'batcheditorct button[itemId=updateBtn]':{",
+                    "    'batcheditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'batcheditorct grid[itemId=batchGrid]':{",
@@ -161,10 +159,10 @@
                     "this.loadBatchRouteTemp(record);",
                     "",
                     "",
-                    "this.getBatchEditorCt().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getBatchEditorCt().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getBatchEditorCt().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getBatchEditorCt().down('button[itemId=saveBtn]').setDisabled(true);",
+                    "this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getBatchEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
                     ""
                 ]
             },
@@ -193,12 +191,12 @@
                     "        console.log('Saving Success！');",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
-                    "        that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
+                    "        that.getBatchViewer().down('form[itemId=commonBatchForm]').getForm().reset();",
                     "    },",
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        alert('儲存失敗');",
-                    "        that.getBatchEditorCt().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -249,7 +247,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
-                    "        this.getBatchEditorCt().down(button[itemId=updateBtn]).setDisabled(false);",
+                    "        this.getBatchEditorCt().down(button[itemId=commonUpdateBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -288,7 +286,7 @@
                     "    },",
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
-                    "        this.getBatchEditorCt().down(button[itemId=deleteBtn]).setDisabled(false);",
+                    "        this.getBatchEditorCt().down(button[itemId=commonDeleteBtn]).setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -308,11 +306,11 @@
                     "tabPanel, newCard, oldCard, eOpts"
                 ],
                 "implHandler": [
-                    "var crebtn=this.getBatchEditorCt().down('button[itemId=createBtn]');",
-                    "var delbtn=this.getBatchEditorCt().down('button[itemId=deleteBtn]');",
-                    "var savbtn=this.getBatchEditorCt().down('button[itemId=saveBtn]');",
-                    "var updbtn=this.getBatchEditorCt().down('button[itemId=updateBtn]');",
-                    "var redbtn=this.getBatchEditorCt().down('button[itemId=readBtn]');",
+                    "var crebtn=this.getBatchEditorCt().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getBatchEditorCt().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getBatchEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=batchBrowse]')){",
                     "    delbtn.setDisabled(true);",

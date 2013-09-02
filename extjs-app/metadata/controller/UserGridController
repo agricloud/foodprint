@@ -1,0 +1,53 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "User"
+        ],
+        "stores": [
+            "UserStore"
+        ],
+        "views": [
+            "UserGrid"
+        ],
+        "designer|userClassName": "UserGridController"
+    },
+    "designerId": "02e124e8-8b7a-47cb-825a-dfd44b8ce241",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userGrid",
+                "selector": "usergrid"
+            },
+            "designerId": "5763d024-6a2d-4130-8d83-04f461147f1c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "console.log(\"doRead-userGridController\");",
+                    "this.getUserGrid().getStore().load();",
+                    "this.getUserEditor().setActiveTab(this.getUserGrid().up());"
+                ]
+            },
+            "designerId": "ee4d4aee-2cc6-45da-aa36-c7d41fefb303"
+        }
+    ]
+}

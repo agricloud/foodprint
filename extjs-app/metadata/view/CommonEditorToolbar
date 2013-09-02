@@ -7,9 +7,9 @@
     "codeClass": null,
     "userConfig": {
         "initialize": null,
-        "itemId": "stdEditorToolbar",
-        "designer|userClassName": "StdEditorToolbar",
-        "designer|userAlias": "stdeditortoolbar"
+        "itemId": "commonEditorToolbar",
+        "designer|userClassName": "CommonEditorToolbar",
+        "designer|userAlias": "commoneditortoolbar"
     },
     "configAlternates": {
         "initialize": "object"
@@ -44,7 +44,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onCreateBtnClick",
+                        "fn": "onCommonCreateBtnClick",
                         "implHandler": [
                             "this.delbtn.setDisabled(true);",
                             "this.savbtn.setDisabled(false);",
@@ -80,7 +80,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onDeleteBtnClick",
+                        "fn": "onCommonDeleteBtnClick",
                         "implHandler": [
                             "this.delbtn.setDisabled(true);"
                         ],
@@ -113,7 +113,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onSaveBtnClick",
+                        "fn": "onCommonSaveBtnClick",
                         "implHandler": [
                             "this.savbtn.setDisabled(true);"
                         ],
@@ -159,7 +159,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onUpdateBtnClick",
+                        "fn": "onCommonUpdateBtnClick",
                         "implHandler": [
                             "this.updbtn.setDisabled(true);"
                         ],
@@ -178,13 +178,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onStdEditorToolbarRender",
+                "fn": "onCommonEditorToolbarRender",
                 "implHandler": [
-                    "this.crebtn=component.down('button[itemId=createBtn]');",
-                    "this.delbtn=component.down('button[itemId=deleteBtn]');",
-                    "this.savbtn=component.down('button[itemId=saveBtn]');",
-                    "this.updbtn=component.down('button[itemId=updateBtn]');",
-                    "this.redbtn=component.down('button[itemId=readBtn]');",
+                    "this.crebtn=component.down('button[itemId=commonCreateBtn]');",
+                    "this.delbtn=component.down('button[itemId=commonDeleteBtn]');",
+                    "this.savbtn=component.down('button[itemId=commonSaveBtn]');",
+                    "this.updbtn=component.down('button[itemId=commonUpdateBtn]');",
+                    "this.redbtn=component.down('button[itemId=commonReadBtn]');",
                     "",
                     "//console.log(this);",
                     "//updbtn.setDisabled(true);"

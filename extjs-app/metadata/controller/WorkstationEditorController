@@ -85,19 +85,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'workstationeditorct button[itemId=createBtn]':{",
+                    "    'workstationeditorct button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'workstationeditorct button[itemId=deleteBtn]':{",
+                    "    'workstationeditorct button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'workstationeditorct button[itemId=saveBtn]':{",
+                    "    'workstationeditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'workstationeditorct button[itemId=readBtn]':{",
+                    "    'workstationeditorct button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'workstationeditorct button[itemId=updateBtn]':{",
+                    "    'workstationeditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'workstationeditorct grid[itemId=workstationGrid]':{",
@@ -127,10 +127,10 @@
                     "console.log(record);",
                     "this.doDisplay(record);",
                     "",
-                    "this.getWorkstationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getWorkstationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getWorkstationEditorct().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getWorkstationEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getWorkstationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "1c4d0586-9062-4f4b-8412-d51593ab342e"
@@ -185,7 +185,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -220,7 +220,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -255,7 +255,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]

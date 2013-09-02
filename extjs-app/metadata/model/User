@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "BatchRouteParamsForm"
+        "designer|userClassName": "User"
     },
-    "designerId": "64cd44c2-c2c4-4851-997a-c76a07b610b1",
+    "designerId": "561ed18b-7c89-4ca0-9827-bbd4e2502a8d",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -18,9 +18,10 @@
             },
             "codeClass": null,
             "userConfig": {
+                "mapping": "id",
                 "name": "id"
             },
-            "designerId": "d67e6985-4255-4f75-a373-ec9cc1d6298d"
+            "designerId": "e30b04b0-86db-4b53-a7f5-666a7382a4dc"
         },
         {
             "type": "Ext.data.Field",
@@ -30,9 +31,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "value"
+                "name": "username"
             },
-            "designerId": "484f163d-09d9-477f-b17c-f115c4f569ad"
+            "designerId": "2b2cf140-413d-49ec-b08a-b3adb314f720"
         },
         {
             "type": "Ext.data.Field",
@@ -42,10 +43,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "reportParams.param.title",
-                "name": "reportParams__param__title"
+                "name": "password"
             },
-            "designerId": "bdff3d25-26ba-411b-95a7-a3be187884d5"
+            "designerId": "3bcf977f-8193-4f63-bb33-55f25f05133c"
         },
         {
             "type": "Ext.data.Field",
@@ -55,23 +55,36 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "reportParams.param.defaultValue",
-                "name": "reportParams__param__defaultValue"
+                "name": "enabled"
             },
-            "designerId": "10f1d7f9-9e8a-4821-b58a-461342d29849"
+            "designerId": "1f56793a-3300-49fc-b1b7-3ca42027c7d2"
         },
         {
-            "type": "Ext.data.Field",
+            "type": "Ext.data.proxy.Rest",
             "reference": {
-                "name": "fields",
-                "type": "array"
+                "name": "proxy",
+                "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "reportParams.param.paramType.name",
-                "name": "reportParams__param__paramType"
+                "url": "/rest/user"
             },
-            "designerId": "ef4241a8-b5b5-4cd2-9d69-62ba8d52773a"
+            "designerId": "f6ab39f4-e532-4038-9f1e-aec01700a6de",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "userInstanceList",
+                        "totalProperty": "userInstanceTotal"
+                    },
+                    "designerId": "e5c1b2eb-420a-445a-8f2a-b5d4e98f64e3"
+                }
+            ]
         }
     ]
 }
