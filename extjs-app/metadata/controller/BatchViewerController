@@ -48,7 +48,10 @@
                 ],
                 "implHandler": [
                     "console.log(\"batchViewerCtrl.doDisplay\");",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);"
+                    "this.getBatchViewer().down('form[itemId=batchForm]').loadRecord(record);",
+                    "var tool = this.getBatchEditor().up().down('commoneditortoolbar');",
+                    "tool.down('commondeletebtn').setDisabled(false);",
+                    "tool.down('commonupdatebtn').setDisabled(false);"
                 ]
             },
             "designerId": "f77313c4-f8df-4d6a-81f4-d4ca60875114"

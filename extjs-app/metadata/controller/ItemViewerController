@@ -54,7 +54,13 @@
                 "fn": "doCreate",
                 "implHandler": [
                     "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().reset();"
+                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().reset();",
+                    "/*",
+                    "console.log('ItemRouteGridCtrl.doCreate');",
+                    "var grid = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "store.insert(store.getCount(),data);",
+                    "*/"
                 ]
             },
             "designerId": "cf1fe39c-0c7d-401f-9804-1f6a9512100a"
@@ -179,24 +185,6 @@
                 ]
             },
             "designerId": "303132c6-f3c0-46d1-ba0c-2fce25ba1e04"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "console.log('ItemRouteGridCtrl.doCreate');",
-                    "var grid = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]');",
-                    "var store = grid.getStore();",
-                    "store.insert(store.getCount(),data);"
-                ]
-            },
-            "designerId": "d5578833-8c7e-4534-a5f0-d4de5c9f8525"
         }
     ]
 }
