@@ -102,6 +102,9 @@
                     "    },",
                     "    'workstationeditorct grid[itemId=workstationGrid]':{",
                     "        itemdblclick:this.readWorkstation",
+                    "    },",
+                    "    'workstationeditorct panel[itemId=workstationEditor]':{",
+                    "        tabchange:this.onTabChange",
                     "    }",
                     "});",
                     ""
@@ -261,6 +264,45 @@
                 ]
             },
             "designerId": "d2ac09e6-fbcf-4b86-a2ec-4fde6500471d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tabPanel",
+                    "newCard",
+                    "oldCard",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "var crebtn=this.getWorkstationEditorct().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getWorkstationEditorct().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getWorkstationEditorct().down('button[itemId=commonReadBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=workstationBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=workstationMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=workstationForm]').getForm().reset();",
+                    "}"
+                ]
+            },
+            "designerId": "1f607a71-39b4-4337-ad11-d97d246d8ef6"
         }
     ]
 }
