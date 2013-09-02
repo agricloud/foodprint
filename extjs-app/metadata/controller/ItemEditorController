@@ -136,13 +136,13 @@
                     "    'itemeditorct grid[itemId=itemGrid]':{",
                     "        itemdblclick:this.readItemRouteGrid",
                     "    },",
-                    "    'itemeditorct commonCreatebtn[itemId=routeCreateBtn]':{",
+                    "    'itemeditorct button[itemId=routeCreateBtn]':{",
                     "        click:this.itemRouteCreate",
                     "    },",
-                    "    'itemeditorct commonDeletebtn[itemId=routeDeleteBtn]':{",
+                    "    'itemeditorct button[itemId=routeDeleteBtn]':{",
                     "        click:this.itemRouteDelete",
                     "    },",
-                    "    'itemeditorct commonSavebtn[itemId=routeSaveBtn]':{",
+                    "    'itemeditorct button[itemId=routeSaveBtn]':{",
                     "        click:this.itemRouteSave",
                     "    }",
                     "});",
@@ -169,7 +169,10 @@
                 ],
                 "implHandler": [
                     "this.doDisplay(record);",
-                    "editor.setActiveTab(viewer.up());"
+                    "editor.setActiveTab(viewer.up());",
+                    "var tool = editor.up().down('commoneditortoolbar');",
+                    "tool.down('commondeletebtn').setDisabled(false);",
+                    "tool.down('commonupdatebtn').setDisabled(false);"
                 ]
             },
             "designerId": "24d7898a-59d3-44a6-b4bf-ec9193abc721"

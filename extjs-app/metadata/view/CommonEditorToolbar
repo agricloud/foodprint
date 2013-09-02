@@ -82,7 +82,8 @@
                     "userConfig": {
                         "fn": "onCommonDeleteBtnClick",
                         "implHandler": [
-                            "this.delbtn.setDisabled(true);"
+                            "this.delbtn.setDisabled(true);",
+                            "this.updbtn.setDisabled(true);"
                         ],
                         "name": "click",
                         "scope": "me"
@@ -161,6 +162,7 @@
                     "userConfig": {
                         "fn": "onCommonUpdateBtnClick",
                         "implHandler": [
+                            "this.delbtn.setDisabled(true);",
                             "this.updbtn.setDisabled(true);"
                         ],
                         "name": "click",
