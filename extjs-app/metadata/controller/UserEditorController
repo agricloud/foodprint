@@ -130,10 +130,10 @@
                     "console.log(record);",
                     "this.doDisplay(record);",
                     "",
-                    "this.getUserEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
-                    "this.getUserEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
-                    "this.getUserEditorct().down('button[itemId=readBtn]').setDisabled(true);",
-                    "this.getUserEditorct().down('button[itemId=saveBtn]').setDisabled(true);"
+                    "this.getUserEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getUserEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getUserEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getUserEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "5e27a84c-e4a9-4975-9cb3-5ac65d4c34c2"
@@ -187,7 +187,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getUserEditorct().down('button[itemId=deleteBtn]').setDisabled(false);",
+                    "        that.getUserEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -222,7 +222,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getUserEditorct().down('button[itemId=saveBtn]').setDisabled(false);",
+                    "        that.getUserEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -257,7 +257,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getUserEditorct().down('button[itemId=updateBtn]').setDisabled(false);",
+                    "        that.getUserEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -277,11 +277,11 @@
                     "tabPanel, newCard, oldCard, eOpts"
                 ],
                 "implHandler": [
-                    "var crebtn=this.getUserEditorct().down('button[itemId=createBtn]');",
-                    "var delbtn=this.getUserEditorct().down('button[itemId=deleteBtn]');",
-                    "var savbtn=this.getUserEditorct().down('button[itemId=saveBtn]');",
-                    "var updbtn=this.getUserEditorct().down('button[itemId=updateBtn]');",
-                    "var redbtn=this.getUserEditorct().down('button[itemId=readBtn]');",
+                    "var crebtn=this.getUserEditorct().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getUserEditorct().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getUserEditorct().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getUserEditorct().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getUserEditorct().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=userBrowse]')){",
                     "    delbtn.setDisabled(true);",
