@@ -12,5 +12,23 @@
         "designer|userAlias": "commondeletebtn",
         "text": "Delete"
     },
-    "designerId": "ccdfe7ca-c469-4018-af19-e7270cf078cf"
+    "designerId": "ccdfe7ca-c469-4018-af19-e7270cf078cf",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setText(foodprintTouch.string.deleteBtn);"
+                ]
+            },
+            "designerId": "ec51dc14-a1ae-4375-b5fe-03227466a838"
+        }
+    ]
 }

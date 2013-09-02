@@ -12,5 +12,23 @@
         "designer|userAlias": "commonsavebtn",
         "text": "Save"
     },
-    "designerId": "a03b16bf-2dc8-44eb-bc97-8c941e6c8783"
+    "designerId": "a03b16bf-2dc8-44eb-bc97-8c941e6c8783",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setText(foodprintTouch.string.saveBtn);"
+                ]
+            },
+            "designerId": "3eba995d-4aea-4596-acf5-b322cbc12c9b"
+        }
+    ]
 }

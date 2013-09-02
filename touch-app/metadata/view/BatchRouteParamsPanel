@@ -38,7 +38,7 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "batchRouteParamsBackToolbar",
-                "title": "途程參數"
+                "title": null
             },
             "designerId": "9f94e9e2-cfa8-4efe-9616-7b078565f21c",
             "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
@@ -138,6 +138,23 @@
                     "masterInstanceId": "272bb4f2-55f9-48a4-8189-8c41ddcf21d1"
                 }
             ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "",
+                    "this.down('toolbar[itemId=batchRouteParamsBackToolbar]').setTitle(foodprintTouch.string.batchParams);"
+                ]
+            },
+            "designerId": "a779a40b-fff6-42f1-8f73-36e0d1c54d3c"
         }
     ]
 }

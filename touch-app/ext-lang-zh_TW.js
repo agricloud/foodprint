@@ -1,0 +1,21 @@
+var foodprintTouch = {};  
+foodprintTouch.string = {};  
+foodprintTouch.string.list = "瀏覽清單";
+foodprintTouch.string.basic = "基本資料";
+foodprintTouch.string.createBtn = "新增";
+foodprintTouch.string.deleteBtn = "刪除";
+foodprintTouch.string.saveBtn = "儲存";
+foodprintTouch.string.readBtn = "讀取";
+foodprintTouch.string.updateBtn = "更新";
+foodprintTouch.string.backBtn = "返回";
+foodprintTouch.string.fileuploadBtn = "圖片上傳";
+foodprintTouch.string.selectBatch = "選擇批號";
+foodprintTouch.string.enterBatch = "輸入批號";
+foodprintTouch.string.selectBatchRoute = "選擇批號途程";
+foodprintTouch.string.batchParams = "途程參數";
+
+foodprintTouch.string.id = "系統代號";
+foodprintTouch.string.name = "自訂代號";
+foodprintTouch.string.item = "品項";
+foodprintTouch.string.dueDate = "失效日";
+foodprintTouch.string.expectQty = "預計數量";
