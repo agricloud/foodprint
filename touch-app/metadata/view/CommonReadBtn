@@ -12,5 +12,23 @@
         "designer|userAlias": "commonreadbtn",
         "text": "Read"
     },
-    "designerId": "7e66e352-1e79-424a-87a3-926f61edd97f"
+    "designerId": "7e66e352-1e79-424a-87a3-926f61edd97f",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setText(lang['common.readBtn.label']);"
+                ]
+            },
+            "designerId": "6f5ca87c-af8a-40f5-b3f8-00a07f18844c"
+        }
+    ]
 }

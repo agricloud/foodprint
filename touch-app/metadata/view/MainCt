@@ -25,6 +25,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "docked": null,
                 "height": 201,
                 "src": "img/FoodPrintApp.png"
             },
@@ -41,7 +42,7 @@
                 "docked": null,
                 "itemId": "batchReportMaintenBtn",
                 "margin": 10,
-                "text": "批號履歷維護"
+                "text": "batchReportMainten"
             },
             "designerId": "a8dd78d9-da70-4804-84ad-9fae5d280b8d"
         },
@@ -56,9 +57,28 @@
                 "docked": null,
                 "itemId": "batchReportBrowseBtn",
                 "margin": 10,
-                "text": " 批號履歷查詢"
+                "text": "batchReportBrowse"
             },
             "designerId": "4b42d1cb-fbe1-48e6-9c1c-64b589fac9d4"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "",
+                    "this.down('button[itemId=batchReportMaintenBtn]').setText(lang['mainCt.batchReportMaintenBtn.label']);",
+                    "",
+                    "this.down('button[itemId=batchReportBrowseBtn]').setText(lang['mainCt.batchReportBrowseBtn.label']);"
+                ]
+            },
+            "designerId": "0db1842e-a17a-498a-84c9-c4dfd23aa805"
         }
     ]
 }

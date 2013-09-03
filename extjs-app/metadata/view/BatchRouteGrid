@@ -212,6 +212,27 @@
                 "designer|displayName": null
             },
             "designerId": "e1c9340a-379e-4476-8636-2089ed152a81"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for(var i=0; i<config.columns.length;i++)",
+                    "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "f36618ae-5c1b-4e7a-a93d-55460c31cf4d"
         }
     ]
 }

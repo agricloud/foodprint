@@ -32,7 +32,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "selectBatchBackToolbar",
-                        "title": "選擇批號"
+                        "title": null
                     },
                     "designerId": "bae2468c-1081-45ed-86ad-8a6259906469",
                     "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
@@ -46,7 +46,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "docked": "top",
-                        "label": "輸入批號"
+                        "label": null
                     },
                     "designerId": "e1b7ea86-1895-4726-89a8-b5d30f793fa7",
                     "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
@@ -163,6 +163,36 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "",
+                    "this.down('toolbar[itemId=selectBatchBackToolbar]').setTitle(lang['batchRportCarousel.selectBatchBackToolbar.label']);",
+                    "",
+                    "this.down('searchfield[itemId=commonSearchField]').setLabel(lang['batchRportCarousel.commonSearchField.label']);",
+                    "",
+                    "this.down('textfield[itemId=batchid]').setLabel(lang['batch.id.label']);",
+                    "",
+                    "this.down('textfield[itemId=batchname]').setLabel(lang['batch.name.label']);",
+                    "",
+                    "this.down('textfield[itemId=batchitem]').setLabel(lang['batch.item.id.label']);",
+                    "",
+                    "this.down('textfield[itemId=batchdueDate]').setLabel(lang['batch.dueDate.label']);",
+                    "",
+                    "this.down('textfield[itemId=batchexpectQty]').setLabel(lang['batch.expectQty.label']);",
+                    ""
+                ]
+            },
+            "designerId": "05eda4a1-991c-42c8-ad6c-4a2f00317e5a"
         }
     ]
 }

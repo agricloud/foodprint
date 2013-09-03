@@ -11,5 +11,27 @@
         "designer|userAlias": "commoncreatebtn",
         "text": "Create"
     },
-    "designerId": "06b12de0-6c88-49ca-b966-0906685abb03"
+    "designerId": "06b12de0-6c88-49ca-b966-0906685abb03",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=foodprint.string.common['createBtn.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "b640ef72-4ba2-4cad-9534-b9b54118c67b"
+        }
+    ]
 }

@@ -11,5 +11,27 @@
         "designer|userAlias": "commondeletebtn",
         "text": "Delete"
     },
-    "designerId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
+    "designerId": "47a5a6b0-baac-49ca-bd19-366c2488c51d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=lang['common.deleteBtn.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "d5792600-6b5d-4b27-a782-6f9b62ce821b"
+        }
+    ]
 }
