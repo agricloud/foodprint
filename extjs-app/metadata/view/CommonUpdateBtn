@@ -12,5 +12,27 @@
         "designer|userAlias": "commonupdatebtn",
         "text": "Update"
     },
-    "designerId": "4df4416d-12ea-4c72-b914-994f977f24a9"
+    "designerId": "4df4416d-12ea-4c72-b914-994f977f24a9",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=lang['common.updateBtn.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "1591490e-42db-400a-9f7b-4115df3605ef"
+        }
+    ]
 }

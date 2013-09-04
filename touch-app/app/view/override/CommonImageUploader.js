@@ -64,6 +64,11 @@ Ext.define('foodprintTouch.view.override.CommonImageUploader', {
         ]
 
     },
+    initialize: function() {
+        this.callParent();
+        this.down('fileupload[itemId=fileuploadBtn]').setText(lang['common.fileuploadBtn.label'] );
+        this.down('button[itemId=deleteBtn]').setText(lang['common.deleteBtn.label'] );   
+    },
     showImage: function() {
         this.getComponent("mainImg").show();
         this.getComponent("mainImg").setSrc('/attachment/show/'+this.domainId+"?domainName="+this.domainName+'&date='+(new Date()));

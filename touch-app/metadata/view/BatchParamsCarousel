@@ -33,7 +33,7 @@
                     "userConfig": {
                         "itemId": "selectBatchBackToolbar",
                         "width": null,
-                        "title": "選擇批號"
+                        "title": null
                     },
                     "designerId": "b8879331-4dde-46f2-a998-cfceb437e8d1",
                     "masterInstanceId": "3f757f81-11bf-4c43-98c5-60a32ee74532"
@@ -48,7 +48,7 @@
                     "userConfig": {
                         "docked": "top",
                         "width": "",
-                        "label": "輸入批號"
+                        "label": null
                     },
                     "designerId": "e4b3fd4a-be78-4f5c-9e02-d95c383c6c5a",
                     "masterInstanceId": "600e74e6-b27d-49be-a2e2-ab83b5e4c82c"
@@ -74,7 +74,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "docked": "top",
-                                "title": "選擇批號途程"
+                                "itemId": "selectBatchRouteToolbar",
+                                "title": null
                             },
                             "designerId": "f7664ae3-07da-4a80-a287-af9a72268343"
                         },
@@ -99,6 +100,28 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "",
+                    "this.down('toolbar[itemId=selectBatchBackToolbar]').setTitle(lang['batchParamsCarousel.selectBatchBackToolbar.label']);",
+                    "",
+                    "this.down('searchfield[itemId=commonSearchField]').setLabel(lang['batchParamsCarousel.commonSearchField.label']);",
+                    "",
+                    "this.down('toolbar[itemId=selectBatchRouteToolbar]').setTitle(lang['batchParamsCarousel.selectBatchRouteToolbar.label']);",
+                    ""
+                ]
+            },
+            "designerId": "89af82f6-c50a-461c-bc18-a6aba027f60a"
         }
     ]
 }

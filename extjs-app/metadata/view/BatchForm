@@ -120,6 +120,27 @@
                 ]
             },
             "designerId": "e1bd6028-6dde-418c-9996-5f6b9a7e2468"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for(var i=0;i<config.items.length;i++)",
+                    "config.items[i].fieldLabel=lang['batch.'+config.items[i].name+'.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "6f25174d-caf5-4507-8886-1758be3d1e70"
         }
     ]
 }

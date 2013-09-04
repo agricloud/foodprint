@@ -7,6 +7,8 @@ class BatchReportDetController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
+    def messageSource
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -110,15 +112,19 @@ class BatchReportDetController {
 
 
     def save(BatchReportDet batchReportDetInstance){
+
+        println "儲存的參數"+params
         
         if (!batchReportDetInstance.validate()) {
             batchReportDetInstance.errors.each {
-                log.debug it
+                println it as JSON
+                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success:false]
+            return [success: false,
+                    message: errorsMsg.join('<br>')]
         }
         if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
+                return [success: false]
         }
         else{
                 return [success:true]

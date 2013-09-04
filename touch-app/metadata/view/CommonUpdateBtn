@@ -12,5 +12,24 @@
         "designer|userAlias": "commonupdatebtn",
         "text": "Update"
     },
-    "designerId": "41ba02db-7f5a-45bf-b6db-11864473ae9d"
+    "designerId": "41ba02db-7f5a-45bf-b6db-11864473ae9d",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "",
+                    "this.setText(lang['common.updateBtn.label']);"
+                ]
+            },
+            "designerId": "b584d17b-3905-44e9-bc69-ec1dd050873f"
+        }
+    ]
 }
