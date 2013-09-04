@@ -74,6 +74,25 @@ class ItemRouteController {
                     message: errorsMsg.join('<br>')]
         }
 
+        // 未完成範例，勿刪
+        // if(!itemRouteInstance.validate()) { // validate id
+
+        //     itemRouteInstance.errors.allErrors.each{ 
+        //         def error=[:]
+        //         error.message= messageSource.getMessage(it, Locale.getDefault())
+        //         error.field=it.field
+
+
+        //         errors << error
+        //     }
+        //     return [success: false,
+        //             errors: errors,
+        //             message: '更新失敗']
+        // }
+
+
+
+
         if (!itemRouteInstance.save(failOnError: true)) {
             return [success: false]
         }
