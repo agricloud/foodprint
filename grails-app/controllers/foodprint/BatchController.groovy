@@ -7,6 +7,8 @@ class BatchController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
+    def messageSource
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -28,11 +30,15 @@ class BatchController {
     }
 
     def save(Batch batchInstance){
+        def errorsMsg=[]
+
         if (!batchInstance.validate()) {
             batchInstance.errors.each {
-                log.debug  it
+                log.debug it as JSON
+                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success:false]
+            return [success: false,
+                    message: errorsMsg.join('<br>')]
         }
         if (!batchInstance.save(failOnError: true)) {//flush:true?
                 return [success:false]
