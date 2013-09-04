@@ -30,22 +30,29 @@ class BatchController {
     }
 
     def save(Batch batchInstance){
-        def errorsMsg=[]
-
+        def msg=[]
+        def isSuccess;
         if (!batchInstance.validate()) {
-            batchInstance.errors.each {
-                log.debug it as JSON
-                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
+            batchInstance.errors.allErrors.each{ 
+                msg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success: false,
-                    message: errorsMsg.join('<br>')]
-        }
-        if (!batchInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
+            isSuccess=false;
         }
         else{
-                return [success:true]
+            if (!batchInstance.save()) {//flush:true?  
+                batchInstance.errors.allErrors.each{ 
+                    msg << messageSource.getMessage(it, Locale.getDefault())
+                }
+                isSuccess=false;
+            }
+            else{
+                msg<< message(code: "default.message.save.success", args: [batchInstance.name])
+                isSuccess=true;
+            }
         }
+
+        return [success: isSuccess, message: msg.join('<br>')]
+
     }
     
     def create(){
