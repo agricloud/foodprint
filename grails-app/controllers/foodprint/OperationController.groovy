@@ -10,15 +10,19 @@ class OperationController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+    def list(params) {
+        //params.max = Math.min(max ?: 10, 100)
         [operationInstanceList: Operation.list(params), operationInstanceTotal: Operation.count()]
     }
     
-     def listJson(Integer max) {
+     def listJson(params) {
         println"OperationController--listJson"
         render (contentType: 'text/json') {
-            list(max)        
+            params.offset=params.int('start')?:0
+            params.max = params.int('limit')?:100
+            
+            println params.offset+"---"+params.max
+            list(params)        
         }
     }
 
