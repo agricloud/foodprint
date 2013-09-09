@@ -7,6 +7,8 @@ class BatchController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
+    def messageSource
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -28,18 +30,29 @@ class BatchController {
     }
 
     def save(Batch batchInstance){
+        def msg=[]
+        def isSuccess;
         if (!batchInstance.validate()) {
-            batchInstance.errors.each {
-                log.debug  it
+            batchInstance.errors.allErrors.each{ 
+                msg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success:false]
-        }
-        if (!batchInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
+            isSuccess=false;
         }
         else{
-                return [success:true]
+            if (!batchInstance.save()) {//flush:true?  
+                batchInstance.errors.allErrors.each{ 
+                    msg << messageSource.getMessage(it, Locale.getDefault())
+                }
+                isSuccess=false;
+            }
+            else{
+                msg<< message(code: "default.message.save.success", args: [batchInstance.name])
+                isSuccess=true;
+            }
         }
+
+        return [success: isSuccess, message: msg.join('<br>')]
+
     }
     
     def create(){
