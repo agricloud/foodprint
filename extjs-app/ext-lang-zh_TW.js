@@ -25,7 +25,7 @@ lang['common.uploadBtn.label'] = "上傳";
 
 lang['batchViewer.batchRoute.label'] = "批號途程";
 
-
+lang['batchParamsEditor.batchRouteParamsCollect.label'] = "途程參數收集";
 
 //domain
 
