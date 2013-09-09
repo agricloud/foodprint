@@ -20,8 +20,13 @@ lang['common.createBtn.label'] = "新增";
 lang['common.saveBtn.label'] = "儲存";
 lang['common.uploadBtn.label'] = "上傳";
 
+lang['commonImageUploader.fileBrowse.label'] = "檔案瀏覽..";
+lang['commonImageUploader.uploadBtn.label'] = lang['common.uploadBtn.label'];
+lang['commonImageUploader.deleteBtn.label'] = lang['common.deleteBtn.label'];
 
 //component
+
+
 
 lang['batchViewer.batchRoute.label'] = "批號途程";
 
