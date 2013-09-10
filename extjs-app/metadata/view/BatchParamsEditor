@@ -26,7 +26,7 @@
                 "container|align": "stretch",
                 "itemId": "batchBrowse",
                 "layout": "vbox",
-                "title": "瀏覽"
+                "title": "Browse"
             },
             "designerId": "793670a7-ecf4-4c00-a778-0cb7f6a2c10c",
             "cn": [
@@ -67,7 +67,7 @@
                 "container|align": "stretch",
                 "itemId": "batchMainten",
                 "layout": "vbox",
-                "title": "批號基本資料"
+                "title": "Mainten"
             },
             "designerId": "7bfbc8f0-989f-4b31-a50e-41a5322b815f",
             "cn": [
@@ -137,7 +137,7 @@
                                 "container|align": "stretch",
                                 "itemId": "batchRouteCollect",
                                 "layout": "vbox",
-                                "title": "途程參數收集"
+                                "title": "BatchRouteParamsCollect"
                             },
                             "designerId": "5b026e94-7399-44e4-9f7f-da73070b96bd",
                             "cn": [
@@ -175,9 +175,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dock": null,
+                                "hidden": true,
                                 "itemId": "batchItemCollect",
                                 "layout": null,
-                                "title": "品項參數收集"
+                                "title": "BatchItemParamsCollect品項參數收集"
                             },
                             "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
                             "cn": [
@@ -212,7 +213,7 @@
                     "",
                     "config.items[0].title=lang['default.list.label'];",
                     "config.items[1].title=lang['default.listDetail.label'] ;",
-                    "",
+                    "config.items[1].items[1].items[0].title=lang['batchParamsEditor.batchRouteParamsCollect.label'] ;",
                     "",
                     "return config;"
                 ]

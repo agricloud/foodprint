@@ -117,7 +117,7 @@ class BatchReportDetController {
         
         if (!batchReportDetInstance.validate()) {
             batchReportDetInstance.errors.each {
-                println it as JSON
+                log.debug it as JSON
                 errorsMsg << messageSource.getMessage(it, Locale.getDefault())
             }
             return [success: false,

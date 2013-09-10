@@ -27,13 +27,7 @@
             "BatchRouteGrid"
         ],
         "designer|userClassName": "BatchEditorController",
-        "mixins": [
-            "{",
-            "\tBatchViewerCtrl: 'foodprint.controller.BatchViewerController',",
-            "    BatchGridCtrl: 'foodprint.controller.BatchGridController',",
-            "    BatchRouteGirdCtrl: 'foodprint.controller.BatchRouteGridController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "718ab505-ce89-4fc5-95b3-f0d0ca40d8ac",
     "cn": [
@@ -61,7 +55,9 @@
                     "        click:this.doSave",
                     "    },",
                     "    'batcheditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
+                    "        click:function(){",
+                    "            this.getBatchGrid().loadStore();",
+                    "        }",
                     "    },",
                     "    'batcheditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
@@ -80,6 +76,9 @@
                     "    },",
                     "    'batcheditorct button[itemId=routeSaveBtn]':{",
                     "        click:this.batchRouteSave",
+                    "    },",
+                    "    'batchviewer form[itemId=batchForm]':{",
+                    "        validitychange:this.onBatchFormValidityChange",
                     "    }",
                     "});"
                 ]
@@ -155,9 +154,8 @@
                     "console.log('batchEditorCtrl.readBatch[dblClick]');",
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
-                    "this.doDisplay(record);",
-                    "this.loadBatchRouteTemp(record);",
-                    "",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').doDisplay(record);",
+                    "this.getBatchViewer().down('grid[itemId=batchRouteGrid]').loadBatchRoute(record.data.id);",
                     "",
                     "this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
@@ -187,15 +185,18 @@
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Saving Data...',",
                     "    method:'POST',",
-                    "    success: function() {",
+                    "    success: function(form,action) {",
                     "        console.log('Saving Success！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Success\", action.result.message);",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
                     "        that.getBatchViewer().down('form[itemId=commonBatchForm]').getForm().reset();",
                     "    },",
-                    "    failure: function() {",
+                    "    failure: function(form,action) {",
                     "        console.log('Saving Failed！');",
-                    "        alert('儲存失敗');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Failed\", action.result.message);",
                     "        that.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
@@ -215,7 +216,8 @@
                 "implHandler": [
                     "console.log('BatchEditorCtrl.doCreate');",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();"
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
+                    ""
                 ]
             },
             "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
@@ -328,6 +330,44 @@
                 ]
             },
             "designerId": "b95dd95b-52b3-4455-9aea-e8904245ae44"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchFormValidityChange",
+                "designer|params": [
+                    "basic",
+                    "valid",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "e1094baf-a37d-46a0-acfc-a653b3f5b856"
         }
     ]
 }

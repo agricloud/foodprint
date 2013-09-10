@@ -20,11 +20,7 @@
             "BatchRouteParamsWindow"
         ],
         "designer|userClassName": "BatchParamsEditorController",
-        "mixins": [
-            "{",
-            "\tBatchRouteGridCtrl: 'foodprint.controller.BatchRouteGridController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "b45ae00c-f10f-4e06-afac-1db682d3ce23",
     "cn": [
@@ -168,7 +164,7 @@
                     "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
                     "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
                     "",
-                    "this.loadBatchRoute(record);"
+                    "this.getBatchRouteGrid().loadBatchRoute(record.data.id);"
                 ]
             },
             "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
