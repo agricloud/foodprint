@@ -233,6 +233,29 @@
                 ]
             },
             "designerId": "f36618ae-5c1b-4e7a-a93d-55460c31cf4d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRoute",
+                "designer|params": [
+                    "batchId"
+                ],
+                "implHandler": [
+                    "console.log(\"View-batchRouteGrid.loadBatchRoute\");",
+                    "var store = this.getStore();",
+                    "store.data.clear();",
+                    "store.load({",
+                    "    params:{'batch.id':batchId}",
+                    "});"
+                ]
+            },
+            "designerId": "5a5a9244-095f-4a4a-9b5c-a64e8ca4f17d"
         }
     ]
 }

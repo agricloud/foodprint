@@ -147,6 +147,24 @@
                 ]
             },
             "designerId": "19eb61b9-2a7b-458a-8326-d7342f1181a6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadStore",
+                "implHandler": [
+                    "console.log(\"View-batchGrid.loadStore\");",
+                    "//alert('doRead Start');",
+                    "this.getStore().load();//對應ref",
+                    "//alert('doRead End');"
+                ]
+            },
+            "designerId": "3a8a5134-16bd-4c27-b7a5-75832e60d8f4"
         }
     ]
 }
