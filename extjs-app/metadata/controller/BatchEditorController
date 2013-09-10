@@ -216,7 +216,8 @@
                 "implHandler": [
                     "console.log('BatchEditorCtrl.doCreate');",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();"
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset();",
+                    ""
                 ]
             },
             "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
@@ -346,11 +347,24 @@
                 ],
                 "implHandler": [
                     "",
-                    "if(valid)",
-                    "    this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "else",
-                    "    this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    ""
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
                 ]
             },
             "designerId": "e1094baf-a37d-46a0-acfc-a653b3f5b856"
