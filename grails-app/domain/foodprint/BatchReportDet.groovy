@@ -5,8 +5,7 @@ class BatchReportDet {
 	/*
 	* 記錄是哪個批號收集的履歷資料
 	*/
-	Batch batch
-
+	static belongsTo=[batch:Batch]
 	/*
 	* 記錄收集的項目
 	*/

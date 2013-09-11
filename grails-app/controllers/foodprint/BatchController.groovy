@@ -2,13 +2,15 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang.exception.ExceptionUtils
+
 
 class BatchController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def messageSource
+    def batchService
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -90,7 +92,6 @@ class BatchController {
         }
     }
 
-
     def delete(){
 
         log.debug "BatchController--delete"
@@ -107,7 +108,9 @@ class BatchController {
 
         try {
             //需指定flush:true 否則可能發生後端刪除錯誤 但return刪除成功訊息至前端
-            batchInstance.delete(flush:true)
+            log.info "batchInstance.batchRoutes.size()="+batchInstance.batchRoutes.size()
+
+            batchService.deleteBatch(batchInstance)
 
             msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
             render (contentType: 'text/json') {
