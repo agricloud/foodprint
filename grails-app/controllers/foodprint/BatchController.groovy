@@ -105,9 +105,9 @@ class BatchController {
         try {
             batchInstance.delete(failOnError: true)
             msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
-            
+
             render (contentType: 'text/json') {
-                return [success:true, message: msg.join('<br>')]]
+                return [success:true, message: msg.join('<br>')]
             }
         }
         catch (e) {
