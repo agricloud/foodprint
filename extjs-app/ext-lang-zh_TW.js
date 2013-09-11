@@ -33,6 +33,10 @@ lang['batchViewer.batchRoute.label'] = "批號途程";
 lang['batchParamsEditor.batchRouteParamsCollect.label'] = "途程參數收集";
 
 //domain
+lang['user.id.label'] = "使用者序號";
+lang['user.username.label'] = "使用者代號";
+lang['user.password.label'] = "使用者密碼";
+lang['user.enabled.label'] = "是否啟用";
 
 lang['item.id.label'] = "品項序號";
 lang['item.name.label'] = "品項代號";
@@ -48,6 +52,7 @@ lang['batch.item.id.label'] = lang['item.id.label'];
 lang['operation.id.label'] = "製程序號";
 lang['operation.name.label'] = "製程代號";
 lang['operation.title.label'] = "製程名稱";
+lang['operation.description.label'] = "製程敘述";
 
 lang['workstation.id.label'] = "生產線序號";
 lang['workstation.name.label'] = "生產線代號";

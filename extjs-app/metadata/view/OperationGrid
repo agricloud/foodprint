@@ -98,6 +98,27 @@
                 "store": "OperationStore"
             },
             "designerId": "917bdf0c-0c8f-47a8-b28f-34e058c581d2"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for(var i=0; i<config.columns.length;i++)",
+                    "config.columns[i].text=lang['operation.'+config.columns[i].dataIndex+'.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "c1e47074-b31b-4ec0-a54a-4f822f8d1acb"
         }
     ]
 }

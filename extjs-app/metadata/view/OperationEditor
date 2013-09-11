@@ -89,6 +89,27 @@
                     "masterInstanceId": "551421d2-5677-41f8-9009-e5b695f59759"
                 }
             ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.items[0].title=lang['default.list.label'];",
+                    "config.items[1].title=lang['default.listDetail.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "2df4f156-004b-4e50-96ed-0a9cae73a51f"
         }
     ]
 }

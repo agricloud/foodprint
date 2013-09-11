@@ -87,9 +87,30 @@
                         "layout|flex": null,
                         "fieldLabel": "Enabled",
                         "name": "enabled",
-                        "boxLabel": "啟用"
+                        "boxLabel": null
                     },
                     "designerId": "f29ab886-3817-4ede-884b-d445f676eff2"
+                },
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processLocalized",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "for(var i=0;i<config.items.length;i++)",
+                            "config.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
+                            "",
+                            "return config;"
+                        ]
+                    },
+                    "designerId": "ca0822e1-5952-47a7-a647-a2c6f2b6603f"
                 }
             ]
         }

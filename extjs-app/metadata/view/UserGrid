@@ -83,6 +83,27 @@
             },
             "codeClass": null,
             "designerId": "e4cf7374-2acd-4ba4-8cd9-4119632df631"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processLocalized",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for(var i=0; i<config.columns.length;i++)",
+                    "config.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "de8a102f-3ffa-46b7-9c48-f89adf91c1a0"
         }
     ]
 }

@@ -91,6 +91,27 @@
                         "name": "description"
                     },
                     "designerId": "94a0c16d-0ead-4a27-b43c-e3f22f5e8263"
+                },
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processLocalized",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "for(var i=0;i<config.items.length;i++)",
+                            "config.items[i].fieldLabel=lang['operation.'+config.items[i].name+'.label'];",
+                            "",
+                            "return config;"
+                        ]
+                    },
+                    "designerId": "573e6d7e-90e0-4323-a5e5-d0941a66e291"
                 }
             ]
         }
