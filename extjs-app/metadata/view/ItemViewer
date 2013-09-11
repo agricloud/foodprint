@@ -447,6 +447,112 @@
                                 "designer|displayName": ""
                             },
                             "designerId": "ab05ce2b-088c-4e7d-89ea-e64260423e76"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "selectionchange",
+                                "implHandler": [
+                                    " if (selected) {",
+                                    "     //alert(this.up().down('form[itemId=itemRouteForm]'))",
+                                    "     this.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
+                                    "}"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "designerId": "cde42c0f-60ba-4688-b2a0-8fa4b4ccf29e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "itemRouteForm",
+                        "bodyPadding": 10,
+                        "title": null
+                    },
+                    "designerId": "0ffb7033-c578-492d-bb41-3db2025aabe7",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "fieldLabel": "sequence",
+                                "name": "sequence"
+                            },
+                            "designerId": "ec63e32f-9064-4c5a-a8cb-b4184ef977e7"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "fieldLabel": "operation_name",
+                                "name": "operation.name"
+                            },
+                            "designerId": "081f36fd-09c9-4ba3-bdd2-54125ce10d0c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "fieldLabel": "operation_title",
+                                "name": "operation.title"
+                            },
+                            "designerId": "fa3e8efc-be60-4260-ac4a-cfd484f57763"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "fieldLabel": "workstation_name",
+                                "name": "workstation.name"
+                            },
+                            "designerId": "6227526c-d9c2-499d-ba8d-57def947fdab"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "fieldLabel": "workstation_title",
+                                "name": "workstation.title"
+                            },
+                            "designerId": "641a8ffa-63a7-43d6-91af-655ed9a707af"
                         }
                     ]
                 }
