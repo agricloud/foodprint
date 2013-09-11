@@ -9,10 +9,6 @@ class BatchController {
 
     def messageSource
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()]
@@ -57,6 +53,7 @@ class BatchController {
     
     def create(){
         log.debug"BatchController--create"
+
         def batchInstance=new Batch(params)
 
         render (contentType: 'text/json') {
@@ -68,64 +65,49 @@ class BatchController {
     def update(){
         log.debug "BatchController--update"
 
+        def msg=[]
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
 
-            log.warning "${controllerName}--${actionName}--batchInstance not found"
+            //使用log.debug 會跳錯誤訊息！
+            println "${controllerName}--${actionName}--batchInstance not found"
+            msg<< message(code: "default.message.update.notfound", args: [params.id])
             render (contentType: 'text/json') {
-                [success:false]
+                [success:false, message: msg.join('<br>')]
             }
         }
+
         batchInstance.properties = params
 
-        log.debug "dueDate = ${batchInstance.dueDate}"
-
         render (contentType: 'text/json') {
-            save(batchInstance)
+            def result=save(batchInstance)
+            if(result.success)
+                result.message = message(code: "default.message.update.success", args: [batchInstance.name])
+
+            result
         }
     }
 
-    def show(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-        }
-
-        render (contentType: 'text/json') {
-            [batchInstanceList:batchInstance]
-        }
-    }
-
-    def edit(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchInstance: batchInstance]
-    }
 
     def delete(){
         log.debug "BatchController--delete"
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
-            log.debug "BatchController--delete--Cant find BatchInstance"
+            println "${controllerName}--${actionName}--batchInstance not found"
+            msg<< message(code: "default.message.update.notfound", args: [params.id])
             render (contentType: 'text/json') {
-                return [success:false]
+                [success:false, message: msg.join('<br>')]
             }
         }
-        //else
-        //    log.debug "BatchController--updateBatch--has find BatchInstance"
 
         try {
             batchInstance.delete(failOnError: true)
+            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
+            
             render (contentType: 'text/json') {
-                return [success:true]
+                return [success:true, message: msg.join('<br>')]]
             }
         }
         catch (e) {
@@ -153,5 +135,32 @@ class BatchController {
         // JSON.use('deep')
         // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
         // converter.render(response)
+    }
+
+    def index() {
+        redirect(action: "list", params: params)
+    }
+
+    def show(Long id) {
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
+            redirect(action: "list")
+        }
+
+        render (contentType: 'text/json') {
+            [batchInstanceList:batchInstance]
+        }
+    }
+
+    def edit(Long id) {
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [batchInstance: batchInstance]
     }
 }
