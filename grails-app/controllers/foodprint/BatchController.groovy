@@ -2,16 +2,15 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
+import org.apache.commons.lang.exception.ExceptionUtils
+
 
 class BatchController {
 
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def messageSource
-
-    def index() {
-        redirect(action: "list", params: params)
-    }
+    def batchService
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -57,6 +56,7 @@ class BatchController {
     
     def create(){
         log.debug"BatchController--create"
+
         def batchInstance=new Batch(params)
 
         render (contentType: 'text/json') {
@@ -68,22 +68,85 @@ class BatchController {
     def update(){
         log.debug "BatchController--update"
 
+        def msg=[]
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
 
-            log.warning "${controllerName}--${actionName}--batchInstance not found"
+            //使用log.debug 會跳錯誤訊息！
+            println "${controllerName}--${actionName}--batchInstance not found"
+            msg<< message(code: "default.message.update.notfound", args: [params.id])
             render (contentType: 'text/json') {
-                [success:false]
+                [success:false, message: msg.join('<br>')]
             }
         }
+
         batchInstance.properties = params
 
-        log.debug "dueDate = ${batchInstance.dueDate}"
-
         render (contentType: 'text/json') {
-            save(batchInstance)
+            def result=save(batchInstance)
+            if(result.success)
+                result.message = message(code: "default.message.update.success", args: [batchInstance.name])
+
+            result
         }
+    }
+
+    def delete(){
+
+        log.debug "BatchController--delete"
+        def msg=[]
+        def batchInstance=Batch.get(params.id)
+        
+        if (!batchInstance) {
+            println "${controllerName}--${actionName}--batchInstance not found"
+            msg<< message(code: "default.message.update.notfound", args: [params.id])
+            render (contentType: 'text/json') {
+                [success:false, message: msg.join('<br>')]
+            }
+        }
+
+        try {
+            
+            batchService.deleteBatch(batchInstance)
+
+            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
+            render (contentType: 'text/json') {
+                return [success:true, message: msg.join('<br>')]
+            }
+        }
+        catch (e) {
+            def eMessage = ExceptionUtils.getRootCauseMessage(e)
+
+            msg<< message(code: "default.message.delete.failed", args: [batchInstance.name, eMessage])
+            render (contentType: 'text/json') {
+                return [success:false, message: msg.join('<br>')]
+            }
+        }
+
+    }
+    /**
+    * 此方法已不使用 僅供參考寫法
+    * @param batch.id
+    * 取得Batch對應之Item的ItemRoute
+    * 可直接呼叫ItemRoute中已有的listJson方法
+    * 由於ItemRoute篩選的params為item.id
+    * 而Batch接收的params為batch.id
+    * 因此需method中找出item.id才可call ItemRoute.listJson
+    * 使用redirect重新導向ItemRoute較為精簡
+    * 也可避免params中屬性命名相同等衝突
+    */
+    def itemRouteList(){
+        log.debug "BatchController--itemRouteList"
+        redirect(controller: "ItemRoute",action: "listJson" ,params:["item.id":Batch.get(params.id).item.id])
+        //old version
+        // JSON.use('deep')
+        // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
+        // converter.render(response)
+    }
+
+    def index() {
+        redirect(action: "list", params: params)
     }
 
     def show(Long id) {
@@ -107,51 +170,5 @@ class BatchController {
         }
 
         [batchInstance: batchInstance]
-    }
-
-    def delete(){
-        log.debug "BatchController--delete"
-        def batchInstance=Batch.get(params.id)
-        
-        if (!batchInstance) {
-            log.debug "BatchController--delete--Cant find BatchInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        //else
-        //    log.debug "BatchController--updateBatch--has find BatchInstance"
-
-        try {
-            batchInstance.delete(failOnError: true)
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
-        }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-
-    }
-    /**
-    * 此方法已不使用 僅供參考寫法
-    * @param batch.id
-    * 取得Batch對應之Item的ItemRoute
-    * 可直接呼叫ItemRoute中已有的listJson方法
-    * 由於ItemRoute篩選的params為item.id
-    * 而Batch接收的params為batch.id
-    * 因此需method中找出item.id才可call ItemRoute.listJson
-    * 使用redirect重新導向ItemRoute較為精簡
-    * 也可避免params中屬性命名相同等衝突
-    */
-    def itemRouteList(){
-        log.debug "BatchController--itemRouteList"
-        redirect(controller: "ItemRoute",action: "listJson" ,params:["item.id":Batch.get(params.id).item.id])
-        //old version
-        // JSON.use('deep')
-        // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
-        // converter.render(response)
     }
 }
