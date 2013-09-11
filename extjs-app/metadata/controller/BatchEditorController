@@ -191,13 +191,13 @@
                     "        Ext.Msg.alert(\"Success\", action.result.message);",
                     "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditor().setActiveTab(that.getBatchGrid().up());",
-                    "        that.getBatchViewer().down('form[itemId=commonBatchForm]').getForm().reset();",
+                    "        that.getBatchViewer().down('form[itemId=batchForm]').getForm().reset(true);",
                     "    },",
                     "    failure: function(form,action) {",
                     "        console.log('Saving Failed！');",
                     "        console.log(action.result.message);",
                     "        Ext.Msg.alert(\"Failed\", action.result.message);",
-                    "        //that.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "        that.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -253,7 +253,7 @@
                     "        console.log('Updating Failed！');",
                     "        console.log(action.result.message);",
                     "        Ext.Msg.alert(\"Failed\", action.result.message);",
-                    "        //that.getBatchEditorCt().down(button[itemId=commonUpdateBtn]).setDisabled(false);",
+                    "        that.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
