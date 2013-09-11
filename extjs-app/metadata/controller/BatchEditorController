@@ -296,7 +296,7 @@
                     "        console.log('Deleting Failed！');",
                     "        console.log(action.result.message);",
                     "        Ext.Msg.alert(\"Failed\", action.result.message);",
-                    "        ",
+                    "\t\tthat.getBatchGrid().getStore().load();",
                     "        that.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
@@ -334,7 +334,7 @@
                     "    redbtn.setDisabled(true);",
                     "}",
                     "else{",
-                    "    tabPanel.down('form[itemId=batchForm]').getForm().reset();",
+                    "    //tabPanel.down('form[itemId=batchForm]').getForm().reset();",
                     "}"
                 ]
             },
