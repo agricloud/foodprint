@@ -2,6 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
+import org.apache.commons.lang.exception.ExceptionUtils;
 
 class BatchController {
 
@@ -91,7 +92,9 @@ class BatchController {
 
 
     def delete(){
+
         log.debug "BatchController--delete"
+        def msg=[]
         def batchInstance=Batch.get(params.id)
         
         if (!batchInstance) {
@@ -103,16 +106,20 @@ class BatchController {
         }
 
         try {
-            batchInstance.delete(failOnError: true)
-            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
+            //需指定flush:true 否則可能發生後端刪除錯誤 但return刪除成功訊息至前端
+            batchInstance.delete(flush:true)
 
+            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
             render (contentType: 'text/json') {
                 return [success:true, message: msg.join('<br>')]
             }
         }
         catch (e) {
+            def eMessage = ExceptionUtils.getRootCauseMessage(e)
+
+            msg<< message(code: "default.message.delete.failed", args: [batchInstance.name, eMessage])
             render (contentType: 'text/json') {
-                return [success:false]
+                return [success:false, message: msg.join('<br>')]
             }
         }
 
