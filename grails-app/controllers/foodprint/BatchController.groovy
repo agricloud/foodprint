@@ -107,9 +107,7 @@ class BatchController {
         }
 
         try {
-            //需指定flush:true 否則可能發生後端刪除錯誤 但return刪除成功訊息至前端
-            log.info "batchInstance.batchRoutes.size()="+batchInstance.batchRoutes.size()
-
+            
             batchService.deleteBatch(batchInstance)
 
             msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
