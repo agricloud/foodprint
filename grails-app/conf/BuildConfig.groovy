@@ -64,6 +64,8 @@ grails.project.dependency.resolution = {
 
         runtime ":cors:1.1.0"
 
+        compile ":twitter-bootstrap:3.0.0"
+
         // compile ':spring-security-core:latest.release'
 
         // compile ":create-domain-uml:0.5"

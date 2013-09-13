@@ -1,5 +1,5 @@
 
-import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
+//import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 def __bundleName = 'foodprint'
 
 
@@ -7,7 +7,14 @@ modules = {
     application {
         resource url:'js/application.js'
     }
-    
+
+ 	overrides {
+
+		bootstrap {
+		    defaultBundle __bundleName
+		}
+
+	}   
 	// extjs4_dev {
 	// 	defaultBundle __bundleName
 
