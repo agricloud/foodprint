@@ -5,6 +5,8 @@ import org.springframework.http.converter.StringHttpMessageConverter
 import grails.converters.JSON
 import grails.converters.XML
 import grails.plugins.rest.client.RestBuilder
+import java.nio.charset.Charset
+
 
 
 class TestController {

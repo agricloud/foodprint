@@ -42,6 +42,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
+
     }
 
     plugins {
@@ -68,6 +69,9 @@ grails.project.dependency.resolution = {
         compile ':rest-client-builder:1.0.3'
 
         compile ":twitter-bootstrap:3.0.0"
+
+        compile ":crypto:2.0"
+
 
         // compile ':spring-security-core:latest.release'
 
