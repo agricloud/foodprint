@@ -8,8 +8,9 @@
 	<body>
 <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Item List</div>
+        <div class="panel-heading">ReportViewer</div>
         <!-- Table -->
+        <p>${reportData.form[0]}</p>
         <table class="table">
           <thead>
             <tr>
@@ -20,12 +21,9 @@
             </tr>
           </thead>
           <tbody>
-			<g:each in="${itemInstanceList}" var="item" >
+			<g:each in="${reportData}" var="reportData" >
 	            <tr>
-	              <td>${item.id}</td>
-	              <td>${item.title}</td>
-	              <td>${item.name}</td>
-	              <td>${item.description}</td>
+	              <td>${reportData.value}</td>
 	            </tr>
 			</g:each>
           </tbody>
