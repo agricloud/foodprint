@@ -163,6 +163,8 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": 1,
+                "container|align": "stretch",
+                "layout": "hbox",
                 "title": "品項途程"
             },
             "designerId": "e57fa9fc-cc72-4d05-b4f6-38f71d963ae4",
@@ -243,6 +245,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 1,
                         "height": null,
                         "itemId": "itemRouteGrid",
                         "width": null,
@@ -458,10 +461,12 @@
                             "userConfig": {
                                 "fn": "selectionchange",
                                 "implHandler": [
-                                    " if (selected) {",
-                                    "     //alert(this.up().down('form[itemId=itemRouteForm]'))",
-                                    "     this.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
-                                    "}"
+                                    "if (selected) {",
+                                    "    if(selected!=\"\"){",
+                                    "    \tthis.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
+                                    "    }",
+                                    "}",
+                                    ""
                                 ],
                                 "name": "selectionchange",
                                 "scope": "me"
@@ -478,6 +483,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 1,
                         "itemId": "itemRouteForm",
                         "bodyPadding": 10,
                         "title": null

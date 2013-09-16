@@ -1,0 +1,64 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ItemRouteFormController"
+    },
+    "designerId": "4d1205c0-eb29-4f3d-b055-4aeb6fa7761f",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteCreate",
+                "implHandler": [
+                    "var routeform = this.getItemViewer().down('form[itemId=itemRouteForm]');",
+                    "routeform.getForm().reset();"
+                ]
+            },
+            "designerId": "a15157be-f7eb-4923-bdf4-60f17218f8a7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteDelete",
+                "implHandler": [
+                    "var sm = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getSelectionModel();",
+                    "",
+                    "store=this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
+                    "store.remove(sm.getSelection());",
+                    "this.getItemViewer().down('form[itemId=itemRouteForm]').getForm().reset();"
+                ]
+            },
+            "designerId": "40f64bd1-407f-49e0-b8d6-757966c84c24"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteSave",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "fb961088-2711-4869-a825-c33e58774c2d"
+        }
+    ]
+}
