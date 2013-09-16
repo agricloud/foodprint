@@ -64,7 +64,9 @@ grails.project.dependency.resolution = {
 
         runtime ":cors:1.1.0"
 
-        compile ':rest-client-builder:1.0.2'
+        compile ':rest-client-builder:1.0.3'
+
+
 
         // compile ':spring-security-core:latest.release'
 
