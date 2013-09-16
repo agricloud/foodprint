@@ -18,10 +18,9 @@ class ReportViewerController {
 		// println XML.parse(resp.text)
 		// println resp.text
   //       return [reportData: resp]
-  		println resp.text
   		def records = new XmlParser().parseText(resp.text)
   		println records.form[0]
-  		println record.form[0].value[0]
+  		//println record.form[0].form
   		// println records[0]
   		return [reportData: records]
         // [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
