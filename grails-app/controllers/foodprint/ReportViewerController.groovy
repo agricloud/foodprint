@@ -19,7 +19,8 @@ class ReportViewerController {
 		// println resp.text
   //       return [reportData: resp]
   		def records = new XmlParser().parseText(resp.text)
-  		println records.form[0]
+  		println records.form.field[0].'@label'
+  		println records.tabs.tab[0].detail.row
   		//println record.form[0].form
   		// println records[0]
   		return [reportData: records]
