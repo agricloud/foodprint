@@ -3,6 +3,7 @@ package foodprint
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
+import grails.converters.XML
 
 
 class BatchController {
@@ -27,6 +28,15 @@ class BatchController {
         //     list(max)        
         // }
     }
+
+    def listXml(Integer max) {
+        log.debug "BatchController--listXml"
+
+        def converter=list() as XML
+        converter.render(response)
+
+    }
+
 
     def save(Batch batchInstance){
         def msg=[]
