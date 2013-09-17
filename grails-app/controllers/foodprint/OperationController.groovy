@@ -16,12 +16,7 @@ class OperationController {
     }
     
      def listJson(params) {
-        println"OperationController--listJson"
         render (contentType: 'text/json') {
-            params.offset=params.int('start')?:0
-            params.max = params.int('limit')?:100
-            
-            println params.offset+"---"+params.max
             list(params)        
         }
     }
