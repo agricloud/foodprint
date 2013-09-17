@@ -10,6 +10,11 @@ lang['default.dueDate'] = "失效日";
 lang['default.expectQty'] = "預計數量";
 lang['default.sequence'] = "工序";
 
+lang['common.message.load'] = "讀取中...";
+lang['common.message.save'] = "儲存中...";
+lang['common.message.update'] = "更新中...";
+lang['common.message.delete'] = "刪除中...";
+
 
 //common component
 
