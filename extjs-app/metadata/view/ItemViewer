@@ -24,7 +24,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
+                "layout|flex": 1,
                 "dock": "top",
                 "container|align": "stretch",
                 "layout": "hbox"
@@ -170,74 +170,6 @@
             "designerId": "e57fa9fc-cc72-4d05-b4f6-38f71d963ae4",
             "cn": [
                 {
-                    "type": "Ext.toolbar.Toolbar",
-                    "reference": {
-                        "name": "dockedItems",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "initialize": null,
-                        "dock": "top",
-                        "itemId": "itemRouteToolbar"
-                    },
-                    "configAlternates": {
-                        "initialize": "object"
-                    },
-                    "designerId": "d3e22255-ed5a-4b71-804a-1db58f4ee63a",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "initialize",
-                            "type": "string"
-                        }
-                    ],
-                    "cn": [
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "routeCreateBtn",
-                                "layout|flex": null
-                            },
-                            "designerId": "32c4b632-6565-4ffb-b6c3-b8287dffaecc",
-                            "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03"
-                        },
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "routeDeleteBtn",
-                                "layout|flex": null
-                            },
-                            "designerId": "a0a416a8-b4ed-4a7a-95d1-6a27b6c0d50f",
-                            "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
-                        },
-                        {
-                            "type": "linkedinstance",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "routeSaveBtn",
-                                "layout|flex": null
-                            },
-                            "designerId": "66330d8b-fc3b-4deb-a5b9-8af1525d0e82",
-                            "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
-                        }
-                    ]
-                },
-                {
                     "type": "Ext.grid.Panel",
                     "reference": {
                         "name": "items",
@@ -245,9 +177,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1,
+                        "layout|flex": 2,
                         "height": null,
                         "itemId": "itemRouteGrid",
+                        "padding": null,
                         "width": null,
                         "title": null,
                         "store": "ItemRouteDeepStore"
@@ -463,7 +396,7 @@
                                 "implHandler": [
                                     "if (selected) {",
                                     "    if(selected!=\"\"){",
-                                    "    \tthis.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
+                                    "        this.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
                                     "    }",
                                     "}",
                                     ""
@@ -476,7 +409,7 @@
                     ]
                 },
                 {
-                    "type": "Ext.form.Panel",
+                    "type": "Ext.form.FieldSet",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -484,81 +417,237 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
-                        "itemId": "itemRouteForm",
-                        "bodyPadding": 10,
+                        "padding": null,
                         "title": null
                     },
-                    "designerId": "0ffb7033-c578-492d-bb41-3db2025aabe7",
+                    "designerId": "8d9dc8be-e395-4464-9bd2-835af6103377",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Number",
+                            "type": "Ext.toolbar.Toolbar",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|anchor": "100%",
-                                "fieldLabel": "sequence",
-                                "name": "sequence"
+                                "initialize": null,
+                                "itemId": "itemRouteToolbar"
                             },
-                            "designerId": "ec63e32f-9064-4c5a-a8cb-b4184ef977e7"
+                            "configAlternates": {
+                                "initialize": "object"
+                            },
+                            "designerId": "d3e22255-ed5a-4b71-804a-1db58f4ee63a",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "initialize",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeCreateBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "32c4b632-6565-4ffb-b6c3-b8287dffaecc",
+                                    "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeDeleteBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "a0a416a8-b4ed-4a7a-95d1-6a27b6c0d50f",
+                                    "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeSaveBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "66330d8b-fc3b-4deb-a5b9-8af1525d0e82",
+                                    "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "routeUpdateBtn",
+                                        "layout|flex": null
+                                    },
+                                    "designerId": "4e9a5dde-5661-4760-875f-a4f1e9032ee0",
+                                    "masterInstanceId": "4df4416d-12ea-4c72-b914-994f977f24a9"
+                                }
+                            ]
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.Panel",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|anchor": "100%",
-                                "fieldLabel": "operation_name",
-                                "name": "operation.name"
+                                "itemId": "itemRouteForm",
+                                "bodyPadding": 10,
+                                "title": null
                             },
-                            "designerId": "081f36fd-09c9-4ba3-bdd2-54125ce10d0c"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|anchor": "100%",
-                                "fieldLabel": "operation_title",
-                                "name": "operation.title"
-                            },
-                            "designerId": "fa3e8efc-be60-4260-ac4a-cfd484f57763"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|anchor": "100%",
-                                "fieldLabel": "workstation_name",
-                                "name": "workstation.name"
-                            },
-                            "designerId": "6227526c-d9c2-499d-ba8d-57def947fdab"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|anchor": "100%",
-                                "fieldLabel": "workstation_title",
-                                "name": "workstation.title"
-                            },
-                            "designerId": "641a8ffa-63a7-43d6-91af-655ed9a707af"
+                            "designerId": "0ffb7033-c578-492d-bb41-3db2025aabe7",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "id",
+                                        "name": "id"
+                                    },
+                                    "designerId": "0ec14486-5b01-4e8f-81e3-6339b06f6a53"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "itemid",
+                                        "name": "itemid",
+                                        "value": null
+                                    },
+                                    "designerId": "8eb4903c-5135-4911-8df2-113647f120ea"
+                                },
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "sequence",
+                                        "name": "sequence",
+                                        "value": null
+                                    },
+                                    "designerId": "ec63e32f-9064-4c5a-a8cb-b4184ef977e7"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "operation_id",
+                                        "name": "operation.id",
+                                        "value": null
+                                    },
+                                    "designerId": "cd71de80-526d-4905-b0b1-a2a0cbedadcc"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "operation_name",
+                                        "name": "operation.name",
+                                        "value": null
+                                    },
+                                    "designerId": "081f36fd-09c9-4ba3-bdd2-54125ce10d0c"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "operation_title",
+                                        "name": "operation.title"
+                                    },
+                                    "designerId": "fa3e8efc-be60-4260-ac4a-cfd484f57763"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "workstation_id",
+                                        "name": "workstation.id"
+                                    },
+                                    "designerId": "ee4b1212-e14e-4502-a982-823af2a62069"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "workstation_name",
+                                        "name": "workstation.name"
+                                    },
+                                    "designerId": "6227526c-d9c2-499d-ba8d-57def947fdab"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|anchor": "100%",
+                                        "fieldLabel": "workstation_title",
+                                        "name": "workstation.title"
+                                    },
+                                    "designerId": "641a8ffa-63a7-43d6-91af-655ed9a707af"
+                                }
+                            ]
                         }
                     ]
                 }
