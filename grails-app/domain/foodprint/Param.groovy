@@ -20,8 +20,21 @@ class Param {
 	ParamType paramType //收集類型
 	String description=""
 
+
+    /*
+    * 收集資料範圍下限
+    */
 	String lower=""
+
+    /*
+    * 收集資料範圍上限
+    */
 	String upper=""
+
+
+    /*
+    * 收集資料值單位
+    */
 	String unit=""
 
 	// Site site
