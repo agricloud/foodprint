@@ -112,23 +112,29 @@ class BatchReportDetController {
 
 
     def save(BatchReportDet batchReportDetInstance){
+        def msg=[]
+        def isSuccess;
 
-        println "儲存的參數"+params
-        
         if (!batchReportDetInstance.validate()) {
             batchReportDetInstance.errors.each {
-                log.debug it as JSON
                 errorsMsg << messageSource.getMessage(it, Locale.getDefault())
             }
-            return [success: false,
-                    message: errorsMsg.join('<br>')]
-        }
-        if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
-                return [success: false]
+            isSuccess=false;
         }
         else{
-                return [success:true]
+            if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
+                batchInstance.errors.allErrors.each{ 
+                    msg << messageSource.getMessage(it, Locale.getDefault())
+                }
+                isSuccess=false;
+            }
+            else{
+                msg<< message(code: "default.message.save.success", args: [batchReportDetInstance.reportParams.param.title])
+                isSuccess=true;
+            }
         }
+        return [success: isSuccess, message: msg.join('<br>')]
+
     }
 
 
@@ -136,34 +142,44 @@ class BatchReportDetController {
         log.debug "BatchReportDetController--update"
 
         def failure=[]
-        log.debug params
+        def success=[]
+        def msg=[]
+
         params.each{
-            log.debug it
+
             if(it.key!="_dc" && it.key!="action" && it.key!="controller"){
                 def batchReportDetInstance=BatchReportDet.get(it.key)
                 if (!batchReportDetInstance) {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
+
+                    msg<< message(code: "default.message.update.notfound", args: [params.id])
                     render (contentType: 'text/json') {
-                        [success:false]
+                        [success:false, message: msg.join('<br>')]
                     }
                 }
 
                 batchReportDetInstance.value = it.value
 
-                if(!save(batchReportDetInstance))
-                    failure.add(it.key)
+                if(!save(batchReportDetInstance).success)
+                    failure<< batchReportDetInstance.reportParams.param.title
+                else
+                    success<< batchReportDetInstance.reportParams.param.title
             }
 
         }//end each
 
+        if(success.size()>0){
+            msg<< message(code: "default.message.update.success",args: [success.join(' , ')])
+        }
         if(failure.size()>0){
+            msg<< message(code: "default.message.update.failed",args: [failure.join(' , ')])
             render (contentType: 'text/json') {
-                [success:false,failure:failue]
+                [success:false, message: msg.join('<br>')]
             }
         }
         else{
             render (contentType: 'text/json') {
-                [success:true]
+                [success:true, message: msg.join('<br>')]
             }
         }
     }
