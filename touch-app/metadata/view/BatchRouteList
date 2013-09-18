@@ -12,6 +12,7 @@
         "scrollable": [
             "true"
         ],
+        "loadingText": null,
         "store": "BatchRouteDeepStore"
     },
     "designerId": "6b273a91-efef-4316-9344-0565c891c114",
@@ -30,6 +31,22 @@
                 "designer|displayName": "itemTpl"
             },
             "designerId": "4d16ec3c-8891-4215-8e99-c7baf567387b"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setLoadingText(lang['default.message.load']);"
+                ]
+            },
+            "designerId": "3c897fe5-78e4-47ea-9a5e-695f426fe468"
         }
     ]
 }
