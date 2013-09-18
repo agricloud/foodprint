@@ -6,17 +6,17 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "User"
+        ],
+        "stores": [
+            "UserStore"
+        ],
         "views": [
             "UserEditor"
         ],
         "designer|userClassName": "UserEditorController",
-        "mixins": [
-            "{",
-            "UserViewerCtrl: 'foodprint.controller.UserViewerController',",
-            "UserGridCtrl: 'foodprint.controller.UserGridController'",
-            "}",
-            ""
-        ]
+        "mixins": null
     },
     "designerId": "91aa0e65-9365-4ba6-a15d-9ab82902e7a6",
     "cn": [
@@ -128,7 +128,7 @@
                     "this.getUserEditor().setActiveTab(this.getUserViewer().up());",
                     "",
                     "console.log(record);",
-                    "this.doDisplay(record);",
+                    "this.getUserViewer().down('form[itemId=userForm]').doDisplay(record);",
                     "",
                     "this.getUserEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getUserEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
@@ -299,6 +299,23 @@
                 ]
             },
             "designerId": "9b3e641f-1fdc-4b09-822b-cca2a73a5a7b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"userEditorCtrl.doRead\");",
+                    "this.getUserGrid().loadStore();"
+                ]
+            },
+            "designerId": "cf5d4eae-b42d-4d35-bfb5-bcdd40c70804"
         }
     ]
 }
