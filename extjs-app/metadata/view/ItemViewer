@@ -466,6 +466,29 @@
                                 "designer|displayName": ""
                             },
                             "designerId": "ab05ce2b-088c-4e7d-89ea-e64260423e76"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "loadItemRoute",
+                                "designer|params": [
+                                    "itemId"
+                                ],
+                                "implHandler": [
+                                    "console.log(\"View-itemRouteGrid.loadItemRoute\");",
+                                    "var store = this.getStore();",
+                                    "store.data.clear();",
+                                    "store.load({",
+                                    "    params:{'item.id':itemId}",
+                                    "});"
+                                ]
+                            },
+                            "designerId": "4248a817-7dac-4c29-b461-3f424102c4d5"
                         }
                     ]
                 }
