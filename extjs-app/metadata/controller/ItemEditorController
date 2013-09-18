@@ -21,17 +21,12 @@
             "ItemImageStore"
         ],
         "views": [
-            "ItemGrid",
-            "CommonImageUploader",
-            "CommonOperationCombo",
-            "ItemViewer",
-            "ItemEditor",
             "ItemEditorCt"
         ],
         "designer|userClassName": "ItemEditorController",
         "mixins": [
             "{",
-            "    ItemRouteCtrl:'foodprint.controller.ItemRouteGridController'",
+            "    ItemRouteCtrl:'foodprint.controller.ItemRoutePanelController'",
             "}"
         ]
     },
@@ -132,7 +127,7 @@
                     "        click:this.doUpdate",
                     "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
-                    "        itemdblclick:this.readItemRouteGrid",
+                    "        itemdblclick:this.readItem",
                     "    },",
                     "    'itemeditorct button[itemId=routeCreateBtn]':{",
                     "        click:this.itemRouteCreate",
@@ -161,66 +156,22 @@
             "userConfig": {
                 "fn": "readItem",
                 "designer|params": [
-                    "editor",
-                    " viewer",
-                    "record"
-                ],
-                "implHandler": [
-                    "this.getItemViewer().down('form[itemId=itemForm]').doDisplay(record);",
-                    "editor.setActiveTab(viewer.up());",
-                    "var tool = editor.up().down('commoneditortoolbar');",
-                    "tool.down('commondeletebtn').setDisabled(false);",
-                    "tool.down('commonupdatebtn').setDisabled(false);"
-                ]
-            },
-            "designerId": "24d7898a-59d3-44a6-b4bf-ec9193abc721"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "readItemRoute",
-                "designer|params": [
-                    "store",
-                    "id"
-                ],
-                "implHandler": [
-                    "store.data.clear();",
-                    "store.load({",
-                    "    params:{'item.id':id}",
-                    "});"
-                ]
-            },
-            "designerId": "6f0d14a8-fe41-48dc-a795-c714f5008034"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "readItemRouteGrid",
-                "designer|params": [
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "var editor = this.getItemEditor();",
-                    "var viewer = this.getItemViewer();",
-                    "var grid = viewer.down('gridpanel[itemId=itemRouteGrid]');",
-                    "var store = grid.getStore();",
-                    "var id =record.data.id;",
                     "",
-                    "this.readItem(editor,viewer,record);",
-                    "this.readItemRoute(store,id);"
+                    "this.getItemViewer().down('form[itemId=itemForm]').doDisplay(record);",
+                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "var tool = this.getItemEditor().up().down('commoneditortoolbar');",
+                    "tool.down('commondeletebtn').setDisabled(false);",
+                    "tool.down('commonupdatebtn').setDisabled(false);",
+                    "",
+                    "this.getItemViewer().down('grid[itemId=itemRouteGrid]').loadItemRoute(record.data.id);",
+                    "",
+                    ""
                 ]
             },
-            "designerId": "61727132-7e2f-494b-a0b6-3e465816a053"
+            "designerId": "24d7898a-59d3-44a6-b4bf-ec9193abc721"
         },
         {
             "type": "fixedfunction",
