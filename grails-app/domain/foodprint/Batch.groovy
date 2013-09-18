@@ -1,5 +1,8 @@
 package foodprint
 
+ public enum BatchType {
+    PRODUCT
+}
 class Batch {
 
 	static belongsTo =[item:Item]
@@ -21,6 +24,18 @@ class Batch {
     */
 	Date expirationDate
 
+
+    /*
+    * 類型
+    */
+    BatchType batchType=foodprint.BatchType.PRODUCT
+
+
+    /*
+    * 供應商
+    */
+   	Supplier supplier
+
 	Site site
 	String editor=""	//修改者
 	String creator=""	//建立者
@@ -36,6 +51,7 @@ class Batch {
 		site nullable:true
 		manufactureDate nullable:true
 		expirationDate nullable:true
+		supplier nullable:true
 	}
 	
 }
