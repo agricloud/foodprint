@@ -23,6 +23,9 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "loadingText": "Loading.."
+            },
             "designerId": "aabe1e9d-2614-4239-b6e6-f7ecf5da2cf7"
         },
         {
@@ -142,7 +145,7 @@
                 "implHandler": [
                     "for(var i=0; i<config.columns.length;i++)",
                     "config.columns[i].text=lang['batch.'+config.columns[i].dataIndex+'.label'];",
-                    "",
+                    "config.viewConfig.loadingText = lang['default.message.load'];",
                     "return config;"
                 ]
             },
@@ -159,6 +162,7 @@
                 "fn": "loadStore",
                 "implHandler": [
                     "console.log(\"View-batchGrid.loadStore\");",
+                    "",
                     "//alert('doRead Start');",
                     "this.getStore().load();//對應ref",
                     "//alert('doRead End');"
