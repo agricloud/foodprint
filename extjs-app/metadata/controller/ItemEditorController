@@ -31,8 +31,6 @@
         "designer|userClassName": "ItemEditorController",
         "mixins": [
             "{",
-            "    ItemViewerCtrl:'foodprint.controller.ItemViewerController',",
-            "    ItemGridCtrl:'foodprint.controller.ItemGridController',",
             "    ItemRouteCtrl:'foodprint.controller.ItemRouteGridController'",
             "}"
         ]
@@ -168,7 +166,7 @@
                     "record"
                 ],
                 "implHandler": [
-                    "this.doDisplay(record);",
+                    "this.getItemViewer().down('form[itemId=itemForm]').doDisplay(record);",
                     "editor.setActiveTab(viewer.up());",
                     "var tool = editor.up().down('commoneditortoolbar');",
                     "tool.down('commondeletebtn').setDisabled(false);",
@@ -238,6 +236,144 @@
                 ]
             },
             "designerId": "3df4ecfb-49be-4357-991e-1e0a9fde2519"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "implHandler": [
+                    "var that = this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Updating Success！');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Updating Failed！');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "65627de4-3e1d-4a01-827c-155091e1ac12"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
+                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().reset();",
+                    "/*",
+                    "console.log('ItemRouteGridCtrl.doCreate');",
+                    "var grid = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]');",
+                    "var store = grid.getStore();",
+                    "store.insert(store.getCount(),data);",
+                    "*/"
+                ]
+            },
+            "designerId": "5a40d9d6-1c68-4946-8127-728ac799857c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "var that=this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    method:'DELETE',",
+                    "    success: function() {",
+                    "        console.log('Deleting Success.');",
+                    "        editor.setActiveTab(grid.up());",
+                    "        grid.getStore().load();",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Deleting Failed.');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "2b7c3fc4-2113-46f1-8ddc-23e8fa90a45e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "var that = this;",
+                    "var editor = that.getItemEditor();",
+                    "var grid = that.getItemGrid();",
+                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
+                    "form.submit({",
+                    "    url: '/rest/item',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'POST',",
+                    "    success: function() {",
+                    "        console.log('Save Success.');",
+                    "        grid.getStore().load();",
+                    "        editor.setActiveTab(grid.up());",
+                    "        form.getForm().reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Save Failed.');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "31b117b9-2f60-4a0f-8fb7-3a9bc14f242e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"itemEditorCtrl.doRead\");",
+                    "this.getItemGrid().loadStore();"
+                ]
+            },
+            "designerId": "106444f6-4d88-4c80-9489-ebedc4bcaf47"
         }
     ]
 }

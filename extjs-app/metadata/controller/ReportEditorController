@@ -6,16 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "Report"
+        ],
+        "stores": [
+            "ReportStore"
+        ],
         "views": [
             "ReportEditor"
         ],
         "designer|userClassName": "ReportEditorController",
         "mixins": [
             "{",
-            "    ReportViewerCtrl: 'foodprint.controller.ReportViewerController',",
-            "    ReportGridCtrl: 'foodprint.controller.ReportGridController',",
-            "    ReportParamsEditorCtrl:'foodprint.controller.ReportParamsEditorController',",
-            "    ReportParamsGridCtrl:'foodprint.controller.ReportParamsGridController'",
+            "    ReportParamsEditorCtrl:'foodprint.controller.ReportParamsEditorController'",
             "}"
         ]
     },
@@ -112,6 +115,7 @@
                     "application"
                 ],
                 "implHandler": [
+                    "",
                     "this.control({",
                     "    '#reportToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
@@ -131,13 +135,13 @@
                     "    'reporteditorct grid[itemId=reportGrid]':{",
                     "        itemdblclick:this.readReport",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=commonCreateBtn]':{",
+                    "    '#reportParamsToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.paramsdoCreate",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=commonDeleteBtn]':{",
+                    "    '#reportParamsToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.paramsdoDelete",
                     "    },",
-                    "    '#reportparamsToolbar button[itemId=commonSaveBtn]':{",
+                    "    '#reportParamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.paramsdoSave",
                     "    }",
                     "});"
@@ -162,10 +166,10 @@
                     "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
                     "",
                     "console.log(record);",
-                    "this.paramsdoRead(reportid);",
+                    "this.doReadReportParams(reportid);",
                     "",
-                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
-                    "this.doDisplay(record);",
+                    "this.getReportViewer().down('panel[itemId=reportParamsEditor]').show();",
+                    "this.getReportViewer().down('form[itemId=reportForm]').doDisplay(record);",
                     "",
                     "this.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
@@ -187,7 +191,7 @@
                 "implHandler": [
                     "console.log('reportEditorCtrl.doCreate');",
                     "",
-                    "this.getReportViewer().down('panel[itemId=reportparamsEditor]').hide();",
+                    "this.getReportViewer().down('panel[itemId=reportParamsEditor]').hide();",
                     "var form=this.getReportViewer().down('form[itemId=reportForm]').getForm();",
                     "form.reset();",
                     "",
@@ -301,6 +305,23 @@
                 ]
             },
             "designerId": "87d6bb47-f0be-45c9-9fa4-f6835b5e9bca"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"reportEditorCtrl.doRead\");",
+                    "this.getReportGrid().loadStore();"
+                ]
+            },
+            "designerId": "41f01dbe-8b76-431c-9b9e-c4029fb7b230"
         }
     ]
 }
