@@ -55,9 +55,7 @@
                     "        click:this.doSave",
                     "    },",
                     "    'batcheditorct button[itemId=commonReadBtn]':{",
-                    "        click:function(){",
-                    "            this.getBatchGrid().loadStore();",
-                    "        }",
+                    "        click:this.doRead",
                     "    },",
                     "    'batcheditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
@@ -381,6 +379,23 @@
                 ]
             },
             "designerId": "e1094baf-a37d-46a0-acfc-a653b3f5b856"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"batchEditorCtrl.doRead\");",
+                    "this.getBatchGrid().loadStore();"
+                ]
+            },
+            "designerId": "a49c5def-e0e1-4a93-b994-7143ccbe67cc"
         }
     ]
 }

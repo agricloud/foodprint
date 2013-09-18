@@ -6,16 +6,17 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "Operation"
+        ],
+        "stores": [
+            "OperationStore"
+        ],
         "views": [
             "OperationEditor"
         ],
         "designer|userClassName": "OperationEditorController",
-        "mixins": [
-            "{",
-            "OperationViewerCtrl: 'foodprint.controller.OperationViewerController',",
-            "OperationGridCtrl: 'foodprint.controller.OperationGridController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
     "cn": [
@@ -299,6 +300,23 @@
                 ]
             },
             "designerId": "0efd456e-2968-40db-ad06-2bd3945902ee"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"operationEditorCtrl.doRead\");",
+                    "this.getOperationGrid().loadStore();"
+                ]
+            },
+            "designerId": "05178949-459d-46a6-a65c-6a3f2e070761"
         }
     ]
 }

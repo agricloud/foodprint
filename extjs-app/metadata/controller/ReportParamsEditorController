@@ -6,15 +6,17 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "ReportParams"
+        ],
+        "stores": [
+            "ReportParamsStore"
+        ],
         "views": [
             "ReportParamsEditor"
         ],
         "designer|userClassName": "ReportParamsEditorController",
-        "mixins": [
-            "{",
-            "\tReportParamsGridCtrl: 'foodprint.controller.ReportParamsGridController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "994b25cb-5581-4543-a2c8-6c611d12a6a9",
     "cn": [
@@ -26,7 +28,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "reportparamsEditor",
+                "ref": "reportParamsEditor",
                 "selector": "reportparamseditor"
             },
             "designerId": "0c7023f9-41e6-476c-9cb1-d95c7385f897"
@@ -39,7 +41,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "reportparamsGrid",
+                "ref": "reportParamsGrid",
                 "selector": "reportparamsgrid"
             },
             "designerId": "acf804ed-7f4b-4b3f-b39e-b013c884acd8"
@@ -57,20 +59,128 @@
                     "application"
                 ],
                 "implHandler": [
+                    "",
                     "this.control({",
                     "    '#reportparamsToolbar button[itemId=commonCreateBtn]':{",
-                    "        click:this.paramsdoCreate",
+                    "        click:this.doCreateReportParams",
                     "    },",
                     "    '#reportparamsToolbar button[itemId=commonDeleteBtn]':{",
-                    "        click:this.paramsdoDelete",
+                    "        click:this.doDeleteReportParams",
                     "    },",
                     "    '#reportparamsToolbar button[itemId=commonSaveBtn]':{",
-                    "        click:this.paramsdoSave",
+                    "        click:this.doSaveReportParams",
                     "    }",
                     "});"
                 ]
             },
             "designerId": "4c61fad3-91a3-449d-9c32-07df29effe0c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doReadReportParams",
+                "designer|params": [
+                    "reportId"
+                ],
+                "implHandler": [
+                    "//console.log(reportid);",
+                    "this.getReportViewer().down('grid[itemId=reportParamsGrid]').loadReportParams(reportId);"
+                ]
+            },
+            "designerId": "899a4750-61c8-4e30-b4cc-c6b8727f872b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreateReportParams",
+                "implHandler": [
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "console.log(reportid);",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.insert(0,{",
+                    "    id:'',",
+                    "    'report.id': reportid,",
+                    "    'param.id':'',",
+                    "    'workstation.id':'',",
+                    "    'item.id':''",
+                    "});"
+                ]
+            },
+            "designerId": "80d45a49-548e-4cd7-b9d8-5c0090dfe8f2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDeleteReportParams",
+                "implHandler": [
+                    "//沒有與後端串接？",
+                    "sm=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getSelectionModel();",
+                    "",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.remove(sm.getSelection());",
+                    ""
+                ]
+            },
+            "designerId": "e6636a7f-bdce-439a-a106-da7af750ac81"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSaveReportParams",
+                "implHandler": [
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.completeEdit();",
+                    "",
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.sync({",
+                    "    url: '/rest/reportParams',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        paramstore.load({",
+                    "            params:{",
+                    "                reportid:reportid",
+                    "            }",
+                    "        });",
+                    "",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "d1ae09d0-ab75-431c-9d6a-d424a9fad498"
         }
     ]
 }

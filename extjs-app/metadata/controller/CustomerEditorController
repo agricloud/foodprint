@@ -130,7 +130,7 @@
                     "var form = viewer.down('form[itemId=customerForm]');",
                     "var id =record.data.id;",
                     "",
-                    "form.loadRecord(record);",
+                    "form.loadRecord(record);//應改為呼叫form的doDisplay方法",
                     "editor.setActiveTab(viewer.up());",
                     "",
                     "/*",
