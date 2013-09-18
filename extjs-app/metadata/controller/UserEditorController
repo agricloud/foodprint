@@ -128,7 +128,7 @@
                     "this.getUserEditor().setActiveTab(this.getUserViewer().up());",
                     "",
                     "console.log(record);",
-                    "this.doDisplay(record);",
+                    "this.getUserViewer().down('form[itemId=userForm]').doDisplay(record);",
                     "",
                     "this.getUserEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getUserEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",

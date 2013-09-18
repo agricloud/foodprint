@@ -157,34 +157,6 @@
                 "xtype": null
             },
             "designerId": "9c282006-2570-4ad9-af9d-3bf679ca1b8e"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doDisplay",
-                "designer|params": [
-                    "record"
-                ],
-                "implHandler": [
-                    "console.log(\"itemViewer.doDisplay\");",
-                    "this.getItemViewer().down('form[itemId=itemForm]').loadRecord(record);",
-                    "",
-                    "",
-                    "this.getItemViewer().down('commonimageuploader').setDomainId(record.data.id);",
-                    "this.getItemViewer().down('commonimageuploader').showImage();",
-                    "",
-                    "//var itemImages=record.itemImages();",
-                    "//itemImages.load();",
-                    "//console.log(this.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore());",
-                    "//his.getItemViewer().down('gridpanel[itemId=itemImageGrid]').getStore().loadRecords(itemImages.getRange());"
-                ]
-            },
-            "designerId": "303132c6-f3c0-46d1-ba0c-2fce25ba1e04"
         }
     ]
 }

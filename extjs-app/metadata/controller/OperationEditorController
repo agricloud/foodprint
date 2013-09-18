@@ -127,7 +127,7 @@
                     "this.getOperationEditor().setActiveTab(this.getOperationViewer().up());",
                     "",
                     "console.log(record);",
-                    "this.doDisplay(record);",
+                    "this.getOperationViewer().down('form[itemId=operationForm]').doDisplay(record);",
                     "",
                     "this.getOperationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getOperationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",

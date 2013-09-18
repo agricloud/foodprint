@@ -165,7 +165,7 @@
                     "this.paramsdoRead(reportid);",
                     "",
                     "this.getReportViewer().down('panel[itemId=reportparamsEditor]').show();",
-                    "this.doDisplay(record);",
+                    "this.getReportViewer().down('form[itemId=reportForm]').doDisplay(record);",
                     "",
                     "this.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",

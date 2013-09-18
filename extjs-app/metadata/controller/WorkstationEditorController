@@ -127,8 +127,7 @@
                 "implHandler": [
                     "this.getWorkstationEditor().setActiveTab(this.getWorkstationViewer().up());",
                     "",
-                    "console.log(record);",
-                    "this.doDisplay(record);",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').doDisplay(record);",
                     "",
                     "this.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",

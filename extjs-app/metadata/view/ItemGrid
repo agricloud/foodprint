@@ -124,6 +124,23 @@
                 "store": "ItemStore"
             },
             "designerId": "3f504e25-2865-46c7-8dbe-8bb5b3a79453"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadStore",
+                "implHandler": [
+                    "console.log(\"View-itemGrid.loadStore\");",
+                    "",
+                    "this.getStore().load();//對應ref"
+                ]
+            },
+            "designerId": "56f4d625-cd20-4ec7-9bdb-ba85b465ae0e"
         }
     ]
 }

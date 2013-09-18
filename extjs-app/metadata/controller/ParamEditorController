@@ -124,10 +124,7 @@
                 "implHandler": [
                     "this.getParamEditor().setActiveTab(this.getParamViewer().up());",
                     "",
-                    "console.log(record);",
-                    "",
-                    "",
-                    "this.doDisplay(record);",
+                    "this.getParamViewer().down('form[itemId=paramForm]').doDisplay(record);",
                     "",
                     "this.getParamEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getParamEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",

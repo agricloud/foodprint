@@ -168,7 +168,7 @@
                     "record"
                 ],
                 "implHandler": [
-                    "this.doDisplay(record);",
+                    "this.getItemViewer().down('form[itemId=itemForm]').doDisplay(record);",
                     "editor.setActiveTab(viewer.up());",
                     "var tool = editor.up().down('commoneditortoolbar');",
                     "tool.down('commondeletebtn').setDisabled(false);",
