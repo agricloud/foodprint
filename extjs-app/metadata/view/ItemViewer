@@ -135,6 +135,25 @@
                                 "format": "Y/m/d"
                             },
                             "designerId": "7ae00aa6-95d6-42b2-b2f8-d085a8ea207e"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "doDisplay",
+                                "designer|params": [
+                                    "record"
+                                ],
+                                "implHandler": [
+                                    "console.log(\"View-itemForm.doDisplay\");",
+                                    "this.loadRecord(record);"
+                                ]
+                            },
+                            "designerId": "bb809d30-5779-40db-a6d6-c6ec59a0e8c6"
                         }
                     ]
                 },
@@ -405,6 +424,29 @@
                                 "scope": "me"
                             },
                             "designerId": "cde42c0f-60ba-4688-b2a0-8fa4b4ccf29e"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "loadItemRoute",
+                                "designer|params": [
+                                    "itemId"
+                                ],
+                                "implHandler": [
+                                    "console.log(\"View-itemRouteGrid.loadItemRoute\");",
+                                    "var store = this.getStore();",
+                                    "store.data.clear();",
+                                    "store.load({",
+                                    "   params:{'item.id':itemId}",
+                                    "});"
+                                ]
+                            },
+                            "designerId": "e380515d-1dbf-418a-af96-17d8231980d2"
                         }
                     ]
                 },

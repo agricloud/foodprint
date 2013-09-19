@@ -11,6 +11,11 @@ lang['default.dueDate'] = "失效日";
 lang['default.expectQty'] = "預計數量";
 lang['default.sequence'] = "工序";
 
+lang['default.message.load'] = "讀取中...";
+//lang['default.message.save'] = "儲存中...";
+lang['default.message.update'] = "更新中...";
+//lang['default.message.delete'] = "刪除中...";
+
 //common component
 
 lang['common.readBtn.label'] = "讀取";
@@ -35,8 +40,6 @@ lang['batchParamsCarousel.commonSearchField.label']=lang['default.enterBatch.lab
 lang['batchParamsCarousel.selectBatchRouteToolbar.label']=lang['default.selectBatchRoute.label'];
 
 lang['batchRouteParamsPanel.panel.label']=lang['default.routeParams.label'] ;
-
-
 
 //domain
 

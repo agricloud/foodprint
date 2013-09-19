@@ -6,7 +6,7 @@ package foodprint
 
 class ReportParams {
 
-	Report report
+	static belongsTo=[report:Report]
 	Param param
 
 	Workstation workstation // 設定在某工作站需要進行資料收集
@@ -26,5 +26,6 @@ class ReportParams {
     	item nullable:true
     	operation nullable:true
     	site nullable:true
+    	param unique:'report'
     }
 }

@@ -6,16 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "Param",
+            "ParamType"
+        ],
+        "stores": [
+            "ParamStore",
+            "ParamTypeStore"
+        ],
         "views": [
             "ParamEditor"
         ],
         "designer|userClassName": "ParamEditorController",
-        "mixins": [
-            "{",
-            "    ParamViewerCtrl: 'foodprint.controller.ParamViewerController',",
-            "    ParamGridCtrl: 'foodprint.controller.ParamGridController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "f87f349d-8956-4370-a9ae-9d1ec3e4722d",
     "cn": [
@@ -124,10 +127,7 @@
                 "implHandler": [
                     "this.getParamEditor().setActiveTab(this.getParamViewer().up());",
                     "",
-                    "console.log(record);",
-                    "",
-                    "",
-                    "this.doDisplay(record);",
+                    "this.getParamViewer().down('form[itemId=paramForm]').doDisplay(record);",
                     "",
                     "this.getParamEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getParamEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
@@ -263,6 +263,23 @@
                 ]
             },
             "designerId": "0767484d-8973-415a-8959-3408dc06eda1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"paramEditorCtrl.doRead\");",
+                    "this.getParamGrid().loadStore();"
+                ]
+            },
+            "designerId": "1e0db8ea-c8d4-40f8-b826-00fa8db1c4d2"
         }
     ]
 }

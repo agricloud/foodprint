@@ -55,9 +55,7 @@
                     "        click:this.doSave",
                     "    },",
                     "    'batcheditorct button[itemId=commonReadBtn]':{",
-                    "        click:function(){",
-                    "            this.getBatchGrid().loadStore();",
-                    "        }",
+                    "        click:this.doRead",
                     "    },",
                     "    'batcheditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
@@ -155,6 +153,7 @@
                     "",
                     "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
                     "this.getBatchViewer().down('form[itemId=batchForm]').doDisplay(record);",
+                    "",
                     "this.getBatchViewer().down('grid[itemId=batchRouteGrid]').loadBatchRoute(record.data.id);",
                     "",
                     "this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
@@ -183,7 +182,7 @@
                     "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    url: '/rest/batch',",
                     "    submitEmptyText: false,",
-                    "    waitMsg: 'Saving Data...',",
+                    "    waitMsg: lang['default.message.save'],",
                     "    method:'POST',",
                     "    success: function(form,action) {",
                     "        console.log('Saving Success！');",
@@ -199,7 +198,9 @@
                     "        Ext.Msg.alert(\"Failed\", action.result.message);",
                     "        that.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "d868068e-d50d-4df0-85ba-1d9e9f59b7da"
@@ -239,7 +240,7 @@
                     "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    url: '/rest/batch',",
                     "    submitEmptyText: false,",
-                    "    waitMsg: 'Updating Data...',",
+                    "    waitMsg: lang['default.message.update'],",
                     "    method:'PUT',",
                     "    success: function(form,action) {",
                     "        console.log('Updating Success！');",
@@ -282,7 +283,7 @@
                     "this.getBatchViewer().down('form[itemId=batchForm]').submit({",
                     "    url: '/rest/batch',",
                     "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
+                    "    waitMsg: lang['default.message.delete'],",
                     "    method:'DELETE',",
                     "    success: function(form,action) {",
                     "        console.log('Deleting Success！');",
@@ -378,6 +379,23 @@
                 ]
             },
             "designerId": "e1094baf-a37d-46a0-acfc-a653b3f5b856"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "implHandler": [
+                    "",
+                    "console.log(\"batchEditorCtrl.doRead\");",
+                    "this.getBatchGrid().loadStore();"
+                ]
+            },
+            "designerId": "a49c5def-e0e1-4a93-b994-7143ccbe67cc"
         }
     ]
 }

@@ -39,7 +39,16 @@ class ExtJSFilters {
                     if(!value && key.endsWith(".id")){
                         value="null"
                     }
+
+
                 }
+
+                // 如果從前端 extjs 傳進來需要進行分頁處理，轉換為 grails 處理分頁之 params
+                if(params.start && params.limit){
+                    params.offset = params.int('start')?:0
+                    params.max = params.int('limit')?:50
+                }
+
             }
             after = { Map model ->
 

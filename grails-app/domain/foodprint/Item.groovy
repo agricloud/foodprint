@@ -23,6 +23,18 @@ class Item {
 	 */
 	String description = ""
 
+
+    /*
+    * 規格敘述
+    */
+    String spec=""
+
+
+    /*
+    * 單位
+    */
+    String unit=""
+
     /**
      * 記錄期限多少天數
      */
@@ -42,6 +54,8 @@ class Item {
      * 廠別
      */
 	Site site
+
+
 
     /**
      * 修改者

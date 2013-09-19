@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "height": null,
-        "itemId": "reportparamsGrid",
+        "itemId": "reportParamsGrid",
         "width": null,
         "designer|userClassName": "ReportParamsGrid",
         "designer|userAlias": "reportparamsgrid",
@@ -144,6 +144,30 @@
                 "clicksToMoveEditor": 1
             },
             "designerId": "21290c01-ddd2-4474-8213-d6c78f2bff53"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadReportParams",
+                "designer|params": [
+                    "reportId"
+                ],
+                "implHandler": [
+                    "console.log(\"View-reportParamsGrid.loadReportParams\");",
+                    "",
+                    "var store = this.getStore();",
+                    "store.data.clear();",
+                    "store.load({",
+                    "    params:{reportid:reportId}",
+                    "});"
+                ]
+            },
+            "designerId": "357fd497-6a68-4b17-b198-b64b33c1b136"
         }
     ]
 }

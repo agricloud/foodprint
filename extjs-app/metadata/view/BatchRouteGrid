@@ -23,6 +23,9 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "loadingText": "Loading.."
+            },
             "designerId": "dc846501-ccfc-41ba-bde2-600b52aaef14"
         },
         {
@@ -228,7 +231,7 @@
                 "implHandler": [
                     "for(var i=0; i<config.columns.length;i++)",
                     "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
-                    "",
+                    "config.viewConfig.loadingText = lang['default.message.load'];",
                     "return config;"
                 ]
             },
