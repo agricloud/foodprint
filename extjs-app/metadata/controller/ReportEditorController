@@ -71,7 +71,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "reportEditorct",
+                "ref": "reportEditorCt",
                 "selector": "reporteditorct"
             },
             "designerId": "71c892a4-1e75-42d3-9534-5e6b14d7a906"
@@ -143,6 +143,9 @@
                     "    },",
                     "    '#reportParamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.paramsdoSave",
+                    "    },",
+                    "    'reportviewer form[itemId=reportForm]':{",
+                    "        validitychange:this.onReportFormValidityChange",
                     "    }",
                     "});"
                 ]
@@ -171,10 +174,10 @@
                     "this.getReportViewer().down('panel[itemId=reportParamsEditor]').show();",
                     "this.getReportViewer().down('form[itemId=reportForm]').doDisplay(record);",
                     "",
-                    "this.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getReportEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
-                    "this.getReportEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
+                    "this.getReportEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getReportEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getReportEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getReportEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "2afb5f05-1649-4948-9c03-4afa5a66a28d"
@@ -229,7 +232,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getReportEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "        that.getReportEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -264,7 +267,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getReportEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "        that.getReportEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -299,7 +302,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getReportEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "        that.getReportEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -322,6 +325,42 @@
                 ]
             },
             "designerId": "41f01dbe-8b76-431c-9b9e-c4029fb7b230"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onReportFormValidityChange",
+                "designer|params": [
+                    "basic, valid, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getReportViewer().down('form[itemId=reportForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getReportEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getReportEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getReportEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getReportEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "18ceb49f-8fad-4ef0-ba91-5f0e93fd17de"
         }
     ]
 }
