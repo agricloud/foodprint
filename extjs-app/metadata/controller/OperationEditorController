@@ -67,7 +67,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "operationEditorct",
+                "ref": "operationEditorCt",
                 "selector": "operationeditorct"
             },
             "designerId": "ce69d91e-9e67-4b56-a158-336c550efc41"
@@ -106,6 +106,9 @@
                     "    },",
                     "    'operationeditorct panel[itemId=operationEditor]':{",
                     "        tabchange:this.onTabChange",
+                    "    },",
+                    "    'operationviewer form[itemId=operationForm]':{",
+                    "        validitychange:this.onOperationFormValidityChange",
                     "    }",
                     "});"
                 ]
@@ -130,10 +133,10 @@
                     "console.log(record);",
                     "this.getOperationViewer().down('form[itemId=operationForm]').doDisplay(record);",
                     "",
-                    "this.getOperationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getOperationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getOperationEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
-                    "this.getOperationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
+                    "this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getOperationEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "2a296c76-0e93-44b5-a234-94fe49ecdb03"
@@ -188,7 +191,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "        that.getOperationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -223,7 +226,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "        that.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -258,7 +261,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getOperationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "        that.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -278,11 +281,11 @@
                     "tabPanel, newCard, oldCard, eOpts"
                 ],
                 "implHandler": [
-                    "var crebtn=this.getOperationEditorct().down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=this.getOperationEditorct().down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=this.getOperationEditorct().down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=this.getOperationEditorct().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getOperationEditorct().down('button[itemId=commonReadBtn]');",
+                    "var crebtn=this.getOperationEditorCt().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getOperationEditorCt().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getOperationEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=opBrowse]')){",
                     "    delbtn.setDisabled(true);",
@@ -317,6 +320,42 @@
                 ]
             },
             "designerId": "05178949-459d-46a6-a65c-6a3f2e070761"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onOperationFormValidityChange",
+                "designer|params": [
+                    "basic, valid, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getOperationViewer().down('form[itemId=operationForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "c9845c87-b429-41d4-a3d7-b06b41b75b3d"
         }
     ]
 }
