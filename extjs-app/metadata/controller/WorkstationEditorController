@@ -67,7 +67,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "workstationEditorct",
+                "ref": "workstationEditorCt",
                 "selector": "workstationeditorct"
             },
             "designerId": "4bae169c-8fa7-4336-8891-78530415aaf3"
@@ -106,6 +106,9 @@
                     "    },",
                     "    'workstationeditorct panel[itemId=workstationEditor]':{",
                     "        tabchange:this.onTabChange",
+                    "    },",
+                    "    'workstationviewer form[itemId=workstationForm]':{",
+                    "        validitychange:this.onWorkstationFormValidityChange",
                     "    }",
                     "});",
                     ""
@@ -130,10 +133,10 @@
                     "",
                     "this.getWorkstationViewer().down('form[itemId=workstationForm]').doDisplay(record);",
                     "",
-                    "this.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getWorkstationEditorct().down('button[itemId=commonReadBtn]').setDisabled(true);",
-                    "this.getWorkstationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(true);"
+                    "this.getWorkstationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getWorkstationEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
+                    "this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
             "designerId": "1c4d0586-9062-4f4b-8412-d51593ab342e"
@@ -188,7 +191,7 @@
                     "    failure: function() {",
                     "        console.log('Deleting Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -223,7 +226,7 @@
                     "    failure: function() {",
                     "        console.log('Saving Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -258,7 +261,7 @@
                     "    failure: function() {",
                     "        console.log('Updating Failed！');",
                     "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "        that.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "        that.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "    }",
                     "});"
                 ]
@@ -281,11 +284,11 @@
                     "eOpts"
                 ],
                 "implHandler": [
-                    "var crebtn=this.getWorkstationEditorct().down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=this.getWorkstationEditorct().down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=this.getWorkstationEditorct().down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=this.getWorkstationEditorct().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getWorkstationEditorct().down('button[itemId=commonReadBtn]');",
+                    "var crebtn=this.getWorkstationEditorCt().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getWorkstationEditorCt().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getWorkstationEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=workstationBrowse]')){",
                     "    delbtn.setDisabled(true);",
@@ -320,6 +323,42 @@
                 ]
             },
             "designerId": "d4032cdc-7bf7-48d8-84d9-c6846b85dda0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWorkstationFormValidityChange",
+                "designer|params": [
+                    "basic, valid, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getWorkstationViewer().down('form[itemId=workstationForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "03df28d1-e5ab-445f-9ca0-94fd58d10105"
         }
     ]
 }
