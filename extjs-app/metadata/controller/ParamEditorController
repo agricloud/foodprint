@@ -54,6 +54,9 @@
                     "    'parameditorct grid[itemId=paramGrid]':{",
                     "        itemdblclick:this.readParam",
                     "    },",
+                    "    'parameditorct panel[itemId=paramEditor]':{",
+                    "        tabchange:this.onTabChange",
+                    "    },",
                     "    'paramviewer form[itemId=paramForm]':{",
                     "        validitychange:this.onParamFormValidityChange",
                     "    }",
@@ -319,6 +322,42 @@
                 ]
             },
             "designerId": "92407f5f-a147-409c-af3f-6760a216dc9a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabChange",
+                "designer|params": [
+                    "tabPanel, newCard, oldCard, eOpts"
+                ],
+                "implHandler": [
+                    "var crebtn=this.getParamEditorCt().down('button[itemId=commonCreateBtn]');",
+                    "var delbtn=this.getParamEditorCt().down('button[itemId=commonDeleteBtn]');",
+                    "var savbtn=this.getParamEditorCt().down('button[itemId=commonSaveBtn]');",
+                    "var updbtn=this.getParamEditorCt().down('button[itemId=commonUpdateBtn]');",
+                    "var redbtn=this.getParamEditorCt().down('button[itemId=commonReadBtn]');",
+                    "",
+                    "if(newCard==tabPanel.down('panel[itemId=paramBrowse]')){",
+                    "    delbtn.setDisabled(true);",
+                    "    savbtn.setDisabled(true);",
+                    "    updbtn.setDisabled(true);",
+                    "    redbtn.setDisabled(false);",
+                    "",
+                    "}",
+                    "if(newCard==tabPanel.down('panel[itemId=paramMainten]')){",
+                    "    redbtn.setDisabled(true);",
+                    "}",
+                    "else{",
+                    "    tabPanel.down('form[itemId=paramForm]').getForm().reset();",
+                    "}"
+                ]
+            },
+            "designerId": "f83c7f8d-bf98-4759-9f4d-2f469f6a8818"
         }
     ]
 }
