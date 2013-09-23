@@ -405,28 +405,6 @@
                             "designerId": "ab05ce2b-088c-4e7d-89ea-e64260423e76"
                         },
                         {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "selectionchange",
-                                "implHandler": [
-                                    "if (selected) {",
-                                    "    if(selected!=\"\"){",
-                                    "        this.up().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
-                                    "    }",
-                                    "}",
-                                    ""
-                                ],
-                                "name": "selectionchange",
-                                "scope": "me"
-                            },
-                            "designerId": "cde42c0f-60ba-4688-b2a0-8fa4b4ccf29e"
-                        },
-                        {
                             "type": "basicfunction",
                             "reference": {
                                 "name": "items",
@@ -443,7 +421,7 @@
                                     "var store = this.getStore();",
                                     "store.data.clear();",
                                     "store.load({",
-                                    "   params:{'item.id':itemId}",
+                                    "    params:{'item.id':itemId}",
                                     "});"
                                 ]
                             },
@@ -466,85 +444,17 @@
                     "designerId": "8d9dc8be-e395-4464-9bd2-835af6103377",
                     "cn": [
                         {
-                            "type": "Ext.toolbar.Toolbar",
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "initialize": null,
                                 "itemId": "itemRouteToolbar"
                             },
-                            "configAlternates": {
-                                "initialize": "object"
-                            },
-                            "designerId": "d3e22255-ed5a-4b71-804a-1db58f4ee63a",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "initialize",
-                                    "type": "string"
-                                }
-                            ],
-                            "cn": [
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "routeCreateBtn",
-                                        "layout|flex": null
-                                    },
-                                    "designerId": "32c4b632-6565-4ffb-b6c3-b8287dffaecc",
-                                    "masterInstanceId": "06b12de0-6c88-49ca-b966-0906685abb03"
-                                },
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "routeDeleteBtn",
-                                        "layout|flex": null
-                                    },
-                                    "designerId": "a0a416a8-b4ed-4a7a-95d1-6a27b6c0d50f",
-                                    "masterInstanceId": "47a5a6b0-baac-49ca-bd19-366c2488c51d"
-                                },
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "routeSaveBtn",
-                                        "layout|flex": null
-                                    },
-                                    "designerId": "66330d8b-fc3b-4deb-a5b9-8af1525d0e82",
-                                    "masterInstanceId": "9b265b9b-c7da-4752-a239-f45b8ed7299d"
-                                },
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "routeUpdateBtn",
-                                        "layout|flex": null
-                                    },
-                                    "designerId": "4e9a5dde-5661-4760-875f-a4f1e9032ee0",
-                                    "masterInstanceId": "4df4416d-12ea-4c72-b914-994f977f24a9"
-                                }
-                            ]
+                            "designerId": "9dd22c55-c74a-4342-876b-85f5ca14ba65",
+                            "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
                         },
                         {
                             "type": "Ext.form.Panel",
@@ -556,7 +466,8 @@
                             "userConfig": {
                                 "itemId": "itemRouteForm",
                                 "bodyPadding": 10,
-                                "title": null
+                                "title": null,
+                                "jsonSubmit": true
                             },
                             "designerId": "0ffb7033-c578-492d-bb41-3db2025aabe7",
                             "cn": [
@@ -620,7 +531,7 @@
                                     "designerId": "cd71de80-526d-4905-b0b1-a2a0cbedadcc"
                                 },
                                 {
-                                    "type": "Ext.form.field.Text",
+                                    "type": "linkedinstance",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -629,10 +540,10 @@
                                     "userConfig": {
                                         "layout|anchor": "100%",
                                         "fieldLabel": "operation_name",
-                                        "name": "operation.name",
-                                        "value": null
+                                        "name": "operation.name"
                                     },
-                                    "designerId": "081f36fd-09c9-4ba3-bdd2-54125ce10d0c"
+                                    "designerId": "bc247fc2-1e7a-455f-bf73-4d0385afdca5",
+                                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -663,7 +574,7 @@
                                     "designerId": "ee4b1212-e14e-4502-a982-823af2a62069"
                                 },
                                 {
-                                    "type": "Ext.form.field.Text",
+                                    "type": "linkedinstance",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -674,7 +585,8 @@
                                         "fieldLabel": "workstation_name",
                                         "name": "workstation.name"
                                     },
-                                    "designerId": "6227526c-d9c2-499d-ba8d-57def947fdab"
+                                    "designerId": "80a75344-a77a-4f1a-b141-47f9fae0829b",
+                                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -691,6 +603,23 @@
                                     "designerId": "641a8ffa-63a7-43d6-91af-655ed9a707af"
                                 }
                             ]
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onitemRouteToolbarRender",
+                                "implHandler": [
+                                    "component.down('toolbar[itemId=itemRouteToolbar]').down('button[itemId=commonReadBtn]').hide();"
+                                ],
+                                "name": "render",
+                                "scope": "me"
+                            },
+                            "designerId": "8e33142e-10c2-47c3-9d92-0419a8e3e98c"
                         }
                     ]
                 }
