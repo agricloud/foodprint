@@ -55,7 +55,7 @@ class BootStrap {
 
 				def report1=new Report(name:"report1",title:"營養標示履歷").save(failOnError: true, flush: true)
 				def report2=new Report(name:"report2",title:"檢驗紀錄集").save(failOnError: true, flush: true)
-				def report3=new Report(name:"report3",title:"成品檢驗報告集").save(failOnError: true, flush: true)
+				def report100=new Report(name:"report3",title:"成品檢驗報告集").save(failOnError: true, flush: true)
 
 				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation1,operation:operation2).save(failOnError: true, flush: true)
 				def reportparam2=new  ReportParams (report:report2,param:param2,workstation:workstation2,operation:operation2).save(failOnError: true, flush: true)
