@@ -49,6 +49,7 @@
                     "userConfig": {
                         "height": null,
                         "width": 722,
+                        "autoScroll": true,
                         "layout|flex": 1
                     },
                     "designerId": "b8a34cbb-7f0f-468d-9e19-6b1693fb173a",
@@ -66,6 +67,7 @@
             "userConfig": {
                 "container|align": "stretch",
                 "itemId": "batchMainten",
+                "autoScroll": true,
                 "layout": "vbox",
                 "title": "Mainten"
             },
@@ -83,14 +85,17 @@
                 {
                     "type": "Ext.panel.Panel",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": null,
+                        "layout|flex": 1,
+                        "dock": "top",
+                        "container|align": "stretch",
                         "height": 183,
                         "itemId": "batchViewer",
+                        "layout": "vbox",
                         "title": null
                     },
                     "designerId": "d519bc20-efb8-4fe1-b860-1be0a2cca689",
@@ -113,15 +118,16 @@
                 {
                     "type": "Ext.tab.Panel",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "dock": "top",
                         "height": null,
                         "itemId": "batchParamsTp",
-                        "width": 722,
+                        "width": null,
                         "activeTab": 1
                     },
                     "designerId": "f4a368d3-5f9e-4d28-ac98-9d5986c3c73b",
@@ -134,9 +140,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "container|align": "stretch",
                                 "itemId": "batchRouteCollect",
-                                "layout": "vbox",
+                                "autoScroll": true,
+                                "layout": "fit",
                                 "title": "BatchRouteParamsCollect"
                             },
                             "designerId": "5b026e94-7399-44e4-9f7f-da73070b96bd",
@@ -153,13 +159,14 @@
                                 {
                                     "type": "linkedinstance",
                                     "reference": {
-                                        "name": "items",
+                                        "name": "dockedItems",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
                                         "itemId": null,
-                                        "layout|flex": null
+                                        "autoScroll": true,
+                                        "dock": "top"
                                     },
                                     "designerId": "feea775c-58e2-4d6c-a283-aa6d1050207f",
                                     "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
@@ -177,7 +184,8 @@
                                 "dock": null,
                                 "hidden": true,
                                 "itemId": "batchItemCollect",
-                                "layout": null,
+                                "autoScroll": true,
+                                "layout": "fit",
                                 "title": "BatchItemParamsCollect品項參數收集"
                             },
                             "designerId": "c7eb998a-0eba-4e91-862e-8d16f0101147",
@@ -213,7 +221,7 @@
                     "",
                     "config.items[0].title=lang['default.list.label'];",
                     "config.items[1].title=lang['default.listDetail.label'] ;",
-                    "config.items[1].items[1].items[0].title=lang['batchParamsEditor.batchRouteParamsCollect.label'] ;",
+                    "config.items[1].dockedItems[1].items[0].title=lang['batchParamsEditor.batchRouteParamsCollect.label'] ;",
                     "",
                     "return config;"
                 ]
