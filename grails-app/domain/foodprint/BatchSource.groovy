@@ -6,8 +6,10 @@ package foodprint
     */
 class BatchSource {
 
+	static belongsTo = [parentBatch: Batch]
 	Batch batch
 
     static constraints = {
+    	batch unique: 'parentBatch' 
     }
 }

@@ -2,6 +2,12 @@ package foodprint
 
 class CustomerOrder {
 
+
+    /*
+    * 訂單單別
+    */
+	String nameType
+
 	/*
 	* 訂單編號
 	*/
@@ -23,7 +29,7 @@ class CustomerOrder {
 	static hasMany=[details:CustomerOrderDet]
 
     static constraints = {
-    	name unique:true
+    	name unique:"nameType"
     	dueDate nullable:true
     	customer nullable:true
     }
