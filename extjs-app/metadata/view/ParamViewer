@@ -63,7 +63,8 @@
                     "userConfig": {
                         "layout|flex": null,
                         "fieldLabel": "title",
-                        "name": "title"
+                        "name": "title",
+                        "allowBlank": false
                     },
                     "designerId": "fe99685a-d0ee-4f49-899d-ee32c356eac7"
                 },
@@ -93,6 +94,8 @@
                         "designer|displayName": null,
                         "fieldLabel": "paramType",
                         "name": "paramType",
+                        "allowBlank": false,
+                        "editable": false,
                         "displayField": "name",
                         "store": "ParamTypeStore",
                         "valueField": "name"
@@ -112,6 +115,48 @@
                         "name": "description"
                     },
                     "designerId": "ef225bb1-af52-4e96-ad6f-6bc0ffc71074"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "fieldLabel": "lower",
+                        "name": "lower"
+                    },
+                    "designerId": "aec2375a-660e-49f3-bef9-9e07c1b6434a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "fieldLabel": "upper",
+                        "name": "upper"
+                    },
+                    "designerId": "fdbf3bc7-1a84-4dbe-a05b-91354642e631"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "fieldLabel": "unit",
+                        "name": "unit"
+                    },
+                    "designerId": "f10273e3-ffd2-4851-914f-6e9fde4e3237"
                 },
                 {
                     "type": "basicfunction",

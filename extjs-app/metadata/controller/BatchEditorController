@@ -66,6 +66,9 @@
                     "    'batcheditorct panel[itemId=batchEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
+                    "    'batchviewer form[itemId=batchForm]':{",
+                    "        validitychange:this.onBatchFormValidityChange",
+                    "    },",
                     "    'batcheditorct button[itemId=routeCreateBtn]':{",
                     "        click:this.batchRouteCreate",
                     "    },",
@@ -74,9 +77,6 @@
                     "    },",
                     "    'batcheditorct button[itemId=routeSaveBtn]':{",
                     "        click:this.batchRouteSave",
-                    "    },",
-                    "    'batchviewer form[itemId=batchForm]':{",
-                    "        validitychange:this.onBatchFormValidityChange",
                     "    }",
                     "});"
                 ]
@@ -352,9 +352,7 @@
             "userConfig": {
                 "fn": "onBatchFormValidityChange",
                 "designer|params": [
-                    "basic",
-                    "valid",
-                    "eOpts"
+                    "basic, valid, eOpts"
                 ],
                 "implHandler": [
                     "",
