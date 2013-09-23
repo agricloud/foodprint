@@ -8,14 +8,20 @@
     "userConfig": {
         "container|align": "stretch",
         "container|pack": "center",
+        "container|padding": null,
         "height": null,
         "hidden": false,
         "id": "batchRouteParamsWindow",
+        "maxWidth": null,
+        "minHeight": null,
+        "minWidth": null,
+        "padding": 10,
         "width": null,
         "designer|userClassName": "BatchRouteParamsWindow",
         "designer|userAlias": "batchrouteparamswindow",
         "autoScroll": true,
         "layout": "vbox",
+        "bodyPadding": null,
         "closeAction": "hide",
         "title": "參數收集"
     },
@@ -24,16 +30,18 @@
         {
             "type": "Ext.form.Panel",
             "reference": {
-                "name": "items",
+                "name": "dockedItems",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
                 "layout|flex": 1,
+                "dock": "top",
                 "container|align": "stretch",
+                "container|padding": null,
                 "height": null,
                 "itemId": "batchRouteParamsForm",
-                "width": 368,
+                "width": null,
                 "autoScroll": true,
                 "layout": "vbox",
                 "bodyPadding": 10,
@@ -60,17 +68,19 @@
                 {
                     "type": "Ext.form.FieldContainer",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "dock": "top",
                         "container|align": "stretch",
                         "height": null,
                         "id": null,
                         "itemId": "dynamicContainer",
-                        "width": 10,
+                        "padding": 10,
+                        "width": null,
                         "designer|displayName": null,
                         "designer|createAlias": null,
                         "layout": "vbox",
@@ -81,17 +91,21 @@
                 {
                     "type": "Ext.form.FieldContainer",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 1,
+                        "dock": "top",
+                        "container|align": "stretch",
                         "height": null,
                         "id": null,
                         "itemId": "staticContainer",
-                        "width": 10,
+                        "width": null,
                         "designer|displayName": null,
                         "designer|createAlias": null,
+                        "layout": "vbox",
                         "fieldLabel": null
                     },
                     "designerId": "480def81-1019-4eb1-adac-5e881765c2ba"
@@ -126,16 +140,18 @@
         {
             "type": "linkedinstance",
             "reference": {
-                "name": "items",
+                "name": "dockedItems",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
                 "domainName": "batchRoute",
-                "height": 200,
+                "height": null,
                 "itemId": "commonImageUploader",
-                "width": 252,
-                "layout|flex": 1
+                "width": null,
+                "autoScroll": true,
+                "layout|flex": 1,
+                "dock": "bottom"
             },
             "designerId": "dd41b7e1-a2cf-4202-8df5-8b8a3572e270",
             "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e"
