@@ -37,6 +37,8 @@ class DataImportService {
 
 	def public doDataImport(xml){
 
+		log.info xml
+
 		def records = new XmlParser().parseText(xml)
 		def importTable = records.importTable.text()
 		def fields= grailsApplication.getDomainClass('foodprint.'+importTable).persistentProperties.collect { it.name }
@@ -45,86 +47,75 @@ class DataImportService {
 		// GrailsDomainClass dc = grailsApplication.getDomainClass('foodprint.'+importTable)
 		
 		// 以 item 為例， dc.clazz.FindByName == Item.FindByName
-		// dc.clazz.newInstance() == new Item()
-		
+		// 建立物件：dc.clazz.newInstance() == new Item()
 		// def newDomainObject = dc.clazz.newInstance()
 
+		records[importTable.toLowerCase()].eachWithIndex{ record, i ->
+			try {
 
-		def domains
+				//各 domain 需定義主鍵的索引
+				def domain
+				if(importTable=='Item')
+					domain=getItemInstance(record)
+				if(importTable=='Batch')
+					domain=getBatchInstance(record)
 
-		if(importTable=='Item')
-			domains=itemImport(records)
-		if(importTable=='Batch')
-			domains=batchImport(records)
 
+				// 共用最後進行儲存
+				if(domain){
+					domain.properties=getDomainProperties(record, fields)
+					domain.save(failOnError:true)
+				}
 
-		// 共用最後進行儲存
-		if(domains){
-			domains.eachWithIndex(){ domain, i ->
-				def domainRecord=records[importTable.toLowerCase()][i];
-				domain.properties=getDomainProperties(domainRecord, fields)
-				domain.save(failOnError:true)
+			}catch(e){
+				log.error e.message
 			}
+
 		}
+
+
 
 
 
 	}
 
 
-    def private itemImport(records) {
-  		
-  		def domains=[]
+    def private getItemInstance(record) {
 
-    	records.item.each{
-    		def item = Item.findByName(it.name.text())
+		def item = Item.findByName(record.name.text())
 
-    		if(!item){
-    			item=new Item(name:it.name.text())
-    		}
+		if(!item){
+			item=new Item(name:record.name.text())
+		}
 
-    		domains << item
-    	}
-
-    	domains
+    	item
 
     }
 
-    def private batchImport(records){
-
-  		def domains=[]
-
-    	records.batch.each{ recordBatch ->
-
-    		def batch = Batch.findByName(recordBatch.name.text())
-
-    		if(!batch){
-    			batch=new Batch(name:recordBatch.name.text())
-    		}
+    def private getBatchInstance(record){
 
 
-			def itemName=recordBatch.item.name.text();
-			log.info itemName
-			def item=Item.findByName(itemName)
-    		
-    		try{
-    			// 處理品項關連
-    			if(item){
-    				batch.item=item
-	    			domains << batch
-    			}else {
-    				throw new Exception("batch.item.name:${itemName} is not exist")
-				}
 
-			}catch(e){
+		def batch = Batch.findByName(record.name.text())
 
-				log.info e.message
+		if(!batch){
+			batch=new Batch(name:record.name.text())
+		}
 
-			}
 
-    	}
+		def itemName=record.item.name.text();
+		def item=Item.findByName(itemName)
+		
+		// 處理品項關連
+		if(item){
+			batch.item=item
+		}else {
+			throw new Exception("batch.item.name:${itemName} is not exist")
+		}
 
-    	domains
+
+		batch
+
     }
 
     // def private batchSourceImport(xml){

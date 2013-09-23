@@ -44,6 +44,8 @@ class DataImportServiceTests {
             importTable('Batch')
             batch{
                 name("batch1")
+                // 日期格式
+                dueDate(new Date())
                 item{
                     name("item1")
                 }
@@ -64,6 +66,8 @@ class DataImportServiceTests {
 
 
         service.doDataImport(writer.toString())
+
+
         assert Batch.list().size() == 2 
 
     }
