@@ -1,5 +1,9 @@
 package foodprint
 import org.codehaus.groovy.grails.commons.GrailsDomainClass
+import javax.jws.*
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+import org.grails.cxf.adapter.GrailsCxfMapAdapter
+import groovy.xml.MarkupBuilder
     /*
     資料匯入 api 以 domain 的結構來設計
     <?xml version="1.0" encoding="UTF-8"?>
@@ -33,25 +37,33 @@ import org.codehaus.groovy.grails.commons.GrailsDomainClass
     */
 
 class DataImportService {
+	static expose = ['cxf']
 	def grailsApplication
 
-	def public doDataImport(xml){
+    @XmlJavaTypeAdapter(GrailsCxfMapAdapter.class)
+	Map doDataImport(@WebParam(name="xmlString")String xmlString){
 
-		log.info xml
+		log.info xmlString
 
-		def records = new XmlParser().parseText(xml)
-		def importTable = records.importTable.text()
-		def fields= grailsApplication.getDomainClass('foodprint.'+importTable).persistentProperties.collect { it.name }
-		
-		// 動態實體化 domain class
-		// GrailsDomainClass dc = grailsApplication.getDomainClass('foodprint.'+importTable)
-		
-		// 以 item 為例， dc.clazz.FindByName == Item.FindByName
-		// 建立物件：dc.clazz.newInstance() == new Item()
-		// def newDomainObject = dc.clazz.newInstance()
+		def result=[:]
 
-		records[importTable.toLowerCase()].eachWithIndex{ record, i ->
-			try {
+		try {		
+			def writer = new StringWriter()
+		    def xml = new MarkupBuilder(writer)
+			def records = new XmlParser().parseText(xmlString)
+			def importTable = records.importTable.text()
+			def fields= grailsApplication.getDomainClass('foodprint.'+importTable).persistentProperties.collect { it.name }
+
+			// 動態實體化 domain class
+			// GrailsDomainClass dc = grailsApplication.getDomainClass('foodprint.'+importTable)
+			
+			// 以 item 為例， dc.clazz.FindByName == Item.FindByName
+			// 建立物件：dc.clazz.newInstance() == new Item()
+			// def newDomainObject = dc.clazz.newInstance()
+
+
+
+			records[importTable.toLowerCase()].eachWithIndex{ record, i ->
 
 				//各 domain 需定義主鍵的索引
 				def domain
@@ -66,12 +78,23 @@ class DataImportService {
 					domain.properties=getDomainProperties(record, fields)
 					domain.save(failOnError:true)
 				}
-
-			}catch(e){
-				log.error e.message
 			}
+			result.success=true
+		}catch(e){
+			log.error e.message
+			result.success=false
+			result.message=e.message
 
 		}
+
+		
+
+
+
+
+
+
+		return result
 
 
 

@@ -72,6 +72,8 @@ grails.project.dependency.resolution = {
 
         compile ":crypto:2.0"
 
+        compile ":cxf:1.1.1"
+
 
         // compile ':spring-security-core:latest.release'
 
