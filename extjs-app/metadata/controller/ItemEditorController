@@ -133,6 +133,9 @@
                     "    '#itemRouteToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.itemRouteSave",
                     "    },",
+                    "    '#itemRouteToolbar button[itemId=commonUpdateBtn]':{",
+                    "        click:this.itemRouteUpdate",
+                    "    },",
                     "    'itemeditorct panel[itemId=itemEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
@@ -428,6 +431,7 @@
                     "    itemid: item_id,",
                     "    sequence:store.getCount()+1",
                     "});",
+                    "this.getItemViewer().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     ""
                 ]
             },
@@ -494,7 +498,7 @@
                     "    method:'POST',",
                     "    success: function() {",
                     "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        Ext.MessageBox.alert('Success','資料建立完成');",
                     "        store.reload();",
                     "        form.reset();",
                     "    },",
@@ -517,7 +521,22 @@
             "userConfig": {
                 "fn": "itemRouteUpdate",
                 "implHandler": [
-                    ""
+                    "var store = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
+                    "var form = this.getItemViewer().down('form[itemId=itemRouteForm]').getForm();",
+                    "this.getItemViewer().down('form[itemId=itemRouteForm]').submit({",
+                    "    url: '/rest/itemRoute',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    method:'PUT',",
+                    "    success: function() {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        store.reload();",
+                    "        form.reset();",
+                    "    },",
+                    "    failure: function() {",
+                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "a8af05b3-6520-4163-a175-aa9ca1f68e87"

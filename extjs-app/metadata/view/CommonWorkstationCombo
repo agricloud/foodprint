@@ -28,10 +28,16 @@
                 "fn": "onComboboxBeforeSelect",
                 "implHandler": [
                     "var store = 'workstation';",
+                    "/*",
                     "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
                     "gridRecord.set(store+'.id',record.get('id'));",
                     "gridRecord.set(store+'.name',record.get('name'));",
-                    "gridRecord.set(store+'.title',record.get('title'));"
+                    "gridRecord.set(store+'.title',record.get('title'));",
+                    "*/",
+                    "combo.up().up().down('form[itemId=itemRouteForm]').getForm().setValues({",
+                    "    'workstation.id': record.get('id'),",
+                    "    'workstation.title':record.get('title')",
+                    "});"
                 ],
                 "name": "beforeselect",
                 "scope": "me"

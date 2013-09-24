@@ -53,12 +53,12 @@ class ItemRouteController {
     def create(){
         log.debug "${controllerName}-${actionName}"
         def itemRouteInstance= new ItemRoute(params)
-        println params
-        println params.workstation.id
-        println params.operation.id
+        println params.itemid
+        println params["operation.id"]
+        println params["workstation.id"]
         itemRouteInstance.item=Item.findById(params.itemid)
-        itemRouteInstance.operation=Operation.findById(params.operation.id)
-        itemRouteInstance.workstation=Workstation.findById(params.workstation.id)
+        itemRouteInstance.operation=Operation.findById(params["operation.id"])
+        itemRouteInstance.workstation=Workstation.findById(params["workstation.id"])
         render (contentType: 'text/json') {
             save(itemRouteInstance)
         }

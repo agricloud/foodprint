@@ -77,7 +77,9 @@ class BootStrap {
 				def itemRoute2=new ItemRoute(item:item1,sequence:2,operation:operation1,workstation:workstation1).save(failOnError: true, flush: true)
 				def itemRoute3=new ItemRoute(item:item1,sequence:3,operation:operation2,workstation:workstation2).save(failOnError: true, flush: true)
 				def itemRoute4=new ItemRoute(item:item1,sequence:4,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
-				
+				//def itemRoute5=new ItemRoute(item:item2,sequence:1,operation:operation2,workstation:workstation2).save(failOnError: true, flush: true)
+				//def itemRoute6=new ItemRoute(item:item2,sequence:2,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
+
 				def batchRoute1=new BatchRoute(batch:batch1,workstation:workstation1,sequence:1,operation:operation1).save(failOnError: true,flush: true)
 				def batchRoute2=new BatchRoute(batch:batch1,workstation:workstation2,sequence:2,operation:operation2).save(failOnError: true,flush: true)
 				def batchRoute3=new BatchRoute(batch:batch1,workstation:workstation2,sequence:3,operation:operation3).save(failOnError: true,flush: true)
