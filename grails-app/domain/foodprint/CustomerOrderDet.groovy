@@ -1,5 +1,9 @@
 package foodprint
 
+
+    /*
+    * 客戶訂單單身
+    */
 class CustomerOrderDet {
 
 	/*
