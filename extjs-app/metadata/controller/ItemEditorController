@@ -361,6 +361,8 @@
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
                     "    redbtn.setDisabled(false);",
+                    "    this.getItemViewer().down('button[itemId=commonDeleteBtn]').setDisabled(true);",
+                    "    this.getItemViewer().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
                     "",
                     "}",
                     "if(newCard==tabPanel.down('panel[itemId=itemMainten]')){",
@@ -368,6 +370,7 @@
                     "}",
                     "else{",
                     "    tabPanel.down('form[itemId=itemForm]').getForm().reset(true);",
+                    "    tabPanel.down('form[itemId=itemRouteForm]').getForm().reset(true);",
                     "}"
                 ]
             },

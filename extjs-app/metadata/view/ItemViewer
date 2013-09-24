@@ -293,19 +293,7 @@
                                 "text": "Operation_name",
                                 "flex": 1
                             },
-                            "designerId": "c1eb1dfb-3172-47e7-b90d-9a6ef4ca20aa",
-                            "cn": [
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "editor",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "173d88bf-aea4-4d79-9bd7-a4aee48507b5",
-                                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
-                                }
-                            ]
+                            "designerId": "c1eb1dfb-3172-47e7-b90d-9a6ef4ca20aa"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -353,19 +341,7 @@
                                 "text": "Workstation_name",
                                 "flex": 1
                             },
-                            "designerId": "e40319e9-1fe6-43bc-8f71-ecf95db6cdb6",
-                            "cn": [
-                                {
-                                    "type": "linkedinstance",
-                                    "reference": {
-                                        "name": "editor",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "cdca8b38-06c2-4c54-8843-f4d88b811b0e",
-                                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
-                                }
-                            ]
+                            "designerId": "e40319e9-1fe6-43bc-8f71-ecf95db6cdb6"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -610,7 +586,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fn": "onCommonWorkstationComboBeforeDeselect",
+                                                "fn": "onCommonWorkstationComboBeforeSelect",
                                                 "implHandler": [
                                                     "var store = 'workstation';",
                                                     "combo.up().up().down('form[itemId=itemRouteForm]').getForm().setValues({",
@@ -618,7 +594,7 @@
                                                     "    'workstation.title':record.get('title')",
                                                     "});"
                                                 ],
-                                                "name": "beforedeselect",
+                                                "name": "beforeselect",
                                                 "scope": "me"
                                             },
                                             "designerId": "08d72114-d0de-4c6e-8f30-141e95e25ecd"
