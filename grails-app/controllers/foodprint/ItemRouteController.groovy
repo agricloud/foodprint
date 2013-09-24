@@ -53,8 +53,12 @@ class ItemRouteController {
     def create(){
         log.debug "${controllerName}-${actionName}"
         def itemRouteInstance= new ItemRoute(params)
-        //itemRouteInstance.item=Item.findById(params.item_id)
-        //itemRouteInstance.workstation=Workstation.findById(params.workstation_id)
+        println params.itemid
+        println params["operation.id"]
+        println params["workstation.id"]
+        itemRouteInstance.item=Item.findById(params.itemid)
+        itemRouteInstance.operation=Operation.findById(params["operation.id"])
+        itemRouteInstance.workstation=Workstation.findById(params["workstation.id"])
         render (contentType: 'text/json') {
             save(itemRouteInstance)
         }
@@ -194,8 +198,36 @@ class ItemRouteController {
         redirect(action: "show", id: itemRouteInstance.id)
     }
     */
+  def delete(){
+        println"ItemRouteController--delete"
+        println params
+        def itemRouteInstance= ItemRoute.get(params.id)
+        
+        if (!itemRouteInstance) {
+            println"ItemRouteController--delete--Cant find itemRouteInstance"
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
+        }
+        try {
+            itemRouteInstance.delete()
+            render (contentType: 'text/json') {
+                return [success:true]
+            }
+        }
+        catch (e) {
+            render (contentType: 'text/json') {
+                return [success:false]
+            }
+        }
+
+    }
+
+/*
      def delete() {
         log.debug "${controllerName}-${actionName}"
+        println params.id
+        println params.itemid
         def itemRouteInstance = ItemRoute.get(params.id)
         if (!itemRouteInstance) {
             log.warning "${controllerName}-${actionName}-Cant find itemRouteInstance"
@@ -219,6 +251,8 @@ class ItemRouteController {
             }
         }
     }
+*/
+
     /*
     def delete(Long id) { // origin
         def itemRouteInstance = ItemRoute.get(id)
