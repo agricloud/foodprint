@@ -5,8 +5,9 @@ package foodprint
 }
 class Batch {
 
-	static belongsTo =[item:Item]
+	static belongsTo =[item: Item, materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
 	static hasMany =[batchRoutes:BatchRoute,batchSources:BatchSource]
+	// static hasOne =[materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
 
 	String name
 	Long expectQty=0
@@ -26,21 +27,40 @@ class Batch {
 
 
     /*
-    * 類型
+    * 類型，無 erp 時使用
     */
     BatchType batchType=foodprint.BatchType.PRODUCT
 
 
     /*
-    * 供應商
+    * 供應商，無 erp 時使用
     */
    	Supplier supplier
 
+    /**
+     * 廠別
+     */
 	Site site
-	String editor=""	//修改者
-	String creator=""	//建立者
-	Date dateCreated    //建立日期
-	Date lastUpdated    //修改日期
+
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
 
 	static constraints = {
 		name unique:true
@@ -51,7 +71,9 @@ class Batch {
 		site nullable:true
 		manufactureDate nullable:true
 		expirationDate nullable:true
-		supplier nullable:true
+		// supplier nullable:true
+		manufactureOrder nullable:true
+		materialSheetDet nullable:true
 	}
 	
 }

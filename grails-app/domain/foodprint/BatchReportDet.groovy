@@ -22,15 +22,36 @@ class BatchReportDet {
 	*/
 	// BatchRoute batchRoute
 
-	String editor=""	//修改者
-	String creator=""	//建立者
-	Date dateCreated    //建立日期
-	Date lastUpdated    //修改日期
+    /**
+     * 廠別
+     */
+	Site site
+
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
 
 
 
     static constraints = {
     	batch(unique: ['reportParams'])
     	value nullable:true
+    	site nullable:true
     }
 }

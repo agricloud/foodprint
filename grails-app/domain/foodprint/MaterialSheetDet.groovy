@@ -1,10 +1,34 @@
 package foodprint
 
-class Workstation {
 
-	String name
-	String title
-	String description=''
+
+    /*
+    * 領料單身
+    */
+class MaterialSheetDet {
+
+	/*
+    * 領退料單頭
+    */
+	static belongsTo=[head:MaterialSheet]
+
+
+    /*
+    * 制令
+    */
+    ManufactureOrder manufactureOrder
+
+
+    /*
+    * 品項編號，材料編號
+    */
+    Item item
+
+
+    /*
+    * 批號
+    */
+    Batch batch
 
 
     /**
@@ -31,7 +55,6 @@ class Workstation {
 	 * 修改日期（自動欄位）
 	 */
 	Date lastUpdated
-	
     static constraints = {
     	site nullable:true
     }

@@ -1,23 +1,43 @@
 package foodprint
 
-class BatchRoute {
+    /*
+    * 進貨單
+    */
+class IncomingOrder {
 
-	static belongsTo=[batch:Batch]
-	Workstation workstation
-	Operation operation
-	int sequence
+	static hasMany=[details:IncomingOrderDet]
 
 
     /*
-    * 開始時間
+    * 單別
     */
-	Date startDate
+	String nameType
+	
+
+    /*
+    * 單號
+    */
+	String name
 
 
     /*
-    * 結束時間
+    * 供應商
     */
-	Date endDate
+
+    Supplier supplier
+
+
+    /*
+    * 進貨日期
+    */
+    Date incomingDate=new Date()
+    
+
+    /*
+    * 單據日期
+    */
+    Date orderDate=new Date()
+
 
     /**
      * 廠別
@@ -43,12 +63,10 @@ class BatchRoute {
      * 修改日期（自動欄位）
      */
     Date lastUpdated
-	 
-
+    
     static constraints = {
-    	sequence unique:'batch'
-    	startDate nullable:true
-    	endDate nullable:true
+    	name unique:'nameType'
         site nullable:true
+
     }
 }

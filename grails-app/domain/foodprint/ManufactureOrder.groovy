@@ -2,36 +2,46 @@ package foodprint
 
 
     /*
-    * 客戶訂單
+    * 製造命令
     */
-class CustomerOrder {
+class ManufactureOrder {
+
+    /*
+    * 制令編號
+    */
+	String name
 
 
     /*
-    * 訂單單別
+    * 制令單別
     */
-	String nameType
+	String nameType=""
 
-	/*
-	* 訂單編號
-	*/
-	String name
-	/*
-	* 客戶編號
-	*/
-	Customer customer
 
-	/*
-	* 到期日
-	*/
-	Date dueDate=new Date()
 
-	/*
-	* 多個訂單單身 
-	*/
+    /*
+    * 訂單單身
+    */
+    CustomerOrderDet customerOrderDet
 
-	static hasMany=[details:CustomerOrderDet]
 
+
+    /*
+    * 品項編號
+    */
+    Item item
+
+
+
+    /*
+    * 批號
+    */
+    Batch batch
+
+    /*
+    * 生產量
+    */
+    Integer qty
 
     /**
      * 廠別
@@ -58,9 +68,7 @@ class CustomerOrder {
 	 */
 	Date lastUpdated
     static constraints = {
-    	name unique:"nameType"
-    	dueDate nullable:true
-    	customer nullable:true
     	site nullable:true
+        customerOrderDet nullable:true
     }
 }

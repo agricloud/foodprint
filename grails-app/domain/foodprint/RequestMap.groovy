@@ -2,8 +2,8 @@ package foodprint
 
 class RequestMap {
 
-		String url
-		String configAttribute
+	String url
+	String configAttribute
 
     static constraints = {
     	

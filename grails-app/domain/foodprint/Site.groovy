@@ -14,11 +14,26 @@ class Site {
 	String description
 	String address
 
-	// Site site
-	String editor=""	//修改者
-	String creator=""	//建立者
-	Date dateCreated    //建立日期
-	Date lastUpdated    //修改日期
+
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
 
     static constraints = {
     	name unique:true
