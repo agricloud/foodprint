@@ -8,7 +8,7 @@ class ItemRoute {
 	Workstation workstation
 
     static constraints = {
-    	sequence unique:true
+    	sequence unique:'item'
     }
 
     public String toString(){
