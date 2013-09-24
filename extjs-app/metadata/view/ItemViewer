@@ -533,7 +533,30 @@
                                         "layout|anchor": "100%"
                                     },
                                     "designerId": "bc247fc2-1e7a-455f-bf73-4d0385afdca5",
-                                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
+                                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onCommonOperationComboBeforeSelect",
+                                                "implHandler": [
+                                                    "var store = 'operation';",
+                                                    "combo.up().up().down('form[itemId=itemRouteForm]').getForm().setValues({",
+                                                    "    'operation.id': record.get('id'),",
+                                                    "    'operation.title':record.get('title')",
+                                                    "});"
+                                                ],
+                                                "name": "beforeselect",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "c8b4cb42-8000-4221-9935-209c78eb933d"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -577,7 +600,30 @@
                                         "layout|anchor": "100%"
                                     },
                                     "designerId": "80a75344-a77a-4f1a-b141-47f9fae0829b",
-                                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
+                                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onCommonWorkstationComboBeforeDeselect",
+                                                "implHandler": [
+                                                    "var store = 'workstation';",
+                                                    "combo.up().up().down('form[itemId=itemRouteForm]').getForm().setValues({",
+                                                    "    'workstation.id': record.get('id'),",
+                                                    "    'workstation.title':record.get('title')",
+                                                    "});"
+                                                ],
+                                                "name": "beforedeselect",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "08d72114-d0de-4c6e-8f30-141e95e25ecd"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
