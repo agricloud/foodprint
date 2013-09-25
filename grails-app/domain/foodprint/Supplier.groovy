@@ -4,6 +4,8 @@ package foodprint
 public enum Country {
     TAIWAN
 }
+
+
 class Supplier extends DefaultTable{
 
     /*

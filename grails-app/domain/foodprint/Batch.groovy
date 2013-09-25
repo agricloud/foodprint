@@ -3,14 +3,23 @@ package foodprint
  public enum BatchType {
     PRODUCT
 }
-class Batch extends DefaultTable{
+class Batch extends DefaultTable {
 
-	static belongsTo =[item: Item, materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
-	static hasMany =[batchRoutes:BatchRoute,batchSources:BatchSource]
+	static belongsTo = [
+		item: Item,
+		
+	]
+
+	static hasMany = [
+		batchRoutes: BatchRoute,
+		batchSources: BatchSource,
+		materialSheetDet: MaterialSheetDet,
+		manufactureOrder: ManufactureOrder
+	]
 	// static hasOne =[materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
 
 	String name
-	Long expectQty=0
+	Long expectQty = 0
 	Date dueDate
 
 
@@ -29,7 +38,7 @@ class Batch extends DefaultTable{
     /*
     * 類型，無 erp 時使用
     */
-    BatchType batchType=foodprint.BatchType.PRODUCT
+    BatchType batchType = foodprint.BatchType.PRODUCT
 
 
     /*
@@ -37,20 +46,25 @@ class Batch extends DefaultTable{
     */
    	Supplier supplier
 
+   	    /*
+    * 供應商所屬國家
+    */
+	String country = foodprint.Country.TAIWAN
+
 
 
 	static constraints = {
-		name unique:true
+		name 				unique: true
 
-		dueDate nullable:true
-		expectQty min:0L
+		dueDate 			nullable: true
+		expectQty 			min: 0L
 		
 
-		manufactureDate nullable:true
-		expirationDate nullable:true
-		supplier nullable:true
-		manufactureOrder nullable:true
-		materialSheetDet nullable:true
+		manufactureDate 	nullable: true
+		expirationDate 		nullable: true
+		supplier 			nullable: true
+		manufactureOrder 	nullable: true
+		materialSheetDet 	nullable: true
 	}
 	
 }

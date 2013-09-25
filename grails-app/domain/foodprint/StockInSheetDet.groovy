@@ -27,6 +27,7 @@ class StockInSheetDet extends DefaultSheetDet{
     */
     String stockLocation
 
+    static hasOne = [manufactureOrder: ManufactureOrder]
 
     static constraints = {      
     }

@@ -16,7 +16,11 @@ class MaterialSheetDet extends DefaultSheetDet{
     /*
     * 制令
     */
-    ManufactureOrder manufactureOrder
+    static hasOne = [
+        manufactureOrder: ManufactureOrder,
+        batch: Batch 
+    ]
+
 
 
     /*
@@ -28,7 +32,7 @@ class MaterialSheetDet extends DefaultSheetDet{
     /*
     * 批號
     */
-    Batch batch
+    // Batch batch
 
 
 

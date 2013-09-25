@@ -11,7 +11,10 @@ class ManufactureOrder extends DefaultSheet{
     */
     CustomerOrderDet customerOrderDet
 
-
+    static hasMany = [
+        stockInSheetDet: StockInSheetDet,
+        materialSheetDet: MaterialSheetDet
+    ]
 
     /*
     * 品項編號

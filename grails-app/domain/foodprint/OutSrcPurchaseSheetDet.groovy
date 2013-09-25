@@ -23,7 +23,8 @@ class OutSrcPurchaseSheetDet extends DefaultSheetDet{
     /*
     * 制令
     */
-	ManufactureOrder manufactureOrder
+    static hasOne = [manufactureOrder: ManufactureOrder]
+
 
 
     static constraints = {
