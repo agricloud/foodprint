@@ -5,14 +5,14 @@ package foodprint
     /*
     * 領料單身
     */
-class MaterialSheetDet {
+class MaterialSheetDet extends DefaultSheetDet{
 
-	/*
-    * 領退料單頭
+
+    /*
+    * 項次
     */
-	static belongsTo=[head:MaterialSheet]
-
-
+    Integer sequence
+    
     /*
     * 制令
     */
@@ -31,31 +31,7 @@ class MaterialSheetDet {
     Batch batch
 
 
-    /**
-     * 廠別
-     */
-	Site site
 
-    /**
-     * 修改者
-     */
-	String editor = ""
-
-	/**
-	 * 建立者
-	 */
-	String creator = ""
-
-	/**
-	 * 建立日期（自動欄位）
-	 */
-	Date dateCreated
-
-	/**
-	 * 修改日期（自動欄位）
-	 */
-	Date lastUpdated
     static constraints = {
-    	site nullable:true
     }
 }

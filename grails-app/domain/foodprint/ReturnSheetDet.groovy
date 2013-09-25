@@ -1,35 +1,29 @@
 package foodprint
 
 
-    /*
-    * 製造命令
-    */
-class ManufactureOrder extends DefaultSheet{
 
     /*
-    * 訂單單身
+    * 退貨單身
     */
-    CustomerOrderDet customerOrderDet
-
-
+class ReturnSheetDet extends DefaultSheetDet{
 
     /*
     * 品項編號
     */
     Item item
 
+
     /*
     * 批號
     */
     Batch batch
 
+
     /*
-    * 生產量
+    * 進貨數量
     */
     Integer qty
 
-
     static constraints = {
-        customerOrderDet nullable:true
     }
 }

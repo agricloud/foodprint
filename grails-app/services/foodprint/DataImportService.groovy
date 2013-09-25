@@ -61,6 +61,8 @@ class DataImportService {
 			// 建立物件：dc.clazz.newInstance() == new Item()
 			// def newDomainObject = dc.clazz.newInstance()
 
+			log.info "table: ${importTable} fields:${fields}"
+
 
 
 			records[importTable.toLowerCase()].eachWithIndex{ record, i ->

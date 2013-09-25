@@ -3,7 +3,7 @@ package foodprint
  public enum BatchType {
     PRODUCT
 }
-class Batch {
+class Batch extends DefaultTable{
 
 	static belongsTo =[item: Item, materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
 	static hasMany =[batchRoutes:BatchRoute,batchSources:BatchSource]
@@ -37,30 +37,7 @@ class Batch {
     */
    	Supplier supplier
 
-    /**
-     * 廠別
-     */
-	Site site
 
-    /**
-     * 修改者
-     */
-	String editor = ""
-
-	/**
-	 * 建立者
-	 */
-	String creator = ""
-
-	/**
-	 * 建立日期（自動欄位）
-	 */
-	Date dateCreated
-
-	/**
-	 * 修改日期（自動欄位）
-	 */
-	Date lastUpdated
 
 	static constraints = {
 		name unique:true
@@ -68,10 +45,10 @@ class Batch {
 		dueDate nullable:true
 		expectQty min:0L
 		
-		site nullable:true
+
 		manufactureDate nullable:true
 		expirationDate nullable:true
-		// supplier nullable:true
+		supplier nullable:true
 		manufactureOrder nullable:true
 		materialSheetDet nullable:true
 	}

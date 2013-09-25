@@ -7,7 +7,7 @@
 
 package foodprint
 
-class Site {
+class Site extends DefaultTable{
 
 	String name
 	String title
@@ -15,25 +15,7 @@ class Site {
 	String address
 
 
-    /**
-     * 修改者
-     */
-	String editor = ""
 
-	/**
-	 * 建立者
-	 */
-	String creator = ""
-
-	/**
-	 * 建立日期（自動欄位）
-	 */
-	Date dateCreated
-
-	/**
-	 * 修改日期（自動欄位）
-	 */
-	Date lastUpdated
 
     static constraints = {
     	name unique:true

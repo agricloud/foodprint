@@ -6,7 +6,7 @@ package foodprint
  * @author smlsun@gmail.com, ...
  * @version 1.0
  */
-class Item {
+class Item extends DefaultTable{
 
     /**
      * 項目名稱，必填欄位
@@ -50,30 +50,7 @@ class Item {
 	 */
 	Date effectEndDate
 
-    /**
-     * 廠別
-     */
-	Site site
 
-    /**
-     * 修改者
-     */
-	String editor = ""
-
-	/**
-	 * 建立者
-	 */
-	String creator = ""
-
-	/**
-	 * 建立日期（自動欄位）
-	 */
-	Date dateCreated
-
-	/**
-	 * 修改日期（自動欄位）
-	 */
-	Date lastUpdated
 
     /**
      * 一對多關係（項目圖片）
@@ -89,7 +66,6 @@ class Item {
 		dueDays nullable: true
 		effectStartDate nullable: true
 		effectEndDate nullable: true
-		site nullable: true
 	}
 	public String toString(){
     	"品項編號：${name},品項名稱：${title}"

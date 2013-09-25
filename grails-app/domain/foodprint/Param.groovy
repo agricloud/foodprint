@@ -12,7 +12,7 @@ public enum ParamType {
     IMAGE
 }
 
-class Param {
+class Param extends DefaultTable{
 
 	String name
 	String title
@@ -37,34 +37,9 @@ class Param {
     */
 	String unit=""
 
-    /**
-     * 廠別
-     */
-    Site site
-
-    /**
-     * 修改者
-     */
-    String editor = ""
-
-    /**
-     * 建立者
-     */
-    String creator = ""
-
-    /**
-     * 建立日期（自動欄位）
-     */
-    Date dateCreated
-
-    /**
-     * 修改日期（自動欄位）
-     */
-    Date lastUpdated
 
 
     static constraints = {
-    	site nullable:true
     	paramType nullable:true
     	name unique:true
 
