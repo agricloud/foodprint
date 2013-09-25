@@ -1,0 +1,175 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 605,
+        "width": 827,
+        "designer|userClassName": "TraceTreeCt",
+        "designer|initialView": true,
+        "layout": "fit"
+    },
+    "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
+    "cn": [
+        {
+            "type": "Ext.tree.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 250,
+                "width": 400,
+                "collapsible": false,
+                "title": "My Tree Grid Panel",
+                "normalViewConfig": null,
+                "store": "TraceTreeStore",
+                "singleExpand": true,
+                "useArrows": true
+            },
+            "designerId": "959d5fd3-d214-469d-95cf-990941426116",
+            "isBuiltIn": true,
+            "iconCls": "icon-treegridpanel",
+            "autoName": "TreeGrid",
+            "cn": [
+                {
+                    "type": "Ext.tree.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "task",
+                        "text": "task",
+                        "flex": 1
+                    },
+                    "designerId": "ecd406bf-6e39-4e1c-9539-697ff2c6121d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "user",
+                        "text": "user"
+                    },
+                    "designerId": "38d349d5-a590-4e9d-9d1d-b31a578a321c"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "duration",
+                        "text": "duration"
+                    },
+                    "designerId": "02a1daa0-240f-440c-a663-cf71650710b4"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "designerId": "edd9b493-f907-44c6-8eef-ab4ae0c54a82",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Expand All"
+                            },
+                            "designerId": "6e559d3c-462b-4461-bf3a-96dd4d7b5a9f",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var me = button.up('treepanel');",
+                                            "var toolbar = me.down('toolbar');",
+                                            "",
+                                            "me.getEl().mask('Expanding tree...');",
+                                            "toolbar.disable();",
+                                            "",
+                                            "me.expandAll(function() {",
+                                            "    me.getEl().unmask();",
+                                            "    toolbar.enable();",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "02e9f372-6e9f-485c-80ca-97b3113e0522"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Collapse All"
+                            },
+                            "designerId": "03b80e47-faed-4171-bc21-88d09314d0cb",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "var me = button.up(\"treepanel\")",
+                                            "var toolbar = me.down('toolbar');",
+                                            "",
+                                            "toolbar.disable();",
+                                            "me.collapseAll(function() {",
+                                            "    toolbar.enable();",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "ec63a082-caf3-4cb5-bf37-b7bc5c30145e"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
