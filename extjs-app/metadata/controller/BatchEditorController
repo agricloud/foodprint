@@ -77,6 +77,9 @@
                     "    },",
                     "    'batcheditorct button[itemId=routeSaveBtn]':{",
                     "        click:this.batchRouteSave",
+                    "    },",
+                    "    'batcheditorct grid[itemId=batchRouteGrid]':{",
+                    "        itemdblclick:this.readBatchRoute",
                     "    }",
                     "});"
                 ]
@@ -134,6 +137,19 @@
                 "selector": "batchviewer"
             },
             "designerId": "eb6d2ac3-5d63-47c5-849d-b5b624f1dde8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteGrid",
+                "selector": "batchroutegrid"
+            },
+            "designerId": "3455dcca-23db-43cc-834f-d1775fee8d64"
         },
         {
             "type": "basicfunction",
@@ -395,6 +411,31 @@
                 ]
             },
             "designerId": "a49c5def-e0e1-4a93-b994-7143ccbe67cc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readBatchRoute",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log('batchEditorCtrl.readBatchRoute[dblClick]');",
+                    "",
+                    "//this.getBatchEditor().setActiveTab(this.getBatchViewer().up());//對應ref",
+                    "",
+                    "console.log(this.getBatchViewer().down('form[itemId=batchRouteForm]'));",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').show();",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').doDisplay(record);",
+                    ""
+                ]
+            },
+            "designerId": "644da428-35bb-491c-b7ca-d4dabcf8d617"
         }
     ]
 }
