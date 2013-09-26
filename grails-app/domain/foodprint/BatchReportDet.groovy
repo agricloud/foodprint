@@ -1,6 +1,6 @@
 package foodprint
 
-class BatchReportDet {
+class BatchReportDet extends DefaultTable{
 
 	/*
 	* 記錄是哪個批號收集的履歷資料
@@ -21,13 +21,6 @@ class BatchReportDet {
 	* 記錄是哪個途程做的收集
 	*/
 	// BatchRoute batchRoute
-
-	String editor=""	//修改者
-	String creator=""	//建立者
-	Date dateCreated    //建立日期
-	Date lastUpdated    //修改日期
-
-
 
     static constraints = {
     	batch(unique: ['reportParams'])

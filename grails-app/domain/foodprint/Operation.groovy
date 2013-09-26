@@ -1,6 +1,6 @@
 package foodprint
 
-class Operation {
+class Operation extends DefaultTable{
 	
 	String name //製程編號
 	String title //製程名稱

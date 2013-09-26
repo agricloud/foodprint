@@ -1,11 +1,12 @@
 package foodprint
 
-class ItemRoute {
+class ItemRoute extends DefaultTable{
 
 	static belongsTo = [item: Item]
 	int sequence
 	Operation operation
 	Workstation workstation
+
 
     static constraints = {
     	sequence unique:'item'

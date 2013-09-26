@@ -48,7 +48,7 @@ grails.project.dependency.resolution = {
     plugins {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.3"
-        runtime ":resources:1.2.RC3"
+        runtime ":resources:1.2"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -65,14 +65,13 @@ grails.project.dependency.resolution = {
 
         runtime ":cors:1.1.0"
 
-
         compile ':rest-client-builder:1.0.3'
 
         compile ":twitter-bootstrap:3.0.0"
 
         compile ":crypto:2.0"
 
-        compile ":cxf:1.1.1"
+
 
 
         // compile ':spring-security-core:latest.release'

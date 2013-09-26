@@ -4,28 +4,46 @@
 
 package foodprint
 
-class ReportParams {
+class ReportParams extends DefaultTable{
 
+
+    /*
+    * 履歷收集單頭
+    */
 	static belongsTo=[report:Report]
+
+
+    /*
+    * 收集參數
+    */
 	Param param
 
-	Workstation workstation // 設定在某工作站需要進行資料收集
-	Item item 				// 設定在某品相要進行資料收集
+    /*
+    * 設定在某工作站需要進行資料收集
+    */
+	Workstation workstation 
+
+    /*
+    * 設定在某品項要進行資料收集
+    */
+	Item item 	
+
+	/*
+    * 設定在某製程要進行資料收集
+    */
 	Operation operation
-	Site site
+
+    /*
+    * 設定在某批號要進行資料收集
+    */
+	Batch batch
 
 
-	// Site site
-	String editor=""	//修改者
-	String creator=""	//建立者
-	Date dateCreated    //建立日期
-	Date lastUpdated    //修改日期
     static constraints = {
-    	// site nullable:true
     	workstation nullable:true
     	item nullable:true
     	operation nullable:true
-    	site nullable:true
     	param unique:'report'
+    	batch nullable:true
     }
 }

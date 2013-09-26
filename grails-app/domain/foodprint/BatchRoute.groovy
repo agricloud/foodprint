@@ -1,6 +1,6 @@
 package foodprint
 
-class BatchRoute {
+class BatchRoute extends DefaultTable{
 
 	static belongsTo=[batch:Batch]
 	Workstation workstation
@@ -18,12 +18,12 @@ class BatchRoute {
     * 結束時間
     */
 	Date endDate
+
 	 
 
     static constraints = {
     	sequence unique:'batch'
     	startDate nullable:true
     	endDate nullable:true
-
     }
 }

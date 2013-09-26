@@ -1,13 +1,16 @@
 package foodprint
 
-class Customer {
+class Customer extends DefaultTable{
 	String name
 	String title
 	String email=""
 	String address=""
 
 
-    // static constraints = {
-    // 	name unique:true
-    // }
+    static constraints = {
+    	name unique:true
+    }
+
+
+
 }
