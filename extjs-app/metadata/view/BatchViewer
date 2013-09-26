@@ -55,13 +55,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "plugins": [
-                            "[",
-                            "    Ext.create('Ext.grid.plugin.RowEditing', {",
-                            "        ",
-                            "    })",
-                            "]"
-                        ],
+                        "plugins": null,
                         "layout|flex": 2
                     },
                     "designerId": "086fe280-40f4-4f4f-8db0-7f9605cb8c04",
@@ -161,6 +155,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|anchor": "100%",
+                                "hidden": true,
                                 "fieldLabel": "Operation_id",
                                 "name": "operation.id"
                             },
@@ -175,10 +170,34 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dock": null,
-                                "fieldLabel": "Operation_name"
+                                "fieldLabel": "Operation_name",
+                                "name": "operation.name"
                             },
                             "designerId": "38a70ddb-a92f-481a-bda6-9fe6c715aff7",
-                            "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
+                            "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCommonOperationComboSelect",
+                                        "implHandler": [
+                                            "",
+                                            "combo.up().getForm().setValues({",
+                                            "    'operation.id': records[0].data['id'],",
+                                            "    'operation.title':records[0].data['title']",
+                                            "});"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "d08e2827-8223-4a8d-babc-a8404f149f16"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -205,6 +224,7 @@
                             "userConfig": {
                                 "layout|anchor": "100%",
                                 "layout|flex": null,
+                                "hidden": true,
                                 "fieldLabel": "Workstation_id",
                                 "name": "workstation.id"
                             },
@@ -220,10 +240,34 @@
                             "userConfig": {
                                 "fieldLabel": "Workstation_name",
                                 "labelStyle": null,
-                                "labelWidth": null
+                                "labelWidth": null,
+                                "name": "workstation.name"
                             },
                             "designerId": "0c86203a-ef68-4ef6-abe5-fde37df6f3a9",
-                            "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
+                            "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCommonWorkstationComboSelect",
+                                        "implHandler": [
+                                            "",
+                                            "combo.up().getForm().setValues({",
+                                            "    'workstation.id': records[0].data['id'],",
+                                            "    'workstation.title':records[0].data['title']",
+                                            "});"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "cb927550-cbb3-4175-9f52-f05a619bd509"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Text",
