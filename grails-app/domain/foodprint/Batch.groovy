@@ -13,10 +13,7 @@ class Batch extends DefaultTable {
 	static hasMany = [
 		batchRoutes: BatchRoute,
 		batchSources: BatchSource,
-		materialSheetDet: MaterialSheetDet,
-		manufactureOrder: ManufactureOrder
 	]
-	// static hasOne =[materialSheetDet:MaterialSheetDet, manufactureOrder:ManufactureOrder]
 
 	String name
 	Long expectQty = 0
@@ -63,8 +60,6 @@ class Batch extends DefaultTable {
 		manufactureDate 	nullable: true
 		expirationDate 		nullable: true
 		supplier 			nullable: true
-		manufactureOrder 	nullable: true
-		materialSheetDet 	nullable: true
 	}
 	
 }
