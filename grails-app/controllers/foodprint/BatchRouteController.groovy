@@ -7,6 +7,8 @@ class BatchRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
 
+    def messageSource
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -45,21 +47,31 @@ class BatchRouteController {
     }
 
     def save(BatchRoute batchRouteInstance) {
-	log.debug "${controllerName}-${actionName}"
+    	log.debug "${controllerName}-${actionName}"
 
-	if(!batchRouteInstance.validate()) { // validate id
-	            batchRouteInstance.errors.each {
-	               println it
-	            }
-	            return [success: false]
-	}
+        def msg=[]
+        def isSuccess;
+        if (!batchRouteInstance.validate()) {
+            batchRouteInstance.errors.allErrors.each{ 
+                msg << messageSource.getMessage(it, Locale.getDefault())
+            }
+            isSuccess=false;
+        }
+        else{
+            if (!batchRouteInstance.save()) {//flush:true?  
+                batchRouteInstance.errors.allErrors.each{ 
+                    msg << messageSource.getMessage(it, Locale.getDefault())
+                }
+                isSuccess=false;
+            }
+            else{
+                msg<< message(code: "default.message.save.success", args: [batchRouteInstance.sequence])
+                isSuccess=true;
+            }
+        }
 
-	if (!batchRouteInstance.save(failOnError: true)) {
-	            return [success: false]
-	        }
-	        else{
-	            return [success:true]
-	        }
+        return [success: isSuccess, message: msg.join('<br>')]
+
 	}
 
 

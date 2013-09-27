@@ -82,7 +82,8 @@
                         "layout": "vbox",
                         "bodyBorder": null,
                         "bodyPadding": 10,
-                        "title": null
+                        "title": null,
+                        "jsonSubmit": true
                     },
                     "designerId": "812031db-b79c-44aa-b1eb-e546f7953060",
                     "cn": [
@@ -127,10 +128,25 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|anchor": "100%",
-                                "fieldLabel": "id",
-                                "name": "id"
+                                "fieldLabel": "Batch_id",
+                                "name": "batch.id",
+                                "readOnly": true
                             },
                             "designerId": "985fe45d-73f7-402a-b2bf-6c125c563de5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "id",
+                                "name": "id",
+                                "readOnly": true
+                            },
+                            "designerId": "37dd30c0-494a-436f-92c9-f0ee993e5fd9"
                         },
                         {
                             "type": "Ext.form.field.Number",
