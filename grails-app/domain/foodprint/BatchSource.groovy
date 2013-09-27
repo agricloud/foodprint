@@ -20,17 +20,11 @@ class BatchSource extends DefaultTable {
 
 
     /*
-    * 最上層成品批號
-    */
-	Batch topParent
-
-    /*
     * 是否是最底層批號
     */
     Boolean isEndBatch = false
 
     static constraints = {
     	batch unique: 'parent' 
-    	topParent nullable: true
     }
 }
