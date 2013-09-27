@@ -12,7 +12,7 @@ class Batch extends DefaultTable {
 
 	static hasMany = [
 		batchRoutes: BatchRoute,
-		batchSources: BatchSource,
+		batchSources: BatchSource
 	]
 
 	String name
