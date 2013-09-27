@@ -230,7 +230,7 @@
                 "implHandler": [
                     "console.log(\"View-batchRouteGrid.loadBatchRoute\");",
                     "var store = this.getStore();",
-                    "store.data.clear();",
+                    "store.removeAll();",
                     "store.load({",
                     "    params:{'batch.id':batchId}",
                     "});"
