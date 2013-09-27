@@ -45,19 +45,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batcheditorct button[itemId=commonCreateBtn]':{",
+                    "    '#commonEditorToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'batcheditorct button[itemId=commonDeleteBtn]':{",
+                    "    '#commonEditorToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'batcheditorct button[itemId=commonSaveBtn]':{",
+                    "    '#commonEditorToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'batcheditorct button[itemId=commonReadBtn]':{",
+                    "    '#commonEditorToolbar button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    'batcheditorct button[itemId=commonUpdateBtn]':{",
+                    "    '#commonEditorToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'batcheditorct grid[itemId=batchGrid]':{",
@@ -177,15 +177,42 @@
                     "this.getBatchViewer().down('form[itemId=batchForm]').doDisplay(record);",
                     "",
                     "this.getBatchViewer().down('grid[itemId=batchRouteGrid]').loadBatchRoute(record.data.id);",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().setValues({",
+                    "    'batch.id': record.data.id",
+                    "});",
                     "",
                     "this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "this.getBatchEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "this.getBatchViewer().down('button[itemId=commonCreateBtn]').setDisabled(false);",
                     ""
                 ]
             },
             "designerId": "f5b956d8-b9f0-463d-88dd-e617d2166477"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('BatchEditorCtrl.doCreate');",
+                    "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
+                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset(true);",
+                    "",
+                    "",
+                    "this.getBatchViewer().down('grid[itemId=batchRouteGrid]').getStore().removeAll();",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "",
+                    "this.getBatchViewer().down('button[itemId=commonCreateBtn]').setDisabled(true);"
+                ]
+            },
+            "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
         },
         {
             "type": "basicfunction",
@@ -226,27 +253,6 @@
                 ]
             },
             "designerId": "d868068e-d50d-4df0-85ba-1d9e9f59b7da"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "console.log('BatchEditorCtrl.doCreate');",
-                    "this.getBatchEditor().setActiveTab(this.getBatchViewer().up());",
-                    "this.getBatchViewer().down('form[itemId=batchForm]').getForm().reset(true);",
-                    "",
-                    "",
-                    "this.getBatchViewer().down('grid[itemId=batchRouteGrid]').getStore().removeAll();",
-                    ""
-                ]
-            },
-            "designerId": "b46c5403-4070-4da3-af62-a8f28a016a74"
         },
         {
             "type": "basicfunction",
@@ -300,7 +306,7 @@
                 ],
                 "implHandler": [
                     "",
-                    "console.log(\"batchEditorCtrl.doDelete\");",
+                    "console.log('batchEditorCtrl.doDelete');",
                     "",
                     "var that=this;",
                     "",
@@ -364,6 +370,7 @@
                     "else{",
                     "    tabPanel.down('form[itemId=batchForm]').getForm().reset(true);",
                     "    tabPanel.down('grid[itemId=batchRouteGrid]').getStore().removeAll();",
+                    "    tabPanel.down('form[itemId=batchRouteForm]').getForm().reset(true);",
                     "}"
                 ]
             },
@@ -456,10 +463,81 @@
                 "fn": "doCreateBatchRoute",
                 "implHandler": [
                     "console.log('BatchEditorCtrl.doCreateBatchRoute');",
-                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);"
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().setValues({",
+                    "    'batch.id': this.getBatchForm().getRecord().data.id",
+                    "});"
                 ]
             },
             "designerId": "8dc1c270-54be-4a35-8fce-b1c8d61bbcde"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSaveBatchRoute",
+                "implHandler": [
+                    "console.log('BatchEditorCtrl.doSaveBatchRoute');",
+                    "",
+                    "var that=this;",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').submit({",
+                    "    url: '/rest/batchRoute',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: lang['default.message.save'],",
+                    "    method:'POST',",
+                    "    success: function(form,action) {",
+                    "        console.log('Saving Success！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Success\", action.result.message);",
+                    "        console.log(form);",
+                    "        that.getBatchRouteGrid().loadBatchRoute(that.getBatchForm().getRecord().data.id);",
+                    "        that.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        console.log('Saving Failed！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Failed\", action.result.message);",
+                    "        that.getBatchViewer().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "e3001401-04e7-48ab-bc18-f4b322603a95"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdateBatchRoute",
+                "implHandler": [
+                    "",
+                    "console.log('BatchEditorCtrl.doUpdateBatchRoute');"
+                ]
+            },
+            "designerId": "e8e221b0-79be-401c-8671-3f9ab883a8c3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDeleteBatchRoute",
+                "implHandler": [
+                    "console.log('batchEditorCtrl.doDeleteBatchRoute');"
+                ]
+            },
+            "designerId": "d936cad7-ae3d-4f7d-bb47-fae029fc0fe7"
         },
         {
             "type": "basicfunction",
@@ -499,6 +577,19 @@
                 ]
             },
             "designerId": "af2be914-fde9-4c91-b297-942130e59632"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchForm",
+                "selector": "batchform"
+            },
+            "designerId": "fd0ca1a4-49b3-4453-aa2d-1d3d1661a163"
         }
     ]
 }
