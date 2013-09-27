@@ -158,7 +158,7 @@
                 "implHandler": [
                     "console.log('batchParamsEditorCtrl.readBatch[dblClick]');",
                     "",
-                    "this.getBatchForm().getForm().reset();",
+                    "this.getBatchForm().getForm().reset(true);",
                     "",
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchParamsEditor().down('panel[itemId=batchViewer]').up());",
                     "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
@@ -182,7 +182,7 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "console.log(\"batchParamsEditorCtrl.loadBatchRouteParams\");",
+                    "console.log('batchParamsEditorCtrl.loadBatchRouteParams');",
                     "",
                     "var store=this.getStore('BatchRouteParamsStore');",
                     "store.data.clear();",

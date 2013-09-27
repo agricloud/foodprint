@@ -195,28 +195,6 @@
             "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
         },
         {
-            "type": "Ext.selection.RowModel",
-            "reference": {
-                "name": "selModel",
-                "type": "object"
-            },
-            "codeClass": "Ext.selection.RowModel",
-            "designerId": "252287cc-848c-4410-b263-34fdb2fb0aff"
-        },
-        {
-            "type": "Ext.grid.plugin.RowEditing",
-            "reference": {
-                "name": "plugins",
-                "type": "array"
-            },
-            "codeClass": "Ext.grid.plugin.RowEditing",
-            "userConfig": {
-                "pluginId": null,
-                "designer|displayName": null
-            },
-            "designerId": "e1c9340a-379e-4476-8636-2089ed152a81"
-        },
-        {
             "type": "processcfgfunction",
             "reference": {
                 "name": "items",
@@ -251,11 +229,18 @@
                 ],
                 "implHandler": [
                     "console.log(\"View-batchRouteGrid.loadBatchRoute\");",
+                    "",
                     "var store = this.getStore();",
-                    "store.data.clear();",
+                    "",
+                    "store.removeAll();",
                     "store.load({",
-                    "    params:{'batch.id':batchId}",
-                    "});"
+                    "    params:{'batch.id':batchId},",
+                    "    callback:function(records, operation, success){",
+                    "\t\tstore.sort(store.sorters.items[0]);",
+                    "    }",
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "5a5a9244-095f-4a4a-9b5c-a64e8ca4f17d"
