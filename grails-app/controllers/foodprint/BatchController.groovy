@@ -110,7 +110,7 @@ class BatchController {
         
         if (!batchInstance) {
             println "${controllerName}--${actionName}--batchInstance not found"
-            msg<< message(code: "default.message.update.notfound", args: [params.id])
+            msg<< message(code: "default.message.delete.notfound", args: [params.id])
             render (contentType: 'text/json') {
                 [success:false, message: msg.join('<br>')]
             }

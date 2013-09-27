@@ -328,7 +328,6 @@
                     "        console.log('Deleting Failed！');",
                     "        console.log(action.result.message);",
                     "        Ext.Msg.alert(\"Failed\", action.result.message);",
-                    "        that.getBatchGrid().getStore().load();",
                     "        that.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "    }",
                     "});"
@@ -447,6 +446,9 @@
                     "",
                     "//this.getBatchViewer().down('form[itemId=batchRouteForm]').show();",
                     "this.getBatchViewer().down('form[itemId=batchRouteForm]').doDisplay(record);",
+                    "this.getBatchViewer().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "this.getBatchViewer().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "this.getBatchViewer().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     ""
                 ]
             },
@@ -493,9 +495,11 @@
                     "        console.log('Saving Success！');",
                     "        console.log(action.result.message);",
                     "        Ext.Msg.alert(\"Success\", action.result.message);",
-                    "        console.log(form);",
                     "        that.getBatchRouteGrid().loadBatchRoute(that.getBatchForm().getRecord().data.id);",
                     "        that.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "        that.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().setValues({",
+                    "            'batch.id': that.getBatchForm().getRecord().data.id",
+                    "        });",
                     "    },",
                     "    failure: function(form,action) {",
                     "        console.log('Saving Failed！');",
@@ -519,7 +523,28 @@
                 "fn": "doUpdateBatchRoute",
                 "implHandler": [
                     "",
-                    "console.log('BatchEditorCtrl.doUpdateBatchRoute');"
+                    "console.log('BatchEditorCtrl.doUpdateBatchRoute');",
+                    "",
+                    "var that=this;",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').submit({",
+                    "    url: '/rest/batchRoute',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: lang['default.message.update'],",
+                    "    method:'PUT',",
+                    "    success: function(form,action) {",
+                    "        console.log('Updating Success！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Success\", action.result.message);",
+                    "\t\tthat.getBatchRouteGrid().loadBatchRoute(that.getBatchForm().getRecord().data.id);",
+                    "        that.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        console.log('Updating Failed！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Failed\", action.result.message);",
+                    "        that.getBatchViewer().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "e8e221b0-79be-401c-8671-3f9ab883a8c3"
@@ -534,7 +559,30 @@
             "userConfig": {
                 "fn": "doDeleteBatchRoute",
                 "implHandler": [
-                    "console.log('batchEditorCtrl.doDeleteBatchRoute');"
+                    "console.log('batchEditorCtrl.doDeleteBatchRoute');",
+                    "",
+                    "var that=this;",
+                    "",
+                    "//console.log(this.getBatchGrid().getSelectionModel().getStore());",
+                    "this.getBatchViewer().down('form[itemId=batchRouteForm]').submit({",
+                    "    url: '/rest/batchRoute',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: lang['default.message.delete'],",
+                    "    method:'DELETE',",
+                    "    success: function(form,action) {",
+                    "        console.log('Deleting Success！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Success\", action.result.message);",
+                    "        that.getBatchRouteGrid().loadBatchRoute(that.getBatchForm().getRecord().data.id);",
+                    "        that.getBatchViewer().down('form[itemId=batchRouteForm]').getForm().reset(true);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        console.log('Deleting Failed！');",
+                    "        console.log(action.result.message);",
+                    "        Ext.Msg.alert(\"Failed\", action.result.message);",
+                    "        that.getBatchViewer().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "d936cad7-ae3d-4f7d-bb47-fae029fc0fe7"
