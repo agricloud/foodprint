@@ -5,8 +5,6 @@ import grails.converters.JSON
 class BatchRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
-
-    def messageSource
     def domainService
 
     def index() {
