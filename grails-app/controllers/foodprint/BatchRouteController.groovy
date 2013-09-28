@@ -7,7 +7,6 @@ class BatchRouteController {
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
 
     def messageSource
-    def batchRouteService
     def domainService
 
     def index() {
@@ -54,13 +53,23 @@ class BatchRouteController {
 
     }
 
-    def delete() {
 
-        def batchRouteInstance=BatchRoute.get(params.id)
-        render (contentType: 'text/json') {
-            domainService.delete(batchRouteInstance)
+    def delete(){
+        
+        def result
+        def batchRouteInstance=Batch.get(params.id)
+        try {
+            
+            result = domainService.delete(batchRouteInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [batchRouteInstance, e])
+            result = [success:false, message: msg] 
         }
-
-
+        
+        render (contentType: 'text/json') {
+            result
+        }
     }
 }

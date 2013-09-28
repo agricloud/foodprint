@@ -55,14 +55,12 @@ class DomainService {
 
 	@Transactional
     def delete(domainObject) {
-    	Object[] args = [domainObject];
+    	Object[] args = [domainObject,null];
     	def msg
-
-    	log.info domainObject
 
 
         if (!domainObject) {
-            msg = messageSource.getMessage("default.message.delete.notfound", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.not.found.message", args, Locale.getDefault())
 
             return [success:false, message: msg]
             
@@ -70,17 +68,15 @@ class DomainService {
 
         try {
             
-            domainObject.delete(flush:true, failOnError:true)
+            domainObject.delete(flush:true, failOnError:true)           	
             msg = messageSource.getMessage("default.message.delete.success", args, Locale.getDefault())
             return [success:true, message: msg]
 
         }
         catch (e) {
-        	log.error e
-            msg = messageSource.getMessage("default.message.delete.failed", args, Locale.getDefault())
-            return [success:false, message: msg]
-
+            throw e
         }
+
     }
 
 }
