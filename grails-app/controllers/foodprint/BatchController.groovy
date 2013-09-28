@@ -11,7 +11,7 @@ class BatchController {
     static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
 
     def messageSource
-    def batchService
+    def domainService
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -19,121 +19,54 @@ class BatchController {
     }
 
     def listJson(Integer max) {
-        log.debug "BatchController--listJson"
         JSON.use('deep')
-        def converter=list() as JSON
+        def converter = list() as JSON
         converter.render(response)
-
-        // render (contentType: 'text/json') {
-        //     list(max)        
-        // }
     }
 
     def listXml(Integer max) {
-        log.debug "BatchController--listXml"
 
-        def converter=list() as XML
+        def converter = list() as XML
         converter.render(response)
 
     }
 
-
-    def save(Batch batchInstance){
-        def msg=[]
-        def isSuccess;
-        if (!batchInstance.validate()) {
-            batchInstance.errors.allErrors.each{ 
-                msg << messageSource.getMessage(it, Locale.getDefault())
-            }
-            isSuccess=false;
-        }
-        else{
-            if (!batchInstance.save()) {//flush:true?  
-                batchInstance.errors.allErrors.each{ 
-                    msg << messageSource.getMessage(it, Locale.getDefault())
-                }
-                isSuccess=false;
-            }
-            else{
-                msg<< message(code: "default.message.save.success", args: [batchInstance.name])
-                isSuccess=true;
-            }
-        }
-
-        return [success: isSuccess, message: msg.join('<br>')]
-
-    }
     
     def create(){
-        log.debug"BatchController--create"
 
         def batchInstance=new Batch(params)
-
         render (contentType: 'text/json') {
-            save(batchInstance);
+            domainService.save(batchInstance)
         }
     }
 
 
     def update(){
-        log.debug "BatchController--update"
 
-        def msg=[]
         def batchInstance=Batch.get(params.id)
-        
-        if (!batchInstance) {
-
-            //使用log.debug 會跳錯誤訊息！
-            println "${controllerName}--${actionName}--batchInstance not found"
-            msg<< message(code: "default.message.update.notfound", args: [params.id])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
-        batchInstance.properties = params
-
         render (contentType: 'text/json') {
-            def result=save(batchInstance)
-            if(result.success)
-                result.message = message(code: "default.message.update.success", args: [batchInstance.name])
-
-            result
+            domainService.save(batchInstance, params)
         }
     }
 
+
     def delete(){
-
-        log.debug "BatchController--delete"
-        def msg=[]
-        def batchInstance=Batch.get(params.id)
         
-        if (!batchInstance) {
-            println "${controllerName}--${actionName}--batchInstance not found"
-            msg<< message(code: "default.message.delete.notfound", args: [params.id])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
+        def result
+        def batchInstance=Batch.get(params.id)
         try {
             
-            batchService.deleteBatch(batchInstance)
-
-            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
-            render (contentType: 'text/json') {
-                return [success:true, message: msg.join('<br>')]
-            }
+            result = domainService.delete(batchInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            def eMessage = ExceptionUtils.getRootCauseMessage(e)
-
-            msg<< message(code: "default.message.delete.failed", args: [batchInstance.name, eMessage])
-            render (contentType: 'text/json') {
-                return [success:false, message: msg.join('<br>')]
-            }
+        
+        render (contentType: 'text/json') {
+            result
         }
-
     }
     /**
     * 此方法已不使用 僅供參考寫法

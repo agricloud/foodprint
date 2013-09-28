@@ -1,15 +1,13 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import org.apache.commons.lang.exception.ExceptionUtils
 
 class BatchRouteController {
 
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
 
     def messageSource
-    def batchRouteService
+    def domainService
 
     def index() {
         redirect(action: "list", params: params)
@@ -31,8 +29,7 @@ class BatchRouteController {
     }
 
     def listJson(Integer max) {
-        log.debug "${controllerName}-${actionName}"
-        
+
         JSON.use('deep')
         def converter=list(max) as JSON
         converter.render(response)
@@ -40,116 +37,39 @@ class BatchRouteController {
 
 
     def create() {
-        log.debug "${controllerName}-${actionName}"
         def batchRouteInstance = new BatchRoute(params)
-        print params
         render (contentType: 'text/json') {
-            save(batchRouteInstance)
+            domainService.save(batchRouteInstance)
         }
     }
-
-    def save(BatchRoute batchRouteInstance) {
-    	log.debug "${controllerName}-${actionName}"
-
-        def msg=[]
-        def isSuccess;
-        if (!batchRouteInstance.validate()) {
-            batchRouteInstance.errors.allErrors.each{ 
-                msg << messageSource.getMessage(it, Locale.getDefault())
-            }
-            isSuccess=false;
-        }
-        else{
-            if (!batchRouteInstance.save()) {//flush:true?  
-                batchRouteInstance.errors.allErrors.each{ 
-                    msg << messageSource.getMessage(it, Locale.getDefault())
-                }
-                isSuccess=false;
-            }
-            else{
-                msg<< message(code: "default.message.save.success", args: [batchRouteInstance.sequence])
-                isSuccess=true;
-            }
-        }
-
-        return [success: isSuccess, message: msg.join('<br>')]
-
-	}
-
-
-
-/*
-    def edit(Long id) {
-        def batchRouteInstance = BatchRoute.get(id)
-        if (!batchRouteInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchRoute.label', default: 'BatchRoute'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchRouteInstance: batchRouteInstance]
-    }
-*/
 
 
     def update() {
-        log.debug "${controllerName}-${actionName}"
 
-        def msg=[]
         def batchRouteInstance=BatchRoute.get(params.id)
-        
-        if (!batchRouteInstance) {
-
-            //使用log.debug 會跳錯誤訊息！
-            log.debug "${controllerName}--${actionName}--batchRouteInstance not found"
-            msg<< message(code: "default.message.update.notfound", args: [params.sequence])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
-        batchRouteInstance.properties = params
-
         render (contentType: 'text/json') {
-            def result=save(batchRouteInstance)
-            if(result.success)
-                result.message = message(code: "default.message.update.success", args: [batchRouteInstance.sequence])
-
-            result
+            domainService.save(batchRouteInstance, params)
         }
 
     }
 
-    def delete() {
-        log.debug "${controllerName}-${actionName}"
 
-        def msg=[]
-        def batchRouteInstance=BatchRoute.get(params.id)
+    def delete(){
         
-        if (!batchRouteInstance) {
-            log.debug "${controllerName}--${actionName}--batchRouteInstance not found"
-            msg<< message(code: "default.message.delete.notfound", args: [params.sequence])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
+        def result
+        def batchRouteInstance=Batch.get(params.id)
         try {
             
-            batchRouteService.deleteBatchRoute(batchRouteInstance)
-
-            msg<< message(code: "default.message.delete.success", args: [batchRouteInstance.sequence])
-            render (contentType: 'text/json') {
-                return [success:true, message: msg.join('<br>')]
-            }
+            result = domainService.delete(batchRouteInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [batchRouteInstance, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            def eMessage = ExceptionUtils.getRootCauseMessage(e)
-
-            msg<< message(code: "default.message.delete.failed", args: [batchRouteInstance.sequence, eMessage])
-            render (contentType: 'text/json') {
-                return [success:false, message: msg.join('<br>')]
-            }
+        
+        render (contentType: 'text/json') {
+            result
         }
     }
 }
