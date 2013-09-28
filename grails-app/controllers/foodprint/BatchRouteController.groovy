@@ -64,7 +64,7 @@ class BatchRouteController {
         
         }catch(e){
             log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [batchRouteInstance, e])
+            def msg = message(code: 'default.message.delete.failed', args: [batchRouteInstance, e.getMessage()])
             result = [success:false, message: msg] 
         }
         
