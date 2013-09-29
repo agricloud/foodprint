@@ -10,15 +10,15 @@ class UserController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+    def list(params) {
+        //params.max = Math.min(max ?: 10, 100)
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
 
-    def listJson(Integer maxa) {
+    def listJson(params) {
         println"UserController--listJson"
         render (contentType: 'text/json') {
-            list(max)        
+            list(params)        
         }
     }
 

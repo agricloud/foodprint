@@ -10,15 +10,15 @@ class WorkstationController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+    def list(params) {
+        //params.max = Math.min(max ?: 10, 100)
         [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
     }
 
-    def listJson(Integer max) {
+    def listJson(params) {
 
         render (contentType: 'text/json') {
-            list(max)        
+            list(params)        
         }
         
     }

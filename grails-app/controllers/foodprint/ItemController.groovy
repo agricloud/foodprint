@@ -10,13 +10,12 @@ class ItemController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+    def list(params) {
+        //params.max = Math.min(max ?: 10, 100)
         [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
     }
 
-    def listJson(Integer max) {
-
+    def listJson(params) {
         render (contentType: 'text/json') {
             list(max)        
         }
