@@ -14,7 +14,7 @@ class DomainService {
 
         if (!domainObject) {
 
-            def msg = messageSource.getMessage(code: "default.message.update.notfound", args, Locale.getDefault())
+            def msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
             
             return [success:false, message: msg]
             
@@ -74,6 +74,7 @@ class DomainService {
 
         }
         catch (e) {
+        	log.error e
             throw e
         }
 
