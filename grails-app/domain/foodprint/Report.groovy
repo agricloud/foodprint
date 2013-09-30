@@ -4,13 +4,23 @@
 
 package foodprint
 
+public enum ReportType {
+	MATERIAL,
+	INSPECT,
+	NUTRITION,	// 營養
+	OTHER
+
+}
+
 class Report extends DefaultTable{
 
 	String name
 	String title
-	String decription=""
+	String decription = ""
 	Date effectStartDate
 	Date effectEndDate
+
+	ReportType reportType = foodprint.ReportType.OTHER
 
 
     static constraints = {
