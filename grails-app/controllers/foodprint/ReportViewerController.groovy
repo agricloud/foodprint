@@ -81,8 +81,7 @@ class ReportViewerController {
               param["param.description"] = batchReportDet.reportParams.param.description
               param["param.unit"] = batchReportDet.reportParams.param.unit
               param["batchReportDet.value"] = batchReportDet.value
-              reportMap.params << param
-
+              param["batchReportDet.value"] = batchReportDet.value
             }
           }        
         }
@@ -136,6 +135,7 @@ class ReportViewerController {
       reportMap.params=[]
       batch.batchRoutes.each(){ batchRoute ->
         def param = [:]
+        param["batchRoute.id"] = batchRoute.id
         param["batchRoute.sequence"] = batchRoute.sequence
 
         param["operation.name"] = batchRoute.operation.name
@@ -146,6 +146,8 @@ class ReportViewerController {
 
         param["batchRoute.startDate"] = batchRoute.startDate
         param["batchRoute.endDate"] = batchRoute.endDate
+        param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
+
         reportMap.params << param
 
       }

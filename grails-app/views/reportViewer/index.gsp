@@ -53,7 +53,13 @@
                  <g:each in="${report.params}" var="param">
                   <tr>
                       <g:each in="${param}" var="entry" >
-                        <td>${entry.value}</td>
+                        <g:if test="${entry.key == 'default.image'}" >
+                          <td><g:img class="img-responsive" uri="${entry.value}" /></td>
+                        </g:if>
+                        <g:else>
+                          <td>${entry.value}</td>
+                        </g:else>
+
                       </g:each>
                   </tr>
                 </g:each> 
