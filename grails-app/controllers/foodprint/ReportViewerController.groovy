@@ -9,7 +9,7 @@ import java.nio.charset.Charset
 
 class ReportViewerController {
 
-    def index() { 
+    def demo() { 
 
       // 勿刪， 無 http://192.168.2.104:8100/SFT 測試用
       // def webRootDir = servletContext.getRealPath ("/")
