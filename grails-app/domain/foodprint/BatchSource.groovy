@@ -6,10 +6,10 @@ package foodprint
     */
 class BatchSource extends DefaultTable{
 
-	static belongsTo = [parentBatch: Batch]
-	Batch batch
+	static belongsTo = [batch: Batch]
+	Batch childBatch
 
     static constraints = {
-    	batch unique: 'parentBatch' 
+    	childBatch unique: 'batch' 
     }
 }

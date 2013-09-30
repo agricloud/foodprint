@@ -129,10 +129,13 @@ class ReportViewerController {
 
       // 生產履歷
 
-      def reportMap = [:]
-      reportMap.title = "生產履歷"
+      def batchRouteReportMap = [:]
+      batchRouteReportMap.title = "生產履歷"
 
-      reportMap.params=[]
+      batchRouteReportMap.params=[]
+
+
+
       batch.batchRoutes.each(){ batchRoute ->
         def param = [:]
         param["batchRoute.id"] = batchRoute.id
@@ -148,11 +151,36 @@ class ReportViewerController {
         param["batchRoute.endDate"] = batchRoute.endDate
         param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
 
-        reportMap.params << param
+        batchRouteReportMap.params << param
 
       }
 
-      reports << reportMap
+      reports << batchRouteReportMap
+
+
+      def batchSourceReportMap = [:]
+      batchSourceReportMap.title = "原料履歷"
+
+      batchSourceReportMap.params=[]
+
+      log.info "!!!!!!!!!"
+      log.info batch.batchSources
+      batch.batchSources.each(){ batchSource ->
+        def param = [:]
+        param["batch.name"] = batchSource.childBatch.name
+        param["item.name"] = batchSource.childBatch.item.name
+        param["item.title"] = batchSource.childBatch.item.title
+        param["item.spec"] = batchSource.childBatch.item.spec
+        param["batch.country"] = batchSource.childBatch.country
+        param["item.description"] = batchSource.childBatch.item.description
+
+
+
+        batchSourceReportMap.params << param
+
+      }
+
+      reports << batchSourceReportMap
 
       render (view:'index' ,model:[product: product, reports:reports]) 
 
