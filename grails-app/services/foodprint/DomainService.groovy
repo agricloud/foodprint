@@ -78,5 +78,9 @@ class DomainService {
         }
 
     }
+    def getFields(table){
+    	grailsApplication.getDomainClass('foodprint.'+table).persistentProperties.collect { it.name }
+
+    }
 
 }

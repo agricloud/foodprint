@@ -12,63 +12,57 @@
       <div class="panel-heading">產品說明</div>
       <!-- form -->
       <form class="form-horizontal" role="form">
-        <g:each in="${reportData.form.field}" var="field">
+
+        <g:each in="${product}" var="entry" >
+
           <div class="form-group">
-          <label class="col-lg-2 control-label">${field.'@label'}</label>
-          <div class="col-lg-10">
-            <g:if test="${field.'@label'=="圖片"}">
-              <div class="row">
-                  <div class="col-sm-6 col-md-3">
-                        <img src=${field.text()} class="img-responsive" width=100>
-              </div></div>
-               %{-- <p class="form-control-static"> <img src=${field.text()} width=100 height=100> </p> --}%
-            </g:if>
-            <g:else>
-                <p class="form-control-static">${field.text()}</p>
-            </g:else>
+            <label class="col-lg-2 control-label"><g:message code="${entry.key}.label" /></label>
+
+            <div class="col-lg-10">
+              <p class="form-control-static">${entry.value}</p>
+            </div>
           </div>
-        </div>
 
         </g:each>
 
+
+
+       
       </form> 
     </div>
 
 
 
-    <g:each in="${reportData.tabs.tab}" var="tab">
+    <g:each in="${reports}" var="report">
 
       <div class="panel panel-default">
            <!-- Default panel contents -->
-          <div class="panel-heading">${tab.'@title'}</div>
+          <div class="panel-heading">${report.title}</div>
             <!-- Table -->
             <table class="table">
               <thead>
+
                 <tr>
-                    <g:each in="${tab.table.head.column}" var="column">
-                        <th> ${column.text()} </th>
-                    </g:each>
+                  <g:each in="${report.params[0]}" var="entry" >
+                      <th><g:message code="${entry.key}.label" /></th>
+                  </g:each>
+
                 </tr>
               </thead>
               <tbody>
-                 <g:each in="${tab.detail.row}" var="row">
+                 <g:each in="${report.params}" var="param">
                   <tr>
-                      <g:each in="${row.cell}" var="cell">
-                        <g:if test="${cell.img.size() > 0}">
-                          <td>
-                            <img src=${cell.img.'@src'[0]} class="img-responsive" width=200 maxWidth=100% >
-                          </td>
-                        </g:if>
-                        <g:else>
-                          <td>${cell.text()}</td>
-                        </g:else>
+                      <g:each in="${param}" var="entry" >
+                        <td>${entry.value}</td>
                       </g:each>
                   </tr>
                 </g:each> 
-                    </tbody>
+              </tbody>
             </table>
       </div>
     </g:each>
+
+
 
 	</body>
 </html>
