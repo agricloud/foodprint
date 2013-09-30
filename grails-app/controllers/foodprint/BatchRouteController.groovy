@@ -53,9 +53,10 @@ class BatchRouteController {
 
 
     def delete(){
-        
+        log.info params
         def result
-        def batchRouteInstance=Batch.get(params.id)
+        def batchRouteInstance=BatchRoute.findById(params.id)
+        log.info batchRouteInstance
         try {
             
             result = domainService.delete(batchRouteInstance)
