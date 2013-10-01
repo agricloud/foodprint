@@ -49,6 +49,8 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.24'
+        compile 'org.apache.ant:ant:1.7.1'    //you can also use runtime
+        compile 'org.apache.ant:ant-launcher:1.7.1'
     }
 
     plugins {
@@ -78,7 +80,9 @@ grails.project.dependency.resolution = {
         compile ":crypto:2.0"
 
 
-
+        // Grails Ant Plugin
+        // 執行 Ant 任務
+        compile ":grails-ant:0.1.3"
 
         // compile ':spring-security-core:latest.release'
 
