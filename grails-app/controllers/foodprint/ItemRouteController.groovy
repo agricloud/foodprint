@@ -2,38 +2,27 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
+import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 class ItemRouteController {
 
-    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
+
+
+
     def index() {
-        redirect(action: "list", params: params)
-    }
-    
-    def list(Integer max) {
-        // find itemForm id
-        def itemRoute=Item.findById(params.item.id).itemRoutes
-        // findAllByItem use item
-        //def itemRoute=ItemRoute.findAllByItem(item)
-        // return array
-        [itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()]
-    }
-
-    def show() {
-        log.debug "${controllerName}-${actionName}"
-    }
-
-
-    def listJson(Integer max) {
-        log.debug "${controllerName}-${actionName}"
         JSON.use('deep')
-        def converter=list(max) as JSON
+        def itemRoute=Item.findById(params.item.id).itemRoutes
+
+        def converter=[itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()] as JSON
         converter.render(response)
 
     }
 
+    @Transactional
     def create() {
         def itemRouteInstance= new ItemRoute(params)
         render (contentType: 'text/json') {
@@ -41,21 +30,20 @@ class ItemRouteController {
         }
     }
 
+    @Transactional
+    def update(ItemRoute itemRouteInstance) {
+        log.info itemRouteInstance.workstation.name
 
-    def update() {
-
-        def itemRouteInstance=ItemRoute.findById(params.id)
         render (contentType: 'text/json') {
-            domainService.save(itemRouteInstance, params)
+            domainService.save(itemRouteInstance)
         }
 
     }
 
-
-    def delete(){
+    @Transactional
+    def delete(ItemRoute itemRouteInstance){
         
         def result
-        def itemRouteInstance=ItemRoute.findById(params.id)
         try {
             
             result = domainService.delete(itemRouteInstance)
@@ -69,17 +57,6 @@ class ItemRouteController {
         render (contentType: 'text/json') {
             result
         }
-    }
-
-
-    def edit(Long id) {
-        def itemRouteInstance = ItemRoute.get(id)
-        if (!itemRouteInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'item.label', default: 'ItemRoute'), id])
-            redirect(action: "list")
-            return
-        }
-        [itemRouteInstance: itemRouteInstance]
     }
 
 }

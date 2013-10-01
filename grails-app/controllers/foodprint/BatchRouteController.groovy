@@ -1,19 +1,14 @@
 package foodprint
 
 import grails.converters.JSON
+import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 class BatchRouteController {
 
-    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    def show() {
-        log.debug "${controllerName}-${actionName}"
-    }
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -26,14 +21,14 @@ class BatchRouteController {
         [batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
     }
 
-    def listJson(Integer max) {
+    def index(Integer max) {
 
         JSON.use('deep')
         def converter=list(max) as JSON
         converter.render(response)
     }
 
-
+    @Transactional
     def create() {
         def batchRouteInstance = new BatchRoute(params)
         render (contentType: 'text/json') {
@@ -41,22 +36,18 @@ class BatchRouteController {
         }
     }
 
+    @Transactional
+    def update(BatchRoute batchRouteInstance) {
 
-    def update() {
-
-        def batchRouteInstance=BatchRoute.get(params.id)
         render (contentType: 'text/json') {
-            domainService.save(batchRouteInstance, params)
+            domainService.save(batchRouteInstance)
         }
 
     }
 
-
-    def delete(){
-        log.info params
+    @Transactional
+    def delete(BatchRoute batchRouteInstance){
         def result
-        def batchRouteInstance=BatchRoute.findById(params.id)
-        log.info batchRouteInstance
         try {
             
             result = domainService.delete(batchRouteInstance)
