@@ -16,35 +16,76 @@ class ReportViewerController {
       // def records = new XmlParser().parseText(f.text)
 
       	def rest = new RestBuilder()
-		rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-		def url = "http://192.168.2.104:8100/SFT/"
-		def imgUrl = url+"PDA/"
-		def resp = rest.get(url+"ws/demo/records/GinPin/410002/981009-410002")
-		def records = new XmlParser().parseText(resp.text)
+    		rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
+    		def url = "http://192.168.2.104:8100/SFT/"
+    		def imgUrl = url+"PDA/"
+    		def resp = rest.get(url+"ws/demo/records/GinPin/410002/981009-410002")
+    		def records = new XmlParser().parseText(resp.text)
 
 
 
-		def formImg=records.form.field.findAll{ field->
-				field.'@label'=="圖片"
-  			}
-  		formImg.each{
-  			it.value=imgUrl+it.text()
-  		}
+    		def formImg=records.form.field.findAll{ field->
+    				field.'@label'=="圖片"
+      	}
+      	formImg.each{
+      			it.value=imgUrl+it.text()
+      	}
 
-  		records.tabs.tab.detail.row.cell.each{ cell->
-  			if(cell.img.size()>0){
-  				cell.img[0].'@src'	= [imgUrl+ cell.img.'@src'[0]]
-			}
-  		}
+      	records.tabs.tab.detail.row.cell.each{ cell->
+      			if(cell.img.size()>0){
+      				cell.img[0].'@src'	= [imgUrl+ cell.img.'@src'[0]]
+    			}
+      	}
 
-  		return [reportData: records]
+      		return [reportData: records]
 
     }
 
-    def index(Long id){
+    def index(){
 
-      def batch = Batch.findById(id)
+      def rest = new RestBuilder()
+      rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
+      def url = "http://localhost:8180/foodprint/queryBatchReport"
+      def resp = rest.get(url)
+      //匯入品項
+      def records=JSON.parse(resp.text)
+      records.item.each{
+          Site site
+          if(it.site == null)
+              site=null
+          new Item(name:it.name, title:it.title, description:it.description, unit:it.unit,spec:it.spec, dueDays:it.dueDays,site:site, creator:it.creator, editor:it.editor,effectStartDate:it.effectStartDate, effectEndDate:it.effectEndDate,dateCreated:it.dateCreated,lastUpdated:it.lastUpdated).save(failOnError: true, flush: true)
+      }
+      //匯入批號
+      records.batch.each{
+          Site site
+          if(it.site == null)
+              site=null
+          Item item = Item.findByName(it.item.name)
+          new Batch(name:it.name, batchType:it.batchType.name, item:item, expectQty:it.expectQty, dueDate:it.dueDate, country:it.country, site:site, creator:it.creator, editor:it.editor, dateCreated:it.dateCreated, lastUpdated:it.lastUpdated, manufactureDate:it.manufactureDate, expirationDate:it.expirationDate).save(failOnError: true, flush: true)
+      }
+      //匯入批號關聯
+      records.batchSources.each{
+          println "========================="
+          println it.batch.name
+          println it.childBatch.name
+          Batch batch = Batch.findByName(it.batch.name)
+          Batch childBatch = Batch.findByName(it.childBatch.name)
+          new BatchSource(batch:batch,childBatch:childBatch).save(failOnError: true, flush: true)
+      }
 
+      BatchSource.list().each{
+        println "${it.batch.id}==${it.childBatch.id}"
+        println "${it.batch.name}==${it.childBatch.name}"
+      }
+      Batch.list().each{
+        println "${it.id}==${it.batchSources}"
+      }
+      def batch = Batch.findByName(params.batch.name)
+
+      println batch.id
+      println batch.name
+      println batch.batchSources
+      println Batch.findByName("batch1").batchSources
 
       def product = [:]
 
