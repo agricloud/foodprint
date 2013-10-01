@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class WorkstationController {
 
-    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -48,17 +48,23 @@ class WorkstationController {
     }
 
     def save(Workstation workstationInstance){
+
         if (!workstationInstance.validate()) {
                 workstationInstance.errors.each {
                 println it
             }
-            return [success:false]
+            render (contentType: 'text/json') {
+                [success:false]
+            }  
         }
         if (!workstationInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
+            render (contentType: 'text/json') {
+                [success:false]
+            }         }
         else{
-                return [success:true]
+            render (contentType: 'text/json') {
+                [success:true]
+            } 
         }
     }
 
@@ -73,20 +79,10 @@ class WorkstationController {
         [workstationInstance: workstationInstance]
     }
 
-    def edit(Long id) {
-        def workstationInstance = Workstation.get(id)
-        if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
-        }
 
-        [workstationInstance: workstationInstance]
-    }
+    def delete(Workstation workstationInstance){
 
-    def delete(){
-        println"WorkstationController--delete"
-        def workstationInstance=Workstation.get(params.id)
+
         if (!workstationInstance) {
             println"WorkstationController--delete--Cant find workstationInstance"
             render (contentType: 'text/json') {
