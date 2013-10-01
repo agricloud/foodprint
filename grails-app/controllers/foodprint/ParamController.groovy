@@ -1,115 +1,62 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 class ParamController {
 
-    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    def domainService
 
     def index() {
-        redirect(action: "list", params: params)
-    }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
-    }
-
-    def listJson(Integer max) {
-       // println"paramController--listJson"
         render (contentType: 'text/json') {
-            list(max)        
+            [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
+    
         }
         
     }
 
+ 
+    @Transactional
     def create(){
-        println"ParamController--create"
 
         def paramInstance=new Param(params)
+        
         render (contentType: 'text/json') {
-            save(paramInstance);
+            domainService.save(paramInstance)
         }
     }
 
-    def save(Param paramInstance){
-        if (!paramInstance.validate()) {
-                paramInstance.errors.each {
-                println it
-            }
-            return [success:false]
-        }
-        if (!paramInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
-        }
-    }
-
-    def update(){
-        println"ParamController--update"
-        def paramInstance=Param.get(params.id)
-
-        if(!paramInstance){
-            println"ParamController--update--cant find ParamInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-       paramInstance.properties = params
+    @Transactional
+    def update(Param paramInstance){
         render (contentType: 'text/json') {
-            save(paramInstance);
+            domainService.save(paramInstance)
         }         
     }
 
-    def show(Long id) {
-        def paramInstance = Param.get(id)
-        if (!paramInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'param.label', default: 'Param'), id])
-            redirect(action: "list")
-            return
-        }
 
-        [paramInstance: paramInstance]
-    }
-
-    def edit(Long id) {
-        def paramInstance = Param.get(id)
-        if (!paramInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'param.label', default: 'Param'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [paramInstance: paramInstance]
-    }
-
-
-    def delete(){
-        println"ParamController--delete"
-        def paramInstance=Param.get(params.id)
-        if (!paramInstance) {
-            println"ParamController--delete--Cant find paramInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
-
+    @Transactional
+    def delete(Param paramInstance){
+        
+        def result
         try {
-            paramInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
+            
+            result = domainService.delete(paramInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [paramInstance, e])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
+        
+        render (contentType: 'text/json') {
+            result
         }
-
     }
+
+
 
     /*
     * 將定義在 param domain 中的 enum ParamType 轉換為 json

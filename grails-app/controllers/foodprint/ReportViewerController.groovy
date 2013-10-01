@@ -6,7 +6,9 @@ import org.springframework.http.converter.StringHttpMessageConverter
 import grails.converters.XML
 import grails.plugins.rest.client.RestBuilder
 import java.nio.charset.Charset
+import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 class ReportViewerController {
 
     def demo() { 

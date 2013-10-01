@@ -80,12 +80,36 @@ class DomainService {
 
         }
         catch (e) {
-            log.error e
-            args[1] = e
-            msg = messageSource.getMessage('default.message.delete.failed', args, Locale.getDefault())
-            return [success:false, message: msg] 
+        	log.error e
+            throw e
         }
 
     }
+    // def delete(domainObject) {
+    //     Object[] args = [domainObject,null];
+    //     def msg
 
+
+    //     if (!domainObject) {
+    //         msg = messageSource.getMessage("default.not.found.message", args, Locale.getDefault())
+
+    //         return [success:false, message: msg]
+            
+    //     }
+
+    //     try {
+            
+    //         domainObject.delete(flush:true, failOnError:true)               
+    //         msg = messageSource.getMessage("default.message.delete.success", args, Locale.getDefault())
+    //         return [success:true, message: msg]
+
+    //     }
+    //     catch (e) {
+    //         log.error e
+    //         args[1] = e
+    //         msg = messageSource.getMessage('default.message.delete.failed', args, Locale.getDefault())
+    //         return [success:false, message: msg] 
+    //     }
+
+    // }
 }

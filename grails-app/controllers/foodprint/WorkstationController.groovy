@@ -9,17 +9,13 @@ class WorkstationController {
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-   def index(params) {
+    def index() {
 
         render (contentType: 'text/json') {
-            list(params)        
+            [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
+    
         }
         
-    }
-
-    def list(params) {
-        //params.max = Math.min(max ?: 10, 100)
-        [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
     }
 
  
@@ -41,17 +37,6 @@ class WorkstationController {
         }         
     }
 
-
-    def show(Long id) {
-        def workstationInstance = Workstation.get(id)
-        if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [workstationInstance: workstationInstance]
-    }
 
     @Transactional
     def delete(Workstation workstationInstance){
