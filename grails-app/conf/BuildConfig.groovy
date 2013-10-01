@@ -83,9 +83,5 @@ grails.project.dependency.resolution = {
         // Grails Ant Plugin
         // 執行 Ant 任務
         compile ":grails-ant:0.1.3"
-
-        // compile ':spring-security-core:latest.release'
-
-        // compile ":create-domain-uml:0.5"
     }
 }
