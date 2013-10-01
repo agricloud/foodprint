@@ -5,12 +5,14 @@ import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
 import grails.converters.XML
 
+import grails.transaction.Transactional
+
+@Transactional(readOnly = true)
 
 class BatchController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
 
-    def messageSource
     def domainService
 
     def list(Integer max) {
@@ -18,7 +20,7 @@ class BatchController {
         [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()]
     }
 
-    def listJson(Integer max) {
+    def index(Integer max) {
         JSON.use('deep')
         def converter = list() as JSON
         converter.render(response)
@@ -31,7 +33,7 @@ class BatchController {
 
     }
 
-    
+    @Transactional
     def create(){
 
         def batchInstance=new Batch(params)
@@ -40,7 +42,7 @@ class BatchController {
         }
     }
 
-
+    @Transactional
     def update(){
 
         def batchInstance=Batch.get(params.id)
@@ -49,23 +51,11 @@ class BatchController {
         }
     }
 
-
-    def delete(){
-        
-        def result
-        def batchInstance=Batch.get(params.id)
-        try {
-            
-            result = domainService.delete(batchInstance)
-        
-        }catch(e){
-            log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e])
-            result = [success:false, message: msg] 
-        }
+    @Transactional
+    def delete(Batch batchInstance){
         
         render (contentType: 'text/json') {
-            result
+            domainService.delete(batchInstance)
         }
     }
     /**
@@ -86,10 +76,6 @@ class BatchController {
         // JSON.use('deep')
         // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
         // converter.render(response)
-    }
-
-    def index() {
-        redirect(action: "list", params: params)
     }
 
     def show(Long id) {

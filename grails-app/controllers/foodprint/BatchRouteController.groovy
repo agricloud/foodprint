@@ -7,10 +7,6 @@ class BatchRouteController {
     static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
     def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
     def show() {
         log.debug "${controllerName}-${actionName}"
     }
@@ -26,7 +22,7 @@ class BatchRouteController {
         [batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
     }
 
-    def listJson(Integer max) {
+    def index(Integer max) {
 
         JSON.use('deep')
         def converter=list(max) as JSON

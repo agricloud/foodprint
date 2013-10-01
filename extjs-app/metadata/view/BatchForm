@@ -115,8 +115,12 @@
                     "record"
                 ],
                 "implHandler": [
-                    "console.log(\"View-batchForm.doDisplay\");",
-                    "this.loadRecord(record);"
+                    "console.log(record.data['item.id']);",
+                    "this.loadRecord(record);",
+                    "",
+                    "this.getForm().setValues({",
+                    "'item.id': record.data['item.id']",
+                    "})"
                 ]
             },
             "designerId": "e1bd6028-6dde-418c-9996-5f6b9a7e2468"

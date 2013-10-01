@@ -8,24 +8,25 @@ class DomainService {
 
 
 
-	def save(domainObject, params){
+	// def save(domainObject, params){
 
-        Object[] args = [domainObject];
+ //        Object[] args = [domainObject];
 
-        if (!domainObject) {
+ //        if (!domainObject) {
 
-            def msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
+ //            def msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
             
-            return [success:false, message: msg]
+ //            return [success:false, message: msg]
             
-        }
-        domainObject.properties = params
+ //        }
+
+ //        domainObject.properties = params
 
 
-        return save(domainObject)
+ //        return save(domainObject)
 
 
-	}
+	// }
 
     def save(domainObject) {
 
@@ -34,7 +35,13 @@ class DomainService {
         def msg
         Object[] args = [domainObject];
 
-        if (domainObject.validate() && domainObject.save()) {
+        if (!domainObject) {
+
+            msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
+            
+            return [success:false, message: msg]
+            
+        }else if (domainObject.validate() && domainObject.save()) {
 
             msg = messageSource.getMessage("default.message.save.success", args, Locale.getDefault())
             success=true;
@@ -53,7 +60,6 @@ class DomainService {
 
 	}
 
-	@Transactional
     def delete(domainObject) {
     	Object[] args = [domainObject,null];
     	def msg
@@ -74,8 +80,10 @@ class DomainService {
 
         }
         catch (e) {
-        	log.error e
-            throw e
+            log.error e
+            args[1] = e
+            msg = messageSource.getMessage('default.message.delete.failed', args, Locale.getDefault())
+            return [success:false, message: msg] 
         }
 
     }
