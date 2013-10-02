@@ -2,9 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import org.springframework.transaction.annotation.Transactional
 
-@Transactional(readOnly = true)
 class BatchReportDetController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]

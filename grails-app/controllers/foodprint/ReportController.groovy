@@ -1,9 +1,7 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.transaction.annotation.Transactional
 
-@Transactional(readOnly = true)
 class ReportController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -19,7 +17,6 @@ class ReportController {
     }
 
  
-    @Transactional
     def create(){
 
         def reportInstance=new Report(params)
@@ -29,18 +26,17 @@ class ReportController {
         }
     }
 
-    @Transactional
-    def update(Report reportInstance){
-
+    def update(){
+        def reportInstance = Report.findById(params.id)
+        reportInstance.properties=params
         render (contentType: 'text/json') {
             domainService.save(reportInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Report reportInstance){
-        
+    def delete(){
+        def  reportInstance = Report.findById(params.id)
         render (contentType: 'text/json') {
             domainService.delete(reportInstance)
         }

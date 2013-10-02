@@ -1,9 +1,5 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.transaction.annotation.Transactional
-
-@Transactional(readOnly = true)
 class WorkstationController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -19,7 +15,6 @@ class WorkstationController {
     }
 
  
-    @Transactional
     def create(){
 
         def workstationInstance=new Workstation(params)
@@ -29,18 +24,17 @@ class WorkstationController {
         }
     }
 
-    @Transactional
-    def update(Workstation workstationInstance){
-
+    def update(){
+        def workstationInstance = Workstation.findById(params.id)
+        workstationInstance.properties=params
         render (contentType: 'text/json') {
             domainService.save(workstationInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Workstation workstationInstance){
-        
+    def delete(){
+        def workstationInstance = Workstation.findById(params.id)
         render (contentType: 'text/json') {
             domainService.delete(workstationInstance)
         }

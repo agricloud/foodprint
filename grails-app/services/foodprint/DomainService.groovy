@@ -1,7 +1,6 @@
 package foodprint
 import org.springframework.transaction.annotation.Transactional
 
-
 class DomainService {
 
 	def messageSource 
@@ -27,7 +26,7 @@ class DomainService {
 
 
 	// }
-
+    @Transactional
     def save(domainObject) {
 
         def success
@@ -59,7 +58,7 @@ class DomainService {
         return [success: success, message: msg, errors: errors]
 
 	}
-
+    @Transactional
     def delete(domainObject) {
     	Object[] args = [domainObject,null];
     	def msg
@@ -85,10 +84,7 @@ class DomainService {
         }
 
     }
-    def getFields(table){
-    	grailsApplication.getDomainClass('foodprint.'+table).persistentProperties.collect { it.name }
 
-    }
 
     // def delete(domainObject) {
     //     Object[] args = [domainObject,null];
