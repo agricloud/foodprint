@@ -6,12 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|snapToGrid": 10,
         "saveDelay": null,
         "frame": true,
         "height": null,
         "id": null,
-        "width": 829,
+        "width": null,
         "designer|userClassName": "LoginContainer",
         "designer|userAlias": "logincontainer1",
         "defaults": [
@@ -19,7 +18,7 @@
             "        anchor: '100%'",
             "    }"
         ],
-        "layout": "absolute"
+        "layout": null
     },
     "designerId": "5875c1cf-7496-49e4-aabb-59e4448471e4",
     "cn": [
@@ -31,19 +30,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|x": 80,
-                "layout|y": 210,
-                "container|align": "stretch",
-                "height": 150,
+                "height": 250,
                 "itemId": "loginForm",
-                "maxHeight": 190,
-                "maxWidth": 300,
-                "layout": "vbox",
-                "bodyPadding": 10,
-                "title": "Login",
+                "margin": null,
+                "maxHeight": null,
+                "maxWidth": null,
+                "width": 500,
+                "designer|displayName": "LoginForm",
+                "layout": null,
+                "bodyPadding": 25,
+                "header": false,
+                "title": "Login Form",
                 "url": "j_spring_security_check"
             },
-            "designerId": "f300fab5-fece-4bc4-b36b-6562ef8cd589",
+            "designerId": "80a5258f-ecde-4b8d-8f38-6be169385b02",
             "cn": [
                 {
                     "type": "Ext.toolbar.Toolbar",
@@ -53,10 +53,23 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": "bottom"
+                        "dock": "bottom",
+                        "designer|displayName": "Toolbar"
                     },
                     "designerId": "ea7a24af-e169-4a7f-9b3e-54e09351a31a",
                     "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "7cbb19f7-3098-40d0-a89b-656fef0d164b"
+                        },
                         {
                             "type": "Ext.button.Button",
                             "reference": {
@@ -68,25 +81,31 @@
                                 "layout|flex": null,
                                 "border": null,
                                 "itemId": "loginBtn",
+                                "style": [
+                                    "font-family:Pictos;"
+                                ],
+                                "glyph": 72,
+                                "icon": null,
+                                "scale": "medium",
                                 "text": "Login"
                             },
                             "designerId": "b8f39922-8f38-4a80-b312-9a6514d6b3e5"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "cancelBtn",
-                                "text": "cancel"
-                            },
-                            "designerId": "50a7089f-cb5c-4bb1-a8c7-754c3e117282"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 100,
+                        "width": 400,
+                        "src": "img/login-banner.png"
+                    },
+                    "designerId": "e2cfc1fa-facf-43b0-9dab-3e4f4628dc51"
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -97,11 +116,12 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "username",
-                        "fieldLabel": "username",
+                        "fieldLabel": "帳號名稱",
                         "name": "j_username",
                         "value": [
                             "'admin'"
-                        ]
+                        ],
+                        "size": 25
                     },
                     "designerId": "97852eed-91b9-4dc9-ad88-5500a5940f21"
                 },
@@ -114,12 +134,13 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "password",
-                        "width": 150,
-                        "fieldLabel": "password",
+                        "width": null,
+                        "fieldLabel": "密碼",
                         "name": "j_password",
                         "value": [
                             "'admin'"
-                        ]
+                        ],
+                        "size": 25
                     },
                     "designerId": "03ceac74-f355-47d9-ad48-9cf378d83a47"
                 }
