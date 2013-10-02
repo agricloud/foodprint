@@ -2,7 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import grails.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Transactional(readOnly = true)
 class ItemRouteController {

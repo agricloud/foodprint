@@ -3,23 +3,36 @@ package foodprint
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
-import grails.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Transactional(readOnly = true)
 class BatchController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST",  show: "get"]
 
     def domainService
 
 
 
     def index() {
+        log.info "111"
         JSON.use('deep')
         def converter = [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()] as JSON
         converter.render(response)
     }
 
+    def show(Long id){
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.message.notfound', args: [message(code: 'batch.label', default: 'Batch'), id])
+        }
+        else{
+            flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
+        }
+        render (contentType: 'text/json') {
+            [batchInstanceList:batchInstance, message:flash.message]
+        }
+    }
 
     @Transactional
     def create(){
@@ -33,7 +46,7 @@ class BatchController {
     @Transactional
     def update(Batch batchInstance){
         render (contentType: 'text/json') {
-            domainService.save(batchInstance, params)
+            domainService.save(batchInstance)
         }
     }
 
