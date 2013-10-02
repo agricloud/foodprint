@@ -37,7 +37,7 @@ class DomainService {
 
         if (!domainObject) {
 
-            msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.message.notfound", args, Locale.getDefault())
             
             return [success:false, message: msg]
             
@@ -66,7 +66,7 @@ class DomainService {
 
 
         if (!domainObject) {
-            msg = messageSource.getMessage("default.not.found.message", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.message.notfound", args, Locale.getDefault())
 
             return [success:false, message: msg]
             

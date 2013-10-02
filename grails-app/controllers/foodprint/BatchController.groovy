@@ -20,6 +20,18 @@ class BatchController {
         converter.render(response)
     }
 
+    def show(Long id){
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.message.notfound', args: [message(code: 'batch.label', default: 'Batch'), id])
+        }
+        else{
+            flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
+        }
+        render (contentType: 'text/json') {
+            [batchInstanceList:batchInstance, message:flash.message]
+        }
+    }
 
     @Transactional
     def create(){
