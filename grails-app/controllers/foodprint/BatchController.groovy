@@ -33,7 +33,7 @@ class BatchController {
     @Transactional
     def update(Batch batchInstance){
         render (contentType: 'text/json') {
-            domainService.save(batchInstance, params)
+            domainService.save(batchInstance)
         }
     }
 
