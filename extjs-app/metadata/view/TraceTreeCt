@@ -6,9 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "height": 605,
-        "width": 827,
+        "height": null,
+        "width": null,
         "designer|userClassName": "TraceTreeCt",
+        "designer|initialView": true,
         "layout": "fit"
     },
     "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
@@ -21,8 +22,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 250,
-                "width": 400,
+                "height": null,
+                "width": null,
                 "collapsible": false,
                 "title": "My Tree Grid Panel",
                 "normalViewConfig": null,
@@ -43,8 +44,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "task",
-                        "text": "task",
+                        "dataIndex": "itemtitle",
+                        "text": "itemtitle",
                         "flex": 1
                     },
                     "designerId": "ecd406bf-6e39-4e1c-9539-697ff2c6121d"
@@ -57,10 +58,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "user",
-                        "text": "user"
+                        "dataIndex": "id",
+                        "text": "id"
                     },
-                    "designerId": "38d349d5-a590-4e9d-9d1d-b31a578a321c"
+                    "designerId": "be5f4416-765c-45a1-9abb-29a4edc7b27c"
                 },
                 {
                     "type": "Ext.grid.column.Number",
@@ -70,10 +71,39 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "duration",
-                        "text": "duration"
+                        "dataIndex": "expectQty",
+                        "text": "expectQty",
+                        "flex": 1
                     },
                     "designerId": "02a1daa0-240f-440c-a663-cf71650710b4"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "country",
+                        "text": "country",
+                        "flex": 1
+                    },
+                    "designerId": "38d349d5-a590-4e9d-9d1d-b31a578a321c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "supplier",
+                        "text": "supplier",
+                        "flex": 1
+                    },
+                    "designerId": "c925b3bd-d868-4a0a-9aa6-aab8214fdc60"
                 },
                 {
                     "type": "Ext.toolbar.Toolbar",

@@ -52,7 +52,8 @@ class TraceTreeController {
 	    */
 	    // 其中 id: 'src' 會做 node 傳往後後方進行查詢
 	    // 透過 node 的傳入 可以在分析 node 的資料進行後續節點的查詢
-
+print "!!!";
+print params.node;
 	    if(params.node == 'src'){
 	        
 	    	def jsonTree = [:]
