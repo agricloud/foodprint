@@ -2,7 +2,8 @@
 
 class ${className}Controller {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+    def domainService
 
     def index() {
         redirect(action: "list", params: params)
@@ -11,6 +12,12 @@ class ${className}Controller {
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [${propertyName}List: ${className}.list(params), ${propertyName}Total: ${className}.count()]
+    }
+
+    def listJson(Integer max) {
+        JSON.use('deep')
+        def converter=list(max) as JSON
+        converter.render(response)
     }
 
     def create() {
@@ -50,51 +57,41 @@ class ${className}Controller {
         [${propertyName}: ${propertyName}]
     }
 
-    def update(Long id, Long version) {
+
+    def create() {
         def ${propertyName} = ${className}.get(id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "list")
-            return
+        render (contentType: 'text/json') {
+            domainService.save(${propertyName})
         }
-
-        if (version != null) {
-            if (${propertyName}.version > version) {<% def lowerCaseName = grails.util.GrailsNameUtils.getPropertyName(className) %>
-                ${propertyName}.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: '${domainClass.propertyName}.label', default: '${className}')] as Object[],
-                          "Another user has updated this ${className} while you were editing")
-                render(view: "edit", model: [${propertyName}: ${propertyName}])
-                return
-            }
-        }
-
-        ${propertyName}.properties = params
-
-        if (!${propertyName}.save(flush: true)) {
-            render(view: "edit", model: [${propertyName}: ${propertyName}])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
     }
 
-    def delete(Long id) {
+
+    def update() {
+
         def ${propertyName} = ${className}.get(id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "list")
-            return
+        render (contentType: 'text/json') {
+            domainService.save(${propertyName}, params)
         }
 
+    }
+    def delete(Long id) {
+
+        def result
+        def ${propertyName} = ${className}.get(id)
         try {
-            ${propertyName}.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "list")
+            
+            result = domainService.delete(${propertyName})
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [${propertyName}, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "show", id: id)
+        
+        render (contentType: 'text/json') {
+            result
         }
+
+
     }
 }

@@ -3,137 +3,57 @@ package foodprint
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
-import grails.converters.XML
+import grails.transaction.Transactional
 
-
+@Transactional(readOnly = true)
 class BatchController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
 
-    def messageSource
-    def batchService
+    def domainService
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()]
-    }
 
-    def listJson(Integer max) {
-        log.debug "BatchController--listJson"
+
+    def index() {
         JSON.use('deep')
-        def converter=list() as JSON
+        def converter = [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()] as JSON
         converter.render(response)
-
-        // render (contentType: 'text/json') {
-        //     list(max)        
-        // }
-    }
-
-    def listXml(Integer max) {
-        log.debug "BatchController--listXml"
-
-        def converter=list() as XML
-        converter.render(response)
-
     }
 
 
-    def save(Batch batchInstance){
-        def msg=[]
-        def isSuccess;
-        if (!batchInstance.validate()) {
-            batchInstance.errors.allErrors.each{ 
-                msg << messageSource.getMessage(it, Locale.getDefault())
-            }
-            isSuccess=false;
-        }
-        else{
-            if (!batchInstance.save()) {//flush:true?  
-                batchInstance.errors.allErrors.each{ 
-                    msg << messageSource.getMessage(it, Locale.getDefault())
-                }
-                isSuccess=false;
-            }
-            else{
-                msg<< message(code: "default.message.save.success", args: [batchInstance.name])
-                isSuccess=true;
-            }
-        }
-
-        return [success: isSuccess, message: msg.join('<br>')]
-
-    }
-    
+    @Transactional
     def create(){
-        log.debug"BatchController--create"
 
         def batchInstance=new Batch(params)
-
         render (contentType: 'text/json') {
-            save(batchInstance);
+            domainService.save(batchInstance)
         }
     }
 
-
-    def update(){
-        log.debug "BatchController--update"
-
-        def msg=[]
-        def batchInstance=Batch.get(params.id)
-        
-        if (!batchInstance) {
-
-            //使用log.debug 會跳錯誤訊息！
-            println "${controllerName}--${actionName}--batchInstance not found"
-            msg<< message(code: "default.message.update.notfound", args: [params.id])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
-        batchInstance.properties = params
-
+    @Transactional
+    def update(Batch batchInstance){
         render (contentType: 'text/json') {
-            def result=save(batchInstance)
-            if(result.success)
-                result.message = message(code: "default.message.update.success", args: [batchInstance.name])
-
-            result
+            domainService.save(batchInstance, params)
         }
     }
 
-    def delete(){
-
-        log.debug "BatchController--delete"
-        def msg=[]
-        def batchInstance=Batch.get(params.id)
+    @Transactional
+    def delete(Batch batchInstance){
         
-        if (!batchInstance) {
-            println "${controllerName}--${actionName}--batchInstance not found"
-            msg<< message(code: "default.message.update.notfound", args: [params.id])
-            render (contentType: 'text/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-
+        def result
         try {
             
-            batchService.deleteBatch(batchInstance)
-
-            msg<< message(code: "default.message.delete.success", args: [batchInstance.name])
-            render (contentType: 'text/json') {
-                return [success:true, message: msg.join('<br>')]
-            }
+            result = domainService.delete(batchInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            def eMessage = ExceptionUtils.getRootCauseMessage(e)
-
-            msg<< message(code: "default.message.delete.failed", args: [batchInstance.name, eMessage])
-            render (contentType: 'text/json') {
-                return [success:false, message: msg.join('<br>')]
-            }
+        
+        render (contentType: 'text/json') {
+            result
         }
-
     }
     /**
     * 此方法已不使用 僅供參考寫法
@@ -148,37 +68,11 @@ class BatchController {
     */
     def itemRouteList(){
         log.debug "BatchController--itemRouteList"
-        redirect(controller: "ItemRoute",action: "listJson" ,params:["item.id":Batch.get(params.id).item.id])
+        redirect(controller: "ItemRoute",action: "index" ,params:["item.id":Batch.get(params.id).item.id])
         //old version
         // JSON.use('deep')
         // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
         // converter.render(response)
     }
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    def show(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-        }
-
-        render (contentType: 'text/json') {
-            [batchInstanceList:batchInstance]
-        }
-    }
-
-    def edit(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchInstance: batchInstance]
-    }
 }
