@@ -8,7 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class BatchController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST", show: "POST"]
 
     def domainService
 
@@ -20,6 +20,17 @@ class BatchController {
         converter.render(response)
     }
 
+    def show(){
+        log.debug 124
+        Long id=4
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
+        }
+        JSON.use('deep')
+        def converter =[batchInstanceList:batchInstance, message:flash.message]
+        converter.render(response)
+    }
 
     @Transactional
     def create(){
