@@ -22,11 +22,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "repondFailure",
+                "fn": "respondFailure",
                 "designer|params": [
-                    "form",
                     "action",
-                    "editor"
+                    "config"
                 ],
                 "implHandler": [
                     "",
@@ -34,10 +33,10 @@
                     "",
                     "",
                     "if(action.url.indexOf('create')!=-1){",
-                    "    editor.down('button[itemId=commonSaveBtn]').setDisabled(false);\t",
+                    "    config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);\t",
                     "}else {",
-                    "    editor.down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "    editor.down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "    config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "",
                     "",
                     "}",
@@ -55,16 +54,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "repondSuccess",
+                "fn": "respondSuccess",
                 "designer|params": [
-                    "form",
                     "action",
-                    "grid"
+                    "config"
                 ],
                 "implHandler": [
-                    "    Ext.MessageBox.alert('Success',action.result.message);",
-                    "    grid.getStore().reload();",
-                    "    form.reset(true);"
+                    "Ext.MessageBox.alert('Success',action.result.message);",
+                    "",
+                    "console.log(config.grid());",
+                    "config.grid().getStore().reload();",
+                    "config.form().getForm().reset(true);"
                 ]
             },
             "designerId": "d8db431c-7d86-4b2e-991f-4387da045da0"
@@ -83,10 +83,9 @@
                 ],
                 "implHandler": [
                     "",
-                    "\tconfig.editor.setActiveTab(config.form.up().up().up());",
-                    "    config.form.doDisplay(config.record);",
-                    "    config.toolbar.down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "    config.toolbar.down('button[itemId=commonUpdateBtn]').setDisabled(false);"
+                    "config.form().doDisplay(config.grid().getSelectionModel().getSelection()[0]);",
+                    "config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);"
                 ]
             },
             "designerId": "61c8c2ee-9c36-494b-afdd-05f32f85c91d"
@@ -100,8 +99,23 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doUpdate",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
-                    ""
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/update',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    success: function(form,action) {",
+                    "    \tUtilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "       \tUtilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "afe964da-ef94-43a7-9763-5a4a750778ec"
@@ -115,7 +129,21 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doDelete",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/delete',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    success: function(form,action) {",
+                    "    \tUtilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});",
                     ""
                 ]
             },
@@ -130,8 +158,23 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doCreate",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
-                    ""
+                    "",
+                    "console.log(\"util create\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/create',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "e3ec9cfe-1d21-42f5-895c-c80e00511922"
@@ -144,37 +187,32 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doTabChange",
+                "fn": "validityChange",
                 "designer|params": [
-                    "config"
+                    "basic, valid,config"
                 ],
                 "implHandler": [
-                    "var crebtn=config.toolbar.down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=config.toolbar.down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=config.toolbar.down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=config.toolbar.down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=config.toolbar.down('button[itemId=commonReadBtn]');",
+                    "config.form().getForm().updateRecord();",
                     "",
-                    "if(newCard==tabPanel.down('panel[itemId=itemBrowse]')){",
-                    "    delbtn.setDisabled(true);",
-                    "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
-                    "    config.toolbar.down('button[itemId=commonDeleteBtn]').setDisabled(true);",
-                    "    config.toolbar.down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=itemMainten]')){",
-                    "    redbtn.setDisabled(true);",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
                     "}",
                     "else{",
-                    "    config.form.getForm().reset(true);",
-                    "    config.grid.getStore().removeAll();",
-                    "    tabPanel.down('form[itemId=itemRouteForm]').getForm().reset(true);",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
                     "}"
                 ]
             },
-            "designerId": "2250a2d1-22b9-4587-9d18-f54ad9355016"
+            "designerId": "8f18e83d-af25-4da6-a03a-a8f0ad276a2f"
         }
     ]
 }
