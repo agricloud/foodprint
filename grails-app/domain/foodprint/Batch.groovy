@@ -46,7 +46,7 @@ class Batch extends DefaultTable {
    	    /*
     * 供應商所屬國家
     */
-	String country = foodprint.Country.TAIWAN
+	Country country = foodprint.Country.TAIWAN
 
 
 
