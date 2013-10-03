@@ -1,9 +1,7 @@
 package foodprint
 
 import grails.converters.JSON
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class BatchRouteController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -28,25 +26,24 @@ class BatchRouteController {
         converter.render(response)
     }
 
-    @Transactional
     def create() {
         def batchRouteInstance = new BatchRoute(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchRouteInstance)
         }
     }
 
-    @Transactional
-    def update(BatchRoute batchRouteInstance) {
-
-        render (contentType: 'text/json') {
+    def update() {
+        def  batchRouteInstance = BatchRoute.findById(params.id)
+        batchRouteInstance.properties=params   
+        render (contentType: 'application/json') {
             domainService.save(batchRouteInstance)
         }
 
     }
 
-    @Transactional
-    def delete(BatchRoute batchRouteInstance){
+    def delete(){
+        def  batchRouteInstance = BatchRoute.findById(params.id)
         def result
         try {
             
@@ -58,7 +55,7 @@ class BatchRouteController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

@@ -2,9 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class ItemRouteController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -22,27 +20,26 @@ class ItemRouteController {
 
     }
 
-    @Transactional
+
     def create() {
         def itemRouteInstance= new ItemRoute(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
         }
     }
 
-    @Transactional
-    def update(ItemRoute itemRouteInstance) {
-        log.info itemRouteInstance.workstation.name
 
-        render (contentType: 'text/json') {
+    def update() {
+        def itemRouteInstance = ItemRoute.findById(params.id)
+        itemRouteInstance.properties = params
+        render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
         }
 
     }
 
-    @Transactional
-    def delete(ItemRoute itemRouteInstance){
-        
+    def delete(){
+        def itemRouteInstance = ItemRoute.findById(params.id)
         def result
         try {
             
@@ -54,7 +51,7 @@ class ItemRouteController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

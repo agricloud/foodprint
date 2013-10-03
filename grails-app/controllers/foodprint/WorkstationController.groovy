@@ -1,9 +1,5 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
-import grails.transaction.Transactional
-
-@Transactional(readOnly = true)
 class WorkstationController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -11,7 +7,7 @@ class WorkstationController {
 
     def index() {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
     
         }
@@ -19,29 +15,27 @@ class WorkstationController {
     }
 
  
-    @Transactional
     def create(){
 
         def workstationInstance=new Workstation(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(workstationInstance)
         }
     }
 
-    @Transactional
-    def update(Workstation workstationInstance){
-
-        render (contentType: 'text/json') {
+    def update(){
+        def workstationInstance = Workstation.findById(params.id)
+        workstationInstance.properties=params
+        render (contentType: 'application/json') {
             domainService.save(workstationInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Workstation workstationInstance){
-        
-        render (contentType: 'text/json') {
+    def delete(){
+        def workstationInstance = Workstation.findById(params.id)
+        render (contentType: 'application/json') {
             domainService.delete(workstationInstance)
         }
     }

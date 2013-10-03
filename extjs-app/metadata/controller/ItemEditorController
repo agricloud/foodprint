@@ -21,7 +21,10 @@
         "views": [
             "ItemEditorCt"
         ],
-        "designer|userClassName": "ItemEditorController"
+        "designer|userClassName": "ItemEditorController",
+        "requires": [
+            "foodprint.view.Utilities"
+        ]
     },
     "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
     "cn": [
@@ -33,34 +36,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "itemEditorCt",
-                "selector": "itemeditorct"
-            },
-            "designerId": "c07965a1-607a-401d-a81f-23a77b6fcc91"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "itemEditor",
-                "selector": "itemeditor"
-            },
-            "designerId": "fe2764a7-4eeb-4679-8065-2990c86e41c3"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "ref": "itemGrid",
-                "selector": "itemgrid"
+                "selector": "itemeditorct itemgrid"
             },
             "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
         },
@@ -72,8 +49,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "itemViewer",
-                "selector": "itemviewer"
+                "ref": "itemForm",
+                "selector": "itemeditorct #itemForm"
             },
             "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
         },
@@ -104,48 +81,60 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    '#itemToolbar button[itemId=commonCreateBtn]':{",
+                    "    'itemeditorct #itemToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    '#itemToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'itemeditorct #itemToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    '#itemToolbar button[itemId=commonSaveBtn]':{",
+                    "    'itemeditorct #itemToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    '#itemToolbar button[itemId=commonReadBtn]':{",
+                    "    'itemeditorct #itemToolbar button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    '#itemToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'itemeditorct #itemToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
                     "        itemdblclick:this.readItem",
                     "    },",
-                    "    '#itemRouteToolbar button[itemId=commonCreateBtn]':{",
+                    "    'itemeditorct #itemRouteToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.itemRouteCreate",
                     "    },",
-                    "    '#itemRouteToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'itemeditorct #itemRouteToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.itemRouteDelete",
                     "    },",
-                    "    '#itemRouteToolbar button[itemId=commonSaveBtn]':{",
+                    "    'itemeditorct #itemRouteToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.itemRouteSave",
                     "    },",
-                    "    '#itemRouteToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'itemeditorct #itemRouteToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.itemRouteUpdate",
                     "    },",
-                    "    'itemeditorct panel[itemId=itemEditor]':{",
-                    "        tabchange:this.onTabChange",
-                    "    },",
-                    "    'itemviewer form[itemId=itemForm]':{",
+                    "//    'itemeditorct panel[itemId=itemEditor]':{",
+                    "//        tabchange:this.onTabChange",
+                    "//    },",
+                    "    'itemeditorct itemviewer form[itemId=itemForm]':{",
                     "        validitychange:this.onItemFormValidityChange",
                     "    },   ",
-                    "    'itemviewer grid[itemId=itemRouteGrid]':{",
+                    "    'itemeditorct itemviewer grid[itemId=itemRouteGrid]':{",
                     "        selectionchange:this.itemRouteGridChange",
                     "    }",
                     "});",
                     "",
                     "",
+                    "this.mainEditor = {",
+                    "    grid:this.getItemGrid,",
+                    "    form:this.getItemForm,",
+                    "    toolbar:this.getItemToolbar,",
+                    "    domainName:'item'",
+                    "};",
+                    "this.subEditor = {",
+                    "    grid:this.getItemRouteGrid,",
+                    "    form:this.getItemRouteForm,",
+                    "    toolbar:this.getItemRouteToolbar,",
+                    "    domainName:'itemRoute'",
+                    "};",
                     ""
                 ]
             },
@@ -164,38 +153,16 @@
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "this.getItemViewer().down('form[itemId=itemForm]').doDisplay(record);",
+                    "this.getItemEditor().setActiveTab(this.getItemEditor().down('panel[itemId=itemMainten]'));",
                     "",
-                    "/*",
-                    "var tool = this.getItemEditor().up().down('commoneditortoolbar');",
-                    "tool.down('commondeletebtn').setDisabled(false);",
-                    "tool.down('commonupdatebtn').setDisabled(false);",
-                    "*/",
-                    "this.getItemEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getItemEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "Utilities.doRead(this.mainEditor);",
                     "",
-                    "this.getItemViewer().down('grid[itemId=itemRouteGrid]').loadItemRoute(record.data.id);",
+                    "this.getItemRouteGrid().loadItemRoute(record.data.id);",
                     "",
                     ""
                 ]
             },
             "designerId": "24d7898a-59d3-44a6-b4bf-ec9193abc721"
-        },
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onLaunch",
-                "implHandler": [
-                    "//this.getItemViewer().down(\"commonimageuploader\").showToolbar();"
-                ]
-            },
-            "designerId": "3df4ecfb-49be-4357-991e-1e0a9fde2519"
         },
         {
             "type": "basicfunction",
@@ -207,25 +174,9 @@
             "userConfig": {
                 "fn": "doUpdate",
                 "implHandler": [
-                    "var that = this;",
-                    "var editor = that.getItemEditor();",
-                    "var grid = that.getItemGrid();",
-                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
-                    "form.submit({",
-                    "    url: '/item/update',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Updating Data...',",
-                    "    method:'PUT',",
-                    "    success: function() {",
-                    "        console.log('Updating Success！');",
-                    "        editor.setActiveTab(grid.up());",
-                    "        grid.getStore().load();",
-                    "        form.getForm().reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        console.log('Updating Failed！');",
-                    "    }",
-                    "});"
+                    "Utilities.doUpdate(this.mainEditor);",
+                    "",
+                    ""
                 ]
             },
             "designerId": "65627de4-3e1d-4a01-827c-155091e1ac12"
@@ -262,24 +213,7 @@
             "userConfig": {
                 "fn": "doDelete",
                 "implHandler": [
-                    "var that=this;",
-                    "var editor = that.getItemEditor();",
-                    "var grid = that.getItemGrid();",
-                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
-                    "form.submit({",
-                    "    url: '/item/delete',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
-                    "    success: function() {",
-                    "        console.log('Deleting Success.');",
-                    "        editor.setActiveTab(grid.up());",
-                    "        grid.getStore().load();",
-                    "        form.getForm().reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        console.log('Deleting Failed.');",
-                    "    }",
-                    "});"
+                    "Utilities.doDelete(this.mainEditor);"
                 ]
             },
             "designerId": "2b7c3fc4-2113-46f1-8ddc-23e8fa90a45e"
@@ -294,24 +228,7 @@
             "userConfig": {
                 "fn": "doSave",
                 "implHandler": [
-                    "var that = this;",
-                    "var editor = that.getItemEditor();",
-                    "var grid = that.getItemGrid();",
-                    "var form = that.getItemViewer().down('form[itemId=itemForm]');",
-                    "form.submit({",
-                    "    url: '/item/create',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function() {",
-                    "        console.log('Save Success.');",
-                    "        grid.getStore().load();",
-                    "        editor.setActiveTab(grid.up());",
-                    "        form.getForm().reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        console.log('Save Failed.');",
-                    "    }",
-                    "});"
+                    "Utilities.doCreate(this.mainEditor);"
                 ]
             },
             "designerId": "31b117b9-2f60-4a0f-8fb7-3a9bc14f242e"
@@ -341,70 +258,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onTabChange",
-                "designer|params": [
-                    "tabPanel, newCard, oldCard, eOpts"
-                ],
-                "implHandler": [
-                    "var crebtn=this.getItemEditorCt().down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=this.getItemEditorCt().down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=this.getItemEditorCt().down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=this.getItemEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getItemEditorCt().down('button[itemId=commonReadBtn]');",
-                    "",
-                    "if(newCard==tabPanel.down('panel[itemId=itemBrowse]')){",
-                    "    delbtn.setDisabled(true);",
-                    "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
-                    "    this.getItemViewer().down('button[itemId=commonDeleteBtn]').setDisabled(true);",
-                    "    this.getItemViewer().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=itemMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=itemForm]').getForm().reset(true);",
-                    "    tabPanel.down('grid[itemId=itemRouteGrid]').getStore().removeAll();",
-                    "    tabPanel.down('form[itemId=itemRouteForm]').getForm().reset(true);",
-                    "}"
-                ]
-            },
-            "designerId": "5addedd2-a883-42f8-a103-ebf34c74ede2"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "onItemFormValidityChange",
                 "designer|params": [
                     "basic, valid, eOpts"
                 ],
                 "implHandler": [
                     "",
-                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().updateRecord();",
-                    "",
-                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
-                    "    if(valid){",
-                    "        this.getItemEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getItemEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "    }",
-                    "}",
-                    "else{",
-                    "    if(valid){",
-                    "        this.getItemEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getItemEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
-                    "    }",
-                    "}"
+                    "Utilities.validityChange(basic, valid, this.mainEditor);"
                 ]
             },
             "designerId": "775ede63-ffbf-42b6-b41e-7a9cd2c5b1bf"
@@ -447,34 +307,7 @@
             "userConfig": {
                 "fn": "itemRouteDelete",
                 "implHandler": [
-                    "console.log(\"ItemEditorCtrl.doDelete\");",
-                    "",
-                    "var sm = this.getItemViewer().down('grid[itemId=itemRouteGrid]').getSelectionModel();",
-                    "var store = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
-                    "var form = this.getItemViewer().down('form[itemId=itemRouteForm]').getForm();",
-                    "",
-                    "this.getItemViewer().down('form[itemId=itemRouteForm]').submit({",
-                    "    url: '/itemRoute/delete',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
-                    "    success: function() {",
-                    "        console.log('Deleting Success！');",
-                    "        Ext.MessageBox.alert('Success','資料刪除完成');",
-                    "        store.remove(sm.getSelection());",
-                    "        store.reload();",
-                    "        form.reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        console.log('Deleting Failed！');",
-                    "        Ext.MessageBox.alert('Failure','資料刪除失敗');",
-                    "    }",
-                    "});",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Utilities.doDelete(this.subEditor);"
                 ]
             },
             "designerId": "aa09033e-9cbb-40f9-8aeb-96d8cac1c744"
@@ -489,54 +322,10 @@
             "userConfig": {
                 "fn": "itemRouteSave",
                 "implHandler": [
-                    "var store = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
-                    "var form = this.getItemViewer().down('form[itemId=itemRouteForm]').getForm();",
-                    "this.getItemViewer().down('form[itemId=itemRouteForm]').submit({",
-                    "    url: '/itemRoute/create',",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function() {",
-                    "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success','資料建立完成');",
-                    "        store.reload();",
-                    "        form.reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        Ext.MessageBox.alert('Failure','資料建立失敗');",
-                    "    }",
-                    "});",
-                    ""
+                    "Utilities.doCreate(this.subEditor);"
                 ]
             },
             "designerId": "7a6fbd47-98c4-4bb7-bc2f-ca4f72667060"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "itemRouteUpdate",
-                "implHandler": [
-                    "var store = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
-                    "var form = this.getItemViewer().down('form[itemId=itemRouteForm]').getForm();",
-                    "this.getItemViewer().down('form[itemId=itemRouteForm]').submit({",
-                    "    url: '/itemRoute/update',",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function() {",
-                    "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success','資料更新完成');",
-                    "        store.reload();",
-                    "        form.reset(true);",
-                    "    },",
-                    "    failure: function() {",
-                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "a8af05b3-6520-4163-a175-aa9ca1f68e87"
         },
         {
             "type": "basicfunction",
@@ -569,6 +358,112 @@
                 ]
             },
             "designerId": "90f99e1e-236e-45b0-8ee4-91f88bbca446"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemToolbar",
+                "selector": "itemeditorct #itemToolbar"
+            },
+            "designerId": "02f57347-4aed-4c8d-bf46-5121207f08d5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteUpdate",
+                "implHandler": [
+                    "Utilities.doUpdate(this.subEditor);"
+                ]
+            },
+            "designerId": "a8af05b3-6520-4163-a175-aa9ca1f68e87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemRouteToolbar",
+                "selector": "itemeditorct itemviewer commoneditortoolbar"
+            },
+            "designerId": "2c63900b-0e74-4b2e-8f02-2183c7f3c190"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemRouteGrid",
+                "selector": "itemeditorct #itemRouteGrid"
+            },
+            "designerId": "61eabc65-f032-4fc3-a553-7886808686ac"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemRouteForm",
+                "selector": "itemeditorct #itemRouteForm"
+            },
+            "designerId": "f2393c47-493f-4fca-90c4-94927cd572d7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemEditor",
+                "selector": "itemeditorct itemeditor"
+            },
+            "designerId": "78debfb4-a13d-488d-8df7-c97f5b63b9b0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemEditorCt",
+                "selector": "itemeditorct"
+            },
+            "designerId": "93c67d87-b6e7-4af8-98e2-711e76dff7ba"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemViewer",
+                "selector": "itemeditorct itemviewer"
+            },
+            "designerId": "02f77bca-fb7b-4309-aa6d-9beb0b853faf"
         }
     ]
 }

@@ -5,7 +5,7 @@ import org.springframework.http.converter.StringHttpMessageConverter
 import grails.plugins.rest.client.RestBuilder
 import java.nio.charset.Charset
 import grails.converters.*
-import grails.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Transactional(readOnly = true)
 class ReportViewerController {
@@ -44,51 +44,9 @@ class ReportViewerController {
     }
 
     def index(){
-
-      def rest = new RestBuilder()
-      rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-      def url = "http://localhost:8180/foodprint/queryBatchReport"
-      def resp = rest.get(url)
-      //匯入品項
-      def records=JSON.parse(resp.text)
-      records.item.each{
-          Site site
-          if(it.site == null)
-              site=null
-          new Item(name:it.name, title:it.title, description:it.description, unit:it.unit,spec:it.spec, dueDays:it.dueDays,site:site, creator:it.creator, editor:it.editor,effectStartDate:it.effectStartDate, effectEndDate:it.effectEndDate,dateCreated:it.dateCreated,lastUpdated:it.lastUpdated).save(failOnError: true, flush: true)
-      }
-      //匯入批號
-      records.batch.each{
-          Site site
-          if(it.site == null)
-              site=null
-          Item item = Item.findByName(it.item.name)
-          new Batch(name:it.name, batchType:it.batchType.name, item:item, expectQty:it.expectQty, dueDate:it.dueDate, country:it.country, site:site, creator:it.creator, editor:it.editor, dateCreated:it.dateCreated, lastUpdated:it.lastUpdated, manufactureDate:it.manufactureDate, expirationDate:it.expirationDate).save(failOnError: true, flush: true)
-      }
-      //匯入批號關聯
-      records.batchSources.each{
-          println "========================="
-          println it.batch.name
-          println it.childBatch.name
-          Batch batch = Batch.findByName(it.batch.name)
-          Batch childBatch = Batch.findByName(it.childBatch.name)
-          new BatchSource(batch:batch,childBatch:childBatch).save(failOnError: true, flush: true)
-      }
-
-      BatchSource.list().each{
-        println "${it.batch.id}==${it.childBatch.id}"
-        println "${it.batch.name}==${it.childBatch.name}"
-      }
-      Batch.list().each{
-        println "${it.id}==${it.batchSources}"
-      }
+      restFoodpaint()
+      
       def batch = Batch.findByName(params.batch.name)
-
-      println batch.id
-      println batch.name
-      println batch.batchSources
-      println Batch.findByName("batch1").batchSources
-
       def product = [:]
 
       product["batch.name"] = batch.name
@@ -232,6 +190,44 @@ class ReportViewerController {
 
     }
 
+    def restFoodpaint(){
+      def rest = new RestBuilder()
+      rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
+      def url = "http://localhost:8180/foodprint/queryBatchReport/?batch.name="+params.batch.name
+      def resp = rest.get(url)
 
+      //進行資料匯入
+      importData(resp.text)
 
+      return [pass:"pass"]
+    }
+
+    private importData(jsonString){
+        log.debug "ReportViewerController--importData"
+
+        def records=JSON.parse(jsonString)
+        //匯入品項
+        records.item.each{ item ->
+            item.site = Site.findByName(item.site.name)
+            new Item(item).save( flush: true)
+        }
+
+        Item.list().each{
+            println it.name+"/"+it.title
+        }
+
+        //匯入批號
+        records.batch.each{ batch ->
+            batch.site=Site.findByName(batch.site.name)
+            println batch.item.name
+            batch.item=Item.findByName(batch.item.name)
+            new Batch(batch).save( flush: true)
+        }
+        //匯入批號關聯
+        records.batchSources.each{ batchSource ->
+            batchSource.batch=Batch.findByName(batchSource.batch.name)
+            batchSource.childBatch=Batch.findByName(batchSource.childBatch.name)
+            new BatchSource(batchSource).save(flush: true)
+        }
+    }
 }

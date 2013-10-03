@@ -1,44 +1,46 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+
 class ItemController {
 
     def domainService
 
     def index(Integer max) {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
         }
         
     }
 
  
-    @Transactional
+
     def create(){
 
         def itemInstance=new Item(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemInstance)
         }
     }
 
-    @Transactional
-    def update(Item itemInstance){
 
-        render (contentType: 'text/json') {
+    def update(){
+        def  itemInstance = Item.findById(params.id)
+        itemInstance.properties = params
+        render (contentType: 'application/json') {
             domainService.save(itemInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Item itemInstance){
+
+    def delete(){
         
+        def  itemInstance = Item.findById(params.id)
+
         def result
         try {
             
@@ -50,7 +52,7 @@ class ItemController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

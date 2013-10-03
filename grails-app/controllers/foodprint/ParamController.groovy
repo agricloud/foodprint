@@ -1,9 +1,5 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
-import grails.transaction.Transactional
-
-@Transactional(readOnly = true)
 class ParamController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -11,7 +7,7 @@ class ParamController {
 
     def index() {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
     
         }
@@ -19,27 +15,26 @@ class ParamController {
     }
 
  
-    @Transactional
     def create(){
 
         def paramInstance=new Param(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(paramInstance)
         }
     }
 
-    @Transactional
-    def update(Param paramInstance){
-        render (contentType: 'text/json') {
+    def update(){
+        def  paramInstance = Param.findById(params.id)
+        paramInstance.properties=params
+        render (contentType: 'application/json') {
             domainService.save(paramInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Param paramInstance){
-        
+    def delete(){
+        def  paramInstance = Param.findById(params.id)
         def result
         try {
             
@@ -51,7 +46,7 @@ class ParamController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }
@@ -63,7 +58,7 @@ class ParamController {
     */
     def paramTypeJson(){
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             return [ParamTypeValue:foodprint.ParamType.values()]
         }
     }

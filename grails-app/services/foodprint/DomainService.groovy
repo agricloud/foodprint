@@ -1,7 +1,6 @@
 package foodprint
 import org.springframework.transaction.annotation.Transactional
 
-
 class DomainService {
 
 	def messageSource 
@@ -27,7 +26,7 @@ class DomainService {
 
 
 	// }
-
+    @Transactional
     def save(domainObject) {
 
         def success
@@ -37,7 +36,7 @@ class DomainService {
 
         if (!domainObject) {
 
-            msg = messageSource.getMessage("default.message.update.notfound", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.message.notfound", args, Locale.getDefault())
             
             return [success:false, message: msg]
             
@@ -49,7 +48,11 @@ class DomainService {
         }else{
 
             domainObject.errors.allErrors.each{ 
-                errors[it.field]=messageSource.getMessage(it, Locale.getDefault())
+                
+
+                if(it.field == 'operation' || it.field == 'workstation' || it.field == 'item')
+                    errors[it.field+".name"]=messageSource.getMessage(it, Locale.getDefault())
+                else errors[it.field]=messageSource.getMessage(it, Locale.getDefault())
             }
 
             msg = messageSource.getMessage("default.message.update.failed", args, Locale.getDefault())
@@ -59,14 +62,14 @@ class DomainService {
         return [success: success, message: msg, errors: errors]
 
 	}
-
+    @Transactional
     def delete(domainObject) {
     	Object[] args = [domainObject,null];
     	def msg
 
 
         if (!domainObject) {
-            msg = messageSource.getMessage("default.not.found.message", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.message.notfound", args, Locale.getDefault())
 
             return [success:false, message: msg]
             
@@ -85,10 +88,7 @@ class DomainService {
         }
 
     }
-    def getFields(table){
-    	grailsApplication.getDomainClass('foodprint.'+table).persistentProperties.collect { it.name }
 
-    }
 
     // def delete(domainObject) {
     //     Object[] args = [domainObject,null];

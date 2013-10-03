@@ -163,9 +163,9 @@
                     "paramstore.sync({",
                     "    url: '/reportParams',",
                     "    waitMsg: 'Saving Data...',",
-                    "    success: function() {",
+                    "    success: function(form,action) {",
                     "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success','資料更新完成');",
+                    "        Ext.MessageBox.alert('Success',action.result.message);",
                     "        paramstore.load({",
                     "            params:{",
                     "                reportid:reportid",
@@ -173,9 +173,9 @@
                     "        });",
                     "",
                     "    },",
-                    "    failure: function() {",
+                    "    failure: function(form,action) {",
                     "        console.log('Saving Failed！');",
-                    "        Ext.MessageBox.alert('Failure','資料更新失敗');",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
                     "    }",
                     "});"
                 ]

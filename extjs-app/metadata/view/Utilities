@@ -1,0 +1,218 @@
+{
+    "type": "class",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Utilities",
+        "alternateClassName": [
+            "Utilities"
+        ],
+        "singleton": true
+    },
+    "designerId": "37785b33-273f-477d-83f9-4acac77e6615",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "respondFailure",
+                "designer|params": [
+                    "action",
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "Ext.MessageBox.alert('Failure',action.result.message);",
+                    "",
+                    "",
+                    "if(action.url.indexOf('create')!=-1){",
+                    "    config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);\t",
+                    "}else {",
+                    "    config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "    config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "",
+                    "",
+                    "}",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "42ea4106-071a-4906-af79-4509fb59238b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "respondSuccess",
+                "designer|params": [
+                    "action",
+                    "config"
+                ],
+                "implHandler": [
+                    "Ext.MessageBox.alert('Success',action.result.message);",
+                    "",
+                    "console.log(config.grid());",
+                    "config.grid().getStore().reload();",
+                    "config.form().getForm().reset(true);"
+                ]
+            },
+            "designerId": "d8db431c-7d86-4b2e-991f-4387da045da0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doRead",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.form().doDisplay(config.grid().getSelectionModel().getSelection()[0]);",
+                    "config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);"
+                ]
+            },
+            "designerId": "61c8c2ee-9c36-494b-afdd-05f32f85c91d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/update',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    success: function(form,action) {",
+                    "    \tUtilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "       \tUtilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "afe964da-ef94-43a7-9763-5a4a750778ec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/delete',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    success: function(form,action) {",
+                    "    \tUtilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "369d4cab-e01b-4f73-9880-560cb582e725"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(\"util create\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/create',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "e3ec9cfe-1d21-42f5-895c-c80e00511922"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validityChange",
+                "designer|params": [
+                    "basic, valid,config"
+                ],
+                "implHandler": [
+                    "config.form().getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "8f18e83d-af25-4da6-a03a-a8f0ad276a2f"
+        }
+    ]
+}

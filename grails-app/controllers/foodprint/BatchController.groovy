@@ -3,15 +3,12 @@ package foodprint
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class BatchController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST",  show: "get"]
 
     def domainService
-
 
 
     def index() {
@@ -20,26 +17,37 @@ class BatchController {
         converter.render(response)
     }
 
+    def show(Long id){
+        def batchInstance = Batch.get(id)
+        if (!batchInstance) {
+            flash.message = message(code: 'default.message.notfound', args: [message(code: 'batch.label', default: 'Batch'), id])
+        }
+        else{
+            flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
+        }
+        render (contentType: 'application/json') {
+            [batchInstanceList:batchInstance, message:flash.message]
+        }
+    }
 
-    @Transactional
     def create(){
 
         def batchInstance=new Batch(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
     }
 
-    @Transactional
-    def update(Batch batchInstance){
-        render (contentType: 'text/json') {
-            domainService.save(batchInstance, params)
+    def update(){
+        def batchInstance = Batch.findById(params.id)
+        batchInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(batchInstance)
         }
     }
 
-    @Transactional
-    def delete(Batch batchInstance){
-        
+    def delete(){
+        def batchInstance = Batch.findById(params.id)
         def result
         try {
             
@@ -51,7 +59,7 @@ class BatchController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }
