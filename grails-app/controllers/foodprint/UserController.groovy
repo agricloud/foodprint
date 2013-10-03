@@ -1,15 +1,13 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class UserController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-    def index(params) {
+    def index() {
 
         render (contentType: 'text/json') {
             [userInstanceList: User.list(params), userInstanceTotal: User.count()]
@@ -19,7 +17,6 @@ class UserController {
     }
 
  
-    @Transactional
     def create(){
 
         def userInstance=new User(params)
@@ -29,18 +26,17 @@ class UserController {
         }
     }
 
-    @Transactional
-    def update(User userInstance){
-
+    def update(){
+        def userInstance = User.findById(params.id)
+        userInstance.properties=params
         render (contentType: 'text/json') {
             domainService.save(userInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(User userInstance){
-        
+    def delete(){
+        def userInstance = User.findById(params.id)
         render (contentType: 'text/json') {
             domainService.delete(userInstance)
         }

@@ -2,9 +2,7 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
-import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class BatchReportDetController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
@@ -148,8 +146,7 @@ class BatchReportDetController {
         def msg=[]
 
         params.each{
-
-            if(it.key!="_dc" && it.key!="action" && it.key!="controller"){
+            if(it.key!="_dc" && it.key!="format" && it.key!="action" && it.key!="controller"){
                 def batchReportDetInstance=BatchReportDet.get(it.key)
                 if (!batchReportDetInstance) {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
