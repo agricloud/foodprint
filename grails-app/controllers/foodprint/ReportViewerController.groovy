@@ -193,7 +193,7 @@ class ReportViewerController {
     def restFoodpaint(){
       def rest = new RestBuilder()
       rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-      def url = "http://localhost:8180/foodprint/queryBatchReport"
+      def url = "http://localhost:8180/foodprint/queryBatchReport/?batch.name="+params.batch.name
       def resp = rest.get(url)
 
       //進行資料匯入
