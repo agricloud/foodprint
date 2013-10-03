@@ -48,7 +48,11 @@ class DomainService {
         }else{
 
             domainObject.errors.allErrors.each{ 
-                errors[it.field]=messageSource.getMessage(it, Locale.getDefault())
+                
+
+                if(it.field == 'operation' || it.field == 'workstation' || it.field == 'item')
+                    errors[it.field+".name"]=messageSource.getMessage(it, Locale.getDefault())
+                else errors[it.field]=messageSource.getMessage(it, Locale.getDefault())
             }
 
             msg = messageSource.getMessage("default.message.update.failed", args, Locale.getDefault())
