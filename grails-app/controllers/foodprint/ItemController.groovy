@@ -1,9 +1,8 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import org.springframework.transaction.annotation.Transactional
 
-@Transactional(readOnly = true)
+
 class ItemController {
 
     def domainService
@@ -17,7 +16,7 @@ class ItemController {
     }
 
  
-    @Transactional
+
     def create(){
 
         def itemInstance=new Item(params)
@@ -27,18 +26,21 @@ class ItemController {
         }
     }
 
-    @Transactional
-    def update(Item itemInstance){
 
+    def update(){
+        def  itemInstance = Item.findById(params.id)
+        itemInstance.properties = params
         render (contentType: 'text/json') {
             domainService.save(itemInstance)
         }         
     }
 
 
-    @Transactional
-    def delete(Item itemInstance){
+
+    def delete(){
         
+        def  itemInstance = Item.findById(params.id)
+
         def result
         try {
             
