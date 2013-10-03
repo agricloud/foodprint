@@ -7,7 +7,7 @@ class ParamController {
 
     def index() {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
     
         }
@@ -19,7 +19,7 @@ class ParamController {
 
         def paramInstance=new Param(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(paramInstance)
         }
     }
@@ -27,7 +27,7 @@ class ParamController {
     def update(){
         def  paramInstance = Param.findById(params.id)
         paramInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(paramInstance)
         }         
     }
@@ -46,7 +46,7 @@ class ParamController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }
@@ -58,7 +58,7 @@ class ParamController {
     */
     def paramTypeJson(){
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             return [ParamTypeValue:foodprint.ParamType.values()]
         }
     }

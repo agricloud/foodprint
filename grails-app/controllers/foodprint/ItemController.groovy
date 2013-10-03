@@ -9,7 +9,7 @@ class ItemController {
 
     def index(Integer max) {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
         }
         
@@ -21,7 +21,7 @@ class ItemController {
 
         def itemInstance=new Item(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemInstance)
         }
     }
@@ -30,7 +30,7 @@ class ItemController {
     def update(){
         def  itemInstance = Item.findById(params.id)
         itemInstance.properties = params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemInstance)
         }         
     }
@@ -52,7 +52,7 @@ class ItemController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

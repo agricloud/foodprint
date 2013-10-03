@@ -9,7 +9,7 @@ class CustomerController {
 
     def index(params) {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
     
         }
@@ -21,7 +21,7 @@ class CustomerController {
 
         def customerInstance=new Customer(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(customerInstance)
         }
     }
@@ -29,7 +29,7 @@ class CustomerController {
     def update(){
         def  customerInstance = Customer.findById(params.id)
         customerInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(customerInstance)
         }         
     }
@@ -37,7 +37,7 @@ class CustomerController {
 
     def delete(){
         def  customerInstance = Customer.findById(params.id)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.delete(customerInstance)
         }
     }

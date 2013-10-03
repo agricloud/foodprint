@@ -119,7 +119,7 @@ class TraceTreeController {
 		}
 
 
-		render (contentType: 'text/json') {
+		render (contentType: 'application/json') {
             jsonTreeArray
         }
 

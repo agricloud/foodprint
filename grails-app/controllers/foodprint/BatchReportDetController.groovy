@@ -27,7 +27,7 @@ class BatchReportDetController {
         JSON.use('deep')
         def converter=list()as JSON
         converter.render(response)
-        //render (contentType: 'text/json') {
+        //render (contentType: 'application/json') {
         //    print list(max)
          //   list(max)        
         //}
@@ -152,7 +152,7 @@ class BatchReportDetController {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
 
                     msg<< message(code: "default.message.update.notfound", args: [params.id])
-                    render (contentType: 'text/json') {
+                    render (contentType: 'application/json') {
                         [success:false, message: msg.join('<br>')]
                     }
                 }
@@ -172,12 +172,12 @@ class BatchReportDetController {
         }
         if(failure.size()>0){
             msg<< message(code: "default.message.update.failed",args: [failure.join(' , ')])
-            render (contentType: 'text/json') {
+            render (contentType: 'application/json') {
                 [success:false, message: msg.join('<br>')]
             }
         }
         else{
-            render (contentType: 'text/json') {
+            render (contentType: 'application/json') {
                 [success:true, message: msg.join('<br>')]
             }
         }

@@ -21,13 +21,13 @@ class AttachmentController {
         def f = request.getFile('file')
         if (f.empty) {
             flash.message = 'file cannot be empty'
-            return render(text: [success:false] as JSON, contentType:'text/json')
+            return render(text: [success:false] as JSON, contentType:'application/json')
         }
 
         f.transferTo(uploadedFile)
         // response.sendError(200, 'Done')
 
-        return render(text: [success:true] as JSON, contentType:'text/json')
+        return render(text: [success:true] as JSON, contentType:'application/json')
 
         // try {
         //     def fileLocation=grailsApplication.config.upload.files.path;
@@ -53,12 +53,12 @@ class AttachmentController {
 
 
 
-        //     return render(text: [success:true] as JSON, contentType:'text/json')
+        //     return render(text: [success:true] as JSON, contentType:'application/json')
 
         // } catch (e) {
 
         //     log.error("Failed to upload file.", e)
-        //     return render(text: [success:false] as JSON, contentType:'text/json')
+        //     return render(text: [success:false] as JSON, contentType:'application/json')
 
         // }
 
@@ -129,12 +129,12 @@ class AttachmentController {
         try {
             file.delete();
 
-            return render(text: [success:true] as JSON, contentType:'text/json')
+            return render(text: [success:true] as JSON, contentType:'application/json')
         }
         catch (e) {
             log.error "Could not read ${file}"
             e.printStackTrace()
-            return render(text: [success:false] as JSON, contentType:'text/json')
+            return render(text: [success:false] as JSON, contentType:'application/json')
         }
         
         

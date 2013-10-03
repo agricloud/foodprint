@@ -9,7 +9,7 @@ class OperationController {
 
     def index() {
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [operationInstanceList: Operation.list(params), operationInstanceTotal: Operation.count()]
     
         }
@@ -21,7 +21,7 @@ class OperationController {
 
         def operationInstance=new Operation(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(operationInstance)
         }
     }
@@ -29,7 +29,7 @@ class OperationController {
     def update(){
         def  operationInstance = Operation.findById(params.id)
         operationInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(operationInstance)
         }         
     }
@@ -37,7 +37,7 @@ class OperationController {
 
     def delete(){
         def  operationInstance = Operation.findById(params.id)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.delete(operationInstance)
         }
     }
