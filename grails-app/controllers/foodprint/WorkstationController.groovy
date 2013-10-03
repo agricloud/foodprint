@@ -7,7 +7,7 @@ class WorkstationController {
 
     def index() {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
     
         }
@@ -19,7 +19,7 @@ class WorkstationController {
 
         def workstationInstance=new Workstation(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(workstationInstance)
         }
     }
@@ -27,7 +27,7 @@ class WorkstationController {
     def update(){
         def workstationInstance = Workstation.findById(params.id)
         workstationInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(workstationInstance)
         }         
     }
@@ -35,7 +35,7 @@ class WorkstationController {
 
     def delete(){
         def workstationInstance = Workstation.findById(params.id)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.delete(workstationInstance)
         }
     }

@@ -28,7 +28,7 @@ class BatchRouteController {
 
     def create() {
         def batchRouteInstance = new BatchRoute(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchRouteInstance)
         }
     }
@@ -36,7 +36,7 @@ class BatchRouteController {
     def update() {
         def  batchRouteInstance = BatchRoute.findById(params.id)
         batchRouteInstance.properties=params   
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchRouteInstance)
         }
 
@@ -55,7 +55,7 @@ class BatchRouteController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

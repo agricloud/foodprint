@@ -25,7 +25,7 @@ class BatchController {
         else{
             flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
         }
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [batchInstanceList:batchInstance, message:flash.message]
         }
     }
@@ -33,7 +33,7 @@ class BatchController {
     def create(){
 
         def batchInstance=new Batch(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
     }
@@ -41,7 +41,7 @@ class BatchController {
     def update(){
         def batchInstance = Batch.findById(params.id)
         batchInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
     }
@@ -59,7 +59,7 @@ class BatchController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

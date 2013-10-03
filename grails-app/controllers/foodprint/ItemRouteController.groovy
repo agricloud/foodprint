@@ -23,7 +23,7 @@ class ItemRouteController {
 
     def create() {
         def itemRouteInstance= new ItemRoute(params)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
         }
     }
@@ -32,7 +32,7 @@ class ItemRouteController {
     def update() {
         def itemRouteInstance = ItemRoute.findById(params.id)
         itemRouteInstance.properties = params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
         }
 
@@ -51,7 +51,7 @@ class ItemRouteController {
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }

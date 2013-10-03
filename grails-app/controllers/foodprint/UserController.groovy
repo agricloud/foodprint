@@ -9,7 +9,7 @@ class UserController {
 
     def index() {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     
         }
@@ -21,7 +21,7 @@ class UserController {
 
         def userInstance=new User(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(userInstance)
         }
     }
@@ -29,7 +29,7 @@ class UserController {
     def update(){
         def userInstance = User.findById(params.id)
         userInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(userInstance)
         }         
     }
@@ -37,7 +37,7 @@ class UserController {
 
     def delete(){
         def userInstance = User.findById(params.id)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.delete(userInstance)
         }
     }

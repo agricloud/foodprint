@@ -9,7 +9,7 @@ class ReportController {
 
     def index(params) {
 
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
     
         }
@@ -21,7 +21,7 @@ class ReportController {
 
         def reportInstance=new Report(params)
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(reportInstance)
         }
     }
@@ -29,7 +29,7 @@ class ReportController {
     def update(){
         def reportInstance = Report.findById(params.id)
         reportInstance.properties=params
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.save(reportInstance)
         }         
     }
@@ -37,7 +37,7 @@ class ReportController {
 
     def delete(){
         def  reportInstance = Report.findById(params.id)
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             domainService.delete(reportInstance)
         }
     }
