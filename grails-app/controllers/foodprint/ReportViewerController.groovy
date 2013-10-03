@@ -213,11 +213,12 @@ class ReportViewerController {
     private importData(jsonString){
 
       def records=JSON.parse(jsonString)
-      records.item.each{
+      records.item.each{ item ->
           Site site
           if(it.site == null)
               site=null
-          new Item(name:it.name, title:it.title, description:it.description, unit:it.unit,spec:it.spec, dueDays:it.dueDays,site:site, creator:it.creator, editor:it.editor,effectStartDate:it.effectStartDate, effectEndDate:it.effectEndDate,dateCreated:it.dateCreated,lastUpdated:it.lastUpdated).save(failOnError: true, flush: true)
+          new Item(item)
+          //new Item(name:it.name, title:it.title, description:it.description, unit:it.unit,spec:it.spec, dueDays:it.dueDays,site:site, creator:it.creator, editor:it.editor,effectStartDate:it.effectStartDate, effectEndDate:it.effectEndDate,dateCreated:it.dateCreated,lastUpdated:it.lastUpdated).save(failOnError: true, flush: true)
       }
       //匯入批號
       records.batch.each{
