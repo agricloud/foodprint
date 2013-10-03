@@ -54,14 +54,18 @@ class TraceTreeController {
 	    // 透過 node 的傳入 可以在分析 node 的資料進行後續節點的查詢
 print "!!!";
 print params.node;
-	    if(params.node == 'src'){
+def  batchInstance = Batch.findById(params.node)
+print "!!!";
+print batchInstance.item.title;
+	    if(params.node == '4'){
 	        
 	    	def jsonTree = [:]
 
-		    jsonTree.task = 'Project: Shopping'
-		    jsonTree.duration = '123'
-		    jsonTree.user = 'Tommy Maintz'
-	        jsonTree.id= "src/folder"
+		    jsonTree.itemtitle = 'Project: Shopping'
+		    jsonTree.expectQty = '123'
+		    jsonTree.country = 'Tommy Maintz'
+		    jsonTree.supplier = 'Tommy Maintz'
+	        jsonTree.id= "5"
 	        jsonTree.cls= "folder"
 	    	jsonTree.leaf = false
 	        jsonTreeArray << jsonTree
