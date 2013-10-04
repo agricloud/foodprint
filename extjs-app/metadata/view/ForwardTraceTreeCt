@@ -8,10 +8,11 @@
     "userConfig": {
         "height": null,
         "width": null,
-        "designer|userClassName": "TraceTreeCt",
+        "designer|userClassName": "ForwardTraceTreeCt",
+        "designer|initialView": true,
         "layout": "fit"
     },
-    "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
+    "designerId": "27738884-27eb-4b4f-a044-887a4c636a35",
     "cn": [
         {
             "type": "Ext.tree.Panel",
@@ -24,13 +25,13 @@
                 "height": null,
                 "width": null,
                 "collapsible": false,
-                "title": "My Tree Grid Panel",
+                "title": "ForwardTrace",
                 "normalViewConfig": null,
-                "store": "TraceTreeStore",
+                "store": "ForwardTraceTreeStore",
                 "singleExpand": true,
                 "useArrows": true
             },
-            "designerId": "959d5fd3-d214-469d-95cf-990941426116",
+            "designerId": "f2ee412d-e91b-4d6a-8a40-deaa8bc0d566",
             "isBuiltIn": true,
             "iconCls": "icon-treegridpanel",
             "autoName": "TreeGrid",
@@ -43,11 +44,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "itemtitle",
-                        "text": "itemtitle",
+                        "dataIndex": "item.title",
+                        "text": "Item.title",
                         "flex": 1
                     },
-                    "designerId": "ecd406bf-6e39-4e1c-9539-697ff2c6121d"
+                    "designerId": "5871ea91-f1fc-48e7-b40c-81791691c9d3"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -60,7 +61,20 @@
                         "dataIndex": "id",
                         "text": "id"
                     },
-                    "designerId": "be5f4416-765c-45a1-9abb-29a4edc7b27c"
+                    "designerId": "0a695f63-546f-4998-bb45-454df90f2892"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "name",
+                        "text": "name"
+                    },
+                    "designerId": "1dae40d7-318d-411b-bef2-c6bd76628457"
                 },
                 {
                     "type": "Ext.grid.column.Number",
@@ -74,7 +88,21 @@
                         "text": "expectQty",
                         "flex": 1
                     },
-                    "designerId": "02a1daa0-240f-440c-a663-cf71650710b4"
+                    "designerId": "32fb3bd2-28c4-4335-9a79-366ee3239526"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "dueDate",
+                        "text": "dueDate",
+                        "flex": 1
+                    },
+                    "designerId": "bec37231-c499-4574-9ea5-e282e24ee80b"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -88,7 +116,7 @@
                         "text": "country",
                         "flex": 1
                     },
-                    "designerId": "38d349d5-a590-4e9d-9d1d-b31a578a321c"
+                    "designerId": "b96524dc-9deb-4efa-8efc-90cb7b2f1ede"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -98,11 +126,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "supplier",
-                        "text": "supplier",
+                        "dataIndex": "supplier.id",
+                        "text": "supplier.id",
                         "flex": 1
                     },
-                    "designerId": "c925b3bd-d868-4a0a-9aa6-aab8214fdc60"
+                    "designerId": "4a3b80c1-80ab-4ae4-b7c0-bf14a68e35ab"
                 },
                 {
                     "type": "Ext.toolbar.Toolbar",
@@ -114,7 +142,7 @@
                     "userConfig": {
                         "dock": "top"
                     },
-                    "designerId": "edd9b493-f907-44c6-8eef-ab4ae0c54a82",
+                    "designerId": "fb6c26df-d380-41f0-904c-04b86a7ad2ba",
                     "cn": [
                         {
                             "type": "Ext.button.Button",
@@ -127,7 +155,7 @@
                                 "layout|flex": null,
                                 "text": "Expand All"
                             },
-                            "designerId": "6e559d3c-462b-4461-bf3a-96dd4d7b5a9f",
+                            "designerId": "91ad13c1-7db0-4111-af4d-e7ce2adcbe99",
                             "cn": [
                                 {
                                     "type": "basiceventbinding",
@@ -153,7 +181,7 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
-                                    "designerId": "02e9f372-6e9f-485c-80ca-97b3113e0522"
+                                    "designerId": "c735f9ae-2d60-4253-b5a8-21c114c282c4"
                                 }
                             ]
                         },
@@ -168,7 +196,7 @@
                                 "layout|flex": null,
                                 "text": "Collapse All"
                             },
-                            "designerId": "03b80e47-faed-4171-bc21-88d09314d0cb",
+                            "designerId": "ba313773-96c6-4561-a084-0bbd0650a958",
                             "cn": [
                                 {
                                     "type": "basiceventbinding",
@@ -191,7 +219,7 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
-                                    "designerId": "ec63a082-caf3-4cb5-bf37-b7bc5c30145e"
+                                    "designerId": "334f66c4-8489-4c1f-8023-f043910bdbcc"
                                 }
                             ]
                         },
@@ -204,9 +232,65 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "batchTriggerField",
                                 "fieldLabel": "輸入批號"
                             },
-                            "designerId": "f3ba8759-081b-4527-9e93-a121451e4d08"
+                            "designerId": "2b638a41-f4c8-414d-b271-f783941eb447",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBatchTriggerFieldActivate",
+                                        "implHandler": [
+                                            "console.log('activate');"
+                                        ],
+                                        "name": "activate",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "00d4d3a7-7583-492f-8f45-17d6bcbadaab"
+                                },
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTriggerClick",
+                                        "implHandler": [
+                                            "Ext.Msg.alert('Status', 'You clicked my trigger!');",
+                                            "var batchStore=Ext.getStore('BatchShowDeepStore');",
+                                            "var treeStore=this.up().up().getStore();",
+                                            "",
+                                            "batchStore.load({",
+                                            "\tparams:{",
+                                            "        'id':this.getValue()",
+                                            "    },",
+                                            "    callback: function(records, operation, success) {",
+                                            "\t\tconsole.log(records);",
+                                            "        var root={",
+                                            "            id:records[0].data.id,",
+                                            "            name:records[0].data.name,",
+                                            "            'item.title':records[0].data['item.title'],",
+                                            "            expectQty:records[0].data.expectQty,",
+                                            "            country:records[0].data.country",
+                                            "            ",
+                                            "        };",
+                                            "        treeStore.setRootNode(root);",
+                                            "",
+                                            "    }",
+                                            "});"
+                                        ]
+                                    },
+                                    "designerId": "2ea75773-daf6-4ca5-822f-7b3431711e7c"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -1,6 +1,7 @@
 package foodprint
 import grails.converters.JSON
 class TraceTreeController {
+	def batchAnalyzeService
 
     def forwardQuery() { 
 
@@ -111,7 +112,7 @@ print batchInstance.item.title;
 		    jsonTree2.duration = '789'
 		    jsonTree2.user = 'Tommy Maintz'
 		    jsonTree2.leaf = false
-		    jsonTree2.id= "src/folder/folder2/test"
+		    jsonTree2.id= "src/folxder/folder2/test"
 		    jsonTree2.iconCls = 'task'
 		    jsonTree2.children=[]
 		    // 有無給定 children 將決定該節點可否觸動再次下展的查詢 request
@@ -128,6 +129,18 @@ print batchInstance.item.title;
             jsonTreeArray
         }
 
+
+
+    }
+
+    def forwardTrace(){
+    	log.debug "params=${params}"
+    	println params
+		def  batch = Batch.findById(params.node)
+
+		JSON.use('deep')
+        def converter = batchAnalyzeService.forwardTrace(batch) as JSON
+        converter.render(response)
 
 
     }

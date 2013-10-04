@@ -25,9 +25,13 @@ class BatchController {
         else{
             flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
         }
-        render (contentType: 'application/json') {
-            [batchInstanceList:batchInstance, message:flash.message]
-        }
+        log.debug flash.message
+        // render (contentType: 'application/json') {
+        //     [batchInstanceList:batchInstance, message:flash.message]
+        // }
+        JSON.use('deep')
+        def converter = [batchInstanceList:batchInstance, message:flash.message] as JSON
+        converter.render(response)
     }
 
     def create(){
