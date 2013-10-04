@@ -15,11 +15,11 @@ class BootStrap {
 			}
 
 			development {
-				def item1 = new Item(name:"item1",title:"柳丁").save(failOnError: true, flush: true)
+				def item1 = new Item(name:"410002",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種 (Non-Genetically Modifie) 生長強健，特別耐熱、耐濕及抗倒伏，抗病毒病、葉斑病、螟蟲， 果穗整齊飽滿，著粒完整，穗粒淡黃色， 皮非常薄(有無皮的感覺)，脆嫩香甜，品質非常優良。 糖分保持力較長，較耐貯運。").save(failOnError: true, flush: true)
 				def item2 = new Item(name:"item2",title:"橘子").save(failOnError: true, flush: true)
 				def item3 = new Item(name:"item3",title:"柚子").save(failOnError: true, flush: true)
-				def batch1 = new Batch(name:"batch1",item:item1).save(failOnError: true, flush: true)
 
+				def batch1 = new Batch(name:"0927-410002",item:item1).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
 

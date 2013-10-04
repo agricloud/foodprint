@@ -602,6 +602,76 @@
                             "designerId": "8e33142e-10c2-47c3-9d92-0419a8e3e98c"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.panel.Tool",
+                    "reference": {
+                        "name": "tools",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "type": "maximize"
+                    },
+                    "designerId": "be128e76-a870-4d2d-8903-b08f72955631",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "event",
+                                    "toolEl",
+                                    "owner",
+                                    "tool"
+                                ],
+                                "implHandler": [
+                                    "var maxItem=Ext.ComponentQuery.query('itemeditorct');",
+                                    "",
+                                    "",
+                                    "",
+                                    "    /*",
+                                    "    * 放大縮小功能，在撰寫時，放大放置的物件，需要在縮小時放回原本的 contentner",
+                                    "    * 若指放大整個 controller 的某個物件，會造成該物件因為沒有定義互動事件變成靜態物件",
+                                    "    * 建議放大縮小必須以 controller 為單位，或者是完全獨立運作的 component",
+                                    "    * 因此我們可以根據不同的範圍定義該範圍互動的 controller，使對應元件可以進行獨立放大運作",
+                                    "    * 透過物件的連結參照，不管放大或是縮小時操作的內容都會被延續",
+                                    "    * 需要注意的是，如果是新建物件，那操作的狀態就不會被保留",
+                                    "    */",
+                                    "",
+                                    "var w = new Ext.window.Window({",
+                                    "    rtl: false,",
+                                    "    baseCls: 'x-panel',",
+                                    "    maximized: true,",
+                                    "    title: '品項維護',",
+                                    "    plain: true,",
+                                    "    autoScroll: true,",
+                                    "    items:maxItem,",
+                                    "    closable: false,",
+                                    "    tools: [{",
+                                    "        type: 'close',",
+                                    "        handler: function() {",
+                                    "            ",
+                                    "            w.hide(Ext.getCmp('TabPanel').down('panel[id=itemeditorctTab]'), function() {",
+                                    "                Ext.getCmp('TabPanel').down('panel[id=itemeditorctTab]').add(maxItem);",
+                                    "                w.destroy();",
+                                    "",
+                                    "",
+                                    "            });",
+                                    "        }",
+                                    "    }]",
+                                    "});",
+                                    "w.show(owner);"
+                                ]
+                            },
+                            "designerId": "e9a3d7e7-8048-4b77-8214-99854a0df72b"
+                        }
+                    ]
                 }
             ]
         }

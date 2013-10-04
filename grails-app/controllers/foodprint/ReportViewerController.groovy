@@ -85,6 +85,8 @@ class ReportViewerController {
               param["param.unit"] = batchReportDet.reportParams.param.unit
               param["batchReportDet.value"] = batchReportDet.value
               param["batchReportDet.value"] = batchReportDet.value
+
+              reportMap.params << param
             }
           }        
         }
