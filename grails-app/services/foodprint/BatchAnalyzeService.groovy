@@ -3,8 +3,12 @@ package foodprint
 class BatchAnalyzeService {
 
 
-	def forwardTrace(){
-
+	def forwardTrace(batch){
+		def batchs = []
+		BatchSource.findAllByChildBatch(batch).each{ batchSource ->
+			batchs << batchSource.batch
+		}
+		[batchHead:batchs]
 	}
 
 	def backwardTrace(batch){
