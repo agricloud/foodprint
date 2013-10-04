@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional(readOnly = true)
 class ReportViewerController {
 
+    def batchAnalyzeService
+
     def demo() { 
 
       // 勿刪， 無 http://192.168.2.104:8100/SFT 測試用
@@ -161,21 +163,27 @@ class ReportViewerController {
 
       def batchSourceReportMap = [:]
       batchSourceReportMap.title = "原料履歷"
-
       batchSourceReportMap.params=[]
 
       log.info "!!!!!!!!!"
       log.info batch.batchSources
-      batch.batchSources.each(){ batchSource ->
+
+      def batchSourcesFinal=batchAnalyzeService.backwardTraceToFinal(batch).batchSourcesFinal
+      batchSourcesFinal.each(){ childBatch ->
+      //batch.batchSources.each(){ batchSource ->
         def param = [:]
-        param["batch.name"] = batchSource.childBatch.name
-        param["item.name"] = batchSource.childBatch.item.name
-        param["item.title"] = batchSource.childBatch.item.title
-        param["item.spec"] = batchSource.childBatch.item.spec
-        param["batch.country"] = batchSource.childBatch.country
-        param["item.description"] = batchSource.childBatch.item.description
-
-
+        param["batch.name"] = childBatch.name
+        param["item.name"] = childBatch.item.name
+        param["item.title"] = childBatch.item.title
+        param["item.spec"] = childBatch.item.spec
+        param["batch.country"] = childBatch.country
+        param["item.description"] = childBatch.item.description
+        // param["batch.name"] = batchSource.childBatch.name
+        // param["item.name"] = batchSource.childBatch.item.name
+        // param["item.title"] = batchSource.childBatch.item.title
+        // param["item.spec"] = batchSource.childBatch.item.spec
+        // param["batch.country"] = batchSource.childBatch.country
+        // param["item.description"] = batchSource.childBatch.item.description
 
         batchSourceReportMap.params << param
 
