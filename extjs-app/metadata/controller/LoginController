@@ -29,6 +29,9 @@
                     "this.control({",
                     "    'form[itemId=loginForm] button[itemId=loginBtn]': {",
                     "        click: this.doLogin",
+                    "    },",
+                    "    'form[itemId=loginForm] button[itemId=QueryBtn]': {",
+                    "        click: this.showQueryWin",
                     "    }",
                     "});"
                 ]
@@ -97,6 +100,21 @@
                 ]
             },
             "designerId": "dc1f1efb-b8f8-4755-8e8c-7bab418f2345"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showQueryWin",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "3cde850c-a6db-47fa-9ec6-fd3dbf5d6d29"
         }
     ]
 }

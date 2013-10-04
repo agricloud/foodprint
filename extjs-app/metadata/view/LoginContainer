@@ -10,6 +10,7 @@
         "frame": true,
         "height": null,
         "id": null,
+        "minHeight": 300,
         "width": null,
         "designer|userClassName": "LoginContainer",
         "designer|userAlias": "logincontainer1",
@@ -45,6 +46,104 @@
             },
             "designerId": "80a5258f-ecde-4b8d-8f38-6be169385b02",
             "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "designerId": "146c0822-d41b-421c-8561-d18cddbcc796",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 10
+                            },
+                            "designerId": "3e96e5a9-4f44-43c3-ae3c-ad3636a01358"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "選擇批號",
+                                "name": "batch.name",
+                                "displayField": "name",
+                                "store": "BatchStore",
+                                "valueField": "name"
+                            },
+                            "designerId": "c8630e71-decd-40b4-b2d6-f6aaaa7a0418"
+                        },
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "c0537b57-0816-4b3d-8f9c-b20c31f43a12"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "style": "font-family:Pictos;",
+                                "glyph": 76,
+                                "scale": "medium",
+                                "text": "查詢履歷"
+                            },
+                            "configAlternates": {
+                                "style": "string"
+                            },
+                            "designerId": "f4662153-8d70-47dc-a16c-dca00d9abd78",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "designer|params": [
+                                            "button",
+                                            "event"
+                                        ],
+                                        "implHandler": [
+                                            "var batchName=button.up('form').getForm().findField(\"batch.name\").getValue();",
+                                            "",
+                                            "location.href='/reportViewer/index/?batch.name='+batchName;"
+                                        ]
+                                    },
+                                    "designerId": "ce7a91b5-0669-49ea-921b-241e63e59386"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     "type": "Ext.toolbar.Toolbar",
                     "reference": {
