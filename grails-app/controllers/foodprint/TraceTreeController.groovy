@@ -1,6 +1,7 @@
 package foodprint
 import grails.converters.JSON
 class TraceTreeController {
+	def batchAnalyzeService
 
     def forwardQuery() { 
 
@@ -52,15 +53,20 @@ class TraceTreeController {
 	    */
 	    // 其中 id: 'src' 會做 node 傳往後後方進行查詢
 	    // 透過 node 的傳入 可以在分析 node 的資料進行後續節點的查詢
-
-	    if(params.node == 'src'){
+print "!!!";
+print params.node;
+def  batchInstance = Batch.findById(params.node)
+print "!!!";
+print batchInstance.item.title;
+	    if(params.node == '4'){
 	        
 	    	def jsonTree = [:]
 
-		    jsonTree.task = 'Project: Shopping'
-		    jsonTree.duration = '123'
-		    jsonTree.user = 'Tommy Maintz'
-	        jsonTree.id= "src/folder"
+		    jsonTree.itemtitle = 'Project: Shopping'
+		    jsonTree.expectQty = '123'
+		    jsonTree.country = 'Tommy Maintz'
+		    jsonTree.supplier = 'Tommy Maintz'
+	        jsonTree.id= "5"
 	        jsonTree.cls= "folder"
 	    	jsonTree.leaf = false
 	        jsonTreeArray << jsonTree
@@ -106,7 +112,7 @@ class TraceTreeController {
 		    jsonTree2.duration = '789'
 		    jsonTree2.user = 'Tommy Maintz'
 		    jsonTree2.leaf = false
-		    jsonTree2.id= "src/folder/folder2/test"
+		    jsonTree2.id= "src/folxder/folder2/test"
 		    jsonTree2.iconCls = 'task'
 		    jsonTree2.children=[]
 		    // 有無給定 children 將決定該節點可否觸動再次下展的查詢 request
@@ -123,6 +129,18 @@ class TraceTreeController {
             jsonTreeArray
         }
 
+
+
+    }
+
+    def forwardTrace(){
+    	log.debug "params=${params}"
+    	println params
+		def  batch = Batch.findById(params.node)
+
+		JSON.use('deep')
+        def converter = batchAnalyzeService.forwardTrace(batch) as JSON
+        converter.render(response)
 
 
     }
