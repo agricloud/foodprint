@@ -481,22 +481,6 @@
                                     "designerId": "ec63e32f-9064-4c5a-a8cb-b4184ef977e7"
                                 },
                                 {
-                                    "type": "Ext.form.field.Text",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "layout|anchor": "100%",
-                                        "hidden": true,
-                                        "fieldLabel": "operation_id",
-                                        "name": "operation.id",
-                                        "value": null
-                                    },
-                                    "designerId": "cd71de80-526d-4905-b0b1-a2a0cbedadcc"
-                                },
-                                {
                                     "type": "linkedinstance",
                                     "reference": {
                                         "name": "items",
@@ -504,8 +488,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "operation_name",
-                                        "name": "operation.name",
+                                        "fieldLabel": "operation.name",
+                                        "name": "operation.id",
                                         "layout|anchor": "100%"
                                     },
                                     "designerId": "bc247fc2-1e7a-455f-bf73-4d0385afdca5",
@@ -523,7 +507,6 @@
                                                 "implHandler": [
                                                     "var store = 'operation';",
                                                     "combo.up().up().down('form[itemId=itemRouteForm]').getForm().setValues({",
-                                                    "    'operation.id': record.get('id'),",
                                                     "    'operation.title':record.get('title')",
                                                     "});"
                                                 ],
@@ -549,21 +532,6 @@
                                     "designerId": "fa3e8efc-be60-4260-ac4a-cfd484f57763"
                                 },
                                 {
-                                    "type": "Ext.form.field.Text",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "layout|anchor": "100%",
-                                        "hidden": true,
-                                        "fieldLabel": "workstation_id",
-                                        "name": "workstation.id"
-                                    },
-                                    "designerId": "ee4b1212-e14e-4502-a982-823af2a62069"
-                                },
-                                {
                                     "type": "linkedinstance",
                                     "reference": {
                                         "name": "items",
@@ -571,8 +539,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "workstation_name",
-                                        "name": "workstation.name",
+                                        "fieldLabel": "workstation.name",
+                                        "name": "workstation.id",
                                         "layout|anchor": "100%"
                                     },
                                     "designerId": "80a75344-a77a-4f1a-b141-47f9fae0829b",
