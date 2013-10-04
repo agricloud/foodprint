@@ -168,8 +168,8 @@ class ReportViewerController {
       log.info "!!!!!!!!!"
       log.info batch.batchSources
 
-      def batchSourcesFinal=batchAnalyzeService.backwardTraceToFinal(batch).batchSourcesFinal
-      batchSourcesFinal.each(){ childBatch ->
+      def batchChilds=batchAnalyzeService.backwardTraceToFinal(batch).batchChilds
+      batchChilds.each(){ childBatch ->
       //batch.batchSources.each(){ batchSource ->
         def param = [:]
         param["batch.name"] = childBatch.name
