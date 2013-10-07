@@ -222,14 +222,14 @@ class ReportViewerController {
             new Item(item).save( flush: true)
         }
 
+        log.debug "品項清單："
         Item.list().each{
-            println it.name+"/"+it.title
+            log.debug it.name+"/"+it.title
         }
 
         //匯入批號
         records.batch.each{ batch ->
             batch.site=Site.findByName(batch.site.name)
-            println batch.item.name
             batch.item=Item.findByName(batch.item.name)
             new Batch(batch).save( flush: true)
         }
