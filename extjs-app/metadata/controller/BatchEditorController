@@ -45,19 +45,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    '#commonEditorToolbar button[itemId=commonCreateBtn]':{",
+                    "    'batcheditorct #commonEditorToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    '#commonEditorToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'batcheditorct #commonEditorToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    '#commonEditorToolbar button[itemId=commonSaveBtn]':{",
+                    "    'batcheditorct #commonEditorToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    '#commonEditorToolbar button[itemId=commonReadBtn]':{",
+                    "    'batcheditorct #commonEditorToolbar button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    '#commonEditorToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'batcheditorct #commonEditorToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'batcheditorct grid[itemId=batchGrid]':{",
@@ -66,25 +66,25 @@
                     "    'batcheditorct panel[itemId=batchEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
-                    "    'batchviewer form[itemId=batchForm]':{",
+                    "    'batcheditorct batchviewer form[itemId=batchForm]':{",
                     "        validitychange:this.onBatchFormValidityChange",
                     "    },",
-                    "    '#batchRouteToolbar button[itemId=commonCreateBtn]':{",
+                    "    'batcheditorct #batchRouteToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreateBatchRoute",
                     "    },",
-                    "    '#batchRouteToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'batcheditorct #batchRouteToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDeleteBatchRoute",
                     "    },",
-                    "    '#batchRouteToolbar button[itemId=commonSaveBtn]':{",
+                    "    'batcheditorct #batchRouteToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSaveBatchRoute",
                     "    },",
-                    "    '#batchRouteToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'batcheditorct #batchRouteToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdateBatchRoute",
                     "    },",
-                    "    'batchviewer grid[itemId=batchRouteGrid]':{",
+                    "    'batcheditorct batchviewer grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.readBatchRoute",
                     "    },",
-                    "    'batchviewer form[itemId=batchRouteForm]':{",
+                    "    'batcheditorct batchviewer form[itemId=batchRouteForm]':{",
                     "        validitychange:this.onBatchRouteFormValidityChange",
                     "    }",
                     "});"
@@ -101,7 +101,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchGrid",
-                "selector": "batchgrid"
+                "selector": "batcheditorct batchgrid"
             },
             "designerId": "df4a83f1-f566-4ab2-a899-5b01e74ac132"
         },
@@ -114,7 +114,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchEditor",
-                "selector": "batcheditor"
+                "selector": "batcheditorct batcheditor"
             },
             "designerId": "50fe5272-fdb6-4ccc-b352-c433e1a4d9b2"
         },
@@ -140,7 +140,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchViewer",
-                "selector": "batchviewer"
+                "selector": "batcheditorct batchviewer"
             },
             "designerId": "eb6d2ac3-5d63-47c5-849d-b5b624f1dde8"
         },
@@ -153,7 +153,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchRouteGrid",
-                "selector": "batchroutegrid"
+                "selector": "batcheditorct batchroutegrid"
             },
             "designerId": "3455dcca-23db-43cc-834f-d1775fee8d64"
         },

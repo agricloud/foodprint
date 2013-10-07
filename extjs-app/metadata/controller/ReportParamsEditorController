@@ -42,7 +42,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsGrid",
-                "selector": "reportparamsgrid"
+                "selector": "reportparamseditor reportparamsgrid"
             },
             "designerId": "acf804ed-7f4b-4b3f-b39e-b013c884acd8"
         },
@@ -61,13 +61,13 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    '#reportParamsToolbar button[itemId=commonCreateBtn]':{",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreateReportParams",
                     "    },",
-                    "    '#reportParamsToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDeleteReportParams",
                     "    },",
-                    "    '#reportParamsToolbar button[itemId=commonSaveBtn]':{",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSaveReportParams",
                     "    }",
                     "});"

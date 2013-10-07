@@ -33,7 +33,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportGrid",
-                "selector": "reportgrid"
+                "selector": "reporteditorct reportgrid"
             },
             "designerId": "10006695-aced-4990-a351-dabfe4793b02"
         },
@@ -46,7 +46,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportViewer",
-                "selector": "reportviewer"
+                "selector": "reporteditorct reportviewer"
             },
             "designerId": "76d6ba40-07ce-48ea-988c-c76cef82d7ee"
         },
@@ -59,7 +59,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportEditor",
-                "selector": "reporteditor"
+                "selector": "reporteditorct reporteditor"
             },
             "designerId": "33f0e4ce-dae3-448b-89a2-fd975cd525fe"
         },
@@ -85,7 +85,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsGrid",
-                "selector": "reportparamsgrid"
+                "selector": "reporteditorct reportparamsgrid"
             },
             "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
         },
@@ -98,7 +98,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsEditor",
-                "selector": "reportparamseditor"
+                "selector": "reporteditorct reportparamseditor"
             },
             "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
         },
@@ -117,37 +117,37 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    '#reportToolbar button[itemId=commonCreateBtn]':{",
+                    "    'reporteditorct #reportToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    '#reportToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'reporteditorct #reportToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    '#reportToolbar button[itemId=commonSaveBtn]':{",
+                    "    'reporteditorct #reportToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    '#reportToolbar button[itemId=commonReadBtn]':{",
+                    "    'reporteditorct #reportToolbar button[itemId=commonReadBtn]':{",
                     "        click:this.doRead",
                     "    },",
-                    "    '#reportToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'reporteditorct #reportToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
                     "    'reporteditorct grid[itemId=reportGrid]':{",
                     "        itemdblclick:this.readReport",
                     "    },",
-                    "    '#reportParamsToolbar button[itemId=commonCreateBtn]':{",
+                    "    'reporteditorct #reportParamsToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.paramsdoCreate",
                     "    },",
-                    "    '#reportParamsToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'reporteditorct #reportParamsToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.paramsdoDelete",
                     "    },",
-                    "    '#reportParamsToolbar button[itemId=commonSaveBtn]':{",
+                    "    'reporteditorct #reportParamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.paramsdoSave",
                     "    },",
                     "    'reporteditorct panel[itemId=reportEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
-                    "    'reportviewer form[itemId=reportForm]':{",
+                    "    'reporteditorct reportviewer form[itemId=reportForm]':{",
                     "        validitychange:this.onReportFormValidityChange",
                     "    }",
                     "});"
