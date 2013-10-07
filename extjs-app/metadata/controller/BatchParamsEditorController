@@ -132,10 +132,10 @@
                     "    'batchparamseditorct grid[itemId=batchGrid]':{",
                     "        itemdblclick:this.readBatch",
                     "    },",
-                    "    'batchparamseditor grid[itemId=batchRouteGrid]':{",
+                    "    'batchparamseditorct batchparamseditor grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.loadBatchRouteParams",
                     "    },",
-                    "    'batchrouteparamswindow button[itemId=commonUpdateBtn]':{",
+                    "    'batchparamseditorct batchrouteparamswindow button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdateBatchRouteParams",
                     "    }",
                     "});"
@@ -162,7 +162,7 @@
                     "",
                     "this.getBatchParamsEditor().setActiveTab(this.getBatchParamsEditor().down('panel[itemId=batchViewer]').up());",
                     "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
-                    "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
+                    "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchParamsEditor().down('grid[itemId=batchRouteGrid]').up());",
                     "",
                     "this.getBatchRouteGrid().loadBatchRoute(record.data.id);"
                 ]
