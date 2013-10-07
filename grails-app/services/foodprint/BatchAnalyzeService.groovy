@@ -38,6 +38,14 @@ class BatchAnalyzeService {
 		return batchFinal
 	}
 
+	def isForwardEndBatch(batch){//暫時
+		if(forwardTrace(batch).batchHead)
+			[isEndBatch:false]
+		else
+			[isEndBatch:true]
+
+	}
+
 
 
 }

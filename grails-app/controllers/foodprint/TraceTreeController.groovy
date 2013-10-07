@@ -134,13 +134,38 @@ print batchInstance.item.title;
     }
 
     def forwardTrace(){
+    	log.debug "${controllerName}--forwardTrace"
     	log.debug "params=${params}"
     	println params
-		def  batch = Batch.findById(params.node)
+		def batch = Batch.findById(params.node)
 
-		JSON.use('deep')
-        def converter = batchAnalyzeService.forwardTrace(batch) as JSON
-        converter.render(response)
+		def jsonTreeArray = []
+
+		batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
+			def jsonTree = [:]
+
+			println "bp==="+b.properties
+
+			jsonTree = b.properties
+
+			if(batchAnalyzeService.isForwardEndBatch(b)){
+				println "end===true"
+				//jsonTree.children = []
+			}
+			else println "end===false"
+
+			println "jt=="+jsonTree
+
+			jsonTreeArray << jsonTree
+		}
+
+		render (contentType: 'application/json') {
+            jsonTreeArray
+        }
+
+		// JSON.use('deep')
+  //       def converter = batchAnalyzeService.forwardTrace(batch) as JSON
+  //       converter.render(response)
 
 
     }
