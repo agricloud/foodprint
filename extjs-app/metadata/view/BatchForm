@@ -80,26 +80,20 @@
             "designerId": "f56f64a8-fb31-4092-8d55-9b530b0c10b7"
         },
         {
-            "type": "Ext.form.field.ComboBox",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": null,
-                "itemId": "item_id",
-                "designer|displayName": "",
-                "fieldLabel": "item_id",
+                "itemId": "item.id",
+                "fieldLabel": "item.name",
                 "name": "item.id",
-                "allowBlank": false,
-                "editable": false,
-                "displayField": "id",
-                "forceSelection": true,
-                "store": "ItemStore",
-                "valueField": "id"
+                "layout|flex": null
             },
-            "designerId": "04bc0f92-7f69-4a17-8183-caff3cdce5c2"
+            "designerId": "28e64996-1e8c-425c-9bf4-957db6451c5b",
+            "masterInstanceId": "d14af9f3-35cb-4bf0-b10c-33a9c5bce761"
         },
         {
             "type": "basicfunction",
@@ -134,9 +128,10 @@
                     "config"
                 ],
                 "implHandler": [
-                    "for(var i=0;i<config.items.length;i++)",
-                    "config.items[i].fieldLabel=lang['batch.'+config.items[i].name+'.label'];",
-                    "",
+                    "for(var i=0;i<config.items.length;i++){",
+                    "    console.log('batch.'+config.items[i].fieldLabel+'.label');",
+                    "    config.items[i].fieldLabel=lang['batch.'+config.items[i].fieldLabel+'.label'];",
+                    "}",
                     "return config;"
                 ]
             },

@@ -53,6 +53,7 @@ lang['batch.name.label'] = "批號代號";
 lang['batch.dueDate.label'] = "失效日";
 lang['batch.expectQty.label'] = "預計數量";
 lang['batch.item.id.label'] = lang['item.id.label'];
+lang['batch.item.name.label'] = lang['item.name.label'];
 
 lang['operation.id.label'] = "製程序號";
 lang['operation.name.label'] = "製程代號";

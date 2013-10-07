@@ -1,0 +1,71 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": [
+            "ForwardTraceTreeStore",
+            "BatchShowDeepStore"
+        ],
+        "views": [
+            "ForwardTraceTreeCt"
+        ],
+        "designer|userClassName": "ForwardTraceTreeController"
+    },
+    "designerId": "fa206857-d619-4003-b893-f4dfe5220d75",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'forwardTraceTreeCt triggerfield[itemId=batchTriggerField]':{",
+                    "        onTriggerClick:this.doSearchBatch",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "20b74fdb-20d3-40cf-a893-4ea30bc20542"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "forwardTraceTreeCt",
+                "selector": "forwardtracetreect"
+            },
+            "designerId": "1b94751d-ce91-4ada-b4c5-e9be4142678e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSearchBatch",
+                "implHandler": [
+                    "alert('trigger!');"
+                ]
+            },
+            "designerId": "f4c35644-f233-4b5a-89b4-f4bb724fcf7d"
+        }
+    ]
+}

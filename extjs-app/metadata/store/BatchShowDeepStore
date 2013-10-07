@@ -1,0 +1,44 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "model": "BatchShowDeep",
+        "remoteFilter": true,
+        "storeId": "BatchShowDeepStroe",
+        "designer|userClassName": "BatchShowDeepStore"
+    },
+    "designerId": "2cd033c8-8275-434a-918b-2b313af8d05b",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/batch/show"
+            },
+            "designerId": "24483869-83fc-417e-84cf-1b4f4635ff0e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "batchInstanceList"
+                    },
+                    "designerId": "3de5c32f-bb9d-4311-8695-ba1b6cc0b6f1"
+                }
+            ]
+        }
+    ]
+}

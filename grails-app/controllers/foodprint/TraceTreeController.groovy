@@ -1,6 +1,10 @@
 package foodprint
 import grails.converters.JSON
+import org.codehaus.groovy.grails.web.json.JSONObject
+import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
+
 class TraceTreeController {
+	def batchAnalyzeService
 
     def forwardQuery() { 
 
@@ -111,7 +115,7 @@ print batchInstance.item.title;
 		    jsonTree2.duration = '789'
 		    jsonTree2.user = 'Tommy Maintz'
 		    jsonTree2.leaf = false
-		    jsonTree2.id= "src/folder/folder2/test"
+		    jsonTree2.id= "src/folxder/folder2/test"
 		    jsonTree2.iconCls = 'task'
 		    jsonTree2.children=[]
 		    // 有無給定 children 將決定該節點可否觸動再次下展的查詢 request
@@ -123,11 +127,52 @@ print batchInstance.item.title;
 
 		}
 
-
+		println jsonTreeArray
 		render (contentType: 'application/json') {
             jsonTreeArray
         }
 
+
+
+    }
+
+    def forwardTrace(){
+    	log.debug "${controllerName}--forwardTrace"
+
+		def batch = Batch.findById(params.node)
+
+		def jsonTreeArray = []
+
+		def jsonTree = new JSONObject()
+
+		batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
+			
+			//目前找到能加入children屬性的方法
+			def domain = new DefaultGrailsDomainClass(b.class)
+			def props = domain.getPersistantProperties()
+
+			props.each{
+				jsonTree.put(it.name, b[it.name])
+				jsonTree.put("id", b["id"])
+			}
+
+			
+			if(batchAnalyzeService.isForwardEndBatch(b).isEndBatch){
+				jsonTree.put("children",[])
+			}
+
+			jsonTree.batchSources = null
+
+			jsonTreeArray << jsonTree
+
+			//直接放入batch 樹便可展開 但無法加入children判斷是否為葉節點
+			// jsonTreeArray << b
+		}
+
+
+		render (contentType: 'application/json') {
+            jsonTreeArray
+        }
 
 
     }
