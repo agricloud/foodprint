@@ -38,9 +38,10 @@ class BatchAnalyzeService {
 		return batchFinal
 	}
 
-	def isForwardEndBatch(batch){//暫時
-		if(forwardTrace(batch).batchHead)
+	def isForwardEndBatch(batch){//暫時用來找出葉節點
+		if(forwardTrace(batch).batchHead){
 			[isEndBatch:false]
+		}
 		else
 			[isEndBatch:true]
 
