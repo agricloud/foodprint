@@ -139,7 +139,7 @@ println batch.batchSources
 		def jsonTreeArray = []
 		batchAnalyzeService.backwardTrace(batch).batchChild.each{ b ->
 			def jsonTree = new JSONObject()
-println b.item.title			
+println b.item.title		
 			jsonTree.itemtitle = b.item.title
 		    	jsonTree.expectQty = b.expectQty
 		    	jsonTree.country = b.country

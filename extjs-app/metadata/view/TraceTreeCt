@@ -205,22 +205,66 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "batchTriggerField",
                                 "fieldLabel": "輸入批號"
                             },
-                            "designerId": "f3ba8759-081b-4527-9e93-a121451e4d08"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "text": "Query"
-                            },
-                            "designerId": "9a049406-ad66-460e-81f6-d95474e82b20"
+                            "designerId": "f3ba8759-081b-4527-9e93-a121451e4d08",
+                            "cn": [
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTriggerClick",
+                                        "implHandler": [
+                                            "var batchStore=Ext.getStore('BatchShowDeepStore');",
+                                            "var treeStore=this.up().up().getStore();",
+                                            "batchStore.load({",
+                                            "    ",
+                                            "    params:{",
+                                            "        'id':this.getValue()",
+                                            "    },",
+                                            "    callback: function(records, operation, success) {",
+                                            "        console.log(records[0].data);",
+                                            "        var root={",
+                                            "            id:records[0].data.id,",
+                                            "            //name:records[0].data.name,",
+                                            "            itemtitle:records[0].data['item.title'],",
+                                            "            expectQty:records[0].data.expectQty,",
+                                            "            country:records[0].data.country,",
+                                            "            supplier:records[0].data.supplier",
+                                            "",
+                                            "        };",
+                                            "        treeStore.setRootNode(root);",
+                                            "",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ]
+                                    },
+                                    "designerId": "7f1a40cb-bc3b-46eb-8b47-a10878f96586"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBatchTriggerFieldActivate",
+                                        "implHandler": [
+                                            "console.log('activate');"
+                                        ],
+                                        "name": "activate",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "b5e82ac5-0777-431c-8983-b61ef2801e90"
+                                }
+                            ]
                         }
                     ]
                 }
