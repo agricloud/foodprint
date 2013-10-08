@@ -56,11 +56,6 @@ class TraceTreeController {
 	    */
 	    // 其中 id: 'src' 會做 node 傳往後後方進行查詢
 	    // 透過 node 的傳入 可以在分析 node 的資料進行後續節點的查詢
-print "!!!";
-print params.node;
-def  batchInstance = Batch.findById(params.node)
-print "!!!";
-print batchInstance.item.title;
 	    if(params.node == '4'){
 	        
 	    	def jsonTree = [:]
@@ -134,6 +129,37 @@ print batchInstance.item.title;
 
 
 
+    }
+
+    def backwardTrace(){
+    	log.debug "${controllerName}--backwardTrace"
+		def batch = Batch.findById(params.node)
+println batch.name
+println batch.batchSources
+		def jsonTreeArray = []
+		batchAnalyzeService.backwardTrace(batch).batchChild.each{ b ->
+			def jsonTree = new JSONObject()
+println b.item.title			
+			jsonTree.itemtitle = b.item.title
+		    	jsonTree.expectQty = b.expectQty
+		    	jsonTree.country = b.country
+		    	jsonTree.supplier = b.supplier
+	        		jsonTree.id= b.id
+
+			if(batchAnalyzeService.isBackwardEndBatch(b).isEndBatch){
+				jsonTree.leaf = true
+		    		jsonTree.iconCls = 'task'
+			}
+println jsonTree
+			jsonTree.batchSources = null
+			jsonTreeArray << jsonTree
+
+			//直接放入batch 樹便可展開 但無法加入children判斷是否為葉節點
+			// jsonTreeArray << b
+		}
+		render (contentType: 'application/json') {
+            			jsonTreeArray
+       		 }
     }
 
     def forwardTrace(){
