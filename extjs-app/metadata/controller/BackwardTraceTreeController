@@ -30,15 +30,17 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'backwardtracetreect triggerfield[itemId=commonBatchTrigger]':{",
+                    "    'backwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
                     "        onTriggerClick:this.doSearchBatch",
                     "    },",
                     "",
-                    "    'backwardtracetreect button[itemId=commonExpandallBtn]':{",
+                    "    'backwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
                     "        click:this.doExpandall",
                     "    }",
                     "",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "da8a1ebd-7566-48b8-b4cd-5566c6bbdde1"
@@ -110,6 +112,21 @@
                 ]
             },
             "designerId": "9a7801e5-8924-4b9e-9ecb-9b63d78bbbeb"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "console.log(\"test init lunch\");"
+                ]
+            },
+            "designerId": "36497d52-880f-420d-8c32-f4858fe96ae7"
         }
     ]
 }
