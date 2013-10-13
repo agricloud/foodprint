@@ -134,23 +134,23 @@ class TraceTreeController {
     def backwardTrace(){
     	log.debug "${controllerName}--backwardTrace"
 		def batch = Batch.findById(params.node)
-println batch.name
-println batch.batchSources
 		def jsonTreeArray = []
 		batchAnalyzeService.backwardTrace(batch).batchChild.each{ b ->
-			def jsonTree = new JSONObject()
-println b.item.title		
-			jsonTree.itemtitle = b.item.title
+			def jsonTree = new JSONObject()		
+			jsonTree.id= b.id
+			jsonTree.name= b.name
+			jsonTree["item.title"] = b.item.title
+			//jsonTree.item.'@title' = b.item.title
 		    	jsonTree.expectQty = b.expectQty
 		    	jsonTree.country = b.country
 		    	jsonTree.supplier = b.supplier
-	        		jsonTree.id= b.id
+	        		
 
 			if(batchAnalyzeService.isBackwardEndBatch(b).isEndBatch){
 				jsonTree.leaf = true
 		    		jsonTree.iconCls = 'task'
 			}
-println jsonTree
+//println jsonTree
 			jsonTree.batchSources = null
 			jsonTreeArray << jsonTree
 

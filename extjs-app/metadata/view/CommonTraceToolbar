@@ -51,9 +51,30 @@
             "userConfig": {
                 "layout|flex": null,
                 "itemId": "commonBatchTrigger",
-                "fieldLabel": "batchid"
+                "fieldLabel": "batchid",
+                "triggerCls": null
             },
-            "designerId": "faab5ff9-0642-42a0-ae45-27ca10594749"
+            "designerId": "faab5ff9-0642-42a0-ae45-27ca10594749",
+            "cn": [
+                {
+                    "type": "basicfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTriggerClick",
+                        "designer|params": [
+                            "e"
+                        ],
+                        "implHandler": [
+                            "this.fireEvent(\"onTriggerClick\", this, event);"
+                        ]
+                    },
+                    "designerId": "4d70afab-6f08-473a-a31d-bb5048a41a1b"
+                }
+            ]
         }
     ]
 }
