@@ -23,6 +23,7 @@ class BatchRouteController {
 
         JSON.use('deep')
         def converter=list(max) as JSON
+        JSON.use('default')
         converter.render(response)
     }
 

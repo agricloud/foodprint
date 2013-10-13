@@ -1,8 +1,18 @@
 import foodprint.*
+import grails.converters.JSON
 
 class BootStrap {
-  def init = { servletContext ->
+	def convertService
+  	def init = { servletContext ->
 
+
+  		// batch 解析 item 類似 deep 但只解析到第一層
+		JSON.registerObjectMarshaller(Batch) {
+		    def result = convertService.domainParseMap(it)
+		    // result["item"]=[id: it.item.id, name: it.item.name, title: it.item.title]
+		    //result["item"]=it.item // 轉全部
+		    result
+		}
 		environments {
 			def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
 			def user1 = User.findByUsername('admin')

@@ -90,6 +90,7 @@ environments {
         grails.indexPath = "/development/app.html"
         grails.logging.jul.usebridge = true
         grails.resources.debug=true
+        grails.converters.default.pretty.print = true
     }
     production {
         grails.indexPath = "/production/index.html"

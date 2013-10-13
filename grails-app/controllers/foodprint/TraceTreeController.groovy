@@ -169,32 +169,27 @@ class TraceTreeController {
 
 		def jsonTreeArray = []
 
-		def jsonTree = new JSONObject()
+
 
 		batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
+
+            def tempJson = b as JSON
+			def jsonTree = JSON.parse(tempJson.toString())
 			
-			//目前找到能加入children屬性的方法
-			def domain = new DefaultGrailsDomainClass(b.class)
-			def props = domain.getPersistantProperties()
-
-			props.each{
-				jsonTree.put(it.name, b[it.name])
-				jsonTree.put("id", b["id"])
-			}
-
 			
 			if(batchAnalyzeService.isForwardEndBatch(b).isEndBatch){
-				jsonTree.put("children",[])
+				jsonTree.children=[]
 			}
 
-			jsonTree.batchSources = null
+            // jsonTree.item.title = b.item.title
+
+            log.info b as JSON
 
 			jsonTreeArray << jsonTree
 
 			//直接放入batch 樹便可展開 但無法加入children判斷是否為葉節點
 			// jsonTreeArray << b
 		}
-
 
 		render (contentType: 'application/json') {
             jsonTreeArray
