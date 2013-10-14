@@ -31,8 +31,16 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'forwardTraceTreeCt triggerfield[itemId=batchTriggerField]':{",
-                    "        onTriggerClick:this.doSearchBatch",
+                    "    //'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
+                    "    //    onTriggerClick: this.doSearchBatch",
+                    "    //}",
+                    "    ",
+                    "    'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
+                    "        onTriggerClick: this.doSearchBatch",
+                    "    },",
+                    "",
+                    "    'backwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "        click:this.doExpandall",
                     "    }",
                     "});"
                 ]
@@ -62,7 +70,30 @@
             "userConfig": {
                 "fn": "doSearchBatch",
                 "implHandler": [
-                    "alert('trigger!');"
+                    "alert('trigger!');",
+                    "console.log(\"forwardTraceTree.doSearchBatch\");",
+                    "",
+                    "var batchStore=Ext.getStore('BatchShowDeepStore');",
+                    "var treeStore=this.up().up().getStore();",
+                    "",
+                    "batchStore.load({",
+                    "    params:{",
+                    "        'id':this.getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        console.log(records);",
+                    "        var root={",
+                    "            id:records[0].data.id,",
+                    "            name:records[0].data.name,",
+                    "            'item.title':records[0].data['item.title'],",
+                    "            expectQty:records[0].data.expectQty,",
+                    "            country:records[0].data.country",
+                    "",
+                    "        };",
+                    "        treeStore.setRootNode(root);",
+                    "",
+                    "    }",
+                    "});"
                 ]
             },
             "designerId": "f4c35644-f233-4b5a-89b4-f4bb724fcf7d"
