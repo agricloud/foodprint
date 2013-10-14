@@ -34,9 +34,11 @@
                     "    'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
                     "        onTriggerClick: this.doSearchBatch",
                     "    },",
-                    "",
                     "    'forwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
-                    "        click:this.doExpandall",
+                    "        click: this.doExpandall",
+                    "    },",
+                    "    'forwardtracetreect commontracetoolbar button[itemId=commonCollapseallBtn]':{",
+                    "        click: this.doCollapseall",
                     "    }",
                     "});"
                 ]
@@ -106,6 +108,60 @@
                 ]
             },
             "designerId": "f4c35644-f233-4b5a-89b4-f4bb724fcf7d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doExpandall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log(button);",
+                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var toolbar = button.up('toolbar');",
+                    "",
+                    "me.getEl().mask('Expanding tree...');",
+                    "toolbar.disable();",
+                    "",
+                    "me.expandAll(function() {",
+                    "    me.getEl().unmask();",
+                    "    toolbar.enable();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "ae309f68-ea26-4275-8478-a0d323e9df60"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCollapseall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var toolbar = button.up('toolbar');",
+                    "",
+                    "toolbar.disable();",
+                    "me.collapseAll(function() {",
+                    "    toolbar.enable();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "14ac827d-7767-47ea-a3da-384176c409fb"
         }
     ]
 }
