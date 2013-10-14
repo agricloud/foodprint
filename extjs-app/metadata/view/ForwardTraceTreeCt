@@ -6,14 +6,25 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "height": null,
         "width": null,
         "designer|userClassName": "ForwardTraceTreeCt",
-        "designer|initialView": true,
-        "layout": "fit"
+        "designer|userAlias": "forwardtracetreect",
+        "layout": "vbox"
     },
     "designerId": "27738884-27eb-4b4f-a044-887a4c636a35",
     "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "1f234804-48d8-449d-9834-b039ab3fee82",
+            "masterInstanceId": "23f3bbfe-f534-441c-abba-028441187e12"
+        },
         {
             "type": "Ext.tree.Panel",
             "reference": {
@@ -22,10 +33,11 @@
             },
             "codeClass": null,
             "userConfig": {
+                "layout|flex": 1,
                 "height": null,
                 "width": null,
                 "collapsible": false,
-                "title": "ForwardTrace",
+                "title": "ForwardTraceTreePanel",
                 "normalViewConfig": null,
                 "store": "ForwardTraceTreeStore",
                 "singleExpand": true,
@@ -131,168 +143,6 @@
                         "flex": 1
                     },
                     "designerId": "4a3b80c1-80ab-4ae4-b7c0-bf14a68e35ab"
-                },
-                {
-                    "type": "Ext.toolbar.Toolbar",
-                    "reference": {
-                        "name": "dockedItems",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dock": "top"
-                    },
-                    "designerId": "fb6c26df-d380-41f0-904c-04b86a7ad2ba",
-                    "cn": [
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "text": "Expand All"
-                            },
-                            "designerId": "91ad13c1-7db0-4111-af4d-e7ce2adcbe99",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onButtonClick",
-                                        "implHandler": [
-                                            "var me = button.up('treepanel');",
-                                            "var toolbar = me.down('toolbar');",
-                                            "",
-                                            "me.getEl().mask('Expanding tree...');",
-                                            "toolbar.disable();",
-                                            "",
-                                            "me.expandAll(function() {",
-                                            "    me.getEl().unmask();",
-                                            "    toolbar.enable();",
-                                            "});"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "designerId": "c735f9ae-2d60-4253-b5a8-21c114c282c4"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "text": "Collapse All"
-                            },
-                            "designerId": "ba313773-96c6-4561-a084-0bbd0650a958",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onButtonClick1",
-                                        "implHandler": [
-                                            "var me = button.up(\"treepanel\")",
-                                            "var toolbar = me.down('toolbar');",
-                                            "",
-                                            "toolbar.disable();",
-                                            "me.collapseAll(function() {",
-                                            "    toolbar.enable();",
-                                            "});"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "designerId": "334f66c4-8489-4c1f-8023-f043910bdbcc"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.form.field.Trigger",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "batchTriggerField",
-                                "fieldLabel": "輸入批號"
-                            },
-                            "designerId": "2b638a41-f4c8-414d-b271-f783941eb447",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onBatchTriggerFieldActivate",
-                                        "implHandler": [
-                                            "console.log('activate');"
-                                        ],
-                                        "name": "activate",
-                                        "scope": "me"
-                                    },
-                                    "designerId": "00d4d3a7-7583-492f-8f45-17d6bcbadaab"
-                                },
-                                {
-                                    "type": "basicfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onTriggerClick",
-                                        "implHandler": [
-                                            "",
-                                            "var batchStore=Ext.getStore('BatchShowDeepStore');",
-                                            "var treeStore=this.up().up().getStore();",
-                                            "",
-                                            "batchStore.load({",
-                                            "    params:{",
-                                            "        'id':this.getValue()",
-                                            "    },",
-                                            "    callback: function(records, operation, success) {",
-                                            "        console.log(records);",
-                                            "        var root={",
-                                            "            id:records[0].data.id,",
-                                            "            name:records[0].data.name,",
-                                            "            'item.title':records[0].data['item.title'],",
-                                            "            expectQty:records[0].data.expectQty,",
-                                            "            country:records[0].data.country",
-                                            "",
-                                            "        };",
-                                            "        treeStore.setRootNode(root);",
-                                            "",
-                                            "    }",
-                                            "});"
-                                        ]
-                                    },
-                                    "designerId": "2ea75773-daf6-4ca5-822f-7b3431711e7c"
-                                }
-                            ]
-                        }
-                    ]
                 }
             ]
         }
