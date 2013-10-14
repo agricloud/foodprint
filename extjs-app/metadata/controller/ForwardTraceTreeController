@@ -31,15 +31,11 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    //'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
-                    "    //    onTriggerClick: this.doSearchBatch",
-                    "    //}",
-                    "    ",
                     "    'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
                     "        onTriggerClick: this.doSearchBatch",
                     "    },",
                     "",
-                    "    'backwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "    'forwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
                     "        click:this.doExpandall",
                     "    }",
                     "});"
@@ -61,6 +57,19 @@
             "designerId": "1b94751d-ce91-4ada-b4c5-e9be4142678e"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "commonTraceToolbar",
+                "selector": "forwardtracetreect commontracetoolbar"
+            },
+            "designerId": "e0f04315-eb30-4d54-be65-7082d4803596"
+        },
+        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -70,15 +79,15 @@
             "userConfig": {
                 "fn": "doSearchBatch",
                 "implHandler": [
-                    "alert('trigger!');",
+                    "",
                     "console.log(\"forwardTraceTree.doSearchBatch\");",
                     "",
                     "var batchStore=Ext.getStore('BatchShowDeepStore');",
-                    "var treeStore=this.up().up().getStore();",
+                    "var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();",
                     "",
                     "batchStore.load({",
                     "    params:{",
-                    "        'id':this.getValue()",
+                    "        'id':this.getCommonTraceToolbar().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
                     "    },",
                     "    callback: function(records, operation, success) {",
                     "        console.log(records);",
