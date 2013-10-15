@@ -33,6 +33,8 @@ class ExtJSFilters {
                         log.info "params[${key}] = ${params[key]}"
                     }
 
+
+
                     // 參考連結 http://grails.org/doc/latest/guide/single.html#dataBinding
                     // 其中：An association property can be set to null by passing the literal String "null".
                     // 可能風險，null 值是真的要作為 null 值，而不是文字的 'null' 值 
@@ -48,6 +50,35 @@ class ExtJSFilters {
                     params.offset = params.int('start')?:0
                     params.max = params.int('limit')?:50
                 }
+
+
+                params.criteria = {
+                    if(params.filter){
+                        def filterJson = grails.converters.JSON.parse(params.filter)
+                        filterJson.each{
+
+
+                            if(it.type == 'string'){
+                                it.value = it.value+"%"
+                            }else if(it.type == 'numeric'){
+                                 it.value = it.value.toLong()
+                            }else if(it.type == 'date'){
+                                 it.value = Date.parse('MM/dd/yyyy', it.value)
+                            }
+
+                            if(it.comparison){
+
+                                if(it.comparison == 'lt') lt(it.field,it.value)
+                                else if(it.comparison == 'gt')gt(it.field,it.value)
+                                else eq(it.field,it.value)
+
+                            }else like(it.field,it.value)
+
+                        }
+                    }
+                }
+
+
 
             }
             after = { Map model ->

@@ -16,6 +16,10 @@
         "views": [
             "LoginWindow"
         ],
+        "requires": [
+            "foodprint.view.Utilities",
+            "Ext.ux.grid.FiltersFeature"
+        ],
         "autoCreateViewport": true,
         "controllers": [
             "MainPageController",
@@ -35,5 +39,22 @@
         ],
         "name": "foodprint"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enabled": true,
+                "paths": [
+                    "{\"Ext.ux\":\"ux\"}"
+                ]
+            },
+            "designerId": "d63502f2-5b4c-41a9-bc79-853834b49ba8"
+        }
+    ]
 }

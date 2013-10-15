@@ -21,10 +21,7 @@
         "views": [
             "ItemEditorCt"
         ],
-        "designer|userClassName": "ItemEditorController",
-        "requires": [
-            "foodprint.view.Utilities"
-        ]
+        "designer|userClassName": "ItemEditorController"
     },
     "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
     "cn": [
@@ -37,7 +34,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "itemGrid",
-                "selector": "itemeditorct itemgrid"
+                "selector": "itemeditorct #itemGrid"
             },
             "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
         },
@@ -114,10 +111,10 @@
                     "    //    'itemeditorct panel[itemId=itemEditor]':{",
                     "    //        tabchange:this.onTabChange",
                     "    //    },",
-                    "    'itemeditorct itemviewer form[itemId=itemForm]':{",
+                    "    'itemeditorct #itemViewer form[itemId=itemForm]':{",
                     "        validitychange:this.onItemFormValidityChange",
                     "    },   ",
-                    "    'itemeditorct itemviewer grid[itemId=itemRouteGrid]':{",
+                    "    'itemeditorct #itemViewer grid[itemId=itemRouteGrid]':{",
                     "        selectionchange:this.itemRouteGridChange",
                     "    }",
                     "});",
@@ -396,7 +393,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "itemRouteToolbar",
-                "selector": "itemeditorct itemviewer commoneditortoolbar"
+                "selector": "itemeditorct #itemViewer commoneditortoolbar"
             },
             "designerId": "2c63900b-0e74-4b2e-8f02-2183c7f3c190"
         },
@@ -435,7 +432,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "itemEditor",
-                "selector": "itemeditorct itemeditor"
+                "selector": "itemeditorct #itemEditor"
             },
             "designerId": "78debfb4-a13d-488d-8df7-c97f5b63b9b0"
         },
@@ -461,7 +458,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "itemViewer",
-                "selector": "itemeditorct itemviewer"
+                "selector": "itemeditorct #itemViewer"
             },
             "designerId": "02f77bca-fb7b-4309-aa6d-9beb0b853faf"
         }

@@ -13,8 +13,13 @@ class BatchController {
 
     def index() {
         JSON.use('deep')
-        def converter = [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()] as JSON
-        converter.render(response)
+
+        def list = Batch.createCriteria().list(params,params.criteria)
+
+
+        render (contentType: 'application/json') {
+            [batchInstanceList: list, batchInstanceTotal: list.totalCount]
+        }
     }
 
     def show(Long id){

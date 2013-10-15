@@ -213,6 +213,44 @@
                 ]
             },
             "designerId": "8f18e83d-af25-4da6-a03a-a8f0ad276a2f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createFiltersFeature",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for (var i = 0; i < config.columns.length; i++) {",
+                    "    if(config.columns[i].xtype === 'numbercolumn'){",
+                    "        config.columns[i].type = 'numeric'",
+                    "    }else if(config.columns[i].xtype === 'datecolumn'){",
+                    "    \tconfig.columns[i].type = 'date'",
+                    "    }else if(config.columns[i].xtype === 'booleancolumn'){",
+                    "    \tconfig.columns[i].type = 'boolean'",
+                    "    }",
+                    "}",
+                    "",
+                    "",
+                    "config.features = [",
+                    "    {",
+                    "        ftype: 'filters',   ",
+                    "        encode: true,",
+                    "        filters: config.columns",
+                    "    ",
+                    "    }",
+                    "];",
+                    "",
+                    "return config"
+                ]
+            },
+            "designerId": "97e76557-a026-4190-8b04-86a89f4e1cf7"
         }
     ]
 }

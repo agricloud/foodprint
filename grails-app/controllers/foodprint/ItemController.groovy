@@ -2,16 +2,25 @@ package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
 
-
 class ItemController {
 
     def domainService
 
     def index(Integer max) {
 
+        // render (contentType: 'application/json') {
+        //     [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
+        // }
+
+
+        def list = Item.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
+            [itemInstanceList: list, itemInstanceTotal: list.totalCount]
         }
+
+
         
     }
 

@@ -146,6 +146,11 @@
                     "for(var i=0; i<config.columns.length;i++)",
                     "config.columns[i].text=lang['batch.'+config.columns[i].dataIndex+'.label'];",
                     "config.viewConfig.loadingText = lang['default.message.load'];",
+                    "",
+                    "",
+                    "config = Utilities.createFiltersFeature(config);",
+                    "",
+                    "",
                     "return config;"
                 ]
             },
