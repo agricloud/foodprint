@@ -1,8 +1,18 @@
 import foodprint.*
+import grails.converters.JSON
 
 class BootStrap {
-  def init = { servletContext ->
+	def convertService
+  	def init = { servletContext ->
 
+
+  		// batch 解析 item 類似 deep 但只解析到第一層
+		JSON.registerObjectMarshaller(Batch) {
+		    def result = convertService.domainParseMap(it)
+		    // result["item"]=[id: it.item.id, name: it.item.name, title: it.item.title]
+		    //result["item"]=it.item // 轉全部
+		    result
+		}
 		environments {
 			def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
 			def user1 = User.findByUsername('admin')
@@ -18,14 +28,20 @@ class BootStrap {
 				def item1 = new Item(name:"410002",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種 (Non-Genetically Modifie) 生長強健，特別耐熱、耐濕及抗倒伏，抗病毒病、葉斑病、螟蟲， 果穗整齊飽滿，著粒完整，穗粒淡黃色， 皮非常薄(有無皮的感覺)，脆嫩香甜，品質非常優良。 糖分保持力較長，較耐貯運。").save(failOnError: true, flush: true)
 				def item2 = new Item(name:"item2",title:"橘子").save(failOnError: true, flush: true)
 				def item3 = new Item(name:"item3",title:"柚子").save(failOnError: true, flush: true)
+				def item4 = new Item(name:"item4",title:"balasun").save(failOnError: true, flush: true)
+				def item5 = new Item(name:"item5",title:"colasun").save(failOnError: true, flush: true)
+
 
 				def batch1 = new Batch(name:"0927-410002",item:item1).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
-
+				def batch4 = new Batch(name:"batch4",item:item4).save(failOnError: true, flush: true)
+				def batch5 = new Batch(name:"batch5",item:item5).save(failOnError: true, flush: true)
 
 				new BatchSource(batch:batch1,childBatch:batch2).save(failOnError: true, flush: true)
 				new BatchSource(batch:batch1,childBatch:batch3).save(failOnError: true, flush: true)
+				new BatchSource(batch:batch2,childBatch:batch4).save(failOnError: true, flush: true)
+				new BatchSource(batch:batch3,childBatch:batch5).save(failOnError: true, flush: true)
 
 
 				def workstation1 = new Workstation(name:"workstation1",title:"檢驗站01").save(failOnError: true, flush: true)

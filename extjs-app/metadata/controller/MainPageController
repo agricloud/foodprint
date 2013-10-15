@@ -72,6 +72,12 @@
                     "    },",
                     "    'maincontainer button[itemId=userMaintain]':{",
                     "        click:this.userMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=forwardTrace]':{",
+                    "        click:this.forwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=backwardTrace]':{",
+                    "        click:this.backwardTrace",
                     "    }",
                     "});"
                 ]
@@ -249,6 +255,40 @@
                 ]
             },
             "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "forwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'forwardtracetreect';",
+                    "var tabName = '順向追溯';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "4d7b83d7-ac96-43b7-b383-dd768cab69e2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "backwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'backwardtracetreect';",
+                    "var tabName = '逆向追溯';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "37094ab8-b867-432a-9c4b-692e2cb2822b"
         }
     ]
 }

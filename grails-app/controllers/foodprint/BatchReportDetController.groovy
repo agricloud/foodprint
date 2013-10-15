@@ -26,11 +26,9 @@ class BatchReportDetController {
     def listJson(Integer max) {
         JSON.use('deep')
         def converter=list()as JSON
+        JSON.use('default')
         converter.render(response)
-        //render (contentType: 'application/json') {
-        //    print list(max)
-         //   list(max)        
-        //}
+
     }
 
     def create() {
@@ -77,6 +75,7 @@ class BatchReportDetController {
     def batchRouteParamsListJson(){
         JSON.use('deep')
         def converter=batchRouteParamsList() as JSON
+        JSON.use('default')
         converter.render(response)
     }
 
@@ -107,6 +106,7 @@ class BatchReportDetController {
     def batchReportListJson(){
         JSON.use('deep')
         def converter=batchReportList() as JSON
+        JSON.use('default')
         converter.render(response)
     }
 

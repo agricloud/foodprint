@@ -38,6 +38,24 @@ class BatchAnalyzeService {
 		return batchFinal
 	}
 
+	def isBackwardEndBatch(batch){//暫時用來找出葉節點
+		if(backwardTrace(batch).batchChild){
+			[isEndBatch:false]
+		}
+		else
+			[isEndBatch:true]
+
+	}
+
+	def isForwardEndBatch(batch){//暫時用來找出葉節點
+		if(forwardTrace(batch).batchHead){
+			[isEndBatch:false]
+		}
+		else
+			[isEndBatch:true]
+
+	}
+
 
 
 }

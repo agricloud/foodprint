@@ -98,8 +98,8 @@ grails.project.dependency.resolution = {
         }
 
         // add plugin
-        compile ':spring-security-core:latest.release'
-
+        //compile ':spring-security-core:latest.release'
+        compile ':spring-security-core:1.2.7.3'
         runtime ":cors:1.1.0"
 
         compile ':rest-client-builder:1.0.3'

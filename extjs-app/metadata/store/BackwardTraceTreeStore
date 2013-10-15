@@ -1,0 +1,31 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "model": "BatchShowDeep",
+        "storeId": "BackwardTraceTreeStore",
+        "designer|userClassName": "BackwardTraceTreeStore",
+        "folderSort": true,
+        "root": null
+    },
+    "designerId": "1229648e-fbcd-4751-8c2a-1fecde51b00b",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/traceTree/backwardTrace"
+            },
+            "designerId": "c2e69591-e2f2-4119-a443-3c2c63f25baa"
+        }
+    ]
+}

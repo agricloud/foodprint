@@ -12,7 +12,6 @@ class BatchController {
 
 
     def index() {
-        JSON.use('deep')
 
         def list = Batch.createCriteria().list(params,params.criteria)
 
@@ -34,7 +33,6 @@ class BatchController {
         // render (contentType: 'application/json') {
         //     [batchInstanceList:batchInstance, message:flash.message]
         // }
-        JSON.use('deep')
         def converter = [batchInstanceList:batchInstance, message:flash.message] as JSON
         converter.render(response)
     }
@@ -86,10 +84,6 @@ class BatchController {
     def itemRouteList(){
         log.debug "BatchController--itemRouteList"
         redirect(controller: "ItemRoute",action: "index" ,params:["item.id":Batch.get(params.id).item.id])
-        //old version
-        // JSON.use('deep')
-        // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
-        // converter.render(response)
     }
 
 }

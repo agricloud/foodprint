@@ -1,0 +1,131 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": [
+            "BackwardTraceTreeStore"
+        ],
+        "views": [
+            "BackwardTraceTreeCt"
+        ],
+        "designer|userClassName": "BackwardTraceTreeController"
+    },
+    "designerId": "163cabc0-e8e2-44f7-a5e8-5b903e8a1e17",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'backwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
+                    "        onTriggerClick:this.doSearchBatch",
+                    "    },",
+                    "",
+                    "    'backwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "        click:this.doExpandall",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "da8a1ebd-7566-48b8-b4cd-5566c6bbdde1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "backwardTraceTreeCt",
+                "selector": "backwardtracetreect"
+            },
+            "designerId": "971d2765-9fec-4fa7-bb19-015743b1d69b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSearchBatch",
+                "implHandler": [
+                    "console.log(\"TraceTree.doSearchBatch\");",
+                    "",
+                    "",
+                    "var batchStore=Ext.getStore('BatchShowDeepStore');",
+                    "console.log(batchStore);",
+                    "var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
+                    "batchStore.load({",
+                    "",
+                    "    params:{",
+                    "        'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        console.log(records[0].data);",
+                    "        var root={",
+                    "            id:records[0].data.id,",
+                    "            name:records[0].data.name,",
+                    "            'item.title':records[0].data['item.title'],",
+                    "            expectQty:records[0].data.expectQty,",
+                    "            country:records[0].data.country,",
+                    "            supplier:records[0].data.supplier",
+                    "        };",
+                    "        treeStore.setRootNode(root);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "ed90a1a0-fc1b-4ae9-b91f-a3a3ec91cc29"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doExpandall",
+                "implHandler": [
+                    "console.log(\"~~~\");",
+                    "alert('!!!');"
+                ]
+            },
+            "designerId": "9a7801e5-8924-4b9e-9ecb-9b63d78bbbeb"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "console.log(\"test init lunch\");"
+                ]
+            },
+            "designerId": "36497d52-880f-420d-8c32-f4858fe96ae7"
+        }
+    ]
+}
