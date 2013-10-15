@@ -102,6 +102,9 @@
                     "    },",
                     "    'customereditorct grid[itemId=customerGrid]':{",
                     "        itemdblclick:this.readCustomer",
+                    "    },",
+                    "    'customereditorct #customerViewer form[itemId=customerForm]':{",
+                    "        validitychange:this.onCustomerFormValidityChange",
                     "    }",
                     "});",
                     ""
@@ -304,6 +307,41 @@
                 ]
             },
             "designerId": "b51393e4-999d-43f1-8c52-d7523c0d0f97"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCustomerFormValidityChange",
+                "designer|params": [
+                    "basic, valid, eOpts"
+                ],
+                "implHandler": [
+                    "this.getCustomerViewer().down('form[itemId=customerForm]').getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        this.getCustomerEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getCustomerEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        this.getCustomerEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        this.getCustomerEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "15737e33-7e54-40b3-b277-957c75808ff9"
         }
     ]
 }

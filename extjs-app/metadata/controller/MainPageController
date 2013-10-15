@@ -16,7 +16,8 @@
             "BatchParamsEditorCt",
             "OperationEditorCt",
             "MainViewport",
-            "UserEditorCt"
+            "UserEditorCt",
+            "CustomerEditorCt"
         ],
         "designer|userClassName": "MainPageController"
     },
@@ -78,6 +79,9 @@
                     "    },",
                     "    'maincontainer button[itemId=backwardTrace]':{",
                     "        click:this.backwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=customerMaintain]':{",
+                    "        click:this.customerMaintain",
                     "    }",
                     "});"
                 ]
@@ -289,6 +293,23 @@
                 ]
             },
             "designerId": "37094ab8-b867-432a-9c4b-692e2cb2822b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "customerMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'customereditorct';",
+                    "var tabName = '客戶維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "bae50c90-0511-43d0-9a61-d9837619683e"
         }
     ]
 }
