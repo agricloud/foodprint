@@ -20,7 +20,14 @@ class BatchRouteController {
     }
 
     def index(Integer max) {
-
+        //找出指定批號的相關途程。
+        /*
+        * [Deep properties]
+        *
+        * batchRouteInstanceList::
+        *   -workstation
+        *   -operation
+        */
         JSON.use('deep')
         def converter=list(max) as JSON
         JSON.use('default')

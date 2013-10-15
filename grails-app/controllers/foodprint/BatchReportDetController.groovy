@@ -24,11 +24,12 @@ class BatchReportDetController {
     }
 
     def listJson(Integer max) {
+        //找出指定批號所需收集的履歷參數。
+        //目前似乎尚未使用此功能
         JSON.use('deep')
         def converter=list()as JSON
         JSON.use('default')
         converter.render(response)
-
     }
 
     def create() {
@@ -73,6 +74,15 @@ class BatchReportDetController {
     }
 
     def batchRouteParamsListJson(){
+        //找出指定批號、指定途程所需收集的履歷參數。
+        /*
+        * [Deep properties]
+        *
+        * batchRouteParamsInstanceList::
+        *   -reportParams
+        *     -param
+        */
+
         JSON.use('deep')
         def converter=batchRouteParamsList() as JSON
         JSON.use('default')
@@ -81,7 +91,7 @@ class BatchReportDetController {
 
     /**
      * @param batch.id
-     * 找出指定批號所有的報表及對應參數
+     * 找出指定批號所有的履歷及對應的履歷參數
     **/
     def batchReportList(){
         log.debug "BatchReportDetController--batchReportList"
@@ -104,6 +114,16 @@ class BatchReportDetController {
     }
 
     def batchReportListJson(){
+        //找出指定批號所有的履歷及對應的履歷參數。
+        /*
+        * [Deep properties]
+        *
+        * batchReportInstanceList::
+        *   -batchReport
+        *   -batchReportDets
+        *     -reportParams
+        *     -param  
+        */
         JSON.use('deep')
         def converter=batchReportList() as JSON
         JSON.use('default')

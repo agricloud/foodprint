@@ -12,7 +12,14 @@ class ItemRouteController {
 
 
     def index() {
-        
+        //找出指定品項的相關途程。
+        /*
+        * [Deep properties]
+        *
+        * itemRouteInstanceList::
+        *   -workstation
+        *   -operation
+        */
         JSON.use('deep')
         def itemRoute=Item.findById(params.item.id).itemRoutes
         def converter=[itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()] as JSON
