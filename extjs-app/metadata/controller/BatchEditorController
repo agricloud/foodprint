@@ -20,11 +20,10 @@
             "BatchRouteDeepStore"
         ],
         "views": [
-            "BatchEditor",
             "BatchEditorCt",
             "BatchGrid",
-            "BatchViewer",
-            "BatchRouteGrid"
+            "BatchRouteGrid",
+            "BatchForm"
         ],
         "designer|userClassName": "BatchEditorController",
         "mixins": null
@@ -66,7 +65,7 @@
                     "    'batcheditorct panel[itemId=batchEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
-                    "    'batcheditorct batchviewer form[itemId=batchForm]':{",
+                    "    'batcheditorct #batchViewer form[itemId=batchForm]':{",
                     "        validitychange:this.onBatchFormValidityChange",
                     "    },",
                     "    'batcheditorct #batchRouteToolbar button[itemId=commonCreateBtn]':{",
@@ -81,10 +80,10 @@
                     "    'batcheditorct #batchRouteToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdateBatchRoute",
                     "    },",
-                    "    'batcheditorct batchviewer grid[itemId=batchRouteGrid]':{",
+                    "    'batcheditorct #batchViewer grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.readBatchRoute",
                     "    },",
-                    "    'batcheditorct batchviewer form[itemId=batchRouteForm]':{",
+                    "    'batcheditorct #batchViewer form[itemId=batchRouteForm]':{",
                     "        validitychange:this.onBatchRouteFormValidityChange",
                     "    }",
                     "});"
@@ -114,7 +113,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchEditor",
-                "selector": "batcheditorct batcheditor"
+                "selector": "batcheditorct #batchEditor"
             },
             "designerId": "50fe5272-fdb6-4ccc-b352-c433e1a4d9b2"
         },
@@ -140,7 +139,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "batchViewer",
-                "selector": "batcheditorct batchviewer"
+                "selector": "batcheditorct #batchViewer"
             },
             "designerId": "eb6d2ac3-5d63-47c5-849d-b5b624f1dde8"
         },
