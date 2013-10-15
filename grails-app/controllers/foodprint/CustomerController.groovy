@@ -4,7 +4,6 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class CustomerController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
     def index(params) {

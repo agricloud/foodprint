@@ -10,17 +10,14 @@
             "Report"
         ],
         "stores": [
-            "ReportStore"
+            "ReportStore",
+            "ReportParamsStore"
         ],
         "views": [
-            "ReportEditor"
+            "ReportEditorCt"
         ],
         "designer|userClassName": "ReportEditorController",
-        "mixins": [
-            "{",
-            "    ReportParamsEditorCtrl:'foodprint.controller.ReportParamsEditorController'",
-            "}"
-        ]
+        "mixins": null
     },
     "designerId": "a38b6ddf-7d7e-49b3-b090-e5e1ed5972b1",
     "cn": [
@@ -33,7 +30,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportGrid",
-                "selector": "reporteditorct reportgrid"
+                "selector": "reporteditorct #reportGrid"
             },
             "designerId": "10006695-aced-4990-a351-dabfe4793b02"
         },
@@ -46,7 +43,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportViewer",
-                "selector": "reporteditorct reportviewer"
+                "selector": "reporteditorct #reportViewer"
             },
             "designerId": "76d6ba40-07ce-48ea-988c-c76cef82d7ee"
         },
@@ -59,7 +56,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportEditor",
-                "selector": "reporteditorct reporteditor"
+                "selector": "reporteditorct #reportEditor"
             },
             "designerId": "33f0e4ce-dae3-448b-89a2-fd975cd525fe"
         },
@@ -85,7 +82,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsGrid",
-                "selector": "reporteditorct reportparamsgrid"
+                "selector": "reporteditorct #reportParamsGrid"
             },
             "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
         },
@@ -98,7 +95,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsEditor",
-                "selector": "reporteditorct reportparamseditor"
+                "selector": "reporteditorct #reportParamsEditor"
             },
             "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
         },
@@ -147,8 +144,17 @@
                     "    'reporteditorct panel[itemId=reportEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
-                    "    'reporteditorct reportviewer form[itemId=reportForm]':{",
+                    "    'reporteditorct #reportViewer form[itemId=reportForm]':{",
                     "        validitychange:this.onReportFormValidityChange",
+                    "    },",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonCreateBtn]':{",
+                    "        click:this.doCreateReportParams",
+                    "    },",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonDeleteBtn]':{",
+                    "        click:this.doDeleteReportParams",
+                    "    },",
+                    "    'reportparamseditor #reportParamsToolbar button[itemId=commonSaveBtn]':{",
+                    "        click:this.doSaveReportParams",
                     "    }",
                     "});"
                 ]
@@ -397,6 +403,113 @@
                 ]
             },
             "designerId": "57cb7dc0-30b6-460d-81af-777d92a297d6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doReadReportParams",
+                "designer|params": [
+                    "reportId"
+                ],
+                "implHandler": [
+                    "//console.log(reportid);",
+                    "this.getReportViewer().down('grid[itemId=reportParamsGrid]').loadReportParams(reportId);"
+                ]
+            },
+            "designerId": "729bb398-a33d-4015-a9df-50e27ab97719"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreateReportParams",
+                "implHandler": [
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "console.log(reportid);",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.insert(0,{",
+                    "    id:'',",
+                    "    'report.id': reportid,",
+                    "    'param.id':'',",
+                    "    'workstation.id':'',",
+                    "    'item.id':''",
+                    "});"
+                ]
+            },
+            "designerId": "cfe01bfa-7d48-4a54-8aa2-a1d10b216adc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDeleteReportParams",
+                "implHandler": [
+                    "//沒有與後端串接？",
+                    "sm=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getSelectionModel();",
+                    "",
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.cancelEdit();",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.remove(sm.getSelection());",
+                    ""
+                ]
+            },
+            "designerId": "c25fd0e7-9628-4067-a11c-dbe9d037dcd1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSaveReportParams",
+                "implHandler": [
+                    "paramsplugin=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getPlugin('reportParamsEditplugin');",
+                    "paramsplugin.completeEdit();",
+                    "",
+                    "reportid=this.getReportGrid().getSelectionModel().getSelection()[0].get('id');",
+                    "",
+                    "paramstore=this.getReportViewer().down('grid[itemId=reportParamsGrid]').getStore();",
+                    "paramstore.sync({",
+                    "    url: '/reportParams',",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function(form,action) {",
+                    "        console.log('Saving Success！');",
+                    "        Ext.MessageBox.alert('Success',action.result.message);",
+                    "        paramstore.load({",
+                    "            params:{",
+                    "                reportid:reportid",
+                    "            }",
+                    "        });",
+                    "",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        console.log('Saving Failed！');",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "79bb6a09-e787-49dd-9af4-40da838fb3ef"
         }
     ]
 }
