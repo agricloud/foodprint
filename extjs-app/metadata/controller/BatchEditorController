@@ -53,9 +53,6 @@
                     "    'batcheditorct #commonEditorToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'batcheditorct #commonEditorToolbar button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'batcheditorct #commonEditorToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -185,7 +182,6 @@
                     "",
                     "this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getBatchEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getBatchEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
                     "this.getBatchViewer().down('button[itemId=commonCreateBtn]').setDisabled(false);",
                     ""
@@ -343,18 +339,13 @@
                     "var delbtn=this.getBatchEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getBatchEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getBatchEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getBatchEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=batchBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
                     "}",
-                    "if(newCard==tabPanel.down('panel[itemId=batchMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
+                    "",
                     "else{",
                     "    tabPanel.down('form[itemId=batchForm]').getForm().reset(true);",
                     "    tabPanel.down('grid[itemId=batchRouteGrid]').getStore().removeAll();",
@@ -400,23 +391,6 @@
                 ]
             },
             "designerId": "e1094baf-a37d-46a0-acfc-a653b3f5b856"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"batchEditorCtrl.doRead\");",
-                    "this.getBatchGrid().loadStore();"
-                ]
-            },
-            "designerId": "a49c5def-e0e1-4a93-b994-7143ccbe67cc"
         },
         {
             "type": "basicfunction",

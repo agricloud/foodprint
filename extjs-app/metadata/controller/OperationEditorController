@@ -95,9 +95,6 @@
                     "    'operationeditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'operationeditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'operationeditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -135,7 +132,6 @@
                     "",
                     "this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getOperationEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -282,17 +278,12 @@
                     "var delbtn=this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getOperationEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getOperationEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=opBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=opMainten]')){",
-                    "    redbtn.setDisabled(true);",
                     "}",
                     "else{",
                     "    tabPanel.down('form[itemId=operationForm]').getForm().reset(true);",
@@ -300,23 +291,6 @@
                 ]
             },
             "designerId": "0efd456e-2968-40db-ad06-2bd3945902ee"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"operationEditorCtrl.doRead\");",
-                    "this.getOperationGrid().loadStore();"
-                ]
-            },
-            "designerId": "05178949-459d-46a6-a65c-6a3f2e070761"
         },
         {
             "type": "basicfunction",

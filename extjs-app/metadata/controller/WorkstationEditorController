@@ -95,9 +95,6 @@
                     "    'workstationeditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'workstationeditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'workstationeditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -135,7 +132,6 @@
                     "",
                     "this.getWorkstationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getWorkstationEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -285,41 +281,16 @@
                     "var delbtn=this.getWorkstationEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getWorkstationEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getWorkstationEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getWorkstationEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=workstationBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=workstationMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=workstationForm]').getForm().reset(true);",
                     "}"
                 ]
             },
             "designerId": "1f607a71-39b4-4337-ad11-d97d246d8ef6"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"workstationEditorCtrl.doRead\");",
-                    "this.getWorkstationGrid().loadStore();"
-                ]
-            },
-            "designerId": "d4032cdc-7bf7-48d8-84d9-c6846b85dda0"
         },
         {
             "type": "basicfunction",

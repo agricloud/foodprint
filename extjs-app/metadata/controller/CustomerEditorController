@@ -94,9 +94,6 @@
                     "    'customereditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'customereditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'customereditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -141,7 +138,6 @@
                     "*/",
                     "this.getCustomerEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getCustomerEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getCustomerEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getCustomerEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -292,21 +288,6 @@
                 ]
             },
             "designerId": "b0cc2dbf-27bf-4b1d-bc6b-19dab073545c"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "this.getCustomerGrid().getStore().load();"
-                ]
-            },
-            "designerId": "b51393e4-999d-43f1-8c52-d7523c0d0f97"
         },
         {
             "type": "basicfunction",

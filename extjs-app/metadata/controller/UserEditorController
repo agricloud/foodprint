@@ -95,9 +95,6 @@
                     "    'usereditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'usereditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'usereditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -135,7 +132,6 @@
                     "",
                     "this.getUserEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getUserEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getUserEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getUserEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -281,41 +277,16 @@
                     "var delbtn=this.getUserEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getUserEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getUserEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getUserEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=userBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=userMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=userForm]').getForm().reset(true);",
                     "}"
                 ]
             },
             "designerId": "9b3e641f-1fdc-4b09-822b-cca2a73a5a7b"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"userEditorCtrl.doRead\");",
-                    "this.getUserGrid().loadStore();"
-                ]
-            },
-            "designerId": "cf5d4eae-b42d-4d35-bfb5-bcdd40c70804"
         },
         {
             "type": "basicfunction",

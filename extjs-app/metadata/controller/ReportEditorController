@@ -123,9 +123,6 @@
                     "    'reporteditorct #reportToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'reporteditorct #reportToolbar button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'reporteditorct #reportToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -185,7 +182,6 @@
                     "",
                     "this.getReportEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getReportEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getReportEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getReportEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -323,23 +319,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"reportEditorCtrl.doRead\");",
-                    "this.getReportGrid().loadStore();"
-                ]
-            },
-            "designerId": "41f01dbe-8b76-431c-9b9e-c4029fb7b230"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "onReportFormValidityChange",
                 "designer|params": [
                     "basic, valid, eOpts"
@@ -385,20 +364,12 @@
                     "var delbtn=this.getReportEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getReportEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getReportEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getReportEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=reportBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=reportMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=reportForm]').getForm().reset(true);",
                     "}"
                 ]
             },

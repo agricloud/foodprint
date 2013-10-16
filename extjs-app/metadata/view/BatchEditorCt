@@ -185,6 +185,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "tbar": [
+                                                    "{",
+                                                    "    xtype: 'commoneditortoolbar',",
+                                                    "    itemId: 'batchRouteToolbar'",
+                                                    "}"
+                                                ],
                                                 "layout|flex": 1,
                                                 "container|align": "stretch",
                                                 "itemId": "batchRouteForm",
@@ -194,40 +200,14 @@
                                                 "title": null
                                             },
                                             "designerId": "812031db-b79c-44aa-b1eb-e546f7953060",
-                                            "cn": [
+                                            "customConfigs": [
                                                 {
-                                                    "type": "linkedinstance",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "border": null,
-                                                        "itemId": "batchRouteToolbar"
-                                                    },
-                                                    "designerId": "9bfce976-5645-4cba-bdd3-26a7c68fbbfd",
-                                                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887",
-                                                    "cn": [
-                                                        {
-                                                            "type": "basiceventbinding",
-                                                            "reference": {
-                                                                "name": "listeners",
-                                                                "type": "array"
-                                                            },
-                                                            "codeClass": null,
-                                                            "userConfig": {
-                                                                "fn": "onBatchRouteToolbarRender",
-                                                                "implHandler": [
-                                                                    "component.down('button[itemId=commonReadBtn]').hide();"
-                                                                ],
-                                                                "name": "render",
-                                                                "scope": "me"
-                                                            },
-                                                            "designerId": "842749e9-3d36-4197-bbe9-e8e517f5c441"
-                                                        }
-                                                    ]
-                                                },
+                                                    "group": "(Custom Properties)",
+                                                    "name": "tbar",
+                                                    "type": "object"
+                                                }
+                                            ],
+                                            "cn": [
                                                 {
                                                     "type": "Ext.form.field.Text",
                                                     "reference": {

@@ -45,9 +45,6 @@
                     "    'parameditorct button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'parameditorct button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'parameditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -137,7 +134,6 @@
                     "",
                     "this.getParamEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
                     "this.getParamEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getParamEditorCt().down('button[itemId=commonReadBtn]').setDisabled(true);",
                     "this.getParamEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
                 ]
             },
@@ -275,23 +271,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"paramEditorCtrl.doRead\");",
-                    "this.getParamGrid().loadStore();"
-                ]
-            },
-            "designerId": "1e0db8ea-c8d4-40f8-b826-00fa8db1c4d2"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "onParamFormValidityChange",
                 "designer|params": [
                     "basic, valid, eOpts"
@@ -337,20 +316,12 @@
                     "var delbtn=this.getParamEditorCt().down('button[itemId=commonDeleteBtn]');",
                     "var savbtn=this.getParamEditorCt().down('button[itemId=commonSaveBtn]');",
                     "var updbtn=this.getParamEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "var redbtn=this.getParamEditorCt().down('button[itemId=commonReadBtn]');",
                     "",
                     "if(newCard==tabPanel.down('panel[itemId=paramBrowse]')){",
                     "    delbtn.setDisabled(true);",
                     "    savbtn.setDisabled(true);",
                     "    updbtn.setDisabled(true);",
-                    "    redbtn.setDisabled(false);",
                     "",
-                    "}",
-                    "if(newCard==tabPanel.down('panel[itemId=paramMainten]')){",
-                    "    redbtn.setDisabled(true);",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=paramForm]').getForm().reset(true);",
                     "}"
                 ]
             },

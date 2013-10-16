@@ -87,9 +87,6 @@
                     "    'itemeditorct #itemToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'itemeditorct #itemToolbar button[itemId=commonReadBtn]':{",
-                    "        click:this.doRead",
-                    "    },",
                     "    'itemeditorct #itemToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
@@ -229,23 +226,6 @@
                 ]
             },
             "designerId": "31b117b9-2f60-4a0f-8fb7-3a9bc14f242e"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doRead",
-                "implHandler": [
-                    "",
-                    "console.log(\"itemEditorCtrl.doRead\");",
-                    "this.getItemGrid().loadStore();"
-                ]
-            },
-            "designerId": "106444f6-4d88-4c80-9489-ebedc4bcaf47"
         },
         {
             "type": "basicfunction",
