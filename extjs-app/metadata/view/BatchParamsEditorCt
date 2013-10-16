@@ -223,6 +223,7 @@
                                                         "height": null,
                                                         "width": null,
                                                         "autoScroll": true,
+                                                        "layout|flex": 1,
                                                         "dock": null
                                                     },
                                                     "designerId": "6775986c-a67b-4a11-ac2f-76480f54d1ee",
@@ -236,6 +237,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "layout|flex": 1,
                                                         "dock": null,
                                                         "container|align": "stretch",
                                                         "container|padding": 10,
@@ -259,6 +261,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "layout|flex": null,
                                                         "dock": null,
                                                         "container|align": "stretch",
                                                         "height": null,
@@ -270,7 +273,46 @@
                                                         "layout": "vbox",
                                                         "fieldLabel": null
                                                     },
-                                                    "designerId": "480def81-1019-4eb1-adac-5e881765c2ba"
+                                                    "designerId": "480def81-1019-4eb1-adac-5e881765c2ba",
+                                                    "cn": [
+                                                        {
+                                                            "type": "linkedinstance",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "domainName": "batchRoute",
+                                                                "itemId": "commonImageUploader",
+                                                                "minWidth": null,
+                                                                "width": null,
+                                                                "autoScroll": true,
+                                                                "layout|flex": 1
+                                                            },
+                                                            "designerId": "d1e847c3-af44-40cc-8e03-f17f8a59f72b",
+                                                            "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onFormRender",
+                                                                        "implHandler": [
+                                                                            "component.showToolbar();"
+                                                                        ],
+                                                                        "name": "render",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "designerId": "d9ed0832-5d88-4bcf-9acd-9a3670144b89"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "type": "basiceventbinding",

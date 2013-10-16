@@ -166,8 +166,10 @@ class BatchReportDetController {
         def msg=[]
 
         params.each{
-            if(it.key!="_dc" && it.key!="format" && it.key!="action" && it.key!="controller"){
-                def batchReportDetInstance=BatchReportDet.get(it.key)
+            if(it.key!="file" && it.key!="_dc" && it.key!="format" && it.key!="action" 
+                && it.key!="controller" && it.key!="criteria"){
+
+                def batchReportDetInstance=BatchReportDet.findById(it.key)
                 if (!batchReportDetInstance) {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
 
