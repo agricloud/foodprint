@@ -21,7 +21,12 @@
         "views": [
             "ItemEditorCt"
         ],
-        "designer|userClassName": "ItemEditorController"
+        "designer|userClassName": "ItemEditorController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
     },
     "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
     "cn": [
@@ -79,40 +84,37 @@
                 "implHandler": [
                     "this.control({",
                     "    'itemeditorct #itemToolbar button[itemId=commonCreateBtn]':{",
-                    "        click:this.doCreate",
+                    "        click:this.doMainEditorCreate",
                     "    },",
                     "    'itemeditorct #itemToolbar button[itemId=commonDeleteBtn]':{",
-                    "        click:this.doDelete",
+                    "        click:this.doMainEditorDelete",
                     "    },",
                     "    'itemeditorct #itemToolbar button[itemId=commonSaveBtn]':{",
-                    "        click:this.doSave",
+                    "        click:this.doMainEditorSave",
                     "    },",
                     "    'itemeditorct #itemToolbar button[itemId=commonUpdateBtn]':{",
-                    "        click:this.doUpdate",
+                    "        click:this.doMainEditorUpdate",
                     "    },",
                     "    'itemeditorct grid[itemId=itemGrid]':{",
-                    "        itemdblclick:this.readItem",
+                    "        itemdblclick:this.readItemForm",
                     "    },",
                     "    'itemeditorct #itemRouteToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.itemRouteCreate",
                     "    },",
                     "    'itemeditorct #itemRouteToolbar button[itemId=commonDeleteBtn]':{",
-                    "        click:this.itemRouteDelete",
+                    "        click:this.doSubEditorDelete",
                     "    },",
                     "    'itemeditorct #itemRouteToolbar button[itemId=commonSaveBtn]':{",
-                    "        click:this.itemRouteSave",
+                    "        click:this.doSubEditorSave",
                     "    },",
                     "    'itemeditorct #itemRouteToolbar button[itemId=commonUpdateBtn]':{",
-                    "        click:this.itemRouteUpdate",
+                    "        click:this.doSubEditorUpdate",
                     "    },",
-                    "    //    'itemeditorct panel[itemId=itemEditor]':{",
-                    "    //        tabchange:this.onTabChange",
-                    "    //    },",
                     "    'itemeditorct #itemViewer form[itemId=itemForm]':{",
-                    "        validitychange:this.onItemFormValidityChange",
+                    "        validitychange:this.onMainFormValidityChange",
                     "    },   ",
                     "    'itemeditorct #itemViewer grid[itemId=itemRouteGrid]':{",
-                    "        selectionchange:this.itemRouteGridChange",
+                    "        itemdblclick:this.readItemRouteForm",
                     "    }",
                     "});",
                     "",
@@ -142,15 +144,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "readItem",
+                "fn": "readItemForm",
                 "designer|params": [
                     "obj, record, item, index, e, eOpts"
                 ],
                 "implHandler": [
-                    "this.getItemEditor().setActiveTab(this.getItemEditor().down('panel[itemId=itemMainten]'));",
                     "",
-                    "Utilities.doRead(this.mainEditor);",
-                    "",
+                    "this.readMainForm(this.mainEditor);",
                     "this.getItemRouteGrid().loadItemRoute(record.data.id);",
                     "",
                     ""
@@ -166,175 +166,22 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doUpdate",
-                "implHandler": [
-                    "Utilities.doUpdate(this.mainEditor);",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "65627de4-3e1d-4a01-827c-155091e1ac12"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "this.getItemEditor().setActiveTab(this.getItemViewer().up());",
-                    "this.getItemViewer().down('form[itemId=itemForm]').getForm().reset(true);",
-                    "/*",
-                    "console.log('ItemRouteGridCtrl.doCreate');",
-                    "var grid = this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]');",
-                    "var store = grid.getStore();",
-                    "store.insert(store.getCount(),data);",
-                    "*/"
-                ]
-            },
-            "designerId": "5a40d9d6-1c68-4946-8127-728ac799857c"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doDelete",
-                "implHandler": [
-                    "Utilities.doDelete(this.mainEditor);"
-                ]
-            },
-            "designerId": "2b7c3fc4-2113-46f1-8ddc-23e8fa90a45e"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSave",
-                "implHandler": [
-                    "Utilities.doCreate(this.mainEditor);"
-                ]
-            },
-            "designerId": "31b117b9-2f60-4a0f-8fb7-3a9bc14f242e"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onItemFormValidityChange",
-                "designer|params": [
-                    "basic, valid, eOpts"
-                ],
-                "implHandler": [
-                    "",
-                    "Utilities.validityChange(basic, valid, this.mainEditor);"
-                ]
-            },
-            "designerId": "775ede63-ffbf-42b6-b41e-7a9cd2c5b1bf"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "itemRouteCreate",
                 "implHandler": [
-                    "this.getItemViewer().down('form[itemId=itemRouteForm]').getForm().reset(true);",
                     "",
-                    "var store =this.getItemViewer().down('gridpanel[itemId=itemRouteGrid]').getStore();",
-                    "var item_id = this.getItemViewer().down('form[itemId=itemForm]').down('numberfield[name=id]').getValue();",
+                    "this.doSubEditorCreate();",
                     "",
-                    "//alert(store.getCount()+1);",
-                    "//alert(item_id);",
+                    "var item_id = this.mainEditor.form().down('numberfield[name=id]').getValue();",
+                    "var store = this.mainEditor.grid().getStore();",
                     "",
-                    "this.getItemViewer().down('form[itemId=itemRouteForm]').getForm().setValues({",
+                    "this.subEditor.form().getForm().setValues({",
                     "    'item.id': item_id,",
                     "    sequence:store.getCount()+1",
                     "});",
-                    "this.getItemViewer().down('button[itemId=commonSaveBtn]').setDisabled(false);",
                     ""
                 ]
             },
             "designerId": "e6d031b9-d634-4089-970c-d4b18cd121f8"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "itemRouteDelete",
-                "implHandler": [
-                    "Utilities.doDelete(this.subEditor);"
-                ]
-            },
-            "designerId": "aa09033e-9cbb-40f9-8aeb-96d8cac1c744"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "itemRouteSave",
-                "implHandler": [
-                    "Utilities.doCreate(this.subEditor);"
-                ]
-            },
-            "designerId": "7a6fbd47-98c4-4bb7-bc2f-ca4f72667060"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "itemRouteGridChange",
-                "designer|params": [
-                    "model, selected, eOpts"
-                ],
-                "implHandler": [
-                    "if (selected) {",
-                    "    if(selected!=\"\"){",
-                    "        this.getItemViewer().down('form[itemId=itemRouteForm]').loadRecord(selected[0]);",
-                    "",
-                    "        var item_id = this.getItemViewer().down('form[itemId=itemForm]').down('numberfield[name=id]').getValue();",
-                    "",
-                    "",
-                    "        this.getItemViewer().down('form[itemId=itemRouteForm]').getForm().setValues({",
-                    "            'item.id': item_id,",
-                    "        });",
-                    "",
-                    "        this.getItemViewer().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "        this.getItemViewer().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "}"
-                ]
-            },
-            "designerId": "90f99e1e-236e-45b0-8ee4-91f88bbca446"
         },
         {
             "type": "controllerref",
@@ -348,21 +195,6 @@
                 "selector": "itemeditorct #itemToolbar"
             },
             "designerId": "02f57347-4aed-4c8d-bf46-5121207f08d5"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "itemRouteUpdate",
-                "implHandler": [
-                    "Utilities.doUpdate(this.subEditor);"
-                ]
-            },
-            "designerId": "a8af05b3-6520-4163-a175-aa9ca1f68e87"
         },
         {
             "type": "controllerref",
@@ -404,43 +236,29 @@
             "designerId": "f2393c47-493f-4fca-90c4-94927cd572d7"
         },
         {
-            "type": "controllerref",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "itemEditor",
-                "selector": "itemeditorct #itemEditor"
+                "fn": "readItemRouteForm",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "var item_id = this.mainEditor.form().down('numberfield[name=id]').getValue();",
+                    "",
+                    "",
+                    "this.subEditor.form().getForm().setValues({",
+                    "    'item.id': item_id",
+                    "});",
+                    "",
+                    "this.readSubForm(obj, record, item, index, e, eOpts);"
+                ]
             },
-            "designerId": "78debfb4-a13d-488d-8df7-c97f5b63b9b0"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "itemEditorCt",
-                "selector": "itemeditorct"
-            },
-            "designerId": "93c67d87-b6e7-4af8-98e2-711e76dff7ba"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "itemViewer",
-                "selector": "itemeditorct #itemViewer"
-            },
-            "designerId": "02f77bca-fb7b-4309-aa6d-9beb0b853faf"
+            "designerId": "59ffd883-8017-4835-8235-df26de248df9"
         }
     ]
 }
