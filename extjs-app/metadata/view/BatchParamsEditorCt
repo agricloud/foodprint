@@ -155,9 +155,10 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "itemId": "batchRouteCollect",
                                         "autoScroll": true,
-                                        "layout": "fit",
+                                        "layout": "hbox",
                                         "title": "BatchRouteParamsCollect"
                                     },
                                     "designerId": "5b026e94-7399-44e4-9f7f-da73070b96bd",
@@ -174,17 +175,171 @@
                                         {
                                             "type": "linkedinstance",
                                             "reference": {
-                                                "name": "dockedItems",
+                                                "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": null,
                                                 "autoScroll": true,
-                                                "dock": "top"
+                                                "dock": null,
+                                                "layout|flex": 2
                                             },
                                             "designerId": "feea775c-58e2-4d6c-a283-aa6d1050207f",
                                             "masterInstanceId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f"
+                                        },
+                                        {
+                                            "type": "Ext.form.Panel",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "dock": null,
+                                                "container|align": "stretch",
+                                                "height": null,
+                                                "itemId": "batchRouteParamsForm",
+                                                "maxWidth": null,
+                                                "minHeight": null,
+                                                "minWidth": null,
+                                                "width": null,
+                                                "autoScroll": true,
+                                                "layout": "vbox",
+                                                "bodyPadding": null,
+                                                "title": null
+                                            },
+                                            "designerId": "6136828a-bfc6-43fa-95c7-c0a583300780",
+                                            "cn": [
+                                                {
+                                                    "type": "linkedinstance",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "height": null,
+                                                        "width": null,
+                                                        "autoScroll": true,
+                                                        "layout|flex": 1,
+                                                        "dock": null
+                                                    },
+                                                    "designerId": "6775986c-a67b-4a11-ac2f-76480f54d1ee",
+                                                    "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
+                                                },
+                                                {
+                                                    "type": "Ext.form.FieldContainer",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "dock": null,
+                                                        "container|align": "stretch",
+                                                        "container|padding": 10,
+                                                        "height": null,
+                                                        "id": null,
+                                                        "itemId": "dynamicContainer",
+                                                        "padding": null,
+                                                        "width": null,
+                                                        "designer|displayName": null,
+                                                        "designer|createAlias": null,
+                                                        "layout": "vbox",
+                                                        "fieldLabel": null
+                                                    },
+                                                    "designerId": "e48b51e8-7acd-47ac-8d4f-24d253f36e74"
+                                                },
+                                                {
+                                                    "type": "Ext.form.FieldContainer",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": null,
+                                                        "dock": null,
+                                                        "container|align": "stretch",
+                                                        "height": null,
+                                                        "id": null,
+                                                        "itemId": "staticContainer",
+                                                        "width": null,
+                                                        "designer|displayName": null,
+                                                        "designer|createAlias": null,
+                                                        "layout": "vbox",
+                                                        "fieldLabel": null
+                                                    },
+                                                    "designerId": "480def81-1019-4eb1-adac-5e881765c2ba",
+                                                    "cn": [
+                                                        {
+                                                            "type": "linkedinstance",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "domainName": "batchRoute",
+                                                                "itemId": "commonImageUploader",
+                                                                "minWidth": null,
+                                                                "width": null,
+                                                                "autoScroll": true,
+                                                                "layout|flex": 1
+                                                            },
+                                                            "designerId": "d1e847c3-af44-40cc-8e03-f17f8a59f72b",
+                                                            "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onFormRender",
+                                                                        "implHandler": [
+                                                                            "component.showToolbar();"
+                                                                        ],
+                                                                        "name": "render",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "designerId": "d9ed0832-5d88-4bcf-9acd-9a3670144b89"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onBatchRouteParamsFormRender",
+                                                        "implHandler": [
+                                                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonCreateBtn]').hide();",
+                                                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonDeleteBtn]').hide();",
+                                                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonReadBtn]').hide();",
+                                                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                                                            "component.down('toolbar[itemId=commonEditorToolbar]').down('button[itemId=commonSaveBtn]').hide();",
+                                                            "",
+                                                            "",
+                                                            "",
+                                                            ""
+                                                        ],
+                                                        "name": "render",
+                                                        "scope": "me"
+                                                    },
+                                                    "designerId": "ae76bcf7-efaf-4b51-a543-5604de17ac9c"
+                                                }
+                                            ]
                                         }
                                     ]
                                 },

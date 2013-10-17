@@ -22,6 +22,15 @@ class BatchController {
     }
 
     def show(Long id){
+        //找出指定批號。
+        /*
+        * [Deep properties]
+        *
+        * batchInstanceList::
+        *   -item
+        *   -country
+        *   -supplier
+        */
         def batchInstance = Batch.get(id)
         if (!batchInstance) {
             flash.message = message(code: 'default.message.notfound', args: [message(code: 'batch.label', default: 'Batch'), id])
