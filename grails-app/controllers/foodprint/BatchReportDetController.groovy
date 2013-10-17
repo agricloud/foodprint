@@ -161,6 +161,7 @@ class BatchReportDetController {
 
     def update(){
         log.debug "BatchReportDetController--update"
+        log.debug params
 
         def failure=[]
         def success=[]
@@ -176,7 +177,7 @@ class BatchReportDetController {
                 if (!batchReportDetInstance) {
                     log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
 
-                    msg<< message(code: "default.message.update.notfound", args: [it.key])
+                    msg<< message(code: "default.message.notfound", args: [message(code: "batchReportDet.label"),it.key])
                     render (contentType: 'application/json') {
                         [success:false, message: msg.join('<br>')]
                     }
@@ -195,7 +196,7 @@ class BatchReportDetController {
         //更新製程開始結束日期
         def batchRouteInstance = BatchRoute.findById(params.id)
         if(!batchRouteInstance){
-            msg<< message(code: "default.message.update.notfound", args: [params.id])
+            msg<< message(code: "default.message.notfound", args: [message(code: "batchRoute.label"),params.id])
             render (contentType: 'application/json') {
                 [success:false, message: msg.join('<br>')]
             }

@@ -19,7 +19,11 @@
             "BatchParamsEditorCt"
         ],
         "designer|userClassName": "BatchParamsEditorController",
-        "mixins": null
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
     },
     "designerId": "b45ae00c-f10f-4e06-afac-1db682d3ce23",
     "cn": [
@@ -333,8 +337,9 @@
                     "",
                     "var that=this;",
                     "",
-                    "this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]').submit({",
+                    "this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]').getForm().submit({",
                     "    url: '/batchReportDet/update',",
+                    "    method: 'POST',",
                     "    submitEmptyText: false,",
                     "    waitMsg: lang['default.message.update'],",
                     "    success: function(form,action) {",
@@ -345,7 +350,23 @@
                     "    }",
                     "});",
                     "this.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    ""
+                    "",
+                    "/*",
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/update',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});",
+                    "",
+                    "*/"
                 ]
             },
             "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
