@@ -73,6 +73,26 @@
                         ]
                     },
                     "designerId": "4d70afab-6f08-473a-a31d-bb5048a41a1b"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCommonBatchTriggerSpecialkey",
+                        "implHandler": [
+                            "if (e.getKey() == e.ENTER) {",
+                            "    alert('enter');",
+                            "    field.fireEvent(\"onTriggerClick\", this, event);",
+                            "}"
+                        ],
+                        "name": "specialkey",
+                        "scope": "me"
+                    },
+                    "designerId": "21ff785d-a507-4a70-94f5-48b971ae4e8b"
                 }
             ]
         }

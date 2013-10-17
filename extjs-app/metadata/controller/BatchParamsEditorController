@@ -16,11 +16,14 @@
             "BatchRouteParamsStore"
         ],
         "views": [
-            "BatchParamsEditorCt",
-            "BatchRouteParamsWindow"
+            "BatchParamsEditorCt"
         ],
         "designer|userClassName": "BatchParamsEditorController",
-        "mixins": null
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
     },
     "designerId": "b45ae00c-f10f-4e06-afac-1db682d3ce23",
     "cn": [
@@ -97,8 +100,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "batchRouteParamsWindow",
-                "selector": "batchrouteparamswindow"
+                "ref": "batchRouteParamsForm",
+                "selector": "batchparamseditorct batchrouteparamsform"
             },
             "designerId": "a094a472-92c9-449a-a513-fcd7dc230e87"
         },
@@ -111,7 +114,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "commonImageUploader",
-                "selector": "batchrouteparamswindow commonimageuploader"
+                "selector": "batchparamseditorct #commonImageUploader"
             },
             "designerId": "1196e7fa-62ec-4ca2-b622-e8fe981aeeee"
         },
@@ -135,7 +138,7 @@
                     "    'batchparamseditorct #batchParamsEditor grid[itemId=batchRouteGrid]':{",
                     "        itemdblclick:this.loadBatchRouteParams",
                     "    },",
-                    "    'batchrouteparamswindow button[itemId=commonUpdateBtn]':{",
+                    "    'batchparamseditorct button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdateBatchRouteParams",
                     "    }",
                     "});"
@@ -187,8 +190,7 @@
                     "var store=this.getStore('BatchRouteParamsStore');",
                     "store.data.clear();",
                     "var that=this;",
-                    "this.getBatchRouteParamsWindow().show();",
-                    "this.getBatchRouteParamsWindow().setLoading(lang['default.message.load'],true);",
+                    "",
                     "store.load({",
                     "    params:{'batch.id':record.data['batch.id'],",
                     "        'operation.id':record.data['operation.id']",
@@ -197,7 +199,7 @@
                     "        //store.clearFilter();",
                     "        //store.filter('reportParams.operation.id',record.data['operation.id']);",
                     "",
-                    "        var form=that.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]');",
+                    "        var form=that.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]');",
                     "",
                     "        form.down('fieldcontainer[itemId=dynamicContainer]').removeAll(); ",
                     "",
@@ -289,28 +291,32 @@
                     "",
                     "            }//end switch",
                     "",
-                    "            field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
+                    "            field.fieldLabel = store.getAt(i).data['reportParams.param.title'];",
                     "",
                     "            field.listeners={",
                     "                validitychange:{",
                     "                    fn:function(obj, isValid, eOpts){",
                     "                        if(isValid)",
-                    "                        that.getBatchRouteParamsWindow().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "                        that.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
                     "                        else",
-                    "                        that.getBatchRouteParamsWindow().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "                        that.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
                     "                    }",
                     "                }",
                     "            };",
                     "",
-                    "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field); ",
+                    "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field);",
                     "        }//end for",
+                    "",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'numberfield',fieldLabel:'batchRoute.id',name:'id',value:record.data['id'],hidden:true});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.startDate',name:'startDate',value:record.data['startDate']});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.endDate',name:'endDate',value:record.data['endDate']});",
+                    "",
                     "",
                     "        that.getCommonImageUploader().setDomainId(record.data['id']);",
                     "",
                     "        that.getCommonImageUploader().showImage();",
-                    "        that.getBatchRouteParamsWindow().setLoading(false);",
                     "",
-                    "        //mask.hide();",
+                    "",
                     "    }//end callback",
                     "});//end load"
                 ]
@@ -330,42 +336,40 @@
                     "console.log('BatchParamsEditorCtrl.doUpdateBatchRouteParamsForm');",
                     "",
                     "var that=this;",
+                    "console.log(this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]'));",
                     "",
-                    "this.getBatchRouteParamsWindow().down('form[itemId=batchRouteParamsForm]').submit({",
+                    "this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]').getForm().submit({",
                     "    url: '/batchReportDet/update',",
                     "    submitEmptyText: false,",
                     "    waitMsg: lang['default.message.update'],",
                     "    success: function(form,action) {",
                     "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getBatchRouteParamsWindow().close();",
                     "    },",
                     "    failure: function(form,action) {",
                     "        Ext.MessageBox.alert('Failure',action.result.message);",
                     "    }",
                     "});",
-                    "this.getBatchRouteParamsWindow().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    ""
+                    "this.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "",
+                    "/*",
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "url: '/'+config.domainName+'/update',",
+                    "submitEmptyText: false,",
+                    "waitMsg: 'Updating Data...',",
+                    "success: function(form,action) {",
+                    "Utilities.respondSuccess(action,config);",
+                    "},",
+                    "failure: function(form,action) {",
+                    "Utilities.respondFailure(action,config);",
+                    "}",
+                    "});",
+                    "",
+                    "*/"
                 ]
             },
             "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
-        },
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onLaunch",
-                "implHandler": [
-                    "",
-                    "Ext.widget('batchrouteparamswindow');",
-                    "this.getCommonImageUploader().showToolbar();",
-                    ""
-                ]
-            },
-            "designerId": "d1e6b2ff-5b48-4d0e-9c74-50224b26d772"
         }
     ]
 }
