@@ -16,8 +16,7 @@
             "BatchRouteParamsStore"
         ],
         "views": [
-            "BatchParamsEditorCt",
-            "BatchRouteParamsWindow"
+            "BatchParamsEditorCt"
         ],
         "designer|userClassName": "BatchParamsEditorController",
         "mixins": null
@@ -288,7 +287,7 @@
                     "",
                     "            }//end switch",
                     "",
-                    "            field.fieldLabel= store.getAt(i).data['reportParams.param.title'];",
+                    "            field.fieldLabel = store.getAt(i).data['reportParams.param.title'];",
                     "",
                     "            field.listeners={",
                     "                validitychange:{",
@@ -301,9 +300,14 @@
                     "                }",
                     "            };",
                     "",
-                    "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field); ",
+                    "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field);",
                     "        }//end for",
-                    "",
+                    "        ",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'numberfield',fieldLabel:'batchRoute.id',name:'id',value:record.data['id']});//,hidden:true});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.startDate',name:'startDate',value:record.data['startDate']});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.endDate',name:'endDate',value:record.data['endDate']});",
+                    "        ",
+                    "        ",
                     "        that.getCommonImageUploader().setDomainId(record.data['id']);",
                     "",
                     "        that.getCommonImageUploader().showImage();",
@@ -335,7 +339,6 @@
                     "    waitMsg: lang['default.message.update'],",
                     "    success: function(form,action) {",
                     "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getBatchParamsEditor().close();",
                     "    },",
                     "    failure: function(form,action) {",
                     "        Ext.MessageBox.alert('Failure',action.result.message);",

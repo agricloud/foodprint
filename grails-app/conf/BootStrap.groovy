@@ -32,7 +32,7 @@ class BootStrap {
 				def item5 = new Item(name:"item5",title:"colasun").save(failOnError: true, flush: true)
 
 
-				def batch1 = new Batch(name:"0927-410002",item:item1).save(failOnError: true, flush: true)
+				def batch1 = new Batch(name:"0927-410002",item:item1,dueDate:new Date()).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
 				def batch4 = new Batch(name:"batch4",item:item4).save(failOnError: true, flush: true)
@@ -110,7 +110,7 @@ class BootStrap {
 				def itemRoute6=new ItemRoute(item:item2,sequence:2,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
 
 				def batchRoute1=new BatchRoute(batch:batch1,workstation:workstation1,sequence:1,operation:operation1).save(failOnError: true,flush: true)
-				def batchRoute2=new BatchRoute(batch:batch1,workstation:workstation2,sequence:2,operation:operation2).save(failOnError: true,flush: true)
+				def batchRoute2=new BatchRoute(batch:batch1,workstation:workstation2,sequence:2,operation:operation2,startDate:new Date()).save(failOnError: true,flush: true)
 				def batchRoute3=new BatchRoute(batch:batch1,workstation:workstation2,sequence:3,operation:operation3).save(failOnError: true,flush: true)
 				def batchRoute4=new BatchRoute(batch:batch1,workstation:workstation1,sequence:4,operation:operation4).save(failOnError: true,flush: true)
 				def batchRoute5=new BatchRoute(batch:batch2,workstation:workstation2,sequence:2,operation:operation2).save(failOnError: true,flush: true)
