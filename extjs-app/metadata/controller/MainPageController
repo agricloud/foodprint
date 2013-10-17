@@ -82,6 +82,9 @@
                     "    },",
                     "    'maincontainer button[itemId=customerMaintain]':{",
                     "        click:this.customerMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=itemRouteMaintain]':{",
+                    "        click:this.itemRouteMaintain",
                     "    }",
                     "});"
                 ]
@@ -310,6 +313,23 @@
                 ]
             },
             "designerId": "bae50c90-0511-43d0-9a61-d9837619683e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'itemrouteeditorct';",
+                    "var tabName = '品項途程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "82f04561-5a50-4b33-afcc-ad68493d6b89"
         }
     ]
 }

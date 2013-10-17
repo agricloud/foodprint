@@ -18,29 +18,18 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "respondFailure",
-                "designer|params": [
-                    "action",
-                    "config"
-                ],
+                "fn": "doCreate",
                 "implHandler": [
+                    "console.log(this.domainName +\" doCreate\")",
+                    "this.activeEditor();",
+                    "this.getMainForm().getForm().reset(true);",
+                    "this.actionName = 'create';",
                     "",
-                    "Ext.MessageBox.alert('Failure',action.result.message);",
-                    "",
-                    "",
-                    "if(action.url.indexOf('create')!=-1){",
-                    "    config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);\t",
-                    "}else {",
-                    "    config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "    config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "",
-                    "",
-                    "}",
                     "",
                     ""
                 ]
             },
-            "designerId": "e2b4e778-d528-49e3-ad80-c8a670888da6"
+            "designerId": "e5d44e70-a03d-4bda-8fd9-3f5590d5b18e"
         },
         {
             "type": "basicfunction",
@@ -50,190 +39,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "respondSuccess",
-                "designer|params": [
-                    "action",
-                    "config"
-                ],
-                "implHandler": [
-                    "Ext.MessageBox.alert('Success',action.result.message);",
-                    "",
-                    "console.log(config.grid());",
-                    "config.grid().getStore().reload();",
-                    "config.form().getForm().reset(true);"
-                ]
-            },
-            "designerId": "edb050b3-474e-41ff-a621-214184b24ace"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doMainEditorUpdate",
-                "implHandler": [
-                    "this.submitUpdate(this.mainEditor);",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "ff79c6e1-aa25-4aa4-832b-583646979f61"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doMainEditorCreate",
-                "implHandler": [
-                    "this.activeViewerTab();",
-                    "this.mainEditor.form().getForm().reset(true);",
-                    "",
-                    "if(this.subEditor){",
-                    "    this.cleanSubEditor();",
-                    "}"
-                ]
-            },
-            "designerId": "df303b4c-fb0a-4cbd-9392-02a4bbc447bf"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doMainEditorDelete",
-                "implHandler": [
-                    "",
-                    "this.submitDelete(this.mainEditor);"
-                ]
-            },
-            "designerId": "595d1687-b82a-42ec-b74c-afce82049909"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doMainEditorSave",
-                "implHandler": [
-                    "this.submitCreate(this.mainEditor);",
-                    "this.activeListTab();"
-                ]
-            },
-            "designerId": "d850fe2e-839f-4ab3-ac76-0e2f7e11a090"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSubEditorUpdate",
-                "implHandler": [
-                    "this.submitUpdate(this.subEditor);"
-                ]
-            },
-            "designerId": "cd7e1268-91e2-44f5-a9d5-42ef166cbfa7"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSubEditorDelete",
-                "implHandler": [
-                    "this.submitDelete(this.subEditor);"
-                ]
-            },
-            "designerId": "ad26dd6a-f9b4-4af7-9d9e-05da38b9e1da"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSubEditorSave",
-                "implHandler": [
-                    "this.submitCreate(this.subEditor);"
-                ]
-            },
-            "designerId": "f549d885-ffe3-41a0-829d-eeb6369c067c"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onMainFormValidityChange",
-                "designer|params": [
-                    "basic, valid, eOpts"
-                ],
-                "implHandler": [
-                    "",
-                    "this.validityChange(basic, valid, this.mainEditor);"
-                ]
-            },
-            "designerId": "1daa3741-cd0c-44cc-a417-d590a8b50713"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSubEditorCreate",
-                "implHandler": [
-                    "this.subEditor.form().getForm().reset(true);",
-                    "this.subEditor.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    ""
-                ]
-            },
-            "designerId": "432d7e76-f9c9-40ec-a7d6-6ca835811057"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "readMainForm",
+                "fn": "doShow",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "this.activeViewerTab();",
+                    "this.activeEditor();",
                     "",
-                    "config.form().loadRecord(config.grid().getSelectionModel().getSelection()[0]);",
+                    "this.getMainForm().loadRecord(this.getMainGrid().getSelectionModel().getSelection()[0]);",
                     "",
-                    "config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);"
+                    "this.actionName = 'update';"
                 ]
             },
             "designerId": "546903f2-19f4-4dd4-9390-a15ca9ff8e9a"
@@ -246,22 +61,87 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "submitUpdate",
+                "fn": "doDelete",
+                "implHandler": [
+                    "var that = this ;",
+                    "",
+                    "",
+                    "this.actionName='delete';",
+                    "this.submitForm(function(success){",
+                    "    if(success){",
+                    "        that.activeGrid();",
+                    "        that.actionName = '' ;",
+                    "        that.getMainGrid().getStore().reload();",
+                    "    }",
+                    "    that.actionName='update';",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "595d1687-b82a-42ec-b74c-afce82049909"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "var that = this ;",
+                    "",
+                    "this.submitForm(function(success){",
+                    "    if(success){",
+                    "",
+                    "        that.getMainGrid().getStore().reload();",
+                    "",
+                    "        if(that.actionName === 'create'){",
+                    "            that.activeGrid();",
+                    "            that.actionName = '' ;",
+                    "        }",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "d850fe2e-839f-4ab3-ac76-0e2f7e11a090"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "submitForm",
                 "designer|params": [
-                    "config"
+                    "callback"
                 ],
                 "implHandler": [
                     "",
-                    "console.log(\"util update\");",
-                    "config.form().getForm().submit({",
-                    "    url: '/'+config.domainName+'/update',",
+                    "",
+                    "this.getMainForm().getForm().submit({",
+                    "    url: '/'+this.domainName+'/'+this.actionName,",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Updating Data...',",
                     "    success: function(form,action) {",
-                    "        Utilities.respondSuccess(action,config);",
+                    "        Ext.MessageBox.alert('Success',action.result.message);",
+                    "",
+                    "        if (callback) {",
+                    "            callback(true)",
+                    "        }",
+                    "",
                     "    },",
                     "    failure: function(form,action) {",
-                    "        Utilities.respondFailure(action,config);",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback) {",
+                    "            callback(false)",
+                    "        }",
                     "    }",
                     "});"
                 ]
@@ -276,104 +156,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "submitDelete",
-                "designer|params": [
-                    "config"
-                ],
+                "fn": "activeGrid",
                 "implHandler": [
-                    "config.form().getForm().submit({",
-                    "    url: '/'+config.domainName+'/delete',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
-                    "    success: function(form,action) {",
-                    "        Utilities.respondSuccess(action,config);",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        Utilities.respondFailure(action,config);",
-                    "    }",
-                    "});",
-                    ""
-                ]
-            },
-            "designerId": "ef8985d7-90c0-48d0-bafa-16c81757dfdb"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "submitCreate",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
+                    "var ct = this.getMainCt();",
                     "",
-                    "console.log(\"util create\");",
-                    "config.form().getForm().submit({",
-                    "    url: '/'+config.domainName+'/create',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function(form,action) {",
-                    "        Utilities.respondSuccess(action,config);",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        Utilities.respondFailure(action,config);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "bfef9401-0f25-4202-b274-bc4cb8a31093"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "validityChange",
-                "designer|params": [
-                    "basic, valid,config"
-                ],
-                "implHandler": [
-                    "config.form().getForm().updateRecord();",
-                    "",
-                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
-                    "    if(valid){",
-                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "    }",
-                    "}",
-                    "else{",
-                    "    if(valid){",
-                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(true);",
-                    "    }",
-                    "}"
-                ]
-            },
-            "designerId": "9f3a2e93-f98d-4f78-a62d-34e380f7d610"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "activeListTab",
-                "implHandler": [
-                    "this.mainEditor.toolbar().up().down('tabpanel').setActiveTab(this.mainEditor.grid().up());",
-                    ""
+                    "ct.getLayout().setActiveItem(this.getMainGrid().down().up(\"panel[itemId=browser]\"));"
                 ]
             },
             "designerId": "47601aec-5c2f-4af8-851b-171007d9556a"
@@ -386,10 +173,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activeViewerTab",
+                "fn": "activeEditor",
                 "implHandler": [
-                    "this.mainEditor.toolbar().up().down('tabpanel').setActiveTab(this.mainEditor.form().up('panel').up());",
-                    ""
+                    "var ct = this.getMainCt();",
+                    "ct.getLayout().setActiveItem(this.getMainForm().down().up(\"panel[itemId=viewer]\"));"
                 ]
             },
             "designerId": "b7f2967a-f2e5-4a2d-95b0-8cf0292e2a5f"
@@ -402,37 +189,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "readSubForm",
-                "designer|params": [
-                    "obj, record, item, index, e, eOpts"
-                ],
+                "fn": "doCancel",
                 "implHandler": [
-                    "this.subEditor.form().loadRecord(record);",
-                    "",
-                    "this.subEditor.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.subEditor.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.subEditor.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(true);",
-                    "",
-                    ""
+                    "this.activeGrid();",
+                    "this.getMainForm().getForm().reset(true);"
                 ]
             },
-            "designerId": "b6b7c151-5c66-4a09-8834-1234430bd142"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "cleanSubEditor",
-                "implHandler": [
-                    "    this.subEditor.form().getForm().reset(true);",
-                    "    this.subEditor.grid().getStore().removeAll();"
-                ]
-            },
-            "designerId": "2679e2f4-f357-4494-8966-cecc36a1986c"
+            "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"
         }
     ]
 }

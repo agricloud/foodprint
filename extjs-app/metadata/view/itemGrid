@@ -1,0 +1,154 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "grid1",
+        "designer|userClassName": "itemGrid",
+        "designer|userAlias": "itemgrid",
+        "manageHeight": false,
+        "title": null,
+        "store": "ItemStore"
+    },
+    "configAlternates": {
+        "tbar": "object"
+    },
+    "designerId": "9ef70e18-ecf3-4d60-97cc-655fb0d3cd28",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "6d7f44cf-8294-4dcc-9add-04e18a3518af"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "ea841b78-d39e-45ad-a7b6-b859c972df26"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "title",
+                "text": "Title",
+                "flex": 1
+            },
+            "designerId": "b9593b2b-7644-468c-a467-8959f6a1b9f2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "description",
+                "text": "Description",
+                "flex": 1
+            },
+            "designerId": "148da93f-934a-4c87-9cba-26de8a4438ea"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "dueDays",
+                "text": "DueDays",
+                "flex": 1
+            },
+            "designerId": "30c2e70f-3e97-4dc4-8887-8b15708e7ded"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "effectStartDate",
+                "text": "EffectStartDate",
+                "flex": 1
+            },
+            "designerId": "01ae6ce6-c4f9-4aa2-afe9-da3cd1845d2a"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "effectEndDate",
+                "text": "EffectEndDate",
+                "flex": 1
+            },
+            "designerId": "59ee4c7d-4a63-40c0-94fe-6847a9b1eb1b"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": null,
+                "displayInfo": true,
+                "store": "ItemStore"
+            },
+            "designerId": "3f504e25-2865-46c7-8dbe-8bb5b3a79453"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processItemGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config = Utilities.createFiltersFeature(config);",
+                    "",
+                    "",
+                    "",
+                    "return config;",
+                    ""
+                ]
+            },
+            "designerId": "d448cef9-a4e3-43c9-a7ef-fa64954c9d6e"
+        }
+    ]
+}

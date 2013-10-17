@@ -1,0 +1,198 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ItemRoute"
+        ],
+        "stores": [
+            "ItemRouteStore",
+            "ItemRouteDeepStore"
+        ],
+        "views": [
+            "ItemRouteEditorCt",
+            "itemGrid"
+        ],
+        "designer|userClassName": "ItemRouteEditorController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
+    },
+    "designerId": "eb0fdc48-2660-4592-8837-3dbc6c4f9f7a",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "Itemrouteeditorct #grid"
+            },
+            "designerId": "db6a90b6-b99f-408e-9e2a-59ca37956ef2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "Itemrouteeditorct #form"
+            },
+            "designerId": "95c3ff62-debb-47a4-ad07-62563c68ea5c"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'Itemrouteeditorct #browser commongridtoolbar commoncreatebtn':{",
+                    "        click:this.createItemRoute",
+                    "    },",
+                    "    'Itemrouteeditorct #viewer commonformtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'Itemrouteeditorct #viewer commonformtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'Itemrouteeditorct #viewer commonformtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'Itemrouteeditorct #browser #grid':{",
+                    "        itemdblclick:this.showItemRoute",
+                    "    },",
+                    "    'Itemrouteeditorct #browser #masterGrid':{",
+                    "        select:this.indexItemRoute",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'itemRoute';"
+                ]
+            },
+            "designerId": "74b97bc4-ba70-4919-ae83-7a5cabcf3c46"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "indexItemRoute",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "this.masterId = record.data.id;",
+                    "",
+                    "console.log(this.masterId);",
+                    "var grid = this.getMainGrid();",
+                    "",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "grid.getStore().load({",
+                    "    params:{'item.id':this.masterId}",
+                    "});",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "34eb5146-b637-40d2-b66e-3cff88ac3e21"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createItemRoute",
+                "implHandler": [
+                    "",
+                    "this.doCreate();",
+                    "",
+                    "",
+                    "this.getMainForm().getForm().setValues({",
+                    "    'item.id': this.masterId,",
+                    "    sequence:this.getMainGrid().getStore().getCount()+1",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "2104d20b-9ae7-49b2-a8b8-7916f59e6b28"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showItemRoute",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "this.doShow();",
+                    "",
+                    "console.log(this.masterId);",
+                    "this.getMainForm().getForm().setValues({",
+                    "    'item.id': this.masterId",
+                    "});"
+                ]
+            },
+            "designerId": "9cda721e-899a-4e0a-b966-0d0bda1fea88"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainCt",
+                "selector": "Itemrouteeditorct"
+            },
+            "designerId": "37885223-fc5e-4dda-8abd-b936335e1dc7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "Itemrouteeditorct #masterGrid"
+            },
+            "designerId": "683a9fb4-b04b-4dff-bbf2-8915a9cf3cb2"
+        }
+    ]
+}
