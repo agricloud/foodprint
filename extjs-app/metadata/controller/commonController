@@ -19,29 +19,73 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doShow",
-                "designer|params": [
-                    "config"
-                ],
                 "implHandler": [
-                    "this.activeEditor();",
                     "",
+                    "",
+                    "var that = this",
                     "var record= this.getMainGrid().getSelectionModel().getSelection()[0]",
+                    "var id = -1",
                     "",
+                    "if(this.getMainGrid().getSelectionModel().getSelection()[0])",
+                    "\tid = record.data.id;",
                     "",
                     "this.getMainForm().getForm().load({",
-                    "    url:'/'+this.domainName+'/show/'+record.data.id,",
+                    "    url:'/'+this.domainName+'/show/'+id,",
                     "    success: function(form, action) {",
+                    "    \tthat.activeEditor();",
+                    "    \tthis.actionName = 'update';",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
+                    "    \tExt.MessageBox.alert('Failure',action.result.message);",
                     "    }",
                     "});",
                     "",
                     "",
-                    "this.actionName = 'update';"
+                    ""
                 ]
             },
             "designerId": "546903f2-19f4-4dd4-9390-a15ca9ff8e9a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "var that = this",
+                    "var params = {}",
+                    "",
+                    "params[this.masterKey]=this.masterId",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:'/'+this.domainName+'/create',",
+                    "    params:params,",
+                    "    success: function(form, action) {",
+                    "        that.activeEditor();",
+                    "        that.actionName = 'save';",
+                    "    \tthat.activeEditor();",
+                    "    \tthat.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);",
+                    "    ",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "e5d44e70-a03d-4bda-8fd9-3f5590d5b18e"
         },
         {
             "type": "basicfunction",
@@ -70,43 +114,6 @@
                 ]
             },
             "designerId": "595d1687-b82a-42ec-b74c-afce82049909"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "var that = this",
-                    "var params = {}",
-                    "",
-                    "params[this.masterKey]=this.masterId",
-                    "",
-                    "this.getMainForm().getForm().load({",
-                    "    url:'/'+this.domainName+'/create',",
-                    "    params:params,",
-                    "    success: function(form, action) {",
-                    "        that.activeEditor();",
-                    "        that.actionName = 'save';",
-                    "    },",
-                    "    ",
-                    "    failure: function(form, action) {",
-                    "    \tExt.MessageBox.alert('Failure',action.result.message);",
-                    "    }",
-                    "    ",
-                    "});",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "e5d44e70-a03d-4bda-8fd9-3f5590d5b18e"
         },
         {
             "type": "basicfunction",
@@ -180,7 +187,7 @@
                 ],
                 "implHandler": [
                     "",
-                    "",
+                    "console.log('/'+this.domainName+'/'+this.actionName);",
                     "this.getMainForm().getForm().submit({",
                     "    url: '/'+this.domainName+'/'+this.actionName,",
                     "    submitEmptyText: false,",
@@ -245,8 +252,11 @@
             "userConfig": {
                 "fn": "doCancel",
                 "implHandler": [
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
+                    "this.getMainForm().getForm().reset(true);",
                     "this.activeGrid();",
-                    "this.getMainForm().getForm().reset(true);"
+                    "",
+                    ""
                 ]
             },
             "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"
