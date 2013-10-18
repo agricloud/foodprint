@@ -1,12 +1,10 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.converters.JSON
 import org.apache.commons.lang.exception.ExceptionUtils
+import grails.converters.JSON
 
 class BatchController {
-
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST",  show: "get"]
 
     def domainService
 
@@ -15,6 +13,12 @@ class BatchController {
 
         def list = Batch.createCriteria().list(params,params.criteria)
 
+        // def listJson =  JSON.parse((list as JSON).toString())
+
+        // listJson.each{
+        //     batch ->
+        //     batch["item.id"] = batch.item.id
+        // }          
 
         render (contentType: 'application/json') {
             [batchInstanceList: list, batchInstanceTotal: list.totalCount]
@@ -26,33 +30,57 @@ class BatchController {
         /*
         * [Deep properties]
         *
-        * batchInstanceList::
+        * batch::
         *   -item
         *   -country
         *   -supplier
         */
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.message.notfound', args: [message(code: 'batch.label', default: 'Batch'), id])
+
+        log.debug "${controllerName}-${actionName}"
+
+        def batch=Batch.findById(id);
+
+        if(batch){   
+
+            def batchJson =  JSON.parse((batch as JSON).toString())            
+            batchJson["item.id"] = batch.item.id
+
+            render (contentType: 'application/json') {
+                [success: true, data:batchJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
         }
-        else{
-            flash.message = message(code: 'default.message.hasfound', args: [message(code: 'batch.label'), id])
-        }
-        log.debug flash.message
-        // render (contentType: 'application/json') {
-        //     [batchInstanceList:batchInstance, message:flash.message]
-        // }
-        def converter = [batchInstanceList:batchInstance, message:flash.message] as JSON
-        converter.render(response)
     }
 
     def create(){
 
-        def batchInstance=new Batch(params)
+        def batch=new Batch()        
         render (contentType: 'application/json') {
-            domainService.save(batchInstance)
+            [success: true,data:batch]
         }
     }
+ 
+
+    def save(){
+
+        def batch=new Batch(params)
+        
+        render (contentType: 'application/json') {
+            domainService.save(batch)
+        }
+    }
+
+
+    // def create(){
+
+    //     def batchInstance=new Batch(params)
+    //     render (contentType: 'application/json') {
+    //         domainService.save(batchInstance)
+    //     }
+    // }
 
     def update(){
         def batchInstance = Batch.findById(params.id)

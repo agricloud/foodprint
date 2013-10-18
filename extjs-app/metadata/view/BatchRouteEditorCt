@@ -12,7 +12,7 @@
         "designer|userAlias": "batchrouteeditorct",
         "layout": "card"
     },
-    "designerId": "282b5a6d-7715-45b3-884d-f3004dee66d8",
+    "designerId": "72aac809-4e6f-4f7a-8024-739f3d911d18",
     "cn": [
         {
             "type": "Ext.panel.Panel",
@@ -22,12 +22,27 @@
             },
             "codeClass": null,
             "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonindextoolbar'",
+                    "}"
+                ],
                 "container|align": "stretch",
-                "itemId": "browser",
+                "itemId": "index",
                 "layout": "vbox",
-                "title": "Browse"
+                "title": "Index"
             },
-            "designerId": "eaabe9b9-aa67-4690-adb3-a9d212a02d10",
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "2eaa8c04-9f9b-4049-b82d-c268e3f6d0d2",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -40,7 +55,7 @@
                         "itemId": "grid",
                         "layout|flex": 1
                     },
-                    "designerId": "c4cd66db-840f-4b36-8706-c1ed2f5b47cc",
+                    "designerId": "32a8285e-fd63-4333-b5b0-033e5978cf35",
                     "masterInstanceId": "6a21aa5b-e61f-4b47-8fbb-5331a09533a0"
                 }
             ]
@@ -53,12 +68,27 @@
             },
             "codeClass": null,
             "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
                 "container|align": "stretch",
-                "itemId": "viewer",
+                "itemId": "show",
                 "layout": "vbox",
-                "title": "Mainten"
+                "title": "Show"
             },
-            "designerId": "c0cbcdcc-69cb-4765-91a6-7e8ae861304c",
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "46b7d77e-027f-41cd-ab4c-0b5b8ad6fc03",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "linkedinstance",
@@ -72,7 +102,7 @@
                         "bodyBorder": null,
                         "layout|flex": null
                     },
-                    "designerId": "513eddc2-e5d9-4425-aac3-3b6b1952112d",
+                    "designerId": "789c0eee-c147-4580-bcba-a69d18746ca2",
                     "masterInstanceId": "63255dc7-478d-4fd1-b4ec-d25eab28ea91"
                 },
                 {
@@ -91,7 +121,7 @@
                         "layout": "vbox",
                         "title": ""
                     },
-                    "designerId": "f3df6d06-60ca-477f-9f3a-8eb9a55ffa9c",
+                    "designerId": "2f368e1f-ed02-4d82-9530-4b9f2fbe6998",
                     "cn": [
                         {
                             "type": "Ext.panel.Panel",
@@ -108,7 +138,7 @@
                                 "layout": "hbox",
                                 "title": "batchRoutePanel"
                             },
-                            "designerId": "3f4c9610-f794-404a-ac34-3ba2bcf1afa9",
+                            "designerId": "29f8fa8e-97e5-4933-aa6e-15899a10f78e",
                             "cn": [
                                 {
                                     "type": "linkedinstance",
@@ -121,7 +151,7 @@
                                         "plugins": null,
                                         "layout|flex": 2
                                     },
-                                    "designerId": "5c1c7124-e3fe-4d25-add8-38fd4ccd64b2",
+                                    "designerId": "2d56c8d0-6883-449c-8bdd-2afe9deb2eac",
                                     "customConfigs": [
                                         {
                                             "group": "(Custom Properties)",
@@ -142,7 +172,7 @@
                                         "layout|flex": 1,
                                         "title": null
                                     },
-                                    "designerId": "3ce9266c-40bf-416d-ab08-b06353375bc8",
+                                    "designerId": "f2eadaf6-88c1-4df9-9350-aabee664a2d5",
                                     "cn": [
                                         {
                                             "type": "linkedinstance",
@@ -154,7 +184,7 @@
                                             "userConfig": {
                                                 "itemId": "batchRouteToolbar"
                                             },
-                                            "designerId": "f68d351b-f94a-451c-a610-fb114a022e91",
+                                            "designerId": "0e31a882-1fca-450c-a756-791be0c0f0e2",
                                             "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
                                         },
                                         {
@@ -172,7 +202,7 @@
                                                 "bodyPadding": 10,
                                                 "title": null
                                             },
-                                            "designerId": "bc96d2aa-cbad-48ea-b864-742042ffe0f9",
+                                            "designerId": "0382c16a-971e-4766-84d1-9d4ea972dfd1",
                                             "cn": [
                                                 {
                                                     "type": "Ext.form.field.Text",
@@ -186,7 +216,7 @@
                                                         "name": "batch.id",
                                                         "readOnly": true
                                                     },
-                                                    "designerId": "99eb7ce1-a70d-416d-9206-eaa4c1861a9a"
+                                                    "designerId": "c10da8ab-8868-48eb-b0d1-8e24be361648"
                                                 },
                                                 {
                                                     "type": "Ext.form.field.Text",
@@ -200,7 +230,7 @@
                                                         "name": "id",
                                                         "readOnly": true
                                                     },
-                                                    "designerId": "cf94c092-54a4-4ad2-9664-5b816d2a170c"
+                                                    "designerId": "72638740-e1dc-4baa-bc8c-dc52ea0ebb49"
                                                 },
                                                 {
                                                     "type": "Ext.form.field.Number",
@@ -214,7 +244,7 @@
                                                         "name": "sequence",
                                                         "allowBlank": false
                                                     },
-                                                    "designerId": "2dd8a515-c7c4-4598-aace-6be82afc8ce3"
+                                                    "designerId": "ebf70e61-7e21-4b58-a608-34a4d2e84735"
                                                 },
                                                 {
                                                     "type": "linkedinstance",
@@ -228,7 +258,7 @@
                                                         "name": "operation.id",
                                                         "dock": null
                                                     },
-                                                    "designerId": "a7256322-9364-4c0e-af07-efdd44297711",
+                                                    "designerId": "d82aa2b2-ecec-4c64-94d4-e3d5b740d02c",
                                                     "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
                                                     "cn": [
                                                         {
@@ -249,7 +279,7 @@
                                                                 "name": "select",
                                                                 "scope": "me"
                                                             },
-                                                            "designerId": "729a81d6-0b0d-43c9-85df-da39b85017d4"
+                                                            "designerId": "5926a88f-264d-4100-a677-7f21bb77a1cd"
                                                         }
                                                     ]
                                                 },
@@ -266,7 +296,7 @@
                                                         "name": "operation.title",
                                                         "allowBlank": false
                                                     },
-                                                    "designerId": "798c6c45-602d-49db-8a5c-dd40f9c71f07"
+                                                    "designerId": "11ddf3a0-fb5d-44db-bf8c-6cbc7f547431"
                                                 },
                                                 {
                                                     "type": "linkedinstance",
@@ -282,7 +312,7 @@
                                                         "name": "workstation.id",
                                                         "allowBlank": false
                                                     },
-                                                    "designerId": "dfba59d7-5834-4469-adc8-97599fa3f263",
+                                                    "designerId": "88b1e794-3fe2-474e-b4fd-0e7bd953c29d",
                                                     "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788",
                                                     "cn": [
                                                         {
@@ -303,7 +333,7 @@
                                                                 "name": "select",
                                                                 "scope": "me"
                                                             },
-                                                            "designerId": "589bf41c-c9fb-46b1-8462-97e71b6f0f7e"
+                                                            "designerId": "414cbb90-8989-4109-a7cb-f1e779ce6a56"
                                                         }
                                                     ]
                                                 },
@@ -318,7 +348,7 @@
                                                         "fieldLabel": "Workstation_title",
                                                         "name": "workstation.title"
                                                     },
-                                                    "designerId": "de2a595b-1d66-4d86-bcd5-6b25769a5db3"
+                                                    "designerId": "a30df7ea-0634-48c0-b551-13e4acbd49ad"
                                                 },
                                                 {
                                                     "type": "basicfunction",
@@ -337,7 +367,7 @@
                                                             "this.loadRecord(record);"
                                                         ]
                                                     },
-                                                    "designerId": "d6f01f25-b365-4d8c-90d9-84da199d9277"
+                                                    "designerId": "6c3489c3-96c1-4123-b5b3-6e7f304cb55a"
                                                 }
                                             ]
                                         }
@@ -361,23 +391,13 @@
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "d178693a-0d52-4461-adc6-fdad1c35e69f"
+                                    "designerId": "90474e45-3271-454d-91d6-8f0720664333"
                                 }
                             ]
                         }
                     ]
                 }
             ]
-        },
-        {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "designerId": "bcaf6234-e593-47a0-a4c6-f83f288833f9",
-            "masterInstanceId": "1d596850-54ca-4052-8a62-d0928dcdc887"
         }
     ]
 }

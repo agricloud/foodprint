@@ -54,38 +54,7 @@
                 "text": "Item_id",
                 "flex": 1
             },
-            "designerId": "adf7ded7-6ee5-49df-b79a-423cf546f897",
-            "cn": [
-                {
-                    "type": "fixedfunction",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "renderer",
-                        "designer|params": [
-                            "value",
-                            "metaData",
-                            "record",
-                            "rowIndex",
-                            "colIndex",
-                            "store",
-                            "view"
-                        ],
-                        "implHandler": [
-                            "",
-                            "//record.getItem(function(item, operation) { ",
-                            "//    console.log(item.get('name')); ",
-                            "//}, this);",
-                            "",
-                            "return value;"
-                        ]
-                    },
-                    "designerId": "43ce7d73-296b-4305-bc3f-c9b5529a43a8"
-                }
-            ]
+            "designerId": "adf7ded7-6ee5-49df-b79a-423cf546f897"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -153,7 +122,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processLocalized",
+                "fn": "processBatchGrid",
                 "designer|params": [
                     "config"
                 ],
@@ -170,25 +139,6 @@
                 ]
             },
             "designerId": "19eb61b9-2a7b-458a-8326-d7342f1181a6"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "loadStore",
-                "implHandler": [
-                    "console.log(\"View-batchGrid.loadStore\");",
-                    "",
-                    "//alert('doRead Start');",
-                    "this.getStore().load();//對應ref",
-                    "//alert('doRead End');"
-                ]
-            },
-            "designerId": "3a8a5134-16bd-4c27-b7a5-75832e60d8f4"
         }
     ]
 }
