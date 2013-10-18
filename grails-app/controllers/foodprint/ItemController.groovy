@@ -56,6 +56,7 @@ class ItemController {
 
 
     def update(){
+        log.info params.effectStartDate
         def  itemInstance = Item.findById(params.id)
         itemInstance.properties = params
         render (contentType: 'application/json') {
