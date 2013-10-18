@@ -74,6 +74,10 @@ class BatchController {
     }
 
     def update(){
+        log.debug params
+        //!!!!注意～待調整
+        params.dueDate = new Date(params.dueDate)
+
         def batchInstance = Batch.findById(params.id)
         batchInstance.properties=params
         render (contentType: 'application/json') {
