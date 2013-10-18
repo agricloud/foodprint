@@ -66,6 +66,7 @@ class ItemController {
 
 
     def delete(){
+        console.log(params.id);
         
         def  itemInstance = Item.findById(params.id)
 
