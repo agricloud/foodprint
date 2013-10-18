@@ -23,10 +23,29 @@ class ItemController {
 
         
     }
+    def show(Long id){
 
+        def item=Item.findById(id);  
+        if(item){   
+            render (contentType: 'application/json') {
+                [success: true,data:item]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
+    def create(){
+
+        def item=new Item()        
+        render (contentType: 'application/json') {
+            [success: true,data:item]
+        }
+    }
  
 
-    def create(){
+    def save(){
 
         def itemInstance=new Item(params)
         
@@ -37,6 +56,7 @@ class ItemController {
 
 
     def update(){
+        log.info params.effectStartDate
         def  itemInstance = Item.findById(params.id)
         itemInstance.properties = params
         render (contentType: 'application/json') {

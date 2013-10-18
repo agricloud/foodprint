@@ -7,29 +7,24 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Operation",
-            "Item",
-            "Workstation",
             "ItemRoute"
         ],
         "stores": [
-            "OperationStore",
-            "WorkstationStore",
-            "ItemStore",
+            "ItemRouteStore",
             "ItemRouteDeepStore"
         ],
         "views": [
-            "ItemEditorCt",
-            "CommonImageUploader"
+            "ItemRouteEditorCt",
+            "ItemGrid"
         ],
-        "designer|userClassName": "ItemEditorController",
+        "designer|userClassName": "ItemRouteEditorController",
         "mixins": [
             "{",
             "\tcommonController: 'foodprint.controller.commonController'",
             "}"
         ]
     },
-    "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
+    "designerId": "eb0fdc48-2660-4592-8837-3dbc6c4f9f7a",
     "cn": [
         {
             "type": "controllerref",
@@ -40,9 +35,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "itemeditorct #grid"
+                "selector": "itemrouteeditorct #grid"
             },
-            "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
+            "designerId": "db6a90b6-b99f-408e-9e2a-59ca37956ef2"
         },
         {
             "type": "controllerref",
@@ -53,9 +48,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "itemeditorct #form"
+                "selector": "itemrouteeditorct #form"
             },
-            "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
+            "designerId": "95c3ff62-debb-47a4-ad07-62563c68ea5c"
         },
         {
             "type": "fixedfunction",
@@ -71,29 +66,46 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'itemeditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'itemrouteeditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'itemeditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'itemrouteeditorct #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'itemrouteeditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'itemrouteeditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'itemrouteeditorct #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
-                    "    }",
+                    "    },",
                     "",
+                    "    'itemrouteeditorct #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    }",
                     "});",
                     "",
                     "",
-                    "this.domainName = 'item';"
+                    "this.domainName = 'itemRoute';",
+                    "this.masterKey='item.id';"
                 ]
             },
-            "designerId": "613965a1-c9a7-4f83-90f5-c6fd32a29428"
+            "designerId": "74b97bc4-ba70-4919-ae83-7a5cabcf3c46"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "itemrouteeditorct #masterGrid"
+            },
+            "designerId": "683a9fb4-b04b-4dff-bbf2-8915a9cf3cb2"
         }
     ]
 }

@@ -29,8 +29,53 @@ class ItemRouteController {
 
     }
 
+    def show(Long id){
+        def itemRouteInstance=ItemRoute.findById(id);
+        if(itemRouteInstance){
+            
+            
+            def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
+            itemRouteJson["item.id"] = itemRouteInstance.item.id
+            itemRouteJson["workstation.id"] = itemRouteInstance.workstation.id
+            itemRouteJson["workstation.title"] = itemRouteInstance.workstation.title
+            itemRouteJson["operation.id"] = itemRouteInstance.operation.id
+            itemRouteJson["operation.title"] = itemRouteInstance.operation.title
+
+            render (contentType: 'application/json') {
+                [success: true,data:itemRouteJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }            
+        } 
+    }
 
     def create() {
+
+        if(params.item.id){
+
+            def itemRouteInstance= new ItemRoute(params)
+
+            if(itemRouteInstance.item.itemRoutes)
+                itemRouteInstance.sequence = itemRouteInstance.item.itemRoutes*.sequence.max()+1
+            else itemRouteInstance.sequence = 1
+
+            def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
+            itemRouteJson["item.id"] = itemRouteInstance.item.id
+
+
+            render (contentType: 'application/json') {
+                [success: true,data:itemRouteJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'itemRoute.message.create.failed')]
+            }            
+        }   
+    }
+
+    def save() {
         def itemRouteInstance= new ItemRoute(params)
         render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)

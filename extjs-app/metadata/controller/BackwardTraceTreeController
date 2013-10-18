@@ -36,8 +36,13 @@
                     "",
                     "    'backwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
                     "        click:this.doExpandall",
+                    "    },",
+                    "    'backwardtracetreect commontracetoolbar button[itemId=commonCollapseallBtn]':{",
+                    "        click: this.doCollapseall",
+                    "    },",
+                    "    'backwardtracetreect treepanel[itemId=backwardTraceTreePanel]':{",
+                    "        beforeitemappend: this.beforeitemappend",
                     "    }",
-                    "",
                     "});",
                     "",
                     ""
@@ -70,28 +75,29 @@
                 "implHandler": [
                     "console.log(\"TraceTree.doSearchBatch\");",
                     "",
+                    "if(this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()!='') {",
+                    "    var batchStore=Ext.getStore('BatchShowDeepStore');",
+                    "    console.log(batchStore);",
+                    "    var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
+                    "    batchStore.load({",
                     "",
-                    "var batchStore=Ext.getStore('BatchShowDeepStore');",
-                    "console.log(batchStore);",
-                    "var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
-                    "batchStore.load({",
-                    "",
-                    "    params:{",
-                    "        'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
-                    "    },",
-                    "    callback: function(records, operation, success) {",
-                    "        console.log(records[0].data);",
-                    "        var root={",
-                    "            id:records[0].data.id,",
-                    "            name:records[0].data.name,",
-                    "            'item.title':records[0].data['item.title'],",
-                    "            expectQty:records[0].data.expectQty,",
-                    "            country:records[0].data.country,",
-                    "            supplier:records[0].data.supplier",
-                    "        };",
-                    "        treeStore.setRootNode(root);",
-                    "    }",
-                    "});"
+                    "        params:{",
+                    "            'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "            console.log(records[0].data);",
+                    "            var root={",
+                    "                id:records[0].data.id,",
+                    "                name:records[0].data.name,",
+                    "                'item.title':records[0].data['item.title'],",
+                    "                expectQty:records[0].data.expectQty,",
+                    "                country:records[0].data.country,",
+                    "                supplier:records[0].data.supplier",
+                    "            };",
+                    "            treeStore.setRootNode(root);",
+                    "        }",
+                    "    });",
+                    "}"
                 ]
             },
             "designerId": "ed90a1a0-fc1b-4ae9-b91f-a3a3ec91cc29"
@@ -105,27 +111,69 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doExpandall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
                 "implHandler": [
-                    "console.log(\"~~~\");",
-                    "alert('!!!');"
+                    "console.log(button);",
+                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "    var toolbar = button.up('toolbar');",
+                    "",
+                    "    me.getEl().mask('Expanding tree...');",
+                    "    toolbar.disable();",
+                    "",
+                    "    me.expandAll(function() {",
+                    "        me.getEl().unmask();",
+                    "        toolbar.enable();",
+                    "    });",
+                    "}"
                 ]
             },
             "designerId": "9a7801e5-8924-4b9e-9ecb-9b63d78bbbeb"
         },
         {
-            "type": "fixedfunction",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onLaunch",
+                "fn": "doCollapseall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
                 "implHandler": [
-                    "console.log(\"test init lunch\");"
+                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "    var toolbar = button.up('toolbar');",
+                    "",
+                    "    toolbar.disable();",
+                    "    me.collapseAll(function() {",
+                    "        toolbar.enable();",
+                    "    });",
+                    "}"
                 ]
             },
-            "designerId": "36497d52-880f-420d-8c32-f4858fe96ae7"
+            "designerId": "2e12f4ee-fb98-44a4-b784-dea28dcdf033"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "beforeitemappend",
+                "implHandler": [
+                    "this.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "this.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    ""
+                ]
+            },
+            "designerId": "5e57b4f6-ff85-4cf4-a1ba-f42c3807cb5b"
         }
     ]
 }
