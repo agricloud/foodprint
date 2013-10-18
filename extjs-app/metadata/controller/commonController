@@ -33,7 +33,7 @@
                     "    url:'/'+this.domainName+'/show/'+id,",
                     "    success: function(form, action) {",
                     "    \tthat.activeEditor();",
-                    "    \tthis.actionName = 'update';",
+                    "    \tthat.actionName = 'update';",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
@@ -61,6 +61,7 @@
                     "var params = {}",
                     "",
                     "params[this.masterKey]=this.masterId",
+                    "this.getMainForm().getForm().reset(true);",
                     "",
                     "this.getMainForm().getForm().load({",
                     "    url:'/'+this.domainName+'/create',",
@@ -132,7 +133,7 @@
                     "",
                     "        that.getMainGrid().getStore().reload();",
                     "",
-                    "        if(that.actionName === 'create'){",
+                    "        if(that.actionName === 'save'){",
                     "            that.activeGrid();",
                     "            that.actionName = '' ;",
                     "        }",
@@ -221,6 +222,7 @@
             "userConfig": {
                 "fn": "activeGrid",
                 "implHandler": [
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().down().up(\"panel[itemId=index]\"));"
                 ]
             },
@@ -252,7 +254,7 @@
             "userConfig": {
                 "fn": "doCancel",
                 "implHandler": [
-                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
+                    "",
                     "this.getMainForm().getForm().reset(true);",
                     "this.activeGrid();",
                     "",
