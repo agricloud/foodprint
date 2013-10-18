@@ -39,6 +39,9 @@
                     "    },",
                     "    'forwardtracetreect commontracetoolbar button[itemId=commonCollapseallBtn]':{",
                     "        click: this.doCollapseall",
+                    "    },",
+                    "    'forwardtracetreect treepanel[itemId=forwardTraceTreePanel]':{",
+                    "        beforeitemappend: this.beforeitemappend",
                     "    }",
                     "});"
                 ]
@@ -84,6 +87,7 @@
                     "",
                     "console.log(\"forwardTraceTree.doSearchBatch\");",
                     "",
+                    "if(this.getForwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()!='') {",
                     "var batchStore=Ext.getStore('BatchShowDeepStore');",
                     "var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();",
                     "",
@@ -104,7 +108,8 @@
                     "        treeStore.setRootNode(root);",
                     "",
                     "    }",
-                    "});"
+                    "});",
+                    "}"
                 ]
             },
             "designerId": "f4c35644-f233-4b5a-89b4-f4bb724fcf7d"
@@ -162,6 +167,22 @@
                 ]
             },
             "designerId": "14ac827d-7767-47ea-a3da-384176c409fb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "beforeitemappend",
+                "implHandler": [
+                    "this.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "this.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);"
+                ]
+            },
+            "designerId": "2c8cea92-9995-4849-93c6-9f40690d2832"
         }
     ]
 }
