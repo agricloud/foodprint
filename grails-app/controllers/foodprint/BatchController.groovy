@@ -73,15 +73,6 @@ class BatchController {
         }
     }
 
-
-    // def create(){
-
-    //     def batchInstance=new Batch(params)
-    //     render (contentType: 'application/json') {
-    //         domainService.save(batchInstance)
-    //     }
-    // }
-
     def update(){
         def batchInstance = Batch.findById(params.id)
         batchInstance.properties=params
@@ -99,7 +90,7 @@ class BatchController {
         
         }catch(e){
             log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e])
+            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e.getMessage()])
             result = [success:false, message: msg] 
         }
         
@@ -107,6 +98,8 @@ class BatchController {
             result
         }
     }
+
+
     /**
     * 此方法已不使用 僅供參考寫法
     * @param batch.id

@@ -61,5 +61,9 @@ class Batch extends DefaultTable {
 		expirationDate 		nullable: true
 		supplier 			nullable: true
 	}
-	
+
+	public String toString(){
+    	"批號編號：${name}, 品項名稱：${item.title}"
+    }
+
 }

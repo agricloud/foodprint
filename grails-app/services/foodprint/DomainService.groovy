@@ -77,7 +77,7 @@ class DomainService {
 
         try {
             
-            domainObject.delete(flush:true, failOnError:true)           	
+            domainObject.delete()
             msg = messageSource.getMessage("default.message.delete.success", args, Locale.getDefault())
             return [success:true, message: msg]
 
