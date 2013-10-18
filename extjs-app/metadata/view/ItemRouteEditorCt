@@ -10,8 +10,8 @@
         "designer|userClassName": "ItemRouteEditorCt",
         "designer|userAlias": "itemrouteeditorct",
         "requires": [
-            "foodprint.view.CommonBrowserToolbar",
-            "foodprint.view.CommonViewerToolbar"
+            "foodprint.view.CommonIndexToolbar",
+            "foodprint.view.CommonShowToolbar"
         ],
         "layout": "card"
     },
@@ -27,11 +27,11 @@
             "userConfig": {
                 "tbar": [
                     "{",
-                    "    xtype:\"commonbrowsertoolbar\"",
+                    "    xtype:\"commonindextoolbar\"",
                     "}"
                 ],
                 "container|align": "stretch",
-                "itemId": "browser",
+                "itemId": "index",
                 "layout": "vbox"
             },
             "configAlternates": {
@@ -253,10 +253,25 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "viewer",
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
+                "itemId": "show",
                 "title": "My Panel"
             },
+            "configAlternates": {
+                "tbar": "object"
+            },
             "designerId": "d5040ab0-86bc-4cbc-8572-e532e8ec4ab0",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "Ext.form.Panel",
@@ -266,11 +281,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "tbar": [
-                            "{",
-                            "    xtype: 'commonviewertoolbar'",
-                            "}"
-                        ],
                         "itemId": "form",
                         "bodyPadding": 10,
                         "title": null
@@ -279,13 +289,6 @@
                         "tbar": "object"
                     },
                     "designerId": "0ffb7033-c578-492d-bb41-3db2025aabe7",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "tbar",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "Ext.form.field.Text",
