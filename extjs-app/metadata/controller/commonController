@@ -20,10 +20,17 @@
             "userConfig": {
                 "fn": "doCreate",
                 "implHandler": [
-                    "console.log(this.domainName +\" doCreate\")",
+                    "var params = {}",
+                    "",
+                    "params[this.masterKey]=this.masterId",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:'/'+this.domainName+'/create',",
+                    "    params:params",
+                    "});",
+                    "",
                     "this.activeEditor();",
-                    "this.getMainForm().getForm().reset(true);",
-                    "this.actionName = 'create';",
+                    "this.actionName = 'save';",
                     "",
                     "",
                     ""
@@ -46,7 +53,21 @@
                 "implHandler": [
                     "this.activeEditor();",
                     "",
-                    "this.getMainForm().loadRecord(this.getMainGrid().getSelectionModel().getSelection()[0]);",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0]",
+                    "var that = this;",
+                    "",
+                    "",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:'/'+this.domainName+'/show/'+record.data.id,",
+                    "    success: function(form, action) {",
+                    "        that.getMainForm().loadRecord(record);",
+                    "    },",
+                    "    ",
+                    "    failure: function(form, action) {",
+                    "    }",
+                    "});",
+                    "",
                     "",
                     "this.actionName = 'update';"
                 ]
@@ -133,14 +154,14 @@
                     "        Ext.MessageBox.alert('Success',action.result.message);",
                     "",
                     "        if (callback) {",
-                    "            callback(true)",
+                    "            callback(true,form,action)",
                     "        }",
                     "",
                     "    },",
                     "    failure: function(form,action) {",
                     "        Ext.MessageBox.alert('Failure',action.result.message);",
                     "        if (callback) {",
-                    "            callback(false)",
+                    "            callback(false,form,action)",
                     "        }",
                     "    }",
                     "});"
@@ -194,6 +215,35 @@
                 ]
             },
             "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetail",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "this.masterId = record.data.id;",
+                    "var grid = this.getMainGrid();",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[this.masterKey]=this.masterId",
+                    "",
+                    "grid.getStore().load({",
+                    "    params: params",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "634b2a8d-428b-4d4e-a5b8-fd46363c5087"
         }
     ]
 }

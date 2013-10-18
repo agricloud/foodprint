@@ -67,7 +67,10 @@
                 "implHandler": [
                     "this.control({",
                     "    'itemrouteeditorct #browser commongridtoolbar commoncreatebtn':{",
-                    "        click:this.createItemRoute",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'itemrouteeditorct #browser commongridtoolbar commonshowbtn':{",
+                    "        click:this.doShow",
                     "    },",
                     "    'itemrouteeditorct #viewer commonformtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -78,95 +81,19 @@
                     "    'itemrouteeditorct #viewer commonformtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    },",
-                    "    'itemrouteeditorct #browser #grid':{",
-                    "        itemdblclick:this.showItemRoute",
-                    "    },",
+                    "",
                     "    'itemrouteeditorct #browser #masterGrid':{",
-                    "        select:this.indexItemRoute",
+                    "        select:this.doIndexDetail",
                     "    }",
                     "});",
                     "",
                     "",
-                    "this.domainName = 'itemRoute';"
+                    "this.domainName = 'itemRoute';",
+                    "this.masterId='';",
+                    "this.masterKey='item.id';"
                 ]
             },
             "designerId": "74b97bc4-ba70-4919-ae83-7a5cabcf3c46"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "indexItemRoute",
-                "designer|params": [
-                    "obj, record, item, index, e, eOpts"
-                ],
-                "implHandler": [
-                    "this.masterId = record.data.id;",
-                    "",
-                    "console.log(this.masterId);",
-                    "var grid = this.getMainGrid();",
-                    "",
-                    "",
-                    "grid.getStore().data.clear();",
-                    "grid.getStore().load({",
-                    "    params:{'item.id':this.masterId}",
-                    "});",
-                    "",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "34eb5146-b637-40d2-b66e-3cff88ac3e21"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "createItemRoute",
-                "implHandler": [
-                    "",
-                    "this.doCreate();",
-                    "",
-                    "",
-                    "this.getMainForm().getForm().setValues({",
-                    "    'item.id': this.masterId,",
-                    "    sequence:this.getMainGrid().getStore().getCount()+1",
-                    "});",
-                    ""
-                ]
-            },
-            "designerId": "2104d20b-9ae7-49b2-a8b8-7916f59e6b28"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "showItemRoute",
-                "designer|params": [
-                    "obj, record, item, index, e, eOpts"
-                ],
-                "implHandler": [
-                    "this.doShow();",
-                    "",
-                    "console.log(this.masterId);",
-                    "this.getMainForm().getForm().setValues({",
-                    "    'item.id': this.masterId",
-                    "});"
-                ]
-            },
-            "designerId": "9cda721e-899a-4e0a-b966-0d0bda1fea88"
         },
         {
             "type": "controllerref",

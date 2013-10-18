@@ -29,8 +29,31 @@ class ItemRouteController {
 
     }
 
+    def show(Long id){
+        def itemRouteInstance=ItemRoute.findById(id);
+        
+        def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
+        itemRouteJson["item.id"] = itemRouteInstance.item.id
+
+        render (contentType: 'application/json') {
+            [success: true,data:itemRouteJson]
+        }
+    }
 
     def create() {
+
+        def itemRouteInstance= new ItemRoute(params)
+        itemRouteInstance.sequence = itemRouteInstance.item.itemRoutes*.sequence.max()+1
+
+        def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
+        itemRouteJson["item.id"] = itemRouteInstance.item.id
+
+        render (contentType: 'application/json') {
+            [success: true,data:itemRouteJson]
+        }
+    }
+
+    def save() {
         def itemRouteInstance= new ItemRoute(params)
         render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)

@@ -23,10 +23,23 @@ class ItemController {
 
         
     }
+    def show(Long id){
 
+        def item=Item.findById(id);     
+        render (contentType: 'application/json') {
+            [success: true,data:item]
+        }
+    }
+    def create(){
+
+        def item=new Item()        
+        render (contentType: 'application/json') {
+            [success: true,data:item]
+        }
+    }
  
 
-    def create(){
+    def save(){
 
         def itemInstance=new Item(params)
         
