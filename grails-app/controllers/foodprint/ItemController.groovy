@@ -25,9 +25,15 @@ class ItemController {
     }
     def show(Long id){
 
-        def item=Item.findById(id);     
-        render (contentType: 'application/json') {
-            [success: true,data:item]
+        def item=Item.findById(id);  
+        if(item){   
+            render (contentType: 'application/json') {
+                [success: true,data:item]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
         }
     }
     def create(){
