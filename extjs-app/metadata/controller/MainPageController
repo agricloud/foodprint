@@ -85,6 +85,9 @@
                     "    },",
                     "    'maincontainer button[itemId=itemRouteMaintain]':{",
                     "        click:this.itemRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchRouteMaintain]':{",
+                    "        click:this.batchRouteMaintain",
                     "    }",
                     "});"
                 ]
@@ -330,6 +333,23 @@
                 ]
             },
             "designerId": "82f04561-5a50-4b33-afcc-ad68493d6b89"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchrouteeditorct';",
+                    "var tabName = '批號途程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "c0b00d76-68de-456b-be03-9f03ffae8117"
         }
     ]
 }
