@@ -42,15 +42,26 @@ class ItemRouteController {
 
     def create() {
 
-        def itemRouteInstance= new ItemRoute(params)
-        itemRouteInstance.sequence = itemRouteInstance.item.itemRoutes*.sequence.max()+1
+        if(params.item.id){
 
-        def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
-        itemRouteJson["item.id"] = itemRouteInstance.item.id
+            def itemRouteInstance= new ItemRoute(params)
 
-        render (contentType: 'application/json') {
-            [success: true,data:itemRouteJson]
-        }
+            if(itemRouteInstance.item.itemRoutes)
+                itemRouteInstance.sequence = itemRouteInstance.item.itemRoutes*.sequence.max()+1
+            else itemRouteInstance.sequence = 1
+
+            def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
+            itemRouteJson["item.id"] = itemRouteInstance.item.id
+
+
+            render (contentType: 'application/json') {
+                [success: true,data:itemRouteJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'itemRoute.message.create.failed')]
+            }            
+        }   
     }
 
     def save() {
