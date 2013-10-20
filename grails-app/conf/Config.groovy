@@ -130,6 +130,7 @@ log4j = {
 
 
 extjs.version = '4.2.1'
+touch.version = '2.3.0'
 
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'foodprint.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'foodprint.UserRole'
