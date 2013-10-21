@@ -1,0 +1,392 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Batch",
+            "BatchRotue"
+        ],
+        "stores": [
+            "BatchStore",
+            "BatchRouteStore",
+            "BatchRouteParamsStore"
+        ],
+        "designer|userClassName": "BatchParamsEditorControllerBackup",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
+    },
+    "designerId": "b45ae00c-f10f-4e06-afac-1db682d3ce23",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsEditor",
+                "selector": "batchparamseditorct #batchParamsEditor"
+            },
+            "designerId": "7afc0ef2-5b70-47ba-b132-f491b44d9bb5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteGrid",
+                "selector": "batchparamseditorct batchroutegrid"
+            },
+            "designerId": "983d1235-9083-4028-9722-5dd9162dd43f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchGrid",
+                "selector": "batchparamseditorct batchgrid"
+            },
+            "designerId": "cf2c750e-4d15-4dbb-90f1-49e81227611f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchForm",
+                "selector": "batchparamseditorct batchform"
+            },
+            "designerId": "1286dca8-4881-4c0e-bc69-1eaf7fd61fcf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchRouteParamsForm",
+                "selector": "batchparamseditorct batchrouteparamsform"
+            },
+            "designerId": "a094a472-92c9-449a-a513-fcd7dc230e87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "batchParamsEditorCt",
+                "selector": "batchparamseditorct"
+            },
+            "designerId": "dd3bb910-8e97-4c4f-a5d2-d518a830142b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "commonImageUploader",
+                "selector": "batchparamseditorct #commonImageUploader"
+            },
+            "designerId": "1196e7fa-62ec-4ca2-b622-e8fe981aeeee"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'batchparamseditorct grid[itemId=batchGrid]':{",
+                    "        itemdblclick:this.readBatch",
+                    "    },",
+                    "    'batchparamseditorct #batchParamsEditor grid[itemId=batchRouteGrid]':{",
+                    "        itemdblclick:this.loadBatchRouteParams",
+                    "    },",
+                    "    'batchparamseditorct button[itemId=commonUpdateBtn]':{",
+                    "        click:this.doUpdateBatchRouteParams",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "289ac197-fded-4411-8cea-f7e0e0141ccf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readBatch",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log('batchParamsEditorCtrl.readBatch[dblClick]');",
+                    "",
+                    "this.getBatchForm().getForm().reset(true);",
+                    "",
+                    "this.getBatchParamsEditor().setActiveTab(this.getBatchParamsEditor().down('panel[itemId=batchViewer]').up());",
+                    "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
+                    "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
+                    "",
+                    "this.doShow(record.data.id);"
+                ]
+            },
+            "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadBatchRouteParams",
+                "designer|params": [
+                    "obj, record, item, index, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log('batchParamsEditorCtrl.loadBatchRouteParams');",
+                    "",
+                    "this.doShow(record.data['batch.id']);",
+                    "",
+                    "var store=this.getStore('BatchRouteParamsStore');",
+                    "store.data.clear();",
+                    "var that=this;",
+                    "",
+                    "store.load({",
+                    "    params:{'batch.id':record.data['batch.id'],",
+                    "        'operation.id':record.data['operation.id']",
+                    "    },",
+                    "    callback:function(){",
+                    "        //store.clearFilter();",
+                    "        //store.filter('reportParams.operation.id',record.data['operation.id']);",
+                    "",
+                    "        var form=that.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]');",
+                    "",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').removeAll(); ",
+                    "",
+                    "        for(var i=0;i<store.getCount();i++){",
+                    "",
+                    "            var field=null;",
+                    "",
+                    "            switch(store.getAt(i).data['reportParams.param.paramType']){",
+                    "                case \"INTEGER\":",
+                    "                field={",
+                    "                    xtype: 'numberfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"STRING\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                };",
+                    "                break;",
+                    "                case \"BOOLEAN\":",
+                    "                field={",
+                    "                    xtype: 'radiogroup',",
+                    "                    items: [{",
+                    "                        xtype: 'radiofield',",
+                    "                        boxLabel: 'Y',",
+                    "                        inputValue: true",
+                    "                    },",
+                    "                    {",
+                    "                        xtype: 'radiofield',",
+                    "                        boxLabel: 'N',",
+                    "                        inputValue: false",
+                    "                    }]",
+                    "                };",
+                    "                break;",
+                    "                case \"LIST\":",
+                    "                field={",
+                    "                    xtype: 'textfield'",
+                    "                    //    xtype: 'triggerfield'",
+                    "                };",
+                    "                break;",
+                    "                default:",
+                    "                console.log('error: not defined paramType');",
+                    "                break;",
+                    "",
+                    "            }",
+                    "",
+                    "",
+                    "            switch(store.getAt(i).data['reportParams.param.paramType']){",
+                    "                case \"INTEGER\":",
+                    "                case \"STRING\":",
+                    "                case \"LIST\":",
+                    "                field.name = store.getAt(i).data['id'];",
+                    "",
+                    "                if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){",
+                    "                    field.value = store.getAt(i).data['reportParams.param.defaultValue'];",
+                    "                }",
+                    "                else{",
+                    "                    field.value = store.getAt(i).data['value'];",
+                    "                }",
+                    "                break;",
+                    "",
+                    "                case \"BOOLEAN\":",
+                    "                field.items[0].name = store.getAt(i).data['id'];",
+                    "                field.items[1].name = store.getAt(i).data['id'];",
+                    "                field.vertical= true;",
+                    "",
+                    "                if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){",
+                    "",
+                    "                    if(store.getAt(i).data['reportParams.param.defaultValue']=='true'){",
+                    "                        field.items[0].checked = true;",
+                    "                    }",
+                    "                    else{",
+                    "                        field.items[1].checked = true;",
+                    "                    }",
+                    "",
+                    "                }",
+                    "                else{",
+                    "                    if(field.value=store.getAt(i).data['value']=='true'){",
+                    "                        field.items[0].checked = true;",
+                    "                    }",
+                    "                    else{",
+                    "                        field.items[1].checked = true;",
+                    "                    }",
+                    "                }",
+                    "                break;",
+                    "                //case \"LIST\":",
+                    "                //break;",
+                    "                default:",
+                    "                break;",
+                    "",
+                    "            }//end switch",
+                    "",
+                    "            field.fieldLabel = store.getAt(i).data['reportParams.param.title'];",
+                    "",
+                    "            field.listeners={",
+                    "                validitychange:{",
+                    "                    fn:function(obj, isValid, eOpts){",
+                    "                        if(isValid)",
+                    "                        that.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "                        else",
+                    "                        that.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "                    }",
+                    "                }",
+                    "            };",
+                    "",
+                    "            form.down('fieldcontainer[itemId=dynamicContainer]').add(field);",
+                    "        }//end for",
+                    "",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'numberfield',fieldLabel:'batchRoute.id',name:'id',value:record.data['id'],hidden:true});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.startDate',name:'startDate',value:record.data['startDate']});",
+                    "        form.down('fieldcontainer[itemId=dynamicContainer]').add({xtype:'datefield',fieldLabel:'batchRoute.endDate',name:'endDate',value:record.data['endDate']});",
+                    "",
+                    "",
+                    "        that.getCommonImageUploader().setDomainId(record.data['id']);",
+                    "",
+                    "        that.getCommonImageUploader().showImage();",
+                    "",
+                    "",
+                    "    }//end callback",
+                    "});//end load"
+                ]
+            },
+            "designerId": "f597b3f8-c1ed-4ac6-b931-68c26157061e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdateBatchRouteParams",
+                "implHandler": [
+                    "console.log('BatchParamsEditorCtrl.doUpdateBatchRouteParamsForm');",
+                    "",
+                    "var that=this;",
+                    "console.log(this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]'));",
+                    "",
+                    "this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]').getForm().submit({",
+                    "    url: '/batchReportDet/update',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: lang['default.message.update'],",
+                    "    success: function(form,action) {",
+                    "        Ext.MessageBox.alert('Success',action.result.message);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    }",
+                    "});",
+                    "this.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "",
+                    "/*",
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "url: '/'+config.domainName+'/update',",
+                    "submitEmptyText: false,",
+                    "waitMsg: 'Updating Data...',",
+                    "success: function(form,action) {",
+                    "Utilities.respondSuccess(action,config);",
+                    "},",
+                    "failure: function(form,action) {",
+                    "Utilities.respondFailure(action,config);",
+                    "}",
+                    "});",
+                    "",
+                    "*/"
+                ]
+            },
+            "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShow",
+                "designer|params": [
+                    "batchId"
+                ],
+                "implHandler": [
+                    "this.getBatchRouteGrid().loadBatchRoute(batchId);"
+                ]
+            },
+            "designerId": "cdb42758-b9c3-47bb-8959-3ae9ed84af38"
+        }
+    ]
+}

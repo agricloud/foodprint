@@ -157,10 +157,13 @@
             "userConfig": {
                 "fn": "doIndexDetail",
                 "designer|params": [
-                    "obj, record, item, index, e, eOpts"
+                    "obj, record, index, eOpts"
                 ],
                 "implHandler": [
                     "this.masterId = record.data.id;",
+                    "",
+                    "console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');",
+                    "",
                     "var grid = this.getMainGrid();",
                     "",
                     "grid.getStore().data.clear();",
