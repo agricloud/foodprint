@@ -12,15 +12,8 @@ class ExtJSFilters {
 
                 params.each {
                     key, value ->
-                    try{
-                    log.info "AAAAAAAAAAAAAAAAAAA==="+key
-                    log.info "AAAAAAAAAAAAAAAAAAA==="+key+"/"+value
-                    }
-                    catch(e){
-                        println "catch.key==="+key
-                        println e
-                    }
-                                        // Transform value from Ext JS to Grails date style
+                    // Transform value from Ext JS to Grails date style 
+                    // 時區 (\+|\-)\d\d:\d\d
                     if (value ==~ /^\d\d\d\d\-\d\d\-\d\dT\d\d:\d\d:\d\d$/) {
 
                         // Convert into Date object
@@ -52,14 +45,10 @@ class ExtJSFilters {
                     if(!value && key.endsWith(".id")){
                         value="null"
                     }
-                    log.info "BBBBBBBBBBBBBBBBBBBBBBBBBB===迴圈"
 
 
                 }
-                // }
-                // catch(e){
-                //     println e
-                // }
+
 
                 // 如果從前端 extjs 傳進來需要進行分頁處理，轉換為 grails 處理分頁之 params
                 if(params.start && params.limit){

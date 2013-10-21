@@ -149,6 +149,6 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFai
 
 upload.files.path="${userHome}/.grails/image"
 
-grails.converters.json.date= 'javascript'
+// grails.converters.json.date= 'javascript'
 
 

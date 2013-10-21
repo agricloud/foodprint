@@ -5,6 +5,8 @@ class BootStrap {
 	def convertService
   	def init = { servletContext ->
 
+  		// 預設時區，避免 json 轉換自動扣除 8 小時(台灣 +8:00)
+  		TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
   		// batch 解析 item 類似 deep 但只解析到第一層
 		JSON.registerObjectMarshaller(Batch) {
