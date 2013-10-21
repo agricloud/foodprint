@@ -330,54 +330,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doUpdateBatchRouteParams",
-                "implHandler": [
-                    "console.log('BatchParamsEditorCtrl.doUpdateBatchRouteParamsForm');",
-                    "",
-                    "var that=this;",
-                    "console.log(this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]'));",
-                    "",
-                    "this.getBatchParamsEditor().down('form[itemId=batchRouteParamsForm]').getForm().submit({",
-                    "    url: '/batchReportDet/update',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: lang['default.message.update'],",
-                    "    success: function(form,action) {",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "    }",
-                    "});",
-                    "this.getBatchParamsEditor().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "",
-                    "/*",
-                    "",
-                    "console.log(\"util update\");",
-                    "config.form().getForm().submit({",
-                    "url: '/'+config.domainName+'/update',",
-                    "submitEmptyText: false,",
-                    "waitMsg: 'Updating Data...',",
-                    "success: function(form,action) {",
-                    "Utilities.respondSuccess(action,config);",
-                    "},",
-                    "failure: function(form,action) {",
-                    "Utilities.respondFailure(action,config);",
-                    "}",
-                    "});",
-                    "",
-                    "*/"
-                ]
-            },
-            "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "doShow",
                 "designer|params": [
                     "batchId"
