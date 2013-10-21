@@ -75,7 +75,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'itemeditorct #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowForm",
                     "    },",
                     "    'itemeditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -94,6 +94,37 @@
                 ]
             },
             "designerId": "613965a1-c9a7-4f83-90f5-c6fd32a29428"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploader",
+                "selector": "itemeditorct commonimageuploader"
+            },
+            "designerId": "f6c110e6-5f32-4f1f-9974-33e85333660a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowForm",
+                "implHandler": [
+                    "console.log('itemEditorController--'+this.domainName+'--doShowForm');",
+                    "",
+                    "this.setImageUploader();",
+                    "this.doShow();"
+                ]
+            },
+            "designerId": "5e6fba30-e6de-4d49-8bdd-0ab01a862455"
         }
     ]
 }
