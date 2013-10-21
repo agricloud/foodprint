@@ -169,7 +169,7 @@
                     "this.getBatchParamsEditor().down('panel[itemId=batchForm]').doDisplay(record);",
                     "this.getBatchParamsEditor().down('tabpanel[itemId=batchParamsTp]').setActiveTab(this.getBatchRouteGrid().up());",
                     "",
-                    "this.getBatchRouteGrid().loadBatchRoute(record.data.id);"
+                    "this.doShow(record.data.id);"
                 ]
             },
             "designerId": "42e9cfbf-429e-4437-a431-844f01da3692"
@@ -188,6 +188,8 @@
                 ],
                 "implHandler": [
                     "console.log('batchParamsEditorCtrl.loadBatchRouteParams');",
+                    "",
+                    "this.doShow(record.data['batch.id']);",
                     "",
                     "var store=this.getStore('BatchRouteParamsStore');",
                     "store.data.clear();",
@@ -372,6 +374,24 @@
                 ]
             },
             "designerId": "681c6976-55d2-4a0e-8270-940ffb8cf60c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShow",
+                "designer|params": [
+                    "batchId"
+                ],
+                "implHandler": [
+                    "this.getBatchRouteGrid().loadBatchRoute(batchId);"
+                ]
+            },
+            "designerId": "cdb42758-b9c3-47bb-8959-3ae9ed84af38"
         }
     ]
 }
