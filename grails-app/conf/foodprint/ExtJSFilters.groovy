@@ -35,6 +35,12 @@ class ExtJSFilters {
 
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                         // log.info "params[${key}] = ${params[key]}"
+                    }else if (value ==~ /^\d\d\d\d\-\d\d\-\d\d$/) {
+
+                        // Convert into Date object
+                        params[key] = Date.parse('yyyy-MM-dd', value)
+
+                        log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                     }
 
 

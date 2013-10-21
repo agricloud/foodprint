@@ -202,9 +202,9 @@ class BatchReportDetController {
             }
         }
         if(params.startDate!="" && params.startDate!=null)
-            batchRouteInstance.startDate = new Date(params.startDate)
+            batchRouteInstance.startDate = params.startDate
         if(params.endDate!="" && params.endDate!=null)
-            batchRouteInstance.endDate = new Date(params.endDate)
+            batchRouteInstance.endDate = params.endDate
 
         if(!domainService.save(batchRouteInstance).success)
             failure<< "製程日期"
