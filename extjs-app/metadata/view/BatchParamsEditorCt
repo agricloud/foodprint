@@ -29,7 +29,12 @@
             "userConfig": {
                 "tbar": [
                     "{",
-                    "    xtype: 'commonindextoolbar'",
+                    "    xtype: 'toolbar',",
+                    "    items: [",
+                    "        {",
+                    "            xtype: 'commonshowbtn'",
+                    "     \t}",
+                    "    ]",
                     "}"
                 ],
                 "container|align": "stretch",
@@ -94,7 +99,15 @@
             "userConfig": {
                 "tbar": [
                     "{",
-                    "    xtype: 'commonshowtoolbar'",
+                    "    xtype: 'toolbar',",
+                    "    items: [",
+                    "        {",
+                    "            xtype: 'commonsavebtn'",
+                    "     \t},",
+                    "        {",
+                    "            xtype: 'commoncancelbtn'",
+                    "     \t}",
+                    "    ]",
                     "}"
                 ],
                 "container|align": "stretch",

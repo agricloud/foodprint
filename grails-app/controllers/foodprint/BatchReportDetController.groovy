@@ -10,55 +10,6 @@ class BatchReportDetController {
     def messageSource
     def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def batch_id=params.batch.id
-        //print report_id
-        def batchob=Batch.findById(batch_id,params);
-        //print reportob
-        def batchReportDetInstance= BatchReportDet.findAllByBatch(batchob)
-        [batchReportDetInstanceList:batchReportDetInstance, batchReportDetInstanceTotal: batchReportDetInstance.size()]
-    }
-
-    def listJson(Integer max) {
-        //找出指定批號所需收集的履歷參數。
-        //目前似乎尚未使用此功能
-        JSON.use('deep')
-        def converter=list()as JSON
-        JSON.use('default')
-        converter.render(response)
-    }
-
-    def create() {
-        [batchReportDetInstance: new BatchReportDet(params)]
-    }
-
-    def show(Long id) {
-        def batchReportDetInstance = BatchReportDet.get(id)
-        if (!batchReportDetInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchReportDetInstance: batchReportDetInstance]
-    }
-
-    def edit(Long id) {
-        def batchReportDetInstance = BatchReportDet.get(id)
-        if (!batchReportDetInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchReportDetInstance: batchReportDetInstance]
-    }
-
     /**
      * @param batch.id
      * @param operation.id
@@ -132,35 +83,8 @@ class BatchReportDetController {
     }
 
 
-    def save(BatchReportDet batchReportDetInstance){
-        def msg=[]
-        def isSuccess;
-
-        if (!batchReportDetInstance.validate()) {
-            batchReportDetInstance.errors.each {
-                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
-            }
-            isSuccess=false;
-        }
-        else{
-            if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
-                batchInstance.errors.allErrors.each{ 
-                    msg << messageSource.getMessage(it, Locale.getDefault())
-                }
-                isSuccess=false;
-            }
-            else{
-                msg<< message(code: "default.message.save.success", args: [batchReportDetInstance.reportParams.param.title])
-                isSuccess=true;
-            }
-        }
-        return [success: isSuccess, message: msg.join('<br>')]
-
-    }
-
-
-    def update(){
-        log.debug "BatchReportDetController--update"
+    def doSaveOrUpdate(){
+        log.debug "BatchReportDetController--doSaveOrUpdate"
         log.debug params
 
         def failure=[]
@@ -169,6 +93,7 @@ class BatchReportDetController {
 
         //更新履歷參數值
         params.each{
+
             if(it.key!="file" && it.key!="_dc" && it.key!="format" && it.key!="action" 
                 && it.key!="controller" && it.key!="criteria" 
                 && it.key!="id" && it.key!="startDate" && it.key!="endDate"){
@@ -185,7 +110,7 @@ class BatchReportDetController {
 
                 batchReportDetInstance.value = it.value
 
-                if(!save(batchReportDetInstance).success)
+                if(!domainService.save(batchReportDetInstance).success)
                     failure<< batchReportDetInstance.reportParams.param.title
                 else
                     success<< batchReportDetInstance.reportParams.param.title
@@ -228,4 +153,81 @@ class BatchReportDetController {
         }
     }
 
+    /* 確認以下功能未被使用後可刪除
+    def index() {
+        redirect(action: "list", params: params)
+    }
+
+    def list(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        def batch_id=params.batch.id
+        //print report_id
+        def batchob=Batch.findById(batch_id,params);
+        //print reportob
+        def batchReportDetInstance= BatchReportDet.findAllByBatch(batchob)
+        [batchReportDetInstanceList:batchReportDetInstance, batchReportDetInstanceTotal: batchReportDetInstance.size()]
+    }
+
+    def listJson(Integer max) {
+        //找出指定批號所需收集的履歷參數。
+        //目前似乎尚未使用此功能
+        JSON.use('deep')
+        def converter=list()as JSON
+        JSON.use('default')
+        converter.render(response)
+    }
+
+    def create() {
+        [batchReportDetInstance: new BatchReportDet(params)]
+    }
+
+    def show(Long id) {
+        def batchReportDetInstance = BatchReportDet.get(id)
+        if (!batchReportDetInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [batchReportDetInstance: batchReportDetInstance]
+    }
+
+    def edit(Long id) {
+        def batchReportDetInstance = BatchReportDet.get(id)
+        if (!batchReportDetInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchReportDet.label', default: 'BatchReportDet'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [batchReportDetInstance: batchReportDetInstance]
+    }
+
+
+    def save(BatchReportDet batchReportDetInstance){
+        def msg=[]
+        def isSuccess;
+
+        if (!batchReportDetInstance.validate()) {
+            batchReportDetInstance.errors.each {
+                errorsMsg << messageSource.getMessage(it, Locale.getDefault())
+            }
+            isSuccess=false;
+        }
+        else{
+            if (!batchReportDetInstance.save(failOnError: true)) {//flush:true?
+                batchInstance.errors.allErrors.each{ 
+                    msg << messageSource.getMessage(it, Locale.getDefault())
+                }
+                isSuccess=false;
+            }
+            else{
+                msg<< message(code: "default.message.save.success", args: [batchReportDetInstance.reportParams.param.title])
+                isSuccess=true;
+            }
+        }
+        return [success: isSuccess, message: msg.join('<br>')]
+
+    }
+    */
 }
