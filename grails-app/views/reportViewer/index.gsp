@@ -6,67 +6,88 @@
 
 	</head>
 	<body>
-    
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">產品說明</div>
-      <!-- form -->
-      <form class="form-horizontal" role="form">
 
-        <g:each in="${product}" var="entry" >
 
-          <div class="form-group">
-            <label class="col-lg-2 control-label"><g:message code="${entry.key}.label" /></label>
+        <h2 class="heading"><span aria-hidden="true" class="icon-icon-01"></span> ${product.title}</h2>
+          <div class="right-icon text-right">Products</div>
+          
+          
+%{--           <div class="row search-row">
+            <div class="col-md-12 search">
 
-            <div class="col-lg-10">
-              <p class="form-control-static">${entry.value}</p>
-            </div>
+                <div class="pull-left text">農產品批號:</div>
+                <div class="col-md-10">
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                      <ul class="dropdown-menu pull-right">
+                        <li><a href="#">2015-A</a></li>
+                        <li><a href="#">2015-B</a></li>
+                        <li><a href="#">2015-C</a></li>
+                        <li><a href="#">FTINAA-20121217</a></li>
+                      </ul>
+                    </div><!-- /btn-group -->
+                  </div><!-- /input-group -->
+                </div><!-- /.col-md-12 -->
+                
+              </div>
+              <div class="dashline"></div>  
+          </div> --}%
+        
+          <!--banner-->
+          <div id="myCarousel"  class="slider">
+              <div class="flexslider">
+                <ul class="slides">
+                  <li>
+                    <g:img uri='/attachment/show/${batch.item.id}?domainName=item' />
+                  </li>
+                </ul>
+              </div>        
           </div>
+          <!--banner-end-->
 
-        </g:each>
+          
+          <div class="row product-info clearfix">
+            <div class="dashline"></div>  
+              
+            <div class="col-md-4 col-sm-4"><g:img uri='/attachment/show/${batch.item.id}?domainName=item' class="thumbnail" /></div>
+              <div class="col-md-8 col-sm-8">
+                <table>
 
-
-
-       
-      </form> 
-    </div>
-
-
-
-    <g:each in="${reports}" var="report">
-
-      <div class="panel panel-default">
-           <!-- Default panel contents -->
-          <div class="panel-heading">${report.title}</div>
-            <!-- Table -->
-            <table class="table">
-              <thead>
-
-                <tr>
-                  <g:each in="${report.params[0]}" var="entry" >
-                      <th><g:message code="${entry.key}.label" /></th>
+                  <g:each in="${product.head}" var="entry" >
+                   <tr>
+                      <td width="100"><span class="icon-table"><g:img dir="images" file="icon-table.png" /></span> <span class="font-brown"><g:message code="${entry.key}.label" /></span></td>
+                        <td>${entry.value}</td>
+                    </tr>
                   </g:each>
 
-                </tr>
-              </thead>
-              <tbody>
-                 <g:each in="${report.params}" var="param">
-                  <tr>
-                      <g:each in="${param}" var="entry" >
-                        <g:if test="${entry.key == 'default.image'}" >
-                          <td><g:img class="img-responsive" uri="${entry.value}" /></td>
-                        </g:if>
-                        <g:else>
-                          <td>${entry.value}</td>
-                        </g:else>
+                </table>
+                
+              </div>
+          </div>
+          
+          <div id="split-tables">      
+    <table class="table-style" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <g:each in="${product.body}" var="entry" >
+                <th><g:message code="${entry.key}.label" /><span class="icon-table"><g:img dir="images" file="icon-table.png" /></span></th>
+              </g:each>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <g:each in="${product.body}" var="entry" >
+                <td data-title='<g:message code="${entry.key}.label" />'>${entry.value}</td>
+              </g:each>
+            </tr>
+          </tbody>
+        </table>
+        </div>
 
-                      </g:each>
-                  </tr>
-                </g:each> 
-              </tbody>
-            </table>
-      </div>
-    </g:each>
+
+      
 
 
 
