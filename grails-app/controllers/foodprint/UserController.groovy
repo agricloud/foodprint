@@ -57,8 +57,19 @@ class UserController {
 
     def delete(){
         def userInstance = User.findById(params.id)
+        def result
+        try {
+            
+            result = domainService.delete(userInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [userInstance, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
         render (contentType: 'application/json') {
-            domainService.delete(userInstance)
+            result
         }
     }
     

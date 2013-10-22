@@ -15,9 +15,28 @@ class OperationController {
         }
         
     }
+    def show(Long id){
 
-
+        def operation=Operation.findById(id);  
+        if(operation){   
+            render (contentType: 'application/json') {
+                [success: true,data:operation]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
     def create(){
+
+        def operation=new Operation()        
+        render (contentType: 'application/json') {
+            [success: true,data:operation]
+        }
+    }
+
+    def save(){
 
         def operationInstance=new Operation(params)
         
@@ -36,9 +55,20 @@ class OperationController {
 
 
     def delete(){
-        def  operationInstance = Operation.findById(params.id)
+        def operationInstance = Operation.findById(params.id)
+        def result
+        try {
+            
+            result = domainService.delete(operationInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [operationInstance, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
         render (contentType: 'application/json') {
-            domainService.delete(operationInstance)
+            result
         }
     }
 }

@@ -14,8 +14,27 @@ class WorkstationController {
         
     }
 
- 
+     def show(Long id){
+
+        def workstation=Workstation.findById(id);  
+        if(workstation){   
+            render (contentType: 'application/json') {
+                [success: true,data:workstation]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
     def create(){
+
+        def workstation=new Workstation()        
+        render (contentType: 'application/json') {
+            [success: true,data:workstation]
+        }
+    }
+    def save(){
 
         def workstationInstance=new Workstation(params)
         
@@ -35,8 +54,19 @@ class WorkstationController {
 
     def delete(){
         def workstationInstance = Workstation.findById(params.id)
+        def result
+        try {
+            
+            result = domainService.delete(workstationInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [workstationInstance, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
         render (contentType: 'application/json') {
-            domainService.delete(workstationInstance)
+            result
         }
     }
     
