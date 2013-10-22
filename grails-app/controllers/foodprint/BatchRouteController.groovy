@@ -108,24 +108,4 @@ class BatchRouteController {
         }
     }
 
-    /* 功能測試正常無誤後可刪除
-    def create() {
-        def batchRouteInstance = new BatchRoute(params)
-        render (contentType: 'application/json') {
-            domainService.save(batchRouteInstance)
-        }
-    }
-
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def batchRoute=Batch.findById(params.batch.id).batchRoutes
-        /** 
-    *[batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
-    *or use
-    *[batchRouteInstanceList: BatchRoute.list(params), batchRouteInstanceTotal: BatchRoute.count()]
-        **/
-    /*
-        [batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
-    }
-    */
 }

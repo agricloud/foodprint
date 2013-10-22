@@ -5,6 +5,8 @@ class BootStrap {
 	def convertService
   	def init = { servletContext ->
 
+  		// 預設時區，避免 json 轉換自動扣除 8 小時(台灣 +8:00)
+  		TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
   		// batch 解析 item 類似 deep 但只解析到第一層
 		JSON.registerObjectMarshaller(Batch) {
@@ -80,13 +82,13 @@ class BootStrap {
 
 				// 營養標示履歷
 				def report1=new Report(name:"report1",title:"營養標示履歷", reportType: ReportType.NUTRITION).save(failOnError: true, flush: true)
-				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation1,operation:operation2).save(failOnError: true, flush: true)
+				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation2,operation:operation2,item:item1).save(failOnError: true, flush: true)
 				
 				// 成品檢驗報告集
 				def report100=new Report(name:"report3",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save(failOnError: true, flush: true)
 				def reportparam100=new  ReportParams (report:report100,param:param100,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 				def reportparam101=new  ReportParams (report:report100,param:param101,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
-				def reportparam102=new  ReportParams (report:report100,param:param102,workstation:workstation2,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam102=new  ReportParams (report:report100,param:param102,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 
 				// 檢驗記錄集
 				// def report2=new Report(name:"report2",title:"檢驗紀錄集").save(failOnError: true, flush: true)
@@ -95,10 +97,10 @@ class BootStrap {
 				// def batchReportDet3=new BatchReportDet(batch:batch2,reportParams:reportparam2,value:"20").save(failOnError: true,flush: true)
 
 
-				def batchReportDet1=new  BatchReportDet (batch:batch1,reportParams:reportparam1).save(failOnError: true, flush: true)
+				//def batchReportDet1=new  BatchReportDet (batch:batch1,reportParams:reportparam1).save(failOnError: true, flush: true)
 				def batchReportDet100=new  BatchReportDet (batch:batch1,reportParams:reportparam100,value:"1.1111").save(failOnError: true, flush: true)
-				def batchReportDet101=new  BatchReportDet (batch:batch1,reportParams:reportparam101).save(failOnError: true, flush: true)
-				def batchReportDet102=new  BatchReportDet (batch:batch1,reportParams:reportparam102).save(failOnError: true, flush: true)
+				//def batchReportDet101=new  BatchReportDet (batch:batch1,reportParams:reportparam101).save(failOnError: true, flush: true)
+				//def batchReportDet102=new  BatchReportDet (batch:batch1,reportParams:reportparam102).save(failOnError: true, flush: true)
 				// def batchReportDet103=new  BatchReportDet (batch:batch1,reportParams:reportparam103).save(failOnError: true, flush: true)
 
 				def itemRoute1=new ItemRoute(item:item1,sequence:1,operation:operation1,workstation:workstation1).save(failOnError: true, flush: true)

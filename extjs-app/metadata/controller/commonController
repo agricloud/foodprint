@@ -157,10 +157,13 @@
             "userConfig": {
                 "fn": "doIndexDetail",
                 "designer|params": [
-                    "obj, record, item, index, e, eOpts"
+                    "obj, record, index, eOpts"
                 ],
                 "implHandler": [
                     "this.masterId = record.data.id;",
+                    "",
+                    "console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');",
+                    "",
                     "var grid = this.getMainGrid();",
                     "",
                     "grid.getStore().data.clear();",
@@ -225,7 +228,7 @@
             "userConfig": {
                 "fn": "activeGrid",
                 "implHandler": [
-                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
+                    "",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().down().up(\"panel[itemId=index]\"));"
                 ]
             },
@@ -265,6 +268,24 @@
                 ]
             },
             "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setImageUploader",
+                "implHandler": [
+                    "console.log('commonController--'+'--setImageUploader');",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0]",
+                    "this.getImageUploader().setDomainId(record.data['id']);",
+                    "this.getImageUploader().showImage();"
+                ]
+            },
+            "designerId": "b0493497-f295-4fff-adc1-ab8bb62e920b"
         }
     ]
 }
