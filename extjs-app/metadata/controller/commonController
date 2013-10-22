@@ -244,7 +244,8 @@
             "userConfig": {
                 "fn": "activeEditor",
                 "implHandler": [
-                    "",
+                    "if(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn'))",
+                    "\tthis.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().down().up(\"panel[itemId=show]\"));"
                 ]
             },
