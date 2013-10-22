@@ -5,8 +5,6 @@ import grails.converters.JSON
 
 class BatchReportDetController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
-
     def messageSource
     def domainService
 
@@ -15,32 +13,7 @@ class BatchReportDetController {
      * @param operation.id
      * 找出指定批號及途程中所有相關參數
     **/
-    def batchRouteParamsList(){
-        log.debug "BatchReportDetController--batchRouteParamsDetList"
-        
-        def batchInstance=Batch.get(params.batch.id)
-        def operationInstance=Operation.get(params.operation.id)
-        def workstationInstance=Workstation.get(params.workstation.id)
-
-        def reportParamsInstance=ReportParams.findAll(){
-            item==batchInstance.item && operation==operationInstance && workstation==workstationInstance
-        }
-
-        reportParamsInstance.each{
-            if(!BatchReportDet.findByBatchAndReportParams(batchInstance,it)){
-                log.debug "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
-                def newBatch=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
-                domainService.save(newBatch)
-            }
-        }
-
-        def batchRouteParamsInstance=BatchReportDet.findAll(){
-            batch==batchInstance && reportParams in reportParamsInstance
-        }
-        [batchRouteParamsInstanceList:batchRouteParamsInstance, batchRouteParamsInstanceTotal: batchRouteParamsInstance.size()]
-    }
-
-    def batchRouteParamsListJson(){
+    def showBatchRouteParams(){
         //找出指定批號、指定途程所需收集的履歷參數。
         /*
         * [Deep properties]
@@ -49,11 +22,44 @@ class BatchReportDetController {
         *   -reportParams
         *     -param
         */
+        log.debug "BatchReportDetController--batchRouteParamsDetList"
 
-        JSON.use('deep')
-        def converter=batchRouteParamsList() as JSON
-        JSON.use('default')
-        converter.render(response)
+        def batchInstance=Batch.get(params.batch.id)
+        def operationInstance=Operation.get(params.operation.id)
+        def workstationInstance=Workstation.get(params.workstation.id)
+
+        if(batchInstance && operationInstance && workstationInstance){
+            def reportParamsInstance=ReportParams.findAll(){
+                item==batchInstance.item && operation==operationInstance && workstation==workstationInstance
+            }
+
+            reportParamsInstance.each{
+                if(!BatchReportDet.findByBatchAndReportParams(batchInstance,it)){
+                    log.debug "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
+                    def newBatch=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
+                    domainService.save(newBatch)
+                }
+            }
+
+            def batchRouteParamsInstance=BatchReportDet.findAll(){
+                batch==batchInstance && reportParams in reportParamsInstance
+            }
+
+            def batchRouteParamsInstanceJson =  JSON.parse((batchRouteParamsInstance as JSON).toString()) 
+            batchRouteParamsInstanceJson.eachWithIndex{ brp, i ->
+                 brp.reportParams.param=JSON.parse((batchRouteParamsInstance[i].reportParams.param as JSON).toString()) 
+            }
+
+            render (contentType: 'application/json') {
+                [sucess:true, data:batchRouteParamsInstanceJson, total: batchRouteParamsInstance.size()]
+            }
+
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }
+        }
     }
 
     /**
