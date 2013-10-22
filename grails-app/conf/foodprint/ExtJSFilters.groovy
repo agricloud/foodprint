@@ -6,13 +6,14 @@ class ExtJSFilters {
         all(controller:'*', action:'*') {
             before = {
                 log.info "Start ${controllerName}-${actionName}-Filter"
+                log.info params
 
                 def pa
 
                 params.each {
                     key, value ->
-
-                    // Transform value from Ext JS to Grails date style
+                    // Transform value from Ext JS to Grails date style 
+                    // 時區 (\+|\-)\d\d:\d\d
                     if (value ==~ /^\d\d\d\d\-\d\d\-\d\dT\d\d:\d\d:\d\d$/) {
 
                         // Convert into Date object
@@ -34,6 +35,12 @@ class ExtJSFilters {
 
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                         // log.info "params[${key}] = ${params[key]}"
+                    }else if (value ==~ /^\d\d\d\d\-\d\d\-\d\d$/) {
+
+                        // Convert into Date object
+                        params[key] = Date.parse('yyyy-MM-dd', value)
+
+                        log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                     }
 
 
@@ -47,6 +54,7 @@ class ExtJSFilters {
 
 
                 }
+
 
                 // 如果從前端 extjs 傳進來需要進行分頁處理，轉換為 grails 處理分頁之 params
                 if(params.start && params.limit){
