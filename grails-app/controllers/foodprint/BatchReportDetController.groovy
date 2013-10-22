@@ -17,10 +17,25 @@ class BatchReportDetController {
     **/
     def batchRouteParamsList(){
         log.debug "BatchReportDetController--batchRouteParamsDetList"
+        
         def batchInstance=Batch.get(params.batch.id)
         def operationInstance=Operation.get(params.operation.id)
+        def workstationInstance=Workstation.get(params.workstation.id)
+
+        def reportParamsInstance=ReportParams.findAll(){
+            item==batchInstance.item && operation==operationInstance && workstation==workstationInstance
+        }
+
+        reportParamsInstance.each{
+            if(!BatchReportDet.findByBatchAndReportParams(batchInstance,it)){
+                log.debug "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
+                def newBatch=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
+                domainService.save(newBatch)
+            }
+        }
+
         def batchRouteParamsInstance=BatchReportDet.findAll(){
-            batch==batchInstance && reportParams.operation==operationInstance
+            batch==batchInstance && reportParams in reportParamsInstance
         }
         [batchRouteParamsInstanceList:batchRouteParamsInstance, batchRouteParamsInstanceTotal: batchRouteParamsInstance.size()]
     }
