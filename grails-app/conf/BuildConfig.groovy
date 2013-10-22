@@ -81,7 +81,7 @@ grails.project.dependency.resolution = {
             runtime ":resources:1.2"
         }else {
             runtime ":hibernate:$grailsVersion"
-            runtime ":jquery:1.8.3"
+            runtime ":jquery:1.10.2"
             runtime ":resources:1.2"
 
             // Uncomment these (or add new ones) to enable additional resources capabilities
@@ -104,7 +104,7 @@ grails.project.dependency.resolution = {
 
         compile ':rest-client-builder:1.0.3'
 
-        compile ":twitter-bootstrap:3.0.0"
+        // compile ":twitter-bootstrap:3.0.0"
 
         compile ":crypto:2.0"
 
