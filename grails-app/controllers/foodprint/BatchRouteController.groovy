@@ -17,12 +17,20 @@ class BatchRouteController {
         *   -workstation
         *   -operation
         */
-        JSON.use('deep')
-        def batchRoute=Batch.findById(params.batch.id).batchRoutes
-        def converter=[batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()] as JSON
-        JSON.use('default')
 
-        converter.render(response)
+        JSON.use('deep')
+        def batch=Batch.findById(params.batch.id)
+        if(batch){
+            def batchRoute=batch.batchRoutes
+            def converter=[success: true, data:batchRoute.collect(), total: batchRoute.size()] as JSON
+            JSON.use('default')
+            converter.render(response)
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }            
+        } 
     }
 
     def show(Long id){
