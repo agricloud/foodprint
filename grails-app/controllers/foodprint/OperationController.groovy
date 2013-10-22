@@ -9,9 +9,11 @@ class OperationController {
 
     def index() {
         
+        def list = Operation.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [operationInstanceList: Operation.list(params), operationInstanceTotal: Operation.count()]
-    
+            [operationInstanceList: list, operationInstanceTotal: list.totalCount]
         }
         
     }

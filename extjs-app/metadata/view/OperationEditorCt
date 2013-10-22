@@ -156,6 +156,7 @@
                                     "for(var i=0; i<config.columns.length;i++)",
                                     "config.columns[i].text=lang['operation.'+config.columns[i].dataIndex+'.label'];",
                                     "",
+                                    "config = Utilities.createFiltersFeature(config);",
                                     "return config;"
                                 ]
                             },

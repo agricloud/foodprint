@@ -8,9 +8,11 @@ class ParamController {
 
     def index() {
 
+        def list = Param.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
-    
+            [paramInstanceList: list, paramInstanceTotal: list.totalCount]
         }
         
     }

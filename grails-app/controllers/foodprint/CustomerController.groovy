@@ -8,9 +8,11 @@ class CustomerController {
 
     def index(params) {
 
+        def list = Customer.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
-    
+            [customerInstanceList: list, customerInstanceTotal: list.totalCount]
         }
         
     }

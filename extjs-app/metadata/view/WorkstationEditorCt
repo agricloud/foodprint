@@ -156,6 +156,25 @@
                                 "store": "WorkstationStore"
                             },
                             "designerId": "95838876-ba8c-4a79-88e7-8d8783aee037"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config = Utilities.createFiltersFeature(config);",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "8df87c01-e58a-4a2a-ab07-0ae7b4efef94"
                         }
                     ]
                 }

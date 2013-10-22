@@ -9,9 +9,11 @@ class ReportController {
 
     def index(params) {
 
+        def list = Report.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
-    
+            [reportInstanceList: list, reportInstanceTotal: list.totalCount]
         }
         
     }

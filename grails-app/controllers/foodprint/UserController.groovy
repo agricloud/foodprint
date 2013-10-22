@@ -9,9 +9,11 @@ class UserController {
 
     def index() {
 
+        def list = User.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [userInstanceList: User.list(params), userInstanceTotal: User.count()]
-    
+            [userInstanceList: list, userInstanceTotal: list.totalCount]
         }
         
     }

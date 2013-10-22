@@ -211,6 +211,25 @@
                                 ]
                             },
                             "designerId": "6a09a456-fe96-48fe-a052-254e2a4c8988"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config = Utilities.createFiltersFeature(config);",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "6fa3341b-3507-42b2-b1f1-a0f448dda594"
                         }
                     ]
                 }

@@ -171,6 +171,25 @@
                                 "store": "CustomerStore"
                             },
                             "designerId": "e6e860df-8017-4bad-94d0-c6df3316c878"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config = Utilities.createFiltersFeature(config);",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "5e9a4973-8f01-4daf-b39a-206f7458fd06"
                         }
                     ]
                 }

@@ -7,9 +7,11 @@ class WorkstationController {
 
     def index() {
 
+        def list = Workstation.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
-    
+            [workstationInstanceList: list, workstationInstanceTotal: list.totalCount]
         }
         
     }
