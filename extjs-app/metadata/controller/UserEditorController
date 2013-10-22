@@ -16,7 +16,11 @@
             "UserEditorCt"
         ],
         "designer|userClassName": "UserEditorController",
-        "mixins": null
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
     },
     "designerId": "91aa0e65-9365-4ba6-a15d-9ab82902e7a6",
     "cn": [
@@ -28,21 +32,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "userViewer",
-                "selector": "usereditorct #userViewer"
-            },
-            "designerId": "530008b0-2c5f-4601-9788-40e46311939b"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "userGrid",
-                "selector": "usereditorct #userGrid"
+                "ref": "mainGrid",
+                "selector": "usereditorct #grid"
             },
             "designerId": "a7454f3c-eb15-414a-a4ec-5fbeafa9667f"
         },
@@ -54,23 +45,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "userEditor",
-                "selector": "usereditorct #userEditor"
+                "ref": "mainForm",
+                "selector": "usereditorct #form"
             },
             "designerId": "382ac071-3ac6-4139-b64b-75b062ccc386"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "userEditorCt",
-                "selector": "usereditorct"
-            },
-            "designerId": "17a2bcf6-b638-49c0-9791-5a2fce1c5e64"
         },
         {
             "type": "fixedfunction",
@@ -85,244 +63,31 @@
                     "application"
                 ],
                 "implHandler": [
-                    "this.control({  ",
-                    "    'usereditorct button[itemId=commonCreateBtn]':{",
+                    "",
+                    "this.control({",
+                    "    'usereditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'usereditorct button[itemId=commonDeleteBtn]':{",
+                    "    'usereditorct #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'usereditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'usereditorct button[itemId=commonSaveBtn]':{",
+                    "    'usereditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'usereditorct button[itemId=commonUpdateBtn]':{",
-                    "        click:this.doUpdate",
-                    "    },",
-                    "    'usereditorct grid[itemId=userGrid]':{",
-                    "        itemdblclick:this.readUser",
-                    "    },",
-                    "    'usereditorct panel[itemId=userEditor]':{",
-                    "        tabchange:this.onTabChange",
-                    "    },",
-                    "    'usereditorct #userViewer form[itemId=userForm]':{",
-                    "        validitychange:this.onUserFormValidityChange",
+                    "    'usereditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
                     "    }",
-                    "});"
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'user';"
                 ]
             },
             "designerId": "0fab8cc7-e165-4dbd-9a6c-85302faa57c4"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "readUser",
-                "designer|params": [
-                    "obj,record,item,index,e,eOpts"
-                ],
-                "implHandler": [
-                    "this.getUserEditor().setActiveTab(this.getUserViewer().up());",
-                    "",
-                    "console.log(record);",
-                    "this.getUserViewer().down('form[itemId=userForm]').doDisplay(record);",
-                    "",
-                    "this.getUserEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getUserEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getUserEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
-                ]
-            },
-            "designerId": "5e27a84c-e4a9-4975-9cb3-5ac65d4c34c2"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "console.log('userEditorCtrl.doCreate');",
-                    "",
-                    "var form=this.getUserViewer().down('form[itemId=userForm]').getForm();",
-                    "form.reset();",
-                    "",
-                    "this.getUserEditor().setActiveTab(this.getUserViewer().up());"
-                ]
-            },
-            "designerId": "1240cedc-e644-49ea-bc8c-2817b6590a12"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doDelete",
-                "implHandler": [
-                    "console.log(\"userEditorCtrl.doDelete\");",
-                    "",
-                    "var that=this;",
-                    "",
-                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
-                    "    url: '/user/delete',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Deleting Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getUserGrid().getStore().load();",
-                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
-                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Deleting Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getUserEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "bcf6ddd4-d884-4d73-94d5-0cbdc1c755da"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSave",
-                "implHandler": [
-                    "console.log(\"userEditorCtrl.doSave\");",
-                    "",
-                    "var that=this;",
-                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
-                    "    url: '/user/create',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getUserGrid().getStore().load();",
-                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
-                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Saving Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getUserEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "6901bbf2-671c-4dcd-91d0-5c68153268b4"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doUpdate",
-                "implHandler": [
-                    "console.log('userEditorCtrl.doUpdate');",
-                    "",
-                    "var that=this;",
-                    "this.getUserViewer().down('form[itemId=userForm]').submit({",
-                    "    url: '/user/update',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Updating Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Updating Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getUserGrid().getStore().load();",
-                    "        that.getUserEditor().setActiveTab(that.getUserGrid().up());",
-                    "        that.getUserViewer().down('form[itemId=userForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Updating Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getUserEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "f470ca2b-5660-4f13-8b78-4f4aff956bb7"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onTabChange",
-                "designer|params": [
-                    "tabPanel, newCard, oldCard, eOpts"
-                ],
-                "implHandler": [
-                    "var crebtn=this.getUserEditorCt().down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=this.getUserEditorCt().down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=this.getUserEditorCt().down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=this.getUserEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "",
-                    "if(newCard==tabPanel.down('panel[itemId=userBrowse]')){",
-                    "    delbtn.setDisabled(true);",
-                    "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "",
-                    "}"
-                ]
-            },
-            "designerId": "9b3e641f-1fdc-4b09-822b-cca2a73a5a7b"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onUserFormValidityChange",
-                "designer|params": [
-                    "basic, valid, eOpts"
-                ],
-                "implHandler": [
-                    "",
-                    "this.getUserViewer().down('form[itemId=userForm]').getForm().updateRecord();",
-                    "",
-                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
-                    "    if(valid){",
-                    "        this.getUserEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getUserEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "    }",
-                    "}",
-                    "else{",
-                    "    if(valid){",
-                    "        this.getUserEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getUserEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
-                    "    }",
-                    "}"
-                ]
-            },
-            "designerId": "7a53b3ba-7072-4bd9-8dbd-d94386bba61b"
         }
     ]
 }

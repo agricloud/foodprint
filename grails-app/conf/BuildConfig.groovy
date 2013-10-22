@@ -1,4 +1,4 @@
-if(grailsVersion == "2.3.0")
+if(grailsVersion == "2.3.1")
     grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
 else grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
 
@@ -11,7 +11,7 @@ grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 
-if(grailsVersion == "2.3.0"){
+if(grailsVersion == "2.3.1"){
     grails.project.fork = [
         // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
         //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
@@ -66,7 +66,7 @@ grails.project.dependency.resolution = {
     plugins {
 
 
-        if(grailsVersion == "2.3.0"){
+        if(grailsVersion == "2.3.1"){
             // plugins for the build system only
             build ":tomcat:7.0.42"
 
@@ -75,7 +75,7 @@ grails.project.dependency.resolution = {
             compile ':cache:1.1.1'
 
             // plugins needed at runtime but not for compilation
-            runtime ":hibernate:3.6.10.1" // or ":hibernate4:4.1.11.1"
+            runtime ":hibernate:3.6.10.2" // or ":hibernate4:4.1.11.1"
             runtime ":database-migration:1.3.5"
             runtime ":jquery:1.10.2"
             runtime ":resources:1.2"
@@ -106,7 +106,8 @@ grails.project.dependency.resolution = {
 
         // compile ":twitter-bootstrap:3.0.0"
 
-        compile ":crypto:2.0"
+        compile ":crypto:2.0"  
+        compile ":directext:0.1"
 
 
         // Grails Ant Plugin

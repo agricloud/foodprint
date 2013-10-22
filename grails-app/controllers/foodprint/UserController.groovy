@@ -16,8 +16,28 @@ class UserController {
         
     }
 
- 
+    def show(Long id){
+
+        def user=User.findById(id);  
+        if(user){   
+            render (contentType: 'application/json') {
+                [success: true,data:user]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
     def create(){
+
+        def user=new User()        
+        render (contentType: 'application/json') {
+            [success: true,data:user]
+        }
+    }
+ 
+    def save(){
 
         def userInstance=new User(params)
         
