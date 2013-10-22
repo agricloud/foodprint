@@ -16,7 +16,11 @@
             "OperationEditorCt"
         ],
         "designer|userClassName": "OperationEditorController",
-        "mixins": null
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.commonController'",
+            "}"
+        ]
     },
     "designerId": "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
     "cn": [
@@ -28,21 +32,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "operationViewer",
-                "selector": "operationeditorct #operationViewer"
-            },
-            "designerId": "a5188cb8-8441-41a0-9e2e-d6ce0f2b2930"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "operationGrid",
-                "selector": "operationeditorct #operationGrid"
+                "ref": "mainGrid",
+                "selector": "operationeditorct #grid"
             },
             "designerId": "bd4b253a-785b-4386-9b28-192558ecf1c7"
         },
@@ -54,23 +45,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "operationEditor",
-                "selector": "operationeditorct #operationEditor"
+                "ref": "mainForm",
+                "selector": "operationeditorct #form"
             },
             "designerId": "ff64c994-a042-469a-8a09-a664e2f753c2"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "operationEditorCt",
-                "selector": "operationeditorct"
-            },
-            "designerId": "ce69d91e-9e67-4b56-a158-336c550efc41"
         },
         {
             "type": "fixedfunction",
@@ -85,248 +63,32 @@
                     "application"
                 ],
                 "implHandler": [
+                    "",
+                    "",
                     "this.control({",
-                    "    'operationeditorct button[itemId=commonCreateBtn]':{",
+                    "    'operationeditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'operationeditorct button[itemId=commonDeleteBtn]':{",
+                    "    'operationeditorct #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'operationeditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'operationeditorct button[itemId=commonSaveBtn]':{",
+                    "    'operationeditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'operationeditorct button[itemId=commonUpdateBtn]':{",
-                    "        click:this.doUpdate",
-                    "    },",
-                    "    'operationeditorct grid[itemId=operationGrid]':{",
-                    "        itemdblclick:this.readOperation",
-                    "    },",
-                    "    'operationeditorct panel[itemId=operationEditor]':{",
-                    "        tabchange:this.onTabChange",
-                    "    },",
-                    "    'operationeditorct #operationViewer form[itemId=operationForm]':{",
-                    "        validitychange:this.onOperationFormValidityChange",
+                    "    'operationeditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
                     "    }",
-                    "});"
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'operation';"
                 ]
             },
             "designerId": "131d1781-2ca2-4c97-a2c7-bfd95585b6c1"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "readOperation",
-                "designer|params": [
-                    "obj,record,item,index,e,eOpts"
-                ],
-                "implHandler": [
-                    "this.getOperationEditor().setActiveTab(this.getOperationViewer().up());",
-                    "",
-                    "console.log(record);",
-                    "this.getOperationViewer().down('form[itemId=operationForm]').doDisplay(record);",
-                    "",
-                    "this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);"
-                ]
-            },
-            "designerId": "2a296c76-0e93-44b5-a234-94fe49ecdb03"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCreate",
-                "implHandler": [
-                    "console.log('operationEditorCtrl.doCreate');",
-                    "",
-                    "var form=this.getOperationViewer().down('form[itemId=operationForm]').getForm();",
-                    "form.reset();",
-                    "",
-                    "this.getOperationEditor().setActiveTab(this.getOperationViewer().up());",
-                    ""
-                ]
-            },
-            "designerId": "2ff3e60d-9673-45a4-85a0-a1476ddc9061"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doDelete",
-                "implHandler": [
-                    "console.log(\"operationEditorCtrl.doDelete\");",
-                    "",
-                    "var that=this;",
-                    "",
-                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
-                    "    url: '/operation/delete',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Deleting Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Deleting Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getOperationGrid().getStore().load();",
-                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
-                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Deleting Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getOperationEditorCt().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "5ce243a1-f0de-41b5-aaa5-73de5e95e5a5"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSave",
-                "implHandler": [
-                    "console.log(\"operationEditorCtrl.doSave\");",
-                    "",
-                    "var that=this;",
-                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
-                    "    url: '/operation/create',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Saving Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Saving Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getOperationGrid().getStore().load();",
-                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
-                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Saving Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "b5d0b31f-7b7d-4263-9201-5552154e7198"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doUpdate",
-                "implHandler": [
-                    "console.log('operationEditorCtrl.doUpdate');",
-                    "",
-                    "var that=this;",
-                    "this.getOperationViewer().down('form[itemId=operationForm]').submit({",
-                    "    url: '/operation/update',",
-                    "    submitEmptyText: false,",
-                    "    waitMsg: 'Updating Data...',",
-                    "    success: function(form,action) {",
-                    "        console.log('Updating Success！');",
-                    "        Ext.MessageBox.alert('Success',action.result.message);",
-                    "        that.getOperationGrid().getStore().load();",
-                    "        that.getOperationEditor().setActiveTab(that.getOperationGrid().up());",
-                    "        that.getOperationViewer().down('form[itemId=operationForm]').getForm().reset();",
-                    "    },",
-                    "    failure: function(form,action) {",
-                    "        console.log('Updating Failed！');",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        that.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "});"
-                ]
-            },
-            "designerId": "193ab132-020c-485d-8e0f-7d86d8d9431b"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onTabChange",
-                "designer|params": [
-                    "tabPanel, newCard, oldCard, eOpts"
-                ],
-                "implHandler": [
-                    "var crebtn=this.getOperationEditorCt().down('button[itemId=commonCreateBtn]');",
-                    "var delbtn=this.getOperationEditorCt().down('button[itemId=commonDeleteBtn]');",
-                    "var savbtn=this.getOperationEditorCt().down('button[itemId=commonSaveBtn]');",
-                    "var updbtn=this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]');",
-                    "",
-                    "if(newCard==tabPanel.down('panel[itemId=opBrowse]')){",
-                    "    delbtn.setDisabled(true);",
-                    "    savbtn.setDisabled(true);",
-                    "    updbtn.setDisabled(true);",
-                    "",
-                    "}",
-                    "else{",
-                    "    tabPanel.down('form[itemId=operationForm]').getForm().reset(true);",
-                    "}"
-                ]
-            },
-            "designerId": "0efd456e-2968-40db-ad06-2bd3945902ee"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onOperationFormValidityChange",
-                "designer|params": [
-                    "basic, valid, eOpts"
-                ],
-                "implHandler": [
-                    "",
-                    "this.getOperationViewer().down('form[itemId=operationForm]').getForm().updateRecord();",
-                    "",
-                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
-                    "    if(valid){",
-                    "        this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getOperationEditorCt().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
-                    "    }",
-                    "}",
-                    "else{",
-                    "    if(valid){",
-                    "        this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(false);",
-                    "    }",
-                    "    else{",
-                    "        this.getOperationEditorCt().down('button[itemId=commonSaveBtn]').setDisabled(true);",
-                    "    }",
-                    "}"
-                ]
-            },
-            "designerId": "c9845c87-b429-41d4-a3d7-b06b41b75b3d"
         }
     ]
 }

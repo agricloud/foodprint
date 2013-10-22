@@ -1,4 +1,5 @@
 package foodprint
+import grails.converters.JSON
 
 class ParamController {
 
@@ -7,13 +8,38 @@ class ParamController {
 
     def index() {
 
+        def list = Param.createCriteria().list(params,params.criteria)
+
+
         render (contentType: 'application/json') {
-            [paramInstanceList: Param.list(params), paramInstanceTotal: Param.count()]
-    
+            [paramInstanceList: list, paramInstanceTotal: list.totalCount]
         }
         
     }
+     def show(Long id){
 
+        def param=Param.findById(id);  
+        if(param){ 
+            def paramJson = JSON.parse((param as JSON).toString())
+
+            log.info param.paramType.name()
+            paramJson.paramType = param.paramType.name()
+            render (contentType: 'application/json') {
+                [success: true,data:paramJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
+    def save(){
+
+        def param=new Param()        
+        render (contentType: 'application/json') {
+            [success: true,data:param]
+        }
+    }
  
     def create(){
 

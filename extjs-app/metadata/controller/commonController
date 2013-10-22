@@ -22,12 +22,14 @@
                 "implHandler": [
                     "console.log('commonController--'+this.domainName+'--doShow');",
                     "",
-                    "var that = this",
-                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0]",
-                    "var id = -1",
+                    "var that = this;",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0];",
+                    "var id = -1;",
                     "",
                     "if(this.getMainGrid().getSelectionModel().getSelection()[0])",
-                    "id = record.data.id;",
+                    "\tid = record.data.id;",
+                    "",
+                    "console.log(this.getMainForm());",
                     "",
                     "this.getMainForm().getForm().load({",
                     "    url:'/'+this.domainName+'/show/'+id,",
@@ -244,7 +246,8 @@
             "userConfig": {
                 "fn": "activeEditor",
                 "implHandler": [
-                    "",
+                    "if(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn'))",
+                    "\tthis.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().down().up(\"panel[itemId=show]\"));"
                 ]
             },

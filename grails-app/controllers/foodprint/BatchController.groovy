@@ -15,7 +15,7 @@ class BatchController {
 
         // def listJson =  JSON.parse((list as JSON).toString())
 
-        // listJson.each{
+        // list.each{
         //     batch ->
         //     batch["item.id"] = batch.item.id
         // }          
