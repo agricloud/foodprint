@@ -11,7 +11,7 @@
             "BatchShowDeepStore"
         ],
         "views": [
-            "ForwardTraceTreeCt"
+            "ForwardTraceTreeView"
         ],
         "designer|userClassName": "ForwardTraceTreeController"
     },
@@ -31,16 +31,16 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'forwardtracetreect commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
+                    "    'forwardtracetreeview commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
                     "        onTriggerClick: this.doSearchBatch",
                     "    },",
-                    "    'forwardtracetreect commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "    'forwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
                     "        click: this.doExpandall",
                     "    },",
-                    "    'forwardtracetreect commontracetoolbar button[itemId=commonCollapseallBtn]':{",
+                    "    'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
                     "        click: this.doCollapseall",
                     "    },",
-                    "    'forwardtracetreect treepanel[itemId=forwardTraceTreePanel]':{",
+                    "    'forwardtracetreeview treepanel[itemId=forwardTraceTreePanel]':{",
                     "        beforeitemappend: this.beforeitemappend",
                     "    }",
                     "});"
@@ -57,7 +57,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "forwardTraceTreeCt",
-                "selector": "forwardtracetreect"
+                "selector": "forwardtracetreeview"
             },
             "designerId": "1b94751d-ce91-4ada-b4c5-e9be4142678e"
         },
@@ -70,7 +70,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "commonTraceToolbar",
-                "selector": "forwardtracetreect commontracetoolbar"
+                "selector": "forwardtracetreeview commontracetoolbar"
             },
             "designerId": "e0f04315-eb30-4d54-be65-7082d4803596"
         },

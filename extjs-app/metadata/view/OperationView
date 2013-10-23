@@ -7,13 +7,13 @@
     "codeClass": null,
     "userConfig": {
         "height": null,
-        "itemId": "customerEditorCt",
+        "itemId": "operationEditorct",
         "width": null,
-        "designer|userClassName": "CustomerEditorCt",
-        "designer|userAlias": "customereditorct",
+        "designer|userClassName": "OperationView",
+        "designer|userAlias": "operationview",
         "layout": "card"
     },
-    "designerId": "d98c705b-86f8-4d9a-8af7-8ccc910b38e8",
+    "designerId": "1a6620cf-b9b5-476f-ad2e-8f7d1104a0d7",
     "cn": [
         {
             "type": "Ext.panel.Panel",
@@ -31,7 +31,7 @@
                 "layout": "vbox",
                 "title": null
             },
-            "designerId": "0bf953a3-e4a5-4d0d-89bf-4603dcbcda6c",
+            "designerId": "df868e83-9048-4d54-bf7f-b368aa683ba6",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -52,11 +52,10 @@
                         "height": null,
                         "itemId": "grid",
                         "width": null,
-                        "manageHeight": false,
                         "title": null,
-                        "store": "CustomerStore"
+                        "store": "OperationStore"
                     },
-                    "designerId": "45af3184-ea60-4d11-bb27-e919736f9510",
+                    "designerId": "7f0e49ec-2fe7-4921-834a-9827de6edeeb",
                     "cn": [
                         {
                             "type": "Ext.grid.column.Column",
@@ -67,11 +66,12 @@
                             "codeClass": null,
                             "userConfig": {
                                 "hidden": true,
+                                "designer|displayName": null,
                                 "dataIndex": "id",
                                 "text": "id",
                                 "flex": 1
                             },
-                            "designerId": "9e1d6fd3-5211-4351-9852-55522baa70b7"
+                            "designerId": "27a64732-af1f-430d-93a3-6a0d08b7f2cd"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -81,11 +81,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": null,
                                 "dataIndex": "name",
-                                "text": "Name",
+                                "text": "name",
                                 "flex": 1
                             },
-                            "designerId": "27a36169-86c9-4e3b-b05a-32ce501d61bc"
+                            "designerId": "8ecc841f-c1df-4f01-abbf-be77e7bd6d34"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -96,10 +97,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "title",
-                                "text": "Title",
+                                "text": "title",
                                 "flex": 1
                             },
-                            "designerId": "22c9a5a6-3eae-493f-b885-efd201f6d847"
+                            "designerId": "813fc892-b3b9-443d-be55-cca1fa2cb7ae"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -109,27 +110,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "defaultWidth": null,
-                                "dataIndex": "email",
-                                "text": "Email",
+                                "dataIndex": "description",
+                                "text": "description",
                                 "flex": 1
                             },
-                            "designerId": "90300a96-805c-4483-88e0-65639f81b829"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "defaultWidth": null,
-                                "dataIndex": "address",
-                                "text": "Address",
-                                "flex": 1
-                            },
-                            "designerId": "7a4877b8-e01b-49d0-a7d1-c61249c31421"
+                            "designerId": "e5169feb-f4d2-49b3-942e-c2ff00db179d"
                         },
                         {
                             "type": "Ext.grid.View",
@@ -138,24 +123,7 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "designerId": "2bdc9307-86e9-4763-97c7-b5c7b7655a53"
-                        },
-                        {
-                            "type": "basicfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "loadStore",
-                                "implHandler": [
-                                    "console.log(\"View-customerGrid.loadStore\");",
-                                    "",
-                                    "//this.getStore().load();//對應ref"
-                                ]
-                            },
-                            "designerId": "440b7893-a3d0-4b82-b1f1-b4e0ad07c552"
+                            "designerId": "11fdddd4-0c5b-4942-9e37-22588821211e"
                         },
                         {
                             "type": "Ext.toolbar.Paging",
@@ -168,9 +136,9 @@
                                 "dock": "bottom",
                                 "width": null,
                                 "displayInfo": true,
-                                "store": "CustomerStore"
+                                "store": "OperationStore"
                             },
-                            "designerId": "e6e860df-8017-4bad-94d0-c6df3316c878"
+                            "designerId": "917bdf0c-0c8f-47a8-b28f-34e058c581d2"
                         },
                         {
                             "type": "processcfgfunction",
@@ -180,16 +148,36 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processGrid",
+                                "fn": "processLocalized",
                                 "designer|params": [
                                     "config"
                                 ],
                                 "implHandler": [
+                                    "for(var i=0; i<config.columns.length;i++)",
+                                    "config.columns[i].text=lang['operation.'+config.columns[i].dataIndex+'.label'];",
+                                    "",
                                     "config = Utilities.createFiltersFeature(config);",
                                     "return config;"
                                 ]
                             },
-                            "designerId": "5e9a4973-8f01-4daf-b39a-206f7458fd06"
+                            "designerId": "c1e47074-b31b-4ec0-a54a-4f822f8d1acb"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "loadStore",
+                                "implHandler": [
+                                    "console.log(\"View-OperationGrid.loadStore\");",
+                                    "",
+                                    "this.getStore().load();//對應ref"
+                                ]
+                            },
+                            "designerId": "a650d68f-aa5c-4e0d-93bc-3580b9091cb5"
                         }
                     ]
                 }
@@ -211,7 +199,7 @@
                 "layout": "vbox",
                 "title": null
             },
-            "designerId": "09946288-beb2-4e6a-8e0e-a94522f5bf99",
+            "designerId": "36440fa1-7d3f-46ee-8372-83ad241eff5c",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -236,7 +224,7 @@
                         "bodyPadding": null,
                         "title": null
                     },
-                    "designerId": "584616da-6278-4463-b106-173baca637c8",
+                    "designerId": "05211a86-9b18-44b6-9b95-20ea5c2f2b13",
                     "cn": [
                         {
                             "type": "Ext.form.field.Number",
@@ -251,7 +239,7 @@
                                 "name": "id",
                                 "readOnly": true
                             },
-                            "designerId": "5f8bdc40-625b-475a-a0bf-8daa15fc47f8"
+                            "designerId": "d627bd4f-cc37-4336-9bf0-4fff8a939624"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -263,9 +251,10 @@
                             "userConfig": {
                                 "layout|flex": null,
                                 "fieldLabel": "name",
-                                "name": "name"
+                                "name": "name",
+                                "allowBlank": false
                             },
-                            "designerId": "da1e65c3-d46f-4820-8730-1ebc408a6c30"
+                            "designerId": "c4804344-2586-4837-a319-efb158d954e1"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -279,7 +268,7 @@
                                 "fieldLabel": "title",
                                 "name": "title"
                             },
-                            "designerId": "0dd5aa4c-fc86-43eb-afa8-e4a79aefd3d4"
+                            "designerId": "9672599f-8b2e-40c8-a687-96d89f66751a"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -290,24 +279,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "fieldLabel": "email",
-                                "name": "email"
+                                "fieldLabel": "description",
+                                "name": "description"
                             },
-                            "designerId": "af7edcf3-2d73-4d18-8d44-32339f6bf78f"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "fieldLabel": "address",
-                                "name": "address"
-                            },
-                            "designerId": "2847e0e5-7082-4ed8-aa50-a9c627acfdc6"
+                            "designerId": "94a0c16d-0ead-4a27-b43c-e3f22f5e8263"
                         },
                         {
                             "type": "basicfunction",
@@ -322,11 +297,32 @@
                                     "record"
                                 ],
                                 "implHandler": [
-                                    "console.log(\"View-customerForm.doDisplay\");",
+                                    "console.log(\"View-operationForm.doDisplay\");",
                                     "this.loadRecord(record);"
                                 ]
                             },
-                            "designerId": "ec612cc5-6489-4c49-ae94-789dd3fb748c"
+                            "designerId": "5a6caba1-2990-4440-a3cc-5236d88ee3bf"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "for(var i=0;i<config.items.length;i++)",
+                                    "config.items[i].fieldLabel=lang['operation.'+config.items[i].name+'.label'];",
+                                    "",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "a58d7909-b344-42a9-a384-432c39f6b28d"
                         }
                     ]
                 }

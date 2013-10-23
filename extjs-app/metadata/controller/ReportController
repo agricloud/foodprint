@@ -14,7 +14,7 @@
             "ReportParamsStore"
         ],
         "views": [
-            "ReportEditorCt"
+            "ReportView"
         ],
         "designer|userClassName": "ReportController",
         "mixins": null
@@ -30,7 +30,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportGrid",
-                "selector": "reporteditorct #reportGrid"
+                "selector": "reportview #reportGrid"
             },
             "designerId": "10006695-aced-4990-a351-dabfe4793b02"
         },
@@ -43,7 +43,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportViewer",
-                "selector": "reporteditorct #reportViewer"
+                "selector": "reportview #reportViewer"
             },
             "designerId": "76d6ba40-07ce-48ea-988c-c76cef82d7ee"
         },
@@ -56,7 +56,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportEditor",
-                "selector": "reporteditorct #reportEditor"
+                "selector": "reportview #reportEditor"
             },
             "designerId": "33f0e4ce-dae3-448b-89a2-fd975cd525fe"
         },
@@ -69,7 +69,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportEditorCt",
-                "selector": "reporteditorct"
+                "selector": "reportview"
             },
             "designerId": "71c892a4-1e75-42d3-9534-5e6b14d7a906"
         },
@@ -82,7 +82,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsGrid",
-                "selector": "reporteditorct #reportParamsGrid"
+                "selector": "reportview #reportParamsGrid"
             },
             "designerId": "ad362cd3-b689-481a-ac01-0ec7f53ce9f8"
         },
@@ -95,7 +95,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "reportParamsEditor",
-                "selector": "reporteditorct #reportParamsEditor"
+                "selector": "reportview #reportParamsEditor"
             },
             "designerId": "78733fb2-4073-48b3-8534-c1aeca02bd60"
         },
@@ -114,34 +114,34 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    'reporteditorct #reportToolbar button[itemId=commonCreateBtn]':{",
+                    "    'reportview #reportToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'reporteditorct #reportToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'reportview #reportToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'reporteditorct #reportToolbar button[itemId=commonSaveBtn]':{",
+                    "    'reportview #reportToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'reporteditorct #reportToolbar button[itemId=commonUpdateBtn]':{",
+                    "    'reportview #reportToolbar button[itemId=commonUpdateBtn]':{",
                     "        click:this.doUpdate",
                     "    },",
-                    "    'reporteditorct grid[itemId=reportGrid]':{",
+                    "    'reportview grid[itemId=reportGrid]':{",
                     "        itemdblclick:this.readReport",
                     "    },",
-                    "    'reporteditorct #reportParamsToolbar button[itemId=commonCreateBtn]':{",
+                    "    'reportview #reportParamsToolbar button[itemId=commonCreateBtn]':{",
                     "        click:this.paramsdoCreate",
                     "    },",
-                    "    'reporteditorct #reportParamsToolbar button[itemId=commonDeleteBtn]':{",
+                    "    'reportview #reportParamsToolbar button[itemId=commonDeleteBtn]':{",
                     "        click:this.paramsdoDelete",
                     "    },",
-                    "    'reporteditorct #reportParamsToolbar button[itemId=commonSaveBtn]':{",
+                    "    'reportview #reportParamsToolbar button[itemId=commonSaveBtn]':{",
                     "        click:this.paramsdoSave",
                     "    },",
-                    "    'reporteditorct panel[itemId=reportEditor]':{",
+                    "    'reportview panel[itemId=reportEditor]':{",
                     "        tabchange:this.onTabChange",
                     "    },",
-                    "    'reporteditorct #reportViewer form[itemId=reportForm]':{",
+                    "    'reportview #reportViewer form[itemId=reportForm]':{",
                     "        validitychange:this.onReportFormValidityChange",
                     "    },",
                     "    'reportparamseditor #reportParamsToolbar button[itemId=commonCreateBtn]':{",

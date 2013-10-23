@@ -13,7 +13,7 @@
             "OperationStore"
         ],
         "views": [
-            "OperationEditorCt"
+            "OperationView"
         ],
         "designer|userClassName": "OperationController",
         "mixins": [
@@ -33,7 +33,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "operationeditorct #grid"
+                "selector": "operationview #grid"
             },
             "designerId": "bd4b253a-785b-4386-9b28-192558ecf1c7"
         },
@@ -46,7 +46,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "operationeditorct #form"
+                "selector": "operationview #form"
             },
             "designerId": "ff64c994-a042-469a-8a09-a664e2f753c2"
         },
@@ -66,19 +66,19 @@
                     "",
                     "",
                     "this.control({",
-                    "    'operationeditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'operationview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'operationeditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'operationview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'operationeditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'operationview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'operationeditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'operationview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'operationeditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'operationview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    }",
                     "",

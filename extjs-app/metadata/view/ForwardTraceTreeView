@@ -8,13 +8,12 @@
     "userConfig": {
         "container|align": "stretch",
         "height": null,
-        "itemId": "backwardTraceTreeCt",
         "width": null,
-        "designer|userClassName": "BackwardTraceTreeCt",
-        "designer|userAlias": "backwardtracetreect",
+        "designer|userClassName": "ForwardTraceTreeView",
+        "designer|userAlias": "forwardtracetreeview",
         "layout": "vbox"
     },
-    "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
+    "designerId": "27738884-27eb-4b4f-a044-887a4c636a35",
     "cn": [
         {
             "type": "linkedinstance",
@@ -23,7 +22,10 @@
                 "type": "array"
             },
             "codeClass": null,
-            "designerId": "d245b922-3131-4d2b-8b77-e77f87d577b1",
+            "userConfig": {
+                "width": 100
+            },
+            "designerId": "1f234804-48d8-449d-9834-b039ab3fee82",
             "masterInstanceId": "23f3bbfe-f534-441c-abba-028441187e12"
         },
         {
@@ -36,15 +38,15 @@
             "userConfig": {
                 "layout|flex": 1,
                 "height": null,
-                "itemId": "backwardTraceTreePanel",
+                "itemId": "forwardTraceTreePanel",
                 "width": null,
                 "collapsible": false,
                 "title": null,
                 "normalViewConfig": null,
-                "store": "BackwardTraceTreeStore",
+                "store": "ForwardTraceTreeStore",
                 "useArrows": true
             },
-            "designerId": "959d5fd3-d214-469d-95cf-990941426116",
+            "designerId": "f2ee412d-e91b-4d6a-8a40-deaa8bc0d566",
             "isBuiltIn": true,
             "iconCls": "icon-treegridpanel",
             "autoName": "TreeGrid",
@@ -58,10 +60,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "item.title",
-                        "text": "item.title",
+                        "text": "Item.title",
                         "flex": 1
                     },
-                    "designerId": "ecd406bf-6e39-4e1c-9539-697ff2c6121d"
+                    "designerId": "5871ea91-f1fc-48e7-b40c-81791691c9d3"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -74,7 +76,7 @@
                         "dataIndex": "id",
                         "text": "id"
                     },
-                    "designerId": "be5f4416-765c-45a1-9abb-29a4edc7b27c"
+                    "designerId": "0a695f63-546f-4998-bb45-454df90f2892"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -87,7 +89,7 @@
                         "dataIndex": "name",
                         "text": "name"
                     },
-                    "designerId": "bdbf8523-6359-434b-aa49-dce3377f9f8f"
+                    "designerId": "1dae40d7-318d-411b-bef2-c6bd76628457"
                 },
                 {
                     "type": "Ext.grid.column.Number",
@@ -101,7 +103,7 @@
                         "text": "expectQty",
                         "flex": 1
                     },
-                    "designerId": "02a1daa0-240f-440c-a663-cf71650710b4"
+                    "designerId": "32fb3bd2-28c4-4335-9a79-366ee3239526"
                 },
                 {
                     "type": "Ext.grid.column.Number",
@@ -112,9 +114,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "dueDate",
-                        "text": "dueDate"
+                        "text": "dueDate",
+                        "flex": 1
                     },
-                    "designerId": "32e0fb65-b555-4df2-92f3-c89ec80db0d4"
+                    "designerId": "bec37231-c499-4574-9ea5-e282e24ee80b"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -128,7 +131,7 @@
                         "text": "country",
                         "flex": 1
                     },
-                    "designerId": "38d349d5-a590-4e9d-9d1d-b31a578a321c"
+                    "designerId": "b96524dc-9deb-4efa-8efc-90cb7b2f1ede"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -142,7 +145,7 @@
                         "text": "supplier.id",
                         "flex": 1
                     },
-                    "designerId": "c925b3bd-d868-4a0a-9aa6-aab8214fdc60"
+                    "designerId": "4a3b80c1-80ab-4ae4-b7c0-bf14a68e35ab"
                 }
             ]
         }

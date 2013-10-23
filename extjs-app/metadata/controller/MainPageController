@@ -8,16 +8,18 @@
     "userConfig": {
         "views": [
             "MainContainer",
-            "ItemEditorCt",
-            "BatchEditorCt",
-            "ReportEditorCt",
-            "WorkstationEditorCt",
-            "ParamEditorCt",
-            "BatchParamsEditorCt",
-            "OperationEditorCt",
+            "OperationView",
             "MainViewport",
-            "UserEditorCt",
-            "CustomerEditorCt"
+            "ItemView",
+            "UserView",
+            "ItemRouteView",
+            "BatchView",
+            "BatchRouteView",
+            "CustomerView",
+            "BatchReportDetView",
+            "ReportView",
+            "ParamView",
+            "WorkstationView"
         ],
         "designer|userClassName": "MainPageController"
     },
@@ -134,7 +136,7 @@
             "userConfig": {
                 "fn": "itemMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'itemeditorct';",
+                    "var xtypeStr = 'itemview';",
                     "var tabName = '品項維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -151,7 +153,7 @@
             "userConfig": {
                 "fn": "batchMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'batcheditorct';",
+                    "var xtypeStr = 'batchview';",
                     "var tabName = '批號維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -168,7 +170,7 @@
             "userConfig": {
                 "fn": "operationMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'operationeditorct';",
+                    "var xtypeStr = 'operationview';",
                     "var tabName = '製程維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -185,7 +187,7 @@
             "userConfig": {
                 "fn": "workstationMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'workstationeditorct';",
+                    "var xtypeStr = 'workstationview';",
                     "var tabName = '工作站維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -202,7 +204,7 @@
             "userConfig": {
                 "fn": "reportMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'reporteditorct';",
+                    "var xtypeStr = 'reportview';",
                     "var tabName = '履歷維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -219,7 +221,7 @@
             "userConfig": {
                 "fn": "paramMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'parameditorct';",
+                    "var xtypeStr = 'paramview';",
                     "var tabName = '參數設定';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -236,7 +238,7 @@
             "userConfig": {
                 "fn": "batchParamsMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'batchparamseditorct';",
+                    "var xtypeStr = 'batchreportdetview';",
                     "var tabName = '批號履歷維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -270,7 +272,7 @@
             "userConfig": {
                 "fn": "forwardTrace",
                 "implHandler": [
-                    "var xtypeStr = 'forwardtracetreect';",
+                    "var xtypeStr = 'forwardtracetreeview';",
                     "var tabName = '順向追溯';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -287,7 +289,7 @@
             "userConfig": {
                 "fn": "backwardTrace",
                 "implHandler": [
-                    "var xtypeStr = 'backwardtracetreect';",
+                    "var xtypeStr = 'backwardtracetreeview';",
                     "var tabName = '逆向追溯';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -304,7 +306,7 @@
             "userConfig": {
                 "fn": "customerMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'customereditorct';",
+                    "var xtypeStr = 'customerview';",
                     "var tabName = '客戶維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -321,7 +323,7 @@
             "userConfig": {
                 "fn": "itemRouteMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'itemrouteeditorct';",
+                    "var xtypeStr = 'itemrouteview';",
                     "var tabName = '品項途程維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
@@ -338,7 +340,7 @@
             "userConfig": {
                 "fn": "batchRouteMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'batchrouteeditorct';",
+                    "var xtypeStr = 'batchrouteview';",
                     "var tabName = '批號途程維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]

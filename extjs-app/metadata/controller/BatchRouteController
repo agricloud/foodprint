@@ -19,7 +19,7 @@
             "BatchStore"
         ],
         "views": [
-            "BatchRouteEditorCt"
+            "BatchRouteView"
         ],
         "designer|userClassName": "BatchRouteController",
         "mixins": [
@@ -44,23 +44,23 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batchrouteeditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'batchrouteview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'batchrouteeditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'batchrouteview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'batchrouteeditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'batchrouteview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'batchrouteeditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'batchrouteview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'batchrouteeditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'batchrouteview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    },",
                     "",
-                    "    'batchrouteeditorct #index #masterGrid':{",
+                    "    'batchrouteview #index #masterGrid':{",
                     "        select:this.doIndexDetail",
                     "    }",
                     "});",
@@ -81,7 +81,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "batchrouteeditorct #grid"
+                "selector": "batchrouteview #grid"
             },
             "designerId": "11dc49fb-beed-4030-95f2-73be96611bec"
         },
@@ -94,7 +94,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "batchrouteeditorct #form"
+                "selector": "batchrouteview #form"
             },
             "designerId": "c4c83801-271e-40e0-9a1c-fba3f6029e71"
         },
@@ -107,7 +107,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "masterGrid",
-                "selector": "batchrouteeditorct #masterGrid"
+                "selector": "batchrouteview #masterGrid"
             },
             "designerId": "8148ff0a-6e86-47dc-b50a-9f4f410306ca"
         }

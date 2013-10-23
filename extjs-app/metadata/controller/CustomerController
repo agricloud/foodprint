@@ -13,7 +13,7 @@
             "CustomerStore"
         ],
         "views": [
-            "CustomerEditorCt"
+            "CustomerView"
         ],
         "designer|userClassName": "CustomerController",
         "mixins": [
@@ -33,7 +33,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "customereditorct #grid"
+                "selector": "customerview #grid"
             },
             "designerId": "061836b2-84a6-40af-90a5-ca5091f4540b"
         },
@@ -46,7 +46,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "customereditorct #form"
+                "selector": "customerview #form"
             },
             "designerId": "085531d0-1210-4bec-b5a5-97c3c1362f9b"
         },
@@ -65,19 +65,19 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    'customereditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'customerview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'customereditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'customerview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'customerview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'customerview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'customerview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    }",
                     "",

@@ -19,7 +19,7 @@
             "ItemRouteDeepStore"
         ],
         "views": [
-            "ItemEditorCt",
+            "ItemView",
             "CommonImageUploader"
         ],
         "designer|userClassName": "ItemController",
@@ -40,7 +40,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "itemeditorct #grid"
+                "selector": "itemview #grid"
             },
             "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
         },
@@ -53,7 +53,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "itemeditorct #form"
+                "selector": "itemview #form"
             },
             "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
         },
@@ -71,19 +71,19 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'itemeditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'itemview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'itemeditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'itemview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowForm",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'itemview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'itemview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'itemeditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'itemview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    }",
                     "",
@@ -104,7 +104,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "imageUploader",
-                "selector": "itemeditorct commonimageuploader"
+                "selector": "itemview commonimageuploader"
             },
             "designerId": "f6c110e6-5f32-4f1f-9974-33e85333660a"
         },
