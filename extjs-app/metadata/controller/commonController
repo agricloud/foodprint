@@ -27,13 +27,14 @@
                     "var id = -1;",
                     "",
                     "if(this.getMainGrid().getSelectionModel().getSelection()[0])",
-                    "\tid = record.data.id;",
+                    "id = record.data.id;",
                     "",
                     "console.log(this.getMainForm());",
                     "",
                     "this.getMainForm().getForm().load({",
                     "    url:'/'+this.domainName+'/show/'+id,",
                     "    success: function(form, action) {",
+                    "    console.log('doShow Callback')",
                     "        that.activeEditor();",
                     "        that.actionName = 'update';",
                     "    },",
@@ -247,7 +248,7 @@
                 "fn": "activeEditor",
                 "implHandler": [
                     "if(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn'))",
-                    "\tthis.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().down().up(\"panel[itemId=show]\"));"
                 ]
             },
