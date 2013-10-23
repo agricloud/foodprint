@@ -7,22 +7,22 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Customer"
+            "Workstation"
         ],
         "stores": [
-            "CustomerStore"
+            "WorkstationStore"
         ],
         "views": [
-            "CustomerEditorCt"
+            "WorkstationEditorCt"
         ],
-        "designer|userClassName": "CustomerEditorController",
+        "designer|userClassName": "WorkstationController",
         "mixins": [
             "{",
             "    commonController: 'foodprint.controller.commonController'",
             "}"
         ]
     },
-    "designerId": "2aa22532-98a4-4a3a-9084-9fe773fba44d",
+    "designerId": "3108df2a-6163-414d-8730-490767127f63",
     "cn": [
         {
             "type": "controllerref",
@@ -33,9 +33,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "customereditorct #grid"
+                "selector": "workstationeditorct #grid"
             },
-            "designerId": "061836b2-84a6-40af-90a5-ca5091f4540b"
+            "designerId": "d71625f7-732b-48ac-ac2d-8c06f45fe06b"
         },
         {
             "type": "controllerref",
@@ -46,9 +46,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "customereditorct #form"
+                "selector": "workstationeditorct #form"
             },
-            "designerId": "085531d0-1210-4bec-b5a5-97c3c1362f9b"
+            "designerId": "dbffe005-839d-469a-bfca-d500e42704ad"
         },
         {
             "type": "fixedfunction",
@@ -65,30 +65,29 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    'customereditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'workstationeditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'customereditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'workstationeditorct #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'workstationeditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'workstationeditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'customereditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'workstationeditorct #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    }",
                     "",
                     "});",
                     "",
                     "",
-                    "this.domainName = 'customer';",
-                    ""
+                    "this.domainName = 'workstation';"
                 ]
             },
-            "designerId": "27290149-f402-4307-ae65-b8658010fba5"
+            "designerId": "15760532-63cc-4d7e-9c55-9c07094aca8f"
         }
     ]
 }

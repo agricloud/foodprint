@@ -7,22 +7,28 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Batch"
+            "BatchRotue",
+            "Batch",
+            "Operation",
+            "Workstation"
         ],
         "stores": [
+            "BatchRouteDeepStore",
+            "OperationStore",
+            "WorkstationStore",
             "BatchStore"
         ],
         "views": [
-            "BatchEditorCt"
+            "BatchRouteEditorCt"
         ],
-        "designer|userClassName": "BatchEditorController",
+        "designer|userClassName": "BatchRouteController",
         "mixins": [
             "{",
             "\tcommonController: 'foodprint.controller.commonController'",
             "}"
         ]
     },
-    "designerId": "718ab505-ce89-4fc5-95b3-f0d0ca40d8ac",
+    "designerId": "13e9a2fa-7e48-4387-9423-2d0567b011e7",
     "cn": [
         {
             "type": "fixedfunction",
@@ -38,28 +44,33 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'batcheditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'batchrouteeditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'batcheditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'batchrouteeditorct #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'batcheditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'batchrouteeditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'batcheditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'batchrouteeditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'batcheditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'batchrouteeditorct #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
-                    "    }",
+                    "    },",
                     "",
+                    "    'batchrouteeditorct #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    }",
                     "});",
                     "",
-                    "this.domainName = 'batch';"
+                    "",
+                    "this.domainName = 'batchRoute';",
+                    "this.masterKey='batch.id';"
                 ]
             },
-            "designerId": "bebd6d86-a252-4f7a-aab9-dda38b5b3e99"
+            "designerId": "a7c21db6-8fc3-4fb7-b8c1-4d86b0ad8813"
         },
         {
             "type": "controllerref",
@@ -70,9 +81,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "batcheditorct #grid"
+                "selector": "batchrouteeditorct #grid"
             },
-            "designerId": "df4a83f1-f566-4ab2-a899-5b01e74ac132"
+            "designerId": "11dc49fb-beed-4030-95f2-73be96611bec"
         },
         {
             "type": "controllerref",
@@ -83,9 +94,22 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "batcheditorct #form"
+                "selector": "batchrouteeditorct #form"
             },
-            "designerId": "8fb39afa-d74e-4e16-814e-eccdda96aad3"
+            "designerId": "c4c83801-271e-40e0-9a1c-fba3f6029e71"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "batchrouteeditorct #masterGrid"
+            },
+            "designerId": "8148ff0a-6e86-47dc-b50a-9f4f410306ca"
         }
     ]
 }

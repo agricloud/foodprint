@@ -7,24 +7,22 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "Param",
-            "ParamType"
+            "Batch"
         ],
         "stores": [
-            "ParamStore",
-            "ParamTypeStore"
+            "BatchStore"
         ],
         "views": [
-            "ParamEditorCt"
+            "BatchEditorCt"
         ],
-        "designer|userClassName": "ParamEditorController",
+        "designer|userClassName": "BatchController",
         "mixins": [
             "{",
-            "    commonController: 'foodprint.controller.commonController'",
+            "\tcommonController: 'foodprint.controller.commonController'",
             "}"
         ]
     },
-    "designerId": "f87f349d-8956-4370-a9ae-9d1ec3e4722d",
+    "designerId": "718ab505-ce89-4fc5-95b3-f0d0ca40d8ac",
     "cn": [
         {
             "type": "fixedfunction",
@@ -39,31 +37,29 @@
                     "application"
                 ],
                 "implHandler": [
-                    "",
                     "this.control({",
-                    "    'parameditorct #index commonindextoolbar commoncreatebtn':{",
+                    "    'batcheditorct #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'parameditorct #index commonindextoolbar commonshowbtn':{",
+                    "    'batcheditorct #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'parameditorct #show commonshowtoolbar commondeletebtn':{",
+                    "    'batcheditorct #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'parameditorct #show commonshowtoolbar commonsavebtn':{",
+                    "    'batcheditorct #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'parameditorct #show commonshowtoolbar commoncancelbtn':{",
+                    "    'batcheditorct #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    }",
                     "",
                     "});",
                     "",
-                    "",
-                    "this.domainName = 'param';"
+                    "this.domainName = 'batch';"
                 ]
             },
-            "designerId": "7a23a7be-f278-43b8-9f5a-0e00641043c9"
+            "designerId": "bebd6d86-a252-4f7a-aab9-dda38b5b3e99"
         },
         {
             "type": "controllerref",
@@ -74,9 +70,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "parameditorct #grid"
+                "selector": "batcheditorct #grid"
             },
-            "designerId": "386bdaf8-166a-42e4-be7a-7a93b7418e13"
+            "designerId": "df4a83f1-f566-4ab2-a899-5b01e74ac132"
         },
         {
             "type": "controllerref",
@@ -87,9 +83,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "parameditorct #form"
+                "selector": "batcheditorct #form"
             },
-            "designerId": "7ec3329b-e0f0-4918-b67a-e7a9e74f0f56"
+            "designerId": "8fb39afa-d74e-4e16-814e-eccdda96aad3"
         }
     ]
 }
