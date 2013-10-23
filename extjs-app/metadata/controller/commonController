@@ -19,6 +19,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doShow",
+                "designer|params": [
+                    "callback"
+                ],
                 "implHandler": [
                     "console.log('commonController--'+this.domainName+'--doShow');",
                     "",
@@ -27,7 +30,7 @@
                     "var id = -1;",
                     "",
                     "if(this.getMainGrid().getSelectionModel().getSelection()[0])",
-                    "\tid = record.data.id;",
+                    "id = record.data.id;",
                     "",
                     "console.log(this.getMainForm());",
                     "",
@@ -36,10 +39,17 @@
                     "    success: function(form, action) {",
                     "        that.activeEditor();",
                     "        that.actionName = 'update';",
+                    "        ",
+                    "    \tif (callback) {",
+                    "            callback(true,form,action)",
+                    "        }",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
                     "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    \tif (callback) {",
+                    "            callback(false,form,action)",
+                    "        }",
                     "    }",
                     "});",
                     "",
