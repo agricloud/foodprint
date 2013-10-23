@@ -195,27 +195,6 @@
             "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
         },
         {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processLocalized",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "for(var i=0; i<config.columns.length;i++)",
-                    "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
-                    "config.viewConfig.loadingText = lang['default.message.load'];",
-                    "return config;"
-                ]
-            },
-            "designerId": "f36618ae-5c1b-4e7a-a93d-55460c31cf4d"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -244,6 +223,29 @@
                 ]
             },
             "designerId": "5a5a9244-095f-4a4a-9b5c-a64e8ca4f17d"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processBatchRouteGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for(var i=0; i<config.columns.length;i++)",
+                    "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
+                    "config.viewConfig.loadingText = lang['default.message.load'];",
+                    "",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "f1a7230d-cee3-45db-afa0-814e85d656f8"
         }
     ]
 }

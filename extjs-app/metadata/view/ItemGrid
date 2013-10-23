@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "grid1",
+        "itemId": null,
         "designer|userClassName": "ItemGrid",
         "designer|userAlias": "itemgrid",
         "manageHeight": false,
@@ -140,6 +140,9 @@
                 ],
                 "implHandler": [
                     "config = Utilities.createFiltersFeature(config);",
+                    "",
+                    "console.log(\"config.store =\" +config.store );",
+                    "",
                     "return config;",
                     ""
                 ]

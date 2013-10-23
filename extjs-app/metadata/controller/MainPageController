@@ -108,24 +108,17 @@
                     "tabName"
                 ],
                 "implHandler": [
-                    "var tabs = Ext.getCmp('TabPanel');",
-                    "var tab = tabs.down(xtypeStr);",
-                    "if (tab===null){",
-                    "    tab = {",
-                    "        xtype: 'panel',",
-                    "        layout: {",
-                    "            type: 'fit'",
-                    "        },",
-                    "        id:xtypeStr+'Tab',",
-                    "        title: tabName,",
-                    "        closable:true,",
-                    "        items: [{ xtype: xtypeStr }]",
-                    "    };",
-                    "    tabs.add(tab).show();",
-                    "}",
-                    "else{",
-                    "    tabs.setActiveTab(tab.up());",
-                    "}"
+                    "console.log(this.getMainContainer());",
+                    "var mainPanel = this.getMainContainer().down('panel[itemId=mainPanel]');",
+                    "",
+                    "console.log(mainPanel);",
+                    "",
+                    "mainPanel.removeAll() ",
+                    "",
+                    "mainPanel.add({ ",
+                    "    xtype: xtypeStr",
+                    "});",
+                    ""
                 ]
             },
             "designerId": "c050570c-d3ef-47c4-8bcc-b06180495a4c"
