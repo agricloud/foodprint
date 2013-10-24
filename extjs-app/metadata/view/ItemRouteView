@@ -241,6 +241,23 @@
                             },
                             "codeClass": "Ext.selection.RowModel",
                             "designerId": "9e95a7a2-3e6a-4d5b-9de6-3f9530e08055"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridBeforeRender",
+                                "implHandler": [
+                                    "component.getStore().removeAll();"
+                                ],
+                                "name": "beforerender",
+                                "scope": "me"
+                            },
+                            "designerId": "df0c7b6c-2647-400b-bd72-1808068c39c4"
                         }
                     ]
                 }
