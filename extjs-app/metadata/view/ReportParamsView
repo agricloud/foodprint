@@ -332,6 +332,22 @@
                             "designerId": "0c0eb925-b644-404b-b71e-fe218604f714"
                         },
                         {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "Param_id",
+                                "name": "param.id",
+                                "allowBlank": false
+                            },
+                            "designerId": "22b34aef-042f-4328-a1d1-d876d21112ec"
+                        },
+                        {
                             "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
@@ -358,6 +374,7 @@
                                         "implHandler": [
                                             "",
                                             "combo.up().getForm().setValues({",
+                                            "    'param.id':records[0].data['id'],",
                                             "    'param.title':records[0].data['title']",
                                             "});"
                                         ],
@@ -382,6 +399,22 @@
                                 "allowBlank": false
                             },
                             "designerId": "5932944a-ffae-4f49-b60d-016032aa8f84"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "Operation_id",
+                                "name": "operation.id",
+                                "allowBlank": false
+                            },
+                            "designerId": "fba21574-1c7d-4b3e-ab09-8622e17bf833"
                         },
                         {
                             "type": "linkedinstance",
@@ -411,6 +444,7 @@
                                         "implHandler": [
                                             "",
                                             "combo.up().getForm().setValues({",
+                                            "    'operation.id':records[0].data['id'],",
                                             "    'operation.title':records[0].data['title']",
                                             "});"
                                         ],
@@ -435,6 +469,21 @@
                                 "allowBlank": false
                             },
                             "designerId": "35f31e3c-92d0-40f7-b431-632f1ede3bb8"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "hidden": true,
+                                "fieldLabel": "Workstation_id",
+                                "name": "workstation.id"
+                            },
+                            "designerId": "37932776-b831-4cba-993c-9aae7ca04383"
                         },
                         {
                             "type": "linkedinstance",
@@ -465,6 +514,7 @@
                                         "implHandler": [
                                             "",
                                             "combo.up().getForm().setValues({",
+                                            "    'workstation.id':records[0].data['id'],",
                                             "    'workstation.title':records[0].data['title']",
                                             "});"
                                         ],
@@ -487,6 +537,21 @@
                                 "name": "workstation.title"
                             },
                             "designerId": "e8161d67-1c3d-4d4d-82ca-e0e4da192328"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "hidden": true,
+                                "fieldLabel": "Item_id",
+                                "name": "item.id"
+                            },
+                            "designerId": "623f2145-5990-4c5a-b3f0-d1b6ac315f79"
                         },
                         {
                             "type": "linkedinstance",
@@ -513,6 +578,7 @@
                                         "implHandler": [
                                             "",
                                             "combo.up().getForm().setValues({",
+                                            "    'item.id':records[0].data['id'],",
                                             "    'item.title':records[0].data['title']",
                                             "});"
                                         ],

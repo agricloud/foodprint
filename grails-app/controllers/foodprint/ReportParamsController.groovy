@@ -4,8 +4,7 @@ import grails.converters.JSON
 
 class ReportParamsController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
-
+    def domainService
 
     def index() {
         log.debug "${controllerName}-${actionName}"
@@ -14,7 +13,7 @@ class ReportParamsController {
         def report=Report.findById(params.report.id);
         def reportParams = ReportParams.findAllByReport(report)
 
-        if(reportParams){   
+        if(report){   
             def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
                 reportParamsJson.eachWithIndex{ rpj, i ->
                     rpj.report.name = reportParams[i].report.name
@@ -74,27 +73,57 @@ class ReportParamsController {
     }
 
     def create(){
+        if(params.report.id){
 
-        def reportParamsInstance=new ReportParams(params)
+            def reportParams=new ReportParams(params)
+
+            def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
+            reportParamsJson["report.id"] = reportParams.report.id
+
+            render (contentType: 'application/json') {
+                [success: true,data:reportParamsJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchRoute.message.create.failed')]
+            }            
+        }   
+    }
+
+    def save(){
+        log.debug "${controllerName}-${actionName}"
+        def reportParams=new ReportParams(params)
         
         render (contentType: 'application/json') {
-            domainService.save(reportParamsInstance)
+            domainService.save(reportParams)
         }
     }
 
     def update(){
-        def reportParamsInstance = ReportParams.findById(params.id)
-        reportParamsInstance.properties=params
+
+        log.debug "${controllerName}-${actionName}"
+
+        def reportParams = ReportParams.findById(params.id)
+        reportParams.properties=params
         render (contentType: 'application/json') {
-            domainService.save(reportParamsInstance)
-        }         
+            domainService.save(reportParams)
+        }
     }
 
-
     def delete(){
-        def reportParamsInstance = ReportParams.findById(params.id)
+        log.debug "${controllerName}-${actionName}"
+        def reportParams = ReportParams.findById(params.id)
+        def result
+        try {
+            result = domainService.delete(reportParams)
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [reportParams, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
         render (contentType: 'application/json') {
-            domainService.delete(reportParamsInstance)
+            result
         }
     }
 }
