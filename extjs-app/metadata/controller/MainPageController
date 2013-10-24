@@ -73,6 +73,9 @@
                     "    'maincontainer button[itemId=reportMaintain]':{",
                     "        click:this.reportMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=reportParamsMaintain]':{",
+                    "        click:this.reportParamsMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=userMaintain]':{",
                     "        click:this.userMaintain",
                     "    },",
@@ -346,6 +349,23 @@
                 ]
             },
             "designerId": "c0b00d76-68de-456b-be03-9f03ffae8117"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reportParamsMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'reportparamsview';",
+                    "var tabName = '履歷參數維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "990d423f-3f33-46ed-834c-4a2cb63925f3"
         }
     ]
 }
