@@ -33,20 +33,21 @@ class ParamController {
             }          
         }
     }
-    def save(){
 
-        def param=new Param()        
-        render (contentType: 'application/json') {
-            [success: true,data:param]
-        }
-    }
- 
-    def create(){
+    def save(){
 
         def paramInstance=new Param(params)
         
         render (contentType: 'application/json') {
             domainService.save(paramInstance)
+        }
+    }
+
+    def create(){
+
+        def param=new Param()        
+        render (contentType: 'application/json') {
+            [success: true,data:param]
         }
     }
 

@@ -251,6 +251,23 @@
                                 ]
                             },
                             "designerId": "b9f85ced-9c79-48c4-bf6b-a4acd63f4465"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridBeforeRender",
+                                "implHandler": [
+                                    "component.getStore().removeAll();"
+                                ],
+                                "name": "beforerender",
+                                "scope": "me"
+                            },
+                            "designerId": "e8683f09-aab1-4d4b-a2f5-c3f56995059d"
                         }
                     ]
                 }
