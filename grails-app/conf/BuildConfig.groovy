@@ -107,11 +107,11 @@ grails.project.dependency.resolution = {
         // compile ":twitter-bootstrap:3.0.0"
 
         compile ":crypto:2.0"  
-        compile ":directext:0.1"
 
 
         // Grails Ant Plugin
         // 執行 Ant 任務
         compile ":grails-ant:0.1.3"
+        compile ":quartz:1.0-RC13"
     }
 }

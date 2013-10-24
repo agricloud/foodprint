@@ -1,52 +1,15 @@
 package foodprint
 
-import org.springframework.http.converter.StringHttpMessageConverter
-
-import grails.plugins.rest.client.RestBuilder
-import java.nio.charset.Charset
 import grails.converters.*
-import org.springframework.transaction.annotation.Transactional
 
-@Transactional(readOnly = true)
+
 class ReportViewerController {
 
     def batchAnalyzeService
 
-    def demo() { 
-
-        // 勿刪， 無 http://192.168.2.104:8100/SFT 測試用
-        // def webRootDir = servletContext.getRealPath ("/")
-        // def f = new File (webRootDir + "/xmlSample/report.xml")
-        // def records = new XmlParser().parseText(f.text)
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-        def url = "http://192.168.2.104:8100/SFT/"
-        def imgUrl = url+"PDA/"
-        def resp = rest.get(url+"ws/demo/records/GinPin/410002/981009-410002")
-        def records = new XmlParser().parseText(resp.text)
-
-
-
-        def formImg=records.form.field.findAll{ field->
-                field.'@label'=="圖片"
-        }
-        formImg.each{
-                it.value=imgUrl+it.text()
-        }
-
-        records.tabs.tab.detail.row.cell.each{ cell->
-                if(cell.img.size()>0){
-                    cell.img[0].'@src'  = [imgUrl+ cell.img.'@src'[0]]
-            }
-        }
-
-        return [reportData: records]
-
-    }
 
     def index(){
-        restFoodpaint()
+        //restFoodpaint()
         
         def batch = Batch.findByName(params.batch.name)
         def product = [:]
@@ -175,44 +138,5 @@ class ReportViewerController {
 
     }
 
-    def restFoodpaint(){
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-        def url = "http://localhost:8180/foodprint/queryBatchReport/?batch.name="+params.batch.name
-        def resp = rest.get(url)
 
-        //進行資料匯入
-        importData(resp.text)
-
-        return [pass:"pass"]
-    }
-
-    private importData(jsonString){
-        log.debug "ReportViewerController--importData"
-
-        def records=JSON.parse(jsonString)
-        //匯入品項
-        records.item.each{ item ->
-            item.site = Site.findByName(item.site.name)
-            new Item(item).save( flush: true)
-        }
-
-        log.debug "品項清單："
-        Item.list().each{
-            log.debug it.name+"/"+it.title
-        }
-
-        //匯入批號
-        records.batch.each{ batch ->
-            batch.site=Site.findByName(batch.site.name)
-            batch.item=Item.findByName(batch.item.name)
-            new Batch(batch).save( flush: true)
-        }
-        //匯入批號關聯
-        records.batchSources.each{ batchSource ->
-            batchSource.batch=Batch.findByName(batchSource.batch.name)
-            batchSource.childBatch=Batch.findByName(batchSource.childBatch.name)
-            new BatchSource(batchSource).save(flush: true)
-        }
-    }
 }
