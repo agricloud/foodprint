@@ -8,19 +8,25 @@ class ReportParamsController {
 
 
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def report_id=params.reportid
-        //print report_id
-        def reportob=Report.findById(report_id,params);
-        //print reportob
-        def resultList= ReportParams.findAllByReport(reportob)
 
-        [reportParamsInstanceList: resultList, reportParamsInstanceTotal: ReportParams.count()]
-    }
     def index(Integer max) {
-        render (contentType: 'application/json') {
-            list(max)        
+        log.debug "${controllerName}-${actionName}"
+        def report=Report.findById(params.report.id);
+        def reportParams = ReportParams.findAllByReport(report)
+        println report
+        reportParams.each{
+            println it.id+"/"+it.report.id+"/"+it.param.title
+        }
+
+        if(reportParams){   
+            render (contentType: 'application/json') {
+                [success: true,reportParamsInstanceList: ReportParams.findById(39)]//reprotParams, reportParamsInstanceTotal: reportParams.size()]
+            }
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
         }
         
     }

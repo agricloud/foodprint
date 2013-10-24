@@ -7,7 +7,7 @@ class ReportController {
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-    def index(params) {
+    def index() {
 
         def list = Report.createCriteria().list(params,params.criteria)
 
