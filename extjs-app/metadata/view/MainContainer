@@ -306,7 +306,7 @@
             "designerId": "bcdb724b-dabc-44a8-b2b4-3be76b29a812"
         },
         {
-            "type": "Ext.panel.Panel",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -314,14 +314,24 @@
             "codeClass": null,
             "userConfig": {
                 "layout|region": "north",
-                "height": 31,
-                "itemId": "northPanel",
-                "title": ""
+                "height": 40,
+                "html": [
+                    "<header>",
+                    "\t<div class=\"logo\"><img src=\"images/logo.png\" width=\"166\"></div>",
+                    "    <div class=\"logo-text\">&gt;&gt; <span class=\"lspace\">食品履歷系統</span> <small>V.1.0</small> <span class=\"font-brown\"><strong>FoodPrint Tracing System</strong></span></div>",
+                    "  ",
+                    "    ",
+                    "\t<div class=\"signature\"><img src=\"images/signature.png\"></div>",
+                    "    <a href=\"#\" class=\"btn-logout\"><img src=\"images/btn-logout.jpg\" width=\"66\" height=\"20\"></a>",
+                    "    <div class=\"username\">Chi Yen Hsiao</div>",
+                    "</header>"
+                ],
+                "itemId": "northPanel"
             },
             "designerId": "03059344-f74a-42c3-9f2c-49e8e66b1e18"
         },
         {
-            "type": "Ext.panel.Panel",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -329,9 +339,11 @@
             "codeClass": null,
             "userConfig": {
                 "layout|region": "south",
-                "height": 25,
-                "itemId": "southPanel",
-                "title": ""
+                "height": 38,
+                "html": [
+                    "<footer><div class=\"bar\"><img src=\"images/leaf.png\" /> 版權所有 © 2013 Agricloud. All Rights   Reserved. CopyRight<img src=\"images/leaf.png\" style=\"margin-left:20px;\" /> 本系統由雲端農場研發設計 version web1.0</div></footer>"
+                ],
+                "itemId": "southPanel"
             },
             "designerId": "07352808-d2c0-4200-8fcb-8638f1119a22"
         }
