@@ -230,6 +230,36 @@
                 ]
             },
             "designerId": "97e76557-a026-4190-8b04-86a89f4e1cf7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "logout",
+                "implHandler": [
+                    "var mainVP = Ext.getCmp('mainVP');",
+                    "mainVP.removeAll();",
+                    "mainVP.add({",
+                    "    xtype: 'container',",
+                    "    itemId: 'centerCt',",
+                    "    layout: {",
+                    "        align: 'center',",
+                    "        pack: 'center',",
+                    "        type: 'vbox'",
+                    "    },",
+                    "    items: [",
+                    "        {",
+                    "            xtype: 'logincontainer'",
+                    "        }",
+                    "    ]",
+                    "});"
+                ]
+            },
+            "designerId": "87430ab6-409a-4345-b6a1-f052341dcab9"
         }
     ]
 }

@@ -93,8 +93,16 @@
                     "    },",
                     "    'maincontainer button[itemId=batchRouteMaintain]':{",
                     "        click:this.batchRouteMaintain",
+                    "    },'maincontainer':{",
+                    "        afterrender:function(){",
+                    "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
+                    "            link.on('click', Utilities.logout);",
+                    "",
+                    "    \t}",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "c3cfb16e-3536-4a44-b256-70190eac7149"
