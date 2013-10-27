@@ -1,6 +1,13 @@
-if(grailsVersion == "2.3.1")
+def grails23x = (grailsVersion.startsWith("2.3"))
+def grails22x = (grailsVersion.startsWith("2.2"))
+
+if (grails23x) {
     grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
-else grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
+}
+else {
+    // Grails version is 2.2.x
+    grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
+}
 
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
@@ -11,7 +18,7 @@ grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 
-if(grailsVersion == "2.3.1"){
+if (grails23x) {
     grails.project.fork = [
         // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
         //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
@@ -26,7 +33,10 @@ if(grailsVersion == "2.3.1"){
         console: [maxMemory: 512, minMemory: 64, debug: false, maxPerm: 256]
     ]
     grails.project.dependency.resolver = "maven" // or ivy
-}else {
+}
+else {
+    // Grails version is 2.2.x
+
     // grails.project.fork.run=true
     // grails.project.fork.run= [maxMemory:512, minMemory:64, debug:true, maxPerm:256 ]
 }
@@ -66,7 +76,7 @@ grails.project.dependency.resolution = {
     plugins {
 
 
-        if(grailsVersion == "2.3.1"){
+        if (grails23x) {
             // plugins for the build system only
             build ":tomcat:7.0.42"
 
@@ -79,7 +89,10 @@ grails.project.dependency.resolution = {
             runtime ":database-migration:1.3.5"
             runtime ":jquery:1.10.2"
             runtime ":resources:1.2"
-        }else {
+        }
+        else {
+            // Grails version is 2.2.x
+
             runtime ":hibernate:$grailsVersion"
             runtime ":jquery:1.10.2"
             runtime ":resources:1.2"
@@ -94,7 +107,6 @@ grails.project.dependency.resolution = {
             runtime ":database-migration:1.2.1"
 
             compile ':cache:1.0.1'
-
         }
 
         // add plugin
