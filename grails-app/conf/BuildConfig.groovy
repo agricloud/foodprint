@@ -114,6 +114,10 @@ grails.project.dependency.resolution = {
         compile ':spring-security-core:1.2.7.3'
         runtime ":cors:1.1.0"
 
+        // Adds REST client capabilities to your Grails application.
+        compile ":rest:0.8"
+
+        // Grails REST Client Builder Plugin
         compile ':rest-client-builder:1.0.3'
 
         // compile ":twitter-bootstrap:3.0.0"
