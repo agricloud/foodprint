@@ -14,31 +14,36 @@
     "designerId": "4b33d0bd-1204-4ec5-b8b8-8465da75bf8a",
     "cn": [
         {
-            "type": "Ext.container.Container",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "container|align": "center",
-                "container|pack": "center",
-                "itemId": "centerCt",
-                "layout": "vbox"
+                "width": null
             },
-            "designerId": "a5814edb-6256-4c75-9c02-ff096f469ea7",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "designerId": "9cbdab0e-55e7-4b51-853d-79095fcd5f2b",
-                    "masterInstanceId": "5875c1cf-7496-49e4-aabb-59e4448471e4"
-                }
-            ]
+            "designerId": "9cbdab0e-55e7-4b51-853d-79095fcd5f2b",
+            "masterInstanceId": "5875c1cf-7496-49e4-aabb-59e4448471e4"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMainVPAfterRender",
+                "implHandler": [
+                    "var mask = Ext.get('loading-mask');",
+                    "// Destroy the masks",
+                    "mask.fadeOut({callback: function(){ mask.destroy(); }});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "aa6915c0-38ac-4b05-ade8-a4005ad63a7a"
         }
     ]
 }

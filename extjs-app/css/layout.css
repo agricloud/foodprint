@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-body{ font-family:Arial, Helvetica, sans-serif; height:100%; background:url(../images/login-bg.jpg) repeat;}
+#login { font-family:Arial, Helvetica, sans-serif; height:100%; background:url(../images/login-bg.jpg) repeat;}
 
 /*
  * Splash
@@ -25,7 +25,9 @@ body{ font-family:Arial, Helvetica, sans-serif; height:100%; background:url(../i
 .copyright-wrapper{position:absolute; bottom:50px; width:100%;}
 .copyright{font-size:10px;  margin:0 auto;}
 
-
+.splash{
+    background:url(../images/login-bg.jpg) repeat;
+}
 
 
 
@@ -34,20 +36,24 @@ body{ font-family:Arial, Helvetica, sans-serif; height:100%; background:url(../i
  * Header
  */
 
-header{width:100%; background:url(../images/header-bg.jpg) repeat-x; height:70px; background-size: contain;}
-header .top-slogan img{width:350px; margin-top:7px; float:right; margin-right:10px;}
-header .signature {float:right; margin:10px 10px 0 0; clear:both;}
-header .signature img{width:70px;}
+#login header {width:100%; background:url(../images/header-bg.jpg) repeat-x; height:70px; background-size: contain;}
+#login header .top-slogan img{width:350px; margin-top:7px; float:right; margin-right:10px;}
+#login header .signature {float:right; margin:10px 10px 0 0; clear:both;}
+#login header .signature img{width:70px;}
 
-.login-bg{ background:url(../images/login-bg.jpg) repeat; }
+#login .login-bg{ background:url(../images/login-bg.jpg) repeat; }
 
-.logo{
+#login .logo{
 	margin:0 auto;
 	width:166px;
 	position:relative;
 	top:50px;
 }
-.login-box{
+
+
+
+
+#login .login-box{
 	background-color:#fff;
 	border: 2px solid #d7d7d7;
 	border-radius:5px;
@@ -56,8 +62,9 @@ header .signature img{width:70px;}
 	position:relative;
 	top:10px;
 }
-.login-box .top span img{width:20px;}
-.login-box .bottom-bar{height:15px;}
+
+#login .login-box .top span img{width:20px;}
+#login .login-box .bottom-bar{height:15px;}
 
 
 
@@ -68,68 +75,69 @@ background: -o-linear-gradient(top, rgba(208,220,225,0.5) 0%,rgba(255,255,255,0)
 background: -ms-linear-gradient(top, rgba(208,220,225,0.5) 0%,rgba(255,255,255,0) 40%,rgba(0,0,0,0) 100%), url(../images/login-bg.jpg) no-repeat;
 background: linear-gradient(to bottom, rgba(208,220,225,0.5) 0%,rgba(255,255,255,0) 40%,rgba(0,0,0,0) 100%), url(../images/login-bg.jpg) no-repeat;}
 
-body.splash{
-	background:url(../images/login-bg.jpg) repeat;
-	}
 
-.copyright{ color:#838383; line-height:1.6em;}
 
-footer{ position:absolute; bottom:0;  width:100%;}
-footer .left-trees{float:left; width:100px; position:relative; top:13px; }
-footer .left-trees img{max-width:100%;}
-footer .btn-fb{float:right; margin-right:30px;}
-footer .right-slogan{float:right; position:relative; top:35px; margin-right:10px;color:#303030;}
-footer .bar{ background:url(../images/footer-bg.jpg) repeat-x; height:25px; clear:both;}
+#login .copyright{ color:#838383; line-height:1.6em;}
+
+#login footer{ position:absolute; bottom:0;  width:100%;}
+#login footer .left-trees{float:left; width:100px; position:relative; top:13px; }
+#login footer .left-trees img{max-width:100%;}
+#login footer .btn-fb{float:right; margin-right:30px;}
+#login footer .right-slogan{float:right; position:relative; top:35px; margin-right:10px;color:#303030;}
+#login footer .bar{ background:url(../images/footer-bg.jpg) repeat-x; height:25px; clear:both;}
 
 @media screen and (max-width: 580px) {
-	.splash .main{padding-top:0px; text-align:center; min-height:500px;}
-	.splash .logo{top:30px;}
-	.foodprint-board{width:120px;}
-	.frame{ width:80px; height:110px; background-size:contain;}
-	.frame .percent{ top: 40px; left: 25px;}
-	.frame .loading-img { top: 55px; left: 21px; width:40px;}
-	.splash .font-555{font-size:11px;}
-	.splash .font-999{font-size:9px;}
-	.splash .font-555 small{font-size:8px;}
-	.loading{margin-bottom:50px; margin-top:-40px;}
-	.loading span{font-size:9px;}
+    .splash .main{padding-top:0px; text-align:center; min-height:500px;}
+    .splash .logo{top:30px;}
+    .foodprint-board{width:120px;}
+    .frame{ width:80px; height:110px; background-size:contain;}
+    .frame .percent{ top: 40px; left: 25px;}
+    .frame .loading-img { top: 55px; left: 21px; width:40px;}
+    .splash .font-555{font-size:11px;}
+    .splash .font-999{font-size:9px;}
+    .splash .font-555 small{font-size:8px;}
+    .loading{margin-bottom:50px; margin-top:-40px;}
+    .loading span{font-size:9px;}
 	
-	.agri-logo{width:100px;}
-	.copyright{font-size:6px;}
-	.copyright-wrapper{bottom:0;}
+	#login .agri-logo{width:100px;}
+	#login .copyright{font-size:6px;}
+	#login .copyright-wrapper{bottom:0;}
 	
-	header .top-slogan {text-align:center;}
-	header .top-slogan img{float:none; margin:7px auto 0 auto; width:260px;}
-	header .signature{margin-top:17px;}
-	.login-box{width:280px; margin-bottom:80px;}
-	.login-box .info{width:240px;}
-	.login-bg footer{position:relative;}
-	a.forgot{font-size:10px;}
-	footer .btn-fb, footer .right-slogan {display:none;}
-	footer .left-trees{top:2px; margin:0 auto; float:none;}
+	#login header .top-slogan {text-align:center;}
+	#login header .top-slogan img{float:none; margin:7px auto 0 auto; width:260px;}
+	#login header .signature{margin-top:17px;}
+	#login .login-box{width:280px; margin-bottom:80px;}
+	#login .login-box .info{width:250px;}
+	#login .login-bg footer{position:relative;}
+	#login a.forgot{font-size:10px;}
+
+	#login footer .btn-fb, footer .right-slogan {display:none;}
+	#login footer .left-trees{top:2px; margin:0 auto; float:none;}
 	
 	
 }
 
 
 @media screen and (max-width: 400px) {
-	.splash .main{padding-top:0px; text-align:center; min-height:500px;}
-	.splash .logo{top:30px;}
-	.foodprint-board{width:120px;}
-	.frame{ width:80px; height:110px; background-size:contain;}
-	.frame .percent{ top: 40px; left: 25px;}
-	.frame .loading-img { top: 55px; left: 21px;}
-	.splash .font-555{font-size:11px;}
-	.splash .font-999{font-size:9px;}
-	.splash .font-555 small{font-size:8px;}
-	.loading{margin-bottom:50px; margin-top:-40px;}
-	a.forgot{font-size:10px;}
+    .splash .main{padding-top:0px; text-align:center; min-height:500px;}
+    .splash .logo{top:30px;}
+    .foodprint-board{width:120px;}
+    .frame{ width:80px; height:110px; background-size:contain;}
+    .frame .percent{ top: 40px; left: 25px;}
+    .frame .loading-img { top: 55px; left: 21px;}
+    .splash .font-555{font-size:11px;}
+    .splash .font-999{font-size:9px;}
+    .splash .font-555 small{font-size:8px;}
 	
-	.agri-logo{width:100px;}
-	.copyright{font-size:9px;}
+    #login .loading{margin-bottom:50px; margin-top:-40px;}
+	#login a.forgot{font-size:10px;}
 	
-	a.forgot{font-size:9px;}
-	footer .left-trees{top:2px; margin:0 auto;}
+	#login .agri-logo{width:100px;}
+	#login .copyright{font-size:9px;}
+	
+	#login a.forgot{font-size:9px;}
+    
+	#login footer .left-trees{top:2px; margin:0 auto;}
 	
 	
 }

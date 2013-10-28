@@ -6,63 +6,61 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>foodprint</title>
-
-    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Core API...';</script>
-    <script src="../extjs/ext-all.js"></script>
-    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading UI Components...';</script>
-    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Initializing...';</script>
-    
+    <script src="../extjs/ext-all-debug.js"></script>
     <script src="../extjs/ext-theme-neptune.js"></script>
     <link rel="stylesheet" href="../extjs/resources/ext-theme-neptune/ext-theme-neptune-all.css">
     <script src="ext-lang-zh_TW.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="../extjs/examples/ux/grid/css/GridFilters.css">
     <link rel="stylesheet" href="../extjs/examples/ux/grid/css/RangeMenu.css">
+    <link rel="stylesheet" href="css/admin_ie8.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/layout-in.css">
     <script type="text/javascript" src="app.js"></script>
-    <style type="text/css">
-    #loading-mask{
-        background-color:white;
-        height:100%;
-        position:absolute;
-        left:0;
-        top:0;
-        width:100%;
-        z-index:20000;
-    }
-    #loading{
-        height:auto;
-        position:absolute;
-        left:45%;
-        top:40%;
-        padding:2px;
-        z-index:20001;
-    }
-    #loading a {
-        color:#225588;
-    }
-    #loading .loading-indicator{
-        background:white;
-        color:#444;
-        font:bold 13px Helvetica, Arial, sans-serif;
-        height:auto;
-        margin:0;
-        padding:10px;
-    }
-    #loading-msg {
-        font-size: 10px;
-        font-weight: normal;
-    }
-    </style>
 </head>
 <body>
-    <div id="loading-mask" style=""></div>
-    <div id="loading">
-        <div class="loading-indicator">
-            <img src="img/extanim32.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"/>
-            FoodPrint Management System<br />
-            <span id="loading-msg">Loading styles and images...</span>
-        </div>
+
+
+
+  <div class="splash"  id="loading-mask">
+
+   <div class="main">
+    <div class="logo">
+        <div class="font-555">食品履歷系統 <small>v1.0</small></div>
+        <img src="images/foodprint-board.png" width="166" class="foodprint-board">
+        <div class="font-999">FoodPrint Tracing System</div>
     </div>
-    <script src="custom.js"></script>
+    
+    <div class="loading">
+      <div class="frame">
+        <div class="percent">32%</div>
+        <img src="images/loading.gif" class="loading-img"> 
+      </div>
+      <span>Loading UI Components...</span>
+    </div>
+          
+
+      <div class="copyright-wrapper">
+        <div class="copyright" align="center">
+          <img src="images/logo-agri.png" class="agri-logo"><br />
+          <img src="images/leaf.png"> 版權所有 © 2013 Agricloud. All Rights   Reserved. CopyRight<br>
+          <img src="images/leaf.png"> 本系統由雲端農場研發設計 version web1.0
+        </div>
+      </div>
+     </div>
+   </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
