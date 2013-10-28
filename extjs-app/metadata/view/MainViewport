@@ -38,7 +38,8 @@
                 "implHandler": [
                     "var mask = Ext.get('loading-mask');",
                     "// Destroy the masks",
-                    "mask.fadeOut({callback: function(){ mask.destroy(); }});",
+                    "if(mask)",
+                    "\tmask.fadeOut({callback: function(){ mask.destroy(); }});",
                     "",
                     "Ext.getBody().removeCls( 'splash' );"
                 ],
