@@ -253,11 +253,26 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "fieldLabel": "UserName",
+                                "fieldLabel": "User Name",
                                 "name": "username",
                                 "allowBlank": false
                             },
                             "designerId": "d9c55b23-0f99-4f65-aad9-606f1c58dd98"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "Full Name",
+                                "name": "fullName",
+                                "allowBlank": false
+                            },
+                            "designerId": "9772eb5d-69fd-4500-bcf8-5b7d78b5a3eb"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -301,9 +316,14 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for(var i=0;i<config.items.length;i++)",
-                                    "config.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
-                                    "",
+                                    "for (var i=0; i<config.items.length; i++) {",
+                                    "    var key = 'user.'+config.items[i].name+'.label';",
+                                    "    ",
+                                    "    // Check lang def exists",
+                                    "    if (lang[key]) {",
+                                    "\t\tconfig.items[i].fieldLabel = lang[key];",
+                                    "    }",
+                                    "}",
                                     "return config;"
                                 ]
                             },

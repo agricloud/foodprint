@@ -40,6 +40,7 @@ lang['batchParamsEditor.batchRouteParamsCollect.label'] = "途程參數收集";
 //domain
 lang['user.id.label'] = "使用者序號";
 lang['user.username.label'] = "使用者代號";
+lang['user.fullName.label'] = "使用者全名";
 lang['user.password.label'] = "使用者密碼";
 lang['user.enabled.label'] = "是否啟用";
 
