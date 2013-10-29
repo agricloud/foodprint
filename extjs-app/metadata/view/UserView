@@ -172,8 +172,9 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for(var i=0; i<config.columns.length;i++)",
-                                    "config.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
+                                    "for (var i=0; i<config.columns.length; i++) {",
+                                    "\tconfig.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
+                                    "}",
                                     "",
                                     "config = Utilities.createFiltersFeature(config);",
                                     "return config;"
@@ -318,10 +319,10 @@
                                 "implHandler": [
                                     "for (var i=0; i<config.items.length; i++) {",
                                     "    var key = 'user.'+config.items[i].name+'.label';",
-                                    "    ",
+                                    "",
                                     "    // Check lang def exists",
                                     "    if (lang[key]) {",
-                                    "\t\tconfig.items[i].fieldLabel = lang[key];",
+                                    "        config.items[i].fieldLabel = lang[key];",
                                     "    }",
                                     "}",
                                     "return config;"
@@ -363,8 +364,9 @@
                             "config"
                         ],
                         "implHandler": [
-                            "for(var i=0;i<config.items.length;i++)",
-                            "config.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
+                            "for (var i=0; i<config.items.length; i++) {",
+                            "\tconfig.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
+                            "}",
                             "",
                             "return config;"
                         ]
