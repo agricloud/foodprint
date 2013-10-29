@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "commonController"
+        "designer|userClassName": "CommonController"
     },
     "designerId": "e23b6a08-43e5-455b-b661-3b12dc7f5efa",
     "cn": [
@@ -298,6 +298,36 @@
                 ]
             },
             "designerId": "b0493497-f295-4fff-adc1-ab8bb62e920b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "disableShowBtn",
+                "implHandler": [
+                    "this.getMainGrid().up('panel[itemId=index]').down('commonshowbtn').setDisabled(true);"
+                ]
+            },
+            "designerId": "dfb77508-ff7f-4e3d-91fa-9b063045e7a4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "enableShowBtn",
+                "implHandler": [
+                    "this.getMainGrid().up('panel[itemId=index]').down('commonshowbtn').setDisabled(false);"
+                ]
+            },
+            "designerId": "d1429ab1-0dcd-461e-8e90-69f9e1409e13"
         }
     ]
 }

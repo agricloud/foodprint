@@ -18,7 +18,7 @@
         "designer|userClassName": "UserController",
         "mixins": [
             "{",
-            "    commonController: 'foodprint.controller.commonController'",
+            "    commonController: 'foodprint.controller.CommonController'",
             "}"
         ]
     },
@@ -79,6 +79,10 @@
                     "    },",
                     "    'userview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
+                    "    },",
+                    "    'userview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn",
                     "    }",
                     "",
                     "});",
