@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://localhost:8080/development/app.html# -->
+<html class="x-strict x-viewport"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>foodprint</title>
+    <script src="../images/ext-all-debug.js"></script><style type="text/css"></style>
+    <script src="../images/ext-theme-neptune.js"></script>
+    <link rel="stylesheet" href="../../web-app/extjs/resources/ext-theme-neptune/ext-theme-neptune-all.css">
+    <script src="./editor_files/ext-lang-zh_TW.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../custom.css">
+    <link rel="stylesheet" href="../../web-app/extjs/examples/ux/grid/css/GridFilters.css">
+    <link rel="stylesheet" href="../../web-app/extjs/examples/ux/grid/css/RangeMenu.css">
+    <link rel="stylesheet" href="../css/admin_ie8.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/layout-in.css">
+    <script type="text/javascript" src="../images/app.js"></script><script type="text/javascript" src="../images/Utilities.js"></script><script type="text/javascript" src="../images/FiltersFeature.js"></script><script type="text/javascript" src="../images/commonController.js"></script>
+<script type="text/javascript" src="../images/Viewport.js"></script><style type="text/css">/* Local ID — mndocdiojkckhpnhpeminpalidafeink */
+/* Web Store ID — ihmgiclibbndffejedjimfjmfoabpcke */
+
+.TnITTtw-help-selected-wrap {
+  border: 1px solid #C7C6C2;
+  box-shadow: 0 0 10px rgba(43, 43, 43, 0.325);
+  border-radius: 4px;
+  width: 231px
+}
+
+  .TnITTtw-help-inside-layout {
+    height: 133px;
+    background: #F5F5F5;
+    border-radius: 3px
+  }
+
+    .TnITTtw-left-particle {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      box-shadow: inset 0 1px 0 white;
+      color: #4E4E4E;
+      text-shadow: 0 1px 0 white;
+      width: 194px;
+      display: inline-block;
+      border-right: 1px solid #D9D9D9
+    }
+
+      .TnITTtw-content-layout {
+        text-align: left;
+        margin: 10px 15px
+      }
+
+        .TnITTtw-variant-bunch-wrap {
+
+        }
+
+          .TnITTtw-variant-bunch-wrap .inside-layout {
+
+          }
+
+            .TnITTtw-main-variant-wrap {
+
+            }
+
+              .TnITTtw-main-variant {
+                font-weight: 700;
+                font-size: 15px;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.775);
+                display: inline-block;
+                vertical-align: top;
+                color: #2B2B2B
+              }
+
+            .TnITTtw-variants-by-pos {
+              
+            }
+
+              .TnITTtw-TnITTtw-variant-row {
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.775)
+              }
+
+                .TnITTtw-v-pos {
+                  font-weight: 700;
+                  margin-top: 10px;
+                  font-size: 12px;
+                  color: #545454
+                }
+
+                  .TnITTtw-v-pos:first-child {
+                    margin-top: 8px
+                  }
+
+                .TnITTtw-v-closest-wrap {
+                  font-size: 13px;
+                  color: #4E4E4E
+                }
+
+                  .TnITTtw-v-item {
+                    display: inline-block
+                  }
+
+        .TnITTtw-listen-disabled {
+          opacity: 0.475;
+          cursor: default
+        }
+
+    .TnITTtw-right-particle {
+      background: rgba(255, 255, 255, 0.125);
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      display: inline-block;
+      width: 36px;
+      height: 133px;
+      vertical-align: top;
+      box-shadow: inset 1px 0 3px rgba(43, 43, 43, 0.05), inset 0 1px 0 #F5F5F5
+    }
+
+      .TnITTtw-sidebar {
+
+      }
+
+        .TnITTtw-sbutton {
+          position: absolute;
+          -webkit-user-select: none;
+          cursor: pointer
+        }
+
+        .TnITTtw-listen-button {
+          width: 16px;
+          height: 17px;
+          background: url(chrome-extension://ihmgiclibbndffejedjimfjmfoabpcke/resources/images/sprites/sprite.png);
+          background-position: -54px 153px;
+          margin: 10px 0 0 10px
+        }
+
+          .TnITTtw-listen-button:active, .TnITTtw-listen-disabled {
+            background-position: -54px 136px
+          }
+
+/* ========== */
+/* Scrollbars */
+
+#TnITTtw-trVisibleLayout {
+  position: relative !important;
+  overflow: hidden;
+  height: 133px;
+  width: 100%
+}
+
+#TnITTtw-tr-scrollbar {
+  position: absolute;
+  display: block;
+  width: 9px; 
+  height: 135px; 
+  font-size: 1px
+}
+
+#TnITTtw-track { 
+  position: absolute;
+  left: 185px;
+  top: -134px;
+  width: 11px;
+  height: 129px;
+  background: transparent
+}
+
+#TnITTtw-dragBar {
+  position: absolute; 
+  left: 1px;
+  top: 1px;
+  width: 5px; 
+  height: 10px;
+  background: rgba(43, 43, 43, 0.475);
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #FFF
+}
+
+  #TnITTtw-dragBar:hover, #TnITTtw-dragBar:active {
+    background: rgba(43, 43, 43, 0.775)
+  } 
+
+#TnITTtw-scrollbar, #TnITTtw-track, #TnITTtw-dragBar {
+  -webkit-user-select: none
+}
+
+.TnITTtw-arrow {
+  display: none;
+  width: 12px;
+  height: 6px;
+  background: url(chrome-extension://ihmgiclibbndffejedjimfjmfoabpcke/resources/images/sprites/sprite.png);
+  position: relative
+}
+
+.TnITTtw-top-arrow {
+  background-position: -108px 148px;
+  bottom: -1px
+}
+
+.TnITTtw-bottom-arrow {
+  background-position: -108px 154px;
+  top: -1px
+}</style><style type="text/css">#TnITTtw-tooltip-wrap {
+  position: absolute;
+  z-index: 9999;
+  font-family: Tahoma;
+  font-size: 13px;
+  line-height: normal
+}
+
+  .TnITTtw-inside-layout {
+
+  }
+
+    .TnITTtw-content {
+      
+    }</style><style type="text/css">.help-tt-wrap {
+  background: rgba(0, 0, 0, 0.575);
+  color: #FFF;
+  padding: 10px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.775)
+}
+
+  .text-layout {
+
+  }
+
+    .text-container {
+
+    }
+
+.TnITTtw-arrow {
+  display: none;
+  width: 12px;
+  height: 6px;
+  background: url(../../../images/sprites/sprite.png);
+  position: relative
+}
+
+.TnITTtw-top-arrow {
+  background-position: -18px 86px;
+  bottom: -1px
+}
+
+.TnITTtw-bottom-arrow {
+  background-position: -18px 80px;
+  top: -1px
+}</style><style type="text/css">#TnITTtw-tooltip-wrap {
+  position: absolute;
+  z-index: 9999;
+  font-family: Tahoma;
+  font-size: 13px;
+  line-height: normal
+}
+
+  .TnITTtw-inside-layout {
+
+  }
+
+    .TnITTtw-content {
+      
+    }</style><script type="text/javascript" src="../images/MainViewport.js"></script><style type="text/css"></style><style type="text/css"></style><script type="text/javascript" src="../images/LoginContainer.js"></script><script type="text/javascript" src="../images/MainContainer.js"></script><script type="text/javascript" src="../images/MainPageController.js"></script><script type="text/javascript" src="../images/LoginController.js"></script><script type="text/javascript" src="../images/ItemController.js"></script><script type="text/javascript" src="../images/ParamController.js"></script><script type="text/javascript" src="../images/WorkstationController.js"></script><script type="text/javascript" src="../images/CustomerController.js"></script><script type="text/javascript" src="../images/BatchController.js"></script><script type="text/javascript" src="../images/UserController.js"></script><script type="text/javascript" src="../images/OperationController.js"></script><script type="text/javascript" src="../images/BackwardTraceTreeController.js"></script><script type="text/javascript" src="../images/ForwardTraceTreeController.js"></script><script type="text/javascript" src="../images/ItemRouteController.js"></script><script type="text/javascript" src="../images/BatchRouteController.js"></script><script type="text/javascript" src="../images/BatchReportDetController.js"></script><script type="text/javascript" src="../images/ReportController.js"></script><script type="text/javascript" src="../images/ReportParamsController.js"></script><script type="text/javascript" src="../images/OperationView.js"></script><script type="text/javascript" src="../images/ItemView.js"></script><script type="text/javascript" src="../images/UserView.js"></script><script type="text/javascript" src="../images/ItemRouteView.js"></script><script type="text/javascript" src="../images/BatchView.js"></script><script type="text/javascript" src="../images/BatchRouteView.js"></script><script type="text/javascript" src="../images/CustomerView.js"></script><script type="text/javascript" src="../images/BatchReportDetView.js"></script><script type="text/javascript" src="../images/ReportView.js"></script><script type="text/javascript" src="../images/ParamView.js"></script><script type="text/javascript" src="../images/WorkstationView.js"></script><script type="text/javascript" src="../images/Customer.js"></script><script type="text/javascript" src="../images/CustomerStore.js"></script><script type="text/javascript" src="../images/Param.js"></script><script type="text/javascript" src="../images/ParamType.js"></script><script type="text/javascript" src="../images/ParamStore.js"></script><script type="text/javascript" src="../images/ParamTypeStore.js"></script><script type="text/javascript" src="../images/Workstation.js"></script><script type="text/javascript" src="../images/WorkstationStore.js"></script><script type="text/javascript" src="../images/Operation.js"></script><script type="text/javascript" src="../images/Item.js"></script><script type="text/javascript" src="../images/ItemRoute.js"></script><script type="text/javascript" src="../images/CommonImageUploader.js"></script><script type="text/javascript" src="../images/OperationStore.js"></script><script type="text/javascript" src="../images/ItemStore.js"></script><script type="text/javascript" src="../images/ItemRouteDeepStore.js"></script><script type="text/javascript" src="../images/Batch.js"></script><script type="text/javascript" src="../images/BatchStore.js"></script><script type="text/javascript" src="../images/User.js"></script><script type="text/javascript" src="../images/UserStore.js"></script><script type="text/javascript" src="../images/BackwardTraceTreeView.js"></script><script type="text/javascript" src="../images/BackwardTraceTreeStore.js"></script><script type="text/javascript" src="../images/ItemGrid.js"></script><script type="text/javascript" src="../images/ItemRouteStore.js"></script><script type="text/javascript" src="../images/ForwardTraceTreeView.js"></script><script type="text/javascript" src="../images/ForwardTraceTreeStore.js"></script><script type="text/javascript" src="../images/BatchShowDeepStore.js"></script><script type="text/javascript" src="../images/BatchRotue.js"></script><script type="text/javascript" src="../images/BatchRouteDeepStore.js"></script><script type="text/javascript" src="../images/BatchRouteParamsStore.js"></script><script type="text/javascript" src="../images/Report.js"></script><script type="text/javascript" src="../images/ReportParams.js"></script><script type="text/javascript" src="../images/ReportParamsView.js"></script><script type="text/javascript" src="../images/ReportStore.js"></script><script type="text/javascript" src="../images/ReportParamsStore.js"></script><script type="text/javascript" src="../images/BatchGrid.js"></script><script type="text/javascript" src="../images/BatchForm.js"></script><script type="text/javascript" src="../images/CommonIndexToolbar.js"></script><script type="text/javascript" src="../images/CommonShowToolbar.js"></script><script type="text/javascript" src="../images/BatchRouteGrid.js"></script><script type="text/javascript" src="../images/CommonOperationCombo.js"></script><script type="text/javascript" src="../images/CommonWorkstationCombo.js"></script><script type="text/javascript" src="../images/ReportGrid.js"></script><script type="text/javascript" src="../images/CommonTraceToolbar.js"></script><script type="text/javascript" src="../images/BatchShowDeep.js"></script><script type="text/javascript" src="../images/CommonParamCombo.js"></script><script type="text/javascript" src="../images/CommonItemCombo.js"></script><script type="text/javascript" src="../images/CommonCreateBtn.js"></script><script type="text/javascript" src="../images/CommonShowBtn.js"></script><script type="text/javascript" src="../images/CommonSaveBtn.js"></script><script type="text/javascript" src="../images/CommonDeleteBtn.js"></script><script type="text/javascript" src="../images/CommonCancelBtn.js"></script><script type="text/javascript" src="../images/ListMenu.js"></script><script type="text/javascript" src="../images/RangeMenu.js"></script><script type="text/javascript" src="../images/BooleanFilter.js"></script><script type="text/javascript" src="../images/DateFilter.js"></script><script type="text/javascript" src="../images/DateTimeFilter.js"></script><script type="text/javascript" src="../images/ListFilter.js"></script><script type="text/javascript" src="../images/NumericFilter.js"></script><script type="text/javascript" src="../images/StringFilter.js"></script><script type="text/javascript" src="../images/Filter.js"></script></head>
+<body class="x-body x-webkit x-chrome x-mac x-layout-fit x-border-box x-container x-container-default" id="ext-gen1018"><div class="main x-fit-item main-default x-box-layout-ct" id="login" style="margin: 0px; width: 1080px; height: 887px;"><div id="login-innerCt" class="x-box-inner " role="presentation" style="height: 887px; width: 1080px;"><div id="login-targetEl" class="x-box-target" style="width: 1080px;"><div class="x-container x-box-item x-container-default" style="height: 70px; right: auto; left: 0px; top: 0px; margin: 0px; width: 1080px;" id="container-1182"><span id="container-1182-outerCt" style="display: table; width: 100%; table-layout: fixed; height: 100%;"><div id="container-1182-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><header>
+    <div class="top-slogan"><img src="../images/top-slogan.png"></div>
+    <div class="signature"><img src="../images/signature.png"></div>
+</header></div></span></div><div class="main x-box-item main-default x-box-layout-ct" id="container-1183" style="right: auto; left: 0px; top: 70px; margin: 0px; height: 736px; width: 1080px;"><div id="container-1183-innerCt" class="x-box-inner " role="presentation" style="height: 736px; width: 1080px;"><div id="container-1183-targetEl" class="x-box-target" style="width: 1080px;"><div class="x-container x-box-item x-container-default" id="form-1184" style="right: auto; left: 0px; margin: 0px; width: 1080px; top: 0px; height: 389px;"><div id="form-1184-body" class="x-container-body x-container-body-default x-container-body-default x-noborder-trbl" style="width: 1080px; left: 0px; top: 0px; height: 389px;"><span id="form-1184-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="form-1184-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><div class="logo logo-default" id="container-1185"><span id="container-1185-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1185-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><img src="../images/logo.png" width="166"></div></span></div><div class="login-box login-box-default" id="container-1186"><span id="container-1186-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1186-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><div class="x-container top x-container-default" id="container-1187"><span id="container-1187-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1187-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><span><img src="../images/icon-lock.png"></span>食品履歷系統</div></span></div><div class="info info-default" id="container-1188"><span id="container-1188-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1188-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="">Welcome to The Foodprint Tracing System.</div></span></div><div class="login-input login-input-default" id="container-1189"><span id="container-1189-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1189-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><table class="x-field x-table-plain x-form-item x-form-type-text x-field-default x-autocontainer-form-item" cellpadding="0" id="textfield-1190" style="table-layout: fixed;"><tbody><tr role="presentation" id="textfield-1190-inputRow" class="x-form-item-input-row"><td role="presentation" id="textfield-1190-labelCell" style="display:none;" valign="top" halign="left" width="105" class="x-field-label-cell"><label id="textfield-1190-labelEl" for="system_user" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on"></label></td><td role="presentation" class="x-form-item-body  " id="textfield-1190-bodyEl" colspan="3" style="width: 150px;"><input id="system_user" type="text" size="1" name="j_username" value="admin" class="x-form-field x-form-text  " autocomplete="off" aria-invalid="false" data-errorqtip="" style="width: 100%;"></td></tr></tbody></table><table class="x-field x-table-plain x-form-item x-form-type-password x-field-default x-autocontainer-form-item" cellpadding="0" id="textfield-1191" style="table-layout: fixed;"><tbody><tr role="presentation" id="textfield-1191-inputRow" class="x-form-item-input-row"><td role="presentation" id="textfield-1191-labelCell" style="display:none;" valign="top" halign="left" width="105" class="x-field-label-cell"><label id="textfield-1191-labelEl" for="system_pass" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on"></label></td><td role="presentation" class="x-form-item-body  " id="textfield-1191-bodyEl" colspan="3" style="width: 150px;"><input id="system_pass" type="password" size="1" name="j_password" value="admin" class="x-form-field x-form-text  " autocomplete="off" aria-invalid="false" data-errorqtip="" style="width: 100%;"></td></tr></tbody></table></div></span></div><div class="remember remember-default" id="container-1192"><span id="container-1192-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1192-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><table class="x-field x-table-plain x-form-item x-form-type-checkbox x-field-default x-autocontainer-form-item" cellpadding="0" id="checkboxfield-1193" style="table-layout: auto;"><tbody><tr role="presentation" id="checkboxfield-1193-inputRow" class="x-form-item-input-row"><td role="presentation" id="checkboxfield-1193-labelCell" style="display:none;" valign="top" halign="left" width="105" class="x-field-label-cell"><label id="checkboxfield-1193-labelEl" for="checkboxfield-1193-inputEl" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on"></label></td><td role="presentation" class="x-form-item-body  x-form-cb-wrap" id="checkboxfield-1193-bodyEl" colspan="3"><input type="button" id="checkboxfield-1193-inputEl" class="x-form-field x-form-checkbox x-form-cb " autocomplete="off" hidefocus="true" aria-invalid="false" data-errorqtip=""><label id="checkboxfield-1193-boxLabelEl" class="x-form-cb-label x-form-cb-label-after" for="checkboxfield-1193-inputEl">記住密碼 / Remember me</label></td></tr></tbody></table></div></span></div><div class="bottom-bar bottom-bar-default x-column-layout-ct" id="container-1194"><span id="container-1194-outerCt" style="display: table; width: 100%; table-layout: fixed;"><div id="container-1194-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><a class="forgot x-unselectable x-column forgot-default-small x-noicon forgot-noicon forgot-default-small-noicon" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1195"><span id="button-1195-btnWrap" class="forgot-wrap" unselectable="on"><span id="button-1195-btnEl" class="forgot-button"><span id="button-1195-btnInnerEl" class="forgot-inner forgot-inner-center" unselectable="on">忘記密碼? Forgot Password?</span><span role="img" id="button-1195-btnIconEl" class="forgot-icon-el  " unselectable="on" style=""></span></span></span></a><div class="buttons x-column buttons-default" id="container-1196"><span id="container-1196-outerCt" style="display:table;"><div id="container-1196-innerCt" style="height: 100%; vertical-align: top; display: table-cell;" class=""><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1197"><span id="button-1197-btnWrap" class="x-btn-wrap" unselectable="on"><span id="button-1197-btnEl" class="x-btn-button"><span id="button-1197-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">重設</span><span role="img" id="button-1197-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a><a class="x-btn x-unselectable x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon" role="button" hidefocus="on" unselectable="on" tabindex="0" id="button-1198"><span id="button-1198-btnWrap" class="x-btn-wrap" unselectable="on"><span id="button-1198-btnEl" class="x-btn-button"><span id="button-1198-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">登入</span><span role="img" id="button-1198-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></div></span></div></div></span></div></div></span></div></div></span></div></div><div class="x-container x-box-item x-container-default" style="width: 1080px; right: auto; left: 0px; margin: 0px; top: 389px; height: 347px;" id="container-1199"><span id="container-1199-outerCt" style="display: table; width: 100%; table-layout: fixed; height: 100%;"><div id="container-1199-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><div class="copyright" align="center">
+    <img src="../images/leaf.png"> 版權所有 © 2013 Agricloud. All Rights   Reserved. CopyRight<br>
+    <img src="../images/leaf.png"> 本系統由雲端農場研發設計 version web1.0
+  </div></div></span></div></div></div></div><div class="x-container x-box-item x-container-default" style="height: 81px; right: auto; left: 0px; top: 806px; margin: 0px; width: 1080px;" id="container-1200"><span id="container-1200-outerCt" style="display: table; width: 100%; table-layout: fixed; height: 100%;"><div id="container-1200-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""><footer>
+    <div class="left-trees"><img src="../images/left-trees.png"></div>
+    <div class="btn-fb"><a href="../images/login.html"><img src="../images/btn-fb.png"></a></div>
+    <div class="right-slogan">．擁有產品履歷．安全．信賴．e化管理</div>
+    <div class="bar"></div>
+</footer></div></span></div></div></div></div>
+<div id="window-resizer-tooltip"><a href="../images/login.html" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth"></span> x <span class="tooltipHeight" id="winHeight"></span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth"></span> x <span class="tooltipHeight" id="vpHeight"></span></div><div class="x-tip x-layer x-tip-default x-border-box" id="ext-quicktips-tip" style="display: none;"><div class="x-tip-header x-header x-header-horizontal x-docked x-unselectable x-tip-header-default x-horizontal x-tip-header-horizontal x-tip-header-default-horizontal x-top x-tip-header-top x-tip-header-default-top x-docked-top x-tip-header-docked-top x-tip-header-default-docked-top" id="ext-quicktips-tip_header"><div id="ext-quicktips-tip_header-body" class="x-header-body x-tip-header-body x-tip-header-body-default x-tip-header-body-horizontal x-tip-header-body-default-horizontal x-tip-header-body-top x-tip-header-body-default-top x-tip-header-body-docked-top x-tip-header-body-default-docked-top x-box-layout-ct x-tip-header-body-default-horizontal x-tip-header-body-default-top x-tip-header-body-default-docked-top"><div id="ext-quicktips-tip_header-innerCt" class="x-box-inner " role="presentation"><div id="ext-quicktips-tip_header-targetEl" class="x-box-target"><div class="x-component x-header-text-container x-tip-header-text-container x-tip-header-text-container-default x-box-item x-component-default" unselectable="on" id="ext-quicktips-tip_header_hd"><span id="ext-quicktips-tip_header_hd-textEl" class="x-header-text x-tip-header-text x-tip-header-text-default" unselectable="on">&nbsp;</span></div></div></div></div></div><div id="ext-quicktips-tip-body" class="x-tip-body x-tip-body-default x-tip-body-default"><span id="ext-quicktips-tip-outerCt" style="display:table;"><div id="ext-quicktips-tip-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class=""></div></span></div><div class="x-tip-anchor x-tip-anchor-top" id="ext-gen1024"></div></div></body></html>
