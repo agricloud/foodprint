@@ -172,12 +172,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for (var i=0; i<config.columns.length; i++) {",
-                                    "    config.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
-                                    "}",
-                                    "",
-                                    "config = Utilities.createFiltersFeature(config);",
-                                    "return config;"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'user'));"
                                 ]
                             },
                             "designerId": "f61a74d1-2d75-42eb-919c-23f4afc75df9"
@@ -304,32 +299,6 @@
                             "designerId": "f29ab886-3817-4ede-884b-d445f676eff2"
                         },
                         {
-                            "type": "processcfgfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "processLocalized",
-                                "designer|params": [
-                                    "config"
-                                ],
-                                "implHandler": [
-                                    "for (var i=0; i<config.items.length; i++) {",
-                                    "    var key = 'user.'+config.items[i].name+'.label';",
-                                    "",
-                                    "    // Check lang def exists",
-                                    "    if (lang[key]) {",
-                                    "        config.items[i].fieldLabel = lang[key];",
-                                    "    }",
-                                    "}",
-                                    "return config;"
-                                ]
-                            },
-                            "designerId": "ca0822e1-5952-47a7-a647-a2c6f2b6603f"
-                        },
-                        {
                             "type": "basicfunction",
                             "reference": {
                                 "name": "items",
@@ -347,6 +316,24 @@
                                 ]
                             },
                             "designerId": "e144a602-9da6-4464-945f-df5472d21758"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'user');"
+                                ]
+                            },
+                            "designerId": "51ad5c9d-1a31-4d3f-860c-f556b0efdfbe"
                         }
                     ]
                 },
@@ -363,14 +350,10 @@
                             "config"
                         ],
                         "implHandler": [
-                            "for (var i=0; i<config.items.length; i++) {",
-                            "    config.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
-                            "}",
-                            "",
-                            "return config;"
+                            "return Utilities.processConfigBundle(config, 'user');"
                         ]
                     },
-                    "designerId": "05fe0564-6b71-4c7e-bc97-cf55834b72d6"
+                    "designerId": "21b0febb-94d4-408b-8768-75795911d4c3"
                 }
             ]
         }
