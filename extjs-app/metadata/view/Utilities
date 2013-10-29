@@ -258,10 +258,13 @@
             "userConfig": {
                 "fn": "processConfigBundle",
                 "designer|params": [
-                    "config",
-                    "prefix"
+                    "config, prefix"
                 ],
                 "implHandler": [
+                    "if (!prefix) {",
+                    "    console.warn(\"processConfigBundle require a prefix argument\");",
+                    "}",
+                    "",
                     "if (config.items) {",
                     "    for (var i=0; i<config.items.length; i++) {",
                     "        var target = config.items[i];",
@@ -276,6 +279,22 @@
                     "        }",
                     "    }",
                     "}",
+                    "",
+                    "if (config.columns) {",
+                    "    for (var i=0; i<config.columns.length; i++) {",
+                    "        var target = config.columns[i];",
+                    "        ",
+                    "        if (target.text) {",
+                    "            var key = prefix+'.'+target.dataIndex+'.label';",
+                    "        ",
+                    "            // Check lang def exists",
+                    "            if (lang[key]) {",
+                    "                target.text = lang[key];",
+                    "            }",
+                    "        }",
+                    "    }",
+                    "}",
+                    "",
                     "",
                     "return config;"
                 ]

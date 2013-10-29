@@ -172,12 +172,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for (var i=0; i<config.columns.length; i++) {",
-                                    "    config.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
-                                    "}",
-                                    "",
-                                    "config = Utilities.createFiltersFeature(config);",
-                                    "return config;"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'user'));"
                                 ]
                             },
                             "designerId": "f61a74d1-2d75-42eb-919c-23f4afc75df9"
