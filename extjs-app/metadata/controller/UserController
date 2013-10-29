@@ -18,7 +18,7 @@
         "designer|userClassName": "UserController",
         "mixins": [
             "{",
-            "    commonController: 'foodprint.controller.commonController'",
+            "    commonController: 'foodprint.controller.CommonController'",
             "}"
         ]
     },
@@ -83,6 +83,10 @@
                     "    'userview #index gridpanel': {",
                     "        // Grid item double click event",
                     "        itemdblclick: this.doShow",
+                    "    },",
+                    "    'userview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn",
                     "    }",
                     "});",
                     "",
