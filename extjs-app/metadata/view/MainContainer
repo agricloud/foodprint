@@ -47,7 +47,7 @@
                         "container|align": "stretch",
                         "height": 250,
                         "width": 400,
-                        "designer|displayName": "BasicMenu",
+                        "designer|displayName": "基礎資料維護",
                         "layout": "vbox",
                         "title": "基礎資料維護"
                     },
@@ -178,7 +178,7 @@
                         "container|align": "stretch",
                         "height": 250,
                         "width": 400,
-                        "designer|displayName": "BasicMenu",
+                        "designer|displayName": "履歷收集",
                         "layout": "vbox",
                         "title": "履歷收集"
                     },
@@ -251,6 +251,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "container|align": "stretch",
+                        "designer|displayName": "資料查詢",
                         "layout": "vbox",
                         "title": "資料查詢"
                     },
@@ -283,6 +284,53 @@
                                 "text": "逆溯"
                             },
                             "designerId": "b13ed143-90f9-4e35-a3db-a1bb27d46193"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "designer|displayName": "系統管理",
+                        "layout": "vbox",
+                        "title": "系統管理"
+                    },
+                    "designerId": "dd871cee-74d6-436a-bdcf-f2208091d3e1",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "bundleAdmin",
+                                "designer|displayName": "語系翻譯管理",
+                                "text": "語系翻譯管理"
+                            },
+                            "designerId": "0872e2cc-ea21-442f-be50-23210a73d6d9"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "permissionAdmin",
+                                "designer|displayName": "權限管理",
+                                "text": "權限管理"
+                            },
+                            "designerId": "c45ff307-29dc-4dc2-ab2b-f47467379003"
                         }
                     ]
                 }

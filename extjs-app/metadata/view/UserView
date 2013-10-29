@@ -173,7 +173,7 @@
                                 ],
                                 "implHandler": [
                                     "for (var i=0; i<config.columns.length; i++) {",
-                                    "\tconfig.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
+                                    "    config.columns[i].text=lang['user.'+config.columns[i].dataIndex+'.label'];",
                                     "}",
                                     "",
                                     "config = Utilities.createFiltersFeature(config);",
@@ -364,7 +364,7 @@
                         ],
                         "implHandler": [
                             "for (var i=0; i<config.items.length; i++) {",
-                            "\tconfig.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
+                            "    config.items[i].fieldLabel=lang['user.'+config.items[i].name+'.label'];",
                             "}",
                             "",
                             "return config;"
