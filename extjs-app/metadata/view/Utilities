@@ -206,27 +206,25 @@
                     "config"
                 ],
                 "implHandler": [
-                    "for (var i = 0; i < config.columns.length; i++) {",
+                    "for (var i=0; i<config.columns.length; i++) {",
                     "    if(config.columns[i].xtype === 'numbercolumn'){",
                     "        config.columns[i].type = 'numeric'",
-                    "    }else if(config.columns[i].xtype === 'datecolumn'){",
+                    "    }",
+                    "    else if(config.columns[i].xtype === 'datecolumn'){",
                     "        config.columns[i].type = 'date'",
-                    "    }else if(config.columns[i].xtype === 'booleancolumn'){",
+                    "    }",
+                    "    else if(config.columns[i].xtype === 'booleancolumn'){",
                     "        config.columns[i].type = 'boolean'",
                     "    }",
                     "}",
                     "",
-                    "",
-                    "config.features = [",
-                    "{",
+                    "config.features = [{",
                     "    ftype: 'filters',   ",
                     "    encode: true,",
                     "    filters: config.columns",
+                    "}];",
                     "",
-                    "}",
-                    "];",
-                    "",
-                    "return config"
+                    "return config;"
                 ]
             },
             "designerId": "97e76557-a026-4190-8b04-86a89f4e1cf7"
@@ -249,6 +247,40 @@
                 ]
             },
             "designerId": "87430ab6-409a-4345-b6a1-f052341dcab9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processConfigBundle",
+                "designer|params": [
+                    "config",
+                    "prefix"
+                ],
+                "implHandler": [
+                    "if (config.items) {",
+                    "    for (var i=0; i<config.items.length; i++) {",
+                    "        var target = config.items[i];",
+                    "        ",
+                    "        if (target.fieldLabel) {",
+                    "            var key = prefix+'.'+target.name+'.label';",
+                    "        ",
+                    "            // Check lang def exists",
+                    "            if (lang[key]) {",
+                    "                target.fieldLabel = lang[key];",
+                    "            }",
+                    "        }",
+                    "    }",
+                    "}",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "c4d13848-ff83-4670-b0ae-ec66f121fd57"
         }
     ]
 }
