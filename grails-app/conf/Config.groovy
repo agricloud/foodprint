@@ -126,7 +126,8 @@ environments {
                 'grails.app.services',
                 'grails.app.taglib',
                 'grails.app.conf',
-                'grails.app.filters'
+                'grails.app.filters',
+                'grails.app.jobs'
             ]
         }
     }
