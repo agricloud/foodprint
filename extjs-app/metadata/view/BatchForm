@@ -129,11 +129,8 @@
                     "config"
                 ],
                 "implHandler": [
-                    "for(var i=0;i<config.items.length;i++){",
-                    "    console.log('batch.'+config.items[i].fieldLabel+'.label');",
-                    "    config.items[i].fieldLabel=lang['batch.'+config.items[i].fieldLabel+'.label'];",
-                    "}",
-                    "return config;"
+                    "",
+                    "return Utilities.processConfigBundle(config, 'batch');"
                 ]
             },
             "designerId": "6f25174d-caf5-4507-8886-1758be3d1e70"

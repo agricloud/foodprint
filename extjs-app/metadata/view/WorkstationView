@@ -170,8 +170,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "config = Utilities.createFiltersFeature(config);",
-                                    "return config;"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'workstation'));"
                                 ]
                             },
                             "designerId": "8df87c01-e58a-4a2a-ab07-0ae7b4efef94"
@@ -315,6 +314,24 @@
                                         ]
                                     },
                                     "designerId": "aa27e0f7-a0d0-4017-a2f5-40bdc1271fa8"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processWorkstationForm",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "return Utilities.processConfigBundle(config, 'workstation');"
+                                        ]
+                                    },
+                                    "designerId": "be980e67-2f2d-48b1-aece-eadd7a66cd8f"
                                 }
                             ]
                         }

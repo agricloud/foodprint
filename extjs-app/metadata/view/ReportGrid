@@ -100,6 +100,24 @@
                 ]
             },
             "designerId": "e49a41a0-7a60-40ef-9156-c9783c2043d9"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processReportGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'report'));"
+                ]
+            },
+            "designerId": "1f39a10d-77cf-4dfb-874a-a63f1ea73026"
         }
     ]
 }

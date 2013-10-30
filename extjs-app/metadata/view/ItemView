@@ -232,6 +232,24 @@
                                 "format": null
                             },
                             "designerId": "7ae00aa6-95d6-42b2-b2f8-d085a8ea207e"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'item');"
+                                ]
+                            },
+                            "designerId": "c9aa6a0b-8f3f-4bd7-a4a2-983fd4e06a24"
                         }
                     ]
                 },

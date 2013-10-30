@@ -167,11 +167,7 @@
                     "config"
                 ],
                 "implHandler": [
-                    "config = Utilities.createFiltersFeature(config);",
-                    "",
-                    "console.log(\"config.store =\" +config.store );",
-                    "",
-                    "return config;",
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'item'));",
                     ""
                 ]
             },
