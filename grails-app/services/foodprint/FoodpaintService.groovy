@@ -7,8 +7,12 @@ import grails.converters.*
 
 class FoodpaintService {
 
-    final static String __FOODPAINT_SERVICE_SERVER_URL = "http://localhost:8180"
-    final static String __FOODPAINT_SERVICE_API_URL = "http://localhost:8180/api"
+    // final static String __FOODPAINT_SERVICE_SERVER_URL = "http://localhost:8180"
+    // final static String __FOODPAINT_SERVICE_API_URL = "http://localhost:8180/api"
+    final static String __FOODPAINT_SERVICE_SERVER_URL = "http://192.168.1.18:8080/foodpaint/"
+    final static String __FOODPAINT_SERVICE_API_URL = "http://192.168.1.18:8080/foodpaint/api"
+
+
 
     /**
      * Ping to /api/ping to check service available
@@ -20,8 +24,8 @@ class FoodpaintService {
         log.info "PING: foodpaint service"
 
         try {
-            withHttp(uri: __FOODPAINT_SERVICE_SERVER_URL) {
-                def html = get(path : '/api/ping', query : [version: '1.0'])
+            withHttp(uri: __FOODPAINT_SERVICE_API_URL+"/ping") {
+                def html = get(query : [version: '1.0'])
 
                 log.debug html
                 result = true
