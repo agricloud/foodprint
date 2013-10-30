@@ -91,10 +91,16 @@ environments {
         grails.logging.jul.usebridge = true
         grails.resources.debug=true
         grails.converters.default.pretty.print = true
+
+        foodpaint.service.server.url = "http://localhost:8180"
+        foodpaint.service.api.url = "http://localhost:8180/api"
     }
     production {
         grails.indexPath = "/production/index.html"
         grails.logging.jul.usebridge = false
+        
+        foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
+        foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

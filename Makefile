@@ -41,6 +41,7 @@ submoduleInstall:
 
 
 remote-dbinit:
+	mysql -u root -p
 	CREATE DATABASE foodprint DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 	create user 'foodprint'@'localhost' identified by 'foodprint';
 	grant all on *.* to 'foodprint'@'localhost';

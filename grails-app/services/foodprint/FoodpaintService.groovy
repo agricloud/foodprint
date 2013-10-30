@@ -7,12 +7,7 @@ import grails.converters.*
 
 class FoodpaintService {
 
-    // final static String __FOODPAINT_SERVICE_SERVER_URL = "http://localhost:8180"
-    // final static String __FOODPAINT_SERVICE_API_URL = "http://localhost:8180/api"
-    final static String __FOODPAINT_SERVICE_SERVER_URL = "http://192.168.1.18:8080/foodpaint/"
-    final static String __FOODPAINT_SERVICE_API_URL = "http://192.168.1.18:8080/foodpaint/api"
-
-
+    def grailsApplication
 
     /**
      * Ping to /api/ping to check service available
@@ -21,10 +16,10 @@ class FoodpaintService {
 
         boolean result = false
 
-        log.info "PING: foodpaint service"
+        log.info "PING: foodpaint service ${grailsApplication.config.foodpaint.service.api.url}"
 
         try {
-            withHttp(uri: __FOODPAINT_SERVICE_API_URL+"/ping") {
+            withHttp(uri: grailsApplication.config.foodpaint.service.api.url+"/ping") {
                 def html = get(query : [version: '1.0'])
 
                 log.debug html
@@ -52,7 +47,7 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${__FOODPAINT_SERVICE_API_URL}/queryBatchReport"
+        def url = "${grailsApplication.config.foodpaint.service.server.url}/queryBatchReport"
         
         def resp = rest.get(url)
 
