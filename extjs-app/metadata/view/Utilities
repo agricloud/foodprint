@@ -269,10 +269,10 @@
                     "if (config.items) {",
                     "    for (var i=0; i<config.items.length; i++) {",
                     "        var target = config.items[i];",
-                    "        ",
+                    "",
                     "        if (target.fieldLabel) {",
                     "            var key = prefix+'.'+target.name+'.label';",
-                    "        ",
+                    "",
                     "            // Check lang def exists",
                     "            if (lang[key]) {",
                     "                target.fieldLabel = lang[key];",
@@ -284,10 +284,10 @@
                     "if (config.columns) {",
                     "    for (var i=0; i<config.columns.length; i++) {",
                     "        var target = config.columns[i];",
-                    "        ",
+                    "",
                     "        if (target.text) {",
                     "            var key = prefix+'.'+target.dataIndex+'.label';",
-                    "        ",
+                    "",
                     "            // Check lang def exists",
                     "            if (lang[key]) {",
                     "                target.text = lang[key];",
@@ -301,6 +301,24 @@
                 ]
             },
             "designerId": "c4d13848-ff83-4670-b0ae-ec66f121fd57"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getMsg",
+                "designer|params": [
+                    "lang"
+                ],
+                "implHandler": [
+                    "return foodprint.getApplication().bundle.getMsg(lang);"
+                ]
+            },
+            "designerId": "03cf0a13-8b6e-4ad3-85a8-769fd87b6725"
         }
     ]
 }

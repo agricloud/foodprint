@@ -41,6 +41,7 @@ submoduleInstall:
 
 
 remote-dbinit:
+	sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin libapache2-mod-php5
 	mysql -u root -p
 	CREATE DATABASE foodprint DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 	create user 'foodprint'@'localhost' identified by 'foodprint';
