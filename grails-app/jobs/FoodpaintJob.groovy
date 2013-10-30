@@ -2,7 +2,7 @@
 class FoodpaintJob {
     def foodpaintService
     static triggers = {
-        simple name: 'mySimpleTrigger', startDelay: 1000, repeatInterval: 600000  
+        simple name: 'mySimpleTrigger', startDelay: 5000, repeatInterval: 600000  
     }
 
     def group = "MyGroup"

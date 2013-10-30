@@ -7,8 +7,7 @@ import grails.converters.*
 
 class FoodpaintService {
 
-    final static String __FOODPAINT_SERVICE_SERVER_URL = "http://localhost:8180"
-    final static String __FOODPAINT_SERVICE_API_URL = "http://localhost:8180/api"
+    def grailsApplication
 
     /**
      * Ping to /api/ping to check service available
@@ -17,11 +16,11 @@ class FoodpaintService {
 
         boolean result = false
 
-        log.info "PING: foodpaint service"
+        println "PING: foodpaint service ${grailsApplication.config.grails.foodpaint.service.api.url}"
 
         try {
-            withHttp(uri: __FOODPAINT_SERVICE_SERVER_URL) {
-                def html = get(path : '/api/ping', query : [version: '1.0'])
+            withHttp(uri: grailsApplication.config.grails.foodpaint.service.api.url+"/ping") {
+                def html = get(query : [version: '1.0'])
 
                 log.debug html
                 result = true
@@ -48,9 +47,9 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${__FOODPAINT_SERVICE_API_URL}/queryBatchReport"
-        
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchReport"
         def resp = rest.get(url)
+
 
         //進行資料匯入
         importData(resp.text)
@@ -62,10 +61,14 @@ class FoodpaintService {
         log.debug "ReportViewerController--importData"
 
         def records=JSON.parse(jsonString)
+
+        println "records.item "+records.item.size()
         //匯入品項
         records.item.each{ item ->
             item.site = Site.findByName(item.site.name)
-            new Item(item).save( flush: true)
+            item.lastUpdated = null
+            item.dateCreated = null
+            new Item(item).save(flush: true, failOnError:true)
         }
 
         log.debug "品項清單："
@@ -77,13 +80,17 @@ class FoodpaintService {
         records.batch.each{ batch ->
             batch.site=Site.findByName(batch.site.name)
             batch.item=Item.findByName(batch.item.name)
-            new Batch(batch).save( flush: true)
+            batch.lastUpdated = null
+            batch.dateCreated = null
+            new Batch(batch).save(flush: true, failOnError:true)
         }
         //匯入批號關聯
         records.batchSources.each{ batchSource ->
             batchSource.batch=Batch.findByName(batchSource.batch.name)
             batchSource.childBatch=Batch.findByName(batchSource.childBatch.name)
-            new BatchSource(batchSource).save(flush: true)
+            batchSource.lastUpdated = null
+            batchSource.dateCreated = null
+            new BatchSource(batchSource).save(flush: true, failOnError:true)
         }
     }
 }

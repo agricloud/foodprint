@@ -91,43 +91,84 @@ environments {
         grails.logging.jul.usebridge = true
         grails.resources.debug=true
         grails.converters.default.pretty.print = true
+
+        grails.foodpaint.service.server.url = "http://localhost:8180"
+        grails.foodpaint.service.api.url = "http://localhost:8180/api"
+
     }
     production {
         grails.indexPath = "/production/index.html"
         grails.logging.jul.usebridge = false
+        
+        grails.foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
+        grails.foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
 
 // log4j configuration
-log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    
-    // appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '[%-5p]%d{HH:mm:ss,SSS}:%c{2}:%L %m%n')
-    // }
+environments {
+ 
+    development {
+        log4j = {
+            appenders {
+                file name: 'grailsfile', file: 'target/grails.log'
+                file name: 'rootlog', file: 'target/root.log'
+                file name: 'devfile', file: 'target/development.log'
+                console name:'stdout',
 
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+            }
+            root { error 'stdout', 'rootlog' }
+            info additivity: false, grailsfile: 'org.codehaus.groovy.grails.commons'
+            all additivity: false, devfile: [
+                'grails.app.controllers',
+                'grails.app.domain',
+                'grails.app.services',
+                'grails.app.taglib',
+                'grails.app.conf',
+                'grails.app.filters',
+                'grails.app.jobs'
+            ]
+        }
+    }
+ 
+    test {
+        log4j = {
+            appenders {
+                file name: 'grailsfile', file: 'target/grails.log'
+                file name: 'rootlog', file: 'target/root.log'
+                file name: 'testfile', file: 'target/test.log'
+                console name:'stdout',
+                
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+            }
+            root { error 'stdout', 'rootlog' }
+            info additivity: false, grailsfile: 'org.codehaus.groovy.grails.commons'
+            all additivity: false, testfile: [
+                'grails.app.controllers',
+                'grails.app.domain',
+                'grails.app.services',
+                'grails.app.taglib',
+                'grails.app.conf',
+                'grails.app.filters'
+            ]
+     
+        }
+    }
+    production {
+        grails.logging.jul.usebridge = false
+        log4j = {
+            appenders {
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+            }
+            root { 
+                error()
+            }
+        }
 
-    info "grails.app"
-
-    debug "grails.app.controllers",
-          "grails.app.services"
-
-
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+    }
 }
-
 
 extjs.version = '4.2.1'
 touch.version = '2.3.0'

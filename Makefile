@@ -1,6 +1,6 @@
 #remote_addr=192.168.0.107
-remote_addr=
-remote_user=spooky
+remote_addr=192.168.1.18
+remote_user=demo
 
 
 server:
@@ -15,12 +15,6 @@ commit:
 update:
 	git pull
 
-clean:
-	grails clean
-
-
-war:
-	grails war
 
 submoduleInstall:
 	git submodule init
@@ -38,8 +32,6 @@ submoduleInstall:
 # 	cp target/extrails.war /var/lib/tomcat7/webapps/ROOT.war
 # 	service tomcat7 restart
 
-log:
-	tail -f /var/lib/tomcat7/logs/catalina.out
 
 
 # remote-init:
@@ -48,10 +40,12 @@ log:
 # 	ssh -t ${remote_user}@${remote_addr} 'sudo mkdir -p /usr/share/tomcat7/.grails/projects/extrails/searchable-index/production/index/product && sudo chgrp -R tomcat7 /usr/share/tomcat7 && sudo chmod -R 770 /usr/share/tomcat7'
 
 
-# remote-dbinit:
-# 	CREATE DATABASE extrails DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-# 	create user 'extrails'@'localhost' identified by 'mvagusta';
-# 	grant all on *.* to 'extrails'@'localhost';
+remote-dbinit:
+	sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin libapache2-mod-php5
+	mysql -u root -p
+	CREATE DATABASE foodprint DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+	create user 'foodprint'@'localhost' identified by 'foodprint';
+	grant all on *.* to 'foodprint'@'localhost';
 	
 
 # remote-deploy:
@@ -72,8 +66,29 @@ log:
 # 	rabbitmq-server &
 
 
+clean:
+	grails clean
+
+
+war:
+	grails war
+
+
+deployWar:
+	#cp ~/.grails/extrails-config.groovy /usr/share/tomcat6/.grails/
+	scp target/foodprint.war ${remote_user}@${remote_addr}:~/ROOT.war
+	ssh -t ${remote_user}@${remote_addr} 'cd ~/ && sudo rm -rf /var/lib/tomcat6/webapps/ROOT && sudo cp ROOT.war /var/lib/tomcat6/webapps/ && sudo service tomcat6 restart'
+
+		
+
 done:
-	make clean war upload && make remote-deploy
+	make extjsdone clean war deployWar
+
+log:
+	ssh -t ${remote_user}@${remote_addr} 'sudo tail -f /var/lib/tomcat6/logs/catalina.out'
+
+install:
+	make remote-init done
 
 
 # extjs make file
