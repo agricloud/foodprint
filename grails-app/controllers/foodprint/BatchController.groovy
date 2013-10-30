@@ -44,6 +44,7 @@ class BatchController {
 
             def batchJson =  JSON.parse((batch as JSON).toString())            
             batchJson["item.id"] = batch.item.id
+            batchJson["item.name"] = batch.item.name
 
             render (contentType: 'application/json') {
                 [success: true, data:batchJson]
