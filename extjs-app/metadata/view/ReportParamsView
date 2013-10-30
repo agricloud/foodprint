@@ -268,6 +268,24 @@
                                 "scope": "me"
                             },
                             "designerId": "e8683f09-aab1-4d4b-a2f5-c3f56995059d"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'reportParams'));"
+                                ]
+                            },
+                            "designerId": "232f3395-d6e1-49be-955c-888bcf4d3981"
                         }
                     ]
                 }
@@ -638,6 +656,24 @@
                                 ]
                             },
                             "designerId": "88460fe6-2ac0-4315-ae55-be8a8c45568d"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'reportParams');"
+                                ]
+                            },
+                            "designerId": "46d9c9d2-cb7b-4d17-a6ff-a261d604ff8c"
                         }
                     ]
                 }

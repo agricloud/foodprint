@@ -153,31 +153,11 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for(var i=0; i<config.columns.length;i++)",
-                                    "config.columns[i].text=lang['operation.'+config.columns[i].dataIndex+'.label'];",
                                     "",
-                                    "config = Utilities.createFiltersFeature(config);",
-                                    "return config;"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'operation'));"
                                 ]
                             },
                             "designerId": "c1e47074-b31b-4ec0-a54a-4f822f8d1acb"
-                        },
-                        {
-                            "type": "basicfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "loadStore",
-                                "implHandler": [
-                                    "console.log(\"View-OperationGrid.loadStore\");",
-                                    "",
-                                    "this.getStore().load();//對應ref"
-                                ]
-                            },
-                            "designerId": "a650d68f-aa5c-4e0d-93bc-3580b9091cb5"
                         }
                     ]
                 }
@@ -316,10 +296,8 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "for(var i=0;i<config.items.length;i++)",
-                                    "config.items[i].fieldLabel=lang['operation.'+config.items[i].name+'.label'];",
-                                    "",
-                                    "return config;"
+                                    "return Utilities.processConfigBundle(config, 'operation');",
+                                    ""
                                 ]
                             },
                             "designerId": "a58d7909-b344-42a9-a384-432c39f6b28d"

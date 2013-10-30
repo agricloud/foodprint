@@ -225,8 +225,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "config = Utilities.createFiltersFeature(config);",
-                                    "return config;"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'param'));"
                                 ]
                             },
                             "designerId": "6fa3341b-3507-42b2-b1f1-a0f448dda594"
@@ -449,6 +448,24 @@
                                         ]
                                     },
                                     "designerId": "be98cfd4-0c2c-43f0-b457-63d5a0739615"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processParamForm",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "return Utilities.processConfigBundle(config, 'param');"
+                                        ]
+                                    },
+                                    "designerId": "37d97b50-fc43-4353-909f-bb358674768d"
                                 }
                             ]
                         }

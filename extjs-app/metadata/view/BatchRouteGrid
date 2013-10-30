@@ -237,12 +237,11 @@
                     "config"
                 ],
                 "implHandler": [
-                    "for(var i=0; i<config.columns.length;i++)",
-                    "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
+                    "",
                     "config.viewConfig.loadingText = lang['default.message.load'];",
                     "",
                     "",
-                    "return config;"
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'batchRoute'));"
                 ]
             },
             "designerId": "f1a7230d-cee3-45db-afa0-814e85d656f8"

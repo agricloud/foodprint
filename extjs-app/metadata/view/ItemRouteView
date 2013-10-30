@@ -258,6 +258,24 @@
                                 "scope": "me"
                             },
                             "designerId": "df0c7b6c-2647-400b-bd72-1808068c39c4"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'itemRoute'));"
+                                ]
+                            },
+                            "designerId": "50f7eac7-e6d8-4729-8968-89053220990b"
                         }
                     ]
                 }
@@ -454,6 +472,24 @@
                                 "name": "workstation.title"
                             },
                             "designerId": "641a8ffa-63a7-43d6-91af-655ed9a707af"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'itemRoute');"
+                                ]
+                            },
+                            "designerId": "026b604b-0699-4cbf-8a75-2bcad75fe710"
                         }
                     ]
                 }
