@@ -97,8 +97,11 @@ install:
 extjsappgen: 
 	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
 
+extjsupgrade:
+	sencha app upgrade extjs
+
 extjsproduction:
-	cd extjs-app && sencha app upgrade extjs && sencha app build production
+	cd extjs-app && sencha app build production
 
 extjstesting:
 	mkdir -p extjs-app/resources
