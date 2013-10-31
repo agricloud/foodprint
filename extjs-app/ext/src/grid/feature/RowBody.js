@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * The rowbody feature enhances the grid's markup to have an additional
@@ -91,9 +94,6 @@ Ext.define('Ext.grid.feature.RowBody', {
             var view = values.view,
                 rowValues = view.rowValues;
 
-            if (!rowValues.visibleColumns) {
-                rowValues.visibleColumns = view.headerCt.getVisibleGridColumns();
-            }
             this.rowBody.setup(values.rows, rowValues);
         },
         after: function(values, out) {
@@ -212,7 +212,7 @@ Ext.define('Ext.grid.feature.RowBody', {
     // When columns added/removed, keep row body colspan in sync with number of columns.
     onColumnsChanged: function(headerCt) {
         var items = this.view.el.query(this.rowBodyTdSelector),
-            colspan = headerCt.getGridColumns().length,
+            colspan = headerCt.getVisibleGridColumns().length,
             len = items.length,
             i;
 

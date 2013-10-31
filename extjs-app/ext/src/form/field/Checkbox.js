@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * @docauthor Robert Dougan <rob@sencha.com>
@@ -136,14 +139,14 @@ Ext.define('Ext.form.field.Checkbox', {
             '</label>',
             '{afterBoxLabelTpl}',
         '</tpl>',
-        // Creates not an actual checkbox, but a button which is given aria role="checkbox" (If ARIA is required) and
-        // styled with a custom checkbox image. This allows greater control and consistency in
-        // styling, and using a button allows it to gain focus and handle keyboard nav properly.
-        '<input type="button" id="{id}" {inputAttrTpl}',
+        // Creates an input of the configured type. By default, this is "button" to enable theming.
+        // When ARIA is enabled, this reverts to a "checkbox"
+        '<input type="{inputTypeAttr}" id="{id}" {inputAttrTpl}',
             '<tpl if="tabIdx"> tabIndex="{tabIdx}"</tpl>',
             '<tpl if="disabled"> disabled="disabled"</tpl>',
             '<tpl if="fieldStyle"> style="{fieldStyle}"</tpl>',
-            ' class="{fieldCls} {typeCls} {inputCls}" autocomplete="off" hidefocus="true" />',
+            '<tpl if="ariaAttrs"> {ariaAttrs}</tpl>',
+            ' class="{fieldCls} {typeCls} {inputCls} {childElCls}" autocomplete="off" hidefocus="true" />',
         '<tpl if="boxLabel && boxLabelAlign == \'after\'">',
             '{beforeBoxLabelTpl}',
             '<label id="{cmpId}-boxLabelEl" {boxLabelAttrTpl} class="{boxLabelCls} {boxLabelCls}-{boxLabelAlign}" for="{id}">',
@@ -220,13 +223,9 @@ Ext.define('Ext.form.field.Checkbox', {
      * @cfg {String} [fieldCls='x-form-field']
      * The default CSS class for the checkbox
      */
-
-    /**
-     * @cfg {String} [fieldBodyCls='x-form-cb-wrap']
-     * An extra CSS class to be applied to the body content element in addition to {@link #fieldBodyCls}.
-     * .
-     */
-    fieldBodyCls: Ext.baseCSSPrefix + 'form-cb-wrap',
+    
+    // private
+    extraFieldBodyCls: Ext.baseCSSPrefix + 'form-cb-wrap',
 
     /**
      * @cfg {Boolean} checked
@@ -293,6 +292,10 @@ Ext.define('Ext.form.field.Checkbox', {
     // private overrides
     checkChangeEvents: [],
     inputType: 'checkbox',
+    
+    // private - the actual input type to use. inputType is just used to generate a class name
+    inputTypeAttr: 'button',
+
 
     // private
     onRe: /^on$/i,
@@ -340,7 +343,8 @@ Ext.define('Ext.form.field.Checkbox', {
             disabled      : me.readOnly || me.disabled,
             boxLabel      : me.boxLabel,
             boxLabelCls   : me.boxLabelCls,
-            boxLabelAlign : me.boxLabelAlign
+            boxLabelAlign : me.boxLabelAlign,
+            inputTypeAttr : me.inputTypeAttr
         });
     },
 

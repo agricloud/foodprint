@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * The Editor class is used to provide inline editing for elements on the page. The editor
@@ -190,11 +193,7 @@ Ext.define('Ext.Editor', {
         });
         me.mon(field, {
             scope: me,
-            blur: {
-                fn: me.onFieldBlur,
-                // slight delay to avoid race condition with startEdits (e.g. grid view refresh)
-                delay: 1
-            },
+            blur: me.onFieldBlur,
             specialkey: me.onSpecialKey
         });
 
@@ -353,7 +352,7 @@ Ext.define('Ext.Editor', {
             field.setValue(value);
             field.resumeEvents();
             me.realign(true);
-            field.focus(false, 10);
+            field.focus();
             if (field.autoSize) {
                 field.autoSize();
             }
@@ -481,8 +480,10 @@ Ext.define('Ext.Editor', {
             me.completeEdit();
             return;
         }
-        if (field.hasFocus) {
-            field.blur();
+        // Fields which mimic blur have to be told to fire t heir blur events.
+        // All other types of field are automatically blurred when an ancestor hides.
+        if (field.hasFocus && field.triggerBlur) {
+            field.triggerBlur();
         }
         if (field.collapse) {
             field.collapse();

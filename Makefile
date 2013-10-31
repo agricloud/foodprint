@@ -98,15 +98,14 @@ extjsappgen:
 	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
 
 extjsproduction:
-	mkdir -p extjs-app/resources
-	cd extjs-app && sencha app build production
+	cd extjs-app && sencha app upgrade extjs && sencha app build production
 
 extjstesting:
 	mkdir -p extjs-app/resources
 	cd extjs-app && sencha app build testing
 
 extjsdeploy:
-	rsync -a extjs-app/build/foodprint/production/ web-app/production/
+	rsync -a extjs-app/build/production/foodprint/ web-app/production/
 
 
 extjsdone:

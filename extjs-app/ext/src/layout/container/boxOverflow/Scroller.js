@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * @private
@@ -113,7 +116,8 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
 
     getPrefixConfig: function() {
         var me = this,
-            owner = me.layout.owner,
+            layout = me.layout,
+            owner = layout.owner,
             cls;
 
         me.initCSSClasses();
@@ -125,7 +129,7 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
         return {
             cls: cls,
             cn : {
-                id : owner.id + '-before-scroller',
+                id : owner.id + layout.names.beforeScrollerSuffix,
                 cls: me.scrollerCls + ' ' + me.beforeScrollerCls,
                 style: 'display:none'
             }
@@ -134,7 +138,8 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
 
     getSuffixConfig: function() {
         var me = this,
-            owner = me.layout.owner,
+            layout = me.layout,
+            owner = layout.owner,
             cls = Ext.layout.container.Box.prototype.innerCls + ' ' + me.afterCtCls;
 
         if (owner.plain) {
@@ -144,7 +149,7 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
         return {
             cls: cls,
             cn : {
-                id : me.layout.owner.id + '-after-scroller',
+                id : owner.id + layout.names.afterScrollerSuffix,
                 cls: me.scrollerCls + ' ' + me.afterScrollerCls,
                 style: 'display:none'
             }
@@ -172,7 +177,10 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
     },
 
     beginLayout: function (ownerContext) {
-        ownerContext.innerCtScrollPos = this.getElScrollPos();
+        var layout = this.layout;
+
+        ownerContext.innerCtScrollPos = this.getScrollPosition();
+
         this.callParent(arguments);
     },
 
@@ -194,27 +202,11 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
     },
 
     finishedLayout: function(ownerContext) {
-        var scrollPos = Math.min(this.getMaxScrollPosition(), ownerContext.innerCtScrollPos);
+        var me = this,
+            layout = me.layout,
+            scrollPos = Math.min(me.getMaxScrollPosition(), ownerContext.innerCtScrollPos);
 
-        this.setElScrollPos(scrollPos);
-    },
-    
-    setElScrollPos: function(scrollPos) {
-        var layout = this.layout;
-        if (layout.direction === 'vertical') {
-            layout.innerCt.dom.scrollTop = scrollPos;
-        } else {
-            layout.innerCt.setScrollLeft(scrollPos);
-        }
-    },
-    
-    getElScrollPos: function(){
-        var layout = this.layout;
-        if (layout.direction === 'vertical') {
-            return layout.innerCt.dom.scrollTop;
-        } else {
-            return layout.innerCt.getScrollLeft();
-        }
+        layout.innerCt[layout.names.setScrollLeft](scrollPos);
     },
 
     handleOverflow: function(ownerContext) {
@@ -283,10 +275,14 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
         var me = this;
         me.layout.innerCt.on({
             mousewheel: function(e) {
-                me.scrollBy(e.getWheelDelta() * me.wheelIncrement * -1, false);
+                me.scrollBy(me.getWheelDelta(e) * me.wheelIncrement * -1, false);
             },
             stopEvent: true
         });
+    },
+
+    getWheelDelta: function (e) {
+        return e.getWheelDelta();
     },
 
     /**
@@ -409,9 +405,10 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
             layout = me.layout,
             result;
 
-        // Until we actually scroll, the scroll[Top|Left] is stored as zero to avoid DOM hits, after that it's NaN.
+        // Until we actually scroll, the scroll[Top|Left] is stored as zero to avoid DOM
+        // hits, after that it's NaN.
         if (isNaN(me.scrollPosition)) {
-            result = me.getElScrollPos();
+            result = layout.innerCt[layout.names.getScrollLeft]();
         } else {
             result = me.scrollPosition;
         }
@@ -430,7 +427,7 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
 
         return (maxScrollPos < 0) ? 0 : maxScrollPos;
     },
-    
+
     /**
      * @private
      * Returns true if the innerCt scroll is already at its left-most point
@@ -458,6 +455,7 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
     scrollTo: function(position, animate) {
         var me = this,
             layout = me.layout,
+            names = layout.names,
             oldPosition = me.getScrollPosition(),
             newPosition = Ext.Number.constrain(position, 0, me.getMaxScrollPosition());
 
@@ -467,7 +465,7 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
                 animate = me.animateScroll;
             }
 
-            layout.innerCt.scrollTo(layout.names.beforeX, newPosition, animate ? me.getScrollAnim() : false);
+            layout.innerCt[names.scrollTo](names.beforeScrollX, newPosition, animate ? me.getScrollAnim() : false);
             if (animate) {
                 me.scrolling = true;
             } else {
@@ -508,7 +506,9 @@ Ext.define('Ext.layout.container.boxOverflow.Scroller', {
                     }
                 }
             }
-            me.scrollTo(newPos, animate);
+            if (newPos !== undefined) {
+                me.scrollTo(newPos, animate);
+            }
         }
     },
 

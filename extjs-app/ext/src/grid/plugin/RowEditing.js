@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * The Ext.grid.plugin.RowEditing plugin injects editing at a row level for a Grid. When editing begins,
@@ -178,7 +181,7 @@ Ext.define('Ext.grid.plugin.RowEditing', {
             record         = context.record,
             newValues      = {},
             originalValues = {},
-            editors        = editor.items.items,
+            editors        = editor.query('>[isFormField]'),
             e,
             eLen           = editors.length,
             name, item;
@@ -261,8 +264,7 @@ Ext.define('Ext.grid.plugin.RowEditing', {
                     scope: me,
                     columnresize: me.onColumnResize,
                     columnhide: me.onColumnHide,
-                    columnshow: me.onColumnShow,
-                    columnmove: me.onColumnMove
+                    columnshow: me.onColumnShow
                 });
             },
             single: true
@@ -307,7 +309,7 @@ Ext.define('Ext.grid.plugin.RowEditing', {
                 editor = me.getEditor();
 
             if (editor && editor.onColumnRemove) {
-                editor.onColumnRemove(column);
+                editor.onColumnRemove(ct, column);
             }
             me.removeFieldAccessors(column);
         }
@@ -353,10 +355,14 @@ Ext.define('Ext.grid.plugin.RowEditing', {
         var me = this,
             editor = me.getEditor();
 
+        // Inject field accessors on move because if the move FROM the main headerCt and INTO a grouped header,
+        // the accessors will have been deleted but not added. They are added conditionally.
+        me.initFieldAccessors(column);
+
         if (editor && editor.onColumnMove) {
             // Must adjust the toIdx to account for removal if moving rightwards
             // because RowEditor.onColumnMove just calls Container.move which does not do this.
-            editor.onColumnMove(column, fromIdx, toIdx - (toIdx > fromIdx ? 1 : 0));
+            editor.onColumnMove(column, fromIdx, toIdx);
         }
     },
 
