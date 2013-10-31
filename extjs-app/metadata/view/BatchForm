@@ -25,7 +25,8 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": null,
-                "itemId": "id",
+                "hidden": true,
+                "itemId": null,
                 "fieldLabel": "id",
                 "name": "id",
                 "readOnly": true
@@ -40,13 +41,177 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "name",
-                "designer|displayName": "name",
+                "itemId": null,
+                "designer|displayName": null,
                 "fieldLabel": "name",
                 "name": "name",
                 "allowBlank": false
             },
             "designerId": "604c3cdc-7dca-4257-beed-5fbc9149eb43"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": null,
+                "fieldLabel": "item.name",
+                "layout|flex": null
+            },
+            "designerId": "28e64996-1e8c-425c-9bf4-957db6451c5b",
+            "masterInstanceId": "d14af9f3-35cb-4bf0-b10c-33a9c5bce761",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCommonItemComboSelect",
+                        "implHandler": [
+                            "",
+                            "combo.up().down('field[itemId=item.title]').setValue(records[0].data.title);",
+                            "combo.up().down('field[itemId=item.spec]').setValue(records[0].data.spec);",
+                            "combo.up().down('field[itemId=item.unit]').setValue(records[0].data.unit);",
+                            "combo.up().down('field[itemId=item.description]').setValue(records[0].data.description);",
+                            ""
+                        ],
+                        "name": "select",
+                        "scope": "me"
+                    },
+                    "designerId": "5e48a9b0-956e-4dc5-9974-13291c6ab0df"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "disabled": true,
+                "itemId": "item.title",
+                "designer|displayName": "",
+                "fieldLabel": "item.title",
+                "name": "item.title",
+                "allowBlank": null
+            },
+            "designerId": "e9525f4b-a24f-4bf9-be9d-4338c7ad49ad"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "disabled": true,
+                "itemId": "item.spec",
+                "designer|displayName": "",
+                "fieldLabel": "item.spec",
+                "name": "item.spec",
+                "allowBlank": null
+            },
+            "designerId": "7d54fea3-de99-4b59-9119-e53e62ac4dc4"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "disabled": true,
+                "itemId": "item.unit",
+                "designer|displayName": "",
+                "fieldLabel": "item.unit",
+                "name": "item.unit",
+                "allowBlank": null
+            },
+            "designerId": "b41a101a-4728-4133-a96a-b9448259092d"
+        },
+        {
+            "type": "Ext.form.field.TextArea",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "disabled": true,
+                "itemId": "item.description",
+                "designer|displayName": "",
+                "fieldLabel": "item.description",
+                "name": "item.description",
+                "allowBlank": null
+            },
+            "designerId": "b4e5c186-774e-4674-8f53-ff49e5d049cf"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "fieldLabel": "country",
+                "name": "country",
+                "editable": false,
+                "displayField": "name",
+                "store": "CountryStore",
+                "valueField": "name"
+            },
+            "designerId": "60a12370-4a21-4d0a-b19b-6db16362d4fc"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "itemId": null,
+                "designer|displayName": null,
+                "fieldLabel": "supplier.name",
+                "name": "supplier.name",
+                "allowBlank": null
+            },
+            "designerId": "2919bb64-17e8-4d4e-8b04-836afd9b908a"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "disabled": true,
+                "itemId": null,
+                "designer|displayName": "",
+                "fieldLabel": "supplier.title",
+                "name": "supplier.title",
+                "allowBlank": null
+            },
+            "designerId": "43720191-4b3f-45f1-88e2-f5700dcb0d6a"
         },
         {
             "type": "Ext.form.field.Date",
@@ -80,21 +245,6 @@
                 "allowBlank": false
             },
             "designerId": "f56f64a8-fb31-4092-8d55-9b530b0c10b7"
-        },
-        {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "itemId": "item.id",
-                "fieldLabel": "item.name",
-                "layout|flex": null
-            },
-            "designerId": "28e64996-1e8c-425c-9bf4-957db6451c5b",
-            "masterInstanceId": "d14af9f3-35cb-4bf0-b10c-33a9c5bce761"
         },
         {
             "type": "basicfunction",

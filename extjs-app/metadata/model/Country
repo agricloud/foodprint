@@ -1,0 +1,64 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Country"
+    },
+    "designerId": "7040d9aa-597d-4f7e-ae78-0531c61d37ca",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "enumType"
+            },
+            "designerId": "e3b95467-da6c-4186-8bbd-2e5867439013"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "74730f77-6001-439c-b928-055730092dbc"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/supplier/countryJson"
+            },
+            "designerId": "5bd849fa-ca5f-4ced-9662-cb978092eed0",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "CountryJson"
+                    },
+                    "designerId": "d32974bf-bf4d-4195-bcf9-2ad54476458d"
+                }
+            ]
+        }
+    ]
+}
