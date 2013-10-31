@@ -58,39 +58,136 @@ class FoodpaintService {
     }
 
     private importData(jsonString){
-        log.debug "ReportViewerController--importData"
+        log.debug "FoodpaintService--importData"
 
         def records=JSON.parse(jsonString)
 
-        println "records.item "+records.item.size()
-        //匯入品項
-        records.item.each{ item ->
-            item.site = Site.findByName(item.site.name)
-            item.lastUpdated = null
-            item.dateCreated = null
-            new Item(item).save(flush: true, failOnError:true)
-        }
+        def importClassList = [
+                'item',
+                'workstation',
+                'operation',
+                'supplier',
+                'customer',
+                'batch',
+                'batchSource'
+            ]
+
+        
+        importClassList.each{
+
+            log.debug "records.${it}資料筆數 == "+records[it].size()
+
+            records[it].each{ object ->
+
+                //println object as JSON
+
+                object = processDefaultTable(object)
+
+                def domain
+
+                if(it == "item")
+                    domain=getItemInstance(object)
+                if(it == "workstation")
+                    domain=getWorkstationInstance(object)
+                if(it == "operation")
+                    domain=getOperationInstance(object)
+                if(it == "supplier")
+                    domain=getSupplierInstance(object)
+                if(it == "customer")
+                    domain=getCustomerInstance(object)
+                if(it == "batch"){
+                    object.item = Item.findByName(object.item.name)
+                    object.supplier = Supplier.findByName(object.supplier.name)
+                    domain=getBatchInstance(object)
+                }
+                if(it == "batchSource"){
+                    object.batch = Batch.findByName(object.batch.name)
+                    object.childBatch = Batch.findByName(object.childBatch.name)
+                    domain=getBatchSourceInstance(object)
+                }
+
+                domain.properties = object
+                domain.save(flush: true, failOnError:true) 
+            }
+
+        }//end importClassList
 
         log.debug "品項清單："
         Item.list().each{
             log.debug it.name+"/"+it.title
         }
 
-        //匯入批號
-        records.batch.each{ batch ->
-            batch.site=Site.findByName(batch.site.name)
-            batch.item=Item.findByName(batch.item.name)
-            batch.lastUpdated = null
-            batch.dateCreated = null
-            new Batch(batch).save(flush: true, failOnError:true)
-        }
-        //匯入批號關聯
-        records.batchSources.each{ batchSource ->
-            batchSource.batch=Batch.findByName(batchSource.batch.name)
-            batchSource.childBatch=Batch.findByName(batchSource.childBatch.name)
-            batchSource.lastUpdated = null
-            batchSource.dateCreated = null
-            new BatchSource(batchSource).save(flush: true, failOnError:true)
-        }
     }
+    def private getItemInstance(object){
+
+        def domain = Item.findByName(object.name)
+        if(!domain){
+            domain = new Item(name:object.name)
+        }
+        domain
+    }
+
+    def private getWorkstationInstance(object){
+
+        def domain = Workstation.findByName(object.name)
+        if(!domain){
+            domain = new Workstation(name:object.name)
+        }    
+        domain
+    }
+
+    def private getOperationInstance(object){
+
+        def domain = Operation.findByName(object.name)
+        if(!domain){
+            domain = new Operation(name:object.name)
+        }    
+        domain
+    }
+
+    def private getSupplierInstance(object){
+
+        def domain = Supplier.findByName(object.name)
+        if(!domain){
+            domain = new Supplier(name:object.name)
+        }   
+        domain
+    }
+
+    def private getCustomerInstance(object){
+
+        def domain = Customer.findByName(object.name)
+        if(!domain){
+            domain = new Customer(name:object.name)
+        }    
+        domain
+    }
+
+    def private getBatchInstance(object){
+
+        def domain = Batch.findByName(object.name)
+        if(!domain){
+            domain = new Batch(name:object.name)
+        }    
+        domain
+    }
+
+    def private getBatchSourceInstance(object){
+
+        def domain = BatchSource.findByBatchAndChildBatch(object.batch,object.childBatch)
+        if(!domain){
+            domain = new BatchSource(batch:object.batch,childBatch:object.childBatch)
+        }
+        domain
+    }
+
+    def private processDefaultTable(object){
+        object.site = Site.findByName(object.site.name)
+
+        object.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.lastUpdated)//Date.parse('yyyyMMdd',record.incomingDate.text())
+        object.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.dateCreated)
+
+        object
+    }
+
 }
