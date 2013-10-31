@@ -96,6 +96,17 @@ environments {
         grails.foodpaint.service.api.url = "http://localhost:8180/api"
 
     }
+    test {
+        grails.serverURL = "http://localhost:8080"
+        grails.indexPath = "/test/app.html"
+        grails.logging.jul.usebridge = true
+        grails.resources.debug=true
+        grails.converters.default.pretty.print = true
+
+        grails.foodpaint.service.server.url = "http://localhost:8180"
+        grails.foodpaint.service.api.url = "http://localhost:8180/api"
+
+    }
     production {
         grails.indexPath = "/production/index.html"
         grails.logging.jul.usebridge = false
