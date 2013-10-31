@@ -12,7 +12,7 @@ class ExtJSBootStrap {
                 log.info "Checking Ext JS library ..."
                 
                 // 取得 WEB-APP 路徑
-                def basepath = grailsApplication.mainContext.getResource("/").file
+                def basepath = grailsApplication.mainContext.getResource("/../extjs-app").file
                 log.info "Path of WEB-APP directory: ${basepath}"
               
                 // 取得 Ext JS 版本設定
@@ -73,6 +73,7 @@ class ExtJSBootStrap {
                 }
 
                 // 預設的 Ext JS 資料夾是 web-app/touch
+                basepath = grailsApplication.mainContext.getResource("/../touch-app").file
                 def touch_target = new File(basepath, 'touch')
 
                 // 檢查已經存在的 Ext JS 資料夾
