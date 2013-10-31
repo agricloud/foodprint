@@ -119,3 +119,16 @@ extjsclean:
 	rm -rf touch-app/app
 	rm -rf web-app/development
 	rm -rf touch-app/touchDevelopment
+
+loglink:
+	- mkdir ~/Library/Logs/foodprint
+	- touch target/development.log
+	- touch target/test.log
+	- touch target/grails.log
+	- touch target/root.log
+	- touch target/stacktrace.log
+	- ln ~/projects/foodprint/target/development.log ~/Library/Logs/foodprint/development.log
+	- ln ~/projects/foodprint/target/grails.log ~/Library/Logs/foodprint/grails.log
+	- ln ~/projects/foodprint/target/root.log ~/Library/Logs/foodprint/root.log
+	- ln ~/projects/foodprint/target/stacktrace.log ~/Library/Logs/foodprint/stacktrace.log
+	- ln ~/projects/foodprint/target/test.log ~/Library/Logs/foodprint/test.log
