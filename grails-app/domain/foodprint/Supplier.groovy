@@ -2,7 +2,10 @@ package foodprint
 
 
 public enum Country {
-    TAIWAN
+    TAIWAN,
+    JAPAN,
+    CHINA,
+    HONGKONG
 }
 
 
