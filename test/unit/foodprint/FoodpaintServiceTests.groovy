@@ -1,7 +1,5 @@
 package foodprint
 
-
-
 import grails.test.mixin.*
 import org.junit.*
 import grails.converters.*

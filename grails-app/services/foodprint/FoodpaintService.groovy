@@ -40,15 +40,14 @@ class FoodpaintService {
      */
     def doDataImport() {
 
-        // if (!ping()) {
-        //     return
-        // }
+        if (!ping()) {
+            return
+        }
 
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchReport"
-        url = "http://localhost:8180/api/queryBatchReport"
         def resp = rest.get(url)
 
 
@@ -76,11 +75,11 @@ class FoodpaintService {
         
         importClassList.each{
 
-            println "records.${it}資料筆數 == "+records[it].size()
+            log.debug "records.${it}資料筆數 == "+records[it].size()
 
             records[it].each{ object ->
 
-                println object as JSON
+                //println object as JSON
 
                 object = processDefaultTable(object)
 
@@ -191,103 +190,4 @@ class FoodpaintService {
         object
     }
 
-    /*
-
-        log.debug "records.item =="+records.item.size()
-        log.debug "records.workstation =="+records.workstation.size()
-
-        //匯入品項
-        records.item.each{ object ->
-            object.site = Site.findByName(object.site.name)
-
-            object.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.lastUpdated)//Date.parse('yyyyMMdd',record.incomingDate.text())
-            object.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.dateCreated)
-
-            def domain = Item.findByName(object.name)
-            if(!domain){
-                domain = new Item(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-        log.debug "品項清單："
-        Item.list().each{
-            log.debug it.name+"/"+it.title
-        }
-
-        records.workstation.each{ object ->
-            object.site = Site.findByName(object.site.name)
-            def domain = Workstation.findByName(object.name)
-            if(!domain){
-                domain = new Workstation(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-        records.operation.each{ object ->
-            object.site = Site.findByName(object.site.name)
-            def domain = Operation.findByName(object.name)
-            if(!domain){
-                domain = new Operation(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-        records.supplier.each{ object ->
-            object.site = Site.findByName(object.site.name)
-            def domain = Supplier.findByName(object.name)
-            if(!domain){
-                domain = new Supplier(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-        records.customer.each{ object ->
-            object.site = Site.findByName(object.site.name)
-            def domain = Customer.findByName(object.name)
-            if(!domain){
-                domain = new Customer(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-        //匯入批號
-        records.batch.each{ object ->
-            object.site = Site.findByName(object.site.name)
-            object.item = Item.findByName(object.item.name)
-            
-            def domain = Batch.findByName(object.name)
-            if(!domain){
-                domain = new Batch(name:object.name)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-        //匯入批號關聯
-        records.batchSource.each{ object ->
-            object.batch = Batch.findByName(object.batch.name)
-            object.childBatch = Batch.findByName(object.childBatch.name)
-
-            def domain = BatchSource.findByBatchAndChildBatch(object.batch,object.childBatch)
-
-            if(!domain){
-                domain = new BatchSource(batch:object.batch,childBatch:object.childBatch)
-            }    
-            
-            domain.properties = object
-            domain.save(flush: true, failOnError:true)
-        }
-
-    */
 }
