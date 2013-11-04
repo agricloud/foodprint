@@ -13,8 +13,6 @@ class S3AttachmentService {
 
     def save={ def params ->
         def result = [:]
-        result.text = [:]
-
         try {
             def ri = (InputStream)params.file.inputStream
 
@@ -22,13 +20,15 @@ class S3AttachmentService {
 
 
             s3Service.saveObject s3Location, ri
-            result.text.success = true
+            result.success = true
         } catch (e) {
             log.error("Failed to upload file.", e)
-            result.text.success = false
+            result.success = false
+        } finally{
+            return result
         }
 
-        return result
+        
     }
 
 
@@ -50,18 +50,19 @@ class S3AttachmentService {
     }
 
     def delete= { def params ->
-
-        // def file = new File(params.file);
+        def result = [:]
         try {
-  
+            println "${fileLocation}/${params.domainName}/${params.id}.jpg"
             s3Service.deleteObject "${fileLocation}/${params.domainName}/${params.id}.jpg"
-
-            return result.text.success = true
+            result.success = true
         }
         catch (e) {
-            log.error "Could not read ${file}"
+            log.error "Could not delete ${fileLocation}/${params.domainName}/${params.id}.jpg"
             e.printStackTrace()
-            return render(text: [success:false] as JSON, contentType:'text/json')
+            result.success = false
+            
+        }finally{
+            return result
         }
         
         

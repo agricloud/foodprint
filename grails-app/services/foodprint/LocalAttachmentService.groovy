@@ -9,10 +9,7 @@ class LocalAttachmentService {
 
     def save={ def params ->
 
-        def result = [:]
-        result.text = [:]
-
-        
+        def result = [:]        
         
         checkAndCreate(new File("${fileLocation}/${params.domainName}"));
 
@@ -21,15 +18,15 @@ class LocalAttachmentService {
         def f = params.file
         if (f.empty) {
             flash.message = 'file cannot be empty'
-            result.text.success=false
+            result.success=false
         }else {
-
 	        f.transferTo(uploadedFile)
-	        // response.sendError(200, 'Done')
-	        result.text.success=true
+	        result.success=true
 	    }
 
-        return result
+	    return result
+
+        
     }
 
 
@@ -60,32 +57,30 @@ class LocalAttachmentService {
     def delete= { def params ->
 
     	def result = [:]
-        result.text=[:]
 
-        def file = new File("${fileLocation}/${params.domainName}/${params.id}.jpg");
         try {
+        	def file = new File("${fileLocation}/${params.domainName}/${params.id}.jpg");
             file.delete();
-            result.text.success=true
+            result.success=true
         }
         catch (e) {
             log.error "Could not read ${file}"
             e.printStackTrace()
-            result.text.success=false
+            result.success=false
            
+        }finally{
+        	return result
         }
 
-        return result
-        
-        
     }
 
-     private def checkAndCreate(File storagePathDirectory) {
-      if (!storagePathDirectory.exists()) {
-        if (storagePathDirectory.mkdirs()) {
-          log.info " folder create SUCCESS"
-        } else {
-          log.info " folder create FAILED"
-        }
-      }
+    private def checkAndCreate(File storagePathDirectory) {
+		if (!storagePathDirectory.exists()) {
+			if (storagePathDirectory.mkdirs()) {
+				log.info " folder create SUCCESS"
+			} else {
+				log.info " folder create FAILED"
+			}
+		}
     }
 }
