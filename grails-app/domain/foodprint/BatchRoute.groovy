@@ -4,6 +4,7 @@ class BatchRoute extends DefaultTable{
 
 	static belongsTo=[batch:Batch]
 	Workstation workstation
+    Supplier supplier
 	Operation operation
 	int sequence
 
@@ -25,5 +26,7 @@ class BatchRoute extends DefaultTable{
     	sequence unique:'batch'
     	startDate nullable:true
     	endDate nullable:true
+        workstation nullable:true
+        supplier  nullable:true
     }
 }
