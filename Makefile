@@ -82,7 +82,7 @@ deployWar:
 		
 
 done:
-	make extjsdone clean war deployWar
+	make extjs-done touch-done clean war deployWar
 
 log:
 	ssh -t ${remote_user}@${remote_addr} 'sudo tail -f /var/lib/tomcat6/logs/catalina.out'
