@@ -11,6 +11,11 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+// Externalized Configuration: Secure Passwords in private config file or without reatart configuation
+grails.config.locations = [
+    "file:${userHome}/.grails/${appName}-config.groovy"
+]
+
 grails.app.context = '/'
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
@@ -94,6 +99,7 @@ environments {
 
         grails.foodpaint.service.server.url = "http://localhost:8180"
         grails.foodpaint.service.api.url = "http://localhost:8180/api"
+        grails.aws.root = 'test'
 
     }
     test {
@@ -114,6 +120,7 @@ environments {
         grails.foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
         grails.foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
         // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.aws.root = 'attachment'
     }
 }
 
