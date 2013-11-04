@@ -783,8 +783,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "foodprintTouch.view.MainCt": [],
   "foodprintTouch.view.Utilities": [
     "Utilities"
-  ],
-  "foodprintTouch.view.override.CommonImageUploader": []
+  ]
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1796,8 +1795,5 @@ Ext.ClassManager.addNameAliasMappings({
   "foodprintTouch.view.MainCt": [
     "widget.mainct"
   ],
-  "foodprintTouch.view.Utilities": [],
-  "foodprintTouch.view.override.CommonImageUploader": [
-    "widget.commonimageuploader"
-  ]
+  "foodprintTouch.view.Utilities": []
 });
