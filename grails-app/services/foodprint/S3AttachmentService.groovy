@@ -1,95 +1,62 @@
-package extrails
+package foodprint
 
 
 
 import grails.converters.JSON
-import grails.plugins.springsecurity.Secured
+import org.jets3t.service.S3ServiceException
 
 class S3AttachmentService {
 
     def s3Service
+    def fileLocation 
+    def blankImg
 
-    def save={
+    def save={ def params ->
+        def result = [:]
+        result.text = [:]
+
         try {
+            def ri = (InputStream)params.file.inputStream
+
+            def s3Location="${fileLocation}/${params.domainName}/${params.domainId}.jpg";
 
 
-            def ri = (InputStream)request.inputStream
-            def s3Location="${grailsApplication.config.grails.aws.root}/${params.name}/${params.qqfile}";
-
-            if(params.qqfile.toLowerCase().endsWith(".jpg") || params.qqfile.toLowerCase().endsWith(".jpeg")){
-                def oi=imageModiService.sizeMiddle(ri)                
-                s3Service.saveObject s3Location, new ByteArrayInputStream(ri)
-                oi.close();
-                // oi=null
-            }else {
-                s3Service.saveObject s3Location, ri
-                // ri=null
-            }
-
-
-            return render(text: [success:true] as JSON, contentType:'text/json')
-
+            s3Service.saveObject s3Location, ri
+            result.text.success = true
         } catch (e) {
-
             log.error("Failed to upload file.", e)
-            return render(text: [success:false] as JSON, contentType:'text/json')
-
+            result.text.success = false
         }
 
+        return result
     }
 
 
-    /**
-     * 附件上傳及清單（顯示在 iframe 頁框內）
-     */
-    @Secured(['ROLE_OPERATOR','ROLE_MANERGER'])
-    def list= {
-        // File dir = new File("${fileLocation}/${params.name}");
-
-        render (template:"list", model: [
-            name: params.name,
-            mainImage: params.mainImage,
-            // files: dir.listFiles()
-            files: s3Service.getObjectList("${grailsApplication.config.grails.aws.root}/${params.name}")
-        ])
-
-    }
-
-    /**
-     * 讀取附件
-     */
-    def show= {
-
-        def file = params.file
-
-        // 將已編碼 URL 還原
-        file = URLDecoder.decode(file)
+    def show= { def params ->
 
         try {
+            def object = s3Service.getObject("${fileLocation}/${params.domainName}/${params.id}.jpg")
+            
 
-            // File object = new File("${fileLocation}/${post.name}/${file}")
-
-            def object = s3Service.getObject("${grailsApplication.config.grails.aws.root}/${params.name}/${file}")
-            response.outputStream << object.dataInputStream
+            if(object)
+                return object.dataInputStream
+            else return new FileInputStream(blankImg);  
         }
         catch (e) {
-            
-            e.printStackTrace()
-            log.error "Could not read ${file}"
-            // response.sendError 404
+
+            log.error "Could not read ${fileLocation}/${params.domainName}/${params.id}.jpg"
+            return new FileInputStream(blankImg);  
         }
     }
 
-    @Secured(['ROLE_OPERATOR','ROLE_MANERGER'])
-    def delete= {
+    def delete= { def params ->
 
         // def file = new File(params.file);
         try {
-            // file.delete();
+  
+            s3Service.deleteObject "${fileLocation}/${params.domainName}/${params.id}.jpg"
 
-            s3Service.deleteObject "${params.file}"
-
-            return render(text: [success:true] as JSON, contentType:'text/json')
+            return result.text.success = true
         }
         catch (e) {
             log.error "Could not read ${file}"

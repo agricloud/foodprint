@@ -16,6 +16,8 @@ grails.config.locations = [
     "file:${userHome}/.grails/${appName}-config.groovy"
 ]
 
+
+
 grails.app.context = '/'
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
@@ -204,10 +206,12 @@ grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFailExtJs?login_error=1'
 
 
-upload.location.aws = true
+grails.upload.location.s3 = false
+grails.upload.location.local.path="${userHome}/.grails/image"
 
-upload.files.path="${userHome}/.grails/image"
-
-// grails.converters.json.date= 'javascript'
+aws.domain = ''
+aws.accessKey = ''
+aws.secretKey = ''
+aws.bucketName = ''
 
 

@@ -18,7 +18,7 @@ class LocalAttachmentService {
 
         File uploadedFile = new File("${fileLocation}/${params.domainName}/${params.domainId}.jpg")
 
-        def f = request.getFile('file')
+        def f = params.file
         if (f.empty) {
             flash.message = 'file cannot be empty'
             result.text.success=false

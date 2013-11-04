@@ -9,10 +9,19 @@ beans = {
 		java.util.Locale.setDefault(defaultLocale)
 	}
 
-
-	attachmentService(LocalAttachmentService){
-		fileLocation = application.config.upload.files.path
-		blankImg = application.parentContext.getResource('/images/blank.jpg').file
+	if(application.config.grails.upload.location.s3){
+		attachmentService(S3AttachmentService){
+			s3Service = ref("s3Service")
+			fileLocation = application.config.grails.aws.root
+			blankImg = application.parentContext.getResource('/images/blank.jpg').file
+		}
+	}else {
+		attachmentService(LocalAttachmentService){
+			fileLocation = application.config.grails.upload.location.local.path
+			blankImg = application.parentContext.getResource('/images/blank.jpg').file
+		}
 	}
+
+	
 }
 

@@ -8,14 +8,16 @@ class AttachmentController {
     def attachmentService
 
     def save={
-
+        params.file = request.getFile('file')
         def result = attachmentService.save(params) 
-        return render(result as JSON, contentType:'application/json')
+
+        render(contentType:'application/json'){
+            result
+        }
     }
 
     def show= { Long id ->
-        log.debug "attachmentBean === "+attachmentService
-        params.id = id
+
         def result = attachmentService.show(params) 
         response.outputStream << result
     }
@@ -24,7 +26,10 @@ class AttachmentController {
     def delete= { Long id ->
         params.id = id
         def result = attachmentService.delete(params) 
-        return render(result as JSON, contentType:'application/json')
+        
+        render(contentType:'application/json'){
+            result
+        }
     }
 
 }
