@@ -126,9 +126,8 @@ environments {
                 file name: 'grailsfile', file: 'target/grails.log'
                 file name: 'rootlog', file: 'target/root.log'
                 file name: 'devfile', file: 'target/development.log'
-                console name:'stdout',
 
-                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2} %m%n")
             }
             root { error 'stdout', 'rootlog' }
             info additivity: false, grailsfile: 'org.codehaus.groovy.grails.commons'
@@ -150,9 +149,8 @@ environments {
                 file name: 'grailsfile', file: 'target/grails.log'
                 file name: 'rootlog', file: 'target/root.log'
                 file name: 'testfile', file: 'target/test.log'
-                console name:'stdout',
                 
-                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2} %m%n")
             }
             root { error 'stdout', 'rootlog' }
             info additivity: false, grailsfile: 'org.codehaus.groovy.grails.commons'
@@ -198,6 +196,8 @@ grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/login/authSucc
 grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFailExtJs?login_error=1'
 
+
+upload.location.aws = true
 
 upload.files.path="${userHome}/.grails/image"
 

@@ -72,6 +72,8 @@ grails.project.dependency.resolution = {
         runtime 'mysql:mysql-connector-java:5.1.24'
         compile 'org.apache.ant:ant:1.7.1'    //you can also use runtime
         compile 'org.apache.ant:ant-launcher:1.7.1'
+
+        runtime 'net.java.dev.jets3t:jets3t:0.9.0'
     }
 
     plugins {
@@ -129,6 +131,9 @@ grails.project.dependency.resolution = {
         // Grails Ant Plugin
         // 執行 Ant 任務
         compile ":grails-ant:0.1.3"
+        
         compile ":quartz:1.0-RC13"
+
+        compile ":aws-elastic-beanstalk:0.2"
     }
 }
