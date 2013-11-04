@@ -9,6 +9,10 @@
         "stores": [
             "ItemRouteStore"
         ],
+        "requires": [
+            "foodprintTouch.view.Utilities",
+            "Ext.i18n.Bundle"
+        ],
         "controllers": [
             "BatchParamsCarouselController",
             "BatchReportController",
@@ -28,7 +32,8 @@
             "userConfig": {
                 "paths": [
                     "{",
-                    "   'Ext.ux': 'src/ux'",
+                    "   'Ext.ux': 'ux',",
+                    "   'Ext.i18n': 'ux/i18n'",
                     "}"
                 ]
             },
@@ -45,6 +50,13 @@
                 "fn": "launch",
                 "implHandler": [
                     "Ext.Date.defaultFormat= 'Y-m-d';",
+                    "",
+                    "this.bundle = Ext.create('Ext.i18n.Bundle',{",
+                    "    bundle: 'Application',",
+                    "    lang: 'zh-TW',",
+                    "    path: '../../i18n',",
+                    "    noCache: true",
+                    "});",
                     ""
                 ]
             },

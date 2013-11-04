@@ -92,33 +92,47 @@ install:
 
 
 # extjs make file
+extjs-create: 
+	cd touch-app && sencha -sdk extjs generate app foodprint
 
-# 產生空的 extjs project
-extjsappgen: 
-	sencha -sdk ~/ext-4.2.0.663/ generate app foodprint ~/projects/foodprint
+extjs-upgrade:
+	cd extjs-app && sencha app upgrade extjs
 
-extjsupgrade:
-	sencha app upgrade extjs
-
-extjsproduction:
+extjs-production:
 	cd extjs-app && sencha app build production
 
-extjstesting:
-	mkdir -p extjs-app/resources
+extjs-testing:
 	cd extjs-app && sencha app build testing
 
-extjsdeploy:
+extjs-deploy:
 	rsync -a extjs-app/build/production/foodprint/ web-app/production/
 
 
-extjsdone:
-	make extjsproduction extjsdeploy
+extjs-done:
+	make extjs-production extjs-deploy
 
-extjsclean:
-	rm -rf extjs-app/app
-	rm -rf touch-app/app
-	rm -rf web-app/development
-	rm -rf touch-app/touchDevelopment
+
+
+# touch make file
+touch-create: 
+	cd touch-app && sencha -sdk touch generate app foodprintTouch
+
+touch-upgrade:
+	cd touch-app && sencha app upgrade touch
+
+touch-production:
+	cd touch-app && sencha app build production
+
+touch-testing:
+	cd touch-app && sencha app build testing
+
+touch-deploy:
+	rsync -a touch-app/build/production/foodprintTouch/ web-app/production/touch
+
+
+touch-done:
+	make touch-production touch-deploy
+
 
 loglink:
 	- mkdir ~/Library/Logs/foodprint

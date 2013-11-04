@@ -27,7 +27,7 @@
             "userConfig": {
                 "docked": null,
                 "height": 201,
-                "src": "img/FoodPrintApp.png"
+                "src": "resources/images/FoodPrintApp.png"
             },
             "designerId": "9b33614d-274c-4410-979e-caff6c5989b3"
         },
@@ -73,8 +73,13 @@
                 "fn": "initialize",
                 "implHandler": [
                     "this.callParent();",
+                    "var that =this;",
                     "",
-                    "this.down('button[itemId=batchReportMaintenBtn]').setText(lang['mainCt.batchReportMaintenBtn.label']);",
+                    "Utilities.getBundle().onReady(function(){",
+                    "    that.down('button[itemId=batchReportMaintenBtn]').setText(Utilities.getMsg(\"mainCt.batchReportMaintenBtn.label\"));",
+                    "});",
+                    "",
+                    "",
                     "",
                     "this.down('button[itemId=batchReportBrowseBtn]').setText(lang['mainCt.batchReportBrowseBtn.label']);"
                 ]

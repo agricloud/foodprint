@@ -1,0 +1,56 @@
+{
+    "type": "class",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Utilities",
+        "designer|userAlias": null,
+        "alternateClassName": [
+            "Utilities"
+        ],
+        "singleton": true
+    },
+    "designerId": "17f2bca2-f6e3-4100-b5f0-a62fb24c3873",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getMsg",
+                "designer|params": [
+                    "lang"
+                ],
+                "implHandler": [
+                    "",
+                    "return this.getBundle().getMsg(lang);",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "02dd3564-a9a8-476e-a20b-17119c7b5517"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getBundle",
+                "implHandler": [
+                    "return foodprintTouch.app.bundle;"
+                ]
+            },
+            "designerId": "307d4708-d0ec-4064-a24d-66b87f39b6f9"
+        }
+    ]
+}
