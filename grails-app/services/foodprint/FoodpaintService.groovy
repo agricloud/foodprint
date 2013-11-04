@@ -69,6 +69,7 @@ class FoodpaintService {
                 'supplier',
                 'customer',
                 'batch',
+                'batchRoute',
                 'batchSource'
             ]
 
@@ -99,6 +100,13 @@ class FoodpaintService {
                     object.item = Item.findByName(object.item.name)
                     object.supplier = Supplier.findByName(object.supplier.name)
                     domain=getBatchInstance(object)
+                }
+                if(it == "batchRoute"){
+                    object.batch = Batch.findByName(object.batch.name)
+                    object.operation = Operation.findByName(object.operation.name)
+                    object.workstation = Workstation.findByName(object.workstation.name)
+                    object.supplier = Supplier.findByName(object.supplier.name)
+                    domain=getBatchRouteInstance(object)
                 }
                 if(it == "batchSource"){
                     object.batch = Batch.findByName(object.batch.name)
@@ -168,6 +176,15 @@ class FoodpaintService {
         def domain = Batch.findByName(object.name)
         if(!domain){
             domain = new Batch(name:object.name)
+        }    
+        domain
+    }
+
+    def private getBatchRouteInstance(object){
+
+        def domain = BatchRoute.findByBatchAndSequence(object.batch,object.sequence)
+        if(!domain){
+            domain = new BatchRoute(batch:object.batch,sequence:object.sequence)
         }    
         domain
     }
