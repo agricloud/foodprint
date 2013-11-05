@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="resources/css/admin_ie8.css">
     <link rel="stylesheet" href="resources/css/layout.css">
     <link rel="stylesheet" href="resources/css/layout-in.css">
+
+    <script>
+      Ext.onReady(function() {
+        window.onbeforeunload = function(e) {
+            return Utilities.getMsg('default.message.leave');
+        }
+      });
+    </script>
     
 </head>
 <body class='splash'>
@@ -30,7 +38,7 @@
 
    <div class="main">
     <div class="logo">
-        <div class="font-555">憌��撅交風蝟餌絞 <small>v1.0</small></div>
+        <div class="font-555">食品足跡系統 <small>v1.0</small></div>
         <img src="resources/images/foodprint-board.png" width="166" class="foodprint-board">
         <div class="font-999">FoodPrint Tracing System</div>
     </div>
@@ -47,8 +55,8 @@
     <div class="copyright-wrapper">
       <div class="copyright" align="center">
         <img src="resources/images/logo-agri.png" class="agri-logo"><br />
-        <img src="resources/images/leaf.png"> ������ 穢 2013 Agricloud. All Rights   Reserved. CopyRight<br>
-        <img src="resources/images/leaf.png"> �祉頂蝯梁��脩垢颲脣����閮剛� version web1.0
+        <img src="resources/images/leaf.png"> 版權所有 © 2013 Agricloud. All Rights Reserved. CopyRight<br>
+        <img src="resources/images/leaf.png"> 本系統由雲端農場研發設計 version web 1.0
       </div>
     </div>
    </div>

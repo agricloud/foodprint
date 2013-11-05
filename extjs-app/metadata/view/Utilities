@@ -240,10 +240,15 @@
             "userConfig": {
                 "fn": "logout",
                 "implHandler": [
-                    "var mainVP = Ext.getCmp('mainVP');",
-                    "mainVP.removeAll();",
-                    "mainVP.add({",
-                    "    xtype: 'logincontainer'",
+                    "",
+                    "Ext.MessageBox.confirm('logout', Utilities.getMsg('default.message.logout'), function(btn){",
+                    "    if(btn === 'yes'){",
+                    "        var mainVP = Ext.getCmp('mainVP');",
+                    "        mainVP.removeAll();",
+                    "        mainVP.add({",
+                    "            xtype: 'logincontainer'",
+                    "        });",
+                    "    }",
                     "});"
                 ]
             },
