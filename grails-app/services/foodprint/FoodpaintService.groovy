@@ -76,7 +76,8 @@ class FoodpaintService {
         
         importClassList.each{
 
-            log.debug "records.${it}資料筆數 == "+records[it].size()
+            log.debug "records.${it}資料筆數 == "+records[it]?.size()
+
 
             records[it].each{ object ->
 

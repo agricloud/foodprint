@@ -2,20 +2,14 @@
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 
-// grails.config.locations = [ "classpath:${appName}-config.properties",
-//                             "classpath:${appName}-config.groovy",
-//                             "file:${userHome}/.grails/${appName}-config.properties",
-//                             "file:${userHome}/.grails/${appName}-config.groovy"]
+grails.config.locations = [ "classpath:${appName}-config.properties",
+                            "classpath:${appName}-config.groovy",
+                            "file:${userHome}/.grails/${appName}-config.properties",
+                            "file:${userHome}/.grails/${appName}-config.groovy"]
 
-// if (System.properties["${appName}.config.location"]) {
-//    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
-// }
-
-// Externalized Configuration: Secure Passwords in private config file or without reatart configuation
-grails.config.locations = [
-    "file:${userHome}/.grails/${appName}-config.groovy"
-]
-
+if (System.properties["${appName}.config.location"]) {
+   grails.config.locations << "file:" + System.properties["${appName}.config.location"]
+}
 
 
 grails.app.context = '/'
@@ -91,7 +85,10 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+
+
 environments {
+ 
     development {
         grails.serverURL = "http://localhost:8080"
         grails.indexPath = "/development/app.html"
@@ -103,33 +100,6 @@ environments {
         grails.foodpaint.service.api.url = "http://localhost:8180/api"
         grails.aws.root = 'test'
 
-    }
-    test {
-        grails.serverURL = "http://localhost:8080"
-        grails.indexPath = "/test/app.html"
-        grails.logging.jul.usebridge = true
-        grails.resources.debug=true
-        grails.converters.default.pretty.print = true
-
-        grails.foodpaint.service.server.url = "http://localhost:8180"
-        grails.foodpaint.service.api.url = "http://localhost:8180/api"
-
-    }
-    production {
-        grails.indexPath = "/production/index.html"
-        grails.logging.jul.usebridge = false
-        
-        grails.foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
-        grails.foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
-        // TODO: grails.serverURL = "http://www.changeme.com"
-        grails.aws.root = 'attachment'
-    }
-}
-
-// log4j configuration
-environments {
- 
-    development {
         log4j = {
             appenders {
                 file name: 'grailsfile', file: 'target/grails.log'
@@ -138,7 +108,9 @@ environments {
 
                 layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2} %m%n")
             }
-            root { error 'stdout', 'rootlog' }
+            root { 
+                error 'stdout', 'rootlog' 
+            }
             info additivity: false, grailsfile: 'org.codehaus.groovy.grails.commons'
             all additivity: false, devfile: [
                 'grails.app.controllers',
@@ -153,6 +125,16 @@ environments {
     }
  
     test {
+
+        grails.serverURL = "http://localhost:8080"
+        grails.indexPath = "/test/app.html"
+        grails.logging.jul.usebridge = true
+        grails.resources.debug=true
+        grails.converters.default.pretty.print = true
+
+        grails.foodpaint.service.server.url = "http://localhost:8180"
+        grails.foodpaint.service.api.url = "http://localhost:8180/api"
+
         log4j = {
             appenders {
                 file name: 'grailsfile', file: 'target/grails.log'
@@ -175,16 +157,22 @@ environments {
         }
     }
     production {
+        grails.indexPath = "/production/index.html"
         grails.logging.jul.usebridge = false
+        
+        grails.foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
+        grails.foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
+        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.aws.root = 'attachment'
+
         log4j = {
             appenders {
-                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2}:%L %m%n")
+                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2} %m%n")
             }
             root { 
                 error()
             }
         }
-
     }
 }
 
@@ -206,7 +194,7 @@ grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/authFailExtJs?login_error=1'
 
 
-grails.upload.location.s3 = false
+grails.upload.location.s3 = true
 grails.upload.location.local.path="${userHome}/.grails/image"
 
 aws.domain = ''
