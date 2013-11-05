@@ -157,18 +157,16 @@ environments {
         }
     }
     production {
-        grails.indexPath = "/production/index.html"
-        grails.logging.jul.usebridge = false
         
+        grails.logging.jul.usebridge = false
+
+        grails.indexPath = "/production/index.html"
         grails.foodpaint.service.server.url = "http://192.168.1.18:8080/foodpaint/"
         grails.foodpaint.service.api.url = "http://192.168.1.18:8080/foodpaint/api"
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://192.168.1.18:8080"
         grails.aws.root = 'attachment'
 
         log4j = {
-            appenders {
-                layout: pattern(conversionPattern: "[%d{HH:mm:ss:SSS}] %-5p %c{2} %m%n")
-            }
             root { 
                 error()
             }
