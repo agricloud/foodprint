@@ -147,8 +147,8 @@ loglink:
 	- touch target/grails.log
 	- touch target/root.log
 	- touch target/stacktrace.log
-	- ln ~/projects/foodprint/target/development.log ~/Library/Logs/foodprint/development.log
-	- ln ~/projects/foodprint/target/grails.log ~/Library/Logs/foodprint/grails.log
-	- ln ~/projects/foodprint/target/root.log ~/Library/Logs/foodprint/root.log
-	- ln ~/projects/foodprint/target/stacktrace.log ~/Library/Logs/foodprint/stacktrace.log
-	- ln ~/projects/foodprint/target/test.log ~/Library/Logs/foodprint/test.log
+	- ln target/development.log ~/Library/Logs/foodprint/development.log
+	- ln target/grails.log ~/Library/Logs/foodprint/grails.log
+	- ln target/root.log ~/Library/Logs/foodprint/root.log
+	- ln target/stacktrace.log ~/Library/Logs/foodprint/stacktrace.log
+	- ln target/test.log ~/Library/Logs/foodprint/test.log
