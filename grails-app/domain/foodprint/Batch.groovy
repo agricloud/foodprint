@@ -51,7 +51,7 @@ class Batch extends DefaultTable {
 
 
 	static constraints = {
-		name 				unique: true
+		name 				unique: true, blank: false
 
 		dueDate 			nullable: true
 		expectQty 			min: 0L

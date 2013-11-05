@@ -7,6 +7,6 @@ class Operation extends DefaultTable{
 	String description="" // 製程敘述
 
     static constraints = {
-    	name unique:true
+    	name unique:true, blank: false
     }
 }

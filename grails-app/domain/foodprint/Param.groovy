@@ -41,7 +41,7 @@ class Param extends DefaultTable{
 
     static constraints = {
     	paramType nullable:true
-    	name unique:true
+    	name unique:true, blank: false
 
 
     }

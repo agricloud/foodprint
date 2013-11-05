@@ -18,6 +18,6 @@ class Site extends DefaultTable{
 
 
     static constraints = {
-    	name unique:true
+    	name unique:true, blank: false
     }
 }
