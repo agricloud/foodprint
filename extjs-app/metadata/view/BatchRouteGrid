@@ -47,7 +47,7 @@
             "designerId": "b5e08001-0705-43e2-9f0f-43e6c41d0c7a"
         },
         {
-            "type": "Ext.grid.column.Column",
+            "type": "Ext.grid.column.Number",
             "reference": {
                 "name": "columns",
                 "type": "array"
@@ -61,18 +61,7 @@
                 "text": "sequence",
                 "flex": 1
             },
-            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816",
-            "cn": [
-                {
-                    "type": "Ext.form.field.Number",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "77d641dc-c3a7-4451-a527-237056a3dc90"
-                }
-            ]
+            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -105,19 +94,7 @@
                 "text": "Operation_name",
                 "flex": 1
             },
-            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "d2b42cbe-8040-4c31-be83-e50eeab42c56",
-                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
-                }
-            ]
+            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -165,19 +142,7 @@
                 "text": "Workstation_name",
                 "flex": 1
             },
-            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "4a84d55f-e0ed-4334-9b6d-dfe3d14152b3",
-                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
-                }
-            ]
+            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -193,6 +158,54 @@
                 "flex": 1
             },
             "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "supplier.id",
+                "groupable": null,
+                "text": "Supplier_id",
+                "flex": 1
+            },
+            "designerId": "2e58cc28-8d91-4ba2-86d1-0e568de799b8"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": null,
+                "dataIndex": "supplier.name",
+                "text": "Supplier_name",
+                "flex": 1
+            },
+            "designerId": "0e38d8c0-d853-4021-879a-4c64ac4426da"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": null,
+                "dataIndex": "supplier.title",
+                "text": "Supplier_title",
+                "flex": 1
+            },
+            "designerId": "4895b054-7156-4a2e-8296-eab955202697"
         },
         {
             "type": "basicfunction",
