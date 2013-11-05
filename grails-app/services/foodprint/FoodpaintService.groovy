@@ -107,6 +107,8 @@ class FoodpaintService {
                     object.operation = Operation.findByName(object.operation.name)
                     object.workstation = Workstation.findByName(object.workstation.name)
                     object.supplier = Supplier.findByName(object.supplier.name)
+                    object.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
+                    object.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
                     domain=getBatchRouteInstance(object)
                 }
                 if(it == "batchSource"){
@@ -202,7 +204,7 @@ class FoodpaintService {
     def private processDefaultTable(object){
         object.site = Site.findByName(object.site.name)
 
-        object.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.lastUpdated)//Date.parse('yyyyMMdd',record.incomingDate.text())
+        object.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.lastUpdated)
         object.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.dateCreated)
 
         object
