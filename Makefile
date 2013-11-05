@@ -34,11 +34,10 @@ submoduleInstall:
 
 
 
-# remote-init:
-# 	ssh -t ${remote_user}@${remote_addr} 'git clone git@github.com:smlsunxie/extrails.git'
-# 	ssh -t ${remote_user}@${remote_addr} 'mkdir ~/extrails/target && mkdir ~/.grails'
-# 	ssh -t ${remote_user}@${remote_addr} 'sudo mkdir -p /usr/share/tomcat7/.grails/projects/extrails/searchable-index/production/index/product && sudo chgrp -R tomcat7 /usr/share/tomcat7 && sudo chmod -R 770 /usr/share/tomcat7'
-
+remote-init:
+	ssh -t ${remote_user}@${remote_addr} 'sudo mkdir -p /usr/share/tomcat6/.grails \
+	&& sudo chgrp -R tomcat6 /usr/share/tomcat6 \
+	&& sudo chmod -R 770 /usr/share/tomcat6'
 
 remote-dbinit:
 	sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin libapache2-mod-php5
@@ -75,9 +74,16 @@ war:
 
 
 deployWar:
-	#cp ~/.grails/extrails-config.groovy /usr/share/tomcat6/.grails/
+	scp ~/.grails/foodprint-config.groovy ${remote_user}@${remote_addr}:~/
 	scp target/foodprint.war ${remote_user}@${remote_addr}:~/ROOT.war
-	ssh -t ${remote_user}@${remote_addr} 'cd ~/ && sudo rm -rf /var/lib/tomcat6/webapps/ROOT && sudo cp ROOT.war /var/lib/tomcat6/webapps/ && sudo service tomcat6 restart'
+
+	ssh -t ${remote_user}@${remote_addr} \
+	'cd ~/ \
+	&& sudo rm -rf /var/lib/tomcat6/webapps/ROOT \
+	&& sudo cp ROOT.war /var/lib/tomcat6/webapps/ \
+	&& sudo cp foodprint-config.groovy /usr/share/tomcat6/.grails/ \
+	&& sudo service tomcat6 restart'
+
 
 		
 

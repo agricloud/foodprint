@@ -62,7 +62,7 @@ class Item extends DefaultTable{
      * 有效起始與結束日期可以不設定
      */
 	static constraints = {
-		name unique: true
+		name unique: true, blank: false
 		dueDays nullable: true
 		effectStartDate nullable: true
 		effectEndDate nullable: true
