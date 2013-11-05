@@ -25,7 +25,12 @@
                 "fn": "initialize",
                 "implHandler": [
                     "this.callParent();",
-                    "this.setText(lang['common.createBtn.label']);"
+                    "",
+                    "var that =this;",
+                    "",
+                    "Utilities.getBundle().onReady(function(){",
+                    "    that.setText(Utilities.getMsg(\"common.create.label\"));",
+                    "});"
                 ]
             },
             "designerId": "d406e946-3ee8-4492-bcae-301c1d835877"
