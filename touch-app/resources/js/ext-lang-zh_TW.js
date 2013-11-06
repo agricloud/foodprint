@@ -1,10 +1,12 @@
 var lang = {};  
 
 //default
+/*
 lang['default.selectBatch.label'] = "選擇批號";
 lang['default.enterBatch.label'] = "輸入批號";
 lang['default.selectBatchRoute.label'] = "選擇批號途程";
 lang['default.routeParams.label'] = "途程參數";
+*/
 lang['default.id'] = "序號";
 lang['default.name'] = "代號";
 lang['default.dueDate'] = "失效日";
@@ -18,19 +20,11 @@ lang['default.message.update'] = "更新中...";
 
 //common component
 
-lang['common.readBtn.label'] = "讀取";
-lang['common.deleteBtn.label'] = "刪除";
-lang['common.updateBtn.label'] = "更新";
-lang['common.createBtn.label'] = "新增";
-lang['common.saveBtn.label'] = "儲存";
-lang['common.uploadBtn.label'] = "上傳";
-lang['common.backBtn.label'] = "返回";
 
 lang['common.fileuploadBtn.label'] = "圖片上傳";
 
 //component
-lang['mainCt.batchReportMaintenBtn.label']="批號履歷維護";
-lang['mainCt.batchReportBrowseBtn.label']="批號履歷查詢";
+/*
 
 lang['batchRportCarousel.selectBatchBackToolbar.label']=lang['default.selectBatch.label'];
 lang['batchRportCarousel.commonSearchField.label']=lang['default.enterBatch.label'];
@@ -40,7 +34,7 @@ lang['batchParamsCarousel.commonSearchField.label']=lang['default.enterBatch.lab
 lang['batchParamsCarousel.selectBatchRouteToolbar.label']=lang['default.selectBatchRoute.label'];
 
 lang['batchRouteParamsPanel.panel.label']=lang['default.routeParams.label'] ;
-
+*/
 //domain
 
 lang['item.id.label'] = "品項序號";

@@ -119,11 +119,12 @@
                 "implHandler": [
                     "this.callParent();",
                     "",
-                    "this.down('toolbar[itemId=selectBatchBackToolbar]').setTitle(lang['batchParamsCarousel.selectBatchBackToolbar.label']);",
                     "",
-                    "this.down('searchfield[itemId=commonSearchField]').setLabel(lang['batchParamsCarousel.commonSearchField.label']);",
+                    "this.down('toolbar[itemId=selectBatchBackToolbar]').setTitle(Utilities.getMsg(\"batchParamsCarousel.selectBatchBackToolbar.label\"));",
                     "",
-                    "this.down('toolbar[itemId=selectBatchRouteToolbar]').setTitle(lang['batchParamsCarousel.selectBatchRouteToolbar.label']);",
+                    "this.down('searchfield[itemId=commonSearchField]').setLabel(Utilities.getMsg(\"batchParamsCarousel.commonSearchField.label\"));",
+                    "",
+                    "this.down('toolbar[itemId=selectBatchRouteToolbar]').setTitle(Utilities.getMsg(\"batchParamsCarousel.selectBatchRouteToolbar.label\"));",
                     ""
                 ]
             },

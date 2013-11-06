@@ -127,11 +127,11 @@
                     "    url : '/attachment/delete/'+this.domainId,",
                     "    method : 'post',  ",
                     "    params : {  ",
-                    "    domainName : this.domainName ",
-                    "\t},  ",
-                    "                 success : function(response, options) {  ",
-                    "    that.emptyImage();",
-                    "},  ",
+                    "        domainName : this.domainName ",
+                    "    },  ",
+                    "    success : function(response, options) {  ",
+                    "        that.emptyImage();",
+                    "    },  ",
                     "    failure : function() {  ",
                     "        Ext.Msg.alert('Error', \"can't delete image\");",
                     "    }  ",
@@ -199,8 +199,8 @@
                 "fn": "initialize",
                 "implHandler": [
                     "this.callParent();",
-                    "this.down('fileupload[itemId=fileuploadBtn]').setText(lang['common.fileuploadBtn.label'] );",
-                    "this.down('button[itemId=deleteBtn]').setText(lang['common.deleteBtn.label'] );   "
+                    "this.down('fileupload[itemId=fileuploadBtn]').setText(Utilities.getMsg('common.imageUploadBtn.label') );",
+                    "this.down('button[itemId=deleteBtn]').setText(Utilities.getMsg('common.deleteBtn.label') );   "
                 ]
             },
             "designerId": "dbf00fbd-68c4-4b16-a32b-ba6f06e1412b"

@@ -11,10 +11,10 @@ class BatchReportDetController {
     /**
      * @param batch.id
      * @param operation.id
-     * 找出指定批號及途程中所有相關參數
+     * 找出指定批號及製程中所有相關參數
     **/
     def showBatchRouteParams(){
-        //找出指定批號、指定途程所需收集的履歷參數。
+        //找出指定批號、指定製程所需收集的履歷參數。
         /*
         * [Deep properties]
         *
@@ -36,8 +36,8 @@ class BatchReportDetController {
             reportParamsInstance.each{
                 if(!BatchReportDet.findByBatchAndReportParams(batchInstance,it)){
                     log.debug "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
-                    def newBatch=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
-                    domainService.save(newBatch)
+                    def newBRD=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
+                    domainService.save(newBRD)
                 }
             }
 
