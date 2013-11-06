@@ -1,5 +1,5 @@
 #remote_addr=192.168.0.107
-remote_addr=192.168.1.18
+remote_addr=140.125.94.78
 remote_user=demo
 
 
@@ -74,9 +74,7 @@ war:
 
 
 deployWar:
-	scp ~/.grails/foodprint-config.groovy ${remote_user}@${remote_addr}:~/
 	scp target/foodprint.war ${remote_user}@${remote_addr}:~/ROOT.war
-
 	ssh -t ${remote_user}@${remote_addr} \
 	'cd ~/ \
 	&& sudo rm -rf /var/lib/tomcat6/webapps/ROOT \
@@ -84,8 +82,12 @@ deployWar:
 	&& sudo cp foodprint-config.groovy /usr/share/tomcat6/.grails/ \
 	&& sudo service tomcat6 restart'
 
+deployConfig:
+	scp ~/.grails/foodprint-config.groovy ${remote_user}@${remote_addr}:~/
 
-		
+	ssh -t ${remote_user}@${remote_addr} \
+	'sudo cp foodprint-config.groovy /usr/share/tomcat6/.grails/ \
+	&& sudo service tomcat6 restart'
 
 done:
 	make extjs-done touch-done clean war deployWar
