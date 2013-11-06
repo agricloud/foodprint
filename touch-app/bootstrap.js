@@ -749,14 +749,12 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "foodprintTouch.controller.BatchParamsCarouselController": [],
-  "foodprintTouch.controller.BatchReportController": [],
   "foodprintTouch.controller.MainCtController": [],
   "foodprintTouch.model.Batch": [],
   "foodprintTouch.model.BatchReportDetDeep": [],
   "foodprintTouch.model.BatchReportPanel": [],
   "foodprintTouch.model.BatchRouteDeep": [],
   "foodprintTouch.model.ItemRoute": [],
-  "foodprintTouch.model.override.BatchRouteDeep": [],
   "foodprintTouch.store.BatchFormStore": [],
   "foodprintTouch.store.BatchReportDetDeepStore": [],
   "foodprintTouch.store.BatchReportPanelStore": [],
@@ -765,21 +763,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "foodprintTouch.store.BatchStore": [],
   "foodprintTouch.store.ItemRouteStore": [],
   "foodprintTouch.view.BatchParamsCarousel": [],
-  "foodprintTouch.view.BatchReportCarousel": [],
-  "foodprintTouch.view.BatchReportPanel": [],
   "foodprintTouch.view.BatchRouteList": [],
   "foodprintTouch.view.BatchRouteParamsPanel": [],
   "foodprintTouch.view.CommonBackBtn": [],
   "foodprintTouch.view.CommonBackToolbar": [],
-  "foodprintTouch.view.CommonCreateBtn": [],
-  "foodprintTouch.view.CommonDeleteBtn": [],
   "foodprintTouch.view.CommonEditorToolbar": [],
   "foodprintTouch.view.CommonImageUploader": [],
-  "foodprintTouch.view.CommonReadBtn": [],
-  "foodprintTouch.view.CommonSaveBtn": [],
   "foodprintTouch.view.CommonSearchField": [],
   "foodprintTouch.view.CommonUpdateBtn": [],
-  "foodprintTouch.view.Main": [],
   "foodprintTouch.view.MainCt": [],
   "foodprintTouch.view.Utilities": [
     "Utilities"
@@ -1729,14 +1720,12 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
   "foodprintTouch.controller.BatchParamsCarouselController": [],
-  "foodprintTouch.controller.BatchReportController": [],
   "foodprintTouch.controller.MainCtController": [],
   "foodprintTouch.model.Batch": [],
   "foodprintTouch.model.BatchReportDetDeep": [],
   "foodprintTouch.model.BatchReportPanel": [],
   "foodprintTouch.model.BatchRouteDeep": [],
   "foodprintTouch.model.ItemRoute": [],
-  "foodprintTouch.model.override.BatchRouteDeep": [],
   "foodprintTouch.store.BatchFormStore": [],
   "foodprintTouch.store.BatchReportDetDeepStore": [],
   "foodprintTouch.store.BatchReportPanelStore": [],
@@ -1746,12 +1735,6 @@ Ext.ClassManager.addNameAliasMappings({
   "foodprintTouch.store.ItemRouteStore": [],
   "foodprintTouch.view.BatchParamsCarousel": [
     "widget.batchparamscarousel"
-  ],
-  "foodprintTouch.view.BatchReportCarousel": [
-    "widget.batchreportcarousel"
-  ],
-  "foodprintTouch.view.BatchReportPanel": [
-    "widget.batchreportpanel"
   ],
   "foodprintTouch.view.BatchRouteList": [
     "widget.batchroutelist"
@@ -1765,32 +1748,17 @@ Ext.ClassManager.addNameAliasMappings({
   "foodprintTouch.view.CommonBackToolbar": [
     "widget.commonbacktoolbar"
   ],
-  "foodprintTouch.view.CommonCreateBtn": [
-    "widget.commoncreatebtn"
-  ],
-  "foodprintTouch.view.CommonDeleteBtn": [
-    "widget.commondeletebtn"
-  ],
   "foodprintTouch.view.CommonEditorToolbar": [
     "widget.commoneditortoolbar"
   ],
   "foodprintTouch.view.CommonImageUploader": [
     "widget.commonimageuploader"
   ],
-  "foodprintTouch.view.CommonReadBtn": [
-    "widget.commonreadbtn"
-  ],
-  "foodprintTouch.view.CommonSaveBtn": [
-    "widget.commonsavebtn"
-  ],
   "foodprintTouch.view.CommonSearchField": [
     "widget.commonsearchfield"
   ],
   "foodprintTouch.view.CommonUpdateBtn": [
     "widget.commonupdatebtn"
-  ],
-  "foodprintTouch.view.Main": [
-    "widget.main"
   ],
   "foodprintTouch.view.MainCt": [
     "widget.mainct"
