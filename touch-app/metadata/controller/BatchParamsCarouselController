@@ -376,7 +376,7 @@
                     "form.submit({",
                     "    url:'/batchReportDet/doSaveOrUpdate',",
                     "    method: 'POST',",
-                    "    waitMsg: lang['default.message.update'],",
+                    "    waitMsg: Utilities.getMsg('default.message.update'),",
                     "    success: function(form,result) {",
                     "        Ext.Msg.alert(\"Success\", result.message);",
                     "    },",
