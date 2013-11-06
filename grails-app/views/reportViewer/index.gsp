@@ -68,25 +68,53 @@
           </div>
           
           <div id="split-tables">      
-    <table class="table-style" width="100%" border="0" cellspacing="0" cellpadding="0">
-          <thead>
-            <tr>
-              <g:each in="${product.body}" var="entry" >
-                <th><g:message code="${entry.key}.label" /><span class="icon-table"><g:img dir="images" file="icon-table.png" /></span></th>
-              </g:each>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <g:each in="${product.body}" var="entry" >
-                <td data-title='<g:message code="${entry.key}.label" />'>${entry.value}</td>
-              </g:each>
-            </tr>
-          </tbody>
-        </table>
-        </div>
+            <table class="table-style" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <thead>
+                <tr>
+                  <g:each in="${product.body}" var="entry" >
+                    <th><g:message code="${entry.key}.label" /><span class="icon-table"><g:img dir="images" file="icon-table.png" /></span></th>
+                  </g:each>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <g:each in="${product.body}" var="entry" >
+                    <td data-title='<g:message code="${entry.key}.label" />'>${entry.value}</td>
+                  </g:each>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+          <g:each in="${reports}" var="report">
+            <h2 class="heading"><span aria-hidden="true" class="icon-menu-02"></span> ${report.title}</h2>
+              <div class="right-icon text-right">Material</div>
 
+                      
+              <div id="split-tables">      
+              <table class="table-style-white" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                  <g:each in="${report.params[0]}" var="entry" >
+                    <th><g:message code="${entry.key}.label" /><span class="icon-table"><g:img dir="images" file="icon-table.png" /></span></th>
+                  </g:each>
+                  </tr>
+                </thead>
+                <tbody>
+                  <g:each in="${report.params}" var="param" >
+                    <tr>
+                      <g:each in="${param}" var="entry" >
+                        
+                        <td data-title='<g:message code="${entry.key}.label" />'>${entry.value}</td>
+
+                      </g:each>
+                    </tr>
+                  </g:each>
+
+                </tbody>
+              </table>
+            </div>
+          </g:each>
       
 
 

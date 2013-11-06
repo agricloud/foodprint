@@ -82,7 +82,7 @@ class BootStrap {
 
 				// 營養標示履歷
 				def report1=new Report(name:"report1",title:"營養標示履歷", reportType: ReportType.NUTRITION).save(failOnError: true, flush: true)
-				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation2,operation:operation2,item:item1).save(failOnError: true, flush: true)
+				def reportparam1=new  ReportParams (report:report1,param:param1,workstation:workstation2,operation:operation2).save(failOnError: true, flush: true)
 				
 				// 成品檢驗報告集
 				def report100=new Report(name:"report3",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save(failOnError: true, flush: true)
@@ -91,10 +91,10 @@ class BootStrap {
 				def reportparam102=new  ReportParams (report:report100,param:param102,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 
 				// 檢驗記錄集
-				// def report2=new Report(name:"report2",title:"檢驗紀錄集").save(failOnError: true, flush: true)
-				// def reportparam2=new  ReportParams (report:report2,param:param2,workstation:workstation2,operation:operation2).save(failOnError: true, flush: true)
-				// def batchReportDet2=new  BatchReportDet (batch:batch1,reportParams:reportparam2).save(failOnError: true, flush: true)
-				// def batchReportDet3=new BatchReportDet(batch:batch2,reportParams:reportparam2,value:"20").save(failOnError: true,flush: true)
+				def report2=new Report(name:"report2",title:"檢驗紀錄集").save(failOnError: true, flush: true)
+				def reportparam2=new  ReportParams (report:report2,param:param2,workstation:workstation2,operation:operation2).save(failOnError: true, flush: true)
+				def batchReportDet2=new  BatchReportDet (batch:batch1,reportParams:reportparam2).save(failOnError: true, flush: true)
+				def batchReportDet3=new BatchReportDet(batch:batch2,reportParams:reportparam2,value:"20").save(failOnError: true,flush: true)
 
 
 				//def batchReportDet1=new  BatchReportDet (batch:batch1,reportParams:reportparam1).save(failOnError: true, flush: true)
