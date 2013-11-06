@@ -19,7 +19,9 @@ grails.project.war.file = "target/${appName}.war"
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.war.resources = { stagingDir ->
-    delete(includeEmptyDirs: true) { fileset dir: "${stagingDir}/development" }
+    if(new File("${stagingDir}/development").exists())
+        delete(includeEmptyDirs: true) { fileset dir: "${stagingDir}/development" }
+        
     delete(includeEmptyDirs: true) { fileset dir: "${stagingDir}/art sample" }
     delete(includeEmptyDirs: true) { fileset dir: "${stagingDir}/xmlSample" }
 }

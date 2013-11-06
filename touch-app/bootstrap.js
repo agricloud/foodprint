@@ -779,7 +779,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "foodprintTouch.view.CommonSaveBtn": [],
   "foodprintTouch.view.CommonSearchField": [],
   "foodprintTouch.view.CommonUpdateBtn": [],
-  "foodprintTouch.view.Main": [],
   "foodprintTouch.view.MainCt": [],
   "foodprintTouch.view.Utilities": [
     "Utilities"
@@ -1788,9 +1787,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "foodprintTouch.view.CommonUpdateBtn": [
     "widget.commonupdatebtn"
-  ],
-  "foodprintTouch.view.Main": [
-    "widget.main"
   ],
   "foodprintTouch.view.MainCt": [
     "widget.mainct"

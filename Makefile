@@ -113,7 +113,7 @@ extjs-testing:
 	cd extjs-app && sencha app build testing
 
 extjs-deploy:
-	rsync -a extjs-app/build/production/foodprint/ web-app/production/
+	rsync -a extjs-app/build/production/foodprint/ web-app/
 
 
 extjs-done:
@@ -135,7 +135,7 @@ touch-testing:
 	cd touch-app && sencha app build testing
 
 touch-deploy:
-	rsync -a touch-app/build/production/foodprintTouch/ web-app/production/touch
+	rsync -a touch-app/build/production/foodprintTouch/ web-app/touch
 
 
 touch-done:
