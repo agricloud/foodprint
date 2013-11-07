@@ -11,7 +11,7 @@ class ReportViewerController {
     def index(){
         //restFoodpaint()
         
-        def batch = Batch.findByName(params.batch.name)
+        def batch = Batch.findByName(params.name)
         def product = [:]
         product.head = [:]
         product.body = [:]
@@ -85,7 +85,7 @@ class ReportViewerController {
     }
 
     def material(){
-        def batch = Batch.findByName(params.batch.name)
+        def batch = Batch.findByName(params.name)
         
 
         def batchSourceReportMap = [:]
@@ -116,7 +116,7 @@ class ReportViewerController {
     }
     def cultivate(){
 
-        def batch = Batch.findByName(params.batch.name)
+        def batch = Batch.findByName(params.name)
         
         def batchRouteReportMap = [:]
         batchRouteReportMap.title = "栽種履歷"
@@ -149,7 +149,7 @@ class ReportViewerController {
     }
     def quality(){
 
-        def batch = Batch.findByName(params.batch.name)
+        def batch = Batch.findByName(params.name)
         
 
 

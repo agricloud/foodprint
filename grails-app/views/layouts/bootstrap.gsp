@@ -48,22 +48,22 @@
   <nav>
 
     <div class="container pc">
-      <g:link action="index" params="['batch.name': params.batch.name]" class="menu-01"><g:img dir="images" file="menu-01.png" /></g:link>
-      <g:link action="material" params="['batch.name': params.batch.name]" class="menu-02"><g:img dir="images" file="menu-02.png" /></g:link>
-      <g:link action="cultivate" params="['batch.name': params.batch.name]" class="menu-03"><g:img dir="images" file="menu-03.png" /></g:link>
-      <g:link action="quality" params="['batch.name': params.batch.name]" class="menu-04"><g:img dir="images" file="menu-04.png" /></g:link>
+      <g:link action="index" params="['batch.name': params.name]" class="menu-01"><g:img dir="images" file="menu-01.png" /></g:link>
+      <g:link action="material" params="['batch.name': params.name]" class="menu-02"><g:img dir="images" file="menu-02.png" /></g:link>
+      <g:link action="cultivate" params="['batch.name': params.name]" class="menu-03"><g:img dir="images" file="menu-03.png" /></g:link>
+      <g:link action="quality" params="['batch.name': params.name]" class="menu-04"><g:img dir="images" file="menu-04.png" /></g:link>
     </div>
     
     <div class="phone">
       <div class="container">
         <div class="wrap clearfix">
-          <g:link action="index" params="['batch.name': params.batch.name]" class="menu-01 current">
+          <g:link action="index" params="['batch.name': params.name]" class="menu-01 current">
           <div class="icon-menu-01 menu"></div><span>產品說明</span></g:link>
-          <g:link action="material" params="['batch.name': params.batch.name]" class="menu-02">
+          <g:link action="material" params="['batch.name': params.name]" class="menu-02">
           <div class="icon-menu-02 menu"></div><span>原料履歷</span></g:link>
-          <g:link action="cultivate" params="['batch.name': params.batch.name]" class="menu-03">
+          <g:link action="cultivate" params="['batch.name': params.name]" class="menu-03">
           <div class="icon-menu-03 menu"></div><span>栽種履歷</span></g:link>
-          <g:link action="quality" params="['batch.name': params.batch.name]" class="menu-04">
+          <g:link action="quality" params="['batch.name': params.name]" class="menu-04">
           <div class="icon-menu-04 menu"></div><span>檢驗履歷</span></g:link>
           </div>
       </div>
