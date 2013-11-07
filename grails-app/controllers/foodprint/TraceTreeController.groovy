@@ -136,13 +136,8 @@ class TraceTreeController {
         def batch = batchController.show()
         def batchJson = JSON.parse((batch as JSON).toString())
 
-        //查詢批號單據
-        def sheet=foodpaintService.querySheetByBatch(b.name)
-        if(sheet){
-            batchJson.sheet=[:]
-            batchJson.sheet.typeName = sheet.sheet.typeName
-            batchJson.sheet.name = sheet.sheet.name
-        }
+        //加入批號單據
+        batchJson = addBatchSheet(batchJson)
 
         render (contentType: 'application/json') {
             jsonTreeArray
@@ -184,9 +179,6 @@ class TraceTreeController {
 
         batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
 
-            //查詢批號單據
-            def sheet=foodpaintService.querySheetByBatch(b.name)
-
             def tempJson = b as JSON
             def jsonTree = JSON.parse(tempJson.toString())
             
@@ -196,11 +188,7 @@ class TraceTreeController {
             }
 
             //加入批號單據
-            if(sheet){
-                jsonTree.sheet=[:]
-                jsonTree.sheet.typeName = sheet.sheet.typeName
-                jsonTree.sheet.name = sheet.sheet.name
-            }
+            jsonTree = addBatchSheet(jsonTree)
 
             jsonTreeArray << jsonTree
 
@@ -214,8 +202,16 @@ class TraceTreeController {
 
     }
 
-    // def addBatchSheet(MAP batchJson){
-    //     def sheet=foodpaintService.querySheetByBatch(.name)
+    def addBatchSheet(batchJson){
+        def sheet=foodpaintService.querySheetByBatch(batchJson.name)
 
-    // }
+        if(sheet){
+            batchJson.sheet=[:]
+            batchJson.sheet.typeName = sheet.sheet.typeName
+            batchJson.sheet.name = sheet.sheet.name
+        }
+
+        batchJson
+
+    }
 }
