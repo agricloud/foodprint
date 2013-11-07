@@ -6,9 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "TraceTree"
+        ],
         "stores": [
-            "ForwardTraceTreeStore",
-            "BatchShowDeepStore"
+            "ForwardTraceTreeStore"
         ],
         "views": [
             "ForwardTraceTreeView"
@@ -109,7 +111,7 @@
                     "                'sheet.name':record.sheet.name,",
                     "                'sheet.typeName':record.sheet.typeName,",
                     "                expectQty:record.expectQty,",
-                    "                country:record.country",
+                    "                country:record.country.name",
                     "",
                     "            };",
                     "            treeStore.setRootNode(root);",
