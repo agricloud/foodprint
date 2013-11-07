@@ -9,11 +9,6 @@ class ReportViewerController {
 
 
     def index(){
-        //restFoodpaint()
-
-        println !params?.name
-        println params?.name == 'null'
-        println params?.name == null
 
         if(!params?.name || params?.name == 'null'){
             println 'redirect'
@@ -223,14 +218,17 @@ class ReportViewerController {
     }    
 
     def query(){
-        
+
+
         def batch = Batch.findByName(params.name)
 
         if(batch) {
             redirect (uri: '/report/'+batch.name)
             return 
         }else  {
-            flash.message = "查無批號！"
+            if(params.name == "")
+                flash.message = "請輸入批號！"
+            else flash.message = "查無批號！"
             redirect (uri: '/report')
         }
         
