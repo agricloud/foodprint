@@ -5,7 +5,6 @@
 package foodprint
 
 public enum ReportType {
-	MATERIAL,
 	INSPECT,
 	NUTRITION,	// 營養
 	OTHER

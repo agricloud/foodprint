@@ -82,5 +82,15 @@ class ReportController {
             result
         }
     }
+
+    /*
+    * 將定義在 report domain 中的 enum ReportType 轉換為 json
+    */
+    def indexType(){
+
+        render (contentType: 'application/json') {
+            return [ReportType:foodprint.ReportType.values()]
+        }
+    }
     
 }
