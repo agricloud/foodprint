@@ -4,6 +4,7 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 
 class TraceTreeController {
     def batchAnalyzeService
+    def foodpaintService
 
     def forwardQuery() { 
 
@@ -166,12 +167,21 @@ class TraceTreeController {
 
         batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
 
+            //查詢批號單據
+            def sheet=foodpaintService.querySheetByBatch(b.name)
+
             def tempJson = b as JSON
             def jsonTree = JSON.parse(tempJson.toString())
             
             
             if(batchAnalyzeService.isForwardEndBatch(b).isEndBatch){
                 jsonTree.children=[]
+            }
+
+            //加入批號單據
+            jsonTree.sheet=[]
+            sheet.each{
+                jsonTree.sheet << it
             }
 
             jsonTreeArray << jsonTree
