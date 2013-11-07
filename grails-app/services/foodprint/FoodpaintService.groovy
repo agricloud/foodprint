@@ -43,7 +43,7 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySheetByBatch"
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySheetByBatch/?batchName="+batchName
         def resp = rest.get(url)
 
         JSON.parse(resp.text)        

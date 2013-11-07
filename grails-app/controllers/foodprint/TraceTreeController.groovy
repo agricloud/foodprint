@@ -5,6 +5,7 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 class TraceTreeController {
     def batchAnalyzeService
     def foodpaintService
+    def batchController
 
     def forwardQuery() { 
 
@@ -131,6 +132,24 @@ class TraceTreeController {
 
     }
 
+    def getRootBatch(){
+        def batch = batchController.show()
+        def batchJson = JSON.parse((batch as JSON).toString())
+
+        //查詢批號單據
+        def sheet=foodpaintService.querySheetByBatch(b.name)
+        if(sheet){
+            batchJson.sheet=[:]
+            batchJson.sheet.typeName = sheet.sheet.typeName
+            batchJson.sheet.name = sheet.sheet.name
+        }
+
+        render (contentType: 'application/json') {
+            jsonTreeArray
+        }
+
+    }
+
     def backwardTrace(){
         def batch = Batch.findById(params.node)
         def jsonTreeArray = []
@@ -163,8 +182,6 @@ class TraceTreeController {
 
         def jsonTreeArray = []
 
-
-
         batchAnalyzeService.forwardTrace(batch).batchHead.each{ b ->
 
             //查詢批號單據
@@ -179,9 +196,10 @@ class TraceTreeController {
             }
 
             //加入批號單據
-            jsonTree.sheet=[]
-            sheet.each{
-                jsonTree.sheet << it
+            if(sheet){
+                jsonTree.sheet=[:]
+                jsonTree.sheet.typeName = sheet.sheet.typeName
+                jsonTree.sheet.name = sheet.sheet.name
             }
 
             jsonTreeArray << jsonTree
@@ -194,6 +212,10 @@ class TraceTreeController {
             jsonTreeArray
         }
 
-
     }
+
+    // def addBatchSheet(MAP batchJson){
+    //     def sheet=foodpaintService.querySheetByBatch(.name)
+
+    // }
 }
