@@ -25,6 +25,29 @@ class BatchController {
         }
     }
 
+    def typeahead() {
+
+        def list = Batch.createCriteria().list(params,{
+                 like('name',params.query+"%")
+        })
+
+
+        def typeaheadList = []
+
+        list.each{ batch ->
+            def typeahead = [:]
+            typeahead.value = batch.name
+            typeahead.itemName = batch.item.name
+            typeahead.itemTitle = batch.item.title
+            typeahead.itemDescription = batch.item.description
+            typeaheadList << typeahead
+        }          
+
+        render (contentType: 'application/json') {
+            typeaheadList
+        }
+    }
+
     def show(Long id){
         //找出指定批號。
         /*

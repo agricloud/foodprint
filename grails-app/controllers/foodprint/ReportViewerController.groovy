@@ -10,7 +10,17 @@ class ReportViewerController {
 
     def index(){
         //restFoodpaint()
-        
+
+        println !params?.name
+        println params?.name == 'null'
+        println params?.name == null
+
+        if(!params?.name || params?.name == 'null'){
+            println 'redirect'
+            redirect (uri: 'report/')
+            return
+        }
+
         def batch = Batch.findByName(params.name)
         def product = [:]
         product.head = [:]
@@ -85,6 +95,13 @@ class ReportViewerController {
     }
 
     def material(){
+
+        if(!params?.name || params?.name == 'null'){
+            println 'redirect'
+            redirect (uri: 'report/')
+            return
+        }
+
         def batch = Batch.findByName(params.name)
         
 
@@ -115,6 +132,12 @@ class ReportViewerController {
 
     }
     def cultivate(){
+
+        if(!params?.name || params?.name == 'null'){
+            println 'redirect'
+            redirect (uri: 'report/')
+            return
+        }
 
         def batch = Batch.findByName(params.name)
         
@@ -148,6 +171,12 @@ class ReportViewerController {
 
     }
     def quality(){
+
+        if(!params?.name || params?.name == 'null'){
+            println 'redirect'
+            redirect (uri: 'report/')
+            return
+        }
 
         def batch = Batch.findByName(params.name)
         
@@ -187,6 +216,24 @@ class ReportViewerController {
 
         [batch: batch, report: reportMap]
 
+    }
+
+    def search(){
+
+    }    
+
+    def query(){
+        
+        def batch = Batch.findByName(params.name)
+
+        if(batch) {
+            redirect (uri: '/report/'+batch.name)
+            return 
+        }else  {
+            flash.message = "查無批號！"
+            redirect (uri: '/report')
+        }
+        
     }
 
 
