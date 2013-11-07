@@ -35,6 +35,21 @@ class FoodpaintService {
         return result
     }
 
+    def querySheetByBatch(String batchName){
+        if (!ping()) {
+            return
+        }
+
+        def rest = new RestBuilder()
+        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
+
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySheetByBatch/?batchName="+batchName
+        def resp = rest.get(url)
+
+        JSON.parse(resp.text)        
+
+    }
+
     /**
      * Request data from /api/queryBatchReport
      */
