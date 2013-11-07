@@ -45,25 +45,28 @@
 
   </header>
 
+
   <nav>
 
+
     <div class="container pc">
-      <g:link action="index" params="['batch.name': params.name]" class="menu-01"><g:img dir="images" file="menu-01.png" /></g:link>
-      <g:link action="material" params="['batch.name': params.name]" class="menu-02"><g:img dir="images" file="menu-02.png" /></g:link>
-      <g:link action="cultivate" params="['batch.name': params.name]" class="menu-03"><g:img dir="images" file="menu-03.png" /></g:link>
-      <g:link action="quality" params="['batch.name': params.name]" class="menu-04"><g:img dir="images" file="menu-04.png" /></g:link>
+
+      <g:link url="/report/${params?.name}/index" class="menu-01"><g:img dir="images" file="menu-01.png" /></g:link>
+      <g:link url="/report/${params?.name}/material" class="menu-02"><g:img dir="images" file="menu-02.png" /></g:link>
+      <g:link url="/report/${params?.name}/cultivate" class="menu-03"><g:img dir="images" file="menu-03.png" /></g:link>
+      <g:link url="/report/${params?.name}/quality" class="menu-04"><g:img dir="images" file="menu-04.png" /></g:link>
     </div>
     
     <div class="phone">
       <div class="container">
         <div class="wrap clearfix">
-          <g:link action="index" params="['batch.name': params.name]" class="menu-01 current">
+          <g:link url="/report/${params?.name}/index" class="menu-01 current">
           <div class="icon-menu-01 menu"></div><span>產品說明</span></g:link>
-          <g:link action="material" params="['batch.name': params.name]" class="menu-02">
+          <g:link url="/report/${params?.name}/material" class="menu-02">
           <div class="icon-menu-02 menu"></div><span>原料履歷</span></g:link>
-          <g:link action="cultivate" params="['batch.name': params.name]" class="menu-03">
+          <g:link url="/report/${params?.name}/cultivate" class="menu-03">
           <div class="icon-menu-03 menu"></div><span>栽種履歷</span></g:link>
-          <g:link action="quality" params="['batch.name': params.name]" class="menu-04">
+          <g:link url="/report/${params?.name}/quality" class="menu-04">
           <div class="icon-menu-04 menu"></div><span>檢驗履歷</span></g:link>
           </div>
       </div>
@@ -78,15 +81,24 @@
 
   <%--主畫面內容--%>
   <div class="main container">
+
     <div class="col-md-8 content box-shadow">
       <g:layoutBody/>
+
+
     </div>
 
-
+    <div class="col-md-8 content">
+        <div id="alert_placeholder">
+ 
+        </div>
+    </div>
      <div class="bottomnav col-md-8">
-      
+
         <div class="row">
-            <div class="col-md-2 btn-download"><a href="#"><g:img dir="images" file="btn-download.png" /></a></div>
+            <div class="col-md-2 btn-download"><g:link uri="/report"><g:img dir="images" file="btn-download.png" /></g:link></div>
+
+
             
             <div class="col-md-4 contact">
               <a href="tel:05-5354765" class="phone">(05) 5354765</a>
@@ -143,10 +155,24 @@
 
 <%--畫面可視區域：終點--%>
 
+<r:script>
 
+    bootstrap_alert = function() {}
+    bootstrap_alert.warning = function(message) {
+      $('#alert_placeholder').html(
+        '<div class="alert alert-success fade in">'+
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+
+        message+
+        '</div>'
+      )
+    }
+
+    if('${flash.message}'!=='') bootstrap_alert.warning('${flash.message}');
+
+
+</r:script>
 
 <r:layoutResources />
-
 
 
 </body>

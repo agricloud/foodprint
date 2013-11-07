@@ -8,16 +8,13 @@ modules = {
         resource url:'js/application.js'
     }
 
-    // overrides {
+    overrides {
 
-    //     bootstrap {
-    //         defaultBundle __bundleName
-    //     }
-    //     jquery {
-    //         defaultBundle __bundleName
-    //     }
+        jquery {
+            defaultBundle __bundleName
+        }
 
-    // }   
+    }   
 
     art {
         defaultBundle __bundleName
@@ -30,7 +27,11 @@ modules = {
         resource url: 'js/bootstrap.js'  
         resource url: 'js/magnific-popup.js'   
         resource url: 'js/jquery.flexslider.min.js'
-        resource url: 'js/plugins.js'
+        resource url: 'js/hogan-2.0.0.js'
+        resource url: 'js/typeahead.js'
+
+
+
     }
 
 

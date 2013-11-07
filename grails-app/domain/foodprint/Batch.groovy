@@ -60,8 +60,15 @@ class Batch extends DefaultTable {
 		manufactureDate 	nullable: true
 		expirationDate 		nullable: true
 		supplier 			nullable: true
+		uuid 				nullable: true
 	}
 
+	String uuid
+	
+    def beforeInsert() {
+        // optionally, replace the dashes by adding .replaceAll('-','')
+        uuid = UUID.randomUUID().toString()
+    }
 	public String toString(){
     	"批號編號：${name}, 品項名稱：${item.title}"
     }
