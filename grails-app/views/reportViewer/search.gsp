@@ -144,7 +144,7 @@
 
 	<body>
 
-    <g:form url="/report/query">
+    <g:form url="/reports/query">
     <h2 class="heading"><span aria-hidden="true" class="icon-icon-01"></span> 查詢批號履歷</h2>
       <div class="right-icon text-right">Search</div>
       

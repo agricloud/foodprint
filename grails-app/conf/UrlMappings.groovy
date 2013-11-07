@@ -1,16 +1,18 @@
 class UrlMappings {
 
 	static mappings = {
-		"/report/query" (controller: "reportViewer", action: "query")
-		"/report/$name/$action" (controller: "reportViewer")
-		"/report/$name" (controller: "reportViewer", action: "index")
-		"/report" (controller: "reportViewer", action: "search")
-
         "/$controller/$action?/$id?" {
             constraints {
                 // apply constraints here
             }
         }
+
+		"/reports/query" (controller: "reportViewer", action: "query")
+		"/reports/$name/$action" (controller: "reportViewer")
+		"/reports/$name" (controller: "reportViewer", action: "index")
+		"/reports" (controller: "reportViewer", action: "search")
+
+
 
 
 		"/"(controller: "home", action: "index")

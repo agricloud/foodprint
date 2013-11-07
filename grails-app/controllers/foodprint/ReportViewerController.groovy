@@ -10,10 +10,13 @@ class ReportViewerController {
 
     def index(){
 
+        log.info "log.info"
+        log.debug "log.debug"
+
         if(!params?.name || params?.name == 'null'){
-            println 'redirect'
-            redirect (uri: 'report/')
-            return
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return 
         }
 
         def batch = Batch.findByName(params.name)
@@ -92,8 +95,8 @@ class ReportViewerController {
     def material(){
 
         if(!params?.name || params?.name == 'null'){
-            println 'redirect'
-            redirect (uri: 'report/')
+            flash.message = "未指定批號！"
+            render (view: 'search')
             return
         }
 
@@ -129,8 +132,8 @@ class ReportViewerController {
     def cultivate(){
 
         if(!params?.name || params?.name == 'null'){
-            println 'redirect'
-            redirect (uri: 'report/')
+            flash.message = "未指定批號！"
+            render (view: 'search')
             return
         }
 
@@ -168,8 +171,8 @@ class ReportViewerController {
     def quality(){
 
         if(!params?.name || params?.name == 'null'){
-            println 'redirect'
-            redirect (uri: 'report/')
+            flash.message = "未指定批號！"
+            render (view: 'search')
             return
         }
 
@@ -223,13 +226,13 @@ class ReportViewerController {
         def batch = Batch.findByName(params.name)
 
         if(batch) {
-            redirect (uri: '/report/'+batch.name)
+            redirect (uri: '/reports/'+batch.name)
             return 
         }else  {
             if(params.name == "")
                 flash.message = "請輸入批號！"
             else flash.message = "查無批號！"
-            redirect (uri: '/report')
+            redirect (uri: '/reports')
         }
         
     }
