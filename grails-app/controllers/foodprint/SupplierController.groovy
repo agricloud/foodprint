@@ -11,10 +11,10 @@ class SupplierController {
     /*
     * 將定義在 supplier domain 中的 enum CountryType 轉換為 json
     */
-    def countryJson(){
+    def indexCountry(){
 
         render (contentType: 'application/json') {
-            [CountryJson:foodprint.Country.values()]
+            [Country:foodprint.Country.values()]
         }
     }
 
