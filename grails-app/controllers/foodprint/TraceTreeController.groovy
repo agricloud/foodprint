@@ -5,7 +5,7 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 class TraceTreeController {
     def batchAnalyzeService
     def foodpaintService
-    def batchController
+    def batchService
 
     def forwardQuery() { 
 
@@ -132,15 +132,16 @@ class TraceTreeController {
 
     }
 
-    def getRootBatch(){
-        def batch = batchController.show()
-        def batchJson = JSON.parse((batch as JSON).toString())
+    def getBatchRoot(){
+        def batch=Batch.findById(params.id);
+  
+        def batchJson =  batchService.parseJsonAddRelationDomainProperties(batch)
 
         //加入批號單據
         batchJson = addBatchSheet(batchJson)
 
         render (contentType: 'application/json') {
-            jsonTreeArray
+            batchJson
         }
 
     }
