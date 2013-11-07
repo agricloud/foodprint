@@ -41,9 +41,12 @@ class ReportController {
  
     def create(){
 
-        def report=new Report()        
+        def report=new Report()
+        def reportJson =  JSON.parse((report as JSON).toString())         
+            reportJson.reportType = report.reportType.name()
+
         render (contentType: 'application/json') {
-            [success: true,data:report]
+            [success: true,data:reportJson]
         }
     }
 
