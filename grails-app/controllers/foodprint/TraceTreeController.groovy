@@ -133,9 +133,11 @@ class TraceTreeController {
     }
 
     def getBatchRoot(){
-        def batch=Batch.findById(params.id);
+        def batch=Batch.findById(params.id)
+
+        def batchJson =  JSON.parse((batch as JSON).toString())  
   
-        def batchJson =  batchService.parseJsonAddRelationDomainProperties(batch)
+        //def batchJson =  batchService.parseJsonAddRelationDomainProperties(batch)
 
         //加入批號單據
         batchJson = addBatchSheet(batchJson)
