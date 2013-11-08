@@ -33,8 +33,8 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'backwardtracetreeview commontracetoolbar triggerfield[itemId=commonBatchTrigger]':{",
-                    "        onTriggerClick:this.doSearchBatch",
+                    "    'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{",
+                    "        select:this.doSearchBatch",
                     "    },",
                     "",
                     "    'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
@@ -78,8 +78,7 @@
                 "implHandler": [
                     "console.log(\"TraceTree.doSearchBatch\");",
                     "",
-                    "if(this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()!='') {",
-                    "",
+                    "if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
                     "",
                     "    var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
                     "",
@@ -87,7 +86,7 @@
                     "        method: 'GET',",
                     "        url:'/traceTree/getBatchRoot/',",
                     "        params:{",
-                    "            'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
+                    "            'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()",
                     "        },",
                     "        success:function(response,options){",
                     "            //console.log(response);",
@@ -153,7 +152,7 @@
                     "button, e, eOpts"
                 ],
                 "implHandler": [
-                    "console.log(button);",
+                    "",
                     "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
                     "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
                     "    var toolbar = button.up('toolbar');",
