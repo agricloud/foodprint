@@ -59,7 +59,7 @@ class BatchController {
         *   -supplier
         */
 
-        log.debug "${controllerName}-${actionName}"
+        log.info "${controllerName}-${actionName}"
 
         def batch=Batch.findById(id);
 
