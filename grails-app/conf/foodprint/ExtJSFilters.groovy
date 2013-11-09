@@ -66,6 +66,10 @@ class ExtJSFilters {
 
                         }
                     }
+                    if(params.nameLike){
+                        like('name',params.nameLike+"%")
+                    }
+
                 }
 
 
