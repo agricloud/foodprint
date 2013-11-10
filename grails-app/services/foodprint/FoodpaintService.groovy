@@ -66,13 +66,14 @@ class FoodpaintService {
         def resp = rest.get(url)
 
 
+        log.debug resp.text
         //進行資料匯入
         importData(resp.text)
 
         return [pass:"pass"]
     }
 
-    private importData(jsonString){
+    def protected importData(jsonString){
         log.debug "FoodpaintService--importData"
 
         def records=JSON.parse(jsonString)
@@ -89,54 +90,18 @@ class FoodpaintService {
             ]
 
         
-        importClassList.each{
+        importClassList.each{ importClass ->
 
-            log.debug "records.${it}資料筆數 == "+records[it]?.size()
-
-
-            records[it].each{ object ->
-
-                //println object as JSON
-
-                object = processDefaultTable(object)
-
-                def domain
-
-                if(it == "item")
-                    domain=getItemInstance(object)
-                if(it == "workstation")
-                    domain=getWorkstationInstance(object)
-                if(it == "operation")
-                    domain=getOperationInstance(object)
-                if(it == "supplier")
-                    domain=getSupplierInstance(object)
-                if(it == "customer")
-                    domain=getCustomerInstance(object)
-                if(it == "batch"){
-                    object.item = Item.findByName(object.item.name)
-                    object.supplier = Supplier.findByName(object.supplier.name)
-                    domain=getBatchInstance(object)
-                }
-                if(it == "batchRoute"){
-                    object.batch = Batch.findByName(object.batch.name)
-                    object.operation = Operation.findByName(object.operation.name)
-                    object.workstation = Workstation.findByName(object.workstation.name)
-                    object.supplier = Supplier.findByName(object.supplier.name)
-                    object.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
-                    object.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
-                    domain=getBatchRouteInstance(object)
-                }
-                if(it == "batchSource"){
-                    object.batch = Batch.findByName(object.batch.name)
-                    object.childBatch = Batch.findByName(object.childBatch.name)
-                    domain=getBatchSourceInstance(object)
-                }
-
-                domain.properties = object
+            records[importClass].each{ domainJson ->
+                def domain = getDomainIntance(importClass, domainJson)
+                domain.properties = domainJson
                 domain.save(flush: true, failOnError:true) 
             }
 
-        }//end importClassList
+        }
+
+
+
 
         log.debug "品項清單："
         Item.list().each{
@@ -144,6 +109,43 @@ class FoodpaintService {
         }
 
     }
+
+    def private processDefaultTable(domainJson){
+        domainJson.site = Site.findByName(domainJson.site.name)
+        domainJson.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",domainJson.lastUpdated)
+        domainJson.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",domainJson.dateCreated)
+
+        domainJson
+    }
+
+    def private getDomainIntance(className, domainJson){
+        def domain
+
+        domainJson = processDefaultTable(domainJson)
+
+        if(className == "item")
+            domain=getItemInstance(domainJson)
+        if(className == "workstation")
+            domain=getWorkstationInstance(domainJson)
+        if(className == "operation")
+            domain=getOperationInstance(domainJson)
+        if(className == "supplier")
+            domain=getSupplierInstance(domainJson)
+        if(className == "customer")
+            domain=getCustomerInstance(domainJson)
+        if(className == "batch"){
+            domain=getBatchInstance(domainJson)
+        }
+        if(className == "batchRoute"){
+            domain=getBatchRouteInstance(domainJson)
+        }
+        if(className == "batchSource"){
+            domain=getBatchSourceInstance(domainJson)
+        }
+
+        domain
+    }
+
     def private getItemInstance(object){
 
         def domain = Item.findByName(object.name)
@@ -194,7 +196,12 @@ class FoodpaintService {
         def domain = Batch.findByName(object.name)
         if(!domain){
             domain = new Batch(name:object.name)
-        }    
+        } 
+
+        println object.item.name
+        domain.item = Item.findByName(object.item.name)
+        domain.supplier = Supplier.findByName(object.supplier.name)
+
         domain
     }
 
@@ -204,6 +211,14 @@ class FoodpaintService {
         if(!domain){
             domain = new BatchRoute(batch:object.batch,sequence:object.sequence)
         }    
+
+        domain.batch = Batch.findByName(object.batch.name)
+        domain.operation = Operation.findByName(object.operation.name)
+        domain.workstation = Workstation.findByName(object.workstation.name)
+        domain.supplier = Supplier.findByName(object.supplier.name)
+        domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
+        domain.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
+
         domain
     }
 
@@ -213,16 +228,13 @@ class FoodpaintService {
         if(!domain){
             domain = new BatchSource(batch:object.batch,childBatch:object.childBatch)
         }
+
+        domain.batch = Batch.findByName(object.batch.name)
+        domain.childBatch = Batch.findByName(object.childBatch.name)
+        
         domain
     }
 
-    def private processDefaultTable(object){
-        object.site = Site.findByName(object.site.name)
 
-        object.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.lastUpdated)
-        object.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.dateCreated)
-
-        object
-    }
 
 }
