@@ -70,6 +70,7 @@ class FoodpaintService {
         //進行資料匯入
         importData(resp.text)
 
+        println "data import finished!"
         return [pass:"pass"]
     }
 
@@ -198,7 +199,7 @@ class FoodpaintService {
             domain = new Batch(name:object.name)
         } 
 
-        println object.item.name
+        //log.debug object.item.name
         domain.item = Item.findByName(object.item.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
 
