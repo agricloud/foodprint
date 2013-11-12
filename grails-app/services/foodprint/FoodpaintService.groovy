@@ -43,7 +43,7 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySheetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySourceSheetByBatch/?batchName="+batchName
         def resp = rest.get(url)
 
         JSON.parse(resp.text)        
@@ -92,10 +92,13 @@ class FoodpaintService {
 
         
         importClassList.each{ importClass ->
+            def className = importClass[0].toUpperCase() + importClass[1..-1]
+            def fields = grailsApplication.getDomainClass("foodprint."+className).persistentProperties.collect { it.name }
+    
 
             records[importClass].each{ domainJson ->
                 def domain = getDomainIntance(importClass, domainJson)
-                domain.properties = domainJson
+                domain.properties = getDomainProperties(domainJson, fields)
                 domain.save(flush: true, failOnError:true) 
             }
 
@@ -110,6 +113,20 @@ class FoodpaintService {
         }
 
     }
+
+    def private getDomainProperties(record, fields){
+        def props=[:]
+        fields.each{ field ->
+            //println field+"====="+record[field]
+            if(record[field] && record[field]&& !field.contains("Date")&& !field.contains("importFlag")){
+                props[field]=record[field]
+            }
+        }
+
+        props
+
+    }
+
 
     def private processDefaultTable(domainJson){
         domainJson.site = Site.findByName(domainJson.site.name)
@@ -208,12 +225,13 @@ class FoodpaintService {
 
     def private getBatchRouteInstance(object){
 
-        def domain = BatchRoute.findByBatchAndSequence(object.batch,object.sequence)
+        def batch = Batch.findByName(object.batch.name)
+
+        def domain = BatchRoute.findByBatchAndSequence(batch,object.sequence)
         if(!domain){
-            domain = new BatchRoute(batch:object.batch,sequence:object.sequence)
+            domain = new BatchRoute(batch:batch,sequence:object.sequence)
         }    
 
-        domain.batch = Batch.findByName(object.batch.name)
         domain.operation = Operation.findByName(object.operation.name)
         domain.workstation = Workstation.findByName(object.workstation.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
@@ -227,13 +245,15 @@ class FoodpaintService {
 
     def private getBatchSourceInstance(object){
 
-        def domain = BatchSource.findByBatchAndChildBatch(object.batch,object.childBatch)
-        if(!domain){
-            domain = new BatchSource(batch:object.batch,childBatch:object.childBatch)
-        }
+        //println "建立batchSource"+object.batch.name+"//"+object.childBatch.name
 
-        domain.batch = Batch.findByName(object.batch.name)
-        domain.childBatch = Batch.findByName(object.childBatch.name)
+        def batch = Batch.findByName(object.batch.name)
+        def childBatch = Batch.findByName(object.childBatch.name)
+
+        def domain = BatchSource.findByBatchAndChildBatch(batch,childBatch)
+        if(!domain){
+            domain = new BatchSource(batch:batch,childBatch:childBatch)
+        }
         
         domain
     }
