@@ -6,10 +6,21 @@
     },
     "codeClass": null,
     "userConfig": {
+        "isErpDomain": false,
         "designer|userClassName": "CommonController",
         "extend": "Ext.app.Controller"
     },
+    "configAlternates": {
+        "isErpDomain": "boolean"
+    },
     "designerId": "e23b6a08-43e5-455b-b661-3b12dc7f5efa",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "isErpDomain",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "basicfunction",
@@ -35,7 +46,7 @@
                     "",
                     "",
                     "this.getMainForm().getForm().load({",
-                    "    url:'/'+this.domainName+'/show/'+id,",
+                    "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
                     "    success: function(form, action) {",
                     "        that.activeEditor();",
                     "        that.actionName = 'update';",
@@ -77,7 +88,7 @@
                     "this.getMainForm().getForm().reset(true);",
                     "",
                     "this.getMainForm().getForm().load({",
-                    "    url:'/'+this.domainName+'/create',",
+                    "    url:this.getRoot()+'/'+this.domainName+'/create',",
                     "    params:params,",
                     "    success: function(form, action) {",
                     "        that.activeEditor();",
@@ -209,7 +220,7 @@
                     "console.log('/'+this.domainName+'/'+this.actionName);",
                     "",
                     "this.getMainForm().getForm().submit({",
-                    "    url: '/'+this.domainName+'/'+this.actionName,",
+                    "    url: this.getRoot()+'/'+this.domainName+'/'+this.actionName,",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Updating Data...',",
                     "    success: function(form,action) {",
@@ -330,6 +341,40 @@
                 ]
             },
             "designerId": "d1429ab1-0dcd-461e-8e90-69f9e1409e13"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getRoot",
+                "implHandler": [
+                    "if(this.isErpDomain)",
+                    "return Utilities.getSysConfig(\"foodpaintUrl\");",
+                    "else return '';"
+                ]
+            },
+            "designerId": "16947a01-b55a-4f97-8f15-ec3a0c880d66"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexFoodpaint",
+                "implHandler": [
+                    "var grid = this.getMainGrid();",
+                    "grid.getStore().getProxy().url = this.getRoot()+\"/\"+this.domainName",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "843e74a7-c3de-4ad8-959b-e5ab44f08fae"
         }
     ]
 }

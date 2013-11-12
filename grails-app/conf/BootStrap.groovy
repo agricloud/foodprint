@@ -1,4 +1,5 @@
 import foodprint.*
+import common.*
 import grails.converters.JSON
 
 class BootStrap {

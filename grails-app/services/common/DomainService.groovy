@@ -1,4 +1,4 @@
-package foodprint
+package common
 import org.springframework.transaction.annotation.Transactional
 
 class DomainService {
@@ -53,6 +53,7 @@ class DomainService {
                 if(it.field == 'operation' || it.field == 'workstation' || it.field == 'item')
                     errors[it.field+".name"]=messageSource.getMessage(it, Locale.getDefault())
                 else errors[it.field]=messageSource.getMessage(it, Locale.getDefault())
+                log.error messageSource.getMessage(it, Locale.getDefault())
             }
 
             msg = messageSource.getMessage("default.message.update.failed", args, Locale.getDefault())

@@ -13,7 +13,18 @@
         "singleton": true,
         "extend": "Ext.app.Controller"
     },
+    "configAlternates": {
+        "ApConfig": "object",
+        "sysConfig": "object"
+    },
     "designerId": "37785b33-273f-477d-83f9-4acac77e6615",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "sysConfig",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "basicfunction",
@@ -324,6 +335,51 @@
                 ]
             },
             "designerId": "03cf0a13-8b6e-4ad3-85a8-769fd87b6725"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readSysConfig",
+                "implHandler": [
+                    "var that = this;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: '/api/readSysConfig',",
+                    "    async: false,",
+                    "    success: function(response, opts) {",
+                    "        that.sysConfig = Ext.decode(response.responseText);",
+                    "",
+                    "    },",
+                    "    failure: function(response, opts) {",
+                    "        Ext.MessageBox.alert('Failure', \"無法讀取系統參數\");",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "966c260a-be99-4f08-b307-11714c1ce264"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getSysConfig",
+                "designer|params": [
+                    "name"
+                ],
+                "implHandler": [
+                    "return this.sysConfig[name];"
+                ]
+            },
+            "designerId": "4f178b8a-d985-400d-9433-38da790cc0cb"
         }
     ]
 }

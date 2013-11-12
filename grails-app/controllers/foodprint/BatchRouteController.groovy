@@ -2,6 +2,7 @@
 package foodprint
 
 import grails.converters.JSON
+import common.*
 
 class BatchRouteController {
 
