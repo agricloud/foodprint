@@ -15,13 +15,6 @@
             "    //,format: 'json'",
             "}"
         ],
-        "stores": [
-            "ForwardTraceTreeStore"
-        ],
-        "views": [
-            "MainContainer",
-            "CommonBatchCombo"
-        ],
         "requires": [
             "foodprint.view.Utilities",
             "Ext.ux.grid.FiltersFeature",
@@ -45,7 +38,8 @@
             "BatchRouteController",
             "BatchReportDetController",
             "ReportController",
-            "ReportParamsController"
+            "ReportParamsController",
+            "ErpManufactureOrderController"
         ],
         "name": "foodprint"
     },
@@ -92,7 +86,7 @@
                     "",
                     "//Ext.form.DateField.prototype.submitFormat = 'Y-m-d H:i:s \\\\z';",
                     "",
-                    "console.log(Utilities.getMsg('panel.html'));"
+                    "Utilities.readSysConfig();"
                 ]
             },
             "designerId": "062e2b43-bb02-4a11-b673-6ff1771ecc41"

@@ -161,7 +161,7 @@ environments {
         grails.logging.jul.usebridge = false
 
         grails.indexPath = "/index.html"
-        grails.foodpaint.service.server.url = "http://localhost:8080/foodpaint/"
+        grails.foodpaint.service.server.url = "http://localhost:8080/foodpaint"
         grails.foodpaint.service.api.url = "http://localhost:8080/foodpaint/api"
         grails.serverURL = "http://localhost:8080"
         grails.aws.root = 'attachment'

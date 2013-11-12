@@ -1,0 +1,100 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpManufactureOrder"
+        ],
+        "stores": [
+            "ErpManufactureOrderStore"
+        ],
+        "views": [
+            "ErpManufactureOrderView"
+        ],
+        "designer|userClassName": "ErpManufactureOrderController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "74a86307-5625-4a1f-88d0-e9d3d2065582",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpmanufactureorderview #grid"
+            },
+            "designerId": "7d494e28-dced-4477-85fe-8daa9ee11ed9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpmanufactureorderview #form"
+            },
+            "designerId": "394ae28d-24df-4ea9-87e6-967e5a07956e"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpmanufactureorderview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erpmanufactureorderview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erpmanufactureorderview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpmanufactureorderview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpmanufactureorderview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpmanufactureorderview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow,",
+                    "        afterrender: this.doIndexFoodpaint",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'manufactureOrder';",
+                    "this.isErpDomain = true;",
+                    ""
+                ]
+            },
+            "designerId": "dd42bc76-4958-44e5-a887-b5b3379a3aef"
+        }
+    ]
+}

@@ -93,6 +93,9 @@
                     "    },",
                     "    'maincontainer button[itemId=batchRouteMaintain]':{",
                     "        click:this.batchRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
+                    "        click:this.erpManufactureOrderMaintain",
                     "    },'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -374,6 +377,23 @@
                 ]
             },
             "designerId": "990d423f-3f33-46ed-834c-4a2cb63925f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpManufactureOrderMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpmanufactureorderview';",
+                    "var tabName = '製令維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "15ec667a-e849-4108-b974-897335baf79d"
         }
     ]
 }
