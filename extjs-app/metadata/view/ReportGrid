@@ -99,23 +99,6 @@
             "designerId": "ae95dfba-c967-4bb1-a65e-59f4b781b416"
         },
         {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "loadStore",
-                "implHandler": [
-                    "console.log(\"View-reportGrid.loadStore\");",
-                    "",
-                    "this.getStore().load();//對應ref"
-                ]
-            },
-            "designerId": "e49a41a0-7a60-40ef-9156-c9783c2043d9"
-        },
-        {
             "type": "processcfgfunction",
             "reference": {
                 "name": "items",
@@ -132,6 +115,23 @@
                 ]
             },
             "designerId": "1f39a10d-77cf-4dfb-874a-a63f1ea73026"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onReportGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "dc3e15db-022d-4fab-8895-10ca82142f4b"
         }
     ]
 }

@@ -229,6 +229,23 @@
                                 ]
                             },
                             "designerId": "6fa3341b-3507-42b2-b1f1-a0f448dda594"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridAfterRender",
+                                "implHandler": [
+                                    "component.getStore().load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "designerId": "b4816b9d-ff1d-4142-be03-8fb6d7964e70"
                         }
                     ]
                 }
