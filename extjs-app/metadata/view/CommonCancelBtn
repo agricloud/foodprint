@@ -16,5 +16,27 @@
     "configAlternates": {
         "style": "string"
     },
-    "designerId": "54035366-0ec4-4e3f-9b1a-81680113395d"
+    "designerId": "54035366-0ec4-4e3f-9b1a-81680113395d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonCancelBtn",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=Utilities.getMsg('common.cancelBtn.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "05da36b5-9973-4eba-ad44-96966da6fdc3"
+        }
+    ]
 }

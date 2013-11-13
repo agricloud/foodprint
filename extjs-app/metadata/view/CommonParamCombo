@@ -10,7 +10,7 @@
         "designer|userClassName": "CommonParamCombo",
         "designer|userAlias": "commonparamcombo",
         "fieldLabel": "Param.name",
-        "name": "param.name",
+        "name": "param.id",
         "editable": false,
         "displayField": "name",
         "hiddenName": null,
@@ -19,5 +19,27 @@
         "store": "ParamStore",
         "valueField": "id"
     },
-    "designerId": "3f228c53-fabc-4f54-9602-20702f73e1d2"
+    "designerId": "3f228c53-fabc-4f54-9602-20702f73e1d2",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonParamCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('param.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "cdf6cf92-8df7-41b3-9a5d-d3767ece25d9"
+        }
+    ]
 }

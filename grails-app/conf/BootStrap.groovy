@@ -16,6 +16,10 @@ class BootStrap {
 		    //result["item"]=it.item // 轉全部
 		    result
 		}
+		JSON.registerObjectMarshaller(ReportParams) {
+		    def result = convertService.domainParseMap(it)
+		    result
+		}
 		environments {
 			def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
 			def user1 = User.findByUsername('admin')

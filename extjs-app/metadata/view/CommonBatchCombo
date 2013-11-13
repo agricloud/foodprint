@@ -10,7 +10,7 @@
         "designer|userClassName": "CommonBatchCombo",
         "designer|userAlias": "commonbatchcombo",
         "fieldLabel": "Batch.name",
-        "name": "batch.name",
+        "name": "batch.id",
         "selectOnFocus": true,
         "editable": null,
         "autoSelect": null,
@@ -24,5 +24,27 @@
         "typeAheadDelay": null,
         "valueField": "id"
     },
-    "designerId": "ad084776-ade5-4889-98b9-5bfe9e82fb32"
+    "designerId": "ad084776-ade5-4889-98b9-5bfe9e82fb32",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonBatchCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('batch.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "a995a49f-0ad8-40f9-af3e-1a6a09be8b88"
+        }
+    ]
 }

@@ -9,6 +9,7 @@
         "itemId": "commonReportCombo",
         "designer|userClassName": "CommonReportCombo",
         "designer|userAlias": "commonreportcombo",
+        "name": "report.id",
         "editable": false,
         "displayField": "name",
         "hiddenName": null,
@@ -17,5 +18,27 @@
         "store": "WorkstationStore",
         "valueField": "id"
     },
-    "designerId": "21115ea5-f2c9-4cac-9065-5e5f51e7fee8"
+    "designerId": "21115ea5-f2c9-4cac-9065-5e5f51e7fee8",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonReportCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('report.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "046507c8-ec78-4cf7-a3c9-3e0c9f625d00"
+        }
+    ]
 }
