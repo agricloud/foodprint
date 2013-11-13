@@ -4,8 +4,31 @@
 
 package foodprint
 
-class ReportParams extends DefaultTable{
+class ReportParams {
+    /**
+     * 廠別
+     */
+    Site site
 
+    /**
+     * 修改者
+     */
+    String editor = ""
+
+    /**
+     * 建立者
+     */
+    String creator = ""
+
+    /**
+     * 建立日期（自動欄位）
+     */
+    Date dateCreated
+
+    /**
+     * 修改日期（自動欄位）
+     */
+    Date lastUpdated
 
     /*
     * 履歷收集單頭
@@ -40,6 +63,7 @@ class ReportParams extends DefaultTable{
 
 
     static constraints = {
+        site nullable:true
     	workstation nullable:true
     	item nullable:true
     	operation nullable:true

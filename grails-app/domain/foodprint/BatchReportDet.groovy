@@ -1,7 +1,30 @@
 package foodprint
 
-class BatchReportDet extends DefaultTable{
+class BatchReportDet {
+    /**
+     * 廠別
+     */
+	Site site
 
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
 	/*
 	* 記錄是哪個批號收集的履歷資料
 	*/
@@ -52,7 +75,8 @@ class BatchReportDet extends DefaultTable{
 	// String unit=""
 
     static constraints = {
-    	batch(unique: ['reportParams'])
+    	reportParams unique: 'batch'
+    	site nullable:true
     	value nullable:true
     }
 }

@@ -11,8 +11,31 @@ public enum ReportType {
 
 }
 
-class Report extends DefaultTable{
+class Report {
+    /**
+     * 廠別
+     */
+	Site site
 
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
 	String name
 	String title
 	String decription = ""
@@ -23,6 +46,7 @@ class Report extends DefaultTable{
 
 
     static constraints = {
+		site nullable:true
     	effectStartDate nullable:true
     	effectEndDate nullable:true
     }

@@ -6,8 +6,31 @@ package foodprint
  * @author smlsun@gmail.com, ...
  * @version 1.0
  */
-class Item extends DefaultTable{
+class Item {
+    /**
+     * 廠別
+     */
+    Site site
 
+    /**
+     * 修改者
+     */
+    String editor = ""
+
+    /**
+     * 建立者
+     */
+    String creator = ""
+
+    /**
+     * 建立日期（自動欄位）
+     */
+    Date dateCreated
+
+    /**
+     * 修改日期（自動欄位）
+     */
+    Date lastUpdated
     /**
      * 項目名稱，必填欄位
      */
@@ -62,6 +85,7 @@ class Item extends DefaultTable{
      * 有效起始與結束日期可以不設定
      */
 	static constraints = {
+        site nullable:true
 		name unique: true, blank: false
 		dueDays nullable: true
 		effectStartDate nullable: true

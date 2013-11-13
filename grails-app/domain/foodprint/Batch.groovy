@@ -1,10 +1,37 @@
 package foodprint
 
- public enum BatchType {
+public enum BatchType {
     PRODUCT
 }
-class Batch extends DefaultTable {
 
+
+class Batch  {
+    /**
+     * 廠別
+     */
+	Site site
+
+    /**
+     * 修改者
+     */
+	String editor = ""
+
+	/**
+	 * 建立者
+	 */
+	String creator = ""
+
+	/**
+	 * 建立日期（自動欄位）
+	 */
+	Date dateCreated
+
+	/**
+	 * 修改日期（自動欄位）
+	 */
+	Date lastUpdated
+
+	
 	static belongsTo = [
 		item: Item,
 		
@@ -12,8 +39,11 @@ class Batch extends DefaultTable {
 
 	static hasMany = [
 		batchRoutes: BatchRoute,
-		batchSources: BatchSource
+		batchSources: BatchSource,
+		batchReportDets: BatchReportDet
 	]
+
+
 
 	String name
 	Long expectQty = 0
@@ -51,6 +81,7 @@ class Batch extends DefaultTable {
 
 
 	static constraints = {
+		site nullable:true
 		name 				unique: true, blank: false
 
 		dueDate 			nullable: true
