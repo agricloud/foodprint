@@ -10,7 +10,7 @@
         "designer|userClassName": "CommonWorkstationCombo",
         "designer|userAlias": "commonworkstationcombo",
         "fieldLabel": "Workstation.name",
-        "name": "workstation.name",
+        "name": "workstation.id",
         "editable": false,
         "displayField": "name",
         "hiddenName": null,
@@ -19,5 +19,27 @@
         "store": "WorkstationStore",
         "valueField": "id"
     },
-    "designerId": "741671be-e150-4fa0-b27e-7375ba263788"
+    "designerId": "741671be-e150-4fa0-b27e-7375ba263788",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonWorkstationCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('workstation.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "768324b4-a4b5-4922-a816-18f696282fab"
+        }
+    ]
 }

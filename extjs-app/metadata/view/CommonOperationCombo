@@ -10,7 +10,7 @@
         "designer|userClassName": "CommonOperationCombo",
         "designer|userAlias": "commonoperationcombo",
         "fieldLabel": "Operation.name",
-        "name": "operation.name",
+        "name": "operation.id",
         "editable": false,
         "displayField": "name",
         "minChars": 0,
@@ -18,5 +18,27 @@
         "store": "OperationStore",
         "valueField": "id"
     },
-    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
+    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonOperationCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('operation.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "981fdb24-5a1f-4825-800e-fd55c68d8aa9"
+        }
+    ]
 }
