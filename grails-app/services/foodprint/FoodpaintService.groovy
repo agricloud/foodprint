@@ -51,7 +51,7 @@ class FoodpaintService {
     }
 
     /**
-     * Request data from /api/queryBatchReport
+     * Request data from Foodpaint /api/exportData
      */
     def doDataImport() {
 
@@ -62,7 +62,7 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchReport"
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/exportData"
         def resp = rest.get(url)
 
 
