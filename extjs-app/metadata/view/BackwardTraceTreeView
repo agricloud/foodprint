@@ -173,6 +173,26 @@
                         "flex": 1
                     },
                     "designerId": "c925b3bd-d868-4a0a-9aa6-aab8214fdc60"
+                },
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processBackwardTraceTreePanel",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "",
+                            "",
+                            "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'backwardTraceTree'));"
+                        ]
+                    },
+                    "designerId": "0b8dc678-cf65-4679-85ef-79955414c4d3"
                 }
             ]
         }

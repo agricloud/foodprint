@@ -172,6 +172,26 @@
                         "flex": 1
                     },
                     "designerId": "4a3b80c1-80ab-4ae4-b7c0-bf14a68e35ab"
+                },
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processForwardTraceTreePanel",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "",
+                            "",
+                            "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'forwardTraceTree'));"
+                        ]
+                    },
+                    "designerId": "4d0125f7-d20a-43b4-b4f9-9482f37c5205"
                 }
             ]
         }

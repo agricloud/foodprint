@@ -26,7 +26,29 @@
                 "itemId": "commonExpandallBtn",
                 "text": "ExpandAll"
             },
-            "designerId": "29f3ea7e-7602-4aa5-949d-930c64304f2a"
+            "designerId": "29f3ea7e-7602-4aa5-949d-930c64304f2a",
+            "cn": [
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processCommonExpandallBtn",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "config.text=Utilities.getMsg('common.expandBtn.label');",
+                            "",
+                            "return config;"
+                        ]
+                    },
+                    "designerId": "9b04b3e4-3bf6-4bb0-bc88-8fd0d962c809"
+                }
+            ]
         },
         {
             "type": "Ext.button.Button",
@@ -41,60 +63,27 @@
                 "itemId": "commonCollapseallBtn",
                 "text": "CollapseAll"
             },
-            "designerId": "3c6fded6-e294-4d07-841d-835a9c9cd48a"
-        },
-        {
-            "type": "Ext.form.field.Trigger",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "layout|flex": null,
-                "hidden": true,
-                "itemId": "commonBatchTrigger",
-                "fieldLabel": "batchid",
-                "triggerCls": "x-form-search-trigger"
-            },
-            "designerId": "faab5ff9-0642-42a0-ae45-27ca10594749",
+            "designerId": "3c6fded6-e294-4d07-841d-835a9c9cd48a",
             "cn": [
                 {
-                    "type": "basicfunction",
+                    "type": "processcfgfunction",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onTriggerClick",
+                        "fn": "processCommonCollapseallBtn",
                         "designer|params": [
-                            "e"
+                            "config"
                         ],
                         "implHandler": [
-                            "this.fireEvent(\"onTriggerClick\", this, event);"
+                            "config.text=Utilities.getMsg('common.collapseallBtn.label');",
+                            "",
+                            "return config;"
                         ]
                     },
-                    "designerId": "4d70afab-6f08-473a-a31d-bb5048a41a1b"
-                },
-                {
-                    "type": "basiceventbinding",
-                    "reference": {
-                        "name": "listeners",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "onCommonBatchTriggerSpecialkey",
-                        "implHandler": [
-                            "if (e.getKey() == e.ENTER) {",
-                            "    field.fireEvent(\"onTriggerClick\", this, event);",
-                            "}"
-                        ],
-                        "name": "specialkey",
-                        "scope": "me"
-                    },
-                    "designerId": "21ff785d-a507-4a70-94f5-48b971ae4e8b"
+                    "designerId": "a8a35164-e712-4849-bcd2-e89ce05a5a1d"
                 }
             ]
         },
