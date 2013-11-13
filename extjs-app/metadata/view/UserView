@@ -128,23 +128,6 @@
                             "designerId": "e4cf7374-2acd-4ba4-8cd9-4119632df631"
                         },
                         {
-                            "type": "basicfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "loadStore",
-                                "implHandler": [
-                                    "console.log(\"View-userGrid.loadStore\");",
-                                    "",
-                                    "this.getStore().load();//對應ref"
-                                ]
-                            },
-                            "designerId": "178a4b44-30cb-4d63-9258-bc11f46933b4"
-                        },
-                        {
                             "type": "Ext.toolbar.Paging",
                             "reference": {
                                 "name": "dockedItems",
@@ -176,6 +159,23 @@
                                 ]
                             },
                             "designerId": "f61a74d1-2d75-42eb-919c-23f4afc75df9"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridAfterRender",
+                                "implHandler": [
+                                    "component.getStore().load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "designerId": "1e161ab8-8d12-48ad-88d0-e89c2214d00a"
                         }
                     ]
                 }

@@ -25,6 +25,10 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "designer|displayName": null,
+                "loadingText": null
+            },
             "designerId": "6d7f44cf-8294-4dcc-9add-04e18a3518af"
         },
         {
@@ -167,11 +171,29 @@
                     "config"
                 ],
                 "implHandler": [
+                    "",
                     "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'item'));",
                     ""
                 ]
             },
             "designerId": "d448cef9-a4e3-43c9-a7ef-fa64954c9d6e"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridpanelAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "de02ade7-1df5-4879-9bd8-8ac6f3c65a20"
         }
     ]
 }

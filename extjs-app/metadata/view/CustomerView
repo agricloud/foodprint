@@ -138,24 +138,10 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "designerId": "2bdc9307-86e9-4763-97c7-b5c7b7655a53"
-                        },
-                        {
-                            "type": "basicfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
                             "userConfig": {
-                                "fn": "loadStore",
-                                "implHandler": [
-                                    "console.log(\"View-customerGrid.loadStore\");",
-                                    "",
-                                    "//this.getStore().load();//對應ref"
-                                ]
+                                "loadingText": null
                             },
-                            "designerId": "440b7893-a3d0-4b82-b1f1-b4e0ad07c552"
+                            "designerId": "2bdc9307-86e9-4763-97c7-b5c7b7655a53"
                         },
                         {
                             "type": "Ext.toolbar.Paging",
@@ -190,6 +176,23 @@
                                 ]
                             },
                             "designerId": "5e9a4973-8f01-4daf-b39a-206f7458fd06"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridAfterRender",
+                                "implHandler": [
+                                    "component.getStore().load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "designerId": "39f002c8-ac4d-4c63-a222-c9c5fea2d955"
                         }
                     ]
                 }
