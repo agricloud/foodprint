@@ -13,6 +13,7 @@
         "name": "supplier.id",
         "editable": null,
         "displayField": "name",
+        "forceSelection": true,
         "hiddenName": null,
         "minChars": 0,
         "queryParam": "nameLike",
@@ -79,6 +80,30 @@
                 "scope": "me"
             },
             "designerId": "f14c6dde-15f1-450d-ad42-747211a1b485"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonSupplierComboChange",
+                "implHandler": [
+                    "if (newValue == null) {",
+                    "    field.reset();",
+                    "    if(field.up() && field.up().getForm()){",
+                    "        field.up().getForm().setValues({",
+                    "            'supplier.title':null",
+                    "        });",
+                    "\t}",
+                    "}"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "f62ed0db-9da3-49f7-8c7e-2beda5ea984a"
         }
     ]
 }

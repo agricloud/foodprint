@@ -13,6 +13,7 @@
         "name": "workstation.id",
         "editable": null,
         "displayField": "name",
+        "forceSelection": true,
         "hiddenName": null,
         "minChars": 0,
         "queryParam": "nameLike",
@@ -79,6 +80,30 @@
                 "scope": "me"
             },
             "designerId": "23ee0f45-8efc-47c4-bf6e-00cd13e7064f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonWorkstationComboChange",
+                "implHandler": [
+                    "if (newValue == null) {",
+                    "    field.reset();",
+                    "    if(field.up() && field.up().getForm()){",
+                    "        field.up().getForm().setValues({",
+                    "            'workstation.title':null",
+                    "        });",
+                    "\t}",
+                    "}"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "70be68df-f566-49cf-a677-2136e1033823"
         }
     ]
 }
