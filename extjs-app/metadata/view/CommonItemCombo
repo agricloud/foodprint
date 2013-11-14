@@ -40,6 +40,45 @@
                 ]
             },
             "designerId": "d17cc334-a618-4361-84c3-76c445fe85b1"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonItemComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "        'item.id':records[0].data['id'],",
+                    "        'item.title':records[0].data['title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "2f8079a0-9a94-4a66-ae9a-919d5d9d8557"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonItemComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "3af80012-2344-4fe8-af58-86d675554c82"
         }
     ]
 }
