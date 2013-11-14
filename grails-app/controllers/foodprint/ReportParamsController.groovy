@@ -121,6 +121,15 @@ class ReportParamsController {
         log.debug "${controllerName}-${actionName}"
 
         def reportParams = ReportParams.findById(params.id)
+        if(params.workstation.id==null || !params.workstation.id.trim()){
+            params.remove("workstation.id")
+            params.remove("workstation.title")   
+        }
+        if(params.supplier.id==null || !params.supplier.id.trim()){
+            params.remove("supplier.id")
+            params.remove("supplier.title")
+        }
+
         reportParams.properties=params
         render (contentType: 'application/json') {
             domainService.save(reportParams)
