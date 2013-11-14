@@ -88,6 +88,9 @@
                     "    'maincontainer button[itemId=customerMaintain]':{",
                     "        click:this.customerMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=supplierMaintain]':{",
+                    "        click:this.supplierMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=itemRouteMaintain]':{",
                     "        click:this.itemRouteMaintain",
                     "    },",
@@ -96,7 +99,8 @@
                     "    },",
                     "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
                     "        click:this.erpManufactureOrderMaintain",
-                    "    },'maincontainer':{",
+                    "    },",
+                    "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
                     "            link.on('click', Utilities.logout);",
@@ -394,6 +398,23 @@
                 ]
             },
             "designerId": "15ec667a-e849-4108-b974-897335baf79d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "supplierMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'supplierview';",
+                    "var tabName = '供應商維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "1aa90db2-9da7-4a09-9e1a-5ac1be5afcb4"
         }
     ]
 }

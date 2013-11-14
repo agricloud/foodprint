@@ -8,6 +8,87 @@ class SupplierController {
 
     def domainService
 
+
+    def index(params) {
+
+        def list = Supplier.createCriteria().list(params,params.criteria)
+
+
+        render (contentType: 'application/json') {
+            [supplierInstanceList: list, supplierInstanceTotal: list.totalCount]
+        }
+        
+    }
+
+     def show(Long id){
+
+        def supplier=Supplier.findById(id);  
+        if(supplier){    
+
+            def supplierJson =  JSON.parse((supplier as JSON).toString())            
+
+            if(supplier.country){
+                supplierJson["country"] = supplier.country.name()
+            }
+            else
+	            supplierJson["country"] = null
+
+            render (contentType: 'application/json') {
+                [success: true,data:supplierJson]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+
+
+    }
+    def create(){
+
+        def supplier=new Supplier()
+        def supplierJson =  JSON.parse((supplier as JSON).toString())
+        supplierJson["country"] = supplier.country.name()       
+        render (contentType: 'application/json') {
+            [success: true,data:supplierJson]
+        }
+    }
+    def save(){
+
+        def supplierInstance=new Supplier(params)
+        
+        render (contentType: 'application/json') {
+            domainService.save(supplierInstance)
+        }
+    }
+
+    def update(){
+        def  supplierInstance = Supplier.findById(params.id)
+        supplierInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(supplierInstance)
+        }         
+    }
+
+
+    def delete(){
+        def supplierInstance = Supplier.findById(params.id)
+        def result
+        try {
+            
+            result = domainService.delete(supplierInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [supplierInstance, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
+        render (contentType: 'application/json') {
+            result
+        }
+    }
+
     /*
     * 將定義在 supplier domain 中的 enum CountryType 轉換為 json
     */

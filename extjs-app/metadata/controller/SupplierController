@@ -1,0 +1,99 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Supplier"
+        ],
+        "stores": [
+            "SupplierStore"
+        ],
+        "views": [
+            "SupplierView"
+        ],
+        "designer|userClassName": "SupplierController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "9a031d84-c6fa-45a9-a2ab-67ad075d2560",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "supplierview #grid"
+            },
+            "designerId": "05db7917-86ae-4489-b5a4-40a5f30de0a8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "supplierview #form"
+            },
+            "designerId": "07528eb8-0fd5-42f2-8579-f74817dbaaf7"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'supplierview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'supplierview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'supplierview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'supplierview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'supplierview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'supplierview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'supplier';",
+                    ""
+                ]
+            },
+            "designerId": "ea6207ff-7385-448a-9e25-fa237525e2da"
+        }
+    ]
+}

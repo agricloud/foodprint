@@ -93,9 +93,11 @@ class BatchController {
 
     def create(){
 
-        def batch=new Batch()        
+        def batch=new Batch()   
+        def batchJson =  JSON.parse((batch as JSON).toString())  
+        batchJson["country"] = batch.country.name()     
         render (contentType: 'application/json') {
-            [success: true,data:batch]
+            [success: true,data:batchJson]
         }
     }
  
