@@ -235,9 +235,9 @@ class FoodpaintService {
         domain.operation = Operation.findByName(object.operation.name)
         domain.workstation = Workstation.findByName(object.workstation.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
-        if(object.startDate)
+        if(object.startDate && object.startDate==null)
             domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
-        if(object.endDate)
+        if(object.endDate && object.endDate==null)
             domain.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
 
         domain
