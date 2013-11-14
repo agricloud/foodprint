@@ -30,7 +30,7 @@ environments {
             dbCreate = "update"
             pooled = true
             driverClassName = "com.mysql.jdbc.Driver"
-            //dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
             //dialect = org.hibernate.dialect.MySQLMyISAMDialect
             // logSql = true
             username = "foodprint"

@@ -41,8 +41,10 @@ class BatchReportDetController {
                 }
             }
 
-            def batchRouteParamsInstance=BatchReportDet.findAll(){
-                batch==batchInstance && reportParams in reportParamsInstance
+            def batchRouteParamsInstance=BatchReportDet.createCriteria().list {
+                eq('batch', batchInstance)
+                if(reportParamsInstance.size()>0)
+                    'in'("reportParams",reportParamsInstance)
             }
 
             def batchRouteParamsInstanceJson =  JSON.parse((batchRouteParamsInstance as JSON).toString()) 
