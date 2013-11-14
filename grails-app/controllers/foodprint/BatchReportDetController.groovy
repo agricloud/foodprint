@@ -27,10 +27,11 @@ class BatchReportDetController {
         def batchInstance=Batch.get(params.batch.id)
         def operationInstance=Operation.get(params.operation.id)
         def workstationInstance=Workstation.get(params.workstation.id)
+        def supplierInstance=Supplier.get(params.supplier.id)
 
         if(batchInstance && operationInstance && workstationInstance){
             def reportParamsInstance=ReportParams.findAll(){
-                item==batchInstance.item && operation==operationInstance && workstation==workstationInstance
+                item==batchInstance.item && operation==operationInstance && (workstation==workstationInstance || supplier==supplierInstance)
             }
 
             reportParamsInstance.each{

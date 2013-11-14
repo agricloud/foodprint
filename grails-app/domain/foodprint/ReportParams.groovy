@@ -47,6 +47,11 @@ class ReportParams {
 	Workstation workstation 
 
     /*
+    * 設定在某託外廠商需要進行資料收集
+    */
+    Supplier supplier
+
+    /*
     * 設定在某品項要進行資料收集
     */
 	Item item 	
@@ -65,6 +70,7 @@ class ReportParams {
     static constraints = {
         site nullable:true
     	workstation nullable:true
+        supplier nullable:true
     	item nullable:true
     	operation nullable:true
     	param unique:'report'
