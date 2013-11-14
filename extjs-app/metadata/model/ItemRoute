@@ -21,7 +21,7 @@
                 "mapping": "id",
                 "name": "id"
             },
-            "designerId": "07e08889-70f3-439e-b9af-9ce3c8606612"
+            "designerId": "01a5d55e-b4e2-435e-9b87-75b1884550ec"
         },
         {
             "type": "Ext.data.Field",
@@ -32,9 +32,9 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "item.id",
-                "name": "item.id"
+                "name": "itemid"
             },
-            "designerId": "ee21e54b-cee8-4a93-94c2-b4ca0a14d0a1"
+            "designerId": "af0f3852-5f21-45b8-91ff-dfbf6111a124"
         },
         {
             "type": "Ext.data.Field",
@@ -44,22 +44,10 @@
             },
             "codeClass": null,
             "userConfig": {
+                "mapping": null,
                 "name": "sequence"
             },
-            "designerId": "86aad42d-dbe9-47aa-a7b7-a19be7a42e29"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "workstation.id",
-                "name": "workstation.id"
-            },
-            "designerId": "0d93e38b-f8da-401c-a8bc-fa0acd0b8217"
+            "designerId": "a6627360-3f49-409f-8fed-eed438f7c281"
         },
         {
             "type": "Ext.data.Field",
@@ -72,7 +60,72 @@
                 "mapping": "operation.id",
                 "name": "operation.id"
             },
-            "designerId": "49454dd1-716a-4067-a527-8fa3036d00ee"
+            "designerId": "52c45062-f17e-4f92-ad92-0e1248b050be"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "operation.name"
+            },
+            "designerId": "f1ad3abe-b815-4d91-b207-149e1dc5f418"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "operation.title"
+            },
+            "designerId": "9a46d0c3-a174-492c-a45e-22585cba0617"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "workstation.id",
+                "name": "workstation.id"
+            },
+            "designerId": "da310963-0eb8-4c3a-b639-84c5987161a3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "workstation.name"
+            },
+            "designerId": "153a8b81-6398-4ac3-b77b-859dcd75d175"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "workstation.title"
+            },
+            "designerId": "47b897b6-77b4-4598-bb40-a4bfd34a71b7"
         },
         {
             "type": "Ext.data.proxy.Rest",
@@ -82,17 +135,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "hasMany": null,
                 "url": "/itemRoute"
             },
-            "designerId": "1652eef8-cd50-46fd-992b-5e9fd79fb0d4",
-            "customConfigs": [
-                {
-                    "group": "(Custom Properties)",
-                    "name": "hasMany",
-                    "type": "string"
-                }
-            ],
+            "designerId": "f55a4b45-df4e-47f6-95b5-d3acde04be2f",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -105,7 +150,7 @@
                         "root": "itemRouteInstanceList",
                         "totalProperty": "itemRouteInstanceTotal"
                     },
-                    "designerId": "68940c17-149a-4848-b411-4ef6c1689107"
+                    "designerId": "ffdc1b2b-e4fb-4722-baa4-df767397cb2a"
                 }
             ]
         }
