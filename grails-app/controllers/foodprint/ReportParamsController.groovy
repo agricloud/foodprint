@@ -123,11 +123,13 @@ class ReportParamsController {
         def reportParams = ReportParams.findById(params.id)
         if(params.workstation.id==null || !params.workstation.id.trim()){
             params.remove("workstation.id")
-            params.remove("workstation.title")   
+            params.remove("workstation.title")
+            params.put("workstation",null) 
         }
         if(params.supplier.id==null || !params.supplier.id.trim()){
             params.remove("supplier.id")
             params.remove("supplier.title")
+            params.put("supplier",null)
         }
 
         reportParams.properties=params

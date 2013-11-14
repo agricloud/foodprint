@@ -100,6 +100,18 @@ class BatchRouteController {
 
     def update() {
         def  batchRoute = BatchRoute.findById(params.id)
+
+        if(params.workstation.id==null || !params.workstation.id.trim()){
+            params.remove("workstation.id")
+            params.remove("workstation.title")  
+            params.put("workstation",null) 
+        }
+        if(params.supplier.id==null || !params.supplier.id.trim()){
+            params.remove("supplier.id")
+            params.remove("supplier.title")
+            params.put("supplier",null)
+        }
+
         batchRoute.properties=params   
         render (contentType: 'application/json') {
             domainService.save(batchRoute)
