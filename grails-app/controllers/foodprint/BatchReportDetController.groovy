@@ -50,7 +50,7 @@ class BatchReportDetController {
                 }
             }
 
-            println batchRouteParamsInstance as JSON
+            //log.debug batchRouteParamsInstance as JSON
 
             def batchRouteParamsInstanceJson =  JSON.parse((batchRouteParamsInstance as JSON).toString()) 
             batchRouteParamsInstanceJson.eachWithIndex{ brp, i ->
