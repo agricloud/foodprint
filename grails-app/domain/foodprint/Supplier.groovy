@@ -51,7 +51,9 @@ class Supplier {
     */
 	Country country=Country.TAIWAN
 
-
+    String tel=""
+    String email=""
+    String address=""
 
     static constraints = {
         site nullable:true
