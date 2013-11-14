@@ -208,6 +208,34 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "dataIndex": "supplier.name",
+                                "text": "Supplier_name",
+                                "flex": 1
+                            },
+                            "designerId": "d30effd7-57a0-4d4b-9802-51364307ffbc"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "supplier.title",
+                                "text": "Supplier_title",
+                                "flex": 1
+                            },
+                            "designerId": "d676cab2-0fde-4dd9-8322-d82d26dca609"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
                                 "dataIndex": "item.name",
                                 "text": "Item_name",
                                 "flex": 1
@@ -455,6 +483,33 @@
                                 "name": "workstation.title"
                             },
                             "designerId": "e8161d67-1c3d-4d4d-82ca-e0e4da192328"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "designerId": "3458a61e-1a54-4fe2-95ed-0c574e43bdbd",
+                            "masterInstanceId": "8828b59e-79a2-4d48-a0e4-de5478e38db9"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "fieldLabel": "Supplier_title",
+                                "name": "supplier.title"
+                            },
+                            "designerId": "bed76702-f624-49ec-a892-2522e7e67940"
                         },
                         {
                             "type": "linkedinstance",

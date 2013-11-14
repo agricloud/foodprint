@@ -29,14 +29,14 @@ class BatchReportDetController {
         def workstationInstance=Workstation.get(params.workstation.id)
         def supplierInstance=Supplier.get(params.supplier.id)
 
-        if(batchInstance && operationInstance && workstationInstance){
+        if(batchInstance && operationInstance && (workstationInstance||supplierInstance)){
             def reportParamsInstance=ReportParams.findAll(){
                 item==batchInstance.item && operation==operationInstance && (workstation==workstationInstance || supplier==supplierInstance)
             }
 
             reportParamsInstance.each{
                 if(!BatchReportDet.findByBatchAndReportParams(batchInstance,it)){
-                    log.debug "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
+                    println "新增批號履歷參數.."+params.batch.id+"/"+it.param.id+"/"+it.param.title
                     def newBRD=new  BatchReportDet (batch:batchInstance,reportParams:it,value:null)
                     domainService.save(newBRD)
                 }
@@ -44,9 +44,10 @@ class BatchReportDetController {
 
             def batchRouteParamsInstance=BatchReportDet.createCriteria().list {
                 eq('batch', batchInstance)
-                if(reportParamsInstance.size()>0)
-                    'in'("reportParams",reportParamsInstance)
+                'in'("reportParams",reportParamsInstance)
             }
+
+            println batchRouteParamsInstance as JSON
 
             def batchRouteParamsInstanceJson =  JSON.parse((batchRouteParamsInstance as JSON).toString()) 
             batchRouteParamsInstanceJson.eachWithIndex{ brp, i ->
@@ -60,6 +61,7 @@ class BatchReportDetController {
         }
         else{
             render (contentType: 'application/json') {
+                //錯誤訊息待調整 目前沒有資料時顯示請選擇檢視資料
                 [success: false, message:message(code: 'default.message.show.failed')]
             }
         }
