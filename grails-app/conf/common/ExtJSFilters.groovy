@@ -40,6 +40,11 @@ class ExtJSFilters {
                     params.offset = params.int('start')?:0
                     params.max = params.int('limit')?:50
                 }
+                if(params.sort){
+                    def sortJson = grails.converters.JSON.parse(params.sort)
+                    params.sort = sortJson[0].property
+                    params.order = sortJson[0].direction
+                }
 
 
                 params.criteria = {
