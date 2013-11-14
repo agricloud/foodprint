@@ -17,14 +17,24 @@ class ReportParamsController {
             def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
                 reportParamsJson.eachWithIndex{ rpj, i ->
                     rpj.report.name = reportParams[i].report.name
-                    rpj.item.name = reportParams[i].item.name
-                    rpj.item.title = reportParams[i].item.title
+                    if(reportParams[i].item){
+                        rpj.item.name = reportParams[i].item.name
+                        rpj.item.title = reportParams[i].item.title
+                    }
                     rpj.param.name = reportParams[i].param.name
                     rpj.param.title = reportParams[i].param.title
-                    rpj.workstation.name = reportParams[i].workstation.name
-                    rpj.workstation.title = reportParams[i].workstation.title
-                    rpj.operation.name = reportParams[i].operation.name
-                    rpj.operation.title = reportParams[i].operation.title
+                    if(reportParams[i].workstation){
+                        rpj.workstation.name = reportParams[i].workstation.name
+                        rpj.workstation.title = reportParams[i].workstation.title
+                    }
+                    if(reportParams[i].operation){
+                        rpj.operation.name = reportParams[i].operation.name
+                        rpj.operation.title = reportParams[i].operation.title
+                    }
+                    if(reportParams[i].supplier){
+                        rpj.supplier.name = reportParams[i].supplier.name
+                        rpj.supplier.title = reportParams[i].supplier.title
+                    }
                 }
         
             render (contentType: 'application/json') {
@@ -55,12 +65,19 @@ class ReportParamsController {
                 reportParamsJson["param.id"] = reportParams.param.id
                 reportParamsJson["param.name"] = reportParams.param.name
                 reportParamsJson["param.title"] = reportParams.param.title
-                reportParamsJson["workstation.id"] = reportParams.workstation.id
-                reportParamsJson["workstation.name"] = reportParams.workstation.name
-                reportParamsJson["workstation.title"] = reportParams.workstation.title
+                if(reportParams.workstation){
+                    reportParamsJson["workstation.id"] = reportParams.workstation.id
+                    reportParamsJson["workstation.name"] = reportParams.workstation.name
+                    reportParamsJson["workstation.title"] = reportParams.workstation.title
+                }
                 reportParamsJson["operation.id"] = reportParams.operation.id
                 reportParamsJson["operation.name"] = reportParams.operation.name
                 reportParamsJson["operation.title"] = reportParams.operation.title
+                if(reportParams.supplier){
+                    reportParamsJson["supplier.id"] = reportParams.supplier.id
+                    reportParamsJson["supplier.name"] = reportParams.supplier.name
+                    reportParamsJson["supplier.title"] = reportParams.supplier.title
+                }
 
             render (contentType: 'application/json') {
                 [success: true, data:reportParamsJson]
