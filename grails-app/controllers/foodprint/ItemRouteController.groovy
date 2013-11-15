@@ -84,6 +84,18 @@ class ItemRouteController {
 
     def update() {
         def itemRouteInstance = ItemRoute.findById(params.id)
+        
+        if(params?.workstation?.id || !params.workstation.id.trim()){
+            params.remove("workstation.id")
+            params.remove("workstation.title")
+            params.put("workstation",null) 
+        }
+        if(params?.supplier?.id || !params.supplier.id.trim()){
+            params.remove("supplier.id")
+            params.remove("supplier.title")
+            params.put("supplier",null)
+        }
+
         itemRouteInstance.properties = params
         render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
