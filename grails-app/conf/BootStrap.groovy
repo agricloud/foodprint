@@ -10,10 +10,9 @@ class BootStrap {
   		TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
   		// batch 解析 item 類似 deep 但只解析到第一層
-		JSON.registerObjectMarshaller(Batch) {
-		    def result = convertService.domainParseMap(it)
-		    // result["item"]=[id: it.item.id, name: it.item.name, title: it.item.title]
-		    //result["item"]=it.item // 轉全部
+		JSON.registerObjectMarshaller(Batch) { batch ->
+		    def result = convertService.domainParseMap(batch)
+	
 		    result
 		}
 		JSON.registerObjectMarshaller(BatchRoute) {

@@ -103,6 +103,14 @@ install:
 extjs-create: 
 	cd touch-app && sencha -sdk extjs generate app foodprint
 
+extjs-clean: 
+	- rm -rf web-app/resources
+	- rm web-app/index.html
+	- rm web-app/app.js
+	- rm web-app/config.rb
+	- rm web-app/foodprint-all.scss
+
+
 extjs-upgrade:
 	cd extjs-app && sencha app upgrade extjs
 
@@ -117,7 +125,7 @@ extjs-deploy:
 
 
 extjs-done:
-	make extjs-production extjs-deploy
+	make extjs-clean extjs-production extjs-deploy
 
 
 
