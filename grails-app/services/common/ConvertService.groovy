@@ -31,7 +31,6 @@ class ConvertService {
 	    result.id= batch.id
 	    result.name=batch.name
 	    result.item = batch.item
-	    result.supplier = batch.supplier
 	    result.dueDate = batch.dueDate
 	    result.expectQty = batch.expectQty
         result["item.id"] = batch.item.id
@@ -40,6 +39,15 @@ class ConvertService {
         result["item.spec"] = batch.item.spec
         result["item.unit"] = batch.item.unit
         result["item.description"] = batch.item.description
+        if(batch.supplier){
+        	result.supplier = batch.supplier
+            result["supplier.id"] = batch.supplier.id
+            result["supplier.name"] = batch.supplier.name
+            result["supplier.title"] = batch.supplier.title
+        }
+        if(batch.country){
+        	result["country"] = batch.country.name()   
+        }
 	    
 	    result
     }
@@ -96,10 +104,12 @@ class ConvertService {
    		result.batch=batchRoute.batch
    		result["batch.id"] = batchRoute.batch.id
    		result["batch.name"] = batchRoute.batch.name
-   		result.operation=batchRoute.operation
-        result["operation.id"] = batchRoute.operation.id
-        result["operation.name"] = batchRoute.operation.name
-        result["operation.title"] = batchRoute.operation.title
+   		if(batchRoute.operation){
+	   		result.operation=batchRoute.operation
+	        result["operation.id"] = batchRoute.operation.id
+	        result["operation.name"] = batchRoute.operation.name
+	        result["operation.title"] = batchRoute.operation.title
+	    }
 
         if(batchRoute.workstation){
         	result.workstation=batchRoute.workstation

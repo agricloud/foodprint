@@ -30,25 +30,8 @@ class BatchRouteController {
     def show(Long id){
         def batchRoute=BatchRoute.findById(id);
         if(batchRoute){
-            
-            def batchRouteJson =  JSON.parse((batchRoute as JSON).toString()) 
-            batchRouteJson["batch.id"] = batchRoute.batch.id
-            batchRouteJson["operation.id"] = batchRoute.operation.id
-            batchRouteJson["operation.name"] = batchRoute.operation.name
-            batchRouteJson["operation.title"] = batchRoute.operation.title
-            if(batchRoute.workstation){
-                batchRouteJson["workstation.id"] = batchRoute.workstation.id
-                batchRouteJson["workstation.name"] = batchRoute.workstation.name
-                batchRouteJson["workstation.title"] = batchRoute.workstation.title
-            }
-            if(batchRoute.supplier){
-                batchRouteJson["supplier.id"] = batchRoute.supplier.id
-                batchRouteJson["supplier.name"] = batchRoute.supplier.name
-                batchRouteJson["supplier.title"] = batchRoute.supplier.title
-            }
-
             render (contentType: 'application/json') {
-                [success: true,data:batchRouteJson]
+                [success: true,data:batchRoute]
             }
         }else {
             render (contentType: 'application/json') {
@@ -69,12 +52,8 @@ class BatchRouteController {
                 batchRoute.sequence = batchRoute.batch.batchRoutes*.sequence.max()+1
             else batchRoute.sequence = 1
 
-            def batchRouteJson =  JSON.parse((batchRoute as JSON).toString()) 
-            batchRouteJson["batch.id"] = batchRoute.batch.id
-
-
             render (contentType: 'application/json') {
-                [success: true,data:batchRouteJson]
+                [success: true,data:batchRoute]
             }
         }else {
             render (contentType: 'application/json') {
