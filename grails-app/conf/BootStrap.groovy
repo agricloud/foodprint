@@ -9,18 +9,26 @@ class BootStrap {
   		// 預設時區，避免 json 轉換自動扣除 8 小時(台灣 +8:00)
   		TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
-  		// batch 解析 item 類似 deep 但只解析到第一層
-		JSON.registerObjectMarshaller(Batch) { batch ->
-		    def result = convertService.domainParseMap(batch)
-	
-		    result
+		JSON.registerObjectMarshaller(Batch) {
+		    convertService.batchParseJson(it)
 		}
 		JSON.registerObjectMarshaller(BatchRoute) {
-		    def result = convertService.domainParseMap(it)
-		    // result["item"]=[id: it.item.id, name: it.item.name, title: it.item.title]
-		    //result["item"]=it.item // 轉全部
-		    result
-		}		
+		    convertService.batchRouteParseJson(it)
+		}
+
+		JSON.registerObjectMarshaller(Item) {
+		    convertService.itemParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Workstation) {
+		    convertService.workstationParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Supplier) {
+		    convertService.supplierParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Operation) {
+		    convertService.operationParseJson(it)
+		}
+
 		JSON.registerObjectMarshaller(ItemRoute) {
 		    def result = convertService.domainParseMap(it)
 		    result
