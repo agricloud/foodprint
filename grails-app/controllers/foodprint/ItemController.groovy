@@ -8,13 +8,7 @@ class ItemController {
 
     def index(Integer max) {
 
-        // render (contentType: 'application/json') {
-        //     [itemInstanceList: Item.list(params), itemInstanceTotal: Item.count()]
-        // }
-
-
         def list = Item.createCriteria().list(params,params.criteria)
-
 
         render (contentType: 'application/json') {
             [itemInstanceList: list, itemInstanceTotal: list.totalCount]
