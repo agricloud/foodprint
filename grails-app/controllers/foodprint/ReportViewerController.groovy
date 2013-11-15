@@ -153,11 +153,11 @@ class ReportViewerController {
 
 
             
-            param["agriculture.operation.title"] = batchRoute.operation.title
+            param["agriculture.operation.title"] = batchRoute?.operation?.title
 
-            param["agriculture.batchRoute.endDate"] = batchRoute.endDate
-            param["agriculture.workstation.title"] = batchRoute.workstation.title
-            param["operation.description"] = batchRoute.operation.description
+            param["agriculture.batchRoute.endDate"] = batchRoute?.endDate
+            param["agriculture.workstation.title"] = batchRoute?.workstation?.title
+            param["operation.description"] = batchRoute?.operation?.description
 
             param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
 
