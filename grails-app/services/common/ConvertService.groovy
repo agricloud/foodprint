@@ -27,9 +27,13 @@ class ConvertService {
     }
     def batchParseJson(batch){
 	    def result = [:]
+
 	    result.id= batch.id
 	    result.name=batch.name
 	    result.item = batch.item
+	    result.supplier = batch.supplier
+	    result.dueDate = batch.dueDate
+	    result.expectQty = batch.expectQty
         result["item.id"] = batch.item.id
         result["item.name"] = batch.item.name
         result["item.title"] = batch.item.title
@@ -41,9 +45,13 @@ class ConvertService {
     }
     def itemParseJson(item){
 	    def result = [:]
+
 	    result.id = item.id
 	    result.name = item.name
 	    result.title = item.title
+	    result.spec = item.spec
+	    result.unit = item.unit
+	    result.description = item.description
 
 	    result
     }
