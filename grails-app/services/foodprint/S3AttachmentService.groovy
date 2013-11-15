@@ -10,16 +10,19 @@ class S3AttachmentService {
     def s3Service
     def fileLocation 
     def blankImg
+    def imageModiService
 
     def save={ def params ->
         def result = [:]
         try {
-            def ri = (InputStream)params.file.inputStream
+            InputStream inputStream = (InputStream)params.file.inputStream
+
+            def byteArrayOutputStream=imageModiService.sizeNormal(inputStream)
+            ByteArrayInputStream inputStreamScaled = new ByteArrayInputStream(byteArrayOutputStream.toByteArray())
 
             def s3Location="${fileLocation}/${params.domainName}/${params.domainId}.jpg";
-            println s3Location
 
-            s3Service.saveObject s3Location, ri
+            s3Service.saveObject s3Location, inputStreamScaled
             result.success = true
         } catch (e) {
             log.error("Failed to upload file.", e)
@@ -67,5 +70,6 @@ class S3AttachmentService {
         
         
     }
+
 
 }
