@@ -134,6 +134,7 @@ environments {
 
         grails.foodpaint.service.server.url = "http://localhost:8180"
         grails.foodpaint.service.api.url = "http://localhost:8180/api"
+        grails.aws.root = 'test'
 
         log4j = {
             appenders {

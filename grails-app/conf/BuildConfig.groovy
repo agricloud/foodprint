@@ -82,6 +82,7 @@ grails.project.dependency.resolution = {
         compile 'org.apache.ant:ant-launcher:1.7.1'
 
         runtime 'net.java.dev.jets3t:jets3t:0.9.0'
+        compile 'org.imgscalr:imgscalr-lib:4.2'
     }
 
     plugins {

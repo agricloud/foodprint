@@ -17,7 +17,7 @@ class S3AttachmentService {
             def ri = (InputStream)params.file.inputStream
 
             def s3Location="${fileLocation}/${params.domainName}/${params.domainId}.jpg";
-
+            println s3Location
 
             s3Service.saveObject s3Location, ri
             result.success = true
