@@ -13,32 +13,10 @@ class ReportParamsController {
         def report=Report.findById(params.report.id);
         def reportParams = ReportParams.findAllByReport(report)
 
-        if(report){   
-            def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
-                reportParamsJson.eachWithIndex{ rpj, i ->
-                    rpj.report.name = reportParams[i].report.name
-                    if(reportParams[i].item){
-                        rpj.item.name = reportParams[i].item.name
-                        rpj.item.title = reportParams[i].item.title
-                    }
-                    rpj.param.name = reportParams[i].param.name
-                    rpj.param.title = reportParams[i].param.title
-                    if(reportParams[i].workstation){
-                        rpj.workstation.name = reportParams[i].workstation.name
-                        rpj.workstation.title = reportParams[i].workstation.title
-                    }
-                    if(reportParams[i].operation){
-                        rpj.operation.name = reportParams[i].operation.name
-                        rpj.operation.title = reportParams[i].operation.title
-                    }
-                    if(reportParams[i].supplier){
-                        rpj.supplier.name = reportParams[i].supplier.name
-                        rpj.supplier.title = reportParams[i].supplier.title
-                    }
-                }
+        if(reportParams){   
         
             render (contentType: 'application/json') {
-                [success: true,reportParamsInstanceList: reportParamsJson, reportParamsInstanceTotal: reportParamsJson.size()]
+                [success: true,reportParamsInstanceList: reportParams, reportParamsInstanceTotal: reportParams.size()]
             }
         }
         else{
@@ -56,31 +34,8 @@ class ReportParamsController {
         def reportParams=ReportParams.findById(id);
 
         if(reportParams){   
-            def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
-                reportParamsJson["report.id"] = reportParams.report.id
-                reportParamsJson["report.name"] = reportParams.report.name        
-                reportParamsJson["item.id"] = reportParams.item.id
-                reportParamsJson["item.name"] = reportParams.item.name
-                reportParamsJson["item.title"] = reportParams.item.title
-                reportParamsJson["param.id"] = reportParams.param.id
-                reportParamsJson["param.name"] = reportParams.param.name
-                reportParamsJson["param.title"] = reportParams.param.title
-                if(reportParams.workstation){
-                    reportParamsJson["workstation.id"] = reportParams.workstation.id
-                    reportParamsJson["workstation.name"] = reportParams.workstation.name
-                    reportParamsJson["workstation.title"] = reportParams.workstation.title
-                }
-                reportParamsJson["operation.id"] = reportParams.operation.id
-                reportParamsJson["operation.name"] = reportParams.operation.name
-                reportParamsJson["operation.title"] = reportParams.operation.title
-                if(reportParams.supplier){
-                    reportParamsJson["supplier.id"] = reportParams.supplier.id
-                    reportParamsJson["supplier.name"] = reportParams.supplier.name
-                    reportParamsJson["supplier.title"] = reportParams.supplier.title
-                }
-
             render (contentType: 'application/json') {
-                [success: true, data:reportParamsJson]
+                [success: true, data:reportParams]
             }
         }else {
             render (contentType: 'application/json') {
@@ -94,11 +49,8 @@ class ReportParamsController {
 
             def reportParams=new ReportParams(params)
 
-            def reportParamsJson =  JSON.parse((reportParams as JSON).toString()) 
-            reportParamsJson["report.id"] = reportParams.report.id
-
             render (contentType: 'application/json') {
-                [success: true,data:reportParamsJson]
+                [success: true,data:reportParams]
             }
         }else {
             render (contentType: 'application/json') {

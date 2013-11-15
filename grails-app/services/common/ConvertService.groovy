@@ -158,10 +158,13 @@ class ConvertService {
 	    result["report.id"] = reportParams.report.id
         result["report.name"] = reportParams.report.name
         result["report.title"] = reportParams.report.title
-	    result.param = reportParams.param
-    	result["param.id"] = reportParams.param.id
-        result["param.name"] = reportParams.param.name
-        result["param.title"] = reportParams.param.title
+        
+        if(reportParams.param){
+		    result.param = reportParams.param
+	    	result["param.id"] = reportParams.param.id
+	        result["param.name"] = reportParams.param.name
+	        result["param.title"] = reportParams.param.title
+	    }
 
 	    if(reportParams.operation){
 	   		result.operation=reportParams.operation

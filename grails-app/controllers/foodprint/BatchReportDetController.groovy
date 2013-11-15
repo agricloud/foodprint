@@ -43,13 +43,6 @@ class BatchReportDetController {
                 }
             }
 
-            //log.debug batchRouteParamsInstance as JSON
-
-            // def batchRouteParamsInstanceJson =  JSON.parse((batchRouteParamsInstance as JSON).toString()) 
-            // batchRouteParamsInstanceJson.eachWithIndex{ brp, i ->
-            //      brp.reportParams.param=JSON.parse((batchRouteParamsInstance[i].reportParams.param as JSON).toString()) 
-            // }
-
             render (contentType: 'application/json') {
                 [sucess:true, data:batchRouteParamsInstance, total: batchRouteParamsInstance.size()]
             }
