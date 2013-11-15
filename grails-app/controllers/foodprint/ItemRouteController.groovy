@@ -20,10 +20,9 @@ class ItemRouteController {
         *   -workstation
         *   -operation
         */
-        JSON.use('deep')
+
         def itemRoute=Item.findById(params.item.id).itemRoutes
         def converter=[itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()] as JSON
-        JSON.use('default')
 
         converter.render(response)
 

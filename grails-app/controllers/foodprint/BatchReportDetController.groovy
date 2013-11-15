@@ -105,9 +105,7 @@ class BatchReportDetController {
         *     -reportParams
         *     -param  
         */
-        JSON.use('deep')
         def converter=batchReportList() as JSON
-        JSON.use('default')
         converter.render(response)
     }
 

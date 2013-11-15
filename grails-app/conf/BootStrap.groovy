@@ -16,7 +16,22 @@ class BootStrap {
 		    //result["item"]=it.item // 轉全部
 		    result
 		}
+		JSON.registerObjectMarshaller(BatchRoute) {
+		    def result = convertService.domainParseMap(it)
+		    // result["item"]=[id: it.item.id, name: it.item.name, title: it.item.title]
+		    //result["item"]=it.item // 轉全部
+		    result
+		}		
+		JSON.registerObjectMarshaller(ItemRoute) {
+		    def result = convertService.domainParseMap(it)
+		    result
+		}
+		
 		JSON.registerObjectMarshaller(ReportParams) {
+		    def result = convertService.domainParseMap(it)
+		    result
+		}
+		JSON.registerObjectMarshaller(BatchReportDet) {
 		    def result = convertService.domainParseMap(it)
 		    result
 		}

@@ -10,28 +10,21 @@ class BatchRouteController {
     def domainService
 
     def index(Integer max) {
-        //找出指定批號的相關途程。
-        /*
-        * [Deep properties]
-        *
-        * batchRouteInstanceList::
-        *   -workstation
-        *   -operation
-        */
 
-        JSON.use('deep')
         def batch=Batch.findById(params.batch.id)
         if(batch){
-            def batchRoute=batch.batchRoutes
-            def converter=[success: true, data:batchRoute.collect(), total: batchRoute.size()] as JSON
-            JSON.use('default')
-            converter.render(response)
+            def list=BatchRoute.findAllByBatch(batch)
+            render (contentType: 'application/json') {
+               [success: true, data:list, total: list.size()]
+            }           
         }
         else{
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'default.message.show.failed')]
             }            
-        } 
+        }
+
+
     }
 
     def show(Long id){
