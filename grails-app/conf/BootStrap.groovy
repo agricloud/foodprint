@@ -29,7 +29,7 @@ class BootStrap {
 		    convertService.operationParseJson(it)
 		}
 		JSON.registerObjectMarshaller(ItemRoute) {
-		    convertService.itemRouteParseMap(it)
+		    convertService.itemRouteParseJson(it)
 		}
 		JSON.registerObjectMarshaller(Param) {
 		    convertService.paramParseJson(it)
@@ -41,7 +41,7 @@ class BootStrap {
 		    convertService.reportParamsParseJson(it)
 		}
 		JSON.registerObjectMarshaller(BatchReportDet) {
-		    convertService.batchReportDetJson(it)
+		    convertService.batchReportDetParseJson(it)
 		}
 
 
