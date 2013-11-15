@@ -4,12 +4,6 @@ import javax.imageio.*
 import javax.imageio.stream.ImageOutputStream;
 import org.imgscalr.*;
 
-
-
- 
-
-
-
 class ImageModiService {
 
 
