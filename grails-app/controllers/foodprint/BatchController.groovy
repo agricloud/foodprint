@@ -65,13 +65,8 @@ class BatchController {
 
         if(batch){   
 
-            def batchJson =  JSON.parse((batch as JSON).toString())            
-            if(batch.country){
-                batchJson["country"] = batch.country.name()
-            }
-
             render (contentType: 'application/json') {
-                [success: true, data:batchJson]
+                [success: true, data:batch]
             }
         }else {
             render (contentType: 'application/json') {
@@ -83,10 +78,8 @@ class BatchController {
     def create(){
 
         def batch=new Batch()   
-        def batchJson =  JSON.parse((batch as JSON).toString())  
-        batchJson["country"] = batch.country.name()     
         render (contentType: 'application/json') {
-            [success: true,data:batchJson]
+            [success: true,data:batch]
         }
     }
  
