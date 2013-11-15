@@ -141,7 +141,5 @@ grails.project.dependency.resolution = {
         compile ":grails-ant:0.1.3"
         
         compile ":quartz:1.0-RC13"
-
-        compile ":aws-elastic-beanstalk:0.2"
     }
 }
