@@ -28,20 +28,23 @@ class BootStrap {
 		JSON.registerObjectMarshaller(Operation) {
 		    convertService.operationParseJson(it)
 		}
-
 		JSON.registerObjectMarshaller(ItemRoute) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.domainParseMap(it)
 		}
-		
+		JSON.registerObjectMarshaller(Param) {
+		    convertService.paramParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Report) {
+		    convertService.reportParseJson(it)
+		}
 		JSON.registerObjectMarshaller(ReportParams) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.domainParseMap(it)
 		}
 		JSON.registerObjectMarshaller(BatchReportDet) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.domainParseMap(it)
 		}
+
+
 		environments {
 			def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
 			def user1 = User.findByUsername('admin')

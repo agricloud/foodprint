@@ -9,8 +9,6 @@ class ConvertService {
 		    d.persistentProperties.collect {
 		        fields << it.name
 		    }
-
-
 		    fields
 
     }
@@ -126,4 +124,89 @@ class ConvertService {
 
         result
    	}
+
+   	def paramParseJson(param){
+	    def result = [:]
+	    result.id= param.id
+	    result.name = param.name
+	    result.title = param.title
+	    result.defaultValue = param.defaultValue
+	    result.paramType = param.paramType
+	    result.description = param.description
+	    result.lower = param.lower
+	    result.upper = param.upper
+	    result.unit = param.unit
+	    result
+    }
+
+    def reportParseJson(report){
+	    def result = [:]
+	    result.id= report.id
+	    result.name = report.name
+	    result.title = report.title
+	    result.reportType = report.reportType
+	    result.description = report.description
+	    result.effectStartDate = report.effectStartDate
+	    result.effectEndDate = report.effectEndDate
+	    result
+    }
+
+    def reportParamsParseJson(reportParams){
+	    def result = [:]
+	    result.id= reportParams.id
+	    result.report = reportParams.report
+	    result["report.id"] = reportParams.report.id
+        result["report.name"] = reportParams.report.name
+        result["report.title"] = reportParams.report.title
+	    result.param = reportParams.param
+    	result["param.id"] = reportParams.param.id
+        result["param.name"] = reportParams.param.name
+        result["param.title"] = reportParams.param.title
+
+	    if(reportParams.operation){
+	   		result.operation=reportParams.operation
+	        result["operation.id"] = reportParams.operation.id
+	        result["operation.name"] = reportParams.operation.name
+	        result["operation.title"] = reportParams.operation.title
+	    }
+
+        if(reportParams.workstation){
+        	result.workstation=reportParams.workstation
+            result["workstation.id"] = reportParams.workstation.id
+            result["workstation.name"] = reportParams.workstation.name
+            result["workstation.title"] = reportParams.workstation.title
+        }
+        if(reportParams.supplier){
+        	result.supplier=reportParams.supplier
+            result["supplier.id"] = reportParams.supplier.id
+            result["supplier.name"] = reportParams.supplier.name
+            result["supplier.title"] = reportParams.supplier.title
+        }
+        if(reportParams.item){
+        	result.item=reportParams.item
+            result["item.id"] = reportParams.item.id
+            result["item.name"] = reportParams.item.name
+            result["item.title"] = reportParams.item.title
+        }
+	    result
+    }
+
+    def batchReportDetParseJson(batchReportDet){
+	    def result = [:]
+	    result.id = batchReportDet.id
+	    result.value = batchReportDet.value
+
+	    result.reportParams = batchReportDet.reportParams
+	    result["reportParams.id"] = batchReportDet.reportParams.id
+	    result.reportParams.param = batchReportDet.reportParams.param
+    	result["reportParams.param.id"] = batchReportDet.reportParams.param.id
+        result["reportParams.param.name"] = batchReportDet.reportParams.param.name
+        result["reportParams.param.title"] = batchReportDet.reportParams.param.title
+        result["reportParams.param.defaultValue"] = batchReportDet.reportParams.param.defaultValue
+	    result["reportParams.param.paramType"] = batchReportDet.reportParams.param.paramType
+
+	    result
+    }
+
+
 }

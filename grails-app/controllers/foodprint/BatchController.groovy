@@ -11,14 +11,7 @@ class BatchController {
 
     def index() {
 
-        def list = Batch.createCriteria().list(params,params.criteria)
-
-        // def listJson =  JSON.parse((list as JSON).toString())
-
-        // list.each{
-        //     batch ->
-        //     batch["item.id"] = batch.item.id
-        // }          
+        def list = Batch.createCriteria().list(params,params.criteria)        
 
         render (contentType: 'application/json') {
             [batchInstanceList: list, batchInstanceTotal: list.totalCount]
