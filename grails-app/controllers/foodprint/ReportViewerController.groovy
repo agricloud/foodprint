@@ -198,9 +198,14 @@ class ReportViewerController {
                         def param = [:]
 
                         param["inspect.param.title"] = batchReportDet.reportParams.param.title
-                        param["inspect.batchReportDet.value"] = batchReportDet.value 
-                        param["inspect.qualified"] = false
-                        param["param.upper"] = batchReportDet.reportParams.param.upper
+                        param["inspect.batchReportDet.value"] = batchReportDet.value.toFloat()
+
+                        param["param.upper"] = batchReportDet.reportParams.param.upper.toFloat()
+
+                        if(param["inspect.batchReportDet.value"] <= param["param.upper"])
+                            param["inspect.qualified"] = true
+                        else param["inspect.qualified"] = false
+
                         param["inspect.dateCreated"] = batchReportDet.dateCreated.format('yyyy-MM-dd')
                         param["inspect.param.unit"] = batchReportDet.reportParams.param.unit
 

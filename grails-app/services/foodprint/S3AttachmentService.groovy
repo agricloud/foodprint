@@ -15,13 +15,12 @@ class S3AttachmentService {
     def save={ def params ->
         def result = [:]
         try {
-            InputStream inputStream = (InputStream)params.file.inputStream
+            def inputStream = (InputStream)params.file.inputStream
 
             def byteArrayOutputStream=imageModiService.sizeNormal(inputStream)
             ByteArrayInputStream inputStreamScaled = new ByteArrayInputStream(byteArrayOutputStream.toByteArray())
-
+            
             def s3Location="${fileLocation}/${params.domainName}/${params.domainId}.jpg";
-
             s3Service.saveObject s3Location, inputStreamScaled
             result.success = true
         } catch (e) {
@@ -33,8 +32,6 @@ class S3AttachmentService {
 
         
     }
-
-
     def show= { def params ->
 
         try {

@@ -14,17 +14,6 @@ import org.junit.*
 @Mock([Item,Batch,BatchSource])
 class ReportViewerControllerTests {
 
-    void testSomething() {
-       fail "Implement me"
-    }
-
-    void setUp() {
-        // Setup logic here
-    }
-
-    void tearDown() {
-        // Tear down logic here
-    }
 
     void test() {
 
@@ -37,5 +26,8 @@ class ReportViewerControllerTests {
         // controller.restFoodpaint()
         // assert Batch.list().size()==6
         // assert Batch.list()==[]
+
+        def stringNum = "1.1"
+        println stringNum.toFloat()
     }
 }
