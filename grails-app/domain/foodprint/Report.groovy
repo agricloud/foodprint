@@ -38,7 +38,7 @@ class Report {
 	Date lastUpdated
 	String name
 	String title
-	String decription = ""
+	String description = ""
 	Date effectStartDate
 	Date effectEndDate
 

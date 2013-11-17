@@ -118,6 +118,9 @@
                 "implHandler": [
                     "console.log('batchParamsEditorController--'+'BatchReportDet'+'--doShow');",
                     "",
+                    "//add Mask",
+                    "new Ext.LoadMask(this.getMainForm().up(), {store:this.getStore('BatchRouteParamsStore')});",
+                    "",
                     "var that = this;",
                     "",
                     "//重新讀取批號途程資料",
@@ -253,7 +256,7 @@
                     "                    form.add({xtype:'numberfield',fieldLabel:'batchRoute.id',name:'id',value:record.data['id'],hidden:true});",
                     "                    form.add({xtype:'datefield',fieldLabel:Utilities.getMsg('batchRoute.startDate.label'),name:'startDate',value:record.data['startDate']});",
                     "                    form.add({xtype:'datefield',fieldLabel:Utilities.getMsg('batchRoute.endDate.label'),name:'endDate',value:record.data['endDate']});",
-                    "                    console.log('add form');",
+                    "",
                     "                    //設定圖片id",
                     "                    that.setImageUploader();",
                     "                    that.activeEditor();",

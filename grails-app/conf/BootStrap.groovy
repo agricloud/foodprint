@@ -28,20 +28,23 @@ class BootStrap {
 		JSON.registerObjectMarshaller(Operation) {
 		    convertService.operationParseJson(it)
 		}
-
 		JSON.registerObjectMarshaller(ItemRoute) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.itemRouteParseJson(it)
 		}
-		
+		JSON.registerObjectMarshaller(Param) {
+		    convertService.paramParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Report) {
+		    convertService.reportParseJson(it)
+		}
 		JSON.registerObjectMarshaller(ReportParams) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.reportParamsParseJson(it)
 		}
 		JSON.registerObjectMarshaller(BatchReportDet) {
-		    def result = convertService.domainParseMap(it)
-		    result
+		    convertService.batchReportDetParseJson(it)
 		}
+
+
 		environments {
 			def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
 			def user1 = User.findByUsername('admin')
@@ -116,6 +119,19 @@ class BootStrap {
 				def reportparam100=new  ReportParams (report:report100,param:param100,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 				def reportparam101=new  ReportParams (report:report100,param:param101,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 				def reportparam102=new  ReportParams (report:report100,param:param102,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam200=new  ReportParams (report:report100,param:param2,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam201=new  ReportParams (report:report100,param:param3,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam202=new  ReportParams (report:report100,param:param4,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam203=new  ReportParams (report:report100,param:param5,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam204=new  ReportParams (report:report100,param:param6,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam205=new  ReportParams (report:report100,param:param7,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam206=new  ReportParams (report:report100,param:param8,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam207=new  ReportParams (report:report100,param:param9,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam208=new  ReportParams (report:report100,param:param10,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam209=new  ReportParams (report:report100,param:param11,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam210=new  ReportParams (report:report100,param:param12,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam211=new  ReportParams (report:report100,param:param13,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
+				def reportparam212=new  ReportParams (report:report100,param:param14,workstation:workstation1,operation:operation4,item:item1).save(failOnError: true, flush: true)
 
 				// 檢驗記錄集
 				def report2=new Report(name:"report2",title:"檢驗紀錄集").save(failOnError: true, flush: true)

@@ -11,14 +11,7 @@ class BatchController {
 
     def index() {
 
-        def list = Batch.createCriteria().list(params,params.criteria)
-
-        // def listJson =  JSON.parse((list as JSON).toString())
-
-        // list.each{
-        //     batch ->
-        //     batch["item.id"] = batch.item.id
-        // }          
+        def list = Batch.createCriteria().list(params,params.criteria)        
 
         render (contentType: 'application/json') {
             [batchInstanceList: list, batchInstanceTotal: list.totalCount]
@@ -65,13 +58,8 @@ class BatchController {
 
         if(batch){   
 
-            def batchJson =  JSON.parse((batch as JSON).toString())            
-            if(batch.country){
-                batchJson["country"] = batch.country.name()
-            }
-
             render (contentType: 'application/json') {
-                [success: true, data:batchJson]
+                [success: true, data:batch]
             }
         }else {
             render (contentType: 'application/json') {
@@ -83,10 +71,8 @@ class BatchController {
     def create(){
 
         def batch=new Batch()   
-        def batchJson =  JSON.parse((batch as JSON).toString())  
-        batchJson["country"] = batch.country.name()     
         render (contentType: 'application/json') {
-            [success: true,data:batchJson]
+            [success: true,data:batch]
         }
     }
  
