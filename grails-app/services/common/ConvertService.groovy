@@ -111,6 +111,8 @@ class ConvertService {
    		def result = [:]
    		result.id=batchRoute.id
    		result.sequence=batchRoute.sequence
+   		result.startDate=batchRoute.startDate
+   		result.endDate=batchRoute.endDate
    		result.batch=batchRoute.batch
    		result["batch.id"] = batchRoute.batch.id
    		result["batch.name"] = batchRoute.batch.name
