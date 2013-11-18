@@ -80,8 +80,15 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    hidden: true,
                     dataIndex: 'country',
                     text: 'Country',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'countryTitle',
+                    text: 'CountryTitle',
                     flex: 1
                 },
                 {

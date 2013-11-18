@@ -19,7 +19,8 @@ Ext.define('foodprint.view.BatchForm', {
 
     requires: [
         'foodprint.view.CommonItemCombo',
-        'foodprint.view.CommonSupplierCombo'
+        'foodprint.view.CommonSupplierCombo',
+        'foodprint.view.CommonCountryCombo'
     ],
 
     itemId: 'batchForm',
@@ -51,16 +52,10 @@ Ext.define('foodprint.view.BatchForm', {
                     xtype: 'commonitemcombo'
                 },
                 {
-                    xtype: 'combobox',
-                    fieldLabel: 'country',
-                    name: 'country',
-                    editable: false,
-                    displayField: 'title',
-                    store: 'CountryStore',
-                    valueField: 'title'
+                    xtype: 'commonsuppliercombo'
                 },
                 {
-                    xtype: 'commonsuppliercombo'
+                    xtype: 'commoncountrycombo'
                 },
                 {
                     xtype: 'textfield',

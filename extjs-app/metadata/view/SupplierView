@@ -329,41 +329,17 @@
                             "designerId": "51e37e5d-e274-493e-85c7-d3fabd9111d4"
                         },
                         {
-                            "type": "Ext.form.field.ComboBox",
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "fieldLabel": "country",
-                                "name": "country",
-                                "editable": false,
-                                "displayField": "title",
-                                "store": "CountryStore",
-                                "valueField": "country"
+                                "layout|flex": null
                             },
-                            "designerId": "90908076-f4b8-4a37-ab7e-c53530baea1c",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onComboboxRender",
-                                        "implHandler": [
-                                            "component.getStore().load();"
-                                        ],
-                                        "name": "render",
-                                        "scope": "me"
-                                    },
-                                    "designerId": "35b00d90-74b8-4a0a-9062-29d748a63376"
-                                }
-                            ]
+                            "designerId": "261e815a-172d-4198-a67f-ac5e273c1d8b",
+                            "masterInstanceId": "1d47409c-c6c7-48c3-97ba-ecd1d87bbb27"
                         },
                         {
                             "type": "Ext.form.field.Text",

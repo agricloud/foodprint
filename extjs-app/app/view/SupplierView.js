@@ -17,6 +17,10 @@ Ext.define('foodprint.view.SupplierView', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.supplierview',
 
+    requires: [
+        'foodprint.view.CommonCountryCombo'
+    ],
+
     itemId: 'customerEditorCt',
     layout: {
         type: 'card'
@@ -155,19 +159,7 @@ Ext.define('foodprint.view.SupplierView', {
                                     name: 'title'
                                 },
                                 {
-                                    xtype: 'combobox',
-                                    fieldLabel: 'country',
-                                    name: 'country',
-                                    editable: false,
-                                    displayField: 'title',
-                                    store: 'CountryStore',
-                                    valueField: 'country',
-                                    listeners: {
-                                        render: {
-                                            fn: me.onComboboxRender,
-                                            scope: me
-                                        }
-                                    }
+                                    xtype: 'commoncountrycombo'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -204,10 +196,6 @@ Ext.define('foodprint.view.SupplierView', {
     },
 
     onGridAfterRender: function(component, eOpts) {
-        component.getStore().load();
-    },
-
-    onComboboxRender: function(component, eOpts) {
         component.getStore().load();
     }
 

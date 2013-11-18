@@ -49,6 +49,10 @@ Ext.define('foodprint.model.Batch', {
             name: 'country'
         },
         {
+            mapping: '',
+            name: 'countryTitle'
+        },
+        {
             name: 'supplier.id'
         },
         {

@@ -1,0 +1,62 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonCountryCombo",
+        "designer|userClassName": "CommonCountryCombo",
+        "designer|userAlias": "commoncountrycombo",
+        "fieldLabel": "country",
+        "name": "country",
+        "editable": null,
+        "displayField": "title",
+        "forceSelection": true,
+        "minChars": 0,
+        "queryParam": "nameLike",
+        "store": "CountryStore",
+        "valueField": "country"
+    },
+    "designerId": "1d47409c-c6c7-48c3-97ba-ecd1d87bbb27",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onComboboxRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "35b00d90-74b8-4a0a-9062-29d748a63376"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonCountryCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('country.title.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "34b04732-4d6d-4fad-b170-884715d1f041"
+        }
+    ]
+}
