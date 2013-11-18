@@ -220,6 +220,9 @@ class FoodpaintService {
         domain.item = Item.findByName(object.item.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
 
+        if(object.manufactureDate && object.manufactureDate!=null){
+            domain.manufactureDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.manufactureDate)
+        }
         domain
     }
 
@@ -235,6 +238,7 @@ class FoodpaintService {
         domain.operation = Operation.findByName(object.operation.name)
         domain.workstation = Workstation.findByName(object.workstation.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
+        //先以foodprint資料為主 暫不匯入foodpaint資料
         if(object.startDate && object.startDate==null)
             domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
         if(object.endDate && object.endDate==null)
