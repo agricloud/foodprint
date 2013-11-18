@@ -64,7 +64,7 @@ class BootStrap {
 				def item5 = new Item(name:"item5",title:"colasun").save(failOnError: true, flush: true)
 
 
-				def batch1 = new Batch(name:"0927-410002",item:item1,dueDate:new Date()).save(failOnError: true, flush: true)
+				def batch1 = new Batch(name:"0927-410002",item:item1,dueDate:new Date(), manufactureDate: new Date(), expirationDate: new Date()).save(failOnError: true, flush: true)
 				def batch2 = new Batch(name:"batch2",item:item1).save(failOnError: true, flush: true)
 				def batch3 = new Batch(name:"batch3",item:item2).save(failOnError: true, flush: true)
 				def batch4 = new Batch(name:"batch4",item:item4).save(failOnError: true, flush: true)

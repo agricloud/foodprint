@@ -32,8 +32,14 @@ class ReportViewerController {
 
 
         product.body["item.name"] = batch.item.name
-        product.body["batch.manufactureDate"] = batch.manufactureDate
-        product.body["batch.expirationDate"] = batch.expirationDate
+        product.body["batch.manufactureDate"] = g.formatDate(date: batch.manufactureDate, format: 'yyyy.MM.dd')
+        product.body["batch.expirationDate"] = (
+            batch.expirationDate 
+                ? "未做防腐處理，常溫下建議 ${g.formatDate(date: batch.expirationDate, format: 'yyyy.MM.dd')} 前食用或冷藏保鮮" 
+                : ""
+        )
+
+        
         product.body["item.spec"] = batch.item.spec
         
         def otherReports=[]
@@ -155,7 +161,8 @@ class ReportViewerController {
             
             param["agriculture.operation.title"] = batchRoute?.operation?.title
 
-            param["agriculture.batchRoute.endDate"] = batchRoute?.endDate
+            param["agriculture.batchRoute.endDate"] = g.formatDate(date: batchRoute?.endDate, format: 'yyyy.MM.dd')
+
             param["agriculture.workstation.title"] = batchRoute?.workstation?.title
             param["operation.description"] = batchRoute?.operation?.description
 
@@ -198,9 +205,9 @@ class ReportViewerController {
                         def param = [:]
 
                         param["inspect.param.title"] = batchReportDet.reportParams.param.title
-                        param["inspect.batchReportDet.value"] = batchReportDet.value.toFloat()
+                        param["inspect.batchReportDet.value"] = batchReportDet.value?.toFloat()
 
-                        param["param.upper"] = batchReportDet.reportParams.param.upper.toFloat()
+                        param["param.upper"] = batchReportDet.reportParams.param.upper?.toFloat()
 
                         if(param["inspect.batchReportDet.value"] <= param["param.upper"])
                             param["inspect.qualified"] = true

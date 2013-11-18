@@ -10,30 +10,6 @@
 
         <h2 class="heading"><span aria-hidden="true" class="icon-icon-01"></span> ${product.title}</h2>
           <div class="right-icon text-right">Products</div>
-          
-          
-%{--           <div class="row search-row">
-            <div class="col-md-12 search">
-
-                <div class="pull-left text">農產品批號:</div>
-                <div class="col-md-10">
-                  <div class="input-group">
-                    <input type="text" class="form-control">
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-                      <ul class="dropdown-menu pull-right">
-                        <li><a href="#">2015-A</a></li>
-                        <li><a href="#">2015-B</a></li>
-                        <li><a href="#">2015-C</a></li>
-                        <li><a href="#">FTINAA-20121217</a></li>
-                      </ul>
-                    </div><!-- /btn-group -->
-                  </div><!-- /input-group -->
-                </div><!-- /.col-md-12 -->
-                
-              </div>
-              <div class="dashline"></div>  
-          </div> --}%
         
           <!--banner-->
           <div id="myCarousel"  class="slider">
@@ -79,7 +55,9 @@
               <tbody>
                 <tr>
                   <g:each in="${product.body}" var="entry" >
-                    <td data-title='<g:message code="${entry.key}.label" />'>${entry.value}</td>
+                    <td data-title='<g:message code="${entry.key}.label" />'
+                      ${ entry.key == 'batch.expirationDate'?'class=maxw-35':''}
+                    >${entry.value}</td>
                   </g:each>
                 </tr>
               </tbody>
