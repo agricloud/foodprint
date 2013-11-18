@@ -78,6 +78,8 @@ class Batch  {
     */
 	Country country = foodprint.Country.TAIWAN
 
+	String remark
+
 
 
 	static constraints = {
@@ -92,6 +94,7 @@ class Batch  {
 		expirationDate 		nullable: true
 		supplier 			nullable: true
 		uuid 				nullable: true
+		remark nullable: true
 	}
 
 	String uuid
@@ -102,6 +105,11 @@ class Batch  {
     }
 	public String toString(){
     	"批號編號：${name}, 品項名稱：${item.title}"
+    }
+
+    static mapping = {
+        batchRoutes sort:'sequence'
+        batchSources sort:'childBatch'
     }
 
 }
