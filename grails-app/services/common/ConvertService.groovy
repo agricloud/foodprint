@@ -33,6 +33,9 @@ class ConvertService {
 	    result.item = batch.item
 	    result.dueDate = batch.dueDate
 	    result.expectQty = batch.expectQty
+	    result.manufactureDate = batch.manufactureDate
+	    result.expirationDate = batch.expirationDate
+	    result.remark = batch.remark
 	    if(batch.item){
 	        result["item.id"] = batch.item.id
 	        result["item.name"] = batch.item.name

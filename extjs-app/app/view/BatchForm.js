@@ -75,6 +75,23 @@ Ext.define('foodprint.view.BatchForm', {
                     fieldLabel: 'expectQty',
                     name: 'expectQty',
                     allowBlank: false
+                },
+                {
+                    xtype: 'datefield',
+                    itemId: 'manufactureDate',
+                    fieldLabel: 'manufactureDate',
+                    name: 'manufactureDate'
+                },
+                {
+                    xtype: 'datefield',
+                    itemId: 'expirationDate',
+                    fieldLabel: 'expirationDate',
+                    name: 'expirationDate'
+                },
+                {
+                    xtype: 'textareafield',
+                    fieldLabel: 'remark',
+                    name: 'remark'
                 }
             ]
         });

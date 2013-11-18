@@ -70,6 +70,17 @@ Ext.define('foodprint.model.Batch', {
         },
         {
             name: 'expectQty'
+        },
+        {
+            name: 'manufactureDate',
+            type: 'date'
+        },
+        {
+            name: 'expirationDate',
+            type: 'date'
+        },
+        {
+            name: 'remark'
         }
     ],
 

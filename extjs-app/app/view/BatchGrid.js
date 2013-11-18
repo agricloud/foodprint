@@ -122,6 +122,26 @@ Ext.define('foodprint.view.BatchGrid', {
                     dataIndex: 'expectQty',
                     text: 'ExpectQty',
                     flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'manufactureDate',
+                    text: 'ManufactureDate',
+                    flex: 1,
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'expirationDate',
+                    text: 'ExpirationDate',
+                    flex: 1,
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'remark',
+                    text: 'Remark',
+                    flex: 1
                 }
             ],
             dockedItems: [
