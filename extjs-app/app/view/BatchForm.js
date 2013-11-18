@@ -55,9 +55,9 @@ Ext.define('foodprint.view.BatchForm', {
                     fieldLabel: 'country',
                     name: 'country',
                     editable: false,
-                    displayField: 'name',
+                    displayField: 'title',
                     store: 'CountryStore',
-                    valueField: 'name'
+                    valueField: 'title'
                 },
                 {
                     xtype: 'commonsuppliercombo'

@@ -7,7 +7,7 @@ import grails.converters.JSON
 class SupplierController {
 
     def domainService
-
+    def enumService
 
     def index(params) {
 
@@ -25,16 +25,8 @@ class SupplierController {
         def supplier=Supplier.findById(id);  
         if(supplier){    
 
-            def supplierJson =  JSON.parse((supplier as JSON).toString())            
-
-            if(supplier.country){
-                supplierJson["country"] = supplier.country.name()
-            }
-            else
-	            supplierJson["country"] = null
-
             render (contentType: 'application/json') {
-                [success: true,data:supplierJson]
+                [success: true,data:supplier]
             }
         }else {
             render (contentType: 'application/json') {
@@ -48,9 +40,9 @@ class SupplierController {
 
         def supplier=new Supplier()
         def supplierJson =  JSON.parse((supplier as JSON).toString())
-        supplierJson["country"] = supplier.country.name()       
+
         render (contentType: 'application/json') {
-            [success: true,data:supplierJson]
+            [success: true,data:supplier]
         }
     }
     def save(){
@@ -95,7 +87,7 @@ class SupplierController {
     def indexCountry(){
 
         render (contentType: 'application/json') {
-            [Country:foodprint.Country.values()]
+            [Country:enumService.values(foodprint.Country)]
         }
     }
 

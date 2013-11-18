@@ -18,10 +18,11 @@ Ext.define('foodprint.model.Country', {
 
     fields: [
         {
-            name: 'enumType'
+            mapping: 'name',
+            name: 'country'
         },
         {
-            name: 'name'
+            name: 'title'
         }
     ],
 

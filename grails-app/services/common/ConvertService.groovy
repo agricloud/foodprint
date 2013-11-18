@@ -3,6 +3,8 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import grails.converters.JSON
 class ConvertService {
 
+	def enumService
+
     def getDomainFields(domainClassName) {
     		def fields = []
     		def d = new DefaultGrailsDomainClass(domainClassName)
@@ -46,7 +48,9 @@ class ConvertService {
             result["supplier.title"] = batch.supplier.title
         }
         if(batch.country){
-        	result["country"] = batch.country.name()   
+        	def country=enumService.name(batch.country)
+        	result["country"] = country.name
+        	result["countryTitle"] = country.title
         }
 	    
 	    result
@@ -89,7 +93,10 @@ class ConvertService {
 	    result.id= supplier.id
 	    result.name = supplier.name
 	    result.title = supplier.title
-	    result.country = supplier.country
+	    def country = enumService.name(supplier.country)
+	    result.country = [:]
+	    result.country = country.name
+        result.countryTitle = country.title
 	    result.tel = supplier.tel
 	    result.email = supplier.email
 	    result.address = supplier.address

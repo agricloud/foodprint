@@ -66,8 +66,15 @@ Ext.define('foodprint.view.SupplierView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
                                     dataIndex: 'country',
                                     text: 'Country',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'countryTitle',
+                                    text: 'Country.title',
                                     flex: 1
                                 },
                                 {
@@ -152,9 +159,15 @@ Ext.define('foodprint.view.SupplierView', {
                                     fieldLabel: 'country',
                                     name: 'country',
                                     editable: false,
-                                    displayField: 'name',
+                                    displayField: 'title',
                                     store: 'CountryStore',
-                                    valueField: 'name'
+                                    valueField: 'country',
+                                    listeners: {
+                                        render: {
+                                            fn: me.onComboboxRender,
+                                            scope: me
+                                        }
+                                    }
                                 },
                                 {
                                     xtype: 'textfield',
@@ -191,6 +204,10 @@ Ext.define('foodprint.view.SupplierView', {
     },
 
     onGridAfterRender: function(component, eOpts) {
+        component.getStore().load();
+    },
+
+    onComboboxRender: function(component, eOpts) {
         component.getStore().load();
     }
 

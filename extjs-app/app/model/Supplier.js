@@ -28,8 +28,10 @@ Ext.define('foodprint.model.Supplier', {
             name: 'title'
         },
         {
-            mapping: 'country.name',
             name: 'country'
+        },
+        {
+            name: 'countryTitle'
         },
         {
             name: 'tel'

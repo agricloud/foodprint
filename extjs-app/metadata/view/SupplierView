@@ -109,11 +109,26 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "dataIndex": "country",
                                 "text": "Country",
                                 "flex": 1
                             },
                             "designerId": "8434fce6-342b-4806-9d88-8f1de32910f8"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "countryTitle",
+                                "text": "Country.title",
+                                "flex": 1
+                            },
+                            "designerId": "35459837-5248-43aa-83f3-b266defdb405"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -325,11 +340,30 @@
                                 "fieldLabel": "country",
                                 "name": "country",
                                 "editable": false,
-                                "displayField": "name",
+                                "displayField": "title",
                                 "store": "CountryStore",
-                                "valueField": "name"
+                                "valueField": "country"
                             },
-                            "designerId": "90908076-f4b8-4a37-ab7e-c53530baea1c"
+                            "designerId": "90908076-f4b8-4a37-ab7e-c53530baea1c",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxRender",
+                                        "implHandler": [
+                                            "component.getStore().load();"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "35b00d90-74b8-4a0a-9062-29d748a63376"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Text",
