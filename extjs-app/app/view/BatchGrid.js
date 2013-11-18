@@ -18,6 +18,7 @@ Ext.define('foodprint.view.BatchGrid', {
     alias: 'widget.batchgrid',
 
     itemId: 'batchGrid',
+    title: '124',
     store: 'BatchStore',
 
     initComponent: function() {
@@ -39,7 +40,7 @@ Ext.define('foodprint.view.BatchGrid', {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
                     text: 'Name',
-                    flex: 1
+                    flex: 1.5
                 },
                 {
                     xtype: 'gridcolumn',
