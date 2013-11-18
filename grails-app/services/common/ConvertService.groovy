@@ -31,12 +31,14 @@ class ConvertService {
 	    result.item = batch.item
 	    result.dueDate = batch.dueDate
 	    result.expectQty = batch.expectQty
-        result["item.id"] = batch.item.id
-        result["item.name"] = batch.item.name
-        result["item.title"] = batch.item.title
-        result["item.spec"] = batch.item.spec
-        result["item.unit"] = batch.item.unit
-        result["item.description"] = batch.item.description
+	    if(batch.item){
+	        result["item.id"] = batch.item.id
+	        result["item.name"] = batch.item.name
+	        result["item.title"] = batch.item.title
+	        result["item.spec"] = batch.item.spec
+	        result["item.unit"] = batch.item.unit
+	        result["item.description"] = batch.item.description
+	    }
         if(batch.supplier){
         	result.supplier = batch.supplier
             result["supplier.id"] = batch.supplier.id
