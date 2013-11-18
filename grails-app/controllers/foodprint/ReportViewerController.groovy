@@ -29,18 +29,14 @@ class ReportViewerController {
         product.head["batch.name"] = batch.name
         product.head["item.title"] = batch.item.title
         product.head["item.description"] = batch.item.description
+        product.head["batch.remark"] = batch?.remark
 
 
         product.body["item.name"] = batch.item.name
         product.body["batch.manufactureDate"] = g.formatDate(date: batch.manufactureDate, format: 'yyyy.MM.dd')
-        product.body["batch.expirationDate"] = (
-            batch.expirationDate 
-                ? "未做防腐處理，常溫下建議 ${g.formatDate(date: batch.expirationDate, format: 'yyyy.MM.dd')} 前食用或冷藏保鮮" 
-                : ""
-        )
-
-        
+        product.body["batch.expirationDate"] = g.formatDate(date: batch.expirationDate, format: 'yyyy.MM.dd')        
         product.body["item.spec"] = batch.item.spec
+
         
         def otherReports=[]
         def batchReportDets = BatchReportDet.findAllByBatch(batch)
@@ -114,8 +110,9 @@ class ReportViewerController {
         batchSourceReportMap.params=[]
 
 
-        def batchChilds=batchAnalyzeService.backwardTraceToFinal(batch).batchChilds
-        batchChilds.each(){ childBatch ->
+        def batchFinal=batchAnalyzeService.backwardTraceToFinal(batch)
+
+        batchFinal.batchChilds.each(){ childBatch ->
 
             def param = [:]
             // param["batch.name"] = childBatch.name
