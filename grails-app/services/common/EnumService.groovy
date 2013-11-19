@@ -12,14 +12,16 @@ class EnumService {
 		println "3::"+className
 
 		def enumClassAry = enumClass.values()
-		def enumClassJson = [:]
+		def result = []
 		Object[] obj
         enumClassAry.each{
         	enumClassJson.title = messageSource.getMessage(className+'.'+it+'.label',obj, Locale.getDefault())
-        	enumClassJson.name = it
+        	enumClassJson.name = it.name()
+
+        	result << enumClassJson
         }
 
-        enumClassJson
+        result
 	}
 
 	def name(enumInstance){//ex: Country country

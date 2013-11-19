@@ -8,17 +8,20 @@ import grails.converters.JSON
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
 @TestFor(EnumService)
-@Mock([Supplier])
+@Mock([Supplier, TestService])
 class EnumServiceTests {
 
 	//似乎不支援enum in domain的測試
 	void testEnumValues() {
-		messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
-		messageSource.addMessage("country.JAPAN.label", Locale.getDefault(), "日本")
-		messageSource.addMessage("country.CHINA.label", Locale.getDefault(), "中國")
-		messageSource.addMessage("country.HONGKONG.label", Locale.getDefault(), "香港")
+		def testService = new TestService()
+		testService.createTestMessage(messageSource)
 
-		println service.values(Country)
+		def result = service.values(Country)
+
+		assert result.size() > 0
+		assert result[0].title
+		assert result[0].name
+
 	}
 
 	void testEnumName() {
