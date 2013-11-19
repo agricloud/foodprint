@@ -35,6 +35,9 @@ Ext.define('foodprint.model.Param', {
             name: 'paramType'
         },
         {
+            name: 'paramType.title'
+        },
+        {
             name: 'description'
         },
         {

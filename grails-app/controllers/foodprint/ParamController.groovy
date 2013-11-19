@@ -5,6 +5,7 @@ class ParamController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
+    def enumService
 
     def index() {
 

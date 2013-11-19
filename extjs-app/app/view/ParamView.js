@@ -77,6 +77,12 @@ Ext.define('foodprint.view.ParamView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'paramType.title',
+                                    text: 'ParamType.Title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'description',
                                     text: 'Description',
                                     flex: 1
@@ -180,7 +186,7 @@ Ext.define('foodprint.view.ParamView', {
                                             editable: false,
                                             displayField: 'title',
                                             store: 'ParamTypeStore',
-                                            valueField: 'title'
+                                            valueField: 'name'
                                         },
                                         {
                                             xtype: 'textfield',

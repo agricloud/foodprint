@@ -147,8 +147,8 @@ class ConvertService {
 	    result.defaultValue = param.defaultValue
 	    def paramType = enumService.name(param.paramType)
 	    result.paramType = [:]
-	    result.paramType = paramType.name
-        result.paramTypeTitle = paramType.title
+	    result.paramType.name = paramType.name
+        result.paramType.title = paramType.title
 	    result.description = param.description
 	    result.lower = param.lower
 	    result.upper = param.upper
