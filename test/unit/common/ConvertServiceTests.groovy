@@ -11,10 +11,13 @@ import grails.converters.JSON
 @Mock([Batch, Item,
 	Supplier,Workstation,Operation,
 	BatchRoute,
-	Param,Report,ReportParams,BatchReportDet])
+	Param,Report,ReportParams,BatchReportDet,EnumService])
 class ConvertServiceTests {
 
     void testBatchJsonConvert() {
+    	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
+
+
     	def item = new Item(name: 'item1').save()
     	def batch = new Batch(name:'batch1', item: item, expectQty:10).save()
 
@@ -26,7 +29,7 @@ class ConvertServiceTests {
 		    service.itemParseJson(it)
 		}
 
-		println batch as JSON
+		assert batch as JSON 
     }
 
     void testBatchRouteJsonConvert() {
@@ -57,7 +60,7 @@ class ConvertServiceTests {
 		    service.operationParseJson(it)
 		}
 
-		println batchRoute as JSON
+		assert batchRoute as JSON
     }
     void testBatchReportDetJsonConvert(){
 	    def item = new Item(name: 'item1',title:'品項1').save()
@@ -103,7 +106,7 @@ class ConvertServiceTests {
 		    service.batchReportDetParseJson(it)
 		}
 
-		println brd as JSON
+		assert brd as JSON
 	}
 }
 

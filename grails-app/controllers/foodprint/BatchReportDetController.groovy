@@ -100,7 +100,8 @@ class BatchReportDetController {
 
             if(it.key!="file" && it.key!="_dc" && it.key!="format" && it.key!="action" 
                 && it.key!="controller" && it.key!="criteria" 
-                && it.key!="id" && it.key!="startDate" && it.key!="endDate"){
+                && it.key!="id" && it.key!="startDate" && it.key!="endDate"
+                && it.key!="batchRoute.id"){
 
                 def batchReportDetInstance=BatchReportDet.findById(it.key)
                 if (!batchReportDetInstance) {
@@ -113,6 +114,9 @@ class BatchReportDetController {
                 }
 
                 batchReportDetInstance.value = it.value
+                if(params["batchRoute.id"]){
+                    batchReportDetInstance.batchRoute = BatchRoute.findById(params["batchRoute.id"])
+                }
 
                 if(!domainService.save(batchReportDetInstance).success)
                     failure<< batchReportDetInstance.reportParams.param.title

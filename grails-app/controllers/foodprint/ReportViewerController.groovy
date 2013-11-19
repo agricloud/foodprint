@@ -158,7 +158,7 @@ class ReportViewerController {
             
             param["agriculture.operation.title"] = batchRoute?.operation?.title
 
-            param["agriculture.batchRoute.endDate"] = g.formatDate(date: batchRoute?.endDate, format: 'yyyy.MM.dd')
+            param["agriculture.batchRoute.endDate"] = g.formatDate(date: batchRoute?.startDate, format: 'yyyy.MM.dd')
 
             param["agriculture.workstation.title"] = batchRoute?.workstation?.title
             param["operation.description"] = batchRoute?.operation?.description
