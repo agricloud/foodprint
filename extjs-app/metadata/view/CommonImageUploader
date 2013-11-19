@@ -9,6 +9,8 @@
         "domainName": "none",
         "domainId": -1,
         "container|align": "stretch",
+        "container|pack": null,
+        "container|padding": null,
         "height": null,
         "maxHeight": 200,
         "minHeight": null,
@@ -40,75 +42,6 @@
     ],
     "cn": [
         {
-            "type": "Ext.Img",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "layout|flex": 1,
-                "itemId": "mainImg",
-                "src": ""
-            },
-            "designerId": "ca0800a8-c027-46be-b4c1-cbc21a888daa"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "showImage",
-                "implHandler": [
-                    "",
-                    "console.log(\"do show img\");",
-                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName);"
-                ]
-            },
-            "designerId": "52872bb3-842e-4ab2-ad08-797015ae78eb"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "saveImage",
-                "implHandler": [
-                    "",
-                    "var form = this.getForm();",
-                    "var domainName = this.domainName;",
-                    "var domainId = this.domainId;",
-                    "",
-                    "if(!domainId){",
-                    "    Ext.Msg.alert('Error', \"can't get id!\");",
-                    "",
-                    "}else if(form.isValid()){",
-                    "",
-                    "\tvar that=this;",
-                    "    form.submit({",
-                    "        url: '/attachment/save',",
-                    "        waitMsg: 'Uploading your file...',",
-                    "        params: {",
-                    "            domainName:domainName,",
-                    "            domainId: domainId",
-                    "        },",
-                    "        success: function(form, action) {",
-                    "            Ext.Msg.alert('Success', 'Your file has been uploaded.');",
-                    "            that.showImage();",
-                    "        }",
-                    "    });",
-                    "}"
-                ]
-            },
-            "designerId": "1435a89b-7509-4d88-9d44-84abb1b7bb5c"
-        },
-        {
             "type": "Ext.toolbar.Toolbar",
             "reference": {
                 "name": "dockedItems",
@@ -117,7 +50,9 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": 1,
-                "dock": "top"
+                "dock": "top",
+                "container|align": null,
+                "container|pack": "center"
             },
             "designerId": "ebb6f433-7387-47b3-a25a-169562107acf",
             "cn": [
@@ -205,6 +140,76 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "dock": null,
+                "itemId": "mainImg",
+                "src": ""
+            },
+            "designerId": "ca0800a8-c027-46be-b4c1-cbc21a888daa"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showImage",
+                "implHandler": [
+                    "",
+                    "console.log(\"do show img\");",
+                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName);"
+                ]
+            },
+            "designerId": "52872bb3-842e-4ab2-ad08-797015ae78eb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "saveImage",
+                "implHandler": [
+                    "",
+                    "var form = this.getForm();",
+                    "var domainName = this.domainName;",
+                    "var domainId = this.domainId;",
+                    "",
+                    "if(!domainId){",
+                    "    Ext.Msg.alert('Error', \"can't get id!\");",
+                    "",
+                    "}else if(form.isValid()){",
+                    "",
+                    "\tvar that=this;",
+                    "    form.submit({",
+                    "        url: '/attachment/save',",
+                    "        waitMsg: 'Uploading your file...',",
+                    "        params: {",
+                    "            domainName:domainName,",
+                    "            domainId: domainId",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', 'Your file has been uploaded.');",
+                    "            that.showImage();",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "1435a89b-7509-4d88-9d44-84abb1b7bb5c"
         },
         {
             "type": "basicfunction",

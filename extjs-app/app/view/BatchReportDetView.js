@@ -21,11 +21,12 @@ Ext.define('foodprint.view.BatchReportDetView', {
         'foodprint.view.BatchGrid',
         'foodprint.view.BatchRouteGrid',
         'foodprint.view.CommonImageUploader',
-        'foodprint.view.CommonIndexToolbar',
-        'foodprint.view.CommonShowToolbar'
+        'foodprint.view.CommonSaveBtn',
+        'foodprint.view.CommonShowBtn',
+        'Ext.toolbar.Toolbar',
+        'foodprint.view.CommonCancelBtn'
     ],
 
-    autoScroll: true,
     layout: {
         type: 'card'
     },
@@ -55,7 +56,6 @@ Ext.define('foodprint.view.BatchReportDetView', {
                         {
                             xtype: 'batchgrid',
                             itemId: 'masterGrid',
-                            width: 722,
                             autoScroll: true,
                             flex: 1
                         },
@@ -82,7 +82,6 @@ Ext.define('foodprint.view.BatchReportDetView', {
                         ]
                     },
                     itemId: 'show',
-                    autoScroll: true,
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
@@ -90,7 +89,8 @@ Ext.define('foodprint.view.BatchReportDetView', {
                     items: [
                         {
                             xtype: 'form',
-                            flex: 1,
+                            flex: 2,
+                            height: 300,
                             itemId: 'form',
                             autoScroll: true,
                             layout: {
@@ -100,16 +100,27 @@ Ext.define('foodprint.view.BatchReportDetView', {
                             bodyPadding: 10
                         },
                         {
-                            xtype: 'commonimageuploader',
-                            domainName: 'batchRoute',
-                            autoScroll: true,
+                            xtype: 'panel',
                             flex: 1,
-                            listeners: {
-                                render: {
-                                    fn: me.onFormRender,
-                                    scope: me
+                            layout: {
+                                align: 'center',
+                                type: 'vbox'
+                            },
+                            items: [
+                                {
+                                    xtype: 'commonimageuploader',
+                                    domainName: 'batchRoute',
+                                    width: 300,
+                                    autoScroll: true,
+                                    flex: 1,
+                                    listeners: {
+                                        render: {
+                                            fn: me.onFormRender,
+                                            scope: me
+                                        }
+                                    }
                                 }
-                            }
+                            ]
                         }
                     ]
                 }

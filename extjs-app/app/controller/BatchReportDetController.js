@@ -158,7 +158,7 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                     };
                                     break;
                                     default:
-                                    console.log('error: not defined paramType');
+                                    console.log('error: not defined paramType'+store.getAt(i).data['reportParams.param.paramType']);
                                     break;
 
                                 }

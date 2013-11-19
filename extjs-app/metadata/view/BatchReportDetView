@@ -11,10 +11,11 @@
         "designer|userClassName": "BatchReportDetView",
         "designer|userAlias": "batchreportdetview",
         "requires": [
-            "foodprint.view.CommonIndexToolbar",
-            "foodprint.view.CommonShowToolbar"
+            "foodprint.view.CommonSaveBtn",
+            "foodprint.view.CommonShowBtn",
+            "Ext.toolbar.Toolbar",
+            "foodprint.view.CommonCancelBtn"
         ],
-        "autoScroll": true,
         "layout": "card"
     },
     "designerId": "d0dac498-08f5-438d-811f-48e567347666",
@@ -38,7 +39,10 @@
                     "    ]",
                     "}"
                 ],
+                "dock": null,
                 "container|align": "stretch",
+                "height": null,
+                "hidden": null,
                 "itemId": "index",
                 "layout": "vbox",
                 "title": null
@@ -63,9 +67,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": null,
                         "itemId": "masterGrid",
-                        "width": 722,
                         "autoScroll": true,
                         "layout|flex": 1
                     },
@@ -81,6 +83,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "grid",
+                        "width": null,
                         "autoScroll": true,
                         "title": "批號途程",
                         "layout|flex": 1,
@@ -112,9 +115,10 @@
                     "    ]",
                     "}"
                 ],
+                "dock": null,
                 "container|align": "stretch",
                 "itemId": "show",
-                "autoScroll": true,
+                "width": null,
                 "layout": "vbox",
                 "title": null
             },
@@ -138,8 +142,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1,
+                        "layout|flex": 2,
+                        "dock": null,
                         "container|align": "stretch",
+                        "height": 300,
                         "itemId": "form",
                         "autoScroll": true,
                         "layout": "vbox",
@@ -152,39 +158,64 @@
                     "designerId": "d326764f-dcc4-480c-9858-7b2d8be1c9e1"
                 },
                 {
-                    "type": "linkedinstance",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "domainName": "batchRoute",
-                        "itemId": null,
-                        "minWidth": null,
-                        "width": null,
-                        "autoScroll": true,
-                        "layout|flex": 1
+                        "layout|flex": 1,
+                        "container|align": "center",
+                        "layout": "vbox",
+                        "title": null
                     },
-                    "designerId": "d9e44c7d-9305-498b-9f78-9a3bf81dc9e1",
-                    "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+                    "designerId": "eb2330e2-8069-4c31-bf5b-bade50dbcf8f",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "linkedinstance",
                             "reference": {
-                                "name": "listeners",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onFormRender",
-                                "implHandler": [
-                                    "component.showToolbar();"
-                                ],
-                                "name": "render",
-                                "scope": "me"
+                                "domainName": "batchRoute",
+                                "container|align": null,
+                                "container|pack": null,
+                                "itemId": null,
+                                "margin": null,
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "width": 300,
+                                "autoScroll": true,
+                                "defaultAlign": null,
+                                "titleAlign": null,
+                                "layout|flex": 1,
+                                "layout|margins": null,
+                                "dock": null
                             },
-                            "designerId": "d9ed0832-5d88-4bcf-9acd-9a3670144b89"
+                            "designerId": "d9e44c7d-9305-498b-9f78-9a3bf81dc9e1",
+                            "masterInstanceId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onFormRender",
+                                        "implHandler": [
+                                            "component.showToolbar();"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "d9ed0832-5d88-4bcf-9acd-9a3670144b89"
+                                }
+                            ]
                         }
                     ]
                 }

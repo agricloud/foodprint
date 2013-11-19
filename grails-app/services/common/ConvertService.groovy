@@ -223,7 +223,9 @@ class ConvertService {
         result["reportParams.param.name"] = batchReportDet.reportParams.param.name
         result["reportParams.param.title"] = batchReportDet.reportParams.param.title
         result["reportParams.param.defaultValue"] = batchReportDet.reportParams.param.defaultValue
-	    result["reportParams.param.paramType"] = batchReportDet.reportParams.param.paramType
+        def paramType = enumService.name(batchReportDet.reportParams.param.paramType)
+	    result["reportParams.param.paramType"] = paramType.name
+	    result["reportParams.param.paramTypeTitle"] = paramType.title
 
 	    result
     }

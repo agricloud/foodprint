@@ -30,19 +30,15 @@ Ext.define('foodprint.view.CommonImageUploader', {
         var me = this;
 
         Ext.applyIf(me, {
-            items: [
-                {
-                    xtype: 'image',
-                    flex: 1,
-                    itemId: 'mainImg',
-                    src: ''
-                }
-            ],
             dockedItems: [
                 {
                     xtype: 'toolbar',
                     flex: 1,
                     dock: 'top',
+                    layout: {
+                        pack: 'center',
+                        type: 'hbox'
+                    },
                     items: [
                         {
                             xtype: 'filefield',
@@ -64,6 +60,14 @@ Ext.define('foodprint.view.CommonImageUploader', {
                             text: '刪除檔案'
                         }
                     ]
+                }
+            ],
+            items: [
+                {
+                    xtype: 'image',
+                    flex: 1,
+                    itemId: 'mainImg',
+                    src: ''
                 }
             ]
         });
