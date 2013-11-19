@@ -53,8 +53,7 @@ Ext.define('foodprint.model.TraceTree', {
             name: 'batchType'
         },
         {
-            mapping: 'country.name',
-            name: 'country'
+            name: 'countryTitle'
         },
         {
             mapping: 'item.id',

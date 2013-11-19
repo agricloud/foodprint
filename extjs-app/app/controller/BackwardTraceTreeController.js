@@ -78,7 +78,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                         'sheet.name':record.sheet.name,
                         'sheet.typeName':record.sheet.typeName,
                         expectQty:record.expectQty,
-                        country:record.country.name,
+                        'countryTitle':record.countryTitle,
                         dueDate:record.dueDate,
                         'supplier.id':record.supplier.id
 

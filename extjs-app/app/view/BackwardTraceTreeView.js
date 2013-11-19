@@ -89,8 +89,8 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'country',
-                            text: 'country',
+                            dataIndex: 'countryTitle',
+                            text: 'country.title',
                             flex: 1
                         },
                         {
