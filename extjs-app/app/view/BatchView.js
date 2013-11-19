@@ -24,7 +24,6 @@ Ext.define('foodprint.view.BatchView', {
         'foodprint.view.CommonShowToolbar'
     ],
 
-    activeItem: 1,
     layout: {
         type: 'card'
     },

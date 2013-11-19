@@ -58,11 +58,9 @@ Ext.define('foodprint.store.BatchRouteParamsStore', {
                     name: 'reportParams.param.title'
                 },
                 {
-                    mapping: '',
                     name: 'reportParams.param.paramType'
                 },
                 {
-                    mapping: '',
                     name: 'reportParams.param.paramTypeTitle'
                 },
                 {
