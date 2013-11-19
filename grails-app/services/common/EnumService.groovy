@@ -9,14 +9,17 @@ class EnumService {
 	def values(enumClass){//ex :foodprint.Country
 
 		def enumClassAry = enumClass.values()
-		def enumClassJson = [:]
+		def result = []
 		Object[] obj
         enumClassAry.each{
+        	def enumClassJson = [:]
         	enumClassJson.title = messageSource.getMessage('country.'+it+'.label',obj, Locale.getDefault())
-        	enumClassJson.name = it
+        	enumClassJson.name = it.name()
+
+        	result << enumClassJson
         }
 
-        enumClassJson
+        result
 	}
 
 	def name(enumInstance){//ex: Country country

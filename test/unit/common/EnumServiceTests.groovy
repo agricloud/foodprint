@@ -16,7 +16,12 @@ class EnumServiceTests {
 		def testService = new TestService()
 		testService.createTestMessage(messageSource)
 
-		println service.values(Country)
+		def result = service.values(Country)
+
+		assert result.size() > 0
+		assert result[0].title
+		assert result[0].name
+
 	}
 
 	void testEnumName() {
