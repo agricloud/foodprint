@@ -24,6 +24,7 @@ class BootStrap {
 
             development {
                 createStdTestData()
+                createExtraRouteData()
                 createOtherReport()
                 createNutritionReport()
                 createInspectReport()
@@ -75,37 +76,43 @@ class BootStrap {
     private createStdTestData(){
         //標準測試資料，作為驗證以及 unit test 用
 
-        def item1 = new Item(name:"item1",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種 (Non-Genetically Modifie) 生長強健，特別耐熱、耐濕及抗倒伏，抗病毒病、葉斑病、螟蟲， 果穗整齊飽滿，著粒完整，穗粒淡黃色， 皮非常薄(有無皮的感覺)，脆嫩香甜，品質非常優良。 糖分保持力較長，較耐貯運。").save(failOnError: true, flush: true)
+        def item = new Item(name:"item1",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種 (Non-Genetically Modifie) 生長強健，特別耐熱、耐濕及抗倒伏，抗病毒病、葉斑病、螟蟲， 果穗整齊飽滿，著粒完整，穗粒淡黃色， 皮非常薄(有無皮的感覺)，脆嫩香甜，品質非常優良。 糖分保持力較長，較耐貯運。").save(failOnError: true, flush: true)
 
-        def batch1 = new Batch(name:"batch1",item:item1,dueDate:new Date(), 
+        def batch = new Batch(name:"batch1",item:item,dueDate:new Date(), 
                 manufactureDate: new Date(), expirationDate: new Date(), remark: '備註').save(failOnError: true, flush: true)
 
-        def workstation1 = new Workstation(name:"workstation1",title:"檢驗站01").save(failOnError: true, flush: true)
-        def workstation2 = new Workstation(name:"workstation2",title:"檢驗站02").save(failOnError: true, flush: true)
+        def workstation = new Workstation(name:"workstation1",title:"檢驗站01").save(failOnError: true, flush: true)
+        def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true, flush: true)
 
-        def operation1 = new Operation(name:"operation1",title:"施肥").save(failOnError: true, flush: true)
-        def operation2 = new Operation(name:"operation2",title:"翻土").save(failOnError: true, flush: true)
+        def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation,workstation:workstation).save(failOnError: true, flush: true)
+        def batchRoute = new BatchRoute(batch:batch,workstation:workstation,sequence:1,operation:operation).save(failOnError: true,flush: true)
 
-        def itemRoute1=new ItemRoute(item:item1,sequence:1,operation:operation1,workstation:workstation1).save(failOnError: true, flush: true)
-        def itemRoute2=new ItemRoute(item:item1,sequence:2,operation:operation1,workstation:workstation2).save(failOnError: true, flush: true)
-        def itemRoute3=new ItemRoute(item:item1,sequence:3,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
-        def itemRoute4=new ItemRoute(item:item1,sequence:4,operation:operation2,workstation:workstation2).save(failOnError: true, flush: true)
-
-        def batchRoute1=new BatchRoute(batch:batch1,workstation:workstation1,sequence:1,operation:operation1).save(failOnError: true,flush: true)
-        def batchRoute2=new BatchRoute(batch:batch1,workstation:workstation1,sequence:2,operation:operation2,startDate:new Date()).save(failOnError: true,flush: true)
-        def batchRoute3=new BatchRoute(batch:batch1,workstation:workstation2,sequence:3,operation:operation1).save(failOnError: true,flush: true)
-        def batchRoute4=new BatchRoute(batch:batch1,workstation:workstation2,sequence:4,operation:operation2).save(failOnError: true,flush: true)
-
-
-        def user01 = new User(username: 'user01', password: 'user01', enabled: true).save(failOnError: true, flush: true)
-        def cutstomer1 = new Customer(name:"cutstomer1",title:"A先生").save(failOnError: true, flush: true)
-        def supplier1 = new Supplier(name:"supplier1",title:"A公司",email:"A@xx.com",address:"台北市忠孝東路222號").save(failOnError: true, flush: true)
+        def user = new User(username: 'user', password: 'user', enabled: true).save(failOnError: true, flush: true)
+        def cutstomer = new Customer(name:"cutstomer",title:"A先生").save(failOnError: true, flush: true)
+        def supplier = new Supplier(name:"supplier",title:"A公司",email:"A@xx.com",address:"台北市忠孝東路222號").save(failOnError: true, flush: true)
                         
 
 
 
     }
+    private createExtraRouteData(){
+        def item = Item.get(1)
+        def batch = Batch.get(1)
 
+        def workstation1 = Workstation.get(1)
+        def operation1 = Operation.get(1)
+
+        def workstation2 = new Workstation(name:"workstation2",title:"檢驗站02").save(failOnError: true, flush: true)
+        def operation2 = new Operation(name:"operation2",title:"翻土").save(failOnError: true, flush: true)
+
+        def itemRoute2=new ItemRoute(item:item,sequence:2,operation:operation1,workstation:workstation2).save(failOnError: true, flush: true)
+        def itemRoute3=new ItemRoute(item:item,sequence:3,operation:operation2,workstation:workstation1).save(failOnError: true, flush: true)
+        def itemRoute4=new ItemRoute(item:item,sequence:4,operation:operation2,workstation:workstation2).save(failOnError: true, flush: true)
+
+        def batchRoute2=new BatchRoute(batch:batch,workstation:workstation1,sequence:2,operation:operation2,startDate:new Date()).save(failOnError: true,flush: true)
+        def batchRoute3=new BatchRoute(batch:batch,workstation:workstation2,sequence:3,operation:operation1).save(failOnError: true,flush: true)
+        def batchRoute4=new BatchRoute(batch:batch,workstation:workstation2,sequence:4,operation:operation2).save(failOnError: true,flush: true)
+    }
     private createOtherReport(){
         def item = Item.get(1)
         def batch = Batch.get(1)
