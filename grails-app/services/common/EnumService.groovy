@@ -25,8 +25,8 @@ class EnumService {
 	}
 
 	def name(enumInstance){//ex: Country country
-		println "1::"+enumInstance.class
-		def className=enumInstance.class
+		println "1::"+enumInstance.class.replace('class foodprint.','')
+		def className=enumInstance.class.replace('class foodprint.','')
 		className = className[0].toLowerCase() + className[1..-1]
 		println "2::"+className
 		def enumInstanceJson =[:]
