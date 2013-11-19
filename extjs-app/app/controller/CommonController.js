@@ -88,19 +88,29 @@ Ext.define('foodprint.controller.CommonController', {
     doDelete: function() {
         var that = this ;
 
+        var msg = Ext.Msg;
+        msg.buttonText={
+            no: Utilities.getMsg('default.message.no'),
+            yes: Utilities.getMsg('default.message.yes')
+        };
 
-        this.actionName='delete';
-        this.submitForm(function(success){
-            if(success){
-                that.activeGrid();
-                that.actionName = '' ;
-                that.getMainGrid().getStore().reload();
-                that.disableShowBtn();
+        msg.confirm('Confirm delete', Utilities.getMsg('default.message.deleteConfirm'), function(e)
+        {
+            if(e == 'yes')
+            {
+                that.actionName='delete';
+                that.submitForm(function(success){
+                    if(success){
+                        that.activeGrid();
+                        that.actionName = '' ;
+                        that.getMainGrid().getStore().reload();
+                        that.disableShowBtn();
+                    }
+                    that.actionName='update';
+
+                });
             }
-            that.actionName='update';
-
         });
-
     },
 
     doSave: function() {
