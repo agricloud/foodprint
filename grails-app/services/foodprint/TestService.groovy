@@ -95,7 +95,8 @@ class TestService {
         messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 		messageSource.addMessage("country.JAPAN.label", Locale.getDefault(), "日本")
 		messageSource.addMessage("country.CHINA.label", Locale.getDefault(), "中國")
-		messageSource.addMessage("country.HONGKONG.label", Locale.getDefault(), "香港")   	
+		messageSource.addMessage("country.HONGKONG.label", Locale.getDefault(), "香港")
+        messageSource.addMessage("country.KOREA.label", Locale.getDefault(), "韓國")   	
     }
 
 
