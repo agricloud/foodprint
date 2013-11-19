@@ -219,10 +219,12 @@ class FoodpaintService {
         //log.debug object.item.name
         domain.item = Item.findByName(object.item.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
-
+        log.debug "匯入前domain::batch-manufactureDate"+domain.manufactureDate
+        log.debug "傳入資料foodpaint::batch-manufactureDate"+object.manufactureDate
         if(object.manufactureDate && object.manufactureDate!=null){
             domain.manufactureDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.manufactureDate)
         }
+        log.debug "預計匯入domain::batch-manufactureDate"+domain.manufactureDate
         domain
     }
 
@@ -238,11 +240,17 @@ class FoodpaintService {
         domain.operation = Operation.findByName(object.operation.name)
         domain.workstation = Workstation.findByName(object.workstation.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
-        //先以foodprint資料為主 暫不匯入foodpaint資料
-        if(object.startDate && object.startDate==null)
+        log.debug "目前不匯入製程日期"
+        log.debug "匯入前domain::batchRoute-date"+domain.startDate+"/"+domain.endDate
+        log.debug "傳入資料foodpaint::batchRoute-date"+object.startDate+"/"+object.endDate
+        //先以foodprint資料為主 暫不匯入foodpaint資料 若要匯入需打開
+        /*
+        if(object.startDate && object.startDate!=null)
             domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
-        if(object.endDate && object.endDate==null)
+        if(object.endDate && object.endDate!=null)
             domain.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
+        */
+        log.debug "預計匯入domain::batchRoute-date"+domain.startDate+"/"+domain.endDate
 
         domain
     }
