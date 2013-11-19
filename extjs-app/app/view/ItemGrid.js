@@ -57,18 +57,21 @@ Ext.define('foodprint.view.ItemGrid', {
                 },
                 {
                     xtype: 'numbercolumn',
+                    hidden: true,
                     dataIndex: 'dueDays',
                     text: 'DueDays',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
+                    hidden: true,
                     dataIndex: 'effectStartDate',
                     text: 'EffectStartDate',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
+                    hidden: true,
                     dataIndex: 'effectEndDate',
                     text: 'EffectEndDate',
                     flex: 1
