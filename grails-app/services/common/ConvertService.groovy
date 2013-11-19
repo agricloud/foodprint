@@ -145,7 +145,10 @@ class ConvertService {
 	    result.name = param.name
 	    result.title = param.title
 	    result.defaultValue = param.defaultValue
-	    result.paramType = param.paramType
+	    def paramType = enumService.name(param.paramType)
+	    result.paramType = [:]
+	    result.paramType = paramType.name
+        result.paramTypeTitle = paramType.title
 	    result.description = param.description
 	    result.lower = param.lower
 	    result.upper = param.upper
@@ -158,7 +161,10 @@ class ConvertService {
 	    result.id= report.id
 	    result.name = report.name
 	    result.title = report.title
-	    result.reportType = report.reportType
+	    def reportType = enumService.name(report.reportType)
+	    result.reportType = [:]
+	    result.reportType = reportType.name
+        result.reportTypeTitle = reportType.title
 	    result.description = report.description
 	    result.effectStartDate = report.effectStartDate
 	    result.effectEndDate = report.effectEndDate

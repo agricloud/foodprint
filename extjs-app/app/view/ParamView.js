@@ -178,9 +178,9 @@ Ext.define('foodprint.view.ParamView', {
                                             name: 'paramType',
                                             allowBlank: false,
                                             editable: false,
-                                            displayField: 'name',
+                                            displayField: 'title',
                                             store: 'ParamTypeStore',
-                                            valueField: 'name'
+                                            valueField: 'title'
                                         },
                                         {
                                             xtype: 'textfield',

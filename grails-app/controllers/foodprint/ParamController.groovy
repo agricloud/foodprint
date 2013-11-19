@@ -10,7 +10,6 @@ class ParamController {
 
         def list = Param.createCriteria().list(params,params.criteria)
 
-
         render (contentType: 'application/json') {
             [paramInstanceList: list, paramInstanceTotal: list.totalCount]
         }
@@ -25,7 +24,7 @@ class ParamController {
             log.info param.paramType.name()
             paramJson.paramType = param.paramType.name()
             render (contentType: 'application/json') {
-                [success: true,data:paramJson]
+                [success: true,data:param]
             }
         }else {
             render (contentType: 'application/json') {
@@ -86,7 +85,7 @@ class ParamController {
     def indexType(){
 
         render (contentType: 'application/json') {
-            return [ParamType:foodprint.ParamType.values()]
+            [ParamType:enumService.values(foodprint.ParamType)]
         }
     }
 }

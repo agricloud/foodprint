@@ -5,7 +5,13 @@ public enum Country {
     TAIWAN,
     JAPAN,
     CHINA,
-    HONGKONG
+    HONGKONG,
+    KOREA,
+    PHILIPPINES,
+    AMERICA,
+    AUSTRALIA,
+    FRENCE,
+    BRITAIN
 }
 
 
