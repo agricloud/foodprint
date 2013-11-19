@@ -6,6 +6,7 @@ class ReportController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
+
     def enumService
 
     def index() {
@@ -85,7 +86,6 @@ class ReportController {
     * 將定義在 report domain 中的 enum ReportType 轉換為 json
     */
     def indexType(){
-
         render (contentType: 'application/json') {
             [ReportType:enumService.values(foodprint.ReportType)]
         }
