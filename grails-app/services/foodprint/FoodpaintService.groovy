@@ -247,10 +247,10 @@ class FoodpaintService {
         log.debug "匯入前domain::batchRoute-date"+domain.startDate+"/"+domain.endDate
         log.debug "傳入資料foodpaint::batchRoute-date"+object.startDate+"/"+object.endDate
         
-        //製程日期以print還是paint為主 關閉表示暫不匯入foodpaint資料 若要匯入需打開
-        if(object.startDate && object.startDate!=null)
+        //製程日期以print為主 若print無資料記錄 才匯入paint段
+        if(object.startDate && object.startDate!=null && (!domain.startDate||domain.startDate==null))
             domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
-        if(object.endDate && object.endDate!=null)
+        if(object.endDate && object.endDate!=null && (!domain.startDate||domain.startDate==null))
             domain.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
 
         log.debug "預計匯入domain::batchRoute-date"+domain.startDate+"/"+domain.endDate
