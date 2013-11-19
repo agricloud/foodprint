@@ -105,12 +105,11 @@ class BatchReportDetController {
 
                 def batchReportDetInstance=BatchReportDet.findById(it.key)
                 if (!batchReportDetInstance) {
-                    log.warning "${controllerName}--${actionName}--batchReportDetInstance ${it.key} not found"
 
                     msg<< message(code: "default.message.notfound", args: [message(code: "batchReportDet.label"),it.key])
                     render (contentType: 'application/json') {
                         [success:false, message: msg.join('<br>')]
-                    }
+                    } 
                 }
 
                 batchReportDetInstance.value = it.value
