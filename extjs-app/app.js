@@ -36,9 +36,6 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    views: [
-        'CommonCountryCombo'
-    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

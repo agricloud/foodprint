@@ -21,10 +21,12 @@ Ext.define('foodprint.controller.SupplierController', {
     },
 
     models: [
-        'Supplier'
+        'Supplier',
+        'Country'
     ],
     stores: [
-        'SupplierStore'
+        'SupplierStore',
+        'CountryStore'
     ],
     views: [
         'SupplierView'

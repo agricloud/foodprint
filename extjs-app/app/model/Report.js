@@ -28,8 +28,10 @@ Ext.define('foodprint.model.Report', {
             name: 'title'
         },
         {
-            mapping: 'reportType.name',
             name: 'reportType'
+        },
+        {
+            name: 'reportTypeTitle'
         },
         {
             name: 'decription'

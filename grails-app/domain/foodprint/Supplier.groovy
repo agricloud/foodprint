@@ -1,6 +1,5 @@
 package foodprint
 
-
 class Supplier {
     /**
      * 廠別

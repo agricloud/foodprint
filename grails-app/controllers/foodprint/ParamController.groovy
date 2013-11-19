@@ -5,11 +5,11 @@ class ParamController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
+    def enumService
 
     def index() {
 
         def list = Param.createCriteria().list(params,params.criteria)
-
 
         render (contentType: 'application/json') {
             [paramInstanceList: list, paramInstanceTotal: list.totalCount]
@@ -20,12 +20,9 @@ class ParamController {
 
         def param=Param.findById(id);  
         if(param){ 
-            def paramJson = JSON.parse((param as JSON).toString())
 
-            log.info param.paramType.name()
-            paramJson.paramType = param.paramType.name()
             render (contentType: 'application/json') {
-                [success: true,data:paramJson]
+                [success: true,data:param]
             }
         }else {
             render (contentType: 'application/json') {
@@ -86,7 +83,7 @@ class ParamController {
     def indexType(){
 
         render (contentType: 'application/json') {
-            return [ParamType:foodprint.ParamType.values()]
+            [ParamType:enumService.values(foodprint.ParamType)]
         }
     }
 }
