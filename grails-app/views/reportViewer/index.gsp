@@ -13,13 +13,13 @@
         
           <!--banner-->
           <div id="myCarousel"  class="slider">
-              <div class="flexslider">
-                <ul class="slides">
-                  <li>
-                    <g:img uri='/attachment/show/${batch.item.id}?domainName=item' />
-                  </li>
-                </ul>
-              </div>        
+            <div class="flexslider">
+              <ul class="slides">
+                <li style="display: list-item;">
+                  <g:img uri='/attachment/show/${batch.item.id}?domainName=item' />
+                </li>
+              </ul>
+            </div>        
           </div>
           <!--banner-end-->
 

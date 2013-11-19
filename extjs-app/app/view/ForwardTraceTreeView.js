@@ -47,27 +47,31 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                             xtype: 'treecolumn',
                             dataIndex: 'item.title',
                             text: 'Item.title',
-                            flex: 1
+                            flex: 2
                         },
                         {
                             xtype: 'gridcolumn',
+                            hidden: true,
                             dataIndex: 'id',
                             text: 'id'
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'name',
-                            text: 'name'
+                            text: 'name',
+                            flex: 2
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'sheet.typeName',
-                            text: 'sheet.typeName'
+                            text: 'sheet.typeName',
+                            flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'sheet.name',
-                            text: 'sheet.name'
+                            text: 'sheet.name',
+                            flex: 1
                         },
                         {
                             xtype: 'numbercolumn',
@@ -77,6 +81,7 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                         },
                         {
                             xtype: 'datecolumn',
+                            hidden: true,
                             dataIndex: 'dueDate',
                             text: 'dueDate',
                             flex: 1
@@ -89,6 +94,7 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                         },
                         {
                             xtype: 'gridcolumn',
+                            hidden: true,
                             dataIndex: 'supplier.id',
                             text: 'supplier.id',
                             flex: 1
