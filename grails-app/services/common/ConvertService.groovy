@@ -97,7 +97,6 @@ class ConvertService {
 	    result.name = supplier.name
 	    result.title = supplier.title
 	    def country = enumService.name(supplier.country)
-	    result.country = [:]
 	    result.country = country.name
         result.countryTitle = country.title
 	    result.tel = supplier.tel
@@ -146,9 +145,8 @@ class ConvertService {
 	    result.title = param.title
 	    result.defaultValue = param.defaultValue
 	    def paramType = enumService.name(param.paramType)
-	    result.paramType = [:]
-	    result.paramType.name = paramType.name
-        result.paramType.title = paramType.title
+	    result.paramType = paramType.name
+        result.paramTypeTitle = paramType.title
 	    result.description = param.description
 	    result.lower = param.lower
 	    result.upper = param.upper
@@ -162,7 +160,6 @@ class ConvertService {
 	    result.name = report.name
 	    result.title = report.title
 	    def reportType = enumService.name(report.reportType)
-	    result.reportType = [:]
 	    result.reportType = reportType.name
         result.reportTypeTitle = reportType.title
 	    result.description = report.description

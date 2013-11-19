@@ -118,6 +118,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "dataIndex": "paramType",
                                 "text": "ParamType",
                                 "flex": 1
@@ -132,7 +133,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "paramType.title",
+                                "dataIndex": "paramTypeTitle",
                                 "text": "ParamType.Title",
                                 "flex": 1
                             },
@@ -401,9 +402,28 @@
                                         "editable": false,
                                         "displayField": "title",
                                         "store": "ParamTypeStore",
-                                        "valueField": "name"
+                                        "valueField": "paramType"
                                     },
-                                    "designerId": "7f962486-3b82-405d-82f0-7b942984b9d3"
+                                    "designerId": "7f962486-3b82-405d-82f0-7b942984b9d3",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onComboboxRender",
+                                                "implHandler": [
+                                                    "component.getStore().load();"
+                                                ],
+                                                "name": "render",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "5ff14813-e67f-414a-99f1-b121c9dc9857"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.form.field.Text",

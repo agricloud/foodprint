@@ -18,7 +18,8 @@ Ext.define('foodprint.model.ParamType', {
 
     fields: [
         {
-            name: 'name'
+            mapping: 'name',
+            name: 'paramType'
         },
         {
             name: 'title'

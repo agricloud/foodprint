@@ -31,11 +31,10 @@ Ext.define('foodprint.model.Param', {
             name: 'defaultValue'
         },
         {
-            mapping: 'paramType.name',
             name: 'paramType'
         },
         {
-            name: 'paramType.title'
+            name: 'paramTypeTitle'
         },
         {
             name: 'description'

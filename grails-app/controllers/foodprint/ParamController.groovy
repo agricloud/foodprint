@@ -20,10 +20,7 @@ class ParamController {
 
         def param=Param.findById(id);  
         if(param){ 
-            def paramJson = JSON.parse((param as JSON).toString())
 
-            log.info param.paramType.name()
-            paramJson.paramType = param.paramType.name()
             render (contentType: 'application/json') {
                 [success: true,data:param]
             }
