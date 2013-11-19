@@ -93,13 +93,16 @@ class FoodpaintService {
         
         importClassList.each{ importClass ->
             def className = importClass[0].toUpperCase() + importClass[1..-1]
-            def fields = grailsApplication.getDomainClass("foodprint."+className).persistentProperties.collect { it.name }
-    
 
-            records[importClass].each{ domainJson ->
-                def domain = getDomainIntance(importClass, domainJson)
-                domain.properties = getDomainProperties(domainJson, fields)
-                domain.save(flush: true, failOnError:true) 
+            def domainClass = grailsApplication.getDomainClass("foodprint."+className)
+    
+            if(domainClass){
+                def fields =domainClass.persistentProperties.collect { it.name }
+                records[importClass].each{ domainJson ->
+                    def domain = getDomainIntance(importClass, domainJson)
+                    domain.properties = getDomainProperties(domainJson, fields)
+                    domain.save(flush: true, failOnError:true) 
+                }
             }
 
         }

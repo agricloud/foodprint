@@ -72,6 +72,9 @@ clean:
 war:
 	grails war
 
+runtest:
+	grails test-app
+
 
 deployWar:
 	scp target/foodprint.war ${remote_user}@${remote_addr}:~/ROOT.war
@@ -90,7 +93,7 @@ deployConfig:
 	&& sudo service tomcat6 restart'
 
 done:
-	make extjs-done touch-done clean war deployWar
+	make extjs-done touch-done  clean runtest war deployWar
 
 log:
 	ssh -t ${remote_user}@${remote_addr} 'sudo tail -f /var/lib/tomcat6/logs/catalina.out'
