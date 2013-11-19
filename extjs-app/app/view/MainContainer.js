@@ -101,6 +101,7 @@ Ext.define('foodprint.view.MainContainer', {
                         me.processSheetMainten({
                             xtype: 'panel',
                             height: 250,
+                            hidden: true,
                             width: 400,
                             layout: {
                                 align: 'stretch',
@@ -169,6 +170,7 @@ Ext.define('foodprint.view.MainContainer', {
                         }),
                         me.processSystemManage({
                             xtype: 'panel',
+                            hidden: true,
                             layout: {
                                 align: 'stretch',
                                 type: 'vbox'

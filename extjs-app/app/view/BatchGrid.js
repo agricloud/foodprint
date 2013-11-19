@@ -100,6 +100,7 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    hidden: true,
                     dataIndex: 'supplier.name',
                     text: 'Supplier_Name',
                     flex: 1
@@ -112,6 +113,7 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'datecolumn',
+                    hidden: true,
                     dataIndex: 'dueDate',
                     text: 'DueDate',
                     flex: 1,
@@ -125,6 +127,7 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'datecolumn',
+                    hidden: true,
                     dataIndex: 'manufactureDate',
                     text: 'ManufactureDate',
                     flex: 1,
@@ -132,6 +135,7 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'datecolumn',
+                    hidden: true,
                     dataIndex: 'expirationDate',
                     text: 'ExpirationDate',
                     flex: 1,
@@ -139,6 +143,7 @@ Ext.define('foodprint.view.BatchGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    hidden: true,
                     dataIndex: 'remark',
                     text: 'Remark',
                     flex: 1
