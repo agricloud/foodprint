@@ -4,13 +4,6 @@
 
 package foodprint
 
-public enum ReportType {
-	INSPECT,
-	NUTRITION,	// 營養
-	OTHER
-
-}
-
 class Report {
     /**
      * 廠別
