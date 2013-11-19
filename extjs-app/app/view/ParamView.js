@@ -71,8 +71,15 @@ Ext.define('foodprint.view.ParamView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
                                     dataIndex: 'paramType',
                                     text: 'ParamType',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'paramTypeTitle',
+                                    text: 'ParamType.Title',
                                     flex: 1
                                 },
                                 {
@@ -178,9 +185,15 @@ Ext.define('foodprint.view.ParamView', {
                                             name: 'paramType',
                                             allowBlank: false,
                                             editable: false,
-                                            displayField: 'name',
+                                            displayField: 'title',
                                             store: 'ParamTypeStore',
-                                            valueField: 'name'
+                                            valueField: 'paramType',
+                                            listeners: {
+                                                render: {
+                                                    fn: me.onComboboxRender,
+                                                    scope: me
+                                                }
+                                            }
                                         },
                                         {
                                             xtype: 'textfield',
@@ -223,6 +236,10 @@ Ext.define('foodprint.view.ParamView', {
     },
 
     onGridAfterRender: function(component, eOpts) {
+        component.getStore().load();
+    },
+
+    onComboboxRender: function(component, eOpts) {
         component.getStore().load();
     }
 

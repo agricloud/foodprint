@@ -163,11 +163,30 @@
                                 "name": "reportType",
                                 "allowBlank": false,
                                 "editable": false,
-                                "displayField": "name",
+                                "displayField": "title",
                                 "store": "ReportTypeStore",
-                                "valueField": "name"
+                                "valueField": "reportType"
                             },
-                            "designerId": "cd9699ae-4508-473e-9a2d-8f5c26303848"
+                            "designerId": "cd9699ae-4508-473e-9a2d-8f5c26303848",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxRender",
+                                        "implHandler": [
+                                            "component.getStore().load();"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "a5a509ed-b484-4c1d-a4c3-35b7f0df762c"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Text",

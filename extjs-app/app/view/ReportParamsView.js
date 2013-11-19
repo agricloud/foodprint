@@ -189,6 +189,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
                                     readOnly: true

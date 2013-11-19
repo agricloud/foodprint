@@ -6,6 +6,7 @@ class ReportController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
+    def enumService
 
     def index() {
 
@@ -26,11 +27,8 @@ class ReportController {
 
         if(report){   
 
-            def reportJson =  JSON.parse((report as JSON).toString())         
-            reportJson.reportType = report.reportType.name()
-
             render (contentType: 'application/json') {
-                [success: true, data:reportJson]
+                [success: true, data:report]
             }
         }else {
             render (contentType: 'application/json') {
@@ -42,11 +40,8 @@ class ReportController {
     def create(){
 
         def report=new Report()
-        def reportJson =  JSON.parse((report as JSON).toString())         
-            reportJson.reportType = report.reportType.name()
-
         render (contentType: 'application/json') {
-            [success: true,data:reportJson]
+            [success: true,data:report]
         }
     }
 
@@ -92,7 +87,7 @@ class ReportController {
     def indexType(){
 
         render (contentType: 'application/json') {
-            return [ReportType:foodprint.ReportType.values()]
+            [ReportType:enumService.values(foodprint.ReportType)]
         }
     }
     

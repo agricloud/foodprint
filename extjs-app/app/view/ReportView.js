@@ -96,9 +96,15 @@ Ext.define('foodprint.view.ReportView', {
                                     name: 'reportType',
                                     allowBlank: false,
                                     editable: false,
-                                    displayField: 'name',
+                                    displayField: 'title',
                                     store: 'ReportTypeStore',
-                                    valueField: 'name'
+                                    valueField: 'reportType',
+                                    listeners: {
+                                        render: {
+                                            fn: me.onComboboxRender,
+                                            scope: me
+                                        }
+                                    }
                                 },
                                 {
                                     xtype: 'textfield',
@@ -117,6 +123,10 @@ Ext.define('foodprint.view.ReportView', {
 
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'report');
+    },
+
+    onComboboxRender: function(component, eOpts) {
+        component.getStore().load();
     }
 
 });
