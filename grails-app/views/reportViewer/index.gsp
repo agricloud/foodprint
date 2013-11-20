@@ -11,7 +11,9 @@
         <h2 class="heading"><span aria-hidden="true" class="icon-icon-01"></span> ${product.title}</h2>
           <div class="right-icon text-right">Products</div>
         
+                 
           <!--banner-->
+          %{--    
           <div id="myCarousel"  class="slider">
             <div class="flexslider">
               <ul class="slides">
@@ -21,7 +23,9 @@
               </ul>
             </div>        
           </div>
-          <!--banner-end-->
+          --}%
+          <!--banner-end--> 
+
 
           
 

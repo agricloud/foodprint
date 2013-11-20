@@ -19,9 +19,9 @@ class BatchReportDetControllerTests {
         // TODO: Populate valid properties like...
         //params["name"] = 'someValidName'
         def batchReportDet = BatchReportDet.get(1)
-        def batch = Batch.get(1)
+        def batchRoute = BatchRoute.get(1)
 
-        params["batchRoute.id"] = batch.id
+        params["id"] = batchRoute.id
         params[batchReportDet.id] = 1
 
     }
@@ -35,11 +35,9 @@ class BatchReportDetControllerTests {
         testService.createOtherReport()
 
         populateValidParams(params)
-
-        println params
         controller.doSaveOrUpdate()
 
         assert BatchReportDet.count() == 1
-        assert BatchReportDet.get(1).batch
+        assert BatchReportDet.get(1).batchRoute
     }
 }

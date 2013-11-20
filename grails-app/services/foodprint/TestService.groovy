@@ -15,10 +15,10 @@ class TestService {
         def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
         def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation,workstation:workstation)
-        item.addToItemRoutes(itemRoute)
+        item.addToItemRoutes(itemRoute).save(failOnError: true)
 
         def batchRoute = new BatchRoute(batch:batch,workstation:workstation,sequence:1,operation:operation)
-        batch.addToBatchRoutes(batchRoute)
+        batch.addToBatchRoutes(batchRoute).save(failOnError: true)
                         
 
 

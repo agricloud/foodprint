@@ -94,7 +94,24 @@ class BatchReportDetController {
         def failure=[]
         def success=[]
         def msg=[]
+        def batchRouteInstance = BatchRoute.findById(params.id)
+        //更新製程開始結束日期
+        if(!batchRouteInstance){
+            msg<< message(code: "default.message.notfound", args: [message(code: "batchRoute.label"),params.id])
+            render (contentType: 'application/json') {
+                [success:false, message: msg.join('<br>')]
+            }
+        }
+        if(params.startDate!="" && params.startDate!=null)
+            batchRouteInstance.startDate = params.startDate
+        if(params.endDate!="" && params.endDate!=null)
+            batchRouteInstance.endDate = params.endDate
 
+        if(!domainService.save(batchRouteInstance).success)
+            failure<< "製程日期"
+        else
+            success<< "製程日期"
+        
         //更新履歷參數值
         params.each{
 
@@ -113,9 +130,9 @@ class BatchReportDetController {
                 }
 
                 batchReportDetInstance.value = it.value
-                if(params["batchRoute.id"]){
-                    batchReportDetInstance.batchRoute = BatchRoute.findById(params["batchRoute.id"])
-                }
+
+                batchReportDetInstance.batchRoute = batchRouteInstance
+
 
                 if(!domainService.save(batchReportDetInstance).success)
                     failure<< batchReportDetInstance.reportParams.param.title
@@ -125,23 +142,7 @@ class BatchReportDetController {
 
         }//end each
 
-        //更新製程開始結束日期
-        def batchRouteInstance = BatchRoute.findById(params.id)
-        if(!batchRouteInstance){
-            msg<< message(code: "default.message.notfound", args: [message(code: "batchRoute.label"),params.id])
-            render (contentType: 'application/json') {
-                [success:false, message: msg.join('<br>')]
-            }
-        }
-        if(params.startDate!="" && params.startDate!=null)
-            batchRouteInstance.startDate = params.startDate
-        if(params.endDate!="" && params.endDate!=null)
-            batchRouteInstance.endDate = params.endDate
 
-        if(!domainService.save(batchRouteInstance).success)
-            failure<< "製程日期"
-        else
-            success<< "製程日期"
 
 
         if(success.size()>0){
