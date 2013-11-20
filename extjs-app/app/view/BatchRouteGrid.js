@@ -98,6 +98,18 @@ Ext.define('foodprint.view.BatchRouteGrid', {
                     dataIndex: 'supplier.title',
                     text: 'Supplier_title',
                     flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'startDate',
+                    text: 'StartDate',
+                    flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'endDate',
+                    text: 'EndDate',
+                    flex: 1
                 }
             ],
             listeners: {
