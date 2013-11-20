@@ -210,7 +210,7 @@ class ReportViewerController {
                             param["inspect.qualified"] = true
                         else param["inspect.qualified"] = false
 
-                        param["inspect.dateCreated"] = batchReportDet.dateCreated.format('yyyy-MM-dd')
+                        param["inspect.dateCreated"] = batchReportDet.batchRoute.endDate.format('yyyy-MM-dd')
                         param["inspect.param.unit"] = batchReportDet.reportParams.param.unit
 
                         reportMap.params << param
