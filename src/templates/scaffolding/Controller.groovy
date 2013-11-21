@@ -1,25 +1,22 @@
-package foodprint
-
-
+<%=packageName ? "package ${packageName}\n\n" : ''%>
 import org.springframework.dao.DataIntegrityViolationException
 
-class SupplierController {
+class ${className}Controller {
 
     def domainService
-    def enumService
 
     def index() {
-        def list = Supplier.createCriteria().list(params,params.criteria)
+        def list = ${className}.createCriteria().list(params,params.criteria)
         render (contentType: 'application/json') {
-            [supplierInstanceList: list, supplierInstanceTotal: list.totalCount]
+            [${propertyName}List: list, ${propertyName}Total: list.totalCount]
         }
     }
 
     def show(){
-        def supplierInstance=Supplier.findById(params.id);  
-        if(supplierInstance){   
+        def ${propertyName}=${className}.findById(params.id);  
+        if(${propertyName}){   
             render (contentType: 'application/json') {
-                [success: true,data:supplierInstance]
+                [success: true,data:${propertyName}]
             }
         }else {
             render (contentType: 'application/json') {
@@ -29,34 +26,34 @@ class SupplierController {
     }
     
     def create(){
-        def supplierInstance=new Supplier()        
+        def ${propertyName}=new ${className}()        
         render (contentType: 'application/json') {
-            [success: true,data:supplierInstance]
+            [success: true,data:${propertyName}]
         }
     }
 
     def save(){
-        def supplierInstance=new Supplier(params)
+        def ${propertyName}=new ${className}(params)
         render (contentType: 'application/json') {
-            domainService.save(supplierInstance)
+            domainService.save(${propertyName})
         }
     }
 
     def update(){
-        def  supplierInstance = Supplier.findById(params.id)
-        supplierInstance.properties = params
+        def  ${propertyName} = ${className}.findById(params.id)
+        ${propertyName}.properties = params
         render (contentType: 'application/json') {
-            domainService.save(supplierInstance)
+            domainService.save(${propertyName})
         }         
     }
 
     def delete(){
         
-        def supplierInstance = Supplier.findById(params.id)
+        def ${propertyName} = ${className}.findById(params.id)
         def result
         try {
             
-            result = domainService.delete(supplierInstance)
+            result = domainService.delete(${propertyName})
         
         }catch(DataIntegrityViolationException e){
             log.error e
@@ -68,11 +65,4 @@ class SupplierController {
             result
         }
     }
-
-    def indexCountry(){
-
-        render (contentType: 'application/json') {
-            [Country:enumService.values(foodprint.Country)]
-        }
-    }    
 }

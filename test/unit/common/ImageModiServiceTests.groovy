@@ -9,17 +9,17 @@ class ImageModiServiceTests {
 
 
     void testImageScaleNormal() {
-		InputStream inputStream = new FileInputStream("test.jpg");
+		InputStream inputStream = new FileInputStream("test/test.jpg");
         
         def byteArrayOutputStream=service.sizeNormal(inputStream)
-        OutputStream outputStream = new FileOutputStream ("normal.jpg"); 
+        OutputStream outputStream = new FileOutputStream ("test/normal.jpg"); 
         byteArrayOutputStream.writeTo(outputStream);
     }
     void testImageScaleThumbnail() {
-		InputStream inputStream = new FileInputStream("test.jpg");
+		InputStream inputStream = new FileInputStream("test/test.jpg");
         
         def byteArrayOutputStream=service.sizeThumbnail(inputStream)
-        OutputStream outputStream = new FileOutputStream ("thumbnail.jpg"); 
+        OutputStream outputStream = new FileOutputStream ("test/thumbnail.jpg"); 
         byteArrayOutputStream.writeTo(outputStream);
     }
 }

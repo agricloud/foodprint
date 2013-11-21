@@ -15,7 +15,7 @@ class S3AttachmentServiceTests {
 
 		def params =[:]
 		params.file = [:]
-		params.file.inputStream = new FileInputStream("test.jpg");
+		params.file.inputStream = new FileInputStream("test/test.jpg");
 		params.domainName = "unitTest"
 		params.domainId = "1"
         

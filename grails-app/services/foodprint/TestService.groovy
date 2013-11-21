@@ -91,6 +91,10 @@ class TestService {
 
     private createTestMessage(messageSource){
         messageSource.addMessage("default.message.save.success", Locale.getDefault(), "儲存成功")
+        messageSource.addMessage("default.message.delete.success", Locale.getDefault(), "刪除成功")
+        messageSource.addMessage("default.message.update.failed", Locale.getDefault(), "更新失敗")
+
+
         messageSource.addMessage("default.message.notfound", Locale.getDefault(), "查無資料") 
         messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 		messageSource.addMessage("country.JAPAN.label", Locale.getDefault(), "日本")

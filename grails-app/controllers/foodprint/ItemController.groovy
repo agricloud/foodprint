@@ -6,20 +6,15 @@ class ItemController {
 
     def domainService
 
-    def index(Integer max) {
-
+    def index() {
         def list = Item.createCriteria().list(params,params.criteria)
-
         render (contentType: 'application/json') {
             [itemInstanceList: list, itemInstanceTotal: list.totalCount]
         }
-
-
-        
     }
-    def show(Long id){
+    def show(){
 
-        def item=Item.findById(id);  
+        def item=Item.findById(params.id);  
         if(item){   
             render (contentType: 'application/json') {
                 [success: true,data:item]
@@ -31,7 +26,6 @@ class ItemController {
         }
     }
     def create(){
-
         def item=new Item()        
         render (contentType: 'application/json') {
             [success: true,data:item]
@@ -40,9 +34,7 @@ class ItemController {
  
 
     def save(){
-
         def itemInstance=new Item(params)
-        
         render (contentType: 'application/json') {
             domainService.save(itemInstance)
         }
@@ -50,7 +42,6 @@ class ItemController {
 
 
     def update(){
-        log.info params.effectStartDate
         def  itemInstance = Item.findById(params.id)
         itemInstance.properties = params
         render (contentType: 'application/json') {

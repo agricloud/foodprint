@@ -5,38 +5,19 @@
 package foodprint
 
 class Report {
-    /**
-     * 廠別
-     */
+
 	Site site
-
-    /**
-     * 修改者
-     */
 	String editor = ""
-
-	/**
-	 * 建立者
-	 */
 	String creator = ""
-
-	/**
-	 * 建立日期（自動欄位）
-	 */
 	Date dateCreated
-
-	/**
-	 * 修改日期（自動欄位）
-	 */
 	Date lastUpdated
+
 	String name
 	String title
 	String description = ""
 	Date effectStartDate
 	Date effectEndDate
-
 	ReportType reportType = foodprint.ReportType.OTHER
-
 
     static constraints = {
 		site nullable:true
