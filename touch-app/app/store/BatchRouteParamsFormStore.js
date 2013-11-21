@@ -17,11 +17,11 @@ Ext.define('foodprintTouch.store.BatchRouteParamsFormStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'foodprintTouch.model.BatchReportDetDeep'
+        'foodprintTouch.model.BatchReportDet'
     ],
 
     config: {
-        model: 'foodprintTouch.model.BatchReportDetDeep',
+        model: 'foodprintTouch.model.BatchReportDet',
         storeId: 'BatchRouteParamsFormStore',
         proxy: {
             type: 'rest',

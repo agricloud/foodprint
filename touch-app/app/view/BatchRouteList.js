@@ -20,9 +20,13 @@ Ext.define('foodprintTouch.view.BatchRouteList', {
     config: {
         itemId: 'batchRouteList',
         scrollable: true,
-        store: 'BatchRouteDeepStore',
+        store: 'BatchRouteStore',
         itemTpl: [
-            '<div>{sequence}-{operation__title}-{workstation__title}</div>'
+            '<tpl if="workstation__id"){ >',
+            '<p>{sequence}-{operation__title}-{workstation__title}</p>',
+            '<tpl else>',
+            '<p>{sequence}-{operation__title}-{supplier__title}</p>',
+            '</tpl>'
         ]
     },
 

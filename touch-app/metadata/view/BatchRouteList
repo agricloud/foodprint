@@ -13,7 +13,7 @@
             "true"
         ],
         "loadingText": null,
-        "store": "BatchRouteDeepStore"
+        "store": "BatchRouteStore"
     },
     "designerId": "6b273a91-efef-4316-9344-0565c891c114",
     "cn": [
@@ -26,7 +26,11 @@
             "codeClass": null,
             "userConfig": {
                 "implHandler": [
-                    "<div>{sequence}-{operation__title}-{workstation__title}</div>"
+                    "<tpl if=\"workstation__id\"){ >",
+                    "<p>{sequence}-{operation__title}-{workstation__title}</p>",
+                    "<tpl else>",
+                    "<p>{sequence}-{operation__title}-{supplier__title}</p>",
+                    "</tpl>"
                 ],
                 "designer|displayName": "itemTpl"
             },

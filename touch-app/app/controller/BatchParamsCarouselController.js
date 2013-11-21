@@ -18,12 +18,12 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
 
     config: {
         models: [
-            'BatchRouteDeep',
-            'BatchReportDetDeep',
+            'BatchRoute',
+            'BatchReportDet',
             'Batch'
         ],
         stores: [
-            'BatchRouteDeepStore',
+            'BatchRouteStore',
             'BatchRouteParamsFormStore',
             'BatchStore'
         ],
@@ -118,6 +118,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                         id=record.data['batch.id'];
                         opid=record.data['operation.id'];
                         woid=record.data['workstation.id'];
+                        spid = record.data['supplier.id'];
                     }
 
                     //重新讀取參數資料
@@ -125,7 +126,8 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                         params:{
                             'batch.id':id,
                             'operation.id':opid,
-                            'workstation.id':woid
+                            'workstation.id':woid,
+                            'supplier.id':spid
                         },
                         callback:function(records, operation, success){
                             if(success){
@@ -136,6 +138,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                                 var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');
 
                                 store.each(function(item, index, length){
+                                    console.log(item);
 
                                     var field=null;
 
@@ -163,7 +166,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                                         };
                                         break;
                                         default:
-                                        console.log('error: not defined paramType');
+                                        console.log('error: not defined paramType'+item.data['reportParams__param__paramType']);
                                         break;
                                     }
 
