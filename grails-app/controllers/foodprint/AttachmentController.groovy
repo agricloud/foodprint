@@ -21,6 +21,11 @@ class AttachmentController {
         def result = attachmentService.show(params) 
         response.outputStream << result
     }
+    def showPdf= { Long id ->
+
+        def result = attachmentService.showPdf(params) 
+        response.outputStream << result
+    }
 
 
     def delete= { Long id ->

@@ -96,8 +96,14 @@
      <div class="bottomnav col-md-8">
 
         <div class="row">
-            <div class="col-md-2 btn-download"><g:link uri="/reports"><g:img dir="images" file="btn-download.png" /></g:link></div>
 
+            <g:if test="${batch?.id}">
+              <div class="col-md-2 btn-download">
+                <g:link action= 'showPdf' controller="attachment" params="[domainName:'batch', id:batch?.id]">
+                  <g:img dir="images" file="btn-download.png" />
+                </g:link>
+              </div>
+            </g:if>
 
             
             <div class="col-md-4 contact">

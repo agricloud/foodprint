@@ -48,7 +48,22 @@ class S3AttachmentService {
             return new FileInputStream(blankImg);  
         }
     }
+    def showPdf= { def params ->
 
+        try {
+            def object = s3Service.getObject("${fileLocation}/${params.domainName}/${params.id}.pdf")
+            
+
+            if(object)
+                return object.dataInputStream
+            else return new FileInputStream(blankImg);  
+        }
+        catch (e) {
+
+            log.error "Could not read ${fileLocation}/${params.domainName}/${params.id}.jpg"
+            return new FileInputStream(blankImg);  
+        }
+    }
     def delete= { def params ->
         def result = [:]
         try {

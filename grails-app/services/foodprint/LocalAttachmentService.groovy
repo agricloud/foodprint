@@ -53,7 +53,27 @@ class LocalAttachmentService {
             
         }
     }
+    def showPdf= { def params ->
 
+        try {
+
+
+            File object = new File("${fileLocation}/${params.domainName}/${params.id}.pdf")
+
+            if(object.exists())
+                 return new FileInputStream(object);    
+            else {
+                return new FileInputStream(blankImg);  
+            }
+        }
+        catch (e) {
+            
+            e.printStackTrace()
+            log.error "Could not read ${file}"
+            return new FileInputStream(blankImg);
+            
+        }
+    }
     def delete= { def params ->
 
     	def result = [:]
