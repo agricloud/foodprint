@@ -67,12 +67,5 @@ class SupplierController {
         render (contentType: 'application/json') {
             result
         }
-    }
-
-    def indexCountry(){
-
-        render (contentType: 'application/json') {
-            [Country:enumService.values(foodprint.Country)]
-        }
     }    
 }

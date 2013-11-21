@@ -28,7 +28,7 @@ Ext.define('foodprint.model.Country', {
 
     proxy: {
         type: 'rest',
-        url: '/supplier/indexCountry',
+        url: '/enum/indexCountry',
         reader: {
             type: 'json',
             root: 'Country'
