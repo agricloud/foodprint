@@ -19,7 +19,7 @@ Ext.define('foodprintTouch.view.BatchParamsCarousel', {
 
     requires: [
         'foodprintTouch.view.CommonBackToolbar',
-        'foodprintTouch.view.CommonSearchField',
+        'foodprintTouch.view.CommonBatchSelect',
         'foodprintTouch.view.BatchRouteList'
     ],
 
@@ -38,7 +38,7 @@ Ext.define('foodprintTouch.view.BatchParamsCarousel', {
                         itemId: 'selectBatchBackToolbar'
                     },
                     {
-                        xtype: 'commonsearchfield'
+                        xtype: 'commonbatchselect'
                     },
                     {
                         xtype: 'panel',
@@ -70,8 +70,6 @@ Ext.define('foodprintTouch.view.BatchParamsCarousel', {
 
 
         this.down('toolbar[itemId=selectBatchBackToolbar]').setTitle(Utilities.getMsg("batchParamsCarousel.selectBatchBackToolbar.label"));
-
-        this.down('searchfield[itemId=commonSearchField]').setLabel(Utilities.getMsg("batchParamsCarousel.commonSearchField.label"));
 
         this.down('toolbar[itemId=selectBatchRouteToolbar]').setTitle(Utilities.getMsg("batchParamsCarousel.selectBatchRouteToolbar.label"));
 
