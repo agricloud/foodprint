@@ -8,11 +8,13 @@
     "userConfig": {
         "models": [
             "BatchRouteDeep",
-            "BatchReportDetDeep"
+            "BatchReportDetDeep",
+            "Batch"
         ],
         "stores": [
             "BatchRouteDeepStore",
-            "BatchRouteParamsFormStore"
+            "BatchRouteParamsFormStore",
+            "BatchStore"
         ],
         "views": [
             "BatchParamsCarousel",
@@ -44,8 +46,8 @@
                 "implHandler": [
                     "",
                     "this.control({",
-                    "    'batchparamscarousel searchfield[itemId=commonSearchField]':{",
-                    "        action:this.doIndexDetail",
+                    "    'batchparamscarousel selectfield[itemId=commonBatchSelect]':{",
+                    "        change:this.doIndexDetail",
                     "    },",
                     "    'batchparamscarousel list[itemId=batchRouteList]':{",
                     "        select:this.doShowParams",
@@ -118,7 +120,7 @@
             "userConfig": {
                 "fn": "doIndexDetail",
                 "designer|params": [
-                    "field, e, eOpts",
+                    "field, newValue, oldValue, eOpts",
                     "fun"
                 ],
                 "implHandler": [

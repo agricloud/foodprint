@@ -19,11 +19,13 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
     config: {
         models: [
             'BatchRouteDeep',
-            'BatchReportDetDeep'
+            'BatchReportDetDeep',
+            'Batch'
         ],
         stores: [
             'BatchRouteDeepStore',
-            'BatchRouteParamsFormStore'
+            'BatchRouteParamsFormStore',
+            'BatchStore'
         ],
         views: [
             'BatchParamsCarousel',
@@ -40,8 +42,8 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
     init: function(application) {
 
         this.control({
-            'batchparamscarousel searchfield[itemId=commonSearchField]':{
-                action:this.doIndexDetail
+            'batchparamscarousel selectfield[itemId=commonBatchSelect]':{
+                change:this.doIndexDetail
             },
             'batchparamscarousel list[itemId=batchRouteList]':{
                 select:this.doShowParams
@@ -63,7 +65,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
         });
     },
 
-    doIndexDetail: function(field, e, eOpts, fun) {
+    doIndexDetail: function(field, newValue, oldValue, eOpts, fun) {
         console.log('BatchParamsCarouselController-doIndexDetail');
 
         var id=-1;

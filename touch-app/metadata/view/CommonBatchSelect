@@ -1,0 +1,59 @@
+{
+    "type": "Ext.field.Select",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonBatchSelect",
+        "designer|userClassName": "CommonBatchSelect",
+        "designer|userAlias": "commonbatchselect",
+        "requires": [
+            "foodprintTouch.store.BatchStore"
+        ],
+        "label": "Batch.Name",
+        "name": "name",
+        "displayField": "name",
+        "store": "BatchStore",
+        "valueField": "id"
+    },
+    "designerId": "6f78c39b-02f5-45dd-adb2-cd7d844db956",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonBatchSelectInitialize",
+                "implHandler": [
+                    "component.getStore().load();",
+                    "",
+                    ""
+                ],
+                "name": "initialize"
+            },
+            "designerId": "f380baa9-7eb4-4830-86c6-7cd92d9496b3"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.setLabel(Utilities.getMsg(\"common.batchSelect.label\"));",
+                    ""
+                ]
+            },
+            "designerId": "521ab999-3e0d-4507-ac4c-cf76db3afc2b"
+        }
+    ]
+}
