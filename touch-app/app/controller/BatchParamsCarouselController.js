@@ -18,12 +18,14 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
 
     config: {
         models: [
-            'BatchRouteDeep',
-            'BatchReportDetDeep'
+            'BatchRoute',
+            'BatchReportDet',
+            'Batch'
         ],
         stores: [
-            'BatchRouteDeepStore',
-            'BatchRouteParamsFormStore'
+            'BatchRouteStore',
+            'BatchRouteParamsFormStore',
+            'BatchStore'
         ],
         views: [
             'BatchParamsCarousel',
@@ -40,8 +42,8 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
     init: function(application) {
 
         this.control({
-            'batchparamscarousel searchfield[itemId=commonSearchField]':{
-                action:this.doIndexDetail
+            'batchparamscarousel selectfield[itemId=commonBatchSelect]':{
+                change:this.doIndexDetail
             },
             'batchparamscarousel list[itemId=batchRouteList]':{
                 select:this.doShowParams
@@ -63,7 +65,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
         });
     },
 
-    doIndexDetail: function(field, e, eOpts, fun) {
+    doIndexDetail: function(field, newValue, oldValue, eOpts, fun) {
         console.log('BatchParamsCarouselController-doIndexDetail');
 
         var id=-1;
@@ -116,6 +118,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                         id=record.data['batch.id'];
                         opid=record.data['operation.id'];
                         woid=record.data['workstation.id'];
+                        spid = record.data['supplier.id'];
                     }
 
                     //重新讀取參數資料
@@ -123,7 +126,8 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                         params:{
                             'batch.id':id,
                             'operation.id':opid,
-                            'workstation.id':woid
+                            'workstation.id':woid,
+                            'supplier.id':spid
                         },
                         callback:function(records, operation, success){
                             if(success){
@@ -134,6 +138,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                                 var form=that.getBatchParamsCarousel().down('formpanel[itemId=batchRouteParamsForm]');
 
                                 store.each(function(item, index, length){
+                                    console.log(item);
 
                                     var field=null;
 
@@ -161,7 +166,7 @@ Ext.define('foodprintTouch.controller.BatchParamsCarouselController', {
                                         };
                                         break;
                                         default:
-                                        console.log('error: not defined paramType');
+                                        console.log('error: not defined paramType'+item.data['reportParams__param__paramType']);
                                         break;
                                     }
 
