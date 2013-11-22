@@ -192,7 +192,7 @@ Ext.define('foodprint.view.Utilities', {
         return foodprint.getApplication().bundle.getMsg(lang);
     },
 
-    readSysConfig: function() {
+    readSysConfig: function(callback) {
         var that = this;
 
         Ext.Ajax.request({
@@ -200,6 +200,8 @@ Ext.define('foodprint.view.Utilities', {
             async: false,
             success: function(response, opts) {
                 that.sysConfig = Ext.decode(response.responseText);
+                if(callback)
+                callback()
 
             },
             failure: function(response, opts) {
