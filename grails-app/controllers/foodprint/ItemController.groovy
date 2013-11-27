@@ -1,5 +1,6 @@
 package foodprint
 
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class ItemController {
@@ -12,12 +13,12 @@ class ItemController {
             [itemInstanceList: list, itemInstanceTotal: list.totalCount]
         }
     }
-    def show(){
 
-        def item=Item.findById(params.id);  
-        if(item){   
+    def show(){
+        def itemInstance=Item.findById(params.id);  
+        if(itemInstance){   
             render (contentType: 'application/json') {
-                [success: true,data:item]
+                [success: true,data:itemInstance]
             }
         }else {
             render (contentType: 'application/json') {
@@ -25,13 +26,13 @@ class ItemController {
             }          
         }
     }
+    
     def create(){
-        def item=new Item()        
+        def itemInstance=new Item()        
         render (contentType: 'application/json') {
-            [success: true,data:item]
+            [success: true,data:itemInstance]
         }
     }
- 
 
     def save(){
         def itemInstance=new Item(params)
@@ -39,7 +40,6 @@ class ItemController {
             domainService.save(itemInstance)
         }
     }
-
 
     def update(){
         def  itemInstance = Item.findById(params.id)
@@ -49,18 +49,15 @@ class ItemController {
         }         
     }
 
-
-
     def delete(){
         
-        def  itemInstance = Item.findById(params.id)
-
+        def itemInstance = Item.findById(params.id)
         def result
         try {
             
             result = domainService.delete(itemInstance)
         
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
             def msg = message(code: 'default.message.delete.failed', args: [itemInstance, e])
             result = [success:false, message: msg] 

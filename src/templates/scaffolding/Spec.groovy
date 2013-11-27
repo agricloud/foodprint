@@ -35,10 +35,10 @@ class ${className}ControllerSpec extends Specification {
 
     void "測試 show action，並且 response 為 json 格式"() {
 
-        setup: "建立 ${className} 測試資料"
+        setup: "建立測試資料"
             def ${propertyName} = new ${className}(name: '${propertyName}').save(failOnError: true)
 
-        and: "params.id 為 ${className}.id"
+        and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = ${propertyName}.id
 
         when: "執行 ${className}Controller 提供的 show action"

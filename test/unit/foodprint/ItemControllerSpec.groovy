@@ -35,10 +35,10 @@ class ItemControllerSpec extends Specification {
 
     void "測試 show action，並且 response 為 json 格式"() {
 
-        setup: "建立 Item 測試資料"
+        setup: "建立測試資料"
             def item = new Item(name: 'item').save(failOnError: true)
 
-        and: "params.id 為 Item.id"
+        and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = item.id
 
         when: "執行 ItemController 提供的 show action"
