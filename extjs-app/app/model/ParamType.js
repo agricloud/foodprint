@@ -28,7 +28,7 @@ Ext.define('foodprint.model.ParamType', {
 
     proxy: {
         type: 'rest',
-        url: '/param/indexType',
+        url: '/enum/indexParamType',
         reader: {
             type: 'json',
             root: 'ParamType'

@@ -65,7 +65,19 @@ Ext.application({
 
         //Ext.form.DateField.prototype.submitFormat = 'Y-m-d H:i:s \\z';
 
-        Utilities.readSysConfig();
+
+        var afterConfigRead = function(){
+            if(Utilities.getSysConfig("environment")== "development"){
+
+                var login = Ext.getCmp("login");
+                login.down("textfield[name=j_username]").setValue("admin");
+                login.down("textfield[name=j_password]").setValue("admin");
+
+            }
+
+        }
+
+        Utilities.readSysConfig(afterConfigRead);
     }
 
 });

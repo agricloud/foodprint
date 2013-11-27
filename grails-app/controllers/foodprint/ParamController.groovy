@@ -75,15 +75,4 @@ class ParamController {
         }
     }
 
-
-
-    /*
-    * 將定義在 param domain 中的 enum ParamType 轉換為 json
-    */
-    def indexType(){
-
-        render (contentType: 'application/json') {
-            [ParamType:enumService.values(foodprint.ParamType)]
-        }
-    }
 }

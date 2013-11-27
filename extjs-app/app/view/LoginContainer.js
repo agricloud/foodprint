@@ -91,13 +91,13 @@ Ext.define('foodprint.view.LoginContainer', {
                                                     xtype: 'textfield',
                                                     fieldLabel: '',
                                                     name: 'j_username',
-                                                    value: 'admin',
+                                                    value: '',
                                                     inputId: 'system_user'
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     name: 'j_password',
-                                                    value: 'admin',
+                                                    value: '',
                                                     inputId: 'system_pass',
                                                     inputType: 'password'
                                                 }

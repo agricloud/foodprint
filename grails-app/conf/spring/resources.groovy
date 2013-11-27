@@ -15,12 +15,17 @@ beans = {
 			s3Service = ref("s3Service")
 			imageModiService = ref("imageModiService")
 			fileLocation = application.config.grails.aws.root
-			blankImg = application.parentContext.getResource('/images/blank.gif').file
+
+			if(Environment.current == Environment.TEST)
+				blankImg = new File("web-app/imapges/blank.gif");
+			else blankImg = application.parentContext.getResource('/images/blank.gif').file
 		}
 	}else {
 		attachmentService(LocalAttachmentService){
 			fileLocation = application.config.grails.upload.location.local.path
-			blankImg = application.parentContext.getResource('/images/blank.gif').file
+			if(Environment.current == Environment.TEST)
+				blankImg = new File("web-app/imapges/blank.gif");
+			else blankImg = application.parentContext.getResource('/images/blank.gif').file
 		}
 	}
 

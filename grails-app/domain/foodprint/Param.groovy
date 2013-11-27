@@ -15,7 +15,7 @@ class Param {
 	String name
 	String title
 	String defaultValue="" //預設值
-	ParamType paramType //收集類型
+	ParamType paramType=ParamType.FLOAT //收集類型
 	String description=""
 	String lower=""
 	String upper=""

@@ -345,6 +345,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "readSysConfig",
+                "designer|params": [
+                    "callback"
+                ],
                 "implHandler": [
                     "var that = this;",
                     "",
@@ -353,6 +356,8 @@
                     "    async: false,",
                     "    success: function(response, opts) {",
                     "        that.sysConfig = Ext.decode(response.responseText);",
+                    "        if(callback)",
+                    "            callback()",
                     "",
                     "    },",
                     "    failure: function(response, opts) {",
