@@ -10,8 +10,9 @@ import grails.converters.JSON
 @TestFor(ConvertService)
 @Mock([Batch, Item,
 	Supplier,Workstation,Operation,
-	BatchRoute,
-	Param,Report,ReportParams,BatchReportDet,EnumService])
+	BatchRoute,ItemRoute,
+	Param,Report,ReportParams,BatchReportDet,EnumService,TestService])
+
 class ConvertServiceTests {
 
     void testBatchJsonConvert() {
@@ -62,6 +63,28 @@ class ConvertServiceTests {
 
 		assert batchRoute as JSON
     }
+
+    void testItemRouteJsonConvert() {
+    	def testService = new TestService()
+    	testService.createStdTestData()
+    	testService.createExtraRouteData()
+
+		JSON.registerObjectMarshaller(ItemRoute) {
+		    service.itemRouteParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Item) {
+		    service.itemParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Workstation) {
+		    service.workstationParseJson(it)
+		}
+		JSON.registerObjectMarshaller(Operation) {
+		    service.operationParseJson(it)
+		}
+
+		assert ItemRoute.list() as JSON
+    }  
+
     void testBatchReportDetJsonConvert(){
 	    def item = new Item(name: 'item1',title:'品項1').save()
 	    def batch = new Batch(name:'batch1', item: item, expectQty:10).save()

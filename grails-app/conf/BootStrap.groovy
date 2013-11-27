@@ -53,6 +53,9 @@ class BootStrap {
         JSON.registerObjectMarshaller(Item) {
             convertService.itemParseJson(it)
         }
+        JSON.registerObjectMarshaller(ItemRoute) {
+            convertService.itemRouteParseJson(it)
+        }
         JSON.registerObjectMarshaller(Workstation) {
             convertService.workstationParseJson(it)
         }
