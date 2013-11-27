@@ -70,7 +70,7 @@ class ${className}ControllerSpec extends Specification {
             assert response.json.data.class
     }
 
-    void "測試儲存新建立 ${className} 物件，並且回傳為 json 格式(儲存完成)"() {
+    void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
         setup: "前端傳入資料"
             params["name"] = '${propertyName}'
@@ -89,7 +89,7 @@ class ${className}ControllerSpec extends Specification {
             assert ${className}.get(1)   
     }
 
-    void "測試更新已存在 ${className} 物件，並且回傳為 json 格式"() {
+    void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
             def ${propertyName} = new ${className}(name: '${propertyName}').save(failOnError: true)
@@ -114,7 +114,7 @@ class ${className}ControllerSpec extends Specification {
             assert ${className}.get(1).name == '${propertyName}NewName'
     }
 
-    void "測試刪除已存在 ${className} 物件，並且回傳為 json 格式"() {
+    void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
             def ${propertyName} = new ${className}(name: '${propertyName}').save(failOnError: true)
