@@ -157,7 +157,7 @@
             <div class="input-group">
 
               
-                <g:field placeholder="請輸入批號" name='name' type="text" class="form-control" id="citiesInput" />
+                <g:field placeholder="請輸入批號" name='name' type="text" class="form-control" id="batchName" />
                 <div class="input-group-btn">
                   <button id="submitBtn" type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 </div><!-- /btn-group -->
@@ -173,7 +173,8 @@
 	</body>
   <g:javascript>
 
-    $('#citiesInput').typeahead({                                                        
+    console.log(1111);
+    $('#batchName').typeahead({                                                        
       name: 'name', 
       remote: '/batch/typeahead?query=%QUERY&max=20',
       // template: '<p><strong>{{value}}</strong>-{{itemTitle}}</p>',
@@ -183,7 +184,13 @@
           '<p class="repo-description">{{itemDescription}}</p>'                         
         ].join(''),  
 
-      engine: Hogan                                                        
+      engine: Hogan
+   
+
+    });
+
+    $('#batchName').on('typeahead:selected', function(evt, item) {
+      $( "form" ).submit();
     });
     $('#submitBtn').on('click',function(){
       $( "form" ).submit();
@@ -195,12 +202,6 @@
             return false;
          }
     });
-
-  // $('#typeahead').typeahead({                                                          
-  //   name: 'batchInstanceList',                                                        
-  //   local:['AAA','Abb']                                                              
-  // });
-
 
 </g:javascript>
 </html>
