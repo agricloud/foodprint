@@ -7,7 +7,7 @@ class OperationController {
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST",  index: "GET"]
     def domainService
 
-    def index() {
+    def index = {
         
         def list = Operation.createCriteria().list(params,params.criteria)
 
@@ -17,9 +17,9 @@ class OperationController {
         }
         
     }
-    def show(Long id){
+    def show = {
 
-        def operation=Operation.findById(id);  
+        def operation=Operation.findById(params.id);  
         if(operation){   
             render (contentType: 'application/json') {
                 [success: true,data:operation]
@@ -30,7 +30,7 @@ class OperationController {
             }          
         }
     }
-    def create(){
+    def create = {
 
         def operation=new Operation()        
         render (contentType: 'application/json') {
@@ -38,7 +38,7 @@ class OperationController {
         }
     }
 
-    def save(){
+    def save = {
 
         def operationInstance=new Operation(params)
         
@@ -47,7 +47,7 @@ class OperationController {
         }
     }
 
-    def update(){
+    def update = {
         def  operationInstance = Operation.findById(params.id)
         operationInstance.properties=params
         render (contentType: 'application/json') {
@@ -56,14 +56,14 @@ class OperationController {
     }
 
 
-    def delete(){
+    def delete = {
         def operationInstance = Operation.findById(params.id)
         def result
         try {
             
             result = domainService.delete(operationInstance)
         
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
             def msg = message(code: 'default.message.delete.failed', args: [operationInstance, e.getMessage()])
             result = [success:false, message: msg] 

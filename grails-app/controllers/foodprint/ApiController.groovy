@@ -4,7 +4,7 @@ import grails.util.Environment
 
 class ApiController {
 	def grailsApplication
-    def readSysConfig() { 
+    def readSysConfig = { 
     	def config = [:]
 
     	config.foodpaintUrl = grailsApplication.config.grails.foodpaint.service.server.url

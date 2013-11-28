@@ -111,5 +111,8 @@ grails.project.dependency.resolution = {
         compile ":grails-ant:0.1.3"
         
         compile ":quartz:1.0-RC13"
+
+        test ":code-coverage:1.2.7"
+        compile ":codenarc:0.19"
     }
 }

@@ -1,8 +1,5 @@
 package foodprint
 
-import grails.converters.JSON
-import grails.plugins.springsecurity.Secured
-
 class AttachmentController {
 
     def attachmentService

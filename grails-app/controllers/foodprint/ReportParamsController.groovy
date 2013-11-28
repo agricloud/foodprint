@@ -1,12 +1,12 @@
 package foodprint
 
-import grails.converters.JSON
+import org.springframework.dao.DataIntegrityViolationException
 
 class ReportParamsController {
 
     def domainService
 
-    def index() {
+    def index = {
         log.debug "${controllerName}-${actionName}"
         log.debug params
 
@@ -27,11 +27,11 @@ class ReportParamsController {
         
     }
 
-    def show(Long id){
+    def show = {
 
         log.debug "${controllerName}-${actionName}"
 
-        def reportParams=ReportParams.findById(id);
+        def reportParams=ReportParams.findById(params.id);
 
         if(reportParams){   
             render (contentType: 'application/json') {
@@ -44,7 +44,7 @@ class ReportParamsController {
         }
     }
 
-    def create(){
+    def create = {
         if(params.report.id){
 
             def reportParams=new ReportParams(params)
@@ -59,7 +59,7 @@ class ReportParamsController {
         }   
     }
 
-    def save(){
+    def save = {
         log.debug "${controllerName}-${actionName}"
         def reportParams=new ReportParams(params)
         
@@ -68,7 +68,7 @@ class ReportParamsController {
         }
     }
 
-    def update(){
+    def update = {
 
         log.debug "${controllerName}-${actionName}"
 
@@ -90,13 +90,13 @@ class ReportParamsController {
         }
     }
 
-    def delete(){
+    def delete = {
         log.debug "${controllerName}-${actionName}"
         def reportParams = ReportParams.findById(params.id)
         def result
         try {
             result = domainService.delete(reportParams)
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
             def msg = message(code: 'default.message.delete.failed', args: [reportParams, e.getMessage()])
             result = [success:false, message: msg] 

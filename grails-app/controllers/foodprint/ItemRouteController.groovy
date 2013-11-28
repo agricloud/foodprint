@@ -5,13 +5,9 @@ import grails.converters.JSON
 
 class ItemRouteController {
 
-    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-
-
-
-    def index() {
+    def index = {
         //找出指定品項的相關途程。
         /*
         * [Deep properties]
@@ -28,8 +24,8 @@ class ItemRouteController {
 
     }
 
-    def show(Long id){
-        def itemRouteInstance=ItemRoute.findById(id);
+    def show = {
+        def itemRouteInstance=ItemRoute.findById(params.id);
         if(itemRouteInstance){
             
             
@@ -50,7 +46,7 @@ class ItemRouteController {
         } 
     }
 
-    def create() {
+    def create = {
 
         if(params.item.id){
 
@@ -74,7 +70,7 @@ class ItemRouteController {
         }   
     }
 
-    def save() {
+    def save = {
         def itemRouteInstance= new ItemRoute(params)
         render (contentType: 'application/json') {
             domainService.save(itemRouteInstance)
@@ -82,7 +78,7 @@ class ItemRouteController {
     }
 
 
-    def update() {
+    def update = {
         def itemRouteInstance = ItemRoute.findById(params.id)
         
         if(params?.workstation?.id || !params.workstation.id.trim()){
@@ -103,14 +99,14 @@ class ItemRouteController {
 
     }
 
-    def delete(){
+    def delete = {
         def itemRouteInstance = ItemRoute.findById(params.id)
         def result
         try {
             
             result = domainService.delete(itemRouteInstance)
         
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
             def msg = message(code: 'default.message.delete.failed', args: [itemRouteInstance, e.getMessage()])
             result = [success:false, message: msg] 
