@@ -9,12 +9,22 @@ import grails.converters.JSON
  */
 @TestFor(ConvertService)
 @Mock([Batch, Item,
-	Supplier,Workstation,Operation,
+	Customer,Supplier,Workstation,Operation,
 	BatchRoute,ItemRoute,
 	Param,Report,ReportParams,BatchReportDet,EnumService,TestService])
 
 class ConvertServiceTests {
 
+	void testItemJsonConvert() {
+
+    	def item = new Item(name: 'item1').save()
+
+		JSON.registerObjectMarshaller(Item) {
+		    service.itemParseJson(it)
+		}
+
+		assert item as JSON 
+    }
     void testBatchJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
@@ -83,7 +93,64 @@ class ConvertServiceTests {
 		}
 
 		assert ItemRoute.list() as JSON
-    }  
+    }
+
+    void testUserJsonConvert() {
+
+    	def user = new User(name:"user",title:"使用者Ａ").save()
+
+		JSON.registerObjectMarshaller(User) {
+		    service.userParseJson(it)
+		}
+
+		assert user as JSON 
+    }
+
+    void testCustomerJsonConvert() {
+
+    	def customer = new Customer(name:"cutstomer",title:"客戶Ａ").save()
+
+		JSON.registerObjectMarshaller(Customer) {
+		    service.customerParseJson(it)
+		}
+
+		assert customer as JSON 
+    }
+
+    void testSupplierJsonConvert() {
+    	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
+
+    	def supplier = new Supplier(name:"supplier",title:"供應商Ａ").save()
+
+		JSON.registerObjectMarshaller(Supplier) {
+		    service.supplierParseJson(it)
+		}
+
+		assert supplier as JSON 
+    }
+
+    void testOperationJsonConvert() {
+
+    	def operation = new Operation(name: 'operation1',title:'製程1').save()
+
+		JSON.registerObjectMarshaller(Operation) {
+		    service.operationParseJson(it)
+		}
+
+		assert operation as JSON 
+    }
+
+    void testWorkstationJsonConvert() {
+
+    	def workstation = new Workstation(name: 'workstation1',title:'製程1').save()
+
+		JSON.registerObjectMarshaller(Workstation) {
+		    service.workstationParseJson(it)
+		}
+
+		assert workstation as JSON 
+    }
+
 
     void testBatchReportDetJsonConvert(){
 	    def item = new Item(name: 'item1',title:'品項1').save()
