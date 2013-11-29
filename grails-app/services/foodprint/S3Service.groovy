@@ -27,7 +27,7 @@ class S3Service {
     }
 
     def getBucket() {
-        getService().getBucket(grailsApplication.config.aws.bucketName)
+        getService().getOrCreateBucket(grailsApplication.config.aws.bucketName)
     }
 
     def getBucketName() {

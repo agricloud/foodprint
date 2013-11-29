@@ -156,13 +156,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'commonoperationcombo',
-                                    anchor: '100%',
-                                    listeners: {
-                                        beforeselect: {
-                                            fn: me.onCommonOperationComboBeforeSelect,
-                                            scope: me
-                                        }
-                                    }
+                                    anchor: '100%'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -172,13 +166,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'commonworkstationcombo',
-                                    anchor: '100%',
-                                    listeners: {
-                                        beforeselect: {
-                                            fn: me.onCommonWorkstationComboBeforeSelect,
-                                            scope: me
-                                        }
-                                    }
+                                    anchor: '100%'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -206,19 +194,6 @@ Ext.define('foodprint.view.ItemRouteView', {
 
     onGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
-    },
-
-    onCommonOperationComboBeforeSelect: function(combo, record, index, eOpts) {
-        this.down('form').getForm().setValues({
-            'operation.title':record.get('title')
-        });
-    },
-
-    onCommonWorkstationComboBeforeSelect: function(combo, record, index, eOpts) {
-
-        this.down('form').getForm().setValues({
-            'workstation.title':record.get('title')
-        });
     }
 
 });

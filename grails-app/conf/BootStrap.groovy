@@ -43,6 +43,12 @@ class BootStrap {
 
 
     private jsonParseDefine(){
+        JSON.registerObjectMarshaller(User) {
+            convertService.userParseJson(it)
+        }
+        JSON.registerObjectMarshaller(Customer) {
+            convertService.customerParseJson(it)
+        }
         JSON.registerObjectMarshaller(Batch) {
             convertService.batchParseJson(it)
         }
@@ -52,6 +58,9 @@ class BootStrap {
 
         JSON.registerObjectMarshaller(Item) {
             convertService.itemParseJson(it)
+        }
+        JSON.registerObjectMarshaller(ItemRoute) {
+            convertService.itemRouteParseJson(it)
         }
         JSON.registerObjectMarshaller(Workstation) {
             convertService.workstationParseJson(it)

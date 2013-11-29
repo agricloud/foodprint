@@ -27,17 +27,9 @@ class ItemRouteController {
     def show = {
         def itemRouteInstance=ItemRoute.findById(params.id);
         if(itemRouteInstance){
-            
-            
-            def itemRouteJson =  JSON.parse((itemRouteInstance as JSON).toString()) 
-            itemRouteJson["item.id"] = itemRouteInstance.item.id
-            itemRouteJson["workstation.id"] = itemRouteInstance.workstation.id
-            itemRouteJson["workstation.title"] = itemRouteInstance.workstation.title
-            itemRouteJson["operation.id"] = itemRouteInstance.operation.id
-            itemRouteJson["operation.title"] = itemRouteInstance.operation.title
 
             render (contentType: 'application/json') {
-                [success: true,data:itemRouteJson]
+                [success: true,data:itemRouteInstance]
             }
         }else {
             render (contentType: 'application/json') {

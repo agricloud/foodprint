@@ -22,8 +22,13 @@ Ext.define('foodprint.model.ItemRoute', {
             name: 'id'
         },
         {
-            mapping: 'item.id',
-            name: 'itemid'
+            name: 'item.id'
+        },
+        {
+            name: 'item.name'
+        },
+        {
+            name: 'item.title'
         },
         {
             name: 'sequence'

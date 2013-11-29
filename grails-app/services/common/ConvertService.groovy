@@ -71,6 +71,31 @@ class ConvertService {
 	    result
     }
 
+    def itemRouteParseJson(itemRoute){
+   		def result = [:]
+   		result.id=itemRoute.id
+   		result.sequence=itemRoute.sequence
+   		result.item=itemRoute.item
+   		result["item.id"] = itemRoute.item.id
+   		result["item.name"] = itemRoute.item.name
+   		result["item.title"] = itemRoute.item.title
+   		if(itemRoute.operation){
+	   		result.operation=itemRoute.operation
+	        result["operation.id"] = itemRoute.operation.id
+	        result["operation.name"] = itemRoute.operation.name
+	        result["operation.title"] = itemRoute.operation.title
+	    }
+
+        if(itemRoute.workstation){
+        	result.workstation=itemRoute.workstation
+            result["workstation.id"] = itemRoute.workstation.id
+            result["workstation.name"] = itemRoute.workstation.name
+            result["workstation.title"] = itemRoute.workstation.title
+        }
+
+        result
+   	}
+
     def operationParseJson(operation){
 	    def result = [:]
 	    result.id= operation.id
@@ -228,6 +253,30 @@ class ConvertService {
 	    result["reportParams.param.paramTypeTitle"] = paramType.title
 
 	    result
+    }
+
+    def userParseJson(user){
+    	def result = [:]
+        result.id= user.id
+        result.username = user.username
+        result.password = user.password
+        result.enabled= user.enabled
+        result.accountExpired = user.accountExpired
+        result.accountLocked = user.accountLocked
+        result.passwordExpired = user.passwordExpired
+
+        result
+    }
+
+    def customerParseJson(customer){
+    	def result = [:]
+        result.id = customer.id
+    	result.name = customer.name
+		result.title = customer.title
+		result.email = customer.email
+		result.address = customer.address
+
+		result
     }
 
 
