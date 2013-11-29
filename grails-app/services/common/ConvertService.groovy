@@ -255,5 +255,29 @@ class ConvertService {
 	    result
     }
 
+    def userParseJson(user){
+    	def result = [:]
+        result.id= user.id
+        result.username = user.username
+        result.password = user.password
+        result.enabled= user.enabled
+        result.accountExpired = user.accountExpired
+        result.accountLocked = user.accountLocked
+        result.passwordExpired = user.passwordExpired
+
+        result
+    }
+
+    def customerParseJson(customer){
+    	def result = [:]
+        result.id = customer.id
+    	result.name = customer.name
+		result.title = customer.title
+		result.email = customer.email
+		result.address = customer.address
+
+		result
+    }
+
 
 }

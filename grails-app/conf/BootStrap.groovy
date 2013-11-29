@@ -43,6 +43,12 @@ class BootStrap {
 
 
     private jsonParseDefine(){
+        JSON.registerObjectMarshaller(User) {
+            convertService.userParseJson(it)
+        }
+        JSON.registerObjectMarshaller(Customer) {
+            convertService.customerParseJson(it)
+        }
         JSON.registerObjectMarshaller(Batch) {
             convertService.batchParseJson(it)
         }
