@@ -1,7 +1,6 @@
 
 package foodprint
 
-import grails.converters.JSON
 import common.*
 
 class BatchRouteController {
@@ -9,7 +8,7 @@ class BatchRouteController {
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-    def index(Integer max) {
+    def index = {
 
         def batch=Batch.findById(params.batch.id)
         if(batch){
@@ -27,8 +26,8 @@ class BatchRouteController {
 
     }
 
-    def show(Long id){
-        def batchRoute=BatchRoute.findById(id);
+    def show = {
+        def batchRoute=BatchRoute.findById(params.id);
         if(batchRoute){
             render (contentType: 'application/json') {
                 [success: true,data:batchRoute]
@@ -42,7 +41,7 @@ class BatchRouteController {
 
 
 
-    def create() {
+    def create = {
 
         if(params.batch.id){
 
@@ -62,7 +61,7 @@ class BatchRouteController {
         }   
     }
 
-    def save() {
+    def save = {
         def batchRoute= new BatchRoute(params)
         render (contentType: 'application/json') {
             domainService.save(batchRoute)
@@ -70,7 +69,7 @@ class BatchRouteController {
     }
 
 
-    def update() {
+    def update = {
         def  batchRoute = BatchRoute.findById(params.id)
 
         if(params.workstation.id==null || !params.workstation.id.trim()){
@@ -91,7 +90,7 @@ class BatchRouteController {
 
     }
 
-    def delete(){
+    def delete = {
         def  batchRoute = BatchRoute.findById(params.id)
         def result
         try {

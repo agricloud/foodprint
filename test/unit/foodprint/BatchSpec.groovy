@@ -21,7 +21,7 @@ class BatchSpec extends Specification {
     	def batchList = Batch.list()
 
    		then: '清單中要有一個批號資訊'
-      		batchList.size() == 1
+      	expect: batchList.size() == 1
 
     }
 }

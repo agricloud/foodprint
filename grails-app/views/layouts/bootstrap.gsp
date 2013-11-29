@@ -29,7 +29,7 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-2 foodprint"><g:img dir="images" file='foodprint.png'/><small>v1.0</small></div>
+        <g:link url="/reports/" ><div class="col-md-2 foodprint"><g:img dir="images" file='foodprint.png'/><small>v1.0</small></div></g:link>
         
         <div class="col-md-3 logo">食品履歷系統 <small>v1.0</small></div>
         
@@ -37,7 +37,7 @@
       </div>
       
         <div class="col-md-3 foodprint-board">
-          <g:img dir="images" file="foodprint-board.png" /> 
+          <g:link url="/reports/" ><g:img dir="images" file="foodprint-board.png" /></g:link>
          </div>
 
       <div class="col-md-12 right-slogan text-right">．擁有產品履歷．安全．信賴．e化管理</div>

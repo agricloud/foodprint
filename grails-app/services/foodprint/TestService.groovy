@@ -3,7 +3,7 @@ package foodprint
 class TestService {
 
 
-    private createStdTestData(){
+    def createStdTestData = {
         //標準測試資料，作為驗證以及 unit test 用
 
         def item = new Item(name:"item1",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種").save(failOnError: true)
@@ -24,7 +24,7 @@ class TestService {
 
 
     }
-    private createExtraRouteData(){
+    def createExtraRouteData = {
         def item = Item.get(1)
         def batch = Batch.get(1)
 
@@ -34,15 +34,15 @@ class TestService {
         def workstation2 = new Workstation(name:"workstation2",title:"檢驗站02").save(failOnError: true)
         def operation2 = new Operation(name:"operation2",title:"翻土").save(failOnError: true)
 
-        def itemRoute2=new ItemRoute(item:item,sequence:2,operation:operation1,workstation:workstation2).save(failOnError: true)
-        def itemRoute3=new ItemRoute(item:item,sequence:3,operation:operation2,workstation:workstation1).save(failOnError: true)
-        def itemRoute4=new ItemRoute(item:item,sequence:4,operation:operation2,workstation:workstation2).save(failOnError: true)
+        new ItemRoute(item:item,sequence:2,operation:operation1,workstation:workstation2).save(failOnError: true)
+        new ItemRoute(item:item,sequence:3,operation:operation2,workstation:workstation1).save(failOnError: true)
+        new ItemRoute(item:item,sequence:4,operation:operation2,workstation:workstation2).save(failOnError: true)
 
-        def batchRoute2=new BatchRoute(batch:batch,workstation:workstation1,sequence:2,operation:operation2,startDate:new Date()).save(failOnError: true,flush: true)
-        def batchRoute3=new BatchRoute(batch:batch,workstation:workstation2,sequence:3,operation:operation1).save(failOnError: true,flush: true)
-        def batchRoute4=new BatchRoute(batch:batch,workstation:workstation2,sequence:4,operation:operation2).save(failOnError: true,flush: true)
+        new BatchRoute(batch:batch,workstation:workstation1,sequence:2,operation:operation2,startDate:new Date()).save(failOnError: true,flush: true)
+        new BatchRoute(batch:batch,workstation:workstation2,sequence:3,operation:operation1).save(failOnError: true,flush: true)
+        new BatchRoute(batch:batch,workstation:workstation2,sequence:4,operation:operation2).save(failOnError: true,flush: true)
     }
-    private createOtherReport(){
+    def createOtherReport = {
         def item = Item.get(1)
         def batch = Batch.get(1)
         def workstation = Workstation.get(1)
@@ -50,10 +50,10 @@ class TestService {
         def param = new Param(name:"paramOther",title:"PackageCapacity",defaultValue:"100",paramType:ParamType.INTEGER).save(failOnError: true)
         def report = new Report(name:"reportOther",title:"檢驗紀錄集").save(failOnError: true)
         def reportparam = new ReportParams (report:report,param:param,workstation:workstation,operation:operation,item:item).save(failOnError: true)
-        def batchReportDet = new BatchReportDet (batch:batch,reportParams:reportparam).save(failOnError: true, flush: true)
+        new BatchReportDet (batch:batch,reportParams:reportparam).save(failOnError: true, flush: true)
 
     }
-    private createNutritionReport(){
+    def createNutritionReport = {
         def item = Item.get(1)
         def batch = Batch.get(1)
         def workstation = Workstation.get(1)
@@ -62,7 +62,7 @@ class TestService {
         def report=new Report(name:"reportNutrition",title:"營養標示履歷", reportType: ReportType.NUTRITION).save(failOnError: true)
         def reportparam=new  ReportParams (report:report,param:param,workstation:workstation,operation:operation,item:item).save(failOnError: true)
     }
-    private createInspectReport(){
+    def createInspectReport = {
         def item = Item.get(1)
         def batch = Batch.get(1)
         def workstation = Workstation.get(2)
@@ -75,21 +75,21 @@ class TestService {
         def reportparam2=new  ReportParams (report:report,param:param2,workstation:workstation,operation:operation,item:item).save(failOnError: true)
         def reportparam3=new  ReportParams (report:report,param:param3,workstation:workstation,operation:operation,item:item).save(failOnError: true)
     }
-    private createBatchSource(){
+    def createBatchSource = {
         def mainBatch = Batch.get(1)
         def item = new Item(name:"item2",title:"橘子").save(failOnError: true)
         def batch = new Batch(name:"batch2",item:item).save(failOnError: true)
         new BatchSource(batch:mainBatch,childBatch:batch).save(failOnError: true)
 
     }
-    private createOtherDomain(){
+    def createOtherDomain = {
         def user = new User(username: 'user', password: 'user', enabled: true).save(failOnError: true)
         def cutstomer = new Customer(name:"cutstomer",title:"A先生").save(failOnError: true)
         def supplier = new Supplier(name:"supplier",title:"A公司",email:"A@xx.com",address:"台北市忠孝東路222號").save(failOnError: true)
 
     }
 
-    private createTestMessage(messageSource){
+    def createTestMessage = { messageSource ->
         messageSource.addMessage("default.message.save.success", Locale.getDefault(), "儲存成功")
         messageSource.addMessage("default.message.delete.success", Locale.getDefault(), "刪除成功")
         messageSource.addMessage("default.message.update.failed", Locale.getDefault(), "更新失敗")

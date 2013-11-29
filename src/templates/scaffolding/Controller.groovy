@@ -5,14 +5,14 @@ class ${className}Controller {
 
     def domainService
 
-    def index() {
+    def index = {
         def list = ${className}.createCriteria().list(params,params.criteria)
         render (contentType: 'application/json') {
             [${propertyName}List: list, ${propertyName}Total: list.totalCount]
         }
     }
 
-    def show(){
+    def show = {
         def ${propertyName}=${className}.findById(params.id);  
         if(${propertyName}){   
             render (contentType: 'application/json') {
@@ -25,21 +25,21 @@ class ${className}Controller {
         }
     }
     
-    def create(){
+    def create = {
         def ${propertyName}=new ${className}()        
         render (contentType: 'application/json') {
             [success: true,data:${propertyName}]
         }
     }
 
-    def save(){
+    def save = {
         def ${propertyName}=new ${className}(params)
         render (contentType: 'application/json') {
             domainService.save(${propertyName})
         }
     }
 
-    def update(){
+    def update = {
         def  ${propertyName} = ${className}.findById(params.id)
         ${propertyName}.properties = params
         render (contentType: 'application/json') {
@@ -47,7 +47,7 @@ class ${className}Controller {
         }         
     }
 
-    def delete(){
+    def delete = {
         
         def ${propertyName} = ${className}.findById(params.id)
         def result

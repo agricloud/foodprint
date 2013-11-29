@@ -8,7 +8,7 @@ class ReportViewerController {
     def batchAnalyzeService
 
 
-    def index(){
+    def index = {
 
         log.info "log.info"
         log.debug "log.debug"
@@ -94,7 +94,7 @@ class ReportViewerController {
 
     }
 
-    def material(){
+    def material = {
 
         if(!params?.name || params?.name == 'null'){
             flash.message = "未指定批號！"
@@ -132,7 +132,7 @@ class ReportViewerController {
         [batch: batch, report: batchSourceReportMap]
 
     }
-    def cultivate(){
+    def cultivate = {
 
         if(!params?.name || params?.name == 'null'){
             flash.message = "未指定批號！"
@@ -172,7 +172,7 @@ class ReportViewerController {
         [batch: batch, report: batchRouteReportMap]
 
     }
-    def quality(){
+    def quality = {
 
         if(!params?.name || params?.name == 'null'){
             flash.message = "未指定批號！"
@@ -225,11 +225,11 @@ class ReportViewerController {
 
     }
 
-    def search(){
-
+    def search = {
+        render (view: 'search')
     }    
 
-    def query(){
+    def query = {
 
 
         def batch = Batch.findByName(params.name)

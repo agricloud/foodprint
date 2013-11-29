@@ -1,6 +1,6 @@
 package foodprint
 
-import grails.converters.JSON
+import org.springframework.dao.DataIntegrityViolationException
 
 class ReportController {
 
@@ -9,7 +9,7 @@ class ReportController {
 
     def enumService
 
-    def index() {
+    def index = {
 
         def list = Report.createCriteria().list(params,params.criteria)
 
@@ -20,11 +20,11 @@ class ReportController {
         
     }
 
-    def show(Long id){
+    def show = {
 
         log.debug "${controllerName}-${actionName}"
 
-        def report=Report.findById(id);
+        def report=Report.findById(params.id);
 
         if(report){   
 
@@ -38,7 +38,7 @@ class ReportController {
         }
     }
  
-    def create(){
+    def create = {
 
         def report=new Report()
         render (contentType: 'application/json') {
@@ -46,7 +46,7 @@ class ReportController {
         }
     }
 
-    def save(){
+    def save = {
         log.debug "${controllerName}-${actionName}"
         def report=new Report(params)
         
@@ -55,7 +55,7 @@ class ReportController {
         }
     }
 
-    def update(){
+    def update = {
 
         def report = Report.findById(params.id)
         report.properties=params
@@ -64,14 +64,14 @@ class ReportController {
         }
     }
 
-    def delete(){
+    def delete = {
         def report = Report.findById(params.id)
         def result
         try {
             
             result = domainService.delete(report)
         
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
             def msg = message(code: 'default.message.delete.failed', args: [report, e.getMessage()])
             result = [success:false, message: msg] 

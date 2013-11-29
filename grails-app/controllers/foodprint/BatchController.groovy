@@ -1,15 +1,11 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
-import org.apache.commons.lang.exception.ExceptionUtils
-import grails.converters.JSON
-
 class BatchController {
 
     def domainService
 
 
-    def index() {
+    def index = {
 
         def list = Batch.createCriteria().list(params,params.criteria)        
 
@@ -18,7 +14,7 @@ class BatchController {
         }
     }
 
-    def typeahead() {
+    def typeahead = {
 
         def list = Batch.createCriteria().list(params,{
                  like('name',params.query+"%")
@@ -41,7 +37,7 @@ class BatchController {
         }
     }
 
-    def show(Long id){
+    def show = {
         //找出指定批號。
         /*
         * [Deep properties]
@@ -68,7 +64,7 @@ class BatchController {
         }
     }
 
-    def create(){
+    def create = {
 
         def batch=new Batch()   
         render (contentType: 'application/json') {
@@ -77,7 +73,7 @@ class BatchController {
     }
  
 
-    def save(){
+    def save = {
 
         def batch=new Batch(params)
         
@@ -86,7 +82,7 @@ class BatchController {
         }
     }
 
-    def update(){
+    def update = {
 
         def batchInstance = Batch.findById(params.id)
         batchInstance.properties=params
@@ -95,7 +91,7 @@ class BatchController {
         }
     }
 
-    def delete(){
+    def delete = {
         def batchInstance = Batch.findById(params.id)
         def result
         try {
@@ -125,7 +121,7 @@ class BatchController {
     * 使用redirect重新導向ItemRoute較為精簡
     * 也可避免params中屬性命名相同等衝突
     */
-    def itemRouteList(){
+    def itemRouteList = {
         log.debug "BatchController--itemRouteList"
         redirect(controller: "ItemRoute",action: "index" ,params:["item.id":Batch.get(params.id).item.id])
     }
