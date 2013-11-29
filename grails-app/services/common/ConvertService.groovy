@@ -264,6 +264,8 @@ class ConvertService {
         result.accountExpired = user.accountExpired
         result.accountLocked = user.accountLocked
         result.passwordExpired = user.passwordExpired
+        result.fullName = user.fullName
+        result.email = user.email
 
         result
     }
