@@ -40,7 +40,7 @@ class ${className}Controller {
     }
 
     def update = {
-        def  ${propertyName} = ${className}.findById(params.id)
+        def  ${propertyName} = ${className}.get(params.id)
         ${propertyName}.properties = params
         render (contentType: 'application/json') {
             domainService.save(${propertyName})

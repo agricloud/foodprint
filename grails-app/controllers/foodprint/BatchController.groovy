@@ -84,7 +84,7 @@ class BatchController {
 
     def update = {
         
-        def batchInstance = Batch.findById(params.id)
+        def batchInstance = Batch.get(params.id)
         batchInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(batchInstance)
