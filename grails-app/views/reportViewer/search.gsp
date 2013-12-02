@@ -159,7 +159,7 @@
               
                 <g:field placeholder="請輸入批號" name='name' type="text" class="form-control" id="batchName" />
                 <div class="input-group-btn">
-                  <button id="submitBtn" type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                  <button id="submitBtn" type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown">送出</button>
                 </div><!-- /btn-group -->
               
 
