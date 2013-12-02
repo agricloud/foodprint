@@ -1,0 +1,21 @@
+language: groovy
+jdk:
+  - oraclejdk7
+branches:
+  only:
+    - develop
+    - master
+    - travis_setup
+
+before_script:
+	- rm -rf target
+
+script: grails refresh-dependencies --non-interactive
+	&& grails test-app --non-interactive
+
+after_script: TRAVIS_TEST_RESULT
+
+notifications:
+  email:
+    - smlsun@gmail.com
+    - ppelize@gmail.com
