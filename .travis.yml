@@ -13,8 +13,6 @@ before_script:
 script: ./grailsw refresh-dependencies
   && ./grailsw "test-app"
 
-after_script: $TRAVIS_TEST_RESULT
-
 notifications:
   email:
     - smlsun@gmail.com
