@@ -10,8 +10,8 @@ branches:
 before_script:
   - rm -rf target
 
-script: grails refresh-dependencies --non-interactive
-  && grails test-app --non-interactive
+script: ./grailsw refresh-dependencies
+  && ./grailsw "test-app"
 
 after_script: TRAVIS_TEST_RESULT
 
