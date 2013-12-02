@@ -5,5 +5,15 @@ branches:
   only:
     - develop
     - master
+    - travis_setup
+
+before_script:
+  - rm -rf target
+
 script: ./grailsw refresh-dependencies
   && ./grailsw "test-app"
+
+notifications:
+  email:
+    - smlsun@gmail.com
+    - ppelize@gmail.com
