@@ -8,10 +8,10 @@ branches:
     - travis_setup
 
 before_script:
-	- rm -rf target
+  - rm -rf target
 
 script: grails refresh-dependencies --non-interactive
-	&& grails test-app --non-interactive
+  && grails test-app --non-interactive
 
 after_script: TRAVIS_TEST_RESULT
 
