@@ -50,7 +50,7 @@ class BatchController {
 
         log.info "${controllerName}-${actionName}"
 
-        def batch=Batch.findById(id);
+        def batch=Batch.findById(params.id);
 
         if(batch){   
 
@@ -83,7 +83,7 @@ class BatchController {
     }
 
     def update = {
-
+        
         def batchInstance = Batch.findById(params.id)
         batchInstance.properties=params
         render (contentType: 'application/json') {
