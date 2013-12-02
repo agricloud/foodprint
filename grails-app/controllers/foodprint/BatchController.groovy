@@ -1,5 +1,7 @@
 package foodprint
 
+import org.springframework.dao.DataIntegrityViolationException
+
 class BatchController {
 
     def domainService
@@ -50,7 +52,7 @@ class BatchController {
 
         log.info "${controllerName}-${actionName}"
 
-        def batch=Batch.findById(id);
+        def batch=Batch.findById(params.id);
 
         if(batch){   
 
@@ -85,7 +87,7 @@ class BatchController {
     def update = {
 
         def batchInstance = Batch.findById(params.id)
-        batchInstance.properties=params
+    batchInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
