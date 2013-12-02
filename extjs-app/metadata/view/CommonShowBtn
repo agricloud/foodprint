@@ -1,0 +1,42 @@
+{
+    "type": "Ext.button.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonShowBtn",
+        "style": "font-family:Pictos;",
+        "designer|userClassName": "CommonShowBtn",
+        "designer|userAlias": "commonshowbtn",
+        "glyph": 88,
+        "text": "Show"
+    },
+    "configAlternates": {
+        "style": "string"
+    },
+    "designerId": "40737cba-189e-495c-a146-b789bb67a20d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonShowBtn",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=Utilities.getMsg('common.showBtn.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "20a59bf5-c816-4a02-9f48-17b8d2531920"
+        }
+    ]
+}

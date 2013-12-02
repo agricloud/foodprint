@@ -4,26 +4,23 @@
 
 package foodprint
 
-public enum ReportType {
-	MATERIAL,
-	INSPECT,
-	NUTRITION,	// 營養
-	OTHER
+class Report {
 
-}
-
-class Report extends DefaultTable{
+	Site site
+	String editor = ""
+	String creator = ""
+	Date dateCreated
+	Date lastUpdated
 
 	String name
 	String title
-	String decription = ""
+	String description = ""
 	Date effectStartDate
 	Date effectEndDate
-
 	ReportType reportType = foodprint.ReportType.OTHER
 
-
     static constraints = {
+		site nullable:true
     	effectStartDate nullable:true
     	effectEndDate nullable:true
     }

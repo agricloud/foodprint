@@ -1,14 +1,20 @@
 package foodprint
 
-class ItemRoute extends DefaultTable{
+class ItemRoute {
 
-	static belongsTo = [item: Item]
+    Site site
+    String editor = ""
+    String creator = ""
+    Date dateCreated
+    Date lastUpdated
+	
+    static belongsTo = [item: Item]
 	int sequence
 	Operation operation
 	Workstation workstation
 
-
     static constraints = {
+        site nullable:true
     	sequence unique:'item'
     }
 

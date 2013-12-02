@@ -9,9 +9,77 @@
         "itemId": "commonOperationCombo",
         "designer|userClassName": "CommonOperationCombo",
         "designer|userAlias": "commonoperationcombo",
+        "fieldLabel": "Operation.name",
+        "name": "operation.id",
+        "allowBlank": false,
+        "editable": null,
         "displayField": "name",
+        "forceSelection": true,
+        "minChars": 0,
+        "queryParam": "nameLike",
         "store": "OperationStore",
-        "valueField": "name"
+        "valueField": "id"
     },
-    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
+    "designerId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonOperationCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('operation.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "981fdb24-5a1f-4825-800e-fd55c68d8aa9"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonOperationComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'operation.title':records[0].data['title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "06cd82f8-09e2-40bd-b5ef-ffa9ae891cbb"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonOperationComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "180f0f86-23a3-4c0f-bbdd-00c587d5828c"
+        }
+    ]
 }

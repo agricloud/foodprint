@@ -1,0 +1,100 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Batch",
+            "Country",
+            "Item"
+        ],
+        "stores": [
+            "BatchStore",
+            "CountryStore",
+            "ItemStore"
+        ],
+        "views": [
+            "BatchView"
+        ],
+        "designer|userClassName": "BatchController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "718ab505-ce89-4fc5-95b3-f0d0ca40d8ac",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'batchview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'batchview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'batchview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'batchview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'batchview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'batchview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "this.domainName = 'batch';"
+                ]
+            },
+            "designerId": "bebd6d86-a252-4f7a-aab9-dda38b5b3e99"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "batchview #grid"
+            },
+            "designerId": "df4a83f1-f566-4ab2-a899-5b01e74ac132"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "batchview #form"
+            },
+            "designerId": "8fb39afa-d74e-4e16-814e-eccdda96aad3"
+        }
+    ]
+}

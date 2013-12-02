@@ -1,166 +1,250 @@
 package foodprint
 
-import org.springframework.http.converter.StringHttpMessageConverter
-
-import grails.plugins.rest.client.RestBuilder
-import java.nio.charset.Charset
 import grails.converters.*
+
 
 class ReportViewerController {
 
-    def demo() { 
-
-      // 勿刪， 無 http://192.168.2.104:8100/SFT 測試用
-      // def webRootDir = servletContext.getRealPath ("/")
-      // def f = new File (webRootDir + "/xmlSample/report.xml")
-      // def records = new XmlParser().parseText(f.text)
-
-      	def rest = new RestBuilder()
-		rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-		def url = "http://192.168.2.104:8100/SFT/"
-		def imgUrl = url+"PDA/"
-		def resp = rest.get(url+"ws/demo/records/GinPin/410002/981009-410002")
-		def records = new XmlParser().parseText(resp.text)
+    def batchAnalyzeService
 
 
+    def index = {
 
-		def formImg=records.form.field.findAll{ field->
-				field.'@label'=="圖片"
-  			}
-  		formImg.each{
-  			it.value=imgUrl+it.text()
-  		}
+        log.info "log.info"
+        log.debug "log.debug"
 
-  		records.tabs.tab.detail.row.cell.each{ cell->
-  			if(cell.img.size()>0){
-  				cell.img[0].'@src'	= [imgUrl+ cell.img.'@src'[0]]
-			}
-  		}
+        if(!params?.name || params?.name == 'null'){
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return 
+        }
 
-  		return [reportData: records]
+        def batch = Batch.findByName(params.name)
+        def product = [:]
+        product.head = [:]
+        product.body = [:]
+        product.title = " 產品說明"
+
+
+        product.head["batch.name"] = batch.name
+        product.head["item.title"] = batch.item.title
+        product.head["item.description"] = batch.item.description
+        product.head["batch.remark"] = batch?.remark
+
+
+        product.body["item.name"] = batch.item.name
+        product.body["batch.manufactureDate"] = g.formatDate(date: batch.manufactureDate, format: 'yyyy.MM.dd')
+        product.body["batch.expirationDate"] = g.formatDate(date: batch.expirationDate, format: 'yyyy.MM.dd')        
+        product.body["item.spec"] = batch.item.spec
+
+        
+        def otherReports=[]
+        def batchReportDets = BatchReportDet.findAllByBatch(batch)
+        def domainReports = batchReportDets.reportParams*.report.unique()
+
+
+
+
+        domainReports.each(){ report ->
+            def reportMap = [:]
+            reportMap.params=[]
+            reportMap.title = report.title
+            reportMap.reportType = report.reportType
+
+
+            if(reportMap.reportType == ReportType.NUTRITION){
+                batchReportDets.each(){ batchReportDet ->
+                    if(batchReportDet.reportParams.report == report){
+                        def param = [:]
+
+                        param["param.name"] = batchReportDet.reportParams.param.name
+                        param["param.title"] = batchReportDet.reportParams.param.title
+                        param["param.description"] = batchReportDet.reportParams.param.description
+                        param["param.unit"] = batchReportDet.reportParams.param.unit
+                        param["batchReportDet.value"] = batchReportDet.value
+
+                        reportMap.params << param
+                    }
+                    
+                }
+                otherReports << reportMap
+
+            } else if(reportMap.reportType == ReportType.OTHER){
+                batchReportDets.each(){ batchReportDet ->
+                    if(batchReportDet.reportParams.report == report){
+                        def param = [:]
+
+                        param["param.name"] = batchReportDet.reportParams.param.name
+                        param["param.title"] = batchReportDet.reportParams.param.title
+                        param["param.description"] = batchReportDet.reportParams.param.description
+                        param["batchReportDet.value"] = batchReportDet.value
+
+                        reportMap.params << param
+                    }
+                }
+                otherReports << reportMap 
+            }
+
+        }
+
+
+        [batch: batch, product: product,reports: otherReports]
+
+
 
     }
 
-    def index(Long id){
+    def material = {
 
-      def batch = Batch.findById(id)
+        if(!params?.name || params?.name == 'null'){
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return
+        }
 
+        def batch = Batch.findByName(params.name)
+        
 
-      def product = [:]
-
-      product["batch.name"] = batch.name
-      product["item.name"] = batch.item.name
-      product["item.title"] = batch.item.title
-      product["item.spec"] = batch.item.spec
-      product["item.unit"] = batch.item.unit
-      product["item.description"] = batch.item.description
-      
-
-
-      def reports=[]
+        def batchSourceReportMap = [:]
+        batchSourceReportMap.title = "原料履歷"
+        batchSourceReportMap.params=[]
 
 
-      def batchReportDets = BatchReportDet.findAllByBatch(batch)
+        def batchFinal=batchAnalyzeService.backwardTraceToFinal(batch)
 
-      def domainReports = batchReportDets.reportParams*.report.unique()
-      domainReports.each(){ report ->
+        batchFinal.batchChilds.each(){ childBatch ->
+
+            def param = [:]
+            // param["batch.name"] = childBatch.name
+            // param["item.name"] = childBatch.item.name
+            param["item.title"] = childBatch.item.title
+            param["item.spec"] = childBatch.item.spec
+            param["supplier.title"] = childBatch?.supplier?.title
+            param["batch.country"] = childBatch.country
+            param["item.description"] = childBatch.item.description
+            param["default.image"] = "/attachment/show/${childBatch.item.id}?domainName=item"
+
+
+            batchSourceReportMap.params << param
+
+        }
+
+        [batch: batch, report: batchSourceReportMap]
+
+    }
+    def cultivate = {
+
+        if(!params?.name || params?.name == 'null'){
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return
+        }
+
+        def batch = Batch.findByName(params.name)
+        
+        def batchRouteReportMap = [:]
+        batchRouteReportMap.title = "栽種履歷"
+
+        batchRouteReportMap.params=[]
+
+
+
+        batch.batchRoutes.each(){ batchRoute ->
+            def param = [:]
+            // param["batchRoute.id"] = batchRoute.id
+            // param["batchRoute.sequence"] = batchRoute.sequence
+
+
+            
+            param["agriculture.operation.title"] = batchRoute?.operation?.title
+
+            param["agriculture.batchRoute.endDate"] = g.formatDate(date: batchRoute?.startDate, format: 'yyyy.MM.dd')
+
+            param["agriculture.workstation.title"] = batchRoute?.workstation?.title
+            param["operation.description"] = batchRoute?.operation?.description
+
+            param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
+
+            batchRouteReportMap.params << param
+
+        }
+
+        [batch: batch, report: batchRouteReportMap]
+
+    }
+    def quality = {
+
+        if(!params?.name || params?.name == 'null'){
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return
+        }
+
+        def batch = Batch.findByName(params.name)
+        
+
+
+        def batchReportDets = BatchReportDet.findAllByBatch(batch)
+        def domainReports = batchReportDets.reportParams*.report.unique()
 
         def reportMap = [:]
-        reportMap.title = report.title
-        reportMap.reportType = report.reportType
+
 
         reportMap.params=[]
 
-        if(reportMap.reportType == ReportType.NUTRITION){
-          batchReportDets.each(){ batchReportDet ->
-            if(batchReportDet.reportParams.report == report){
-              def param = [:]
+        domainReports.each(){ report ->
+            reportMap.title = report.title
+            reportMap.reportType = report.reportType
 
-              param["param.name"] = batchReportDet.reportParams.param.name
-              param["param.title"] = batchReportDet.reportParams.param.title
-              param["param.description"] = batchReportDet.reportParams.param.description
-              param["param.unit"] = batchReportDet.reportParams.param.unit
-              param["batchReportDet.value"] = batchReportDet.value
-              param["batchReportDet.value"] = batchReportDet.value
+            if(reportMap.reportType == ReportType.INSPECT){
+                batchReportDets.each(){ batchReportDet ->
+                    if(batchReportDet.reportParams.report == report){
+                        def param = [:]
+
+                        param["inspect.param.title"] = batchReportDet.reportParams.param.title
+                        param["inspect.batchReportDet.value"] = batchReportDet.value?.toFloat()
+
+                        param["param.upper"] = batchReportDet.reportParams.param.upper?.toFloat()
+
+                        if(param["inspect.batchReportDet.value"] <= param["param.upper"])
+                            param["inspect.qualified"] = true
+                        else param["inspect.qualified"] = false
+
+                        param["inspect.dateCreated"] = batchReportDet.batchRoute.endDate.format('yyyy-MM-dd')
+                        param["inspect.param.unit"] = batchReportDet.reportParams.param.unit
+
+                        reportMap.params << param
+
+                    }
+                }
             }
-          }        
+
         }
 
-        else if(reportMap.reportType == ReportType.INSPECT){
-          batchReportDets.each(){ batchReportDet ->
-            if(batchReportDet.reportParams.report == report){
-              def param = [:]
-
-              param["param.name"] = batchReportDet.reportParams.param.name
-              param["param.title"] = batchReportDet.reportParams.param.title
-              param["param.defaultValue"] = batchReportDet.reportParams.param.defaultValue
-              param["param.description"] = batchReportDet.reportParams.param.description
-              param["param.lower"] = batchReportDet.reportParams.param.lower
-              param["param.upper"] = batchReportDet.reportParams.param.upper
-              param["param.unit"] = batchReportDet.reportParams.param.unit
-              param["batchReportDet.value"] = batchReportDet.value
-
-
-              reportMap.params << param
-
-            }
-          }
-        }
-
-        else{
-          batchReportDets.each(){ batchReportDet ->
-            if(batchReportDet.reportParams.report == report){
-              def param = [:]
-
-              param["param.name"] = batchReportDet.reportParams.param.name
-              param["param.title"] = batchReportDet.reportParams.param.title
-              param["param.description"] = batchReportDet.reportParams.param.description
-              param["batchReportDet.value"] = batchReportDet.value
-
-              reportMap.params << param
-
-            }
-          } 
-        }
-
-        reports << reportMap
-
-      }
-
-      // 生產履歷
-
-      def reportMap = [:]
-      reportMap.title = "生產履歷"
-
-      reportMap.params=[]
-      batch.batchRoutes.each(){ batchRoute ->
-        def param = [:]
-        param["batchRoute.id"] = batchRoute.id
-        param["batchRoute.sequence"] = batchRoute.sequence
-
-        param["operation.name"] = batchRoute.operation.name
-        param["operation.title"] = batchRoute.operation.title
-
-        param["workstation.name"] = batchRoute.workstation.name
-        param["workstation.title"] = batchRoute.workstation.title
-
-        param["batchRoute.startDate"] = batchRoute.startDate
-        param["batchRoute.endDate"] = batchRoute.endDate
-        param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
-
-        reportMap.params << param
-
-      }
-
-      reports << reportMap
-
-      render (view:'index' ,model:[product: product, reports:reports]) 
-
-
-
+        [batch: batch, report: reportMap]
 
     }
 
+    def search = {
+        render (view: 'search')
+    }    
+
+    def query = {
+
+
+        def batch = Batch.findByName(params.name)
+
+        if(batch) {
+            redirect (uri: '/reports/'+batch.name)
+            return 
+        }else  {
+            if(params.name == "")
+                flash.message = "請輸入批號！"
+            else flash.message = "查無批號！"
+            redirect (uri: '/reports')
+        }
+        
+    }
 
 
 }

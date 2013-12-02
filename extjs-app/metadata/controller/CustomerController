@@ -1,0 +1,99 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Customer"
+        ],
+        "stores": [
+            "CustomerStore"
+        ],
+        "views": [
+            "CustomerView"
+        ],
+        "designer|userClassName": "CustomerController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "2aa22532-98a4-4a3a-9084-9fe773fba44d",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "customerview #grid"
+            },
+            "designerId": "061836b2-84a6-40af-90a5-ca5091f4540b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "customerview #form"
+            },
+            "designerId": "085531d0-1210-4bec-b5a5-97c3c1362f9b"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'customerview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'customerview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'customerview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'customerview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'customerview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'customerview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'customer';",
+                    ""
+                ]
+            },
+            "designerId": "27290149-f402-4307-ae65-b8658010fba5"
+        }
+    ]
+}

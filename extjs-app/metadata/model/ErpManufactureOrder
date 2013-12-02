@@ -1,0 +1,171 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpManufactureOrder"
+    },
+    "designerId": "cb77c353-ff0d-455a-801b-ae3473a6a947",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "id"
+            },
+            "designerId": "ba97fdb3-e8f5-4c63-9ff1-2bec3ef64369"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "e2cc451b-72f0-481b-a032-046d474ecb63"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "b978aac9-a78e-4098-babd-877887dfaee1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "item.id",
+                "name": "item.id"
+            },
+            "designerId": "c6a97bf5-bec3-4f40-b279-f341407d5dc1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "item.name",
+                "name": "item.name"
+            },
+            "designerId": "63559f28-ae6a-413c-82b9-8d5b102e826b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qty"
+            },
+            "designerId": "10d3fe38-affb-456a-bd8c-80bc6b456e35"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "batch.id",
+                "name": "batch.id"
+            },
+            "designerId": "1b8a7c61-691d-41be-a2d2-20f196379ba5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "batch.name",
+                "name": "batch.name"
+            },
+            "designerId": "b20a96c4-6f4a-4a08-85ab-b386dc216b0c"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/manufactureOrder"
+            },
+            "designerId": "9a2610df-a09a-4e8b-b412-0f6d4fba3bef",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "manufactureOrderInstanceList",
+                        "totalProperty": "manufactureOrderInstanceTotal"
+                    },
+                    "designerId": "e6358e68-e7ed-48b1-8833-03c50fc3c017"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpManufactureOrder",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "console.log(config);",
+                    "console.log(config.proxy.url);",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/manufactureOrder\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "bc2095b6-a0e7-4c21-ab05-601db3a6b409"
+        }
+    ]
+}

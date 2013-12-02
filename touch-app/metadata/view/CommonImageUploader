@@ -6,9 +6,240 @@
     },
     "codeClass": null,
     "userConfig": {
+        "items": [
+            "[",
+            "    {",
+            "        xtype: 'segmentedbutton',",
+            "        //docked: 'top',",
+            "        items: [",
+            "            {",
+            "                xtype: 'fileupload',",
+            "                name:'file',",
+            "                itemId:'fileuploadBtn',",
+            "                autoUpload: true,",
+            "                states: {",
+            "                    browse: {",
+            "                        text: '圖片上傳'",
+            "                    }",
+            "                },",
+            "                ",
+            "                listeners:{",
+            "                    success: function(){",
+            "                        this.up().up().showImage();",
+            "                    },",
+            "                    failure: function(){",
+            "                        this.up().up().fileUploadFailure();",
+            "                    },",
+            "                    tap: function( btn, e, eOpts ){",
+            "                        var uploadUrl=this.up().up().getUploadUrl();",
+            "                        console.log(uploadUrl);",
+            "                        btn.setUrl(uploadUrl);",
+            "                    }",
+            "                }",
+            "            },",
+            "            {",
+            "                xtype: 'button',",
+            "                itemId:'deleteBtn',",
+            "                text:'delete',",
+            "                handler: function(button, event) {",
+            "                    button.up().up().deleteImage();",
+            "                }",
+            "            }",
+            "        ]",
+            "    },",
+            "    {",
+            "        xtype: 'image',",
+            "        src:'',",
+            "        itemId:'mainImg',",
+            "        hidden:true,",
+            "        height: 150,",
+            "        width: 310",
+            "    }",
+            "]"
+        ],
+        "container|align": "center",
         "itemId": "commonImageUploader",
         "designer|userClassName": "CommonImageUploader",
-        "designer|userAlias": "commonimageuploader"
+        "designer|userAlias": "commonimageuploader",
+        "requires": [
+            "Ext.ux.Fileup"
+        ],
+        "layout": "vbox"
     },
-    "designerId": "272bb4f2-55f9-48a4-8189-8c41ddcf21d1"
+    "configAlternates": {
+        "items": "array",
+        "layout": "object",
+        "config": "object"
+    },
+    "designerId": "103ddc84-070e-4e33-b783-5feac2fbdf01",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "items",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showImage",
+                "implHandler": [
+                    "this.getComponent(\"mainImg\").show();",
+                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName+'&date='+(new Date()));",
+                    ""
+                ]
+            },
+            "designerId": "fab38afb-d512-4267-b40a-f213cadd425c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getUploadUrl",
+                "implHandler": [
+                    "return '/attachment/save?domainId='+this.domainId+'&domainName='+this.domainName;"
+                ]
+            },
+            "designerId": "629f519b-fc18-4266-8876-d9f473d6db4c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "deleteImage",
+                "implHandler": [
+                    "var that=this;",
+                    "Ext.Ajax.request( {  ",
+                    "    url : '/attachment/delete/'+this.domainId,",
+                    "    method : 'post',  ",
+                    "    params : {  ",
+                    "        domainName : this.domainName ",
+                    "    },  ",
+                    "    success : function(response, options) {  ",
+                    "        that.emptyImage();",
+                    "    },  ",
+                    "    failure : function() {  ",
+                    "        Ext.Msg.alert('Error', \"can't delete image\");",
+                    "    }  ",
+                    "});"
+                ]
+            },
+            "designerId": "f8b63b23-e9d0-4fc0-9099-9c9bf29314f8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "emptyImage",
+                "implHandler": [
+                    "this.getComponent(\"mainImg\").setSrc('');",
+                    "this.getComponent(\"mainImg\").hide();"
+                ]
+            },
+            "designerId": "17aad29e-a602-4ea7-8114-a528c330c773"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hiddenBtn",
+                "implHandler": [
+                    "this.getComponent(\"deleteBtn\").hide();",
+                    "this.getComponent(\"fileuploadBtn\").hide();"
+                ]
+            },
+            "designerId": "681c0fd0-3981-4789-b6af-8c95609f548c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showBtn",
+                "implHandler": [
+                    "this.getComponent(\"deleteBtn\").show();",
+                    "this.getComponent(\"fileuploadBtn\").show();"
+                ]
+            },
+            "designerId": "995da7a3-0a2d-4060-aa32-0cff160b4b39"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.down('fileupload[itemId=fileuploadBtn]').setText(Utilities.getMsg('common.imageUploadBtn.label') );",
+                    "this.down('button[itemId=deleteBtn]').setText(Utilities.getMsg('common.deleteBtn.label') );   "
+                ]
+            },
+            "designerId": "dbf00fbd-68c4-4b16-a32b-ba6f06e1412b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setDomainName",
+                "designer|params": [
+                    "name"
+                ],
+                "implHandler": [
+                    "this.domainName=name;"
+                ]
+            },
+            "designerId": "acd1c24f-4334-4b7f-a3d3-0a4010e0b9c5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setDomainId",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "this.domainId=id;"
+                ]
+            },
+            "designerId": "6d762ce1-91e2-498e-ab84-025e5bf83e05"
+        }
+    ]
 }

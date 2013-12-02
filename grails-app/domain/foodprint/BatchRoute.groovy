@@ -1,29 +1,30 @@
 package foodprint
 
-class BatchRoute extends DefaultTable{
+class BatchRoute {
+
+    Site site
+    String editor = ""
+    String creator = ""
+    Date dateCreated
+    Date lastUpdated
 
 	static belongsTo=[batch:Batch]
+    static hasMany = [
+        batchReportDets: BatchReportDet
+    ]
 	Workstation workstation
+    Supplier supplier
 	Operation operation
 	int sequence
-
-
-    /*
-    * 開始時間
-    */
 	Date startDate
-
-
-    /*
-    * 結束時間
-    */
 	Date endDate
 
-	 
-
     static constraints = {
+        site nullable:true
     	sequence unique:'batch'
     	startDate nullable:true
     	endDate nullable:true
+        workstation nullable:true
+        supplier  nullable:true
     }
 }

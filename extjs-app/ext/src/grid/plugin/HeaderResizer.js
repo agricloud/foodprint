@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * Plugin to add header resizing functionality to a HeaderContainer.
@@ -173,21 +176,36 @@ Ext.define('Ext.grid.plugin.HeaderResizer', {
     getConstrainRegion: function() {
         var me       = this,
             dragHdEl = me.dragHd.el,
-            nextHd;
+            rightAdjust = 0,
+            nextHd,
+            lockedGrid;
 
         // If forceFit, then right constraint is based upon not being able to force the next header
         // beyond the minColWidth. If there is no next header, then the header may not be expanded.
         if (me.headerCt.forceFit) {
             nextHd = me.dragHd.nextNode('gridcolumn:not([hidden]):not([isGroupHeader])');
-            if (!me.headerInSameGrid(nextHd)) {
-                nextHd = null;
+            if (nextHd) {
+                if (!me.headerInSameGrid(nextHd)) {
+                    nextHd = null;
+                }
+                rightAdjust = nextHd.getWidth() - me.minColWidth;
             }
         }
 
+        // If resize header is in a locked grid, the maxWidth has to be 30px within the available locking grid's width
+        else if ((lockedGrid = me.dragHd.up('tablepanel')).isLocked) {
+            rightAdjust = me.dragHd.up('[scrollerOwner]').getWidth() - lockedGrid.getWidth() - 30;
+        }
+
+        // Else ue our default max width
+        else {
+            rightAdjust = me.maxColWidth - dragHdEl.getWidth();
+        }
+
         return me.adjustConstrainRegion(
-            Ext.util.Region.getRegion(dragHdEl),
+            dragHdEl.getRegion(),
             0,
-            me.headerCt.forceFit ? (nextHd ? nextHd.getWidth() - me.minColWidth : 0) : me.maxColWidth - dragHdEl.getWidth(),
+            rightAdjust,
             0,
             me.minColWidth
         );
@@ -286,7 +304,7 @@ Ext.define('Ext.grid.plugin.HeaderResizer', {
             // Constraining so that neither neighbour can be sized to below minWidth is handled in getConstrainRegion
             if (me.headerCt.forceFit) {
                 nextHd = dragHd.nextNode('gridcolumn:not([hidden]):not([isGroupHeader])');
-                if (!me.headerInSameGrid(nextHd)) {
+                if (nextHd && !me.headerInSameGrid(nextHd)) {
                     nextHd = null;
                 }
                 if (nextHd) {

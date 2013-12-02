@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * @class Ext.panel.AbstractPanel
@@ -40,7 +43,7 @@ Ext.define('Ext.panel.AbstractPanel', {
     /**
      * @cfg {String} [baseCls=x-panel]
      * The base CSS class to apply to this panel's element.
-     * @since Ext 2
+     * @since 2.3.0
      */
     baseCls : Ext.baseCSSPrefix + 'panel',
 
@@ -55,7 +58,7 @@ Ext.define('Ext.panel.AbstractPanel', {
      * @cfg {Boolean} bodyBorder
      * A shortcut to add or remove the border on the body of a panel. In the classic theme
      * this only applies to a panel which has the {@link #frame} configuration set to `true`.
-     * @since Ext 2
+     * @since 2.3.0
      */
 
     /**
@@ -71,7 +74,7 @@ bodyStyle: {
 }
      * </code></pre>
      *
-     * @since Ext 2
+     * @since 2.3.0
      */
 
     /**
@@ -173,7 +176,7 @@ var panel = new Ext.panel.Panel({
 });</code></pre>
      */
 
-    // @since Ext 2
+    // @since 2.3.0
     border: true,
 
     /**
@@ -230,7 +233,7 @@ var panel = new Ext.panel.Panel({
      * items will only be matched by component id or itemId -- if you pass a numeric index only non-docked child components will be searched.
      * @param {String/Number} comp The component id, itemId or position to find
      * @return {Ext.Component} The component (if found)
-     * @since Ext 2
+     * @since 2.3.0
      */
     getComponent: function(comp) {
         var component = this.callParent(arguments);

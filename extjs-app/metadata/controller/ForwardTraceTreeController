@@ -1,0 +1,226 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "TraceTree"
+        ],
+        "stores": [
+            "ForwardTraceTreeStore"
+        ],
+        "views": [
+            "ForwardTraceTreeView"
+        ],
+        "designer|userClassName": "ForwardTraceTreeController"
+    },
+    "designerId": "fa206857-d619-4003-b893-f4dfe5220d75",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'forwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{",
+                    "        select: this.doSearchBatch",
+                    "    },",
+                    "    'forwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "        click: this.doExpandall",
+                    "    },",
+                    "    'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
+                    "        click: this.doCollapseall",
+                    "    },",
+                    "    'forwardtracetreeview treepanel[itemId=forwardTraceTreePanel]':{",
+                    "        beforeitemappend: this.beforeitemappend",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "20b74fdb-20d3-40cf-a893-4ea30bc20542"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "forwardTraceTreeCt",
+                "selector": "forwardtracetreeview"
+            },
+            "designerId": "1b94751d-ce91-4ada-b4c5-e9be4142678e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "commonTraceToolbar",
+                "selector": "forwardtracetreeview commontracetoolbar"
+            },
+            "designerId": "e0f04315-eb30-4d54-be65-7082d4803596"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSearchBatch",
+                "implHandler": [
+                    "",
+                    "console.log(\"forwardTraceTree.doSearchBatch\");",
+                    "",
+                    "if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
+                    "",
+                    "    var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();",
+                    "",
+                    "    Ext.Ajax.request({",
+                    "        method: 'GET',",
+                    "        url:'/traceTree/getBatchRoot/',",
+                    "        params:{",
+                    "            'id':this.getCommonTraceToolbar().down('combo[itemId=commonBatchCombo]').getValue()",
+                    "        },",
+                    "        success:function(response,options){",
+                    "            //console.log(response);",
+                    "            //console.log(options);",
+                    "            var record = Ext.decode(response.responseText);",
+                    "            //console.log(record);",
+                    "            var root={",
+                    "                id:record.id,",
+                    "                name:record.name,",
+                    "                'item.title':record.item.title,",
+                    "                'sheet.name':record.sheet.name,",
+                    "                'sheet.typeName':record.sheet.typeName,",
+                    "                expectQty:record.expectQty,",
+                    "                'countryTitle':record.countryTitle,",
+                    "                dueDate:record.dueDate,",
+                    "                'supplier.id':record.supplier.id",
+                    "",
+                    "            };",
+                    "            treeStore.setRootNode(root);",
+                    "        },",
+                    "        callback: function(options,success,response) {",
+                    "",
+                    "        }",
+                    "    });",
+                    "",
+                    "",
+                    "    /*未加入批號單據之處理方式",
+                    "    var batchStore=Ext.getStore('BatchShowDeepStore');",
+                    "    batchStore.load({",
+                    "    params:{",
+                    "    'id':this.getCommonTraceToolbar().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "    //console.log(records);",
+                    "    //console.log(operation);",
+                    "    //console.log(success);",
+                    "    var root={",
+                    "        id:records[0].data.id,",
+                    "        name:records[0].data.name,",
+                    "        'item.title':records[0].data['item.title'],",
+                    "        expectQty:records[0].data.expectQty,",
+                    "        country:records[0].data.country",
+                    "",
+                    "    };",
+                    "    treeStore.setRootNode(root);",
+                    "",
+                    "}",
+                    "});",
+                    "*/",
+                    "}"
+                ]
+            },
+            "designerId": "f4c35644-f233-4b5a-89b4-f4bb724fcf7d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doExpandall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "console.log(button);",
+                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var toolbar = button.up('toolbar');",
+                    "",
+                    "me.getEl().mask('Expanding tree...');",
+                    "toolbar.disable();",
+                    "",
+                    "me.expandAll(function() {",
+                    "    me.getEl().unmask();",
+                    "    toolbar.enable();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "ae309f68-ea26-4275-8478-a0d323e9df60"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCollapseall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var toolbar = button.up('toolbar');",
+                    "",
+                    "toolbar.disable();",
+                    "me.collapseAll(function() {",
+                    "    toolbar.enable();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "14ac827d-7767-47ea-a3da-384176c409fb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "beforeitemappend",
+                "implHandler": [
+                    "this.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "this.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);"
+                ]
+            },
+            "designerId": "2c8cea92-9995-4849-93c6-9f40690d2832"
+        }
+    ]
+}

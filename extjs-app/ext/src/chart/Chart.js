@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * Charts provide a flexible way to achieve a wide range of data visualization capablitities.
@@ -149,16 +152,12 @@ Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
  * 
  * {@img Ext.chart.Chart/Ext.chart.Chart3.png Green Theme}
  * 
- * For more information on Charts please refer to the [Drawing and Charting Guide](#/guide/drawing_and_charting).
- * 
+ * For more information on Charts please refer to the [Charting Guide](#/guide/charting).
  */
 Ext.define('Ext.chart.Chart', {
-
-    /* Begin Definitions */
+    extend: 'Ext.draw.Component',
 
     alias: 'widget.chart',
-
-    extend: 'Ext.draw.Component',
     
     mixins: {
         themeManager: 'Ext.chart.theme.Theme',
@@ -988,10 +987,10 @@ Ext.define('Ext.chart.Chart', {
             themeAttrs = me.themeAttrs,
             seriesObj, markerObj, seriesThemes, st,
             markerThemes, colorArrayStyle = [],
-            initialized = (series instanceof Ext.chart.series.Series),
+            isInstance = (series instanceof Ext.chart.series.Series).
             i = 0, l, config;
 
-        if (!initialized) {
+        if (!series.initialized) {
             config = {
                 chart: me,
                 seriesId: series.seriesId
@@ -1021,8 +1020,14 @@ Ext.define('Ext.chart.Chart', {
                 config.seriesIdx = idx;
                 config.themeIdx = themeIndex;
             }
-            Ext.applyIf(config, series);
-            series = me.series.replace(Ext.createByAlias('series.' + series.type.toLowerCase(), config));
+            
+            if (isInstance) {
+                Ext.applyIf(series, config);
+            }
+            else {
+                Ext.applyIf(config, series);
+                series = me.series.replace(Ext.createByAlias('series.' + series.type.toLowerCase(), config));
+            }
         }
 
         if (series.initialize) {

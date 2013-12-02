@@ -8,15 +8,18 @@
     "userConfig": {
         "views": [
             "MainContainer",
-            "ItemEditorCt",
-            "BatchEditorCt",
-            "ReportEditorCt",
-            "WorkstationEditorCt",
-            "ParamEditorCt",
-            "BatchParamsEditorCt",
-            "OperationEditorCt",
+            "OperationView",
             "MainViewport",
-            "UserEditorCt"
+            "ItemView",
+            "UserView",
+            "ItemRouteView",
+            "BatchView",
+            "BatchRouteView",
+            "CustomerView",
+            "BatchReportDetView",
+            "ReportView",
+            "ParamView",
+            "WorkstationView"
         ],
         "designer|userClassName": "MainPageController"
     },
@@ -70,10 +73,43 @@
                     "    'maincontainer button[itemId=reportMaintain]':{",
                     "        click:this.reportMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=reportParamsMaintain]':{",
+                    "        click:this.reportParamsMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=userMaintain]':{",
                     "        click:this.userMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=forwardTrace]':{",
+                    "        click:this.forwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=backwardTrace]':{",
+                    "        click:this.backwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=customerMaintain]':{",
+                    "        click:this.customerMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=supplierMaintain]':{",
+                    "        click:this.supplierMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=itemRouteMaintain]':{",
+                    "        click:this.itemRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchRouteMaintain]':{",
+                    "        click:this.batchRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
+                    "        click:this.erpManufactureOrderMaintain",
+                    "    },",
+                    "    'maincontainer':{",
+                    "        afterrender:function(){",
+                    "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
+                    "            link.on('click', Utilities.logout);",
+                    "",
+                    "        }",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "designerId": "c3cfb16e-3536-4a44-b256-70190eac7149"
@@ -92,23 +128,18 @@
                     "tabName"
                 ],
                 "implHandler": [
-                    "var tabs = Ext.getCmp('TabPanel');",
-                    "var tab = tabs.down(xtypeStr);",
-                    "if (tab===null){",
-                    "    tab = {",
-                    "        xtype: 'panel',",
-                    "        layout: {",
-                    "        \ttype: 'fit'",
-                    "        },",
-                    "        title: tabName,",
-                    "        closable:true,",
-                    "        items: [{ xtype: xtypeStr }]",
-                    "    };",
-                    "    tabs.add(tab).show();",
-                    "}",
-                    "else{",
-                    "    tabs.setActiveTab(tab.up());",
-                    "}"
+                    "//console.log(this.getMainContainer());",
+                    "var mainPanel = this.getMainContainer().down('panel[itemId=mainPanel]');",
+                    "",
+                    "//console.log(mainPanel);",
+                    "",
+                    "mainPanel.removeAll() ",
+                    "",
+                    "mainPanel.add({ ",
+                    "    xtype: xtypeStr,",
+                    "    title:tabName",
+                    "});",
+                    ""
                 ]
             },
             "designerId": "c050570c-d3ef-47c4-8bcc-b06180495a4c"
@@ -123,8 +154,8 @@
             "userConfig": {
                 "fn": "itemMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'itemeditorct';",
-                    "var tabName = '品項維護';",
+                    "var xtypeStr = 'itemview';",
+                    "var tabName = Utilities.getMsg('mainContainer.itemMaintain.label');//'品項維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -140,8 +171,8 @@
             "userConfig": {
                 "fn": "batchMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'batcheditorct';",
-                    "var tabName = '批號維護';",
+                    "var xtypeStr = 'batchview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchMaintain.label');//'批號維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -157,8 +188,8 @@
             "userConfig": {
                 "fn": "operationMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'operationeditorct';",
-                    "var tabName = '製程維護';",
+                    "var xtypeStr = 'operationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.operationMaintain.label');//'製程維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -174,8 +205,8 @@
             "userConfig": {
                 "fn": "workstationMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'workstationeditorct';",
-                    "var tabName = '工作站維護';",
+                    "var xtypeStr = 'workstationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.workstationMaintain.label');//'工作站維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -191,8 +222,8 @@
             "userConfig": {
                 "fn": "reportMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'reporteditorct';",
-                    "var tabName = '履歷維護';",
+                    "var xtypeStr = 'reportview';",
+                    "var tabName = Utilities.getMsg('mainContainer.reportMaintain.label');//'履歷維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -208,8 +239,8 @@
             "userConfig": {
                 "fn": "paramMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'parameditorct';",
-                    "var tabName = '參數設定';",
+                    "var xtypeStr = 'paramview';",
+                    "var tabName = Utilities.getMsg('mainContainer.paramMaintain.label');//'參數設定';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -225,8 +256,8 @@
             "userConfig": {
                 "fn": "batchParamsMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'batchparamseditorct';",
-                    "var tabName = '批號履歷維護';",
+                    "var xtypeStr = 'batchreportdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchParamsMaintain.label');//'批號履歷維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
@@ -242,12 +273,148 @@
             "userConfig": {
                 "fn": "userMaintain",
                 "implHandler": [
-                    "var xtypeStr = 'usereditorct';",
-                    "var tabName = '使用者維護';",
+                    "var xtypeStr = 'userview';",
+                    "var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';",
                     "this.maintainBtn(xtypeStr,tabName);"
                 ]
             },
             "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "forwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'forwardtracetreeview';",
+                    "var tabName = Utilities.getMsg('mainContainer.forwardTrace.label');//'順向追溯';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "4d7b83d7-ac96-43b7-b383-dd768cab69e2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "backwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'backwardtracetreeview';",
+                    "var tabName = Utilities.getMsg('mainContainer.backwardTrace.label');//'逆向追溯';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "37094ab8-b867-432a-9c4b-692e2cb2822b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "customerMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'customerview';",
+                    "var tabName = Utilities.getMsg('mainContainer.customerMaintain.label');//'客戶維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "bae50c90-0511-43d0-9a61-d9837619683e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'itemrouteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.itemRouteMaintain.label');//'品項途程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "82f04561-5a50-4b33-afcc-ad68493d6b89"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchrouteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchRouteMaintain.label');//'批號途程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "c0b00d76-68de-456b-be03-9f03ffae8117"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reportParamsMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'reportparamsview';",
+                    "var tabName = Utilities.getMsg('mainContainer.reportParamsMaintain.label');//'履歷參數維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "990d423f-3f33-46ed-834c-4a2cb63925f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpManufactureOrderMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpmanufactureorderview';",
+                    "var tabName = Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');//'製令維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "15ec667a-e849-4108-b974-897335baf79d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "supplierMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'supplierview';",
+                    "var tabName = Utilities.getMsg('mainContainer.supplierMaintain.label');//'供應商維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "1aa90db2-9da7-4a09-9e1a-5ac1be5afcb4"
         }
     ]
 }

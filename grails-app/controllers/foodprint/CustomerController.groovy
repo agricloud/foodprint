@@ -4,109 +4,73 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class CustomerController {
 
-    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
+    def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
+    def index = {
+
+        def list = Customer.createCriteria().list(params,params.criteria)
+
+
+        render (contentType: 'application/json') {
+            [customerInstanceList: list, customerInstanceTotal: list.totalCount]
+        }
+        
     }
 
-    def list(Integer max) {
-        log.debug "${controllerName}-${actionName}"
-        params.max = Math.min(max ?: 10, 100)
-        [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
-    }
-    
-    def listJson(Integer max) {
-        log.debug "${controllerName}-${actionName}"
-        render (contentType: 'text/json') {
-            list(max)        
+     def show = {
+
+        def customer=Customer.findById(params.id);  
+        if(customer){   
+            render (contentType: 'application/json') {
+                [success: true,data:customer]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
         }
     }
+    def create = {
 
-    def create(){
-        log.debug "${controllerName}-${actionName}"
+        def customer=new Customer()        
+        render (contentType: 'application/json') {
+            [success: true,data:customer]
+        }
+    }
+    def save = {
 
         def customerInstance=new Customer(params)
-        render (contentType: 'text/json') {
-            save(customerInstance);
+        
+        render (contentType: 'application/json') {
+            domainService.save(customerInstance)
         }
     }
 
-    def save(Customer customerInstance){
-        log.debug "${controllerName}-${actionName}"
-        if (!customerInstance.validate()) {
-                customerInstance.errors.each {
-                println it
-            }
-            return [success:false]
-        }
-        if (!customerInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
-        }
-    }
-
-    def show(Long id) {
-        def customerInstance = Customer.get(id)
-        if (!customerInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [customerInstance: customerInstance]
-    }
-
-    def edit(Long id) {
-        def customerInstance = Customer.get(id)
-        if (!customerInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [customerInstance: customerInstance]
-    }
-
-    def update(){
-        log.debug "${controllerName}-${actionName}"
-        def customerInstance=Customer.get(params.id)
-
-        if(!customerInstance){
-            log.debug "${controllerName}-${actionName}-cant find customerInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-       customerInstance.properties = params
-        render (contentType: 'text/json') {
-            save(customerInstance);
+    def update = {
+        def  customerInstance = Customer.findById(params.id)
+        customerInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(customerInstance)
         }         
     }
 
-    def delete(){
-        log.debug "${controllerName}-${actionName}"
-        def customerInstance=Customer.get(params.id)
-        if (!customerInstance) {
-            log.debug "${controllerName}-${actionName}"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
+
+    def delete = {
+        def customerInstance = Customer.findById(params.id)
+        def result
         try {
-            customerInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
+            
+            result = domainService.delete(customerInstance)
+        
+        }catch(DataIntegrityViolationException e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [customerInstance, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
+        
+        render (contentType: 'application/json') {
+            result
         }
     }
-
+    
 }

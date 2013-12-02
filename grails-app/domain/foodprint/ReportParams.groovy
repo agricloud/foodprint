@@ -4,43 +4,26 @@
 
 package foodprint
 
-class ReportParams extends DefaultTable{
+class ReportParams {
 
+    Site site
+    String editor = ""
+    String creator = ""
+    Date dateCreated
+    Date lastUpdated
 
-    /*
-    * 履歷收集單頭
-    */
 	static belongsTo=[report:Report]
-
-
-    /*
-    * 收集參數
-    */
 	Param param
-
-    /*
-    * 設定在某工作站需要進行資料收集
-    */
 	Workstation workstation 
-
-    /*
-    * 設定在某品項要進行資料收集
-    */
+    Supplier supplier
 	Item item 	
-
-	/*
-    * 設定在某製程要進行資料收集
-    */
 	Operation operation
-
-    /*
-    * 設定在某批號要進行資料收集
-    */
 	Batch batch
 
-
     static constraints = {
+        site nullable:true
     	workstation nullable:true
+        supplier nullable:true
     	item nullable:true
     	operation nullable:true
     	param unique:'report'

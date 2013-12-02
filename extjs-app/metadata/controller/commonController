@@ -1,0 +1,391 @@
+{
+    "type": "class",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "isErpDomain": false,
+        "designer|userClassName": "CommonController",
+        "extend": "Ext.app.Controller"
+    },
+    "configAlternates": {
+        "isErpDomain": "boolean"
+    },
+    "designerId": "e23b6a08-43e5-455b-b661-3b12dc7f5efa",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "isErpDomain",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShow",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "console.log('commonController--'+this.domainName+'--doShow');",
+                    "",
+                    "var that = this;",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0];",
+                    "var id = -1;",
+                    "",
+                    "if(this.getMainGrid().getSelectionModel().getSelection()[0])",
+                    "id = record.data.id;",
+                    "",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
+                    "    waitMsg:Utilities.getMsg('default.message.load'),",
+                    "    success: function(form, action) {",
+                    "        that.activeEditor();",
+                    "        that.actionName = 'update';",
+                    "",
+                    "        if (callback && callback instanceof Function) {",
+                    "            callback(true,form,action)",
+                    "        }",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback && callback instanceof Function){",
+                    "            callback(false,form,action)",
+                    "        }",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "546903f2-19f4-4dd4-9390-a15ca9ff8e9a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "implHandler": [
+                    "console.log('commonController--'+this.domainName+'--doCreate');",
+                    "var that = this",
+                    "var params = {}",
+                    "",
+                    "params[this.masterKey]=this.masterId",
+                    "this.getMainForm().getForm().reset(true);",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:this.getRoot()+'/'+this.domainName+'/create',",
+                    "    params:params,",
+                    "    success: function(form, action) {",
+                    "        that.activeEditor();",
+                    "        that.actionName = 'save';",
+                    "        that.activeEditor();",
+                    "        that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);",
+                    "",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "e5d44e70-a03d-4bda-8fd9-3f5590d5b18e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "implHandler": [
+                    "var that = this ;",
+                    "",
+                    "var msg = Ext.Msg;",
+                    "msg.buttonText={",
+                    "    no: Utilities.getMsg('default.message.no'),",
+                    "    yes: Utilities.getMsg('default.message.yes')",
+                    "};",
+                    "",
+                    "msg.confirm('Confirm delete', Utilities.getMsg('default.message.deleteConfirm'), function(e)",
+                    "{",
+                    "    if(e == 'yes')",
+                    "    {",
+                    "        that.actionName='delete';",
+                    "        that.submitForm(function(success){",
+                    "            if(success){",
+                    "                that.activeGrid();",
+                    "                that.actionName = '' ;",
+                    "                that.getMainGrid().getStore().reload();",
+                    "                that.disableShowBtn();",
+                    "            }",
+                    "            that.actionName='update';",
+                    "",
+                    "        });",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "595d1687-b82a-42ec-b74c-afce82049909"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log('commonController--'+this.domainName+'--doSave');",
+                    "var that = this ;",
+                    "",
+                    "this.submitForm(function(success){",
+                    "    if(success){",
+                    "",
+                    "        that.getMainGrid().getStore().reload();",
+                    "",
+                    "        if(that.actionName === 'save'){",
+                    "            that.activeGrid();",
+                    "            that.actionName = '' ;",
+                    "        }",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "d850fe2e-839f-4ab3-ac76-0e2f7e11a090"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetail",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.masterId = record.data.id;",
+                    "",
+                    "console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');",
+                    "",
+                    "var grid = this.getMainGrid();",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[this.masterKey]=this.masterId",
+                    "",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params",
+                    "grid.getStore().load();",
+                    ""
+                ]
+            },
+            "designerId": "634b2a8d-428b-4d4e-a5b8-fd46363c5087"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "submitForm",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log('/'+this.domainName+'/'+this.actionName);",
+                    "",
+                    "this.getMainForm().getForm().submit({",
+                    "    url: this.getRoot()+'/'+this.domainName+'/'+this.actionName,",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    success: function(form,action) {",
+                    "        Ext.MessageBox.alert('Success',action.result.message);",
+                    "",
+                    "        if (callback) {",
+                    "            callback(true,form,action)",
+                    "        }",
+                    "",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback) {",
+                    "            callback(false,form,action)",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "add29db2-722d-495b-b673-a4745c814753"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeGrid",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().down().up(\"panel[itemId=index]\"));"
+                ]
+            },
+            "designerId": "47601aec-5c2f-4af8-851b-171007d9556a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeEditor",
+                "implHandler": [
+                    "if(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn'))",
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().up('panel[itemId=show]'));"
+                ]
+            },
+            "designerId": "b7f2967a-f2e5-4a2d-95b0-8cf0292e2a5f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancel",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().getForm().reset(true);",
+                    "this.activeGrid();",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setImageUploader",
+                "implHandler": [
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0]",
+                    "this.getImageUploader().setDomainId(record.data['id']);",
+                    "this.getImageUploader().showImage();"
+                ]
+            },
+            "designerId": "b0493497-f295-4fff-adc1-ab8bb62e920b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "disableShowBtn",
+                "implHandler": [
+                    "this.getMainGrid().up('panel[itemId=index]').down('commonshowbtn').setDisabled(true);"
+                ]
+            },
+            "designerId": "dfb77508-ff7f-4e3d-91fa-9b063045e7a4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "enableShowBtn",
+                "implHandler": [
+                    "this.getMainGrid().up('panel[itemId=index]').down('commonshowbtn').setDisabled(false);"
+                ]
+            },
+            "designerId": "d1429ab1-0dcd-461e-8e90-69f9e1409e13"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getRoot",
+                "implHandler": [
+                    "if(this.isErpDomain)",
+                    "return Utilities.getSysConfig(\"foodpaintUrl\");",
+                    "else return '';"
+                ]
+            },
+            "designerId": "16947a01-b55a-4f97-8f15-ec3a0c880d66"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexFoodpaint",
+                "implHandler": [
+                    "var grid = this.getMainGrid();",
+                    "grid.getStore().getProxy().url = this.getRoot()+\"/\"+this.domainName",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "843e74a7-c3de-4ad8-959b-e5ab44f08fae"
+        }
+    ]
+}

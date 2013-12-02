@@ -12,7 +12,7 @@
         "designer|userClassName": "BatchRouteGrid",
         "designer|userAlias": "batchroutegrid",
         "title": null,
-        "store": "BatchRouteDeepStore"
+        "store": "BatchRouteStore"
     },
     "designerId": "b362b6fc-0ca5-488c-b06e-c65b6e94eb7f",
     "cn": [
@@ -61,18 +61,7 @@
                 "text": "sequence",
                 "flex": 1
             },
-            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816",
-            "cn": [
-                {
-                    "type": "Ext.form.field.Number",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "77d641dc-c3a7-4451-a527-237056a3dc90"
-                }
-            ]
+            "designerId": "3a5439c4-950b-4fc1-a17d-59d3dd5ed816"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -105,19 +94,7 @@
                 "text": "Operation_name",
                 "flex": 1
             },
-            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "d2b42cbe-8040-4c31-be83-e50eeab42c56",
-                    "masterInstanceId": "a3ddccd5-2f8d-47d1-acf6-9c79556fc51d"
-                }
-            ]
+            "designerId": "add8d00a-1b9a-4677-9387-5063ba65f95d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -165,19 +142,7 @@
                 "text": "Workstation_name",
                 "flex": 1
             },
-            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "editor",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "designerId": "4a84d55f-e0ed-4334-9b6d-dfe3d14152b3",
-                    "masterInstanceId": "741671be-e150-4fa0-b27e-7375ba263788"
-                }
-            ]
+            "designerId": "9ff784ad-e82e-4174-aa0b-d0d82826431b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -195,25 +160,94 @@
             "designerId": "8094a322-a3b5-4671-9626-ae8e7dc94b92"
         },
         {
-            "type": "processcfgfunction",
+            "type": "Ext.grid.column.Column",
             "reference": {
-                "name": "items",
+                "name": "columns",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processLocalized",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "for(var i=0; i<config.columns.length;i++)",
-                    "config.columns[i].text=lang['batchRoute.'+config.columns[i].dataIndex+'.label'];",
-                    "config.viewConfig.loadingText = lang['default.message.load'];",
-                    "return config;"
-                ]
+                "hidden": true,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "supplier.id",
+                "groupable": null,
+                "text": "Supplier_id",
+                "flex": 1
             },
-            "designerId": "f36618ae-5c1b-4e7a-a93d-55460c31cf4d"
+            "designerId": "c34829e5-766f-4605-b647-5ba8198dd0d1"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "supplier.name",
+                "groupable": null,
+                "text": "Supplier_name",
+                "flex": 1
+            },
+            "designerId": "b2044f28-01ce-499d-8f57-d70b5048c26a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "supplier.title",
+                "groupable": null,
+                "text": "Supplier_title",
+                "flex": 1
+            },
+            "designerId": "53f6d422-efec-4211-ac43-26690762179c"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "startDate",
+                "groupable": null,
+                "text": "StartDate",
+                "flex": 1
+            },
+            "designerId": "492fc572-2c6d-4124-9bdf-f238a5cc2e25"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "endDate",
+                "groupable": null,
+                "text": "EndDate",
+                "flex": 1
+            },
+            "designerId": "d66eff37-d04a-4699-b8d4-5e15a8f2c3c2"
         },
         {
             "type": "basicfunction",
@@ -236,7 +270,7 @@
                     "store.load({",
                     "    params:{'batch.id':batchId},",
                     "    callback:function(records, operation, success){",
-                    "\t\tstore.sort(store.sorters.items[0]);",
+                    "        store.sort(store.sorters.items[0]);",
                     "    }",
                     "});",
                     "",
@@ -244,6 +278,43 @@
                 ]
             },
             "designerId": "5a5a9244-095f-4a4a-9b5c-a64e8ca4f17d"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processBatchRouteGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.text=Utilities.getMsg('default.message.load');",
+                    "return Utilities.processConfigBundle(config, 'batchRoute');"
+                ]
+            },
+            "designerId": "f1a7230d-cee3-45db-afa0-814e85d656f8"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBatchRouteGridBeforeRender",
+                "implHandler": [
+                    "component.getStore().removeAll();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "23bcf42a-e59b-4331-af59-63f516cfa15f"
         }
     ]
 }

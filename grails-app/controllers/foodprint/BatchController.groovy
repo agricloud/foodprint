@@ -1,73 +1,117 @@
 package foodprint
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.converters.JSON
-import org.apache.commons.lang.exception.ExceptionUtils
-import grails.converters.XML
-
 
 class BatchController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
-
-    def messageSource
     def domainService
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [batchInstanceList: Batch.list(params), batchInstanceTotal: Batch.count()]
+
+    def index = {
+
+        def list = Batch.createCriteria().list(params,params.criteria)        
+
+        render (contentType: 'application/json') {
+            [batchInstanceList: list, batchInstanceTotal: list.totalCount]
+        }
     }
 
-    def listJson(Integer max) {
-        JSON.use('deep')
-        def converter = list() as JSON
-        converter.render(response)
+    def typeahead = {
+
+        def list = Batch.createCriteria().list(params,{
+                 like('name',params.query+"%")
+        })
+
+
+        def typeaheadList = []
+
+        list.each{ batch ->
+            def typeahead = [:]
+            typeahead.value = batch.name
+            typeahead.itemName = batch.item.name
+            typeahead.itemTitle = batch.item.title
+            typeahead.itemDescription = batch.item.description
+            typeaheadList << typeahead
+        }          
+
+        render (contentType: 'application/json') {
+            typeaheadList
+        }
     }
 
-    def listXml(Integer max) {
+    def show = {
+        //找出指定批號。
+        /*
+        * [Deep properties]
+        *
+        * batch::
+        *   -item
+        *   -country
+        *   -supplier
+        */
 
-        def converter = list() as XML
-        converter.render(response)
+        log.info "${controllerName}-${actionName}"
 
+        def batch=Batch.findById(params.id);
+
+        if(batch){   
+
+            render (contentType: 'application/json') {
+                [success: true, data:batch]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
+        }
     }
 
-    
-    def create(){
+    def create = {
 
-        def batchInstance=new Batch(params)
-        render (contentType: 'text/json') {
+        def batch=new Batch()   
+        render (contentType: 'application/json') {
+            [success: true,data:batch]
+        }
+    }
+ 
+
+    def save = {
+
+        def batch=new Batch(params)
+        
+        render (contentType: 'application/json') {
+            domainService.save(batch)
+        }
+    }
+
+    def update = {
+
+        def batchInstance = Batch.findById(params.id)
+    batchInstance.properties=params
+        render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
     }
 
-
-    def update(){
-
-        def batchInstance=Batch.get(params.id)
-        render (contentType: 'text/json') {
-            domainService.save(batchInstance, params)
-        }
-    }
-
-
-    def delete(){
-        
+    def delete = {
+        def batchInstance = Batch.findById(params.id)
         def result
-        def batchInstance=Batch.get(params.id)
         try {
             
             result = domainService.delete(batchInstance)
         
         }catch(e){
             log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e])
+            def msg = message(code: 'default.message.delete.failed', args: [batchInstance, e.getMessage()])
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }
+
+
     /**
     * 此方法已不使用 僅供參考寫法
     * @param batch.id
@@ -79,39 +123,9 @@ class BatchController {
     * 使用redirect重新導向ItemRoute較為精簡
     * 也可避免params中屬性命名相同等衝突
     */
-    def itemRouteList(){
+    def itemRouteList = {
         log.debug "BatchController--itemRouteList"
-        redirect(controller: "ItemRoute",action: "listJson" ,params:["item.id":Batch.get(params.id).item.id])
-        //old version
-        // JSON.use('deep')
-        // def converter= [itemRouteList:Batch.get(params.id).item.itemRoutes.collect()] as JSON
-        // converter.render(response)
+        redirect(controller: "ItemRoute",action: "index" ,params:["item.id":Batch.get(params.id).item.id])
     }
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    def show(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-        }
-
-        render (contentType: 'text/json') {
-            [batchInstanceList:batchInstance]
-        }
-    }
-
-    def edit(Long id) {
-        def batchInstance = Batch.get(id)
-        if (!batchInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'batch.label', default: 'Batch'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [batchInstance: batchInstance]
-    }
 }

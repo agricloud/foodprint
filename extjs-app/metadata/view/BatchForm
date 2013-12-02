@@ -12,8 +12,7 @@
         "designer|userClassName": "BatchForm",
         "designer|userAlias": "batchform",
         "layout": "vbox",
-        "title": "",
-        "jsonSubmit": true
+        "title": null
     },
     "designerId": "63255dc7-478d-4fd1-b4ec-d25eab28ea91",
     "cn": [
@@ -26,7 +25,8 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": null,
-                "itemId": "id",
+                "hidden": true,
+                "itemId": null,
                 "fieldLabel": "id",
                 "name": "id",
                 "readOnly": true
@@ -41,13 +41,70 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "name",
-                "designer|displayName": "name",
+                "itemId": null,
+                "designer|displayName": null,
                 "fieldLabel": "name",
                 "name": "name",
                 "allowBlank": false
             },
             "designerId": "604c3cdc-7dca-4257-beed-5fbc9149eb43"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null
+            },
+            "designerId": "55eb58dc-aae1-46bc-82ab-8943be5e1ebe",
+            "masterInstanceId": "d14af9f3-35cb-4bf0-b10c-33a9c5bce761"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null
+            },
+            "designerId": "0a1a929e-8f16-4876-825a-fa9f117714c3",
+            "masterInstanceId": "8828b59e-79a2-4d48-a0e4-de5478e38db9"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null
+            },
+            "designerId": "4f7e1d86-f27c-4c71-ae6a-f19ac034d6c9",
+            "masterInstanceId": "1d47409c-c6c7-48c3-97ba-ecd1d87bbb27"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "disabled": true,
+                "itemId": null,
+                "designer|displayName": "",
+                "fieldLabel": "supplier.title",
+                "name": "supplier.title",
+                "allowBlank": null
+            },
+            "designerId": "43720191-4b3f-45f1-88e2-f5700dcb0d6a"
         },
         {
             "type": "Ext.form.field.Date",
@@ -60,7 +117,9 @@
                 "layout|flex": null,
                 "itemId": "dueDate",
                 "fieldLabel": "dueDate",
-                "name": "dueDate"
+                "name": "dueDate",
+                "format": null,
+                "submitFormat": null
             },
             "designerId": "d2f0561c-074a-4a47-bd11-25fd6f7f1d74"
         },
@@ -81,7 +140,7 @@
             "designerId": "f56f64a8-fb31-4092-8d55-9b530b0c10b7"
         },
         {
-            "type": "Ext.form.field.ComboBox",
+            "type": "Ext.form.field.Date",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -89,18 +148,47 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": null,
-                "itemId": "item_id",
-                "designer|displayName": "",
-                "fieldLabel": "item_id",
-                "name": "item.id",
-                "allowBlank": false,
-                "editable": false,
-                "displayField": "id",
-                "forceSelection": true,
-                "store": "ItemStore",
-                "valueField": "id"
+                "itemId": "manufactureDate",
+                "fieldLabel": "manufactureDate",
+                "name": "manufactureDate",
+                "format": null,
+                "submitFormat": null
             },
-            "designerId": "04bc0f92-7f69-4a17-8183-caff3cdce5c2"
+            "designerId": "afd10815-1821-4753-925e-5855211a8d9d"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "itemId": "expirationDate",
+                "fieldLabel": "expirationDate",
+                "name": "expirationDate",
+                "format": null,
+                "submitFormat": null
+            },
+            "designerId": "e560baa4-6998-4202-8826-d418d73bccfb"
+        },
+        {
+            "type": "Ext.form.field.TextArea",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "itemId": null,
+                "designer|displayName": null,
+                "fieldLabel": "remark",
+                "name": "remark",
+                "allowBlank": null
+            },
+            "designerId": "f62fd968-9bb4-4561-a3cf-4852de368846"
         },
         {
             "type": "basicfunction",
@@ -115,8 +203,9 @@
                     "record"
                 ],
                 "implHandler": [
-                    "console.log(\"View-batchForm.doDisplay\");",
-                    "this.loadRecord(record);"
+                    "",
+                    "this.loadRecord(record);",
+                    ""
                 ]
             },
             "designerId": "e1bd6028-6dde-418c-9996-5f6b9a7e2468"
@@ -134,10 +223,8 @@
                     "config"
                 ],
                 "implHandler": [
-                    "for(var i=0;i<config.items.length;i++)",
-                    "config.items[i].fieldLabel=lang['batch.'+config.items[i].name+'.label'];",
                     "",
-                    "return config;"
+                    "return Utilities.processConfigBundle(config, 'batch');"
                 ]
             },
             "designerId": "6f25174d-caf5-4507-8886-1758be3d1e70"

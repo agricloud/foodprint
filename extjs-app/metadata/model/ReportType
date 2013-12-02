@@ -1,0 +1,65 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ReportType"
+    },
+    "designerId": "90bac867-f098-475e-91a3-b9b3e6163b8d",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "name",
+                "name": "reportType"
+            },
+            "designerId": "10fb6bf2-aa0d-4841-b7b5-b4e06be563d3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "c76ef976-7044-44a4-adba-c821bb4f1dbb"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/enum/indexReportType"
+            },
+            "designerId": "5200dfee-745c-4ae3-87e7-f76fbf98237e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "ReportType"
+                    },
+                    "designerId": "69ca40ca-6e78-49a8-9cbf-a9f312e3eca6"
+                }
+            ]
+        }
+    ]
+}

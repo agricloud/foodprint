@@ -1,0 +1,104 @@
+{
+    "type": "Ext.toolbar.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonTraceToolbar",
+        "width": null,
+        "designer|userClassName": "CommonTraceToolbar",
+        "designer|userAlias": "commontracetoolbar"
+    },
+    "designerId": "23f3bbfe-f534-441c-abba-028441187e12",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "disabled": true,
+                "itemId": "commonExpandallBtn",
+                "text": "ExpandAll"
+            },
+            "designerId": "29f3ea7e-7602-4aa5-949d-930c64304f2a",
+            "cn": [
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processCommonExpandallBtn",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "config.text=Utilities.getMsg('common.expandBtn.label');",
+                            "",
+                            "return config;"
+                        ]
+                    },
+                    "designerId": "9b04b3e4-3bf6-4bb0-bc88-8fd0d962c809"
+                }
+            ]
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "disabled": true,
+                "itemId": "commonCollapseallBtn",
+                "text": "CollapseAll"
+            },
+            "designerId": "3c6fded6-e294-4d07-841d-835a9c9cd48a",
+            "cn": [
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processCommonCollapseallBtn",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "config.text=Utilities.getMsg('common.collapseallBtn.label');",
+                            "",
+                            "return config;"
+                        ]
+                    },
+                    "designerId": "a8a35164-e712-4849-bcd2-e89ce05a5a1d"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null
+            },
+            "designerId": "dbf907e4-5ee7-4911-bd09-39bfe8fe2cab",
+            "masterInstanceId": "ad084776-ade5-4889-98b9-5bfe9e82fb32"
+        }
+    ]
+}

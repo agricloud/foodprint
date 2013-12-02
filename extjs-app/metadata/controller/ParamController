@@ -1,0 +1,100 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Param",
+            "ParamType"
+        ],
+        "stores": [
+            "ParamStore",
+            "ParamTypeStore"
+        ],
+        "views": [
+            "ParamView"
+        ],
+        "designer|userClassName": "ParamController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "f87f349d-8956-4370-a9ae-9d1ec3e4722d",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'paramview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'paramview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'paramview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'paramview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'paramview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'paramview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'param';"
+                ]
+            },
+            "designerId": "7a23a7be-f278-43b8-9f5a-0e00641043c9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "paramview #grid"
+            },
+            "designerId": "386bdaf8-166a-42e4-be7a-7a93b7418e13"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "paramview #form"
+            },
+            "designerId": "7ec3329b-e0f0-4918-b67a-e7a9e74f0f56"
+        }
+    ]
+}

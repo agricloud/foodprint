@@ -1,0 +1,115 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "width": null,
+        "designer|userClassName": "BatchView",
+        "designer|userAlias": "batchview",
+        "requires": [
+            "foodprint.view.CommonIndexToolbar",
+            "foodprint.view.CommonShowToolbar"
+        ],
+        "layout": "card"
+    },
+    "designerId": "0d1e180c-90d5-4066-b7ae-80def2594f38",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonindextoolbar'",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "index",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "58fdf66b-ffd4-4065-9ea9-0307a85bfccf",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "grid",
+                        "layout|flex": 1
+                    },
+                    "designerId": "756f7df2-9bc6-4010-9949-e5c487ef7adf",
+                    "masterInstanceId": "6a21aa5b-e61f-4b47-8fbb-5331a09533a0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "show",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "3649ce22-3cbe-4980-979e-d2964888a8e2",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "form",
+                        "bodyBorder": null,
+                        "layout|flex": null
+                    },
+                    "designerId": "4062aa13-975b-4e68-be4c-50feb17bfca3",
+                    "masterInstanceId": "63255dc7-478d-4fd1-b4ec-d25eab28ea91"
+                }
+            ]
+        }
+    ]
+}

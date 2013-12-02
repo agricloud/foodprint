@@ -1,0 +1,135 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Operation",
+            "Item",
+            "Workstation",
+            "ItemRoute"
+        ],
+        "stores": [
+            "OperationStore",
+            "WorkstationStore",
+            "ItemStore",
+            "ItemRouteStore"
+        ],
+        "views": [
+            "ItemView",
+            "CommonImageUploader"
+        ],
+        "designer|userClassName": "ItemController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "184c2517-e05b-4277-8738-1b38575d27dd",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "itemview #grid"
+            },
+            "designerId": "69410d8d-52ad-4023-b5de-5b417d4345a5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "itemview #form"
+            },
+            "designerId": "4181f71a-e358-4582-9845-e2fa11c7aa87"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'itemview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'itemview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowForm",
+                    "    },",
+                    "    'itemview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'itemview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'itemview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'itemview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowForm",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'item';"
+                ]
+            },
+            "designerId": "613965a1-c9a7-4f83-90f5-c6fd32a29428"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "imageUploader",
+                "selector": "itemview commonimageuploader"
+            },
+            "designerId": "f6c110e6-5f32-4f1f-9974-33e85333660a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowForm",
+                "implHandler": [
+                    "console.log('itemEditorController--'+this.domainName+'--doShowForm');",
+                    "",
+                    "this.setImageUploader();",
+                    "this.doShow();"
+                ]
+            },
+            "designerId": "5e6fba30-e6de-4d49-8bdd-0ab01a862455"
+        }
+    ]
+}

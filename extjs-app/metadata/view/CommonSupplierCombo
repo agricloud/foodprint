@@ -1,0 +1,109 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonSupplierCombo",
+        "designer|userClassName": "CommonSupplierCombo",
+        "designer|userAlias": "commonsuppliercombo",
+        "fieldLabel": "Supplier.name",
+        "name": "supplier.id",
+        "editable": null,
+        "displayField": "name",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryParam": "nameLike",
+        "store": "SupplierStore",
+        "valueField": "id"
+    },
+    "designerId": "8828b59e-79a2-4d48-a0e4-de5478e38db9",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonSupplierCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('supplier.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "23931dcf-faab-4638-9e47-8f9a5309945a"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonSupplierComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "17a31397-de3d-48ca-a30d-4a5871e5dc03"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonSupplierComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'supplier.title':records[0].data['title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "f14c6dde-15f1-450d-ad42-747211a1b485"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonSupplierComboChange",
+                "implHandler": [
+                    "if (newValue == null) {",
+                    "    field.reset();",
+                    "    if(field.up() && field.up().getForm()){",
+                    "        field.up().getForm().setValues({",
+                    "            'supplier.title':null",
+                    "        });",
+                    "\t}",
+                    "}"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "f62ed0db-9da3-49f7-8c7e-2beda5ea984a"
+        }
+    ]
+}

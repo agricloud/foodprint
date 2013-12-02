@@ -9,14 +9,37 @@
         "itemId": "commonReportCombo",
         "designer|userClassName": "CommonReportCombo",
         "designer|userAlias": "commonreportcombo",
-        "editable": false,
+        "name": "report.id",
+        "editable": null,
         "displayField": "name",
         "hiddenName": null,
+        "minChars": 0,
+        "queryParam": "nameLike",
         "store": "WorkstationStore",
-        "valueField": "name"
+        "valueField": "id"
     },
     "designerId": "21115ea5-f2c9-4cac-9065-5e5f51e7fee8",
     "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonReportCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('report.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "046507c8-ec78-4cf7-a3c9-3e0c9f625d00"
+        },
         {
             "type": "basiceventbinding",
             "reference": {
@@ -25,18 +48,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onComboboxBeforeSelect1",
+                "fn": "onCommonReportComboRender",
                 "implHandler": [
-                    "var store = 'report';",
-                    "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
-                    "gridRecord.set(store+'.id',record.get('id'));",
-                    "gridRecord.set(store+'.name',record.get('name'));",
-                    "gridRecord.set(store+'.title',record.get('title'));"
+                    "component.getStore().load();"
                 ],
-                "name": "beforeselect",
+                "name": "render",
                 "scope": "me"
             },
-            "designerId": "f4cbe3e6-f426-4fa3-bdf0-d988b2b8ab95"
+            "designerId": "afa1d49a-0220-4384-96e3-4a5d4d71c602"
         }
     ]
 }

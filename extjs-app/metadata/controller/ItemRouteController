@@ -1,0 +1,115 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ItemRoute"
+        ],
+        "stores": [
+            "ItemRouteStore"
+        ],
+        "views": [
+            "ItemRouteView",
+            "ItemGrid"
+        ],
+        "designer|userClassName": "ItemRouteController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "eb0fdc48-2660-4592-8837-3dbc6c4f9f7a",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "itemrouteview #grid"
+            },
+            "designerId": "db6a90b6-b99f-408e-9e2a-59ca37956ef2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "itemrouteview #form"
+            },
+            "designerId": "95c3ff62-debb-47a4-ad07-62563c68ea5c"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'itemrouteview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'itemrouteview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'itemrouteview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'itemrouteview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'itemrouteview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "",
+                    "    'itemrouteview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'itemrouteview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'itemRoute';",
+                    "this.masterKey='item.id';"
+                ]
+            },
+            "designerId": "74b97bc4-ba70-4919-ae83-7a5cabcf3c46"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "itemrouteview #masterGrid"
+            },
+            "designerId": "683a9fb4-b04b-4dff-bbf2-8915a9cf3cb2"
+        }
+    ]
+}

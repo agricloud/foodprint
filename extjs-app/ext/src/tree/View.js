@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * Used as a view by {@link Ext.tree.Panel TreePanel}.
@@ -85,6 +88,8 @@ Ext.define('Ext.tree.View', {
         '{%',
             'this.processRowValues(values);',
             'this.nextTpl.applyOut(values, out, parent);',
+            'delete values.rowAttr["data-qtip"];',
+            'delete values.rowAttr["data-qtitle"];',
         '%}', {
             priority: 10,
             processRowValues: function(rowValues) {
@@ -312,7 +317,7 @@ Ext.define('Ext.tree.View', {
                 '<td colspan="' + me.panel.headerCt.getColumnCount() + '">',
                     '<div class="' + me.nodeAnimWrapCls + '">',
                         // Table has to have correct classes to get sized by the dynamic CSS rules
-                        '<table class="' + Ext.baseCSSPrefix + me.id + '-table ' + Ext.baseCSSPrefix + 'grid-table" border="0" cellspacing="0" cellpadding="0">',
+                        '<table class="' + Ext.baseCSSPrefix + me.id + '-table ' + Ext.baseCSSPrefix + 'grid-table" style="border:0" cellspacing="0" cellpadding="0">',
                         columnSizer.join(''),
                         '<tbody></tbody></table>',
                     '</div>',
@@ -420,22 +425,6 @@ Ext.define('Ext.tree.View', {
         // because the targetEl just got higher.
         if (animWrap.isAnimating) {
             me.onExpand(parent);
-        }
-    },
-
-    // These methods are triggered by:
-    //  the TreeStore's beforebulkremove & bulkremovecomplete events.
-    // In the case of a fully loaded tree (no async IO needed), the whole expansion will be bracketed by
-    // layout suspension, and will end with one refreshSize call.
-    beginBulkUpdate: function() {
-        if (this.rendered) {
-            Ext.suspendLayouts();
-        }
-    },
-    endBulkUpdate: function(){
-        if (this.rendered) {
-            this.refreshSize();
-            Ext.resumeLayouts(true);
         }
     },
 
@@ -803,9 +792,7 @@ Ext.define('Ext.tree.View', {
         me.mon(treeStore, {
             scope: me,
             beforefill: me.onBeforeFill,
-            fillcomplete: me.onFillComplete,
-            beforebulkremove: me.beginBulkUpdate,
-            bulkremovecomplete: me.endBulkUpdate
+            fillcomplete: me.onFillComplete
         });
 
         if (!treeStore.remoteSort) {
@@ -828,9 +815,7 @@ Ext.define('Ext.tree.View', {
         me.mun(treeStore, {
             scope: me,
             beforefill: me.onBeforeFill,
-            fillcomplete: me.onFillComplete,
-            beforebulkremove: me.beginBulkUpdate,
-            bulkremovecomplete: me.endBulkUpdate
+            fillcomplete: me.onFillComplete
         });
 
         if (!treeStore.remoteSort) {

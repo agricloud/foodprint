@@ -1,0 +1,97 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "User"
+        ],
+        "stores": [
+            "UserStore"
+        ],
+        "views": [
+            "UserView"
+        ],
+        "designer|userClassName": "UserController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "91aa0e65-9365-4ba6-a15d-9ab82902e7a6",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "userview #grid"
+            },
+            "designerId": "a7454f3c-eb15-414a-a4ec-5fbeafa9667f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "userview #form"
+            },
+            "designerId": "382ac071-3ac6-4139-b64b-75b062ccc386"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'userview #index commonindextoolbar commoncreatebtn': {",
+                    "        click: this.doCreate",
+                    "    },",
+                    "    'userview #index commonindextoolbar commonshowbtn': {",
+                    "        click: this.doShow",
+                    "    },",
+                    "    'userview #show commonshowtoolbar commondeletebtn': {",
+                    "        click: this.doDelete",
+                    "    },",
+                    "    'userview #show commonshowtoolbar commonsavebtn': {",
+                    "        click: this.doSave",
+                    "    },",
+                    "    'userview #show commonshowtoolbar commoncancelbtn': {",
+                    "        click: this.doCancel",
+                    "    },",
+                    "    'userview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'user';"
+                ]
+            },
+            "designerId": "0fab8cc7-e165-4dbd-9a6c-85302faa57c4"
+        }
+    ]
+}

@@ -9,11 +9,101 @@
         "itemId": "commonWorkstationCombo",
         "designer|userClassName": "CommonWorkstationCombo",
         "designer|userAlias": "commonworkstationcombo",
-        "editable": false,
+        "fieldLabel": "Workstation.name",
+        "name": "workstation.id",
+        "editable": null,
         "displayField": "name",
+        "forceSelection": true,
         "hiddenName": null,
+        "minChars": 0,
+        "queryParam": "nameLike",
         "store": "WorkstationStore",
-        "valueField": "name"
+        "valueField": "id"
     },
-    "designerId": "741671be-e150-4fa0-b27e-7375ba263788"
+    "designerId": "741671be-e150-4fa0-b27e-7375ba263788",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonWorkstationCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('workstation.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "768324b4-a4b5-4922-a816-18f696282fab"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonWorkstationComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "fcab1531-227e-4ddc-a94e-029110dfe168"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonWorkstationComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'workstation.title':records[0].data['title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "23ee0f45-8efc-47c4-bf6e-00cd13e7064f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonWorkstationComboChange",
+                "implHandler": [
+                    "if (newValue == null) {",
+                    "    field.reset();",
+                    "    if(field.up() && field.up().getForm()){",
+                    "        field.up().getForm().setValues({",
+                    "            'workstation.title':null",
+                    "        });",
+                    "\t}",
+                    "}"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "70be68df-f566-49cf-a677-2136e1033823"
+        }
+    ]
 }

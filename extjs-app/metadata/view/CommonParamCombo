@@ -9,14 +9,40 @@
         "itemId": "commonParamCombo",
         "designer|userClassName": "CommonParamCombo",
         "designer|userAlias": "commonparamcombo",
-        "editable": false,
+        "fieldLabel": "Param.name",
+        "name": "param.id",
+        "allowBlank": false,
+        "editable": null,
         "displayField": "name",
+        "forceSelection": true,
         "hiddenName": null,
-        "store": "WorkstationStore",
-        "valueField": "name"
+        "minChars": 0,
+        "queryParam": "nameLike",
+        "store": "ParamStore",
+        "valueField": "id"
     },
     "designerId": "3f228c53-fabc-4f54-9602-20702f73e1d2",
     "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonParamCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('param.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "cdf6cf92-8df7-41b3-9a5d-d3767ece25d9"
+        },
         {
             "type": "basiceventbinding",
             "reference": {
@@ -25,18 +51,36 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onComboboxBeforeSelect1",
+                "fn": "onCommonParamComboSelect",
                 "implHandler": [
-                    "var store = 'param';",
-                    "var gridRecord = combo.up().up().getSelectionModel().getLastSelected();",
-                    "gridRecord.set(store+'.id',record.get('id'));",
-                    "gridRecord.set(store+'.name',record.get('name'));",
-                    "gridRecord.set(store+'.title',record.get('title'));"
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'param.title':records[0].data['title']",
+                    "    });",
+                    "}"
                 ],
-                "name": "beforeselect",
+                "name": "select",
                 "scope": "me"
             },
-            "designerId": "059c9e06-da23-4ae0-aa66-8b58fa4b9c6d"
+            "designerId": "b0c7d62e-4ef5-4066-969b-f0a0ed9b9e49"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonParamComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "72e8cb5d-b81d-4fe0-9aef-c063c043a0d9"
         }
     ]
 }

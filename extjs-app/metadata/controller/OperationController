@@ -1,0 +1,99 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Operation"
+        ],
+        "stores": [
+            "OperationStore"
+        ],
+        "views": [
+            "OperationView"
+        ],
+        "designer|userClassName": "OperationController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "6e66b1e3-b91d-46bc-b0b0-373d22ddfc38",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "operationview #grid"
+            },
+            "designerId": "bd4b253a-785b-4386-9b28-192558ecf1c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "operationview #form"
+            },
+            "designerId": "ff64c994-a042-469a-8a09-a664e2f753c2"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "",
+                    "this.control({",
+                    "    'operationview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'operationview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'operationview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'operationview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'operationview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'operationview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'operation';"
+                ]
+            },
+            "designerId": "131d1781-2ca2-4c97-a2c7-bfd95585b6c1"
+        }
+    ]
+}

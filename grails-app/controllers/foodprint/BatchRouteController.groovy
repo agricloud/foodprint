@@ -1,74 +1,111 @@
+
 package foodprint
 
-import grails.converters.JSON
+import common.*
 
 class BatchRouteController {
 
-    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
+    def index = {
+
+        def batch=Batch.findById(params.batch.id)
+        if(batch){
+            def list=BatchRoute.findAllByBatch(batch)
+            render (contentType: 'application/json') {
+               [success: true, data:list, total: list.size()]
+            }           
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }            
+        }
+
+
     }
 
-    def show() {
-        log.debug "${controllerName}-${actionName}"
-    }
-
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def batchRoute=Batch.findById(params.batch.id).batchRoutes
-        /** 
-	*[batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
-	*or use
-	*[batchRouteInstanceList: BatchRoute.list(params), batchRouteInstanceTotal: BatchRoute.count()]
-        **/
-        [batchRouteInstanceList:batchRoute.collect(), batchRouteInstanceTotal: batchRoute.size()]
-    }
-
-    def listJson(Integer max) {
-
-        JSON.use('deep')
-        def converter=list(max) as JSON
-        converter.render(response)
+    def show = {
+        def batchRoute=BatchRoute.findById(params.id);
+        if(batchRoute){
+            render (contentType: 'application/json') {
+                [success: true,data:batchRoute]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }            
+        } 
     }
 
 
-    def create() {
-        def batchRouteInstance = new BatchRoute(params)
-        render (contentType: 'text/json') {
-            domainService.save(batchRouteInstance)
+
+    def create = {
+
+        if(params.batch.id){
+
+            def batchRoute= new BatchRoute(params)
+
+            if(batchRoute.batch.batchRoutes)
+                batchRoute.sequence = batchRoute.batch.batchRoutes*.sequence.max()+1
+            else batchRoute.sequence = 1
+
+            render (contentType: 'application/json') {
+                [success: true,data:batchRoute]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchRoute.message.create.failed')]
+            }            
+        }   
+    }
+
+    def save = {
+        def batchRoute= new BatchRoute(params)
+        render (contentType: 'application/json') {
+            domainService.save(batchRoute)
         }
     }
 
 
-    def update() {
+    def update = {
+        def  batchRoute = BatchRoute.findById(params.id)
 
-        def batchRouteInstance=BatchRoute.get(params.id)
-        render (contentType: 'text/json') {
-            domainService.save(batchRouteInstance, params)
+        if(params.workstation.id==null || !params.workstation.id.trim()){
+            params.remove("workstation.id")
+            params.remove("workstation.title")  
+            params.put("workstation",null) 
+        }
+        if(params.supplier.id==null || !params.supplier.id.trim()){
+            params.remove("supplier.id")
+            params.remove("supplier.title")
+            params.put("supplier",null)
+        }
+
+        batchRoute.properties=params   
+        render (contentType: 'application/json') {
+            domainService.save(batchRoute)
         }
 
     }
 
-
-    def delete(){
-        log.info params
+    def delete = {
+        def  batchRoute = BatchRoute.findById(params.id)
         def result
-        def batchRouteInstance=BatchRoute.findById(params.id)
-        log.info batchRouteInstance
         try {
             
-            result = domainService.delete(batchRouteInstance)
+            result = domainService.delete(batchRoute)
         
         }catch(e){
             log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [batchRouteInstance, e.getMessage()])
+            def msg = message(code: 'default.message.delete.failed', args: [batchRoute, e.getMessage()])
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
     }
+
 }

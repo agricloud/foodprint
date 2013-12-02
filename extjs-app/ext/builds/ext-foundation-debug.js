@@ -5,18 +5,22 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 
-//@tag foundation,core
+
+
 
 
 var Ext = Ext || {};
@@ -26,7 +30,7 @@ Ext._startTime = new Date().getTime();
         objectPrototype = Object.prototype,
         toString = objectPrototype.toString,
         enumerables = true,
-        enumerablesTest = { toString: 1 },
+        enumerablesTest = {toString: 1},
         emptyFn = function () {},
         
         
@@ -36,7 +40,8 @@ Ext._startTime = new Date().getTime();
         },
         i,
         nonWhitespaceRe = /\S/,
-        ExtApp;
+        ExtApp,
+        iterableRe = /\[object\s*(?:Array|Arguments|\w*Collection|\w*List|HTML\s+document\.all\s+class)\]/;
 
     Function.prototype.$extIsFunction = true;
 
@@ -387,21 +392,26 @@ Ext._startTime = new Date().getTime();
 
         
         isIterable: function(value) {
-            var type = typeof value,
-                checkLength = false;
-            if (value && type != 'string') {
-                
-                if (type == 'function') {
-                    
-                    
-                    if (Ext.isSafari) {
-                        checkLength = value instanceof NodeList || value instanceof HTMLCollection;
-                    }
-                } else {
-                    checkLength = true;
-                }
+            
+            if (!value || typeof value.length !== 'number' || typeof value === 'string' || value.$extIsFunction) {
+                return false;
             }
-            return checkLength ? value.length !== undefined : false;
+
+            
+            
+            
+            if (!value.propertyIsEnumerable) {
+                return !!value.item;
+            }
+
+            
+            
+            if (value.hasOwnProperty('length') && !value.propertyIsEnumerable('length')) {
+                return true;
+            }
+
+            
+            return iterableRe.test(toString.call(value));
         }
     });
 
@@ -456,7 +466,9 @@ Ext._startTime = new Date().getTime();
                 if (enumerables) {
                     for (j = enumerables.length; j--;) {
                         k = enumerables[j];
-                        clone[k] = item[k];
+                        if (item.hasOwnProperty(k)) {
+                            clone[k] = item[k];
+                        }
                     }
                 }
             }
@@ -618,9 +630,8 @@ Ext.globalEval = Ext.global.execScript
         }());
     };
 
-//@tag foundation,core
 
-//@require ../Ext.js
+
 
 
 
@@ -628,7 +639,7 @@ Ext.globalEval = Ext.global.execScript
 
 
 
-var version = '4.2.0.663', Version;
+var version = '4.2.1.883', Version;
     Ext.Version = Version = Ext.extend(Object, {
 
         
@@ -835,9 +846,8 @@ var version = '4.2.0.663', Version;
 
 }());
 
-//@tag foundation,core
 
-//@require ../version/Version.js
+
 
 
 
@@ -1085,11 +1095,8 @@ Ext.htmlDecode = Ext.String.htmlDecode;
 
 Ext.urlAppend = Ext.String.urlAppend;
 
-//@tag foundation,core
 
-//@require String.js
 
-//@define Ext.Number
 
 
 
@@ -1209,9 +1216,8 @@ Ext.Number = new function() {
     };
 };
 
-//@tag foundation,core
 
-//@require Number.js
+
 
 
 
@@ -2017,9 +2023,8 @@ Ext.Number = new function() {
     };
 }());
 
-//@tag foundation,core
 
-//@require Array.js
+
 
 
 
@@ -2197,11 +2202,11 @@ Ext.Function = {
     createThrottled: function(fn, interval, scope) {
         var lastCallTime, elapsed, lastArgs, timer, execute = function() {
             fn.apply(scope || this, lastArgs);
-            lastCallTime = new Date().getTime();
+            lastCallTime = Ext.Date.now();
         };
 
         return function() {
-            elapsed = new Date().getTime() - lastCallTime;
+            elapsed = Ext.Date.now() - lastCallTime;
             lastArgs = arguments;
 
             clearTimeout(timer);
@@ -2246,9 +2251,8 @@ Ext.pass = Ext.Function.alias(Ext.Function, 'pass');
 
 Ext.bind = Ext.Function.alias(Ext.Function, 'bind');
 
-//@tag foundation,core
 
-//@require Function.js
+
 
 
 
@@ -2650,11 +2654,8 @@ Ext.urlDecode = function() {
 
 }());
 
-//@tag foundation,core
 
-//@require Object.js
 
-//@define Ext.Date
 
 
 
@@ -2671,7 +2672,7 @@ Ext.Date = new function() {
       MSFormatRe = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/'),
       code = [
         
-        "var me = this, dt, y, m, d, h, i, s, ms, o, O, z, zz, u, v, W, year, jan4, week1monday,",
+        "var me = this, dt, y, m, d, h, i, s, ms, o, O, z, zz, u, v, W, year, jan4, week1monday, daysInMonth, dayMatched,",
             "def = me.defaults,",
             "from = Ext.Number.from,",
             "results = String(input).match(me.parseRegexes[{0}]);", 
@@ -2689,7 +2690,26 @@ Ext.Date = new function() {
 
                 "y = from(y, from(def.y, dt.getFullYear()));",
                 "m = from(m, from(def.m - 1, dt.getMonth()));",
+                "dayMatched = d !== undefined;",
                 "d = from(d, from(def.d, dt.getDate()));",
+                
+                
+                
+                
+                
+                
+                
+                
+                "if (!dayMatched) {", 
+                    "dt.setDate(1);",
+                    "dt.setMonth(m);",
+                    "dt.setFullYear(y);",
+                
+                    "daysInMonth = me.getDaysInMonth(dt);",
+                    "if (d > daysInMonth) {",
+                        "d = daysInMonth;",
+                    "}",
+                "}",
 
                 "h  = from(h, from(def.h, dt.getHours()));",
                 "i  = from(i, from(def.i, dt.getMinutes()));",
@@ -2815,7 +2835,7 @@ Ext.Date = new function() {
 
     
     getElapsed: function(dateA, dateB) {
-        return Math.abs(dateA - (dateB || new Date()));
+        return Math.abs(dateA - (dateB || utilDate.now()));
     },
 
     
@@ -3733,9 +3753,8 @@ Ext.Date = new function() {
   });
 };
 
-//@tag foundation,core
 
-//@require ../lang/Date.js
+
 
 
 
@@ -4404,9 +4423,8 @@ var noArgs = [],
 
 }(Ext.Function.flexSetter));
 
-//@tag foundation,core
 
-//@require Base.js
+
 
 
 
@@ -4864,9 +4882,8 @@ var noArgs = [],
     };
 }());
 
-//@tag foundation,core
 
-//@require Class.js
+
 
 
 
@@ -5225,7 +5242,7 @@ var noArgs = [],
                     (nameToAlternates[className] = []);
 
                 for (i  = 0; i < alternates[className].length; i++) {
-                    alternate = alternates[className];
+                    alternate = alternates[className][i];
                     if (!alternateToName[alternate]) {
                         alternateToName[alternate] = className;
                         aliasList.push(alternate);
@@ -5713,6 +5730,55 @@ var noArgs = [],
             return Manager.create.apply(Manager, arguments);
         },
 
+        
+        undefine: function(className) {
+        
+            var classes = Manager.classes,
+                maps = Manager.maps,
+                aliasToName = maps.aliasToName,
+                nameToAliases = maps.nameToAliases,
+                alternateToName = maps.alternateToName,
+                nameToAlternates = maps.nameToAlternates,
+                aliases = nameToAliases[className],
+                alternates = nameToAlternates[className],
+                parts, partCount, namespace, i;
+
+            delete Manager.namespaceParseCache[className];
+            delete nameToAliases[className];
+            delete nameToAlternates[className];
+            delete classes[className];
+
+            if (aliases) {
+                for (i = aliases.length; i--;) {
+                    delete aliasToName[aliases[i]];
+                }
+            }
+
+            if (alternates) {
+                for (i = alternates.length; i--; ) {
+                    delete alternateToName[alternates[i]];
+                }
+            }
+
+            parts  = Manager.parseNamespace(className);
+            partCount = parts.length - 1;
+            namespace = parts[0];
+
+            for (i = 1; i < partCount; i++) {
+                namespace = namespace[parts[i]];
+                if (!namespace) {
+                    return;
+                }
+            }
+
+            
+            try {
+                delete namespace[parts[partCount]];
+            }
+            catch (e) {
+                namespace[parts[partCount]] = undefined;
+            }
+        },
 
         
         getClassName: alias(Manager, 'getName'),
@@ -5842,11 +5908,8 @@ if (Ext._aliasMetadata) {
     Ext._aliasMetadata = null;
 }
 
-//@tag foundation,core
 
-//@require ClassManager.js
 
-//@define Ext.Loader
 
 
 
@@ -6759,7 +6822,8 @@ if (Ext._classPathMetadata) {
 
     Loader.setConfig({
         enabled: true,
-        disableCaching: true,
+        disableCaching:
+            true,
         paths: {
             'Ext': path + 'src'
         }
@@ -6773,9 +6837,8 @@ if (Ext._beforereadyhandler){
     Ext._beforereadyhandler();
 }
 
-//@tag foundation,core
 
-//@require ../class/Loader.js
+
 
 
 

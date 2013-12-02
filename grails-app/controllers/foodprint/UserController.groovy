@@ -4,139 +4,75 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    def domainService
 
     def index() {
-        redirect(action: "list", params: params)
+
+        def list = User.createCriteria().list(params,params.criteria)
+
+
+        render (contentType: 'application/json') {
+            [userInstanceList: list, userInstanceTotal: list.totalCount]
+        }
+        
     }
 
-    def list(params) {
-        //params.max = Math.min(max ?: 10, 100)
-        [userInstanceList: User.list(params), userInstanceTotal: User.count()]
-    }
+    def show(Long id){
 
-    def listJson(params) {
-        println"UserController--listJson"
-        render (contentType: 'text/json') {
-            list(params)        
+        def user=User.findById(id);  
+        if(user){   
+            render (contentType: 'application/json') {
+                [success: true,data:user]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
         }
     }
+    def create(){
 
-    def create() {
-        println"UserController--create"
+        def user=new User()        
+        render (contentType: 'application/json') {
+            [success: true,data:user]
+        }
+    }
+ 
+    def save(){
 
         def userInstance=new User(params)
-        render (contentType: 'text/json') {
-            save(userInstance);
+        
+        render (contentType: 'application/json') {
+            domainService.save(userInstance)
         }
-    }
-
-    def save(User userInstance){
-        if (!userInstance.validate()) {
-                userInstance.errors.each {
-                println it
-            }
-            return [success:false]
-        }
-        if (!userInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
-        }
-    }
-
-    def show(Long id) {
-        def userInstance = User.get(id)
-        if (!userInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [userInstance: userInstance]
-    }
-
-    def edit(Long id) {
-        def userInstance = User.get(id)
-        if (!userInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [userInstance: userInstance]
     }
 
     def update(){
-        println"UserController--update"
-        def userInstance=User.get(params.id)
-
-        if(!userInstance){
-            println"UserController--update--cant find userInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-       userInstance.properties = params
-        render (contentType: 'text/json') {
-            save(userInstance);
+        def userInstance = User.findById(params.id)
+        userInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(userInstance)
         }         
     }
-/*
-    def update(Long id, Long version) {
-        println"UserController--update"+"---"+id+"---"+version
-        def userInstance = User.get(id)
-        if (!userInstance) {
-            println"***1"
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "list")
-            return
-        }
 
-        if (version != null) {
-            println"***2"
-            if (userInstance.version > version) {
-                userInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'user.label', default: 'User')] as Object[],
-                          "Another user has updated this User while you were editing")
-                render(view: "edit", model: [userInstance: userInstance])
-                return
-            }
-        }
-
-        userInstance.properties = params
-
-        if (!userInstance.save(flush: true)) {
-            println"***3"
-            render(view: "edit", model: [userInstance: userInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-        redirect(action: "show", id: userInstance.id)
-    }
-    */
 
     def delete(){
-        println"UserController--delete"
-        def userInstance=User.get(params.id)
-        if (!userInstance) {
-            println"UserController--delete--Cant find userInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
+        def userInstance = User.findById(params.id)
+        def result
         try {
-            userInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
+            
+            result = domainService.delete(userInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [userInstance, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
+        
+        render (contentType: 'application/json') {
+            result
         }
-
     }
+    
 }

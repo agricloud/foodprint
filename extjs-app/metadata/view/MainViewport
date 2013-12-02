@@ -20,8 +20,33 @@
                 "type": "array"
             },
             "codeClass": null,
+            "userConfig": {
+                "width": null
+            },
             "designerId": "9cbdab0e-55e7-4b51-853d-79095fcd5f2b",
             "masterInstanceId": "5875c1cf-7496-49e4-aabb-59e4448471e4"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMainVPAfterRender",
+                "implHandler": [
+                    "var mask = Ext.get('loading-mask');",
+                    "// Destroy the masks",
+                    "if(mask)",
+                    "mask.fadeOut({callback: function(){ mask.destroy(); }});",
+                    "",
+                    "Ext.getBody().removeCls( 'splash' );"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "aa6915c0-38ac-4b05-ade8-a4005ad63a7a"
         }
     ]
 }

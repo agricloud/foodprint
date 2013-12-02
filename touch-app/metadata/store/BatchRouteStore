@@ -1,0 +1,57 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": null,
+        "model": "BatchRoute",
+        "storeId": "BatchRouteStore",
+        "designer|userClassName": "BatchRouteStore"
+    },
+    "designerId": "0766d85e-7393-42e2-9332-559a445630d5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/batchRoute"
+            },
+            "designerId": "ff4fb23e-092e-4053-8e04-bb02fe383de6",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "data",
+                        "totalProperty": null
+                    },
+                    "designerId": "a5e1e765-babe-429a-8194-b1c54a26fcd3"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "sequence"
+            },
+            "designerId": "f62ebac0-25e4-4a28-9a3b-3b49147022e7"
+        }
+    ]
+}

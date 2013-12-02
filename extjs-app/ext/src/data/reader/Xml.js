@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * @author Ed Spencer
@@ -96,6 +99,12 @@ Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
  *         </nested>
  *     </deeply>
  *
+ * If this Reader is being used by a {@link Ext.data.TreeStore TreeStore} to read tree-structured data in which records
+ * are nested as descendant nodes of other records, then this lenient behaviour must be overridden by using a more specific
+ * child node selector as your {@link #record} selector which will not select all descendants, such as:
+ *
+ *    record: '>user'
+ *
  * # Response metadata
  *
  * The server can return additional data in its response, such as the {@link #totalProperty total number of records} and
@@ -146,6 +155,15 @@ Ext.define('Ext.data.reader.Xml', {
     /**
      * @cfg {String} record (required)
      * The DomQuery path to the repeated element which contains record information.
+     *
+     * By default, the elements which match the selector may be nested at any level below the {@link #root}
+     *
+     * If this Reader is being used by a {@link Ext.data.TreeStore TreeStore} to read tree-structured data,
+     * then only first generation child nodes of the root element must be selected, so the record selector must be
+     * specified with a more specific selector which will not select all descendants. For example:
+     *
+     *    record: '>node'
+     *
      */
 
     /**

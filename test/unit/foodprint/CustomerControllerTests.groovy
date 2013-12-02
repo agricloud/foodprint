@@ -1,155 +1,80 @@
 package foodprint
 
-
-
+import common.*
 import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(CustomerController)
-@Mock(Customer)
+@Mock([Customer, 
+    DomainService, TestService])
 class CustomerControllerTests {
+
+    void setUp(){
+        def testService = new TestService()
+        testService.createTestMessage(messageSource)
+    }
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["name"] = 'customerNewName'
+        params["title"] = 'customerNewName'
     }
 
     void testIndex() {
+        new Customer(name: 'customer', title: 'customer').save(failOnError: true)
         controller.index()
-        assert "/customer/list" == response.redirectedUrl
+
+        assert response.json.customerInstanceList.size() == 1   
+        assert response.json.customerInstanceTotal == 1   
+        assert response.json.customerInstanceList[0].name == "customer"
     }
 
-    void testList() {
+    void testShow(){
+        def customer = new Customer(name: 'customer', title: 'customer').save(failOnError: true)
 
-        def model = controller.list()
+        params.id = customer.id
+        controller.show()
 
-        assert model.customerInstanceList.size() == 0
-        assert model.customerInstanceTotal == 0
+        assert response.json.success
+        assert response.json.data.class == "foodprint.Customer"
+
     }
 
     void testCreate() {
-        def model = controller.create()
-
-        assert model.customerInstance != null
+        controller.create()
+        assert response.json.success
+        assert response.json.data.class == "foodprint.Customer"
     }
 
-    void testSave() {
-        controller.save()
-
-        assert model.customerInstance != null
-        assert view == '/customer/create'
-
-        response.reset()
-
+    void testSave(){
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/customer/show/1'
-        assert controller.flash.message != null
-        assert Customer.count() == 1
+        assert response.json.success
+        assert Customer.list().size() == 1
+        assert Customer.get(1).name == 'customerNewName'   
     }
 
-    void testShow() {
-        controller.show()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/customer/list'
-
-        populateValidParams(params)
-        def customer = new Customer(params)
-
-        assert customer.save() != null
-
-        params.id = customer.id
-
-        def model = controller.show()
-
-        assert model.customerInstance == customer
-    }
-
-    void testEdit() {
-        controller.edit()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/customer/list'
-
-        populateValidParams(params)
-        def customer = new Customer(params)
-
-        assert customer.save() != null
-
-        params.id = customer.id
-
-        def model = controller.edit()
-
-        assert model.customerInstance == customer
-    }
-
-    void testUpdate() {
-        controller.update()
-
-        assert flash.message != null
-        assert response.redirectedUrl == '/customer/list'
-
-        response.reset()
-
-        populateValidParams(params)
-        def customer = new Customer(params)
-
-        assert customer.save() != null
-
-        // test invalid parameters in update
-        params.id = customer.id
-        //TODO: add invalid values to params object
-
-        controller.update()
-
-        assert view == "/customer/edit"
-        assert model.customerInstance != null
-
-        customer.clearErrors()
-
-        populateValidParams(params)
-        controller.update()
-
-        assert response.redirectedUrl == "/customer/show/$customer.id"
-        assert flash.message != null
-
-        //test outdated version number
-        response.reset()
-        customer.clearErrors()
+    def testUpdate(){
+        def customer = new Customer(name: 'customer', title: 'customer').save(failOnError: true)
 
         populateValidParams(params)
         params.id = customer.id
-        params.version = -1
-        controller.update()
 
-        assert view == "/customer/edit"
-        assert model.customerInstance != null
-        assert model.customerInstance.errors.getFieldError('version')
-        assert flash.message != null
+        controller.update()
+        
+        assert response.json.success
+        assert Customer.list().size() == 1
+        assert Customer.get(1).name == 'customerNewName'
     }
 
-    void testDelete() {
-        controller.delete()
-        assert flash.message != null
-        assert response.redirectedUrl == '/customer/list'
-
-        response.reset()
-
-        populateValidParams(params)
-        def customer = new Customer(params)
-
-        assert customer.save() != null
-        assert Customer.count() == 1
-
+    def testDelete(){
+        def customer = new Customer(name: 'customer', title: 'customer').save(failOnError: true)
         params.id = customer.id
 
         controller.delete()
-
-        assert Customer.count() == 0
-        assert Customer.get(customer.id) == null
-        assert response.redirectedUrl == '/customer/list'
+        assert response.json.success
+        assert Customer.list().size() == 0
     }
+
 }

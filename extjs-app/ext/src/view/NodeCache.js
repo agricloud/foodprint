@@ -5,15 +5,18 @@ Copyright (c) 2011-2013 Sencha Inc
 
 Contact:  http://www.sencha.com/contact
 
-Commercial Usage
-Licensees holding valid commercial licenses may use this file in accordance with the Commercial
-Software License Agreement provided with the Software or, alternatively, in accordance with the
-terms contained in a written agreement between you and Sencha.
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as
+published by the Free Software Foundation and appearing in the file LICENSE included in the
+packaging of this file.
+
+Please review the following information to ensure the GNU General Public License version 3.0
+requirements will be met: http://www.gnu.org/copyleft/gpl.html.
 
 If you are unsure which license is appropriate for your use, please contact the sales department
 at http://www.sencha.com/contact.
 
-Build date: 2013-03-11 22:33:40 (aed16176e68b5e8aa1433452b12805c0ad913836)
+Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
 */
 /**
  * @private
@@ -232,6 +235,8 @@ Ext.define('Ext.view.NodeCache', {
     */
     removeElement: function(keys, removeDom) {
         var me = this,
+            inKeys,
+            key,
             elements = me.elements,
             el,
             deleteCount,
@@ -241,14 +246,27 @@ Ext.define('Ext.view.NodeCache', {
         // Sort the keys into ascending order so that we can iterate through the elements
         // collection, and delete items encountered in the keys array as we encounter them.
         if (Ext.isArray(keys)) {
-            deleteCount = keys.length;
+            inKeys = keys;
+            keys = [];
+            deleteCount = inKeys.length;
             for (keyIndex = 0; keyIndex < deleteCount; keyIndex++) {
-                if (typeof keys[keyIndex] !== 'number') {
-                    keys[keyIndex] = me.indexOf(keys[keyIndex]);
+                key = inKeys[keyIndex];
+                if (typeof key !== 'number') {
+                    key = me.indexOf(key);
+                }
+                // Could be asked to remove data above the start, or below the end of rendered zone in a buffer rendered view
+                // So only collect keys which are within our range
+                if (key >= me.startIndex && key <= me.endIndex) {
+                    keys[keys.length] = key;
                 }
             }
             Ext.Array.sort(keys);
+            deleteCount = keys.length;
         } else {
+            // Could be asked to remove data above the start, or below the end of rendered zone in a buffer rendered view
+            if (keys < me.startIndex || keys > me.endIndex) {
+                return;
+            }
             deleteCount = 1;
             keys = [keys];
         }

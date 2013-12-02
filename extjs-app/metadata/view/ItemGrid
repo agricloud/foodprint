@@ -6,16 +6,17 @@
     },
     "codeClass": null,
     "userConfig": {
-        "height": null,
-        "itemId": "itemGrid",
-        "width": null,
+        "itemId": null,
         "designer|userClassName": "ItemGrid",
         "designer|userAlias": "itemgrid",
         "manageHeight": false,
-        "title": "",
+        "title": null,
         "store": "ItemStore"
     },
-    "designerId": "af88655b-8289-4ddf-8866-ac330249024a",
+    "configAlternates": {
+        "tbar": "object"
+    },
+    "designerId": "9ef70e18-ecf3-4d60-97cc-655fb0d3cd28",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -24,6 +25,10 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "designer|displayName": null,
+                "loadingText": null
+            },
             "designerId": "6d7f44cf-8294-4dcc-9add-04e18a3518af"
         },
         {
@@ -62,6 +67,34 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "spec",
+                "text": "Spec",
+                "flex": 1
+            },
+            "designerId": "f5c8e97e-3236-42be-b006-ef4c12ba9774"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "unit",
+                "text": "Unit",
+                "flex": 1
+            },
+            "designerId": "a088f064-5ea9-484c-b3dc-bddc7a36d8e2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "description",
                 "text": "Description",
                 "flex": 1
@@ -76,6 +109,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
                 "dataIndex": "dueDays",
                 "text": "DueDays",
                 "flex": 1
@@ -90,6 +124,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
                 "dataIndex": "effectStartDate",
                 "text": "EffectStartDate",
                 "flex": 1
@@ -104,6 +139,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
                 "dataIndex": "effectEndDate",
                 "text": "EffectEndDate",
                 "flex": 1
@@ -126,21 +162,41 @@
             "designerId": "3f504e25-2865-46c7-8dbe-8bb5b3a79453"
         },
         {
-            "type": "basicfunction",
+            "type": "processcfgfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "loadStore",
+                "fn": "processItemGrid",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
-                    "console.log(\"View-itemGrid.loadStore\");",
                     "",
-                    "this.getStore().load();//對應ref"
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'item'));",
+                    ""
                 ]
             },
-            "designerId": "56f4d625-cd20-4ec7-9bdb-ba85b465ae0e"
+            "designerId": "d448cef9-a4e3-43c9-a7ef-fa64954c9d6e"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridpanelAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "de02ade7-1df5-4879-9bd8-8ac6f3c65a20"
         }
     ]
 }

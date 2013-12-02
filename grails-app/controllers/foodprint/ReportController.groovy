@@ -4,108 +4,82 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ReportController {
 
-    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
+    def enumService
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
-    }
+    def index = {
 
-    def listJson(Integer max) {
-        render (contentType: 'text/json') {
-            list(max)        
+        def list = Report.createCriteria().list(params,params.criteria)
+
+
+        render (contentType: 'application/json') {
+            [reportInstanceList: list, reportInstanceTotal: list.totalCount]
         }
         
     }
 
-    def create(){
-        println"ReportController--create"
+    def show = {
 
-        def reportInstance=new Report(params)
-        render (contentType: 'text/json') {
-            save(reportInstance);
-        }
-    }
+        log.debug "${controllerName}-${actionName}"
 
-    def update(){
-        println"ReportController--update"
-        def reportInstance=Report.get(params.id)
+        def report=Report.findById(params.id);
 
-        if(!reportInstance){
-            println"ReportController--update--cant find reportInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
+        if(report){   
 
-       reportInstance.properties = params
-        render (contentType: 'text/json') {
-            save(reportInstance);
-        }         
-    }
-
-    def save(Report reportInstance){
-        if (!reportInstance.validate()) {
-                reportInstance.errors.each {
-                println it
+            render (contentType: 'application/json') {
+                [success: true, data:report]
             }
-            return [success:false]
+        }else {
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
         }
-        if (!reportInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
+    }
+ 
+    def create = {
+
+        def report=new Report()
+        render (contentType: 'application/json') {
+            [success: true,data:report]
         }
     }
 
-    def show(Long id) {
-        def reportInstance = Report.get(id)
-        if (!reportInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "list")
-            return
+    def save = {
+        log.debug "${controllerName}-${actionName}"
+        def report=new Report(params)
+        
+        render (contentType: 'application/json') {
+            domainService.save(report)
         }
-
-        [reportInstance: reportInstance]
     }
 
-    def edit(Long id) {
-        def reportInstance = Report.get(id)
-        if (!reportInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), id])
-            redirect(action: "list")
-            return
-        }
+    def update = {
 
-        [reportInstance: reportInstance]
+        def report = Report.findById(params.id)
+        report.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(report)
+        }
     }
 
-    def delete(){
-        println"ReportController--delete"
-        def reportInstance=Report.get(params.id)
-        if (!reportInstance) {
-            println"ReportController--delete--Cant find reportInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
-
+    def delete = {
+        def report = Report.findById(params.id)
+        def result
         try {
-            reportInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
+            
+            result = domainService.delete(report)
+        
+        }catch(DataIntegrityViolationException e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [report, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
+        
+        render (contentType: 'application/json') {
+            result
         }
-
     }
+    
 }

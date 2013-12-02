@@ -1,97 +1,68 @@
-<%=packageName ? "package ${packageName}\n\n" : ''%>import org.springframework.dao.DataIntegrityViolationException
+<%=packageName ? "package ${packageName}\n\n" : ''%>
+import org.springframework.dao.DataIntegrityViolationException
 
 class ${className}Controller {
 
-    static allowedMethods = [create: "POST", update: "PUT", delete: "DELETE"]
     def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [${propertyName}List: ${className}.list(params), ${propertyName}Total: ${className}.count()]
-    }
-
-    def listJson(Integer max) {
-        JSON.use('deep')
-        def converter=list(max) as JSON
-        converter.render(response)
-    }
-
-    def create() {
-        [${propertyName}: new ${className}(params)]
-    }
-
-    def save() {
-        def ${propertyName} = new ${className}(params)
-        if (!${propertyName}.save(flush: true)) {
-            render(view: "create", model: [${propertyName}: ${propertyName}])
-            return
+    def index = {
+        def list = ${className}.createCriteria().list(params,params.criteria)
+        render (contentType: 'application/json') {
+            [${propertyName}List: list, ${propertyName}Total: list.totalCount]
         }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
     }
 
-    def show(Long id) {
-        def ${propertyName} = ${className}.get(id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "list")
-            return
+    def show = {
+        def ${propertyName}=${className}.findById(params.id);  
+        if(${propertyName}){   
+            render (contentType: 'application/json') {
+                [success: true,data:${propertyName}]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
         }
-
-        [${propertyName}: ${propertyName}]
     }
-
-    def edit(Long id) {
-        def ${propertyName} = ${className}.get(id)
-        if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "list")
-            return
+    
+    def create = {
+        def ${propertyName}=new ${className}()        
+        render (contentType: 'application/json') {
+            [success: true,data:${propertyName}]
         }
-
-        [${propertyName}: ${propertyName}]
     }
 
-
-    def create() {
-        def ${propertyName} = ${className}.get(id)
-        render (contentType: 'text/json') {
+    def save = {
+        def ${propertyName}=new ${className}(params)
+        render (contentType: 'application/json') {
             domainService.save(${propertyName})
         }
     }
 
-
-    def update() {
-
-        def ${propertyName} = ${className}.get(id)
-        render (contentType: 'text/json') {
-            domainService.save(${propertyName}, params)
-        }
-
+    def update = {
+        def  ${propertyName} = ${className}.findById(params.id)
+        ${propertyName}.properties = params
+        render (contentType: 'application/json') {
+            domainService.save(${propertyName})
+        }         
     }
-    def delete(Long id) {
 
+    def delete = {
+        
+        def ${propertyName} = ${className}.findById(params.id)
         def result
-        def ${propertyName} = ${className}.get(id)
         try {
             
             result = domainService.delete(${propertyName})
         
-        }catch(e){
+        }catch(DataIntegrityViolationException e){
             log.error e
-            def msg = message(code: 'default.message.delete.failed', args: [${propertyName}, e.getMessage()])
+            def msg = message(code: 'default.message.delete.failed', args: [itemInstance, e])
             result = [success:false, message: msg] 
         }
         
-        render (contentType: 'text/json') {
+        render (contentType: 'application/json') {
             result
         }
-
-
     }
 }

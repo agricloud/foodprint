@@ -7,9 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "itemId": "commonCreateBtn",
+        "style": "font-family:Pictos;",
         "designer|userClassName": "CommonCreateBtn",
         "designer|userAlias": "commoncreatebtn",
+        "glyph": 43,
         "text": "Create"
+    },
+    "configAlternates": {
+        "style": "string"
     },
     "designerId": "06b12de0-6c88-49ca-b966-0906685abb03",
     "cn": [
@@ -21,17 +26,18 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processLocalized",
+                "fn": "processCommonCreateBtn",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "config.text=lang['common.createBtn.label'];",
+                    "",
+                    "config.text=Utilities.getMsg('common.createBtn.label');",
                     "",
                     "return config;"
                 ]
             },
-            "designerId": "b640ef72-4ba2-4cad-9534-b9b54118c67b"
+            "designerId": "8c712c27-34a0-44f5-af41-491465e6d5ef"
         }
     ]
 }

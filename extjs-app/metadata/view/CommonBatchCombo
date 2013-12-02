@@ -1,0 +1,69 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonBatchCombo",
+        "designer|userClassName": "CommonBatchCombo",
+        "designer|userAlias": "commonbatchcombo",
+        "fieldLabel": "Batch.name",
+        "name": "batch.id",
+        "allowBlank": false,
+        "selectOnFocus": true,
+        "editable": null,
+        "autoSelect": null,
+        "displayField": "name",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryDelay": null,
+        "queryParam": "nameLike",
+        "store": "BatchStore",
+        "triggerAction": null,
+        "typeAheadDelay": null,
+        "valueField": "id"
+    },
+    "designerId": "ad084776-ade5-4889-98b9-5bfe9e82fb32",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonBatchCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('batch.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "a995a49f-0ad8-40f9-af3e-1a6a09be8b88"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonBatchComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "b8bf9c6b-4f50-41e2-86da-b3812db14530"
+        }
+    ]
+}

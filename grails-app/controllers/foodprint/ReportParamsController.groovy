@@ -4,142 +4,106 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ReportParamsController {
 
-    static allowedMethods = [create: "POST",update: "PUT",  delete: "DELETE"]
+    def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
+    def index = {
+        log.debug "${controllerName}-${actionName}"
+        log.debug params
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        def report_id=params.reportid
-        //print report_id
-        def reportob=Report.findById(report_id,params);
-        //print reportob
-        def resultList= ReportParams.findAllByReport(reportob)
+        def report=Report.findById(params.report.id);
+        def reportParams = ReportParams.findAllByReport(report)
 
-        [reportParamsInstanceList: resultList, reportParamsInstanceTotal: ReportParams.count()]
-    }
-    def listJson(Integer max) {
-        render (contentType: 'text/json') {
-            list(max)        
-        }
+        if(reportParams){   
         
-    }
-
-    def create(){
-        println"reportParamsController--create"
-
-        def reportParamsInstance=new ReportParams(params)
-        //reportParamsInstance.report=Report.findById(params.report_id)
-        //reportParamsInstance.param=Param.findById(params.param_id)
-        //reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
-        //reportParamsInstance.item=Item.findById(params.item_id)
-
-        render (contentType: 'text/json') {
-            save(reportParamsInstance);
-        }
-    }
-
-    def save(ReportParams reportParamsInstance){
-        if (!reportParamsInstance.validate()) {
-            reportParamsInstance.errors.each {
-                println it
+            render (contentType: 'application/json') {
+                [success: true,reportParamsInstanceList: reportParams, reportParamsInstanceTotal: reportParams.size()]
             }
-            return [success:false]
-        }
-        if (!reportParamsInstance.save(failOnError: true)) {//flush:true?
-               return [success:false]
         }
         else{
-               return [success:true]
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
         }
-    }
-
-    def show(Long id) {
-        def reportParamsInstance = ReportParams.get(id)
-        if (!reportParamsInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [reportParamsInstance: reportParamsInstance]
-    }
-
-    def edit(Long id) {
-        def reportParamsInstance = ReportParams.get(id)
-        if (!reportParamsInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportParams.label', default: 'ReportParams'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [reportParamsInstance: reportParamsInstance]
-    }
-
-    def update() {
-        println"reportParamsController--update"
-         def reportParamsInstance=ReportParams.get(params.id)
-
-        if(!reportParamsInstance){
-            println"reportParamsController--update--cant find reportParamsInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-        println "params="+params
-        println "params.param.id="+params["param.id"]
-        println "params.item.id="+params["item.id"]
-
-        println !params["item.id"]
-
-        if(!params["item.id"])params["param.id"]=""
-        reportParamsInstance.properties = params
-
-        //if(!params.report_id.equals(null)){
-        //    reportParamsInstance.report=Report.findById(params.report_id)
-        //}
-        //if(!params.param_id.equals(null)){
-        //   reportParamsInstance.param=Param.findById(params.param_id)
-        //}
-        //if(params.workstation_id.equals(null)){
-        //   reportParamsInstance.workstation=null
-        //}//else{
-        //   reportParamsInstance.workstation=Workstation.findById(params.workstation_id)
-        //}
-        //if(params.item_id.equals(null)){
-        //    reportParamsInstance.item=null
-        //}//else{
-        //    reportParamsInstance.item=Item.findById(params.item_id)
-        //}
         
-        render (contentType: 'text/json') {
-            save(reportParamsInstance);
+    }
+
+    def show = {
+
+        log.debug "${controllerName}-${actionName}"
+
+        def reportParams=ReportParams.findById(params.id);
+
+        if(reportParams){   
+            render (contentType: 'application/json') {
+                [success: true, data:reportParams]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false, message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
+
+    def create = {
+        if(params.report.id){
+
+            def reportParams=new ReportParams(params)
+
+            render (contentType: 'application/json') {
+                [success: true,data:reportParams]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchRoute.message.create.failed')]
+            }            
         }   
     }
 
-    def delete(){
-        println"reportParamsController--delete"
+    def save = {
+        log.debug "${controllerName}-${actionName}"
+        def reportParams=new ReportParams(params)
+        
+        render (contentType: 'application/json') {
+            domainService.save(reportParams)
+        }
+    }
 
-        def reportParamsInstance = ReportParams.get(params.id)
-        if (!reportParamsInstance) {
-            println"reportParamsController--delete--Cant find reportParamsInstance"
-            render (contentType: 'text/json') {
-               return [success:false]
-            }
+    def update = {
+
+        log.debug "${controllerName}-${actionName}"
+
+        def reportParams = ReportParams.findById(params.id)
+        if(params.workstation.id==null || !params.workstation.id.trim()){
+            params.remove("workstation.id")
+            params.remove("workstation.title")
+            params.put("workstation",null) 
+        }
+        if(params.supplier.id==null || !params.supplier.id.trim()){
+            params.remove("supplier.id")
+            params.remove("supplier.title")
+            params.put("supplier",null)
         }
 
+        reportParams.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(reportParams)
+        }
+    }
+
+    def delete = {
+        log.debug "${controllerName}-${actionName}"
+        def reportParams = ReportParams.findById(params.id)
+        def result
         try {
-            reportParamsInstance.delete()
-            render (contentType: 'text/json') {
-               return [success:true]
-            }
+            result = domainService.delete(reportParams)
+        }catch(DataIntegrityViolationException e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [reportParams, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-               return [success:false]
-            }
+        
+        render (contentType: 'application/json') {
+            result
         }
-
     }
 }

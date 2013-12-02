@@ -1,0 +1,216 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "TraceTree"
+        ],
+        "stores": [
+            "BackwardTraceTreeStore"
+        ],
+        "views": [
+            "BackwardTraceTreeView"
+        ],
+        "designer|userClassName": "BackwardTraceTreeController"
+    },
+    "designerId": "163cabc0-e8e2-44f7-a5e8-5b903e8a1e17",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{",
+                    "        select:this.doSearchBatch",
+                    "    },",
+                    "",
+                    "    'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
+                    "        click:this.doExpandall",
+                    "    },",
+                    "    'backwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
+                    "        click: this.doCollapseall",
+                    "    },",
+                    "    'backwardtracetreeview treepanel[itemId=backwardTraceTreePanel]':{",
+                    "        beforeitemappend: this.beforeitemappend",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "da8a1ebd-7566-48b8-b4cd-5566c6bbdde1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "backwardTraceTreeCt",
+                "selector": "backwardtracetreeview"
+            },
+            "designerId": "971d2765-9fec-4fa7-bb19-015743b1d69b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSearchBatch",
+                "implHandler": [
+                    "console.log(\"TraceTree.doSearchBatch\");",
+                    "",
+                    "if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
+                    "",
+                    "    var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
+                    "",
+                    "    Ext.Ajax.request({",
+                    "        method: 'GET',",
+                    "        url:'/traceTree/getBatchRoot/',",
+                    "        params:{",
+                    "            'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()",
+                    "        },",
+                    "        success:function(response,options){",
+                    "            //console.log(response);",
+                    "            //console.log(options);",
+                    "            var record = Ext.decode(response.responseText);",
+                    "            //console.log(record);",
+                    "            var root={",
+                    "                id:record.id,",
+                    "                name:record.name,",
+                    "                'item.title':record.item.title,",
+                    "                'sheet.name':record.sheet.name,",
+                    "                'sheet.typeName':record.sheet.typeName,",
+                    "                expectQty:record.expectQty,",
+                    "                'countryTitle':record.countryTitle,",
+                    "                dueDate:record.dueDate,",
+                    "                'supplier.id':record.supplier.id",
+                    "",
+                    "            };",
+                    "            treeStore.setRootNode(root);",
+                    "        },",
+                    "        callback: function(options,success,response) {",
+                    "",
+                    "        }",
+                    "    });",
+                    "",
+                    "    /*未加入批號單據之處理方式",
+                    "    var batchStore=Ext.getStore('BatchShowDeepStore');",
+                    "    console.log(batchStore);",
+                    "    batchStore.load({",
+                    "",
+                    "    params:{",
+                    "    'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "    console.log(records[0].data);",
+                    "    var root={",
+                    "    id:records[0].data.id,",
+                    "    name:records[0].data.name,",
+                    "    'item.title':records[0].data['item.title'],",
+                    "    expectQty:records[0].data.expectQty,",
+                    "    country:records[0].data.country,",
+                    "    supplier:records[0].data.supplier",
+                    "    };",
+                    "    treeStore.setRootNode(root);",
+                    "    }",
+                    "    });",
+                    "    */",
+                    "}"
+                ]
+            },
+            "designerId": "ed90a1a0-fc1b-4ae9-b91f-a3a3ec91cc29"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doExpandall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "    var toolbar = button.up('toolbar');",
+                    "",
+                    "    me.getEl().mask('Expanding tree...');",
+                    "    toolbar.disable();",
+                    "",
+                    "    me.expandAll(function() {",
+                    "        me.getEl().unmask();",
+                    "        toolbar.enable();",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "9a7801e5-8924-4b9e-9ecb-9b63d78bbbeb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCollapseall",
+                "designer|params": [
+                    "button, e, eOpts"
+                ],
+                "implHandler": [
+                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "    var toolbar = button.up('toolbar');",
+                    "",
+                    "    toolbar.disable();",
+                    "    me.collapseAll(function() {",
+                    "        toolbar.enable();",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "2e12f4ee-fb98-44a4-b784-dea28dcdf033"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "beforeitemappend",
+                "implHandler": [
+                    "this.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "this.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    ""
+                ]
+            },
+            "designerId": "5e57b4f6-ff85-4cf4-a1ba-f42c3807cb5b"
+        }
+    ]
+}

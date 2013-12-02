@@ -1,26 +1,18 @@
 class UrlMappings {
 
 	static mappings = {
-		"/$controller/$action?/$id?"{
-			constraints {
-				// apply constraints here
-			}
-		}
+        "/$controller/$action?/$id?" {
+            constraints {
+                // apply constraints here
+            }
+        }
 
-		
-		"/rest/$controller/$id"(parseRequest:true){
-			action = [GET: "show", PUT:"update", DELETE:"delete"]
-			constraints {
-				// apply constraints here
-			}
-		}
-		
-		"/rest/$controller/"(parseRequest:true){
-			action = [GET:"listJson", POST: "create", PUT:"update", DELETE:"delete"]
-			constraints {
-				// apply constraints here
-			}
-		}
+		"/reports/query" (controller: "reportViewer", action: "query")
+		"/reports/$name/$action" (controller: "reportViewer")
+		"/reports/$name" (controller: "reportViewer", action: "index")
+		"/reports" (controller: "reportViewer", action: "search")
+
+
 
 
 		"/"(controller: "home", action: "index")

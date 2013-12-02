@@ -1,33 +1,22 @@
 package foodprint
 
+class Supplier {
 
-public enum Country {
-    TAIWAN
-}
+    Site site
+    String editor = ""
+    String creator = ""
+    Date dateCreated
+    Date lastUpdated
 
-
-class Supplier extends DefaultTable{
-
-    /*
-    * 編號
-    */
 	String name
-
-
-    /*
-    * 名稱
-    */
 	String title
-
-
-    /*
-    * 供應商所屬國家
-    */
-	String country=foodprint.Country.TAIWAN
-
-
+	Country country=Country.TAIWAN
+    String tel=""
+    String email=""
+    String address=""
 
     static constraints = {
-    	name unique: true
+        site nullable:true
+    	name unique: true, blank: false
     }
 }

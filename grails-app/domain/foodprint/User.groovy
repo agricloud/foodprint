@@ -1,6 +1,5 @@
 package foodprint
 
-
 class User {
 
 	transient springSecurityService
@@ -12,10 +11,21 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+	/**
+	 * Full Name (Detail)
+	 */
+	String fullName
+
+	/**
+	 * E-Mail
+	 */
+	String email
 
 	static constraints = {
-		username blank: false, unique: true
-		password blank: false
+		username 	blank: false, unique: true
+		password 	blank: false
+		fullName 	nullable: true, blank: true
+		email 		nullable: true, email: true
 	}
 
 	static mapping = {

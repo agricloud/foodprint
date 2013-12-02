@@ -1,111 +1,74 @@
 package foodprint
 
-import org.springframework.dao.DataIntegrityViolationException
-
 class WorkstationController {
 
-    static allowedMethods = [create:"POST",update: "PUT",  delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
+    def domainService
 
     def index() {
-        redirect(action: "list", params: params)
-    }
 
-    def list(params) {
-        //params.max = Math.min(max ?: 10, 100)
-        [workstationInstanceList: Workstation.list(params), workstationInstanceTotal: Workstation.count()]
-    }
+        def list = Workstation.createCriteria().list(params,params.criteria)
 
-    def listJson(params) {
 
-        render (contentType: 'text/json') {
-            list(params)        
+        render (contentType: 'application/json') {
+            [workstationInstanceList: list, workstationInstanceTotal: list.totalCount]
         }
         
     }
 
+     def show(Long id){
+
+        def workstation=Workstation.findById(id);  
+        if(workstation){   
+            render (contentType: 'application/json') {
+                [success: true,data:workstation]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
     def create(){
-        log.debug "${controllerName}-${actionName}"
+
+        def workstation=new Workstation()        
+        render (contentType: 'application/json') {
+            [success: true,data:workstation]
+        }
+    }
+    def save(){
 
         def workstationInstance=new Workstation(params)
-        render (contentType: 'text/json') {
-            save(workstationInstance);
+        
+        render (contentType: 'application/json') {
+            domainService.save(workstationInstance)
         }
     }
 
     def update(){
-        println"WorkstationController--update"
-        def workstationInstance=Workstation.get(params.id)
-
-        if(!workstationInstance){
-            println"WorkstationController--update--cant find workstationInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-       workstationInstance.properties = params
-        render (contentType: 'text/json') {
-            save(workstationInstance);
+        def workstationInstance = Workstation.findById(params.id)
+        workstationInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(workstationInstance)
         }         
     }
 
-    def save(Workstation workstationInstance){
-        if (!workstationInstance.validate()) {
-                workstationInstance.errors.each {
-                println it
-            }
-            return [success:false]
-        }
-        if (!workstationInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
-        }
-    }
-
-    def show(Long id) {
-        def workstationInstance = Workstation.get(id)
-        if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [workstationInstance: workstationInstance]
-    }
-
-    def edit(Long id) {
-        def workstationInstance = Workstation.get(id)
-        if (!workstationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'workstation.label', default: 'Workstation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [workstationInstance: workstationInstance]
-    }
 
     def delete(){
-        println"WorkstationController--delete"
-        def workstationInstance=Workstation.get(params.id)
-        if (!workstationInstance) {
-            println"WorkstationController--delete--Cant find workstationInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        //else
-        //    println"BatchController--updateBatch--has find BatchInstance"
-
+        def workstationInstance = Workstation.findById(params.id)
+        def result
         try {
-            workstationInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
+            
+            result = domainService.delete(workstationInstance)
+        
+        }catch(e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [workstationInstance, e.getMessage()])
+            result = [success:false, message: msg] 
         }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
+        
+        render (contentType: 'application/json') {
+            result
         }
     }
     

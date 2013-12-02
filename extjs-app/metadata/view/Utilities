@@ -1,0 +1,390 @@
+{
+    "type": "class",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Utilities",
+        "alternateClassName": [
+            "Utilities"
+        ],
+        "singleton": true,
+        "extend": "Ext.app.Controller"
+    },
+    "configAlternates": {
+        "ApConfig": "object",
+        "sysConfig": "object"
+    },
+    "designerId": "37785b33-273f-477d-83f9-4acac77e6615",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "sysConfig",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "respondFailure",
+                "designer|params": [
+                    "action",
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "Ext.MessageBox.alert('Failure',action.result.message);",
+                    "",
+                    "",
+                    "if(action.url.indexOf('create')!=-1){",
+                    "    config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);\t",
+                    "}else {",
+                    "    config.toolbar().down('button[itemId=commonDeleteBtn]').setDisabled(false);",
+                    "    config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "",
+                    "",
+                    "}",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "42ea4106-071a-4906-af79-4509fb59238b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "respondSuccess",
+                "designer|params": [
+                    "action",
+                    "config"
+                ],
+                "implHandler": [
+                    "Ext.MessageBox.alert('Success',action.result.message);",
+                    "",
+                    "console.log(config.grid());",
+                    "config.grid().getStore().reload();",
+                    "config.form().getForm().reset(true);"
+                ]
+            },
+            "designerId": "d8db431c-7d86-4b2e-991f-4387da045da0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doUpdate",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(\"util update\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/update',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Updating Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "afe964da-ef94-43a7-9763-5a4a750778ec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDelete",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/delete',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Deleting Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "369d4cab-e01b-4f73-9880-560cb582e725"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreate",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(\"util create\");",
+                    "config.form().getForm().submit({",
+                    "    url: '/'+config.domainName+'/create',",
+                    "    submitEmptyText: false,",
+                    "    waitMsg: 'Saving Data...',",
+                    "    success: function(form,action) {",
+                    "        Utilities.respondSuccess(action,config);",
+                    "    },",
+                    "    failure: function(form,action) {",
+                    "        Utilities.respondFailure(action,config);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "e3ec9cfe-1d21-42f5-895c-c80e00511922"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validityChange",
+                "designer|params": [
+                    "basic, valid,config"
+                ],
+                "implHandler": [
+                    "config.form().getForm().updateRecord();",
+                    "",
+                    "if(basic.getRecord()!=null && basic.getRecord().getData().id!=null){",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonUpdateBtn]').setDisabled(true);",
+                    "    }",
+                    "}",
+                    "else{",
+                    "    if(valid){",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(false);",
+                    "    }",
+                    "    else{",
+                    "        config.toolbar().down('button[itemId=commonSaveBtn]').setDisabled(true);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "8f18e83d-af25-4da6-a03a-a8f0ad276a2f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "createFiltersFeature",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "for (var i=0; i<config.columns.length; i++) {",
+                    "    if(config.columns[i].xtype === 'numbercolumn'){",
+                    "        config.columns[i].type = 'numeric'",
+                    "    }",
+                    "    else if(config.columns[i].xtype === 'datecolumn'){",
+                    "        config.columns[i].type = 'date'",
+                    "    }",
+                    "    else if(config.columns[i].xtype === 'booleancolumn'){",
+                    "        config.columns[i].type = 'boolean'",
+                    "    }",
+                    "}",
+                    "",
+                    "config.features = [{",
+                    "    ftype: 'filters',   ",
+                    "    encode: true,",
+                    "    filters: config.columns",
+                    "}];",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "97e76557-a026-4190-8b04-86a89f4e1cf7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "logout",
+                "implHandler": [
+                    "",
+                    "Ext.MessageBox.confirm('logout', Utilities.getMsg('default.message.logout'), function(btn){",
+                    "    if(btn === 'yes'){",
+                    "        var mainVP = Ext.getCmp('mainVP');",
+                    "        mainVP.removeAll();",
+                    "        mainVP.add({",
+                    "            xtype: 'logincontainer'",
+                    "        });",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "87430ab6-409a-4345-b6a1-f052341dcab9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processConfigBundle",
+                "designer|params": [
+                    "config, prefix"
+                ],
+                "implHandler": [
+                    "if (!prefix) {",
+                    "    console.warn(\"processConfigBundle require a prefix argument\");",
+                    "}",
+                    "",
+                    "if (config.items) {",
+                    "    for (var i=0; i<config.items.length; i++) {",
+                    "        var target = config.items[i];",
+                    "",
+                    "        if (target.fieldLabel) {",
+                    "            var key = prefix+'.'+target.name+'.label';",
+                    "",
+                    "            // Check lang def exists",
+                    "            if (this.getMsg(key) !== key+\".undefined\") {",
+                    "                target.fieldLabel = this.getMsg(key);",
+                    "            }else console.log(key)",
+                    "        }",
+                    "    }",
+                    "}",
+                    "",
+                    "if (config.columns) {",
+                    "    for (var i=0; i<config.columns.length; i++) {",
+                    "        var target = config.columns[i];",
+                    "",
+                    "        if (target.text) {",
+                    "            var key = prefix+'.'+target.dataIndex+'.label';",
+                    "",
+                    "            // Check lang def exists",
+                    "            if (this.getMsg(key) !== key+\".undefined\") {",
+                    "                target.text  = this.getMsg(key);",
+                    "            }else console.log(key)",
+                    "        }",
+                    "    }",
+                    "}",
+                    "",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "c4d13848-ff83-4670-b0ae-ec66f121fd57"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getMsg",
+                "designer|params": [
+                    "lang"
+                ],
+                "implHandler": [
+                    "return foodprint.getApplication().bundle.getMsg(lang);"
+                ]
+            },
+            "designerId": "03cf0a13-8b6e-4ad3-85a8-769fd87b6725"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "readSysConfig",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "var that = this;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: '/api/readSysConfig',",
+                    "    async: false,",
+                    "    success: function(response, opts) {",
+                    "        that.sysConfig = Ext.decode(response.responseText);",
+                    "        if(callback)",
+                    "            callback()",
+                    "",
+                    "    },",
+                    "    failure: function(response, opts) {",
+                    "        Ext.MessageBox.alert('Failure', \"無法讀取系統參數\");",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "966c260a-be99-4f08-b307-11714c1ce264"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getSysConfig",
+                "designer|params": [
+                    "name"
+                ],
+                "implHandler": [
+                    "return this.sysConfig[name];"
+                ]
+            },
+            "designerId": "4f178b8a-d985-400d-9433-38da790cc0cb"
+        }
+    ]
+}

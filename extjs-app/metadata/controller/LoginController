@@ -29,6 +29,9 @@
                     "this.control({",
                     "    'form[itemId=loginForm] button[itemId=loginBtn]': {",
                     "        click: this.doLogin",
+                    "    },",
+                    "    'form[itemId=loginForm] button[itemId=QueryBtn]': {",
+                    "        click: this.showQueryWin",
                     "    }",
                     "});"
                 ]
@@ -73,12 +76,15 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "loginSuccess",
+                "designer|params": [
+                    "form, action"
+                ],
                 "implHandler": [
                     "var mainVP = Ext.getCmp('mainVP');",
-                    "console.log(Ext.getCmp('mainVP'));",
-                    "console.log(mainVP);",
                     "mainVP.removeAll();",
-                    "console.log(mainVP.add({xtype: 'maincontainer'}));"
+                    "mainVP.add({xtype: 'maincontainer'});",
+                    "",
+                    "Ext.get('username').update(action.result.username, false);"
                 ]
             },
             "designerId": "a7f7d7d3-69bb-4fac-8b32-a07e44e47122"
@@ -97,6 +103,21 @@
                 ]
             },
             "designerId": "dc1f1efb-b8f8-4755-8e8c-7bab418f2345"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showQueryWin",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "3cde850c-a6db-47fa-9ec6-fd3dbf5d6d29"
         }
     ]
 }

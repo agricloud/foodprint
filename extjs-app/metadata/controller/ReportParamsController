@@ -1,0 +1,116 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Report",
+            "ReportParams"
+        ],
+        "stores": [
+            "ReportStore",
+            "ReportParamsStore"
+        ],
+        "views": [
+            "ReportParamsView"
+        ],
+        "designer|userClassName": "ReportParamsController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "808f9fd9-1a4d-4ba6-bfc2-eb1eb413f73b",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'reportparamsview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'reportparamsview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'reportparamsview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'reportparamsview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'reportparamsview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "",
+                    "    'reportparamsview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'reportparamsview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'reportParams';",
+                    "this.masterKey='report.id';"
+                ]
+            },
+            "designerId": "40699e66-efb5-4660-bcbe-3d7123a335c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "reportparamsview #grid"
+            },
+            "designerId": "864e42d9-a9c3-49e1-b1f1-87d246159fa6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "reportparamsview #form"
+            },
+            "designerId": "48d49022-d71f-4832-a2fa-19162c95fd2a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterForm",
+                "selector": "reportparamsview #masterForm"
+            },
+            "designerId": "8d511466-19a3-4ec7-be5d-22adefb4ebad"
+        }
+    ]
+}

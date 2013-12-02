@@ -16,7 +16,7 @@
         "title": null,
         "store": "ReportStore"
     },
-    "designerId": "aaa8c0c4-632d-4093-b19d-d06909e5d4be",
+    "designerId": "1e44a374-9890-4ad0-a438-8394ee04a5c6",
     "cn": [
         {
             "type": "Ext.grid.View",
@@ -63,6 +63,35 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
+                "dataIndex": "reportType",
+                "text": "ReportType",
+                "flex": 1
+            },
+            "designerId": "c9cd61ab-8f77-4ac1-beb0-4b1ed0b1038d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "reportTypeTitle",
+                "text": "ReportType.Title",
+                "flex": 1
+            },
+            "designerId": "2d3251b5-92bd-43a0-9a43-020d73ff7751"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "decription",
                 "text": "Decription",
                 "flex": 1
@@ -70,21 +99,54 @@
             "designerId": "6e065a37-e385-4397-acdf-bb931b1a333b"
         },
         {
-            "type": "basicfunction",
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": null,
+                "displayInfo": true,
+                "store": "ReportStore"
+            },
+            "designerId": "ae95dfba-c967-4bb1-a65e-59f4b781b416"
+        },
+        {
+            "type": "processcfgfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "loadStore",
+                "fn": "processReportGrid",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
-                    "console.log(\"View-reportGrid.loadStore\");",
-                    "",
-                    "this.getStore().load();//對應ref"
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'report'));"
                 ]
             },
-            "designerId": "e49a41a0-7a60-40ef-9156-c9783c2043d9"
+            "designerId": "1f39a10d-77cf-4dfb-874a-a63f1ea73026"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onReportGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "dc3e15db-022d-4fab-8895-10ca82142f4b"
         }
     ]
 }

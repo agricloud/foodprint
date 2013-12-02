@@ -13,7 +13,7 @@
         "designer|userAlias": "mainct",
         "designer|initialView": true,
         "layout": "vbox",
-        "scrollable": "vertical"
+        "scrollable": false
     },
     "designerId": "d800f575-3abf-4d5f-b8c1-5c1abc147ca6",
     "cn": [
@@ -27,7 +27,7 @@
             "userConfig": {
                 "docked": null,
                 "height": 201,
-                "src": "img/FoodPrintApp.png"
+                "src": "resources/images/FoodPrintApp.png"
             },
             "designerId": "9b33614d-274c-4410-979e-caff6c5989b3"
         },
@@ -47,21 +47,6 @@
             "designerId": "a8dd78d9-da70-4804-84ad-9fae5d280b8d"
         },
         {
-            "type": "Ext.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "docked": null,
-                "itemId": "batchReportBrowseBtn",
-                "margin": 10,
-                "text": "batchReportBrowse"
-            },
-            "designerId": "4b42d1cb-fbe1-48e6-9c1c-64b589fac9d4"
-        },
-        {
             "type": "fixedfunction",
             "reference": {
                 "name": "items",
@@ -72,10 +57,12 @@
                 "fn": "initialize",
                 "implHandler": [
                     "this.callParent();",
+                    "var that =this;",
                     "",
-                    "this.down('button[itemId=batchReportMaintenBtn]').setText(lang['mainCt.batchReportMaintenBtn.label']);",
-                    "",
-                    "this.down('button[itemId=batchReportBrowseBtn]').setText(lang['mainCt.batchReportBrowseBtn.label']);"
+                    "Utilities.getBundle().onReady(function(){",
+                    "    that.down('button[itemId=batchReportMaintenBtn]').setText(Utilities.getMsg(\"mainCt.batchReportMaintenBtn.label\"));",
+                    "});",
+                    ""
                 ]
             },
             "designerId": "0db1842e-a17a-498a-84c9-c4dfd23aa805"

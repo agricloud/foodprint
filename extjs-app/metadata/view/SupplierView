@@ -1,0 +1,428 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "itemId": "customerEditorCt",
+        "width": null,
+        "designer|userClassName": "SupplierView",
+        "designer|userAlias": "supplierview",
+        "layout": "card"
+    },
+    "designerId": "ac0fe9a7-8b50-41c2-838e-baba439a85d2",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{\"xtype\":\"commonindextoolbar\"}"
+                ],
+                "container|align": "stretch",
+                "itemId": "index",
+                "layout": "vbox",
+                "title": null
+            },
+            "designerId": "79f3ffa4-8c07-41d2-9151-33742dade87d",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "object"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "height": null,
+                        "itemId": "grid",
+                        "width": null,
+                        "manageHeight": false,
+                        "title": null,
+                        "store": "SupplierStore"
+                    },
+                    "designerId": "044fe893-8fb0-4f2d-ba40-ac8005218efe",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "dataIndex": "id",
+                                "text": "id",
+                                "flex": 1
+                            },
+                            "designerId": "ba37be87-c9d3-43d2-9e45-d06327e4da6b"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "name",
+                                "text": "Name",
+                                "flex": 1
+                            },
+                            "designerId": "a53301a3-1efe-47bc-92bc-b31926e8301a"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "title",
+                                "text": "Title",
+                                "flex": 1
+                            },
+                            "designerId": "20f9fb51-4f61-446d-a80a-5595ca454ddc"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "dataIndex": "country",
+                                "text": "Country",
+                                "flex": 1
+                            },
+                            "designerId": "8434fce6-342b-4806-9d88-8f1de32910f8"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "countryTitle",
+                                "text": "Country.title",
+                                "flex": 1
+                            },
+                            "designerId": "35459837-5248-43aa-83f3-b266defdb405"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaultWidth": null,
+                                "dataIndex": "tel",
+                                "text": "Tel",
+                                "flex": 1
+                            },
+                            "designerId": "8dbe4418-2746-4374-b56c-34d39478e528"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaultWidth": null,
+                                "dataIndex": "email",
+                                "text": "Email",
+                                "flex": 1
+                            },
+                            "designerId": "944ce2cf-07b0-41a0-8880-0c6000c69985"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaultWidth": null,
+                                "dataIndex": "address",
+                                "text": "Address",
+                                "flex": 1
+                            },
+                            "designerId": "71429517-9371-4518-acb4-ec7e05f2906e"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "loadingText": null
+                            },
+                            "designerId": "27a9350d-e6e9-4d93-85e3-2800590344a0"
+                        },
+                        {
+                            "type": "Ext.toolbar.Paging",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "bottom",
+                                "width": null,
+                                "displayInfo": true,
+                                "store": "SupplierStore"
+                            },
+                            "designerId": "c803171a-c0d7-4529-b76d-20f6e74285b4"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "",
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'supplier'));"
+                                ]
+                            },
+                            "designerId": "0ac13522-dd29-463b-b2d4-63cb92c18d5c"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridAfterRender",
+                                "implHandler": [
+                                    "component.getStore().load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "designerId": "8615deaa-e3e2-420d-944a-5546716b00b4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{\"xtype\":\"commonshowtoolbar\"}"
+                ],
+                "container|align": "stretch",
+                "itemId": "show",
+                "layout": "vbox",
+                "title": null
+            },
+            "designerId": "b35f71b3-00fd-4cda-bf8b-7ae161bcaae1",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "object"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "container|align": "stretch",
+                        "container|padding": 10,
+                        "itemId": "form",
+                        "layout": "vbox",
+                        "bodyPadding": null,
+                        "title": null
+                    },
+                    "designerId": "9402894f-df18-4acc-aec6-d69065a7b2bd",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "id",
+                                "name": "id",
+                                "readOnly": true
+                            },
+                            "designerId": "7931a7ef-59ce-4b21-b2f3-30dc9a030906"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "name",
+                                "name": "name"
+                            },
+                            "designerId": "30761677-fc58-4d52-b787-fcfe1bef7011"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "title",
+                                "name": "title"
+                            },
+                            "designerId": "51e37e5d-e274-493e-85c7-d3fabd9111d4"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "261e815a-172d-4198-a67f-ac5e273c1d8b",
+                            "masterInstanceId": "1d47409c-c6c7-48c3-97ba-ecd1d87bbb27"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "tel",
+                                "name": "tel"
+                            },
+                            "designerId": "3b0eacb3-6b74-4371-8c4d-7bd743a2ce81"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "email",
+                                "name": "email"
+                            },
+                            "designerId": "16c17a0b-9141-4b45-81b4-9339f083e1af"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "address",
+                                "name": "address"
+                            },
+                            "designerId": "5d67c7b2-a9f3-46b4-a260-5bc0a7f5f3fb"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "doDisplay",
+                                "designer|params": [
+                                    "record"
+                                ],
+                                "implHandler": [
+                                    "console.log(\"View-customerForm.doDisplay\");",
+                                    "this.loadRecord(record);"
+                                ]
+                            },
+                            "designerId": "ff7cf12e-a9dc-4956-878e-a18aa52884ec"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'supplier');"
+                                ]
+                            },
+                            "designerId": "bee61c4e-f51a-41bc-bf4f-049b56008218"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

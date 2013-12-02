@@ -4,103 +4,73 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class OperationController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [create:"POST",update: "POST",  delete: "POST",  index: "GET"]
+    def domainService
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
+    def index = {
+        
+        def list = Operation.createCriteria().list(params,params.criteria)
 
-    def list(params) {
-        //params.max = Math.min(max ?: 10, 100)
-        [operationInstanceList: Operation.list(params), operationInstanceTotal: Operation.count()]
+
+        render (contentType: 'application/json') {
+            [operationInstanceList: list, operationInstanceTotal: list.totalCount]
+        }
+        
     }
-    
-     def listJson(params) {
-        render (contentType: 'text/json') {
-            list(params)        
+    def show = {
+
+        def operation=Operation.findById(params.id);  
+        if(operation){   
+            render (contentType: 'application/json') {
+                [success: true,data:operation]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }          
+        }
+    }
+    def create = {
+
+        def operation=new Operation()        
+        render (contentType: 'application/json') {
+            [success: true,data:operation]
         }
     }
 
-    def create() {
-        println"OperationController--create"
+    def save = {
 
         def operationInstance=new Operation(params)
-        render (contentType: 'text/json') {
-            save(operationInstance);
+        
+        render (contentType: 'application/json') {
+            domainService.save(operationInstance)
         }
     }
 
-    def save(Operation operationInstance){
-        if (!operationInstance.validate()) {
-                operationInstance.errors.each {
-                println it
-            }
-            return [success:false]
-        }
-        if (!operationInstance.save(failOnError: true)) {//flush:true?
-                return [success:false]
-        }
-        else{
-                return [success:true]
-        }
-    }
-
-    def show(Long id) {
-        def operationInstance = Operation.get(id)
-        if (!operationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [operationInstance: operationInstance]
-    }
-
-    def edit(Long id) {
-        def operationInstance = Operation.get(id)
-        if (!operationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'operation.label', default: 'Operation'), id])
-            redirect(action: "list")
-            return
-        }
-        [operationInstance: operationInstance]
-    }
-
-    def update(){
-        println"OperationController--update"
-        def operationInstance=Operation.get(params.id)
-
-        if(!operationInstance){
-            println"OperationController--update--cant find operationInstance"
-            return render (contentType: 'text/json') {[success:false]}
-        }
-
-       operationInstance.properties = params
-        render (contentType: 'text/json') {
-            save(operationInstance);
+    def update = {
+        def  operationInstance = Operation.findById(params.id)
+        operationInstance.properties=params
+        render (contentType: 'application/json') {
+            domainService.save(operationInstance)
         }         
     }
 
-    def delete(){
-        println"OperationController--delete"
-        def operationInstance=Operation.get(params.id)
-        if (!operationInstance) {
-            println"OperationController--delete--Cant find operationInstance"
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
-        try {
-            operationInstance.delete()
-            render (contentType: 'text/json') {
-                return [success:true]
-            }
-        }
-        catch (e) {
-            render (contentType: 'text/json') {
-                return [success:false]
-            }
-        }
 
+    def delete = {
+        def operationInstance = Operation.findById(params.id)
+        def result
+        try {
+            
+            result = domainService.delete(operationInstance)
+        
+        }catch(DataIntegrityViolationException e){
+            log.error e
+            def msg = message(code: 'default.message.delete.failed', args: [operationInstance, e.getMessage()])
+            result = [success:false, message: msg] 
+        }
+        
+        render (contentType: 'application/json') {
+            result
+        }
     }
 }

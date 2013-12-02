@@ -6,124 +6,382 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|snapToGrid": 10,
+        "container|align": "stretch",
         "saveDelay": null,
+        "baseCls": "main",
+        "cls": null,
+        "componentCls": null,
         "frame": true,
         "height": null,
-        "id": null,
-        "width": 829,
+        "id": "login",
+        "minHeight": 300,
+        "width": null,
         "designer|userClassName": "LoginContainer",
-        "designer|userAlias": "logincontainer1",
+        "designer|userAlias": "logincontainer",
         "defaults": [
             "{",
             "        anchor: '100%'",
             "    }"
         ],
-        "layout": "absolute"
+        "layout": "vbox"
     },
     "designerId": "5875c1cf-7496-49e4-aabb-59e4448471e4",
     "cn": [
         {
-            "type": "Ext.form.Panel",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "layout|x": 80,
-                "layout|y": 210,
-                "container|align": "stretch",
-                "height": 150,
-                "itemId": "loginForm",
-                "maxHeight": 190,
-                "maxWidth": 300,
-                "layout": "vbox",
-                "bodyPadding": 10,
-                "title": "Login",
-                "url": "j_spring_security_check"
+                "layout|flex": null,
+                "height": 70,
+                "html": [
+                    "<header>",
+                    "    <div class=\"top-slogan\"><img src=\"resources/images/top-slogan.png\"></div>",
+                    "    <div class=\"signature\"><img src=\"resources/images/signature.png\"></div>",
+                    "</header>"
+                ],
+                "itemId": "header"
             },
-            "designerId": "f300fab5-fece-4bc4-b36b-6562ef8cd589",
+            "designerId": "c900e939-8a20-43f4-8c3d-e3017ca47647"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "container|align": "stretch",
+                "baseCls": "main",
+                "itemId": "main",
+                "layout": "vbox"
+            },
+            "designerId": "c6ac126c-7e75-4107-8bda-8771cfd00a3e",
             "cn": [
                 {
-                    "type": "Ext.toolbar.Toolbar",
+                    "type": "Ext.form.Panel",
                     "reference": {
-                        "name": "dockedItems",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": "bottom"
+                        "layout|flex": null,
+                        "baseCls": "x-container",
+                        "itemId": "loginForm",
+                        "layout": "auto",
+                        "url": "j_spring_security_check"
                     },
-                    "designerId": "ea7a24af-e169-4a7f-9b3e-54e09351a31a",
+                    "designerId": "235c56a2-a0ad-401a-a64e-51864f45f504",
                     "cn": [
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.container.Container",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "border": null,
-                                "itemId": "loginBtn",
-                                "text": "Login"
+                                "baseCls": "logo",
+                                "cls": null,
+                                "html": [
+                                    "<img src=\"resources/images/logo.png\" width=\"166\">"
+                                ],
+                                "itemId": "logo",
+                                "width": null
                             },
-                            "designerId": "b8f39922-8f38-4a80-b312-9a6514d6b3e5"
+                            "designerId": "330da07d-3475-4b30-9eea-a4f48dfffaff"
                         },
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.container.Container",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "cancelBtn",
-                                "text": "cancel"
+                                "baseCls": "login-box",
+                                "cls": null,
+                                "itemId": "login-box",
+                                "width": null
                             },
-                            "designerId": "50a7089f-cb5c-4bb1-a8c7-754c3e117282"
+                            "designerId": "7035e9f6-1029-48ad-9009-4365c82397a9",
+                            "cn": [
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "top",
+                                        "html": [
+                                            "<span><img src=\"resources/images/icon-lock.png\"></span>食品足跡系統"
+                                        ],
+                                        "itemId": "top"
+                                    },
+                                    "designerId": "28ecb68a-e1dd-4a7f-8405-a246439fb757"
+                                },
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "baseCls": "info",
+                                        "cls": null,
+                                        "html": [
+                                            "Welcome to The Foodprint Tracing System."
+                                        ],
+                                        "itemId": "info"
+                                    },
+                                    "designerId": "27bdc36a-957f-4cb8-af4c-48233269a638"
+                                },
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "baseCls": "login-input",
+                                        "itemId": "login-input"
+                                    },
+                                    "designerId": "2f204d69-63d9-413e-a5ab-7c4ee1e98980",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": "",
+                                                "name": "j_username",
+                                                "value": [
+                                                    "''"
+                                                ],
+                                                "inputId": "system_user"
+                                            },
+                                            "designerId": "4fc12fdf-e2b7-4d61-809f-73fe57a2b7f5"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "name": "j_password",
+                                                "value": [
+                                                    "''"
+                                                ],
+                                                "inputId": "system_pass",
+                                                "inputType": "password"
+                                            },
+                                            "designerId": "fcdf2026-fee4-40db-a5c9-c2820cfb0111"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "baseCls": "remember",
+                                        "cls": null,
+                                        "itemId": "remember"
+                                    },
+                                    "designerId": "88f5d667-47c3-4568-b11c-a781639805c6",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Checkbox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": null,
+                                                "boxLabel": "記住密碼 / Remember me"
+                                            },
+                                            "designerId": "c19c5a33-60d4-44a0-94e5-7980ffcf479e"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "autoEl": null,
+                                        "baseCls": "bottom-bar",
+                                        "cls": null,
+                                        "itemId": "bottom-bar",
+                                        "layout": "column"
+                                    },
+                                    "designerId": "10e15234-9f6b-417d-bf72-1f32a4ad45e9",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "baseCls": "forgot",
+                                                "scale": null,
+                                                "text": "查詢生產履歷"
+                                            },
+                                            "designerId": "77b77841-7a3c-43ce-b0cb-9471e4becfb6",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "designer|params": [
+                                                            "button",
+                                                            "event"
+                                                        ],
+                                                        "implHandler": [
+                                                            "window.location.href=\"/reports\";"
+                                                        ]
+                                                    },
+                                                    "designerId": "d75acad4-f389-4cfb-9e5c-36f870553908"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.container.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "baseCls": "buttons",
+                                                "cls": null,
+                                                "itemId": "buttons"
+                                            },
+                                            "designerId": "22a193a8-f9b7-4451-8c03-0fe4bc8bfbe3",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "baseCls": null,
+                                                        "cls": null,
+                                                        "itemId": "cancelBtn",
+                                                        "margin": 2,
+                                                        "padding": null,
+                                                        "arrowCls": null,
+                                                        "focusCls": null,
+                                                        "iconCls": null,
+                                                        "text": "重設"
+                                                    },
+                                                    "designerId": "004ccd3a-bdf6-4222-a7cd-0965d11314fb"
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "baseCls": null,
+                                                        "cls": null,
+                                                        "itemId": "loginBtn",
+                                                        "margin": 2,
+                                                        "text": "登入"
+                                                    },
+                                                    "designerId": "183bdfd6-ffaa-45b6-9de7-3131906f6447"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.container.Container",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "username",
-                        "fieldLabel": "username",
-                        "name": "j_username",
-                        "value": [
-                            "'admin'"
-                        ]
+                        "layout|flex": 1,
+                        "baseCls": null,
+                        "html": [
+                            "  <div class=\"copyright\" align=\"center\">",
+                            "    <img src=\"resources/images/leaf.png\"> 版權所有 © 2013 Agricloud. All Rights   Reserved. CopyRight<br>",
+                            "    <img src=\"resources/images/leaf.png\"> 本系統由雲端農場研發設計 version web1.0",
+                            "  </div>"
+                        ],
+                        "itemId": "copyright",
+                        "style": [
+                            "{",
+                            "    align:\"center\"",
+                            "}"
+                        ],
+                        "width": 813,
+                        "defaultAlign": null
                     },
-                    "designerId": "97852eed-91b9-4dc9-ad88-5500a5940f21"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "password",
-                        "width": 150,
-                        "fieldLabel": "password",
-                        "name": "j_password",
-                        "value": [
-                            "'admin'"
-                        ]
-                    },
-                    "designerId": "03ceac74-f355-47d9-ad48-9cf378d83a47"
+                    "designerId": "98b13932-6911-4936-8fce-578f27a1f74f"
                 }
             ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "height": 81,
+                "html": [
+                    "<footer>",
+                    "    <div class=\"left-trees\"><img src=\"resources/images/left-trees.png\"></div>",
+                    "    <div class=\"btn-fb\"><a href=\"#\"><img src=\"resources/images/btn-fb.png\"></a></div>",
+                    "    <div class=\"right-slogan\">．擁有產品履歷．安全．信賴．e化管理</div>",
+                    "    <div class=\"bar\"></div>",
+                    "</footer>"
+                ],
+                "itemId": "footer"
+            },
+            "designerId": "e6bb3b92-c46d-4e8c-a8c5-c6574a6fd92c"
         }
     ]
 }
