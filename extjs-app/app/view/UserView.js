@@ -154,30 +154,6 @@ Ext.define('foodprint.view.UserView', {
                                     name: 'enabled'
                                 },
                                 {
-                                    xtype: 'combobox',
-                                    hidden: true,
-                                    itemId: 'siteCombo',
-                                    fieldLabel: 'Site',
-                                    name: 'site.id',
-                                    editable: false,
-                                    displayField: 'name',
-                                    forceSelection: true,
-                                    minChars: 0,
-                                    queryParam: 'nameLike',
-                                    store: 'SiteStore',
-                                    valueField: 'id',
-                                    listeners: {
-                                        render: {
-                                            fn: me.onComboboxRender,
-                                            scope: me
-                                        },
-                                        select: {
-                                            fn: me.onSiteComboSelect,
-                                            scope: me
-                                        }
-                                    }
-                                },
-                                {
                                     xtype: 'textfield',
                                     fieldLabel: 'Site_name',
                                     name: 'site.name'
@@ -211,19 +187,6 @@ Ext.define('foodprint.view.UserView', {
 
     onGridAfterRender: function(component, eOpts) {
         component.getStore().load();
-    },
-
-    onComboboxRender: function(component, eOpts) {
-        component.getStore().load();
-    },
-
-    onSiteComboSelect: function(combo, records, eOpts) {
-        if(combo.up() && combo.up().getForm()){
-            combo.up().getForm().setValues({
-
-                'site.title':records[0].data['title']
-            });
-        }
     }
 
 });
