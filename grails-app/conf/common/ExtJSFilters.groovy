@@ -50,10 +50,7 @@ class ExtJSFilters {
 
 
                 params.criteria = {
-                    println "lalalala這裡是criteria"
                     def user =springSecurityService.currentUser
-                    if(user)
-                    println user
                     if(user.site)
                         eq('site',user.site)
 
