@@ -83,6 +83,7 @@ class TestService {
 
     }
     def createOtherDomain = {
+        def site = new Site(name:"site", title:"創毅公司").save(failOnError: true)
         def user = new User(username: 'user', password: 'user', enabled: true).save(failOnError: true)
         def customer = new Customer(name:"cutstomer",title:"A先生").save(failOnError: true)
         def supplier = new Supplier(name:"supplier",title:"A公司",email:"A@xx.com",address:"台北市忠孝東路222號").save(failOnError: true)

@@ -9,8 +9,8 @@ class Site {
 
 	String name
 	String title
-	String description
-	String address
+	String description=""
+	String address=""
 
     static constraints = {
     	name unique:true, blank: false
