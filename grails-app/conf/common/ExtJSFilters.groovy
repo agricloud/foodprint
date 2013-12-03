@@ -51,7 +51,7 @@ class ExtJSFilters {
 
                 params.criteria = {
                     def user =springSecurityService.currentUser
-                    if(user.site)
+                    if(user.username != 'admin')
                         eq('site',user.site)
 
                     if(params.filter){                           
