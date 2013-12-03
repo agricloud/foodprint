@@ -119,6 +119,38 @@
                             "designerId": "fe0b9038-8e67-40ba-a4a2-0739de31cc49"
                         },
                         {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": null,
+                                "dataIndex": "site.name",
+                                "hideable": null,
+                                "text": "site.name",
+                                "flex": 1
+                            },
+                            "designerId": "501dd8bf-77ab-4ca4-bccd-f8a2ef1f4d73"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": null,
+                                "dataIndex": "site.title",
+                                "hideable": null,
+                                "text": "site.title",
+                                "flex": 1
+                            },
+                            "designerId": "f5c30f4d-29ef-4fd7-adbf-53e2ca73274b"
+                        },
+                        {
                             "type": "Ext.grid.View",
                             "reference": {
                                 "name": "viewConfig",
@@ -297,6 +329,99 @@
                                 "boxLabel": null
                             },
                             "designerId": "f29ab886-3817-4ede-884b-d445f676eff2"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "itemId": "siteCombo",
+                                "fieldLabel": "Site",
+                                "hideLabel": null,
+                                "name": "site.id",
+                                "editable": false,
+                                "displayField": "name",
+                                "forceSelection": true,
+                                "minChars": 0,
+                                "queryParam": "nameLike",
+                                "store": "SiteStore",
+                                "valueField": "id"
+                            },
+                            "designerId": "ac24f039-fe81-41b8-9d79-05b33ea1fe54",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxRender",
+                                        "implHandler": [
+                                            "component.getStore().load();"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "8b369753-582d-4c2d-97a8-10650ace1f76"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSiteComboSelect",
+                                        "implHandler": [
+                                            "if(combo.up() && combo.up().getForm()){",
+                                            "    combo.up().getForm().setValues({",
+                                            "",
+                                            "        'site.title':records[0].data['title']",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "3044cc29-a68e-4bee-a2d3-9ee89f2f48a5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "Site_name",
+                                "name": "site.name"
+                            },
+                            "designerId": "9b422e1e-9f4e-4fc8-a7c5-34ecccff5e5c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "Site_title",
+                                "name": "site.title"
+                            },
+                            "designerId": "eeb136e1-aa0c-461b-b22e-1446ca729495"
                         },
                         {
                             "type": "basicfunction",

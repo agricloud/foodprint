@@ -12,6 +12,10 @@ class Site {
 	String description=""
 	String address=""
 
+	static hasMany = [
+		user: User
+	]
+
     static constraints = {
     	name unique:true, blank: false
     }

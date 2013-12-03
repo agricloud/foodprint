@@ -29,6 +29,15 @@ Ext.define('foodprint.model.User', {
         },
         {
             name: 'enabled'
+        },
+        {
+            name: 'site.id'
+        },
+        {
+            name: 'site.name'
+        },
+        {
+            name: 'site.title'
         }
     ],
 

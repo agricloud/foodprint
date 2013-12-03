@@ -15,7 +15,7 @@ class SiteController {
     }
 
     def show = {
-        def siteInstance=Site.findById(params.id);  
+        def siteInstance=Site.get(params.id);  
         if(siteInstance){   
             render (contentType: 'application/json') {
                 [success: true,data:siteInstance]
@@ -42,7 +42,7 @@ class SiteController {
     }
 
     def update = {
-        def  siteInstance = Site.findById(params.id)
+        def  siteInstance = Site.get(params.id)
         siteInstance.properties = params
         render (contentType: 'application/json') {
             domainService.save(siteInstance)
@@ -51,7 +51,7 @@ class SiteController {
 
     def delete = {
         
-        def siteInstance = Site.findById(params.id)
+        def siteInstance = Site.get(params.id)
         def result
         try {
             

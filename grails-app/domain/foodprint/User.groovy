@@ -21,7 +21,12 @@ class User {
 	 */
 	String email
 
+	static belongsTo = [
+		site: Site		
+	]
+
 	static constraints = {
+		site nullable: true
 		username 	blank: false, unique: true
 		password 	blank: false
 		fullName 	nullable: true, blank: true

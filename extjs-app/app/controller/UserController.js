@@ -21,10 +21,12 @@ Ext.define('foodprint.controller.UserController', {
     },
 
     models: [
-        'User'
+        'User',
+        'Site'
     ],
     stores: [
-        'UserStore'
+        'UserStore',
+        'SiteStore'
     ],
     views: [
         'UserView'

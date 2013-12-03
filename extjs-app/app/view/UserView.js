@@ -70,6 +70,18 @@ Ext.define('foodprint.view.UserView', {
                                     dataIndex: 'enabled',
                                     text: 'emabled',
                                     flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'site.name',
+                                    text: 'site.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'site.title',
+                                    text: 'site.title',
+                                    flex: 1
                                 }
                             ],
                             dockedItems: [
@@ -140,6 +152,40 @@ Ext.define('foodprint.view.UserView', {
                                     xtype: 'checkboxfield',
                                     fieldLabel: 'Enabled',
                                     name: 'enabled'
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    hidden: true,
+                                    itemId: 'siteCombo',
+                                    fieldLabel: 'Site',
+                                    name: 'site.id',
+                                    editable: false,
+                                    displayField: 'name',
+                                    forceSelection: true,
+                                    minChars: 0,
+                                    queryParam: 'nameLike',
+                                    store: 'SiteStore',
+                                    valueField: 'id',
+                                    listeners: {
+                                        render: {
+                                            fn: me.onComboboxRender,
+                                            scope: me
+                                        },
+                                        select: {
+                                            fn: me.onSiteComboSelect,
+                                            scope: me
+                                        }
+                                    }
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Site_name',
+                                    name: 'site.name'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Site_title',
+                                    name: 'site.title'
                                 }
                             ]
                         })
@@ -165,6 +211,19 @@ Ext.define('foodprint.view.UserView', {
 
     onGridAfterRender: function(component, eOpts) {
         component.getStore().load();
+    },
+
+    onComboboxRender: function(component, eOpts) {
+        component.getStore().load();
+    },
+
+    onSiteComboSelect: function(combo, records, eOpts) {
+        if(combo.up() && combo.up().getForm()){
+            combo.up().getForm().setValues({
+
+                'site.title':records[0].data['title']
+            });
+        }
     }
 
 });

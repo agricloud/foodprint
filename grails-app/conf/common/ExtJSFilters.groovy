@@ -2,6 +2,8 @@ package common
 
 class ExtJSFilters {
 
+    def springSecurityService
+
     def filters = {
         all(controller:'*', action:'*') {
             before = {
@@ -48,10 +50,16 @@ class ExtJSFilters {
 
 
                 params.criteria = {
-                    if(params.filter){
+                    println "lalalala這裡是criteria"
+                    def user =springSecurityService.currentUser
+                    if(user)
+                    println user
+                    if(user.site)
+                        eq('site',user.site)
+
+                    if(params.filter){                           
                         def filterJson = grails.converters.JSON.parse(params.filter)
                         filterJson.each{
-
 
                             if(it.type == 'string'){
                                 it.value = it.value+"%"
