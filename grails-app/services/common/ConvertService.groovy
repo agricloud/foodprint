@@ -266,6 +266,12 @@ class ConvertService {
         result.passwordExpired = user.passwordExpired
         result.fullName = user.fullName
         result.email = user.email
+        if(user.site){
+	        result.site = user.site
+	        result["site.id"] = user.site.id
+	        result["site.name"] = user.site.name
+	        result["site.title"] = user.site.title
+	    }
 
         result
     }

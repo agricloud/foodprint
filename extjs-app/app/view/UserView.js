@@ -70,6 +70,18 @@ Ext.define('foodprint.view.UserView', {
                                     dataIndex: 'enabled',
                                     text: 'emabled',
                                     flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'site.name',
+                                    text: 'site.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'site.title',
+                                    text: 'site.title',
+                                    flex: 1
                                 }
                             ],
                             dockedItems: [
@@ -140,6 +152,16 @@ Ext.define('foodprint.view.UserView', {
                                     xtype: 'checkboxfield',
                                     fieldLabel: 'Enabled',
                                     name: 'enabled'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Site_name',
+                                    name: 'site.name'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Site_title',
+                                    name: 'site.title'
                                 }
                             ]
                         })
