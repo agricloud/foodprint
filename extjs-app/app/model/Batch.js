@@ -25,11 +25,9 @@ Ext.define('foodprint.model.Batch', {
             name: 'id'
         },
         {
-            mapping: 'item.id',
             name: 'item.id'
         },
         {
-            mapping: 'item.name',
             name: 'item.name'
         },
         {
@@ -45,11 +43,9 @@ Ext.define('foodprint.model.Batch', {
             name: 'item.description'
         },
         {
-            mapping: '',
             name: 'country'
         },
         {
-            mapping: '',
             name: 'countryTitle'
         },
         {

@@ -40,7 +40,8 @@
             "ReportController",
             "ReportParamsController",
             "ErpManufactureOrderController",
-            "SupplierController"
+            "SupplierController",
+            "BatchSourceController"
         ],
         "name": "foodprint"
     },
@@ -90,7 +91,7 @@
                     "",
                     "var afterConfigRead = function(){",
                     "    if(Utilities.getSysConfig(\"environment\")== \"development\"){",
-                    "        ",
+                    "",
                     "        var login = Ext.getCmp(\"login\");",
                     "        login.down(\"textfield[name=j_username]\").setValue(\"admin\");",
                     "        login.down(\"textfield[name=j_password]\").setValue(\"admin\");",

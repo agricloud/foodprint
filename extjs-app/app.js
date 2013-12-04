@@ -55,7 +55,8 @@ Ext.application({
         'ReportController',
         'ReportParamsController',
         'ErpManufactureOrderController',
-        'SupplierController'
+        'SupplierController',
+        'BatchSourceController'
     ],
     name: 'foodprint',
 

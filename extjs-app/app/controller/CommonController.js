@@ -145,8 +145,9 @@ Ext.define('foodprint.controller.CommonController', {
         params[this.masterKey]=this.masterId
 
 
-        grid.getStore().getProxy().extraParams = params
+        grid.getStore().getProxy().extraParams = params;
         grid.getStore().load();
+        console.log(grid.getStore());
 
     },
 
