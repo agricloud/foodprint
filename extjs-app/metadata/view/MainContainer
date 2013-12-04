@@ -378,6 +378,42 @@
                             ]
                         },
                         {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "batchSourceMaintain",
+                                "text": "Batch Source Maintain"
+                            },
+                            "designerId": "5651881b-5ff6-4297-8d66-bc754204ed26",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processBatchSourceMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.batchSourceMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "f3b5256c-a604-4c9b-bd41-b140fa925a07"
+                                }
+                            ]
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",

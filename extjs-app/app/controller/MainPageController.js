@@ -89,6 +89,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpManufactureOrderMaintain]':{
                 click:this.erpManufactureOrderMaintain
             },
+            'maincontainer button[itemId=batchSourceMaintain]':{
+                click:this.batchSourceMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -209,6 +212,12 @@ Ext.define('foodprint.controller.MainPageController', {
     supplierMaintain: function() {
         var xtypeStr = 'supplierview';
         var tabName = Utilities.getMsg('mainContainer.supplierMaintain.label');//'供應商維護';
+        this.maintainBtn(xtypeStr,tabName);
+    },
+
+    batchSourceMaintain: function() {
+        var xtypeStr = 'batchsourceview';
+        var tabName = Utilities.getMsg('mainContainer.batchSourceMaintain.label');//'批號途程維護';
         this.maintainBtn(xtypeStr,tabName);
     }
 

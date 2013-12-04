@@ -100,6 +100,9 @@
                     "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
                     "        click:this.erpManufactureOrderMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=batchSourceMaintain]':{",
+                    "        click:this.batchSourceMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -415,6 +418,23 @@
                 ]
             },
             "designerId": "1aa90db2-9da7-4a09-9e1a-5ac1be5afcb4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchSourceMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchsourceview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchSourceMaintain.label');//'批號途程維護';",
+                    "this.maintainBtn(xtypeStr,tabName);"
+                ]
+            },
+            "designerId": "59e72445-55d6-494b-8095-8f3f7431f057"
         }
     ]
 }
