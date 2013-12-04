@@ -74,6 +74,7 @@ class SiteControllerSpec extends Specification {
 
         setup: "前端傳入資料"
             params["name"] = 'site'
+            params["title"] = '公司'
 
         when: "執行 save action"
             controller.save()
@@ -87,6 +88,28 @@ class SiteControllerSpec extends Specification {
         then: "資料庫將有筆新增資料"
             assert Site.list().size() == 1
             assert Site.get(1)   
+    }
+
+    void "測試 save action，沒有設定 title 不允許更新，並且回傳正確的錯誤訊息"() {
+
+        setup: "前端傳入資料，但是沒有設定必要的 title"
+            params["name"] = 'site'
+
+        when: "執行 save action"
+            controller.save()
+
+        then: "response 要能取得 json 格式初始資料"
+            assert response.json
+
+        then: "json 裡有 success 屬性為 false"
+            assertFalse response.json.success
+
+        then: "json 裡有 error 屬性，且訊息需告知 title 為必要輸入"
+            assert response.json.errors
+            assert response.json.errors.title
+
+            println "無設定 title 回傳的訊息為："+response.json.errors.title
+
     }
 
     void "測試 update action，並且回傳為 json 格式"() {
