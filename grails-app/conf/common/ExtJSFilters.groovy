@@ -8,7 +8,6 @@ class ExtJSFilters {
         all(controller:'*', action:'*') {
             before = {
 
-
                 params.each {
                     key, value ->
                     // Transform value from Ext JS to Grails date style 
@@ -51,6 +50,7 @@ class ExtJSFilters {
 
                 params.criteria = {
                     def user =springSecurityService.currentUser
+
                     if(user.username != 'admin')
                         eq('site',user.site)
 
