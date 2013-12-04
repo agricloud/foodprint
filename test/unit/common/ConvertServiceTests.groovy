@@ -11,7 +11,8 @@ import grails.converters.JSON
 @Mock([Batch, Item, User,
 	Customer,Supplier,Workstation,Operation,
 	BatchRoute,ItemRoute,
-	Param,Report,ReportParams,BatchReportDet,EnumService,TestService])
+	Param,Report,ReportParams,BatchReportDet, BatchSource,
+	EnumService,TestService])
 
 class ConvertServiceTests {
 
@@ -73,6 +74,32 @@ class ConvertServiceTests {
 		assert batchRoute as JSON
     }
 
+    void testBatchSourceJsonConvert() {
+    	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
+
+    	def item = new Item(name: 'item1').save()
+    	def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
+    	def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
+
+    	def batchSource = new BatchSource(batch:batch1,childBatch:batch2).save()
+
+		JSON.registerObjectMarshaller(Batch) {
+		    service.batchParseJson(it)
+		}
+
+		JSON.registerObjectMarshaller(BatchSource) {
+		    service.batchSourceParseJson(it)
+		}
+
+		JSON.registerObjectMarshaller(Item) {
+		    service.itemParseJson(it)
+		}
+		println batchSource as JSON 
+		assert batchSource as JSON 
+
+    }
+
+
     void testItemRouteJsonConvert() {
     	def testService = new TestService()
     	testService.createStdTestData()
@@ -96,7 +123,7 @@ class ConvertServiceTests {
 
     void testUserJsonConvert() {
 
-    	def user = new User( username:"admin",password:"admin", enabled: true).save()
+    	def user = new User( username:"user",password:"user", enabled: true).save()
 
 		JSON.registerObjectMarshaller(User) {
 		    service.userParseJson(it)

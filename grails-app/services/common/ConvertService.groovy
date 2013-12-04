@@ -58,6 +58,72 @@ class ConvertService {
 	    
 	    result
     }
+
+    def batchSourceParseJson(batchSource){
+	    def result = [:]
+
+	    result.id = batchSource.id
+
+	    result.batch = batchSource.batch
+	    result["batch.id"]= batchSource.batch.id
+	    result["batch.name"] =batchSource.batch.name
+	    result["batch.item"] = batchSource.batch.item
+	    result["batch.dueDate"] = batchSource.batch.dueDate
+	    result["batch.expectQty"] = batchSource.batch.expectQty
+	    result["batch.manufactureDate"] = batchSource.batch.manufactureDate
+	    result["batch.expirationDate"] = batchSource.batch.expirationDate
+	    result["batch.remark"] = batchSource.batch.remark
+	    // if(batchSource.batch.item){
+	    //     result["batch.item.id"] = batchSource.batch.item.id
+	    //     result["batch.item.name"] = batchSource.batch.item.name
+	    //     result["batch.item.title"] = batchSource.batch.item.title
+	    //     result["batch.item.spec"] = batchSource.batch.item.spec
+	    //     result["batch.item.unit"] = batchSource.batch.item.unit
+	    //     result["batch.item.description"] = batchSource.batch.item.description
+	    // }
+     //    if(batchSource.batch.supplier){
+     //    	result.batch.supplier = batchSource.batch.supplier
+     //        result["batch.supplier.id"] = batchSource.batch.supplier.id
+     //        result["batch.batch.supplier.name"] = batchSource.batch.supplier.name
+     //        result["batch.supplier.title"] = batchSource.batch.supplier.title
+     //    }
+     //    if(batchSource.batch.country){
+     //    	def country=enumService.name(batchSource.batch.country)
+     //    	result["batch.country"] = country.name
+     //    	result["batch.countryTitle"] = country.title
+     //    }
+     	result.childBatch = batchSource.childBatch
+        result["childBatch.id"]= batchSource.childBatch.id
+	    result["childBatch.name"] =batchSource.childBatch.name
+	    result["childBatch.item"] = batchSource.childBatch.item
+	    result["childBatch.dueDate"] = batchSource.childBatch.dueDate
+	    result["childBatch.expectQty"] = batchSource.childBatch.expectQty
+	    result["childBatch.manufactureDate"] = batchSource.childBatch.manufactureDate
+	    result["childBatch.expirationDate"] = batchSource.childBatch.expirationDate
+	    result["childBatch.remark"] = batchSource.childBatch.remark
+	    // if(batchSource.childBatch.item){
+	    //     result["childBatch.item.id"] = batchSource.childBatch.item.id
+	    //     result["childBatch.item.name"] = batchSource.childBatch.item.name
+	    //     result["childBatch.item.title"] = batchSource.childBatch.item.title
+	    //     result["childBatch.item.spec"] = batchSource.childBatch.item.spec
+	    //     result["childBatch.item.unit"] = batchSource.childBatch.item.unit
+	    //     result["childBatch.item.description"] = batchSource.childBatch.item.description
+	    // }
+     //    if(batchSource.childBatch.supplier){
+     //    	result.childBatch.supplier = batchSource.childBatch.supplier
+     //        result["childBatch.supplier.id"] = batchSource.childBatch.supplier.id
+     //        result["childBatch.supplier.name"] = batchSource.childBatch.supplier.name
+     //        result["childBatch.supplier.title"] = batchSource.childBatch.supplier.title
+     //    }
+     //    if(batchSource.childBatch.country){
+     //    	def country=enumService.name(batchSource.childBatch.country)
+     //    	result["childBatch.country"] = country.name
+     //    	result["childBatch.countryTitle"] = country.title
+     //    }
+	    
+	    result
+    }
+
     def itemParseJson(item){
 	    def result = [:]
 
