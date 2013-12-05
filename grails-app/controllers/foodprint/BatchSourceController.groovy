@@ -33,16 +33,29 @@ class BatchSourceController {
             }
         }else {
             render (contentType: 'application/json') {
-                [success: false,message:message(code: 'default.message.show.failed')]
+                [success: false,mexssage:message(code: 'default.message.show.failed')]
             }          
         }
     }
     
     def create = {
-        def batchSourceInstance=new BatchSource()        
-        render (contentType: 'application/json') {
-            [success: true,data:batchSourceInstance]
-        }
+        if(params.batch.id){
+
+            def batchSourceInstance=new BatchSource(params)
+
+            // if(batchSource.batch.batchRoutes)
+            //     batchRoute.sequence = batchRoute.batch.batchRoutes*.sequence.max()+1
+            // else batchRoute.sequence = 1
+
+            render (contentType: 'application/json') {
+                [success: true,data:batchSourceInstance]
+            }
+        }else {
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchSource.message.create.failed')]
+            }            
+        }   
+
     }
 
     def save = {

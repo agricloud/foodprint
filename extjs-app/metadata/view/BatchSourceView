@@ -457,7 +457,7 @@
                         "layout": "vbox",
                         "bodyBorder": null,
                         "bodyPadding": 10,
-                        "title": ""
+                        "title": null
                     },
                     "designerId": "199520bc-069a-47a2-b012-0a82dbb988a5",
                     "cn": [
@@ -477,23 +477,113 @@
                             "designerId": "0a894418-4ecb-43bb-8a86-02b3a3d1a933"
                         },
                         {
-                            "type": "basicfunction",
+                            "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "doDisplay",
-                                "designer|params": [
-                                    "record"
-                                ],
-                                "implHandler": [
-                                    "console.log(\"View-batchSourceForm.doDisplay\");",
-                                    "this.loadRecord(record);"
-                                ]
+                                "hidden": true,
+                                "fieldLabel": "batch.id",
+                                "name": "batch.id",
+                                "readOnly": true
                             },
-                            "designerId": "47772462-a212-4a24-a70d-c403df7d7cec"
+                            "designerId": "d3e68261-d7ac-469d-946c-00478aa67250"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": null,
+                                "fieldLabel": "batch.item.name",
+                                "name": "batch.item.name",
+                                "readOnly": true
+                            },
+                            "designerId": "8729e1ac-63e2-48f2-a9b5-6f298233be72"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": null,
+                                "fieldLabel": "batch.item.title",
+                                "name": "batch.item.title",
+                                "readOnly": true
+                            },
+                            "designerId": "c298d278-25de-4613-b739-6daa1e11ee6c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": null,
+                                "fieldLabel": "batch.name",
+                                "name": "batch.name",
+                                "readOnly": true
+                            },
+                            "designerId": "f2de439c-7865-4786-b073-7ba2078a612e"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "childBatch.name",
+                                "name": "childBatch.id"
+                            },
+                            "designerId": "5c4d9f0e-eb01-4804-be54-08d60d8aba65",
+                            "masterInstanceId": "ad084776-ade5-4889-98b9-5bfe9e82fb32"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": null,
+                                "fieldLabel": "childBatch.item.name",
+                                "name": "childBatch.item.name",
+                                "readOnly": true
+                            },
+                            "designerId": "8eca0fa2-c401-481f-ab93-1e3dacf2da7b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": null,
+                                "fieldLabel": "childBatch.item.title",
+                                "name": "childBatch.item.title",
+                                "readOnly": true
+                            },
+                            "designerId": "29c7e3e7-aa51-493d-8b95-5854bc5315fd"
                         },
                         {
                             "type": "processcfgfunction",

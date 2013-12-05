@@ -19,6 +19,7 @@ Ext.define('foodprint.view.BatchSourceView', {
 
     requires: [
         'foodprint.view.BatchGrid',
+        'foodprint.view.CommonBatchCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -209,10 +210,6 @@ Ext.define('foodprint.view.BatchSourceView', {
                     items: [
                         me.processForm({
                             xtype: 'form',
-                            doDisplay: function(record) {
-                                console.log("View-batchSourceForm.doDisplay");
-                                this.loadRecord(record);
-                            },
                             flex: 1,
                             itemId: 'form',
                             layout: {
@@ -220,13 +217,54 @@ Ext.define('foodprint.view.BatchSourceView', {
                                 type: 'vbox'
                             },
                             bodyPadding: 10,
-                            title: '',
                             items: [
                                 {
                                     xtype: 'textfield',
                                     hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'batch.id',
+                                    name: 'batch.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'batch.item.name',
+                                    name: 'batch.item.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'batch.item.title',
+                                    name: 'batch.item.title',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'batch.name',
+                                    name: 'batch.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'commonbatchcombo',
+                                    fieldLabel: 'childBatch.name',
+                                    name: 'childBatch.id'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'childBatch.item.name',
+                                    name: 'childBatch.item.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'childBatch.item.title',
+                                    name: 'childBatch.item.title',
                                     readOnly: true
                                 }
                             ]

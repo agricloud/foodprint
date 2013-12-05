@@ -64,6 +64,28 @@
                 "scope": "me"
             },
             "designerId": "b8bf9c6b-4f50-41e2-86da-b3812db14530"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonBatchComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "\t\t'childBatch.item.name':records[0].data['item.name'],",
+                    "        'childBatch.item.title':records[0].data['item.title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "bb668196-d5e5-4f6c-8fb4-c8e11c5849d2"
         }
     ]
 }

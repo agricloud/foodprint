@@ -37,6 +37,10 @@ Ext.define('foodprint.view.CommonBatchCombo', {
                 render: {
                     fn: me.onCommonBatchComboRender,
                     scope: me
+                },
+                select: {
+                    fn: me.onCommonBatchComboSelect,
+                    scope: me
                 }
             }
         });
@@ -53,6 +57,15 @@ Ext.define('foodprint.view.CommonBatchCombo', {
 
     onCommonBatchComboRender: function(component, eOpts) {
         component.getStore().load();
+    },
+
+    onCommonBatchComboSelect: function(combo, records, eOpts) {
+        if(combo.up() && combo.up().getForm()){
+            combo.up().getForm().setValues({
+                'childBatch.item.name':records[0].data['item.name'],
+                'childBatch.item.title':records[0].data['item.title']
+            });
+        }
     }
 
 });
