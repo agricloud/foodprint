@@ -12,10 +12,13 @@ class ItemRoute {
 	int sequence
 	Operation operation
 	Workstation workstation
+    Supplier supplier
 
     static constraints = {
         site nullable:true
     	sequence unique:'item'
+        workstation nullable:true
+        supplier  nullable:true
     }
 
     public String toString(){

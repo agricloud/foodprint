@@ -52,7 +52,7 @@ class BatchController {
 
         log.info "${controllerName}-${actionName}"
 
-        def batch=Batch.findById(params.id);
+        def batch=Batch.get(params.id);
 
         if(batch){   
 
@@ -96,7 +96,7 @@ class BatchController {
     }
 
     def delete = {
-        def batchInstance = Batch.findById(params.id)
+        def batchInstance = Batch.get(params.id)
         def result
         try {
             

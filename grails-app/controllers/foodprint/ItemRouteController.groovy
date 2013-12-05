@@ -17,7 +17,7 @@ class ItemRouteController {
         *   -operation
         */
 
-        def itemRoute=Item.findById(params.item.id).itemRoutes
+        def itemRoute=Item.get(params.item.id).itemRoutes
         def converter=[itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()] as JSON
 
         converter.render(response)
@@ -25,7 +25,7 @@ class ItemRouteController {
     }
 
     def show = {
-        def itemRouteInstance=ItemRoute.findById(params.id);
+        def itemRouteInstance=ItemRoute.get(params.id);
         if(itemRouteInstance){
 
             render (contentType: 'application/json') {
@@ -35,7 +35,7 @@ class ItemRouteController {
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'default.message.show.failed')]
             }            
-        } 
+        }
     }
 
     def create = {
@@ -71,14 +71,14 @@ class ItemRouteController {
 
 
     def update = {
-        def itemRouteInstance = ItemRoute.findById(params.id)
+        def itemRouteInstance = ItemRoute.get(params.id)
         
-        if(params?.workstation?.id || !params.workstation.id.trim()){
+        if(!params?.workstation?.id || !params.workstation.id.trim()){
             params.remove("workstation.id")
             params.remove("workstation.title")
             params.put("workstation",null) 
         }
-        if(params?.supplier?.id || !params.supplier.id.trim()){
+        if(!params?.supplier?.id || !params.supplier.id.trim()){
             params.remove("supplier.id")
             params.remove("supplier.title")
             params.put("supplier",null)
@@ -92,7 +92,7 @@ class ItemRouteController {
     }
 
     def delete = {
-        def itemRouteInstance = ItemRoute.findById(params.id)
+        def itemRouteInstance = ItemRoute.get(params.id)
         def result
         try {
             

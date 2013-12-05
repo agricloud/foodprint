@@ -5,10 +5,10 @@ import org.junit.*
 import grails.test.mixin.*
 import spock.lang.Specification
 
-@TestFor(ItemRouteController)
-@Mock([ItemRoute, Item, Operation, 
+@TestFor(BatchRouteController)
+@Mock([BatchRoute, Item, Batch, Operation,
     DomainService, TestService])
-class ItemRouteControllerSpec extends Specification {
+class BatchRouteControllerSpec extends Specification {
 
     void setup(){
         def testService = new TestService()
@@ -16,25 +16,27 @@ class ItemRouteControllerSpec extends Specification {
     }
 
     void "測試 index action，並且 response 為 json 格式"() {
-        setup: "建立 ItemRoute 測試資料"
+        setup: "建立 BatchRoute 測試資料"
             def item = new Item(name:"item1").save(failOnError: true)
+            def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
-            def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation)
-            item.addToItemRoutes(itemRoute).save(failOnError: true)
+            def batchRoute = new BatchRoute(batch:batch, sequence:1, operation:operation).save(failOnError: true)
+            batch.addToBatchRoutes(batchRoute).save(failOnError: true)
 
-        and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
-            params["item.id"]=item.id
-        when: "執行 ItemRouteController 提供的 index action"
+        and: "前端傳入資料，定義 batch.id 為測試資料的 batch.id"
+            params["batch.id"]=batch.id
+
+        when: "執行 BatchRouteController 提供的 index action"
             controller.index()
 
-        then: "response 要能取得 ItemRoute json 格式初始資料"
+        then: "response 要能取得 BatchRoute json 格式初始資料"
             assert response.json
 
-        then: "json 裡有 itemRouteInstanceList 屬性，且有一筆資料 sequence 屬性為 1"
-            assert response.json.itemRouteInstanceList[0].sequence == 1
+        then: "json 裡有 batchRouteInstanceList 屬性，且有一筆資料 name 屬性為 batchRoute"
+            assert response.json.data[0].sequence == 1
 
-        then: "json 裡有 itemRouteInstanceTotal 屬性為 1"
-            assert response.json.itemRouteInstanceTotal == 1   
+        then: "json 裡有 batchRouteInstanceTotal 屬性為 1"
+            assert response.json.total == 1   
 
     }
 
@@ -42,35 +44,35 @@ class ItemRouteControllerSpec extends Specification {
 
         setup: "建立測試資料"
             def item = new Item(name:"item1").save(failOnError: true)
-
+            def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
+            def batchRoute = new BatchRoute(batch:batch, sequence:1, operation:operation).save(failOnError: true)
 
-            def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation).save(failOnError: true)
+        and: "前端傳入資料，定義 id 為測試資料的 id"
+            params.id = batchRoute.id
 
-        and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
-            params.id = itemRoute.id
-
-        when: "執行 ItemRouteController 提供的 show action"
+        when: "執行 BatchRouteController 提供的 show action"
             controller.show()
 
-        then: "response 要能取得 ItemRoute json 格式初始資料"
+        then: "response 要能取得 BatchRoute json 格式初始資料"
             assert response.json
 
         then: "json 裡有 success 屬性，且為 true"
             assert response.json.success
 
-        then: "json 裡有 data.class 屬性為 foodprint.ItemRoute"
-            assert response.json.data.class == "foodprint.ItemRoute"
+        then: "json 裡有 data.class 屬性為 foodprint.BatchRoute"
+            assert response.json.data.class == "foodprint.BatchRoute"
 
     }
 
     void "測試 create action，並且回傳為 json 格式(尚未儲存)"() {
 
-        setup:"建立測試資料"
+        setup: "建立測試資料"
             def item = new Item(name:"item1").save(failOnError: true)
+            def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
 
         and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
-            params["item.id"]=item.id
+            params["batch.id"]=batch.id
 
         when: "執行 create action"
             controller.create()
@@ -87,13 +89,14 @@ class ItemRouteControllerSpec extends Specification {
 
     void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
-        setup:"建立測試資料"
+        setup: "建立測試資料"
             def item = new Item(name:"item1").save(failOnError: true)
+            def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
-        and: "前端傳入資料"
-            params["sequence"] = 1            
-            params["item.id"] = item.id
+        and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
+            params["sequence"] = 1  
+            params["batch.id"]=batch.id
             params["operation.id"] = operation.id
 
         when: "執行 save action"
@@ -106,23 +109,22 @@ class ItemRouteControllerSpec extends Specification {
             assert response.json.success
 
         then: "資料庫將有筆新增資料"
-            assert ItemRoute.list().size() == 1
-            assert ItemRoute.get(1)   
+            assert BatchRoute.list().size() == 1
+            assert BatchRoute.get(1)   
     }
 
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item1 = new Item(name:"item1").save(failOnError: true)
-            def item2 = new Item(name:"item2").save(failOnError: true)
-
+            def item = new Item(name:"item1").save(failOnError: true)
+            def batch1 = new Batch(name:"batch1",item:item,).save(failOnError: true)
+            def batch2 = new Batch(name:"batch2",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
-
-            def itemRoute = new ItemRoute(item:item1,sequence:1,operation:operation).save(failOnError: true)
+            def batchRoute = new BatchRoute(batch:batch1, sequence:1, operation:operation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
-            params.id = itemRoute.id
-            params["item.id"] = item2.id
+            params.id = batchRoute.id
+            params["batch.id"] = batch2.id
 
         when: "執行 update action"
             controller.update()
@@ -134,23 +136,22 @@ class ItemRouteControllerSpec extends Specification {
             assert response.json.success
 
         then: "將有筆新增資料"
-            assert ItemRoute.list().size() == 1
+            assert BatchRoute.list().size() == 1
 
         then: "修改後的屬性有正確寫入"
-            assert ItemRoute.get(1).item == item2
+            assert BatchRoute.get(1).batch == batch2
     }
 
     void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name:"item1",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種").save(failOnError: true)
-
+            def item = new Item(name:"item1").save(failOnError: true)
+            def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
-
-            def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation).save(failOnError: true)
+            def batchRoute = new BatchRoute(batch:batch, sequence:1, operation:operation).save(failOnError: true)
         
         and: "前端傳入資料，定義 id 為測試資料的 id"
-            params.id = itemRoute.id
+            params.id = batchRoute.id
 
         when: "執行 delete action"
             controller.delete()
@@ -162,7 +163,7 @@ class ItemRouteControllerSpec extends Specification {
             assert response.json.success        
  
         then: "該筆資料已移除"
-            assert ItemRoute.list().size() == 0
+            assert BatchRoute.list().size() == 0
     }
 
 }
