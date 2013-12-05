@@ -64,6 +64,10 @@ class BatchSourceControllerSpec extends Specification {
     }
 
     void "測試 create action，並且回傳為 json 格式(尚未儲存)"() {
+        def item = new Item(name: 'item1').save()
+        def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
+        
+        params["batch.id"] = batch1.id
 
         when: "執行 create action"
             controller.create()
