@@ -75,10 +75,6 @@ Ext.define('foodprint.view.BatchRouteView', {
                     items: [
                         me.processForm({
                             xtype: 'form',
-                            doDisplay: function(record) {
-                                console.log("View-batchRouteForm.doDisplay");
-                                this.loadRecord(record);
-                            },
                             flex: 1,
                             itemId: 'form',
                             layout: {
