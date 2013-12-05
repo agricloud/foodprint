@@ -19,7 +19,7 @@ class OperationController {
     }
     def show = {
 
-        def operation=Operation.findById(params.id);  
+        def operation=Operation.get(params.id);  
         if(operation){   
             render (contentType: 'application/json') {
                 [success: true,data:operation]
@@ -48,7 +48,7 @@ class OperationController {
     }
 
     def update = {
-        def  operationInstance = Operation.findById(params.id)
+        def  operationInstance = Operation.get(params.id)
         operationInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(operationInstance)
@@ -57,7 +57,7 @@ class OperationController {
 
 
     def delete = {
-        def operationInstance = Operation.findById(params.id)
+        def operationInstance = Operation.get(params.id)
         def result
         try {
             

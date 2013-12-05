@@ -16,7 +16,7 @@ class SupplierController {
     }
 
     def show(){
-        def supplierInstance=Supplier.findById(params.id);  
+        def supplierInstance=Supplier.get(params.id);  
         if(supplierInstance){   
             render (contentType: 'application/json') {
                 [success: true,data:supplierInstance]
@@ -43,7 +43,7 @@ class SupplierController {
     }
 
     def update(){
-        def  supplierInstance = Supplier.findById(params.id)
+        def  supplierInstance = Supplier.get(params.id)
         supplierInstance.properties = params
         render (contentType: 'application/json') {
             domainService.save(supplierInstance)
@@ -52,7 +52,7 @@ class SupplierController {
 
     def delete(){
         
-        def supplierInstance = Supplier.findById(params.id)
+        def supplierInstance = Supplier.get(params.id)
         def result
         try {
             

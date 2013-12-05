@@ -19,7 +19,7 @@ class CustomerController {
 
      def show = {
 
-        def customer=Customer.findById(params.id);  
+        def customer=Customer.get(params.id);  
         if(customer){   
             render (contentType: 'application/json') {
                 [success: true,data:customer]
@@ -47,7 +47,7 @@ class CustomerController {
     }
 
     def update = {
-        def  customerInstance = Customer.findById(params.id)
+        def  customerInstance = Customer.get(params.id)
         customerInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(customerInstance)
@@ -56,7 +56,7 @@ class CustomerController {
 
 
     def delete = {
-        def customerInstance = Customer.findById(params.id)
+        def customerInstance = Customer.get(params.id)
         def result
         try {
             
