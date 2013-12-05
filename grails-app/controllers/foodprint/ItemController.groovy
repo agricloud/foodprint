@@ -15,7 +15,7 @@ class ItemController {
     }
 
     def show = {
-        def itemInstance=Item.findById(params.id);  
+        def itemInstance=Item.get(params.id);  
         if(itemInstance){   
             render (contentType: 'application/json') {
                 [success: true,data:itemInstance]
@@ -42,7 +42,7 @@ class ItemController {
     }
 
     def update = {
-        def  itemInstance = Item.findById(params.id)
+        def  itemInstance = Item.get(params.id)
         itemInstance.properties = params
         render (contentType: 'application/json') {
             domainService.save(itemInstance)
@@ -51,7 +51,7 @@ class ItemController {
 
     def delete = {
         
-        def itemInstance = Item.findById(params.id)
+        def itemInstance = Item.get(params.id)
         def result
         try {
             

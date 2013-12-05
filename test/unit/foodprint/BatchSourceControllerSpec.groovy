@@ -64,10 +64,13 @@ class BatchSourceControllerSpec extends Specification {
     }
 
     void "測試 create action，並且回傳為 json 格式(尚未儲存)"() {
-        def item = new Item(name: 'item1').save()
-        def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
+
+        setup:"建立測試資料"
+            def item = new Item(name: 'item1').save()
+            def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
         
-        params["batch.id"] = batch1.id
+        and: "前端傳入資料，定義 batch.id 為測試資料的 batch.id"
+            params["batch.id"] = batch1.id
 
         when: "執行 create action"
             controller.create()
@@ -84,11 +87,12 @@ class BatchSourceControllerSpec extends Specification {
 
     void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
-        setup: "前端傳入資料"
+        setup:"建立測試資料"
             def item = new Item(name: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 
+        and: "前端傳入資料，定義 batch.id 為測試資料的 batch.id"
             params["batch.id"] = batch1.id
             params["childBatch.id"] = batch2.id
 

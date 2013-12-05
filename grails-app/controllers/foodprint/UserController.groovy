@@ -20,7 +20,7 @@ class UserController {
 
     def show(Long id){
 
-        def user=User.findById(id);  
+        def user=User.get(id);  
         if(user){   
             render (contentType: 'application/json') {
                 [success: true,data:user]
@@ -49,7 +49,7 @@ class UserController {
     }
 
     def update(){
-        def userInstance = User.findById(params.id)
+        def userInstance = User.get(params.id)
         userInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(userInstance)
@@ -58,7 +58,7 @@ class UserController {
 
 
     def delete(){
-        def userInstance = User.findById(params.id)
+        def userInstance = User.get(params.id)
         def result
         try {
             
