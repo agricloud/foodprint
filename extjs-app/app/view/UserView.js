@@ -73,6 +73,13 @@ Ext.define('foodprint.view.UserView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'site.id',
+                                    text: 'site.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'site.name',
                                     text: 'site.name',
                                     flex: 1
@@ -152,6 +159,12 @@ Ext.define('foodprint.view.UserView', {
                                     xtype: 'checkboxfield',
                                     fieldLabel: 'Enabled',
                                     name: 'enabled'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'Site_id',
+                                    name: 'site.id'
                                 },
                                 {
                                     xtype: 'textfield',
