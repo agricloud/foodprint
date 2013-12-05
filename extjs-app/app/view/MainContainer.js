@@ -95,6 +95,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'supplierMaintain',
                                     text: 'Supplier Maintain'
+                                }),
+                                me.processBatchSourceMaintain({
+                                    xtype: 'button',
+                                    itemId: 'batchSourceMaintain',
+                                    text: 'Batch Source Maintain'
                                 })
                             ]
                         }),
@@ -286,6 +291,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processSupplierMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.supplierMaintain.label');
+
+        return config;
+    },
+
+    processBatchSourceMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchSourceMaintain.label');
 
         return config;
     },

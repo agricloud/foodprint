@@ -1,0 +1,116 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Batch",
+            "BatchSource"
+        ],
+        "stores": [
+            "BatchStore",
+            "BatchSourceStore"
+        ],
+        "views": [
+            "BatchSourceView"
+        ],
+        "designer|userClassName": "BatchSourceController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "975415f1-9a9f-4b65-8893-62d5a34f0317",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'batchsourceview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'batchsourceview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'batchsourceview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'batchsourceview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'batchsourceview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "",
+                    "    'batchsourceview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'batchsourceview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'batchSource';",
+                    "this.masterKey='batch.id';"
+                ]
+            },
+            "designerId": "6f9529d1-1a66-4d13-8153-95a61968541c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "batchsourceview #grid"
+            },
+            "designerId": "a97e694c-2377-4e53-92cf-bffd7b3b8d42"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "batchsourceview #form"
+            },
+            "designerId": "880045c8-978b-43f1-a539-552cc5bcfbe8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "batchsourceview #masterGrid"
+            },
+            "designerId": "667fc7ac-7404-4c80-b6af-1adcb6c9c53b"
+        }
+    ]
+}
