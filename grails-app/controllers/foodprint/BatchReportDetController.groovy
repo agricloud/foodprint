@@ -43,7 +43,7 @@ class BatchReportDetController {
             }
 
             render (contentType: 'application/json') {
-                [sucess:true, data:batchRouteParamsInstance, total: batchRouteParamsInstance.size()]
+                [success:true, data:batchRouteParamsInstance, total: batchRouteParamsInstance.size()]
             }
 
         }
