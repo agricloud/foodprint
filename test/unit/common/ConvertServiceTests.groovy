@@ -94,7 +94,6 @@ class ConvertServiceTests {
 		JSON.registerObjectMarshaller(Item) {
 		    service.itemParseJson(it)
 		}
-		println batchSource as JSON 
 		assert batchSource as JSON 
 
     }
