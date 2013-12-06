@@ -10,7 +10,7 @@ class ReportParamsController {
         log.debug "${controllerName}-${actionName}"
         log.debug params
 
-        def report=Report.findById(params.report.id);
+        def report=Report.get(params.report.id);
         def reportParams = ReportParams.findAllByReport(report)
 
         if(reportParams){   
@@ -31,7 +31,7 @@ class ReportParamsController {
 
         log.debug "${controllerName}-${actionName}"
 
-        def reportParams=ReportParams.findById(params.id);
+        def reportParams=ReportParams.get(params.id);
 
         if(reportParams){   
             render (contentType: 'application/json') {
@@ -72,13 +72,13 @@ class ReportParamsController {
 
         log.debug "${controllerName}-${actionName}"
 
-        def reportParams = ReportParams.findById(params.id)
-        if(params.workstation.id==null || !params.workstation.id.trim()){
+        def reportParams = ReportParams.get(params.id)
+        if(!params?.workstation?.id || !params.workstation.id.trim()){
             params.remove("workstation.id")
             params.remove("workstation.title")
             params.put("workstation",null) 
         }
-        if(params.supplier.id==null || !params.supplier.id.trim()){
+        if(!params?.supplier?.id || !params.supplier.id.trim()){
             params.remove("supplier.id")
             params.remove("supplier.title")
             params.put("supplier",null)
@@ -92,7 +92,7 @@ class ReportParamsController {
 
     def delete = {
         log.debug "${controllerName}-${actionName}"
-        def reportParams = ReportParams.findById(params.id)
+        def reportParams = ReportParams.get(params.id)
         def result
         try {
             result = domainService.delete(reportParams)

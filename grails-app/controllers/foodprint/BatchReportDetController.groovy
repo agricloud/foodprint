@@ -43,7 +43,7 @@ class BatchReportDetController {
             }
 
             render (contentType: 'application/json') {
-                [sucess:true, data:batchRouteParamsInstance, total: batchRouteParamsInstance.size()]
+                [success:true, data:batchRouteParamsInstance, total: batchRouteParamsInstance.size()]
             }
 
         }
@@ -54,37 +54,6 @@ class BatchReportDetController {
             }
         }
     }
-
-    /**
-     * @param batch.id
-     * 找出指定批號所有的履歷及對應的履歷參數
-    **/
-    def batchReportList = {
-        log.debug "BatchReportDetController--batchReportList"
-        def batchInstance=Batch.get(params.batch.id)
-        def batchReportDetInstance=BatchReportDet.findAll(){
-           batch==batchInstance 
-        }
-
-        def reportInstance=batchReportDetInstance.reportParams*.report.unique()
-        def batchReportInstance=[]
-
-        reportInstance.each{ rept ->
-            
-            batchReportInstance.add([batchReport:rept, batchReportDets:BatchReportDet.findAll(){
-                batch==batchInstance && reportParams.report==rept
-            }])
-        }
-
-        [batchReportInstanceList:batchReportInstance, batchReportInstanceTotal: batchReportInstance.size()]
-    }
-
-    def batchReportListJson = {
-
-        def converter=batchReportList() as JSON
-        converter.render(response)
-    }
-
 
     def doSaveOrUpdate = {
         log.debug "BatchReportDetController--doSaveOrUpdate"

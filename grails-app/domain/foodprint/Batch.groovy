@@ -30,7 +30,7 @@ class Batch  {
     BatchType batchType = foodprint.BatchType.PRODUCT
    	Supplier supplier
 	Country country = foodprint.Country.TAIWAN
-	String remark
+	String remark = ""
 
 
 
@@ -42,11 +42,9 @@ class Batch  {
 		manufactureDate nullable: true
 		expirationDate nullable: true
 		supplier nullable: true
-		uuid nullable: true
-		remark nullable: true
 	}
 
-	String uuid
+	String uuid = ""
 	
     def beforeInsert() {
         // optionally, replace the dashes by adding .replaceAll('-','')

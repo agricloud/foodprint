@@ -52,7 +52,7 @@ class BatchController {
 
         log.info "${controllerName}-${actionName}"
 
-        def batch=Batch.findById(params.id);
+        def batch=Batch.get(params.id);
 
         if(batch){   
 
@@ -86,15 +86,17 @@ class BatchController {
 
     def update = {
 
-        def batchInstance = Batch.findById(params.id)
-    batchInstance.properties=params
+        
+        def batchInstance = Batch.get(params.id)
+        batchInstance.properties=params
+        
         render (contentType: 'application/json') {
             domainService.save(batchInstance)
         }
     }
 
     def delete = {
-        def batchInstance = Batch.findById(params.id)
+        def batchInstance = Batch.get(params.id)
         def result
         try {
             

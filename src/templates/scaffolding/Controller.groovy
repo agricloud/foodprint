@@ -13,7 +13,7 @@ class ${className}Controller {
     }
 
     def show = {
-        def ${propertyName}=${className}.findById(params.id);  
+        def ${propertyName}=${className}.get(params.id);  
         if(${propertyName}){   
             render (contentType: 'application/json') {
                 [success: true,data:${propertyName}]
@@ -40,7 +40,7 @@ class ${className}Controller {
     }
 
     def update = {
-        def  ${propertyName} = ${className}.findById(params.id)
+        def  ${propertyName} = ${className}.get(params.id)
         ${propertyName}.properties = params
         render (contentType: 'application/json') {
             domainService.save(${propertyName})
@@ -49,7 +49,7 @@ class ${className}Controller {
 
     def delete = {
         
-        def ${propertyName} = ${className}.findById(params.id)
+        def ${propertyName} = ${className}.get(params.id)
         def result
         try {
             

@@ -18,7 +18,7 @@ class WorkstationController {
 
      def show(Long id){
 
-        def workstation=Workstation.findById(id);  
+        def workstation=Workstation.get(id);  
         if(workstation){   
             render (contentType: 'application/json') {
                 [success: true,data:workstation]
@@ -46,7 +46,7 @@ class WorkstationController {
     }
 
     def update(){
-        def workstationInstance = Workstation.findById(params.id)
+        def workstationInstance = Workstation.get(params.id)
         workstationInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(workstationInstance)
@@ -55,7 +55,7 @@ class WorkstationController {
 
 
     def delete(){
-        def workstationInstance = Workstation.findById(params.id)
+        def workstationInstance = Workstation.get(params.id)
         def result
         try {
             

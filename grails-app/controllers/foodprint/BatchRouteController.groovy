@@ -10,11 +10,11 @@ class BatchRouteController {
 
     def index = {
 
-        def batch=Batch.findById(params.batch.id)
+        def batch=Batch.get(params.batch.id)
         if(batch){
-            def list=BatchRoute.findAllByBatch(batch)
+            def batchRoute=batch.batchRoutes
             render (contentType: 'application/json') {
-               [success: true, data:list, total: list.size()]
+               [success: true, data:batchRoute, total: batchRoute.size()]
             }           
         }
         else{
@@ -27,7 +27,7 @@ class BatchRouteController {
     }
 
     def show = {
-        def batchRoute=BatchRoute.findById(params.id);
+        def batchRoute=BatchRoute.get(params.id);
         if(batchRoute){
             render (contentType: 'application/json') {
                 [success: true,data:batchRoute]
@@ -70,14 +70,14 @@ class BatchRouteController {
 
 
     def update = {
-        def  batchRoute = BatchRoute.findById(params.id)
+        def  batchRoute = BatchRoute.get(params.id)
 
-        if(params.workstation.id==null || !params.workstation.id.trim()){
+        if(!params?.workstation?.id || !params.workstation.id.trim()){
             params.remove("workstation.id")
             params.remove("workstation.title")  
             params.put("workstation",null) 
         }
-        if(params.supplier.id==null || !params.supplier.id.trim()){
+        if(!params?.workstation?.id || !params.supplier.id.trim()){
             params.remove("supplier.id")
             params.remove("supplier.title")
             params.put("supplier",null)
@@ -91,7 +91,7 @@ class BatchRouteController {
     }
 
     def delete = {
-        def  batchRoute = BatchRoute.findById(params.id)
+        def  batchRoute = BatchRoute.get(params.id)
         def result
         try {
             
