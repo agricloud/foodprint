@@ -24,7 +24,7 @@ class ReportController {
 
         log.debug "${controllerName}-${actionName}"
 
-        def report=Report.findById(params.id);
+        def report=Report.get(params.id);
 
         if(report){   
 
@@ -57,7 +57,7 @@ class ReportController {
 
     def update = {
 
-        def report = Report.findById(params.id)
+        def report = Report.get(params.id)
         report.properties=params
         render (contentType: 'application/json') {
             domainService.save(report)
@@ -65,7 +65,7 @@ class ReportController {
     }
 
     def delete = {
-        def report = Report.findById(params.id)
+        def report = Report.get(params.id)
         def result
         try {
             

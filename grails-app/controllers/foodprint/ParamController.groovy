@@ -19,7 +19,7 @@ class ParamController {
     }
      def show = {
 
-        def param=Param.findById(params.id);  
+        def param=Param.get(params.id);  
         if(param){ 
 
             render (contentType: 'application/json') {
@@ -50,7 +50,7 @@ class ParamController {
     }
 
     def update = {
-        def  paramInstance = Param.findById(params.id)
+        def  paramInstance = Param.get(params.id)
         paramInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(paramInstance)
@@ -59,7 +59,7 @@ class ParamController {
 
 
     def delete = {
-        def  paramInstance = Param.findById(params.id)
+        def  paramInstance = Param.get(params.id)
         def result
         try {
             

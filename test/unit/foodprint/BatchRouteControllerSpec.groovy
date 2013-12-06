@@ -32,7 +32,7 @@ class BatchRouteControllerSpec extends Specification {
         then: "response 要能取得 BatchRoute json 格式初始資料"
             assert response.json
 
-        then: "json 裡有 batchRouteInstanceList 屬性，且有一筆資料 name 屬性為 batchRoute"
+        then: "json 裡有 batchRouteInstanceList 屬性，且有一筆資料 sequence 屬性為 1"
             assert response.json.data[0].sequence == 1
 
         then: "json 裡有 batchRouteInstanceTotal 屬性為 1"
