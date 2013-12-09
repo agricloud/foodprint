@@ -17,6 +17,10 @@ Ext.define('foodprint.view.UserView', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.userview',
 
+    requires: [
+        'foodprint.view.UserForm'
+    ],
+
     itemId: 'userEditorct',
     layout: {
         type: 'card'
@@ -119,65 +123,10 @@ Ext.define('foodprint.view.UserView', {
                         type: 'vbox'
                     },
                     items: [
-                        me.processForm({
-                            xtype: 'form',
-                            doDisplay: function(record) {
-                                console.log("View-userForm.doDisplay");
-                                this.loadRecord(record);
-                            },
-                            flex: 1,
-                            itemId: 'form',
-                            layout: {
-                                align: 'stretch',
-                                type: 'vbox'
-                            },
-                            bodyPadding: 10,
-                            items: [
-                                {
-                                    xtype: 'numberfield',
-                                    fieldLabel: 'ID',
-                                    name: 'id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'User Name',
-                                    name: 'username',
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Full Name',
-                                    name: 'fullName'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Password',
-                                    name: 'password'
-                                },
-                                {
-                                    xtype: 'checkboxfield',
-                                    fieldLabel: 'Enabled',
-                                    name: 'enabled'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    hidden: true,
-                                    fieldLabel: 'Site_id',
-                                    name: 'site.id'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Site_name',
-                                    name: 'site.name'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Site_title',
-                                    name: 'site.title'
-                                }
-                            ]
-                        })
+                        {
+                            xtype: 'userform',
+                            flex: 1
+                        }
                     ]
                 })
             ]
@@ -188,10 +137,6 @@ Ext.define('foodprint.view.UserView', {
 
     processGrid: function(config) {
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'user'));
-    },
-
-    processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'user');
     },
 
     processShow: function(config) {

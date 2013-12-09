@@ -16,8 +16,25 @@
 Ext.define('foodprint.controller.LoginController', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        commonController: 'foodprint.controller.CommonController'
+    },
+
+    models: [
+        'User'
+    ],
+    stores: [
+        'UserStore'
+    ],
     views: [
         'LoginContainer'
+    ],
+
+    refs: [
+        {
+            ref: 'mainForm',
+            selector: 'mainviewport #form'
+        }
     ],
 
     init: function(application) {
@@ -27,8 +44,26 @@ Ext.define('foodprint.controller.LoginController', {
             },
             'form[itemId=loginForm] button[itemId=QueryBtn]': {
                 click: this.showQueryWin
+            },
+            'form[itemId=loginForm] button[itemId=cancelBtn]': {
+                click: this.doReset
+            },
+            'form[itemId=loginForm] button[itemId=addAccountBtn]': {
+                click: this.doCreateAccount
+            },
+            '#mainVP #show commonshowtoolbar commoncancelbtn': {
+                click: this.doCancel
+            },
+            '#mainVP #show commonshowtoolbar commondeletebtn': {
+                click: this.doDelete
+            },
+            '#mainVP #show commonshowtoolbar commonsavebtn': {
+                click: this.doSave
             }
+
         });
+
+        this.domainName = 'user';
     },
 
     doLogin: function(btn, e, eOpts) {
@@ -58,6 +93,26 @@ Ext.define('foodprint.controller.LoginController', {
 
     showQueryWin: function() {
 
+    },
+
+    doReset: function(btn, e, eOpts) {
+        var form = btn.up('form').getForm();
+        form.reset();
+    },
+
+    doCreateAccount: function(btn, e, eOpts) {
+        var mainVP = Ext.getCmp('mainVP');
+        mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=show]'));
+
+        this.doCreate();
+
+        console.log(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false));
+
+        this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);
+    },
+
+    doCancel: function(btn, e, eOpts) {
+        alert(12);
     }
 
 });

@@ -66,7 +66,6 @@ Ext.define('foodprint.controller.CommonController', {
             url:this.getRoot()+'/'+this.domainName+'/create',
             params:params,
             success: function(form, action) {
-                that.activeEditor();
                 that.actionName = 'save';
                 that.activeEditor();
                 that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);

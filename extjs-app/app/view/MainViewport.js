@@ -15,14 +15,16 @@
 
 Ext.define('foodprint.view.MainViewport', {
     extend: 'Ext.container.Viewport',
+    alias: 'widget.mainviewport',
 
     requires: [
-        'foodprint.view.LoginContainer'
+        'foodprint.view.LoginContainer',
+        'foodprint.view.UserForm'
     ],
 
     id: 'mainVP',
     layout: {
-        type: 'fit'
+        type: 'card'
     },
 
     initComponent: function() {
@@ -32,7 +34,24 @@ Ext.define('foodprint.view.MainViewport', {
             items: [
                 {
                     xtype: 'logincontainer'
-                }
+                },
+                me.processShow({
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
+                    itemId: 'show',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'userform',
+                            flex: 1
+                        }
+                    ]
+                })
             ],
             listeners: {
                 afterrender: {
@@ -43,6 +62,10 @@ Ext.define('foodprint.view.MainViewport', {
         });
 
         me.callParent(arguments);
+    },
+
+    processShow: function(config) {
+        return Utilities.processConfigBundle(config, 'user');
     },
 
     onMainVPAfterRender: function(component, eOpts) {

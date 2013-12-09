@@ -6,10 +6,21 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "User"
+        ],
+        "stores": [
+            "UserStore"
+        ],
         "views": [
             "LoginContainer"
         ],
-        "designer|userClassName": "LoginController"
+        "designer|userClassName": "LoginController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
     },
     "designerId": "cacaa675-bcf1-4bc6-a580-889600ecf055",
     "cn": [
@@ -32,8 +43,26 @@
                     "    },",
                     "    'form[itemId=loginForm] button[itemId=QueryBtn]': {",
                     "        click: this.showQueryWin",
+                    "    },",
+                    "    'form[itemId=loginForm] button[itemId=cancelBtn]': {",
+                    "        click: this.doReset",
+                    "    },",
+                    "    'form[itemId=loginForm] button[itemId=addAccountBtn]': {",
+                    "        click: this.doCreateAccount",
+                    "    },",
+                    "    '#mainVP #show commonshowtoolbar commoncancelbtn': {",
+                    "        click: this.doCancel",
+                    "    },",
+                    "    '#mainVP #show commonshowtoolbar commondeletebtn': {",
+                    "        click: this.doDelete",
+                    "    },",
+                    "    '#mainVP #show commonshowtoolbar commonsavebtn': {",
+                    "        click: this.doSave",
                     "    }",
-                    "});"
+                    "",
+                    "});",
+                    "",
+                    "this.domainName = 'user';"
                 ]
             },
             "designerId": "b2abdb09-97ac-4400-9f7a-8c29ecbdce61"
@@ -118,6 +147,85 @@
                 ]
             },
             "designerId": "3cde850c-a6db-47fa-9ec6-fd3dbf5d6d29"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doReset",
+                "designer|params": [
+                    "btn, e, eOpts"
+                ],
+                "implHandler": [
+                    "var form = btn.up('form').getForm();",
+                    "form.reset();"
+                ]
+            },
+            "designerId": "15f4dad8-70e1-4272-80b3-6619b0cc1468"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreateAccount",
+                "designer|params": [
+                    "btn",
+                    "e",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "var mainVP = Ext.getCmp('mainVP');",
+                    "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=show]'));",
+                    "",
+                    "this.doCreate();",
+                    "",
+                    "console.log(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false));",
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);"
+                ]
+            },
+            "designerId": "27a44424-216c-4e6b-9bcd-d039a6d56518"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancel",
+                "designer|params": [
+                    "btn",
+                    "e",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "alert(12);"
+                ]
+            },
+            "designerId": "d5318bd8-3067-4ce4-8b5d-ed2e27a17b90"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "mainviewport #form"
+            },
+            "designerId": "01d3f3eb-0a2f-4123-9c1c-a174db8cbc33"
         }
     ]
 }
