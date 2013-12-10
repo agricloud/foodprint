@@ -35,12 +35,12 @@ Ext.define('foodprint.view.MainViewport', {
                 {
                     xtype: 'logincontainer'
                 },
-                me.processShow({
+                me.processNewAccount({
                     xtype: 'panel',
                     tbar: {
                         xtype: 'commonshowtoolbar'
                     },
-                    itemId: 'show',
+                    itemId: 'newAccount',
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
@@ -64,7 +64,7 @@ Ext.define('foodprint.view.MainViewport', {
         me.callParent(arguments);
     },
 
-    processShow: function(config) {
+    processNewAccount: function(config) {
         return Utilities.processConfigBundle(config, 'user');
     },
 

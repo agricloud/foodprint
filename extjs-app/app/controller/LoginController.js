@@ -49,15 +49,15 @@ Ext.define('foodprint.controller.LoginController', {
                 click: this.doReset
             },
             'form[itemId=loginForm] button[itemId=addAccountBtn]': {
-                click: this.doCreateAccount
+                click: this.doCreate
             },
-            '#mainVP #show commonshowtoolbar commoncancelbtn': {
+            '#mainVP #newAccount commonshowtoolbar commoncancelbtn': {
                 click: this.doCancel
             },
-            '#mainVP #show commonshowtoolbar commondeletebtn': {
+            '#mainVP #newAccount commonshowtoolbar commondeletebtn': {
                 click: this.doDelete
             },
-            '#mainVP #show commonshowtoolbar commonsavebtn': {
+            '#mainVP #newAccount commonshowtoolbar commonsavebtn': {
                 click: this.doSave
             }
 
@@ -100,18 +100,53 @@ Ext.define('foodprint.controller.LoginController', {
         form.reset();
     },
 
-    doCreateAccount: function(btn, e, eOpts) {
+    doCreate: function(btn, e, eOpts) {
         var mainVP = Ext.getCmp('mainVP');
-        mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=show]'));
+        mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=newAccount]'));
 
-        this.doCreate();
+        this.getMainForm().up('panel[itemId=newAccount]').down('commondeletebtn').setVisible(false);
 
-        this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setVisible(false);
+        console.log('commonController--'+this.domainName+'--doCreate');
+        var that = this
+        var params = {}
+
+        params[this.masterKey]=this.masterId
+        this.getMainForm().getForm().reset(true);
+
+        this.getMainForm().getForm().load({
+            url:this.getRoot()+'/'+this.domainName+'/create',
+            params:params,
+            success: function(form, action) {
+                that.actionName = 'save';
+            },
+
+            failure: function(form, action) {
+                Ext.MessageBox.alert('Failure',action.result.message);
+            }
+
+        });
     },
 
     doCancel: function(btn, e, eOpts) {
         var mainVP = Ext.getCmp('mainVP');
         mainVP.getLayout().setActiveItem(mainVP.down('logincontainer'));
+
+    },
+
+    doSave: function() {
+        console.log('loginController--'+this.domainName+'--doSave');
+        var that = this ;
+
+        this.submitForm(function(success){
+            if(success){
+
+                if(that.actionName === 'save'){
+                    that.doCancel();
+                    that.actionName = '' ;
+                }
+            }
+
+        });
 
     }
 
