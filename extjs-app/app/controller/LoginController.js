@@ -106,13 +106,13 @@ Ext.define('foodprint.controller.LoginController', {
 
         this.doCreate();
 
-        console.log(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false));
-
-        this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);
+        this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setVisible(false);
     },
 
     doCancel: function(btn, e, eOpts) {
-        alert(12);
+        var mainVP = Ext.getCmp('mainVP');
+        mainVP.getLayout().setActiveItem(mainVP.down('logincontainer'));
+
     }
 
 });

@@ -187,9 +187,7 @@
                     "",
                     "this.doCreate();",
                     "",
-                    "console.log(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false));",
-                    "",
-                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);"
+                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setVisible(false);"
                 ]
             },
             "designerId": "27a44424-216c-4e6b-9bcd-d039a6d56518"
@@ -209,7 +207,9 @@
                     "eOpts"
                 ],
                 "implHandler": [
-                    "alert(12);"
+                    "var mainVP = Ext.getCmp('mainVP');",
+                    "mainVP.getLayout().setActiveItem(mainVP.down('logincontainer'));",
+                    ""
                 ]
             },
             "designerId": "d5318bd8-3067-4ce4-8b5d-ed2e27a17b90"
