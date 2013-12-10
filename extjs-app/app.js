@@ -36,6 +36,9 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    views: [
+        'UserForm'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

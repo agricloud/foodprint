@@ -8,8 +8,9 @@
     "userConfig": {
         "id": "mainVP",
         "designer|userClassName": "MainViewport",
+        "designer|userAlias": "mainviewport",
         "designer|initialView": true,
-        "layout": "fit"
+        "layout": "card"
     },
     "designerId": "4b33d0bd-1204-4ec5-b8b8-8465da75bf8a",
     "cn": [
@@ -47,6 +48,66 @@
                 "scope": "me"
             },
             "designerId": "aa6915c0-38ac-4b05-ade8-a4005ad63a7a"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "show",
+                "layout": "vbox",
+                "title": null
+            },
+            "designerId": "fe867e1e-bd29-48a7-80bd-7e2b5bcc99e8",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "object"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "0a95feda-0a44-4c8b-82a9-81799fc36c6a",
+                    "masterInstanceId": "44fbd9a7-9dc3-4893-b20d-da6e958e60d8"
+                },
+                {
+                    "type": "processcfgfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "processShow",
+                        "designer|params": [
+                            "config"
+                        ],
+                        "implHandler": [
+                            "return Utilities.processConfigBundle(config, 'user');"
+                        ]
+                    },
+                    "designerId": "568c06da-aa59-4d77-9cc6-5a219e3603ae"
+                }
+            ]
         }
     ]
 }

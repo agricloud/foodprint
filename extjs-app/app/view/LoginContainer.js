@@ -143,6 +143,12 @@ Ext.define('foodprint.view.LoginContainer', {
                                                         },
                                                         {
                                                             xtype: 'button',
+                                                            itemId: 'addAccountBtn',
+                                                            margin: 2,
+                                                            text: '註冊'
+                                                        },
+                                                        {
+                                                            xtype: 'button',
                                                             itemId: 'loginBtn',
                                                             margin: 2,
                                                             text: '登入'
