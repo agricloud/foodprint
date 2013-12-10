@@ -17,14 +17,14 @@ beans = {
 			fileLocation = application.config.grails.aws.root
 
 			if(Environment.current == Environment.TEST)
-				blankImg = new File("web-app/imapges/blank.gif");
+				blankImg = new File("web-app/images/blank.gif");
 			else blankImg = application.parentContext.getResource('/images/blank.gif').file
 		}
 	}else {
 		attachmentService(LocalAttachmentService){
 			fileLocation = application.config.grails.upload.location.local.path
 			if(Environment.current == Environment.TEST)
-				blankImg = new File("web-app/imapges/blank.gif");
+				blankImg = new File("web-app/images/blank.gif");
 			else blankImg = application.parentContext.getResource('/images/blank.gif').file
 		}
 	}
