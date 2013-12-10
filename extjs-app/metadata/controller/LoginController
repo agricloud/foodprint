@@ -48,15 +48,15 @@
                     "        click: this.doReset",
                     "    },",
                     "    'form[itemId=loginForm] button[itemId=addAccountBtn]': {",
-                    "        click: this.doCreateAccount",
+                    "        click: this.doCreate",
                     "    },",
-                    "    '#mainVP #show commonshowtoolbar commoncancelbtn': {",
+                    "    '#mainVP #newAccount commonshowtoolbar commoncancelbtn': {",
                     "        click: this.doCancel",
                     "    },",
-                    "    '#mainVP #show commonshowtoolbar commondeletebtn': {",
+                    "    '#mainVP #newAccount commonshowtoolbar commondeletebtn': {",
                     "        click: this.doDelete",
                     "    },",
-                    "    '#mainVP #show commonshowtoolbar commonsavebtn': {",
+                    "    '#mainVP #newAccount commonshowtoolbar commonsavebtn': {",
                     "        click: this.doSave",
                     "    }",
                     "",
@@ -175,7 +175,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doCreateAccount",
+                "fn": "doCreate",
                 "designer|params": [
                     "btn",
                     "e",
@@ -183,11 +183,29 @@
                 ],
                 "implHandler": [
                     "var mainVP = Ext.getCmp('mainVP');",
-                    "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=show]'));",
+                    "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=newAccount]'));",
                     "",
-                    "this.doCreate();",
+                    "this.getMainForm().up('panel[itemId=newAccount]').down('commondeletebtn').setVisible(false);",
                     "",
-                    "this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setVisible(false);"
+                    "console.log('commonController--'+this.domainName+'--doCreate');",
+                    "var that = this",
+                    "var params = {}",
+                    "",
+                    "params[this.masterKey]=this.masterId",
+                    "this.getMainForm().getForm().reset(true);",
+                    "",
+                    "this.getMainForm().getForm().load({",
+                    "    url:this.getRoot()+'/'+this.domainName+'/create',",
+                    "    params:params,",
+                    "    success: function(form, action) {",
+                    "        that.actionName = 'save';",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "    }",
+                    "",
+                    "});"
                 ]
             },
             "designerId": "27a44424-216c-4e6b-9bcd-d039a6d56518"
@@ -226,6 +244,34 @@
                 "selector": "mainviewport #form"
             },
             "designerId": "01d3f3eb-0a2f-4123-9c1c-a174db8cbc33"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSave",
+                "implHandler": [
+                    "console.log('loginController--'+this.domainName+'--doSave');",
+                    "var that = this ;",
+                    "",
+                    "this.submitForm(function(success){",
+                    "    if(success){",
+                    "",
+                    "        if(that.actionName === 'save'){",
+                    "            that.doCancel();",
+                    "            that.actionName = '' ;",
+                    "        }",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "166e8f2d-f679-485a-aa24-57ec610fe867"
         }
     ]
 }

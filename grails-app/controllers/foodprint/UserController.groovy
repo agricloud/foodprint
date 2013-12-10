@@ -6,6 +6,7 @@ class UserController {
 
     static allowedMethods = [create:"POST",update: "POST",  delete: "POST"]
     def domainService
+    def springSecurityService
 
     def index() {
 
@@ -33,13 +34,20 @@ class UserController {
     }
     def create(){
 
-        def user=new User()        
+        def user=new User()
+        user.site =  springSecurityService.currentUser.site
         render (contentType: 'application/json') {
             [success: true,data:user]
         }
     }
  
     def save(){
+
+        if(!params?.site?.id){
+            def site =new Site(name:params.username,title:params.fullName)
+            domainService.save(site)
+            params["site.id"] = site.id
+        }
 
         def userInstance=new User(params)
         
