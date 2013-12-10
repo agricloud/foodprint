@@ -35,7 +35,7 @@ class UserController {
     def create(){
 
         def user=new User()
-        user.site =  springSecurityService.currentUser.site
+        user.site =  springSecurityService?.currentUser?.site
         render (contentType: 'application/json') {
             [success: true,data:user]
         }

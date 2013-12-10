@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.Specification
 
 @TestFor(UserController)
-@Mock([User, 
+@Mock([User, Site,
     DomainService, TestService])
 class UserControllerSpec extends Specification {
 
