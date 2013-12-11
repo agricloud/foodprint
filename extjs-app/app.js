@@ -87,29 +87,19 @@ Ext.application({
         }
 
 
-
-
-        Ext.EventManager.on(window, 'unload', unloadPage);
-
-        //window.onunload = 
-
-        function unloadPage(e) {
-            console.log(1111);
-
-            Ext.Ajax.request({
-                async:false,
-                url: '/j_spring_security_logout',
-                success: function(response){
-                    //var text = response.responseText;
-                },
-                callback:function(options,success,response){
-                    console.log(success);
-                    console.log(22222222222);
-                    //alert('callback');
-                }
-            });
-        }
-
+        // 頁面載入時把之前的使用者登出
+        Ext.Ajax.request({
+            async:false,
+            url: '/j_spring_security_logout',
+            success: function(response){
+                //var text = response.responseText;
+            },
+            callback:function(options,success,response){
+                console.log(success);
+                console.log(22222222222);
+                //alert('callback');
+            }
+        });
 
 
     }
