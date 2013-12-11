@@ -133,7 +133,7 @@ Ext.define('foodprint.controller.LoginController', {
 
     },
 
-    doSave: function() {
+    doSave: function(btn,e,eOpts) {
         console.log('loginController--'+this.domainName+'--doSave');
         var that = this ;
 

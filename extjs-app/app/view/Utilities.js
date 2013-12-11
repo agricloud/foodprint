@@ -140,13 +140,39 @@ Ext.define('foodprint.view.Utilities', {
 
         Ext.MessageBox.confirm('logout', Utilities.getMsg('default.message.logout'), function(btn){
             if(btn === 'yes'){
-                var mainVP = Ext.getCmp('mainVP');
-                mainVP.removeAll();
-                mainVP.add({
-                    xtype: 'logincontainer'
+
+                Ext.Ajax.request({
+                    url: '/j_spring_security_logout',
+                    success: function(response){
+                        //var text = response.responseText;     
+                        var mainVP = Ext.getCmp('mainVP');
+                        mainVP.removeAll();
+                        mainVP.add({
+                            xtype: 'logincontainer'
+                        },
+                        {
+                            xtype: 'panel',
+                            tbar: {
+                                xtype: 'commonshowtoolbar'
+                            },
+                            itemId: 'newAccount',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            items: [{
+                                xtype: 'userform',
+                                flex: 1
+                            }]
+                        });
+                    }
                 });
+
             }
         });
+
+
+
     },
 
     processConfigBundle: function(config, prefix) {
