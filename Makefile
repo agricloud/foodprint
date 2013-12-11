@@ -60,9 +60,12 @@ remote-dbinit:
 mysqldump:
 	mysqldump foodprint -u foodprint -p > foodprint.sql
 
-syncdb:
-	cat foodprint.sql | mysql -h foodprint.cfcjwz6dujwq.us-east-1.rds.amazonaws.com -u foodprint -p foodprint
+rds_syncdb:
 	mysql -u foodprint -p -h foodprint.cfcjwz6dujwq.us-east-1.rds.amazonaws.com foodprint < foodprint.sql
+
+syncdb:
+	mysql -u foodprint -p -h foodprint.ws foodprint < foodprint.sql
+
 
 # services:
 # 	mysqld_safe5 &
