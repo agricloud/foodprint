@@ -36,9 +36,6 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    views: [
-        'UserForm'
-    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -78,10 +75,43 @@ Ext.application({
                 login.down("textfield[name=j_password]").setValue("admin");
 
             }
-
         }
 
         Utilities.readSysConfig(afterConfigRead);
+
+
+        if(Utilities.getSysConfig("environment")== "development"){
+            window.onbeforeunload = function(e) {
+                return Utilities.getMsg('default.message.leave');
+            }
+        }
+
+
+
+
+        Ext.EventManager.on(window, 'unload', unloadPage);
+
+        //window.onunload = 
+
+        function unloadPage(e) {
+            console.log(1111);
+
+            Ext.Ajax.request({
+                async:false,
+                url: '/j_spring_security_logout',
+                success: function(response){
+                    //var text = response.responseText;
+                },
+                callback:function(options,success,response){
+                    console.log(success);
+                    console.log(22222222222);
+                    //alert('callback');
+                }
+            });
+        }
+
+
+
     }
 
 });
