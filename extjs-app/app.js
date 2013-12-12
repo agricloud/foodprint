@@ -68,40 +68,27 @@ Ext.application({
 
 
         var afterConfigRead = function(){
-            if(Utilities.getSysConfig("environment")== "development"){
 
-                var login = Ext.getCmp("login");
-                login.down("textfield[name=j_username]").setValue("admin");
-                login.down("textfield[name=j_password]").setValue("admin");
+            //未登出自動轉入系統畫面
+            if(Utilities.getSysConfig("username")){
+                //LoginController loginSuccess
+                var mainVP = Ext.getCmp('mainVP');
+                mainVP.removeAll();
+                mainVP.add({xtype: 'maincontainer'});
 
+                Ext.get('username').update(Utilities.getSysConfig("username"), false);
             }
+            else{
+                if(Utilities.getSysConfig("environment")== "development"){
+                    var login = Ext.getCmp("login");
+                    login.down("textfield[name=j_username]").setValue("admin");
+                    login.down("textfield[name=j_password]").setValue("admin");
+                }   
+            }
+
         }
 
         Utilities.readSysConfig(afterConfigRead);
-
-
-        if(Utilities.getSysConfig("environment")== "development"){
-            window.onbeforeunload = function(e) {
-                return Utilities.getMsg('default.message.leave');
-            }
-        }
-
-
-        // 頁面載入時把之前的使用者登出
-        Ext.Ajax.request({
-            async:false,
-            url: '/j_spring_security_logout',
-            success: function(response){
-                //var text = response.responseText;
-            },
-            callback:function(options,success,response){
-                console.log(success);
-                console.log(22222222222);
-                //alert('callback');
-            }
-        });
-
-
     }
 
 });
