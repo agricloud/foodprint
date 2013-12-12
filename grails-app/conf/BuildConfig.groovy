@@ -83,7 +83,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.1'
 
         // plugins needed at runtime but not for compilation
-        runtime ':hibernate:3.6.10.4'
+        runtime ':hibernate:3.6.10.6'
         // runtime ':hibernate4:4.1.11.4'
         runtime ":database-migration:1.3.5"
         runtime ":jquery:1.10.2"
