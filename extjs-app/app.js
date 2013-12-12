@@ -36,9 +36,6 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    views: [
-        'UserForm'
-    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -71,12 +68,22 @@ Ext.application({
 
 
         var afterConfigRead = function(){
-            if(Utilities.getSysConfig("environment")== "development"){
 
-                var login = Ext.getCmp("login");
-                login.down("textfield[name=j_username]").setValue("admin");
-                login.down("textfield[name=j_password]").setValue("admin");
+            //未登出自動轉入系統畫面
+            if(Utilities.getSysConfig("username")){
+                //LoginController loginSuccess
+                var mainVP = Ext.getCmp('mainVP');
+                mainVP.removeAll();
+                mainVP.add({xtype: 'maincontainer'});
 
+                Ext.get('username').update(Utilities.getSysConfig("username"), false);
+            }
+            else{
+                if(Utilities.getSysConfig("environment")== "development"){
+                    var login = Ext.getCmp("login");
+                    login.down("textfield[name=j_username]").setValue("admin");
+                    login.down("textfield[name=j_password]").setValue("admin");
+                }   
             }
 
         }
