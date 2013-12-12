@@ -246,5 +246,10 @@ class ReportViewerController {
         
     }
 
+    def questionnaire = {
+        redirect(url: "https://docs.google.com/forms/d/1nbMqNMfWWHh6Y2unpzDz5biqqLtRMGFgg9mKuCBwNCA/viewform")
+        
+    }
+
 
 }
