@@ -65,7 +65,7 @@ class ConvertService {
 	    result.id = batchSource.id
 
 	    if(batchSource.batch){
-		    // result.batch = batchSource.batch
+		    result.batch = batchSource.batch
 		    result["batch.id"]= batchSource.batch.id
 		    result["batch.name"] =batchSource.batch.name
 		    result["batch.dueDate"] = batchSource.batch.dueDate
@@ -83,7 +83,6 @@ class ConvertService {
 		        result["batch.item.description"] = batchSource.batch.item.description
 		    }
 	        if(batchSource.batch.supplier){
-	        	result.batch.supplier = batchSource.batch.supplier
 	            result["batch.supplier.id"] = batchSource.batch.supplier.id
 	            result["batch.batch.supplier.name"] = batchSource.batch.supplier.name
 	            result["batch.supplier.title"] = batchSource.batch.supplier.title
@@ -112,7 +111,6 @@ class ConvertService {
 		        result["childBatch.item.description"] = batchSource.childBatch.item.description
 		    }
 	        if(batchSource.childBatch.supplier){
-	        	result.childBatch.supplier = batchSource.childBatch.supplier
 	            result["childBatch.supplier.id"] = batchSource.childBatch.supplier.id
 	            result["childBatch.supplier.name"] = batchSource.childBatch.supplier.name
 	            result["childBatch.supplier.title"] = batchSource.childBatch.supplier.title
