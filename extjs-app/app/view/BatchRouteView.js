@@ -108,6 +108,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    disabled: true,
                                     fieldLabel: 'Operation_title',
                                     name: 'operation.title',
                                     allowBlank: false
@@ -117,6 +118,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    disabled: true,
                                     fieldLabel: 'Workstation_title',
                                     name: 'workstation.title'
                                 },
@@ -125,6 +127,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    disabled: true,
                                     fieldLabel: 'Supplier_title',
                                     name: 'supplier.title'
                                 }

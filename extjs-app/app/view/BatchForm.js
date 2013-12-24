@@ -52,16 +52,22 @@ Ext.define('foodprint.view.BatchForm', {
                     xtype: 'commonitemcombo'
                 },
                 {
-                    xtype: 'commonsuppliercombo'
+                    xtype: 'textfield',
+                    disabled: true,
+                    fieldLabel: 'item.title',
+                    name: 'item.title'
                 },
                 {
-                    xtype: 'commoncountrycombo'
+                    xtype: 'commonsuppliercombo'
                 },
                 {
                     xtype: 'textfield',
                     disabled: true,
                     fieldLabel: 'supplier.title',
                     name: 'supplier.title'
+                },
+                {
+                    xtype: 'commoncountrycombo'
                 },
                 {
                     xtype: 'datefield',

@@ -86,6 +86,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    disabled: true,
                                     dataIndex: 'operation.title',
                                     text: 'Operation_title',
                                     flex: 1
@@ -105,6 +106,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    disabled: true,
                                     dataIndex: 'workstation.title',
                                     text: 'Workstation_title',
                                     flex: 1
@@ -161,6 +163,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 {
                                     xtype: 'textfield',
                                     anchor: '100%',
+                                    disabled: true,
                                     fieldLabel: 'operation_title',
                                     name: 'operation.title'
                                 },
@@ -171,6 +174,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 {
                                     xtype: 'textfield',
                                     anchor: '100%',
+                                    disabled: true,
                                     fieldLabel: 'workstation_title',
                                     name: 'workstation.title'
                                 }
