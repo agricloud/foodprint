@@ -231,11 +231,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|snapToGrid": 5,
                                         "autoEl": null,
                                         "baseCls": "bottom-bar",
                                         "cls": null,
                                         "itemId": "bottom-bar",
-                                        "layout": "column"
+                                        "layout": "absolute"
                                     },
                                     "designerId": "10e15234-9f6b-417d-bf72-1f32a4ad45e9",
                                     "cn": [
@@ -282,6 +283,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "layout|x": 150,
+                                                "layout|y": 10,
                                                 "baseCls": "buttons",
                                                 "cls": null,
                                                 "itemId": "buttons"
@@ -339,6 +342,43 @@
                                                         "text": "登入"
                                                     },
                                                     "designerId": "183bdfd6-ffaa-45b6-9de7-3131906f6447"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|x": 225,
+                                                "layout|y": -40,
+                                                "baseCls": "forgot",
+                                                "scale": null,
+                                                "text": "註冊說明"
+                                            },
+                                            "designerId": "04982be2-9229-48f8-b08a-b4dc2b1e1381",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "designer|params": [
+                                                            "button",
+                                                            "event"
+                                                        ],
+                                                        "implHandler": [
+                                                            "window.open(\"https://drive.google.com/file/d/0B_Z9et2ajnisMktjaG0zN21lNEU/edit?usp=sharing\");"
+                                                        ]
+                                                    },
+                                                    "designerId": "80173f2f-3ad9-4400-8cd2-953541bbbf51"
                                                 }
                                             ]
                                         }

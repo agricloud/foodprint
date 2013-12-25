@@ -119,7 +119,7 @@ Ext.define('foodprint.view.LoginContainer', {
                                             baseCls: 'bottom-bar',
                                             itemId: 'bottom-bar',
                                             layout: {
-                                                type: 'column'
+                                                type: 'absolute'
                                             },
                                             items: [
                                                 {
@@ -132,6 +132,8 @@ Ext.define('foodprint.view.LoginContainer', {
                                                 },
                                                 {
                                                     xtype: 'container',
+                                                    x: 150,
+                                                    y: 10,
                                                     baseCls: 'buttons',
                                                     itemId: 'buttons',
                                                     items: [
@@ -154,6 +156,16 @@ Ext.define('foodprint.view.LoginContainer', {
                                                             text: '登入'
                                                         }
                                                     ]
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, event) {
+                                                        window.open("https://drive.google.com/file/d/0B_Z9et2ajnisMktjaG0zN21lNEU/edit?usp=sharing");
+                                                    },
+                                                    x: 225,
+                                                    y: -40,
+                                                    baseCls: 'forgot',
+                                                    text: '註冊說明'
                                                 }
                                             ]
                                         }

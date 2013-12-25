@@ -128,7 +128,8 @@
                 "fn": "maintainBtn",
                 "designer|params": [
                     "xtypeStr",
-                    "tabName"
+                    "tabName",
+                    "docLink"
                 ],
                 "implHandler": [
                     "//console.log(this.getMainContainer());",
@@ -140,7 +141,7 @@
                     "",
                     "mainPanel.add({ ",
                     "    xtype: xtypeStr,",
-                    "    title:tabName",
+                    "    title:tabName +'　'+'<a href=\"'+docLink+'\" target=\"_blank\" style=\"color:grey;text-decoration:underline;\">說明</a>'",
                     "});",
                     ""
                 ]
@@ -159,7 +160,8 @@
                 "implHandler": [
                     "var xtypeStr = 'itemview';",
                     "var tabName = Utilities.getMsg('mainContainer.itemMaintain.label');//'品項維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisY1BuTHZEOWswZE0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "408d9151-e3f5-4354-9f84-8a828e73f5a8"
@@ -176,7 +178,8 @@
                 "implHandler": [
                     "var xtypeStr = 'batchview';",
                     "var tabName = Utilities.getMsg('mainContainer.batchMaintain.label');//'批號維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "cfe21988-5b6b-453d-b778-1ce6c24032b6"
@@ -193,7 +196,8 @@
                 "implHandler": [
                     "var xtypeStr = 'operationview';",
                     "var tabName = Utilities.getMsg('mainContainer.operationMaintain.label');//'製程維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisNDVROVpIcDMzNTQ/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "9964a422-6ec3-4c9d-99e6-13ab5feeaea7"
@@ -210,7 +214,8 @@
                 "implHandler": [
                     "var xtypeStr = 'workstationview';",
                     "var tabName = Utilities.getMsg('mainContainer.workstationMaintain.label');//'工作站維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisS0JyNjByV0ZfblU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "a12b22f4-a32b-483c-a471-64f360912c61"
@@ -227,7 +232,8 @@
                 "implHandler": [
                     "var xtypeStr = 'reportview';",
                     "var tabName = Utilities.getMsg('mainContainer.reportMaintain.label');//'履歷維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQkotRTdfRFNPVk0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "e7f9c793-6be5-4b2d-95a7-b68fde658a77"
@@ -244,7 +250,8 @@
                 "implHandler": [
                     "var xtypeStr = 'paramview';",
                     "var tabName = Utilities.getMsg('mainContainer.paramMaintain.label');//'參數設定';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisc3lCM0g0Y0hRWFE/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "6ec507ae-4915-4bab-9c20-ff561914b140"
@@ -261,7 +268,8 @@
                 "implHandler": [
                     "var xtypeStr = 'batchreportdetview';",
                     "var tabName = Utilities.getMsg('mainContainer.batchParamsMaintain.label');//'批號履歷維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisZDlmbmpyR0NaYmM/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "07188dc5-2164-4dcb-bb32-94a25de15900"
@@ -278,7 +286,8 @@
                 "implHandler": [
                     "var xtypeStr = 'userview';",
                     "var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
@@ -295,7 +304,8 @@
                 "implHandler": [
                     "var xtypeStr = 'forwardtracetreeview';",
                     "var tabName = Utilities.getMsg('mainContainer.forwardTrace.label');//'順向追溯';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisU1podnpJdzctY0E/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "4d7b83d7-ac96-43b7-b383-dd768cab69e2"
@@ -312,7 +322,8 @@
                 "implHandler": [
                     "var xtypeStr = 'backwardtracetreeview';",
                     "var tabName = Utilities.getMsg('mainContainer.backwardTrace.label');//'逆向追溯';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMWZrN0xKY1pmSGc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "37094ab8-b867-432a-9c4b-692e2cb2822b"
@@ -329,7 +340,8 @@
                 "implHandler": [
                     "var xtypeStr = 'customerview';",
                     "var tabName = Utilities.getMsg('mainContainer.customerMaintain.label');//'客戶維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisbG83RFV0eVcyc0U/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "bae50c90-0511-43d0-9a61-d9837619683e"
@@ -346,7 +358,8 @@
                 "implHandler": [
                     "var xtypeStr = 'itemrouteview';",
                     "var tabName = Utilities.getMsg('mainContainer.itemRouteMaintain.label');//'品項途程維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisWklaSEJheExCSVU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "82f04561-5a50-4b33-afcc-ad68493d6b89"
@@ -363,7 +376,8 @@
                 "implHandler": [
                     "var xtypeStr = 'batchrouteview';",
                     "var tabName = Utilities.getMsg('mainContainer.batchRouteMaintain.label');//'批號途程維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMVcteWhWYVo5bU0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "c0b00d76-68de-456b-be03-9f03ffae8117"
@@ -380,7 +394,8 @@
                 "implHandler": [
                     "var xtypeStr = 'reportparamsview';",
                     "var tabName = Utilities.getMsg('mainContainer.reportParamsMaintain.label');//'履歷參數維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisSS12Ym5TT2VPSlk/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "990d423f-3f33-46ed-834c-4a2cb63925f3"
@@ -397,7 +412,8 @@
                 "implHandler": [
                     "var xtypeStr = 'erpmanufactureorderview';",
                     "var tabName = Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');//'製令維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "15ec667a-e849-4108-b974-897335baf79d"
@@ -414,7 +430,8 @@
                 "implHandler": [
                     "var xtypeStr = 'supplierview';",
                     "var tabName = Utilities.getMsg('mainContainer.supplierMaintain.label');//'供應商維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajniseF9mX0RYN19mR1U/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "1aa90db2-9da7-4a09-9e1a-5ac1be5afcb4"
@@ -431,7 +448,8 @@
                 "implHandler": [
                     "var xtypeStr = 'batchsourceview';",
                     "var tabName = Utilities.getMsg('mainContainer.batchSourceMaintain.label');//'批號途程維護';",
-                    "this.maintainBtn(xtypeStr,tabName);"
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMlZpQ1F1U3ZzZUU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
                 ]
             },
             "designerId": "59e72445-55d6-494b-8095-8f3f7431f057"
