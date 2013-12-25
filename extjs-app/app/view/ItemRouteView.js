@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ItemRouteView', {
         'foodprint.view.ItemGrid',
         'foodprint.view.CommonOperationCombo',
         'foodprint.view.CommonWorkstationCombo',
+        'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -86,7 +87,6 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    disabled: true,
                                     dataIndex: 'operation.title',
                                     text: 'Operation_title',
                                     flex: 1
@@ -106,9 +106,27 @@ Ext.define('foodprint.view.ItemRouteView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    disabled: true,
                                     dataIndex: 'workstation.title',
                                     text: 'Workstation_title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'supplier.id',
+                                    text: 'Supplier_id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'supplier.name',
+                                    text: 'Supplier_name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'supplier.title',
+                                    text: 'Supplier_title',
                                     flex: 1
                                 }
                             ],
@@ -177,6 +195,17 @@ Ext.define('foodprint.view.ItemRouteView', {
                                     disabled: true,
                                     fieldLabel: 'workstation_title',
                                     name: 'workstation.title'
+                                },
+                                {
+                                    xtype: 'commonsuppliercombo',
+                                    anchor: '100%'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    anchor: '100%',
+                                    disabled: true,
+                                    fieldLabel: 'Supplier_title',
+                                    name: 'supplier.title'
                                 }
                             ]
                         })

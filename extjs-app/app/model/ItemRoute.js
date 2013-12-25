@@ -52,6 +52,15 @@ Ext.define('foodprint.model.ItemRoute', {
         },
         {
             name: 'workstation.title'
+        },
+        {
+            name: 'supplier.id'
+        },
+        {
+            name: 'supplier.name'
+        },
+        {
+            name: 'supplier.title'
         }
     ],
 

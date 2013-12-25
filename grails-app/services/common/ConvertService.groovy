@@ -159,6 +159,12 @@ class ConvertService {
             result["workstation.name"] = itemRoute.workstation.name
             result["workstation.title"] = itemRoute.workstation.title
         }
+        if(itemRoute.supplier){
+        	result.supplier=itemRoute.supplier
+            result["supplier.id"] = itemRoute.supplier.id
+            result["supplier.name"] = itemRoute.supplier.name
+            result["supplier.title"] = itemRoute.supplier.title
+        }
 
         result
    	}
