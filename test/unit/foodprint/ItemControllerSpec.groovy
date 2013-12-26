@@ -17,7 +17,7 @@ class ItemControllerSpec extends Specification {
 
     void "測試 index action，並且 response 為 json 格式"() {
         setup: "建立 Item 測試資料"
-            new Item(name: 'item').save(failOnError: true)
+            new Item(name: 'item', title: 'item').save(failOnError: true)
 
         when: "執行 ItemController 提供的 index action"
             controller.index()
@@ -36,7 +36,7 @@ class ItemControllerSpec extends Specification {
     void "測試 show action，並且 response 為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item').save(failOnError: true)
+            def item = new Item(name: 'item', title: 'item').save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = item.id
@@ -74,6 +74,7 @@ class ItemControllerSpec extends Specification {
 
         setup: "前端傳入資料"
             params["name"] = 'item'
+            params["title"] = 'item'
 
         when: "執行 save action"
             controller.save()
@@ -92,7 +93,7 @@ class ItemControllerSpec extends Specification {
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item').save(failOnError: true)
+            def item = new Item(name: 'item', title: 'item').save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
             params.id = item.id
@@ -117,7 +118,7 @@ class ItemControllerSpec extends Specification {
     void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item').save(failOnError: true)
+            def item = new Item(name: 'item', title: 'item').save(failOnError: true)
         
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = item.id

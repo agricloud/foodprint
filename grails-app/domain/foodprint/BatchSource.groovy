@@ -3,8 +3,8 @@ package foodprint
 class BatchSource {
 
 	Site site
-	String editor = ""
-	String creator = ""
+	String editor
+	String creator
 	Date dateCreated
 	Date lastUpdated
 
@@ -13,6 +13,8 @@ class BatchSource {
 
     static constraints = {
 		site nullable:true
+		editor nullable:true
+		creator nullable:true
     	childBatch unique: 'batch' 
     }
 }

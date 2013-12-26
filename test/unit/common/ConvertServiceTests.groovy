@@ -18,7 +18,7 @@ class ConvertServiceTests {
 
 	void testItemJsonConvert() {
 
-    	def item = new Item(name: 'item1').save()
+    	def item = new Item(name: 'item1', title: 'item1').save()
 
 		JSON.registerObjectMarshaller(Item) {
 		    service.itemParseJson(it)
@@ -29,7 +29,7 @@ class ConvertServiceTests {
     void testBatchJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
-    	def item = new Item(name: 'item1').save()
+    	def item = new Item(name: 'item1', title: 'item1').save()
     	def batch = new Batch(name:'batch1', item: item, expectQty:10).save()
 
 		JSON.registerObjectMarshaller(Batch) {
@@ -77,7 +77,7 @@ class ConvertServiceTests {
     void testBatchSourceJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
-    	def item = new Item(name: 'item1').save()
+    	def item = new Item(name: 'item1', title: 'item1').save()
     	def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
     	def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 
@@ -100,9 +100,13 @@ class ConvertServiceTests {
 
 
     void testItemRouteJsonConvert() {
-    	def testService = new TestService()
-    	testService.createStdTestData()
-    	testService.createExtraRouteData()
+    	def item = new Item(name:"item1",title:"華珍玉米",spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種").save(failOnError: true)
+
+        def workstation = new Workstation(name:"workstation1",title:"檢驗站01").save(failOnError: true)
+        def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
+
+        def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation,workstation:workstation)
+        item.addToItemRoutes(itemRoute).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(ItemRoute) {
 		    service.itemRouteParseJson(it)
@@ -117,7 +121,7 @@ class ConvertServiceTests {
 		    service.operationParseJson(it)
 		}
 
-		assert ItemRoute.list() as JSON
+		assert itemRoute as JSON
     }
 
     void testUserJsonConvert() {

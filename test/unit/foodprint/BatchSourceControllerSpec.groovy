@@ -17,7 +17,7 @@ class BatchSourceControllerSpec extends Specification {
 
     void "測試 index action，並且 response 為 json 格式"() {
         setup: "建立 BatchSource 測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 
@@ -40,7 +40,7 @@ class BatchSourceControllerSpec extends Specification {
     void "測試 show action，並且 response 為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 
@@ -66,7 +66,7 @@ class BatchSourceControllerSpec extends Specification {
     void "測試 create action，並且回傳為 json 格式(尚未儲存)"() {
 
         setup:"建立測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
         
         and: "前端傳入資料，定義 batch.id 為測試資料的 batch.id"
@@ -88,7 +88,7 @@ class BatchSourceControllerSpec extends Specification {
     void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
         setup:"建立測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 
@@ -113,7 +113,7 @@ class BatchSourceControllerSpec extends Specification {
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
             def batch3 = new Batch(name:'batch3', item: item, expectQty:10).save()
@@ -143,7 +143,7 @@ class BatchSourceControllerSpec extends Specification {
     void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name: 'item1').save()
+            def item = new Item(name: 'item1', title: 'item1').save()
             def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
             def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
 

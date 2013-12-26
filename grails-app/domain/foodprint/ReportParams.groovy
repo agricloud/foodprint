@@ -7,8 +7,8 @@ package foodprint
 class ReportParams {
 
     Site site
-    String editor = ""
-    String creator = ""
+    String editor
+    String creator
     Date dateCreated
     Date lastUpdated
 
@@ -22,11 +22,13 @@ class ReportParams {
 
     static constraints = {
         site nullable:true
+        editor nullable:true
+        creator nullable:true
+        param unique:'report'
     	workstation nullable:true
         supplier nullable:true
     	item nullable:true
     	operation nullable:true
-    	param unique:'report'
     	batch nullable:true
     }
 }

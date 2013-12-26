@@ -8,8 +8,8 @@ public enum BatchType {
 class Batch  {
 
 	Site site
-	String editor = ""
-	String creator = ""
+	String editor
+	String creator
 	Date dateCreated
 	Date lastUpdated
 
@@ -30,21 +30,25 @@ class Batch  {
     BatchType batchType = foodprint.BatchType.PRODUCT
    	Supplier supplier
 	Country country = foodprint.Country.TAIWAN
-	String remark = ""
+	String remark
 
 
 
 	static constraints = {
 		site nullable:true
+		editor nullable:true
+		creator nullable:true
 		name unique: true, blank: false
-		dueDate nullable: true
 		expectQty min: 0L
+		dueDate nullable: true
 		manufactureDate nullable: true
 		expirationDate nullable: true
-		supplier nullable: true
+		supplier nullable: true 
+		remark nullable: true
+		uuid nullable: true
 	}
 
-	String uuid = ""
+	String uuid
 	
     def beforeInsert() {
         // optionally, replace the dashes by adding .replaceAll('-','')

@@ -3,8 +3,8 @@ package foodprint
 class ItemRoute {
 
     Site site
-    String editor = ""
-    String creator = ""
+    String editor
+    String creator
     Date dateCreated
     Date lastUpdated
 	
@@ -16,6 +16,8 @@ class ItemRoute {
 
     static constraints = {
         site nullable:true
+        editor nullable:true
+        creator nullable:true
     	sequence unique:'item'
         workstation nullable:true
         supplier  nullable:true

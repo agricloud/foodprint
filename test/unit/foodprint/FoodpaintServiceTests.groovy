@@ -48,7 +48,7 @@ class FoodpaintServiceTests {
         assert Operation.count() == 1
     }
     void testBatchImport() {
-        new Item(name: "K640F01").save(failOnError: true, flush:true)
+        new Item(name: "K640F01", title: 'item1').save(failOnError: true, flush:true)
 
 
         def batchJson = '''

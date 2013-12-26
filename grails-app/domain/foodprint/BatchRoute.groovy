@@ -3,8 +3,8 @@ package foodprint
 class BatchRoute {
 
     Site site
-    String editor = ""
-    String creator = ""
+    String editor
+    String creator
     Date dateCreated
     Date lastUpdated
 
@@ -21,6 +21,8 @@ class BatchRoute {
 
     static constraints = {
         site nullable:true
+        editor nullable:true
+        creator nullable:true
     	sequence unique:'batch'
     	startDate nullable:true
     	endDate nullable:true

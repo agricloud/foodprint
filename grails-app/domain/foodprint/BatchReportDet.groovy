@@ -3,8 +3,8 @@ package foodprint
 class BatchReportDet {
 
 	Site site
-	String editor = ""
-	String creator = ""
+	String editor
+	String creator
 	Date dateCreated
 	Date lastUpdated
 
@@ -16,6 +16,8 @@ class BatchReportDet {
     static constraints = {
     	reportParams unique: 'batch'
     	site nullable:true
+    	editor nullable:true
+		creator nullable:true
     	value nullable:true
     	batchRoute nullable:true
     }

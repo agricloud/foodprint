@@ -7,20 +7,24 @@ package foodprint
 class Report {
 
 	Site site
-	String editor = ""
-	String creator = ""
+	String editor
+	String creator
 	Date dateCreated
 	Date lastUpdated
 
 	String name
 	String title
-	String description = ""
+	String description
 	Date effectStartDate
 	Date effectEndDate
 	ReportType reportType = foodprint.ReportType.OTHER
 
     static constraints = {
 		site nullable:true
+		editor nullable:true
+		creator nullable:true
+		title nullable:true
+		description nullable:true
     	effectStartDate nullable:true
     	effectEndDate nullable:true
     }

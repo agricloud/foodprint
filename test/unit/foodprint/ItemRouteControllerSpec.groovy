@@ -17,7 +17,7 @@ class ItemRouteControllerSpec extends Specification {
 
     void "測試 index action，並且 response 為 json 格式"() {
         setup: "建立 ItemRoute 測試資料"
-            def item = new Item(name:"item1").save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def itemRoute = new ItemRoute(item:item,sequence:1,operation:operation)
             item.addToItemRoutes(itemRoute).save(failOnError: true)
@@ -41,7 +41,7 @@ class ItemRouteControllerSpec extends Specification {
     void "測試 show action，並且 response 為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name:"item1").save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
 
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
@@ -67,7 +67,7 @@ class ItemRouteControllerSpec extends Specification {
     void "測試 create action，並且回傳為 json 格式(尚未儲存)"() {
 
         setup:"建立測試資料"
-            def item = new Item(name:"item1").save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
 
         and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
             params["item.id"]=item.id
@@ -88,7 +88,7 @@ class ItemRouteControllerSpec extends Specification {
     void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
         setup:"建立測試資料"
-            def item = new Item(name:"item1").save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
         and: "前端傳入資料"
@@ -113,8 +113,8 @@ class ItemRouteControllerSpec extends Specification {
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item1 = new Item(name:"item1").save(failOnError: true)
-            def item2 = new Item(name:"item2").save(failOnError: true)
+            def item1 = new Item(name:"item1", title: 'item1').save(failOnError: true)
+            def item2 = new Item(name:"item2", title: 'item2').save(failOnError: true)
 
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
