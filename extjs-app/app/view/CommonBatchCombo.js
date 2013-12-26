@@ -20,7 +20,6 @@ Ext.define('foodprint.view.CommonBatchCombo', {
     itemId: 'commonBatchCombo',
     fieldLabel: 'Batch.name',
     name: 'batch.id',
-    allowBlank: false,
     selectOnFocus: true,
     displayField: 'name',
     forceSelection: true,

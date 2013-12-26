@@ -17,7 +17,6 @@ class Operation {
 		editor nullable:true
 		creator nullable:true
     	name unique:true, blank: false
-    	title nullable:true
     	description nullable:true
     }
 }

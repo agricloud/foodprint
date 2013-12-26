@@ -20,7 +20,6 @@ Ext.define('foodprint.view.CommonOperationCombo', {
     itemId: 'commonOperationCombo',
     fieldLabel: 'Operation.name',
     name: 'operation.id',
-    allowBlank: false,
     displayField: 'name',
     forceSelection: true,
     minChars: 0,

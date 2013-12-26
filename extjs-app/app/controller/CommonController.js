@@ -167,7 +167,6 @@ Ext.define('foodprint.controller.CommonController', {
 
             },
             failure: function(form,action) {
-                console.log(action);
                 var msg ="";
                 for(var key in action.result.errors){
                     msg+=action.result.errors[key];
