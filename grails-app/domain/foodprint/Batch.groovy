@@ -30,6 +30,8 @@ class Batch  {
     BatchType batchType = foodprint.BatchType.PRODUCT
    	Supplier supplier
 	Country country = foodprint.Country.TAIWAN
+
+
 	String remark
 
 
@@ -55,7 +57,7 @@ class Batch  {
         uuid = UUID.randomUUID().toString()
     }
 	public String toString(){
-    	"批號編號：${name}, 品項名稱：${item.title}"
+    	"批號編號：${name}"
     }
 
     static mapping = {

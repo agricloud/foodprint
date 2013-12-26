@@ -33,6 +33,6 @@ class Item {
 	}
 
 	public String toString(){
-    	"品項編號：${name},品項名稱：${title}"
+    	"品項編號：${name}, 品項名稱：${title}"
     }
 }
