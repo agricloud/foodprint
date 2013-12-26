@@ -20,7 +20,6 @@ Ext.define('foodprint.view.CommonItemCombo', {
     itemId: 'commonItemCombo',
     fieldLabel: 'Item.name',
     name: 'item.id',
-    allowBlank: false,
     displayField: 'name',
     forceSelection: true,
     minChars: 0,
