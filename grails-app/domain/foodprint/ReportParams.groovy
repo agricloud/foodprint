@@ -28,7 +28,6 @@ class ReportParams {
     	workstation nullable:true
         supplier nullable:true
     	item nullable:true
-    	operation nullable:true
     	batch nullable:true
     }
 }

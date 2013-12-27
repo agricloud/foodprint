@@ -25,7 +25,6 @@ class Param {
         site nullable:true
         editor nullable:true
         creator nullable:true
-    	paramType nullable:true
     	name unique:true, blank: false
         title nullable:true
         defaultValue nullable:true

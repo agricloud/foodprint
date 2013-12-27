@@ -23,7 +23,6 @@ class Report {
 		site nullable:true
 		editor nullable:true
 		creator nullable:true
-		title nullable:true
 		description nullable:true
     	effectStartDate nullable:true
     	effectEndDate nullable:true
