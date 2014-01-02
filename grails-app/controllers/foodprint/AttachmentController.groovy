@@ -14,10 +14,11 @@ class AttachmentController {
     }
 
     def show= { Long id ->
-
+        
         def result = attachmentService.show(params)
 
-        response.contentType = "image/jpeg"
+        if(params.fileType == "jpg")
+            response.contentType = "image/jpeg"
         
         response.outputStream << result
         // response.outputStream.flush()

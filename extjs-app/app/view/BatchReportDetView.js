@@ -110,6 +110,7 @@ Ext.define('foodprint.view.BatchReportDetView', {
                                 {
                                     xtype: 'commonimageuploader',
                                     domainName: 'batchRoute',
+                                    itemId: 'mainImageUploader',
                                     width: 300,
                                     autoScroll: true,
                                     flex: 1,
