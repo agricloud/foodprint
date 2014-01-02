@@ -184,8 +184,6 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                             domainName: 'batchReportDet',
                                             domainId: store.getAt(i).data['id'],
                                             itemId: 'fileUploader'+store.getAt(i).data['id'],
-                                            width:200,
-                                            //height:150,
                                             listeners: {
                                                 render: {
                                                     fn: function(component, eOpts){

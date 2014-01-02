@@ -8,15 +8,16 @@
     "userConfig": {
         "domainName": "none",
         "domainId": -1,
-        "container|align": "stretch",
+        "container|align": "middle",
         "container|padding": null,
         "height": null,
-        "maxHeight": 200,
+        "maxHeight": 40,
+        "maxWidth": 300,
         "minHeight": null,
         "width": null,
         "designer|userClassName": "CommonFileUploader",
         "designer|userAlias": "commonfileuploader",
-        "layout": "vbox",
+        "layout": "hbox",
         "bodyPadding": 10,
         "title": null,
         "standardSubmit": null
@@ -41,6 +42,26 @@
     ],
     "cn": [
         {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": null,
+                "dock": null,
+                "itemId": "mainDisplay",
+                "style": null,
+                "fieldLabel": null,
+                "value": [
+                    "Display Field"
+                ],
+                "fieldStyle": null
+            },
+            "designerId": "0e9fcf7b-905d-429a-b36a-121ca066aa99"
+        },
+        {
             "type": "Ext.toolbar.Toolbar",
             "reference": {
                 "name": "dockedItems",
@@ -48,10 +69,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": 1,
-                "dock": "top",
+                "layout|flex": null,
+                "dock": "left",
                 "container|align": null,
-                "container|pack": "center"
+                "container|pack": "center",
+                "width": null
             },
             "designerId": "fdb3affe-69c6-4e4e-b886-0d9b602f78a0",
             "cn": [
@@ -141,24 +163,6 @@
             ]
         },
         {
-            "type": "Ext.form.field.Display",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "layout|flex": 1,
-                "dock": null,
-                "itemId": "mainDisplay",
-                "fieldLabel": null,
-                "value": [
-                    "Display Field"
-                ]
-            },
-            "designerId": "0e9fcf7b-905d-429a-b36a-121ca066aa99"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -171,7 +175,7 @@
                     "",
                     "//console.log(\"do show file \"+'/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName+'&fileType=file');",
                     "this.getComponent(\"mainDisplay\").setValue(",
-                    "\t'<a href=\"/attachment/show/'+this.domainId+'?domainName='+this.domainName+'&fileType=file'+'\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">檢視檔案</a>');",
+                    "'<a href=\"/attachment/show/'+this.domainId+'?domainName='+this.domainName+'&fileType=file'+'\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">檢視檔案</a>');",
                     ""
                 ]
             },
@@ -231,7 +235,7 @@
                     "    method : 'post',  ",
                     "    params : {  ",
                     "        domainName : this.domainName,",
-                    "    \tfileType: 'file'",
+                    "        fileType: 'file'",
                     "    },  ",
                     "    success : function(response, options) {  ",
                     "        that.emptyFile();",

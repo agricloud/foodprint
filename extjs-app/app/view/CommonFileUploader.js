@@ -19,10 +19,11 @@ Ext.define('foodprint.view.CommonFileUploader', {
 
     domainName: 'none',
     domainId: -1,
-    maxHeight: 200,
+    maxHeight: 40,
+    maxWidth: 300,
     layout: {
-        align: 'stretch',
-        type: 'vbox'
+        align: 'middle',
+        type: 'hbox'
     },
     bodyPadding: 10,
 
@@ -30,11 +31,17 @@ Ext.define('foodprint.view.CommonFileUploader', {
         var me = this;
 
         Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'displayfield',
+                    itemId: 'mainDisplay',
+                    value: 'Display Field'
+                }
+            ],
             dockedItems: [
                 {
                     xtype: 'toolbar',
-                    flex: 1,
-                    dock: 'top',
+                    dock: 'left',
                     layout: {
                         pack: 'center',
                         type: 'hbox'
@@ -60,14 +67,6 @@ Ext.define('foodprint.view.CommonFileUploader', {
                             text: '刪除檔案'
                         }
                     ]
-                }
-            ],
-            items: [
-                {
-                    xtype: 'displayfield',
-                    flex: 1,
-                    itemId: 'mainDisplay',
-                    value: 'Display Field'
                 }
             ]
         });
