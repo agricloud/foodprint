@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.Specification
 
 @TestFor(ReportParamsController)
-@Mock([ReportParams, Param, Report,
+@Mock([ReportParams, Param, Report, Operation,
     DomainService, TestService])
 class ReportParamsControllerSpec extends Specification {
 
@@ -17,9 +17,10 @@ class ReportParamsControllerSpec extends Specification {
 
     void "測試 index action，並且 response 為 json 格式"() {
         setup: "建立 ReportParams 測試資料"
+            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def param = new Param(name: 'param',title:'param').save(failOnError: true)
             def report = new Report(name: 'report', title:'report').save(failOnError: true)
-            new ReportParams(report:report, param:param).save(failOnError: true)
+            new ReportParams(report:report, param:param, operation:operation).save(failOnError: true)
 
         and: "前端傳入資料，定義 report.id 為測試資料的 report.id"
             params["report.id"] = report.id
@@ -41,9 +42,10 @@ class ReportParamsControllerSpec extends Specification {
     void "測試 show action，並且 response 為 json 格式"() {
 
         setup: "建立測試資料"
+            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def param = new Param(name: 'param',title:'param').save(failOnError: true)
             def report = new Report(name: 'report', title:'report').save(failOnError: true)
-            def reportParams = new ReportParams(report:report, param:param).save(failOnError: true)
+            def reportParams = new ReportParams(report:report, param:param, operation:operation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = reportParams.id
@@ -86,12 +88,14 @@ class ReportParamsControllerSpec extends Specification {
     void "測試 save action，並且回傳為 json 格式(儲存完成)"() {
 
         setup: "建立測試資料"
+            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def param = new Param(name: 'param',title:'param').save(failOnError: true)
-            def report = new Report(name: 'report', title:'report').save(failOnError: true)
+            def report = new Report(name: 'report', title:'report', operation:operation).save(failOnError: true)
 
         and: "前端傳入資料"
             params["report.id"] = report.id
             params["param.id"] = param.id
+            params["operation.id"] = operation.id
 
         when: "執行 save action"
             controller.save()
@@ -110,10 +114,11 @@ class ReportParamsControllerSpec extends Specification {
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
+            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def param1 = new Param(name: 'param1',title:'param1').save(failOnError: true)
             def param2 = new Param(name: 'param2',title:'param2').save(failOnError: true)
             def report = new Report(name: 'report', title:'report').save(failOnError: true)
-            def reportParams = new ReportParams(report:report, param:param1).save(failOnError: true)
+            def reportParams = new ReportParams(report:report, param:param1, operation:operation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
             params.id = reportParams.id
@@ -138,9 +143,10 @@ class ReportParamsControllerSpec extends Specification {
     void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
+            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
             def param = new Param(name: 'param',title:'param').save(failOnError: true)
             def report = new Report(name: 'report', title:'report').save(failOnError: true)
-            def reportParams = new ReportParams(report:report, param:param).save(failOnError: true)
+            def reportParams = new ReportParams(report:report, param:param, operation:operation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = reportParams.id
