@@ -9,20 +9,19 @@
         "domainName": "none",
         "domainId": -1,
         "container|align": "stretch",
-        "container|pack": null,
         "container|padding": null,
         "height": null,
         "maxHeight": 200,
         "minHeight": null,
         "width": null,
-        "designer|userClassName": "CommonImageUploader",
-        "designer|userAlias": "commonimageuploader",
+        "designer|userClassName": "CommonFileUploader",
+        "designer|userAlias": "commonfileuploader",
         "layout": "vbox",
         "bodyPadding": 10,
         "title": null,
         "standardSubmit": null
     },
-    "designerId": "a8113645-ee09-4427-a371-b7ebde05e37e",
+    "designerId": "b1003a58-0706-413b-9d42-3c00e1b0e7aa",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -54,7 +53,7 @@
                 "container|align": null,
                 "container|pack": "center"
             },
-            "designerId": "ebb6f433-7387-47b3-a25a-169562107acf",
+            "designerId": "fdb3affe-69c6-4e4e-b886-0d9b602f78a0",
             "cn": [
                 {
                     "type": "Ext.form.field.File",
@@ -69,7 +68,7 @@
                         "name": "file",
                         "buttonOnly": true
                     },
-                    "designerId": "f0b6e356-1d38-4b08-b015-9c666e703f30"
+                    "designerId": "1b4d3ac2-22a8-48aa-a4dd-7e4fb537ae8f"
                 },
                 {
                     "type": "Ext.button.Button",
@@ -82,7 +81,7 @@
                         "layout|flex": null,
                         "text": "開始上傳"
                     },
-                    "designerId": "c7daae5a-87f5-49a6-888c-7fb3a99741e0",
+                    "designerId": "97b07d48-35f7-46c3-a36c-d794af4338c7",
                     "cn": [
                         {
                             "type": "fixedfunction",
@@ -98,10 +97,10 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "button.up('commonimageuploader').saveImage();"
+                                    "button.up('commonfileuploader').saveFile();"
                                 ]
                             },
-                            "designerId": "d668ecb0-a124-49e2-8918-7f60e1e8b08d"
+                            "designerId": "a4fc7b0c-782e-40fb-af67-6e2be9387c7b"
                         }
                     ]
                 },
@@ -116,7 +115,7 @@
                         "layout|flex": null,
                         "text": "刪除檔案"
                     },
-                    "designerId": "51cf6364-2bf9-47d1-a0a9-05a721898348",
+                    "designerId": "100e953a-45a7-44e3-bc07-c6ad853e26ba",
                     "cn": [
                         {
                             "type": "fixedfunction",
@@ -132,17 +131,17 @@
                                     "event"
                                 ],
                                 "implHandler": [
-                                    "button.up('commonimageuploader').deleteImage();"
+                                    "button.up('commonfileuploader').deleteFile();"
                                 ]
                             },
-                            "designerId": "aeb2f7d6-2076-4a6d-b853-acf72411d57c"
+                            "designerId": "1774787a-e5aa-44c2-a242-5c5c79bced59"
                         }
                     ]
                 }
             ]
         },
         {
-            "type": "Ext.Img",
+            "type": "Ext.form.field.Display",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -151,27 +150,13 @@
             "userConfig": {
                 "layout|flex": 1,
                 "dock": null,
-                "itemId": "mainImg",
-                "src": ""
-            },
-            "designerId": "ca0800a8-c027-46be-b4c1-cbc21a888daa"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "showImage",
-                "implHandler": [
-                    "",
-                    "console.log(\"do show img \"+'/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName+'&fileType=jpg');",
-                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+this.domainId+'?domainName='+this.domainName+'&fileType=jpg');"
+                "itemId": "mainDisplay",
+                "fieldLabel": null,
+                "value": [
+                    "Display Field"
                 ]
             },
-            "designerId": "52872bb3-842e-4ab2-ad08-797015ae78eb"
+            "designerId": "0e9fcf7b-905d-429a-b36a-121ca066aa99"
         },
         {
             "type": "basicfunction",
@@ -181,7 +166,26 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "saveImage",
+                "fn": "showFile",
+                "implHandler": [
+                    "",
+                    "//console.log(\"do show file \"+'/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName+'&fileType=file');",
+                    "this.getComponent(\"mainDisplay\").setValue(",
+                    "\t'<a href=\"/attachment/show/'+this.domainId+'?domainName='+this.domainName+'&fileType=file'+'\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">檢視檔案</a>');",
+                    ""
+                ]
+            },
+            "designerId": "b3aa277b-2213-4cfa-bb8e-367117724098"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "saveFile",
                 "implHandler": [
                     "",
                     "var form = this.getForm();",
@@ -199,17 +203,17 @@
                     "        params: {",
                     "            domainName:domainName,",
                     "            domainId: domainId,",
-                    "            fileType: 'jpg'",
+                    "            fileType: 'file'",
                     "        },",
                     "        success: function(form, action) {",
                     "            Ext.Msg.alert('Success', 'Your file has been uploaded.');",
-                    "            that.showImage();",
+                    "            that.showFile();",
                     "        }",
                     "    });",
                     "}"
                 ]
             },
-            "designerId": "1435a89b-7509-4d88-9d44-84abb1b7bb5c"
+            "designerId": "c70acf4e-db49-43fd-bec8-49f2dbf04acf"
         },
         {
             "type": "basicfunction",
@@ -219,7 +223,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "deleteImage",
+                "fn": "deleteFile",
                 "implHandler": [
                     "var that=this;",
                     "Ext.Ajax.request( {  ",
@@ -227,10 +231,10 @@
                     "    method : 'post',  ",
                     "    params : {  ",
                     "        domainName : this.domainName,",
-                    "    fileType: 'jpg'",
+                    "    \tfileType: 'file'",
                     "    },  ",
                     "    success : function(response, options) {  ",
-                    "        that.emptyImage();",
+                    "        that.emptyFile();",
                     "    },  ",
                     "    failure : function() {  ",
                     "        Ext.Msg.alert('Error', \"can't delete image\");",
@@ -240,7 +244,7 @@
                     ""
                 ]
             },
-            "designerId": "f273669f-5062-407e-9021-3e02b6675fe4"
+            "designerId": "315c26c1-989b-4bed-89cc-9bc862a13ff5"
         },
         {
             "type": "basicfunction",
@@ -250,12 +254,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "emptyImage",
+                "fn": "emptyFile",
                 "implHandler": [
-                    "this.getComponent(\"mainImg\").setSrc('');"
+                    "this.getComponent(\"mainDisplay\").setValue('');"
                 ]
             },
-            "designerId": "93f8caf0-38f3-41a9-a825-3da7675490ea"
+            "designerId": "bbf807c3-e88b-4c81-af35-e54737172615"
         },
         {
             "type": "basicfunction",
@@ -270,7 +274,7 @@
                     "this.down(\"toolbar\").setVisible(true); "
                 ]
             },
-            "designerId": "ad3b73ad-03e6-40ff-8dab-4f6d692172a2"
+            "designerId": "329359b0-8cf0-410a-a57d-e42a329733fe"
         },
         {
             "type": "processcfgfunction",
@@ -280,7 +284,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processCommonImageUploader",
+                "fn": "processCommonFileUploader",
                 "designer|params": [
                     "config"
                 ],
@@ -294,7 +298,7 @@
                     "config.dockedItems[0].items[2].text=Utilities.getMsg('common.deleteBtn.label');"
                 ]
             },
-            "designerId": "096cdeaa-44ab-4990-9273-d4c3ea77f954"
+            "designerId": "c936f631-6f9c-42a4-95c1-7aac036c5448"
         },
         {
             "type": "basicfunction",
@@ -312,7 +316,7 @@
                     "this.domainId=id;"
                 ]
             },
-            "designerId": "28bbd530-b5ab-4961-abda-8a7019802dc5"
+            "designerId": "fba7786a-7ee0-4a61-9fc0-64ffd3ecafc8"
         }
     ]
 }

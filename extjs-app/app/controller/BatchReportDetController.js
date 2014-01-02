@@ -48,7 +48,7 @@ Ext.define('foodprint.controller.BatchReportDetController', {
         },
         {
             ref: 'imageUploader',
-            selector: 'batchreportdetview commonimageuploader'
+            selector: 'batchreportdetview #mainImageUploader'
         }
     ],
 
@@ -151,11 +151,56 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                         }]
                                     };
                                     break;
-                                    case "LIST":
+                                    case "IMAGE":
                                     field={
-                                        xtype: 'textfield'
-                                        //    xtype: 'triggerfield'
+                                        xtype: 'fieldcontainer',
+                                        items:[{
+                                            xtype: 'commonimageuploader',
+                                            domainName: 'batchReportDet',
+                                            domainId: store.getAt(i).data['id'],
+                                            itemId: 'imageUploader'+store.getAt(i).data['id'],
+                                            width:300,
+                                            height:150,
+                                            listeners: {
+                                                render: {
+                                                    fn: function(component, eOpts){
+                                                        component.showToolbar();
+                                                    }
+                                                },
+                                                afterrender: {
+                                                    fn: function(component, eOpts){
+                                                        component.showImage();
+                                                    }
+                                                }
+                                            }
+                                        }]
                                     };
+                                    break;
+                                    case "FILE":
+                                    field={
+                                        xtype: 'fieldcontainer',
+                                        items:[{
+                                            xtype: 'commonfileuploader',
+                                            domainName: 'batchReportDet',
+                                            domainId: store.getAt(i).data['id'],
+                                            itemId: 'fileUploader'+store.getAt(i).data['id'],
+                                            width:200,
+                                            //height:150,
+                                            listeners: {
+                                                render: {
+                                                    fn: function(component, eOpts){
+                                                        component.showToolbar();
+                                                    }
+                                                },
+                                                afterrender: {
+                                                    fn: function(component, eOpts){
+                                                        component.showFile();
+                                                    }
+                                                }
+                                            }
+                                        }]
+                                    };
+                                    break;
                                     break;
                                     default:
                                     console.log('error: not defined paramType'+store.getAt(i).data['reportParams.param.paramType']);
@@ -167,8 +212,7 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                 switch(store.getAt(i).data['reportParams.param.paramType']){
                                     case "INTEGER":
                                     case "FLOAT":
-                                    case "STRING":
-                                    case "LIST":
+                                    case "STRING":   
                                     field.name = store.getAt(i).data['id'];
 
                                     if(store.getAt(i).data['value']==null || store.getAt(i).data['value']==''){
@@ -178,7 +222,6 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                         field.value = store.getAt(i).data['value'];
                                     }
                                     break;
-
                                     case "BOOLEAN":
                                     field.items[0].name = store.getAt(i).data['id'];
                                     field.items[1].name = store.getAt(i).data['id'];
@@ -203,8 +246,11 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                                         }
                                     }
                                     break;
-                                    //case "LIST":
-                                    //break;
+                                    case "IMAGE":
+                                    //field.
+                                    break;
+                                    case "FILE":
+                                    break;
                                     default:
                                     break;
 
@@ -223,6 +269,8 @@ Ext.define('foodprint.controller.BatchReportDetController', {
                             //設定圖片id
                             that.setImageUploader();
                             that.activeEditor();
+
+                            console.log(form);
                         }//end if success
                         else{
                             Ext.MessageBox.alert('Failure',operation.error);

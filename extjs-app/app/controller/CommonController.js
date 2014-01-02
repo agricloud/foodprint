@@ -200,6 +200,7 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     setImageUploader: function() {
+        console.log(this.getImageUploader());
         var record= this.getMainGrid().getSelectionModel().getSelection()[0]
         this.getImageUploader().setDomainId(record.data['id']);
         this.getImageUploader().showImage();
