@@ -106,7 +106,6 @@ Ext.define('foodprint.view.MainContainer', {
                         me.processSheetMainten({
                             xtype: 'panel',
                             height: 250,
-                            hidden: true,
                             width: 400,
                             layout: {
                                 align: 'stretch',
