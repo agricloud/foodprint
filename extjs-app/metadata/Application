@@ -15,9 +15,6 @@
             "    //,format: 'json'",
             "}"
         ],
-        "views": [
-            "CommonFileUploader"
-        ],
         "requires": [
             "foodprint.view.Utilities",
             "Ext.ux.grid.FiltersFeature",
@@ -44,7 +41,8 @@
             "ReportParamsController",
             "ErpManufactureOrderController",
             "SupplierController",
-            "BatchSourceController"
+            "BatchSourceController",
+            "ErpCustomerOrderController"
         ],
         "name": "foodprint"
     },
@@ -93,24 +91,24 @@
                     "",
                     "",
                     "var afterConfigRead = function(){",
-                    "    ",
+                    "",
                     "    //未登出自動轉入系統畫面",
                     "    if(Utilities.getSysConfig(\"username\")){",
                     "        //LoginController loginSuccess",
-                    "    \tvar mainVP = Ext.getCmp('mainVP');",
+                    "        var mainVP = Ext.getCmp('mainVP');",
                     "        mainVP.removeAll();",
                     "        mainVP.add({xtype: 'maincontainer'});",
-                    "        ",
+                    "",
                     "        Ext.get('username').update(Utilities.getSysConfig(\"username\"), false);",
                     "    }",
                     "    else{",
-                    " \t\tif(Utilities.getSysConfig(\"environment\")== \"development\"){",
+                    "        if(Utilities.getSysConfig(\"environment\")== \"development\"){",
                     "            var login = Ext.getCmp(\"login\");",
                     "            login.down(\"textfield[name=j_username]\").setValue(\"admin\");",
                     "            login.down(\"textfield[name=j_password]\").setValue(\"admin\");",
                     "        }   ",
                     "    }",
-                    "        ",
+                    "",
                     "}",
                     "",
                     "Utilities.readSysConfig(afterConfigRead);"

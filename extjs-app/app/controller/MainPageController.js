@@ -86,11 +86,14 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=batchRouteMaintain]':{
                 click:this.batchRouteMaintain
             },
+            'maincontainer button[itemId=batchSourceMaintain]':{
+                click:this.batchSourceMaintain
+            },
             'maincontainer button[itemId=erpManufactureOrderMaintain]':{
                 click:this.erpManufactureOrderMaintain
             },
-            'maincontainer button[itemId=batchSourceMaintain]':{
-                click:this.batchSourceMaintain
+            'maincontainer button[itemId=erpCustomerOrderMaintain]':{
+                click:this.erpCustomerOrderMaintain
             },
             'maincontainer':{
                 afterrender:function(){
@@ -217,13 +220,6 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpManufactureOrderMaintain: function() {
-        var xtypeStr = 'erpmanufactureorderview';
-        var tabName = Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');//'製令維護';
-        var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
     supplierMaintain: function() {
         var xtypeStr = 'supplierview';
         var tabName = Utilities.getMsg('mainContainer.supplierMaintain.label');//'供應商維護';
@@ -235,6 +231,21 @@ Ext.define('foodprint.controller.MainPageController', {
         var xtypeStr = 'batchsourceview';
         var tabName = Utilities.getMsg('mainContainer.batchSourceMaintain.label');//'批號途程維護';
         var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMlZpQ1F1U3ZzZUU/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpManufactureOrderMaintain: function() {
+        var xtypeStr = 'erpmanufactureorderview';
+        var tabName = Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');//'製令維護';
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpCustomerOrderMaintain: function() {
+
+        var xtypeStr = 'erpcustomerorderview';
+        var tabName = Utilities.getMsg('mainContainer.customerOrderMaintain.label');//'訂單維護';
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }
 
