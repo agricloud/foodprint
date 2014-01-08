@@ -36,9 +36,6 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    views: [
-        'CommonFileUploader'
-    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -59,7 +56,8 @@ Ext.application({
         'ReportParamsController',
         'ErpManufactureOrderController',
         'SupplierController',
-        'BatchSourceController'
+        'BatchSourceController',
+        'ErpCustomerOrderController'
     ],
     name: 'foodprint',
 

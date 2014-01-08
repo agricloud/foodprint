@@ -445,7 +445,7 @@
                     "userConfig": {
                         "container|align": "stretch",
                         "height": 250,
-                        "hidden": true,
+                        "hidden": null,
                         "width": 400,
                         "designer|displayName": null,
                         "layout": "vbox",
@@ -486,6 +486,42 @@
                                         ]
                                     },
                                     "designerId": "5f3f15d2-962f-4632-a1f9-fb87d83a83be"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpCustomerOrderMaintain",
+                                "text": "CustomerOrder Maintain"
+                            },
+                            "designerId": "9063411f-49af-43d6-ae87-a9ea895199d0",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpCustomerOrderMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "6bfee9ae-0118-4fe7-b088-0142cbf384b1"
                                 }
                             ]
                         },

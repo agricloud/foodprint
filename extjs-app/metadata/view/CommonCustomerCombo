@@ -1,0 +1,86 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonCustomerCombo",
+        "designer|userClassName": "CommonCustomerCombo",
+        "designer|userAlias": "commoncustomercombo",
+        "fieldLabel": "Customer.name",
+        "name": "customer.id",
+        "allowBlank": null,
+        "editable": null,
+        "displayField": "name",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryParam": "nameLike",
+        "store": "CustomerStore",
+        "valueField": "id"
+    },
+    "designerId": "26f94ae1-0b0f-4fa5-bf33-93fa18d1683a",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonCustomerCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('customer.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "51c2c541-4694-43bc-a082-c982454dcb9f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonCustomerComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'customer.title':records[0].data['title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "5bb3ea3d-010b-49a4-a8bd-68126adef88f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonCustomerComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "6c6c6c8e-7915-41c2-afa0-1be1035575b8"
+        }
+    ]
+}
