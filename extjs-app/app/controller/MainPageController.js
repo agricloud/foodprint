@@ -95,6 +95,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpCustomerOrderMaintain]':{
                 click:this.erpCustomerOrderMaintain
             },
+            'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{
+                click:this.erpCustomerOrderDetMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -245,6 +248,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpcustomerorderview';
         var tabName = Utilities.getMsg('mainContainer.customerOrderMaintain.label');//'訂單維護';
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpCustomerOrderDetMaintain: function() {
+
+        var xtypeStr = 'erpcustomerorderdetview';
+        var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

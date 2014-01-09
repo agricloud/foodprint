@@ -52,153 +52,17 @@
             ],
             "cn": [
                 {
-                    "type": "Ext.grid.Panel",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "grid",
-                        "title": null,
-                        "store": "ErpCustomerOrderStore"
+                        "itemId": "grid"
                     },
-                    "designerId": "032e41b6-4395-4a92-bcf0-028c5c6a4c27",
-                    "cn": [
-                        {
-                            "type": "Ext.grid.View",
-                            "reference": {
-                                "name": "viewConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "designerId": "b6de994a-b207-4ca8-973d-762a32b247db"
-                        },
-                        {
-                            "type": "processcfgfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "processGrid",
-                                "designer|params": [
-                                    "config"
-                                ],
-                                "implHandler": [
-                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'customerOrder'));"
-                                ]
-                            },
-                            "designerId": "03aff278-aabe-4c3c-bdd8-f240662ab9af"
-                        },
-                        {
-                            "type": "Ext.toolbar.Paging",
-                            "reference": {
-                                "name": "dockedItems",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dock": "bottom",
-                                "width": 360,
-                                "displayInfo": true,
-                                "store": "ErpManufactureOrderStore"
-                            },
-                            "designerId": "14bd59ce-b9bc-4cfd-b690-5fa1f2869dc2"
-                        },
-                        {
-                            "type": "Ext.grid.column.Number",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "id",
-                                "text": "Id"
-                            },
-                            "designerId": "484a913e-fb65-4d63-b7fb-f2d556d62c24"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "typeName",
-                                "text": "TypeName"
-                            },
-                            "designerId": "70f33ce0-1a36-4362-9290-31fdd15e09ff"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "name",
-                                "text": "Name"
-                            },
-                            "designerId": "ce1d7865-dae7-4a3a-b3ef-47353d47b099"
-                        },
-                        {
-                            "type": "Ext.grid.column.Number",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "customer.id",
-                                "text": "Customer.id"
-                            },
-                            "designerId": "d64a23e2-4778-44af-8ad8-0e059cf066af"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "customer.name",
-                                "text": "Customer.name"
-                            },
-                            "designerId": "124caa25-316a-4f7a-bdcb-25f15f3dde35"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "customer.title",
-                                "text": "Customer.title"
-                            },
-                            "designerId": "ac8ac4e3-5d38-4e3b-8fc9-6255aa7e4995"
-                        },
-                        {
-                            "type": "Ext.grid.column.Date",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "dueDate",
-                                "text": "dueDate"
-                            },
-                            "designerId": "0dfa4dd3-1f0a-4cf0-a32e-0100784b9639"
-                        }
-                    ]
+                    "designerId": "f84d0d48-5153-4f02-adb4-f245f0cf7af3",
+                    "masterInstanceId": "2efb4c35-8765-40df-8927-701f6ea32aa1"
                 }
             ]
         },
@@ -276,11 +140,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "name",
-                                "name": "name",
+                                "layout|flex": null,
+                                "fieldLabel": "typeName",
+                                "name": "typeName",
                                 "allowBlank": false
                             },
-                            "designerId": "94c2839a-97dc-47c5-a440-821e5780a805"
+                            "designerId": "3e5170ef-c5ae-46b8-be2d-5a732267bb7e"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -290,11 +155,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "fieldLabel": "typeName",
-                                "name": "typeName"
+                                "fieldLabel": "name",
+                                "name": "name",
+                                "allowBlank": false
                             },
-                            "designerId": "3e5170ef-c5ae-46b8-be2d-5a732267bb7e"
+                            "designerId": "94c2839a-97dc-47c5-a440-821e5780a805"
                         },
                         {
                             "type": "linkedinstance",
@@ -304,6 +169,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "layout|flex": null
                             },
                             "designerId": "44455d7a-776e-4669-9461-1fb1e8bebd4f",
@@ -322,8 +188,7 @@
                                 "itemId": "customer.title",
                                 "designer|displayName": "",
                                 "fieldLabel": "customer.title",
-                                "name": "customer.title",
-                                "allowBlank": null
+                                "name": "customer.title"
                             },
                             "designerId": "b2646452-6f43-410a-9a4d-2162975a30f6"
                         },

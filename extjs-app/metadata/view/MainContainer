@@ -526,6 +526,42 @@
                             ]
                         },
                         {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpCustomerOrderDetMaintain",
+                                "text": "CustomerOrderDet Maintain"
+                            },
+                            "designerId": "21646703-434e-44d9-8206-0141234b401b",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpCustomerOrderDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "256d6b6e-69fa-4460-8d2d-52301cc009c5"
+                                }
+                            ]
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",

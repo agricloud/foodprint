@@ -106,6 +106,9 @@
                     "    'maincontainer button[itemId=erpCustomerOrderMaintain]':{",
                     "        click:this.erpCustomerOrderMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{",
+                    "        click:this.erpCustomerOrderDetMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -475,6 +478,25 @@
                 ]
             },
             "designerId": "c93b1892-9437-43cb-9c08-14b0de0dea7a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpCustomerOrderDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpcustomerorderdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "ddfc7542-c972-430d-95df-60bfd4c87723"
         }
     ]
 }

@@ -122,6 +122,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpCustomerOrderMaintain',
                                     text: 'CustomerOrder Maintain'
+                                }),
+                                me.processErpCustomerOrderDetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpCustomerOrderDetMaintain',
+                                    text: 'CustomerOrderDet Maintain'
                                 })
                             ]
                         }),
@@ -319,6 +324,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpCustomerOrderMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');
 
         return config;
     },

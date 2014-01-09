@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ErpCustomerOrder"
+        "designer|userClassName": "ErpCustomerOrderDet"
     },
-    "designerId": "d2924aca-10d2-40bf-8d1c-2741fc65e34b",
+    "designerId": "4303857b-35e6-44a1-a5ec-828d3422c59a",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -21,7 +21,7 @@
                 "mapping": null,
                 "name": "id"
             },
-            "designerId": "c35c478d-c8cb-4a16-bcca-404c15635955"
+            "designerId": "65011eea-2ad2-4553-b3f5-df32af731d15"
         },
         {
             "type": "Ext.data.Field",
@@ -33,7 +33,7 @@
             "userConfig": {
                 "name": "name"
             },
-            "designerId": "dff3754a-0c07-44e8-8ec2-17a6287bded4"
+            "designerId": "1ca91ceb-dcfd-4794-90e3-8143e36946b5"
         },
         {
             "type": "Ext.data.Field",
@@ -45,7 +45,19 @@
             "userConfig": {
                 "name": "typeName"
             },
-            "designerId": "945263b6-6330-489a-805f-bf67dcff5eb5"
+            "designerId": "20d76b06-fde8-4d58-904c-488738519fa0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sequence"
+            },
+            "designerId": "a5a71fa0-0fb8-4b94-990e-55f5c3f5bfa0"
         },
         {
             "type": "Ext.data.Field",
@@ -56,9 +68,9 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": null,
-                "name": "customer.id"
+                "name": "item.id"
             },
-            "designerId": "95b8ab97-c32c-4e07-8da3-39da47adc7cd"
+            "designerId": "cebb4acd-33af-45bd-8a88-9135205d67fe"
         },
         {
             "type": "Ext.data.Field",
@@ -69,9 +81,9 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": null,
-                "name": "customer.name"
+                "name": "item.name"
             },
-            "designerId": "6bf0be67-d455-470f-ba31-4f2dd028f8df"
+            "designerId": "720256dd-c4d8-49fb-b9b4-80e52bfc6d32"
         },
         {
             "type": "Ext.data.Field",
@@ -82,9 +94,9 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": null,
-                "name": "customer.title"
+                "name": "item.title"
             },
-            "designerId": "03fae4e1-d400-44b7-be02-38a490797075"
+            "designerId": "ef30ae0d-9349-4968-95cf-6a9ec7a28d74"
         },
         {
             "type": "Ext.data.Field",
@@ -94,10 +106,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "dueDate",
-                "type": "date"
+                "name": "qty"
             },
-            "designerId": "1bec4f8e-e2e1-45ae-aad0-4db2c67b0ce5"
+            "designerId": "96467b70-431c-4de5-b5f4-9b497778e333"
         },
         {
             "type": "Ext.data.proxy.Rest",
@@ -108,9 +119,9 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/customerOrder"
+                "url": " http://localhost:8180/customerOrderDet"
             },
-            "designerId": "f2f29873-e24a-454b-85d0-a606712b5a8e",
+            "designerId": "26724922-7fc4-4623-9e27-5c15e96bfb72",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -127,10 +138,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "root": "customerOrderInstanceList",
-                        "totalProperty": "customerOrderInstanceTotal"
+                        "root": "data"
                     },
-                    "designerId": "f1fe0229-c289-499a-9c4c-650ad8a64c64"
+                    "designerId": "bd151837-2311-4d89-b64b-b471d7f739f8"
                 }
             ]
         },
@@ -149,11 +159,11 @@
                 "implHandler": [
                     "console.log(config);",
                     "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrder\";",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrderDet\";",
                     "return config;"
                 ]
             },
-            "designerId": "64fcd792-d0b6-4f01-bdf4-e10f76d696fa"
+            "designerId": "cee4b318-cdb1-4889-a620-38ea46fd91de"
         }
     ]
 }
