@@ -16,8 +16,6 @@
 Ext.define('foodprint.controller.CommonController', {
     extend: 'Ext.app.Controller',
 
-    isErpDomain: false,
-
     doShow: function(callback) {
         console.log('commonController--'+this.domainName+'--doShow');
 
@@ -223,12 +221,6 @@ Ext.define('foodprint.controller.CommonController', {
         */
 
         return '';
-    },
-
-    doIndexFoodpaint: function() {
-        var grid = this.getMainGrid();
-        grid.getStore().getProxy().url = this.getRoot()+"/"+this.domainName
-        grid.getStore().load();
     },
 
     getParams: function() {

@@ -97,7 +97,13 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     dataIndex: 'qty',
                                     text: 'qty'
                                 }
-                            ]
+                            ],
+                            listeners: {
+                                afterrender: {
+                                    fn: me.onGridAfterRender,
+                                    scope: me
+                                }
+                            }
                         })
                     ]
                 },
@@ -209,6 +215,10 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
 
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'manufactureOrder');
+    },
+
+    onGridAfterRender: function(component, eOpts) {
+        component.getStore().load();
     },
 
     onCommonItemComboSelect: function(combo, records, eOpts) {

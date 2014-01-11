@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "isErpDomain": false,
         "designer|userClassName": "CommonController",
         "extend": "Ext.app.Controller"
     },
@@ -14,13 +13,6 @@
         "isErpDomain": "boolean"
     },
     "designerId": "e23b6a08-43e5-455b-b661-3b12dc7f5efa",
-    "customConfigs": [
-        {
-            "group": "(Custom Properties)",
-            "name": "isErpDomain",
-            "type": "string"
-        }
-    ],
     "cn": [
         {
             "type": "basicfunction",
@@ -380,23 +372,6 @@
                 ]
             },
             "designerId": "b9a1c721-f144-4142-a336-49fb6eb4e0ea"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doIndexFoodpaint",
-                "implHandler": [
-                    "var grid = this.getMainGrid();",
-                    "grid.getStore().getProxy().url = this.getRoot()+\"/\"+this.domainName",
-                    "grid.getStore().load();"
-                ]
-            },
-            "designerId": "843e74a7-c3de-4ad8-959b-e5ab44f08fae"
         },
         {
             "type": "basicfunction",

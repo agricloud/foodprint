@@ -211,6 +211,23 @@
                                 "text": "qty"
                             },
                             "designerId": "8c139358-a05b-4c14-8089-09e075ebcbe6"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridAfterRender",
+                                "implHandler": [
+                                    "component.getStore().load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "designerId": "6e41c48a-cd1c-4f24-82d1-2dbfef7ae2ea"
                         }
                     ]
                 }
