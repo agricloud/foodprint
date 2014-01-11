@@ -67,9 +67,8 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
         });
 
 
-        this.domainName = 'customerOrder';
-        this.isErpDomain = true;
-
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'customerOrder';
     }
 
 });

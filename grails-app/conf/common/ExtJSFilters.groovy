@@ -7,7 +7,7 @@ class ExtJSFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-
+                println params
                 params.each {
                     key, value ->
                     // Transform value from Ext JS to Grails date style 

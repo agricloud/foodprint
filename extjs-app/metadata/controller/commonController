@@ -47,6 +47,7 @@
                     "",
                     "this.getMainForm().getForm().load({",
                     "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
+                    "    params: this.getParams(),",
                     "    waitMsg:Utilities.getMsg('default.message.load'),",
                     "    success: function(form, action) {",
                     "        that.activeEditor();",
@@ -84,13 +85,13 @@
                 "implHandler": [
                     "console.log('commonController--'+this.domainName+'--doCreate');",
                     "var that = this",
-                    "var params = {}",
                     "",
-                    "params[this.masterKey]=this.masterId",
+                    "var params = this.getParams();",
+                    "params[this.masterKey]=this.masterId;",
                     "this.getMainForm().getForm().reset(true);",
                     "",
                     "this.getMainForm().getForm().load({",
-                    "    url:this.getRoot()+'/'+this.domainName+'/create',",
+                    "    url: this.getRoot()+'/'+this.domainName+'/create',",
                     "    params:params,",
                     "    success: function(form, action) {",
                     "        that.actionName = 'save';",
@@ -228,11 +229,11 @@
                     "callback"
                 ],
                 "implHandler": [
-                    "",
                     "console.log('/'+this.domainName+'/'+this.actionName);",
                     "",
                     "this.getMainForm().getForm().submit({",
                     "    url: this.getRoot()+'/'+this.domainName+'/'+this.actionName,",
+                    "    params: this.getParams(),",
                     "    submitEmptyText: false,",
                     "    waitMsg: 'Updating Data...',",
                     "    success: function(form,action) {",
@@ -369,12 +370,16 @@
             "userConfig": {
                 "fn": "getRoot",
                 "implHandler": [
+                    "/* 0111 erpDomain統一呼叫foodpaintController 刪除isErpDomain參數",
                     "if(this.isErpDomain)",
                     "return Utilities.getSysConfig(\"foodpaintUrl\");",
-                    "else return '';"
+                    "else return '';",
+                    "*/",
+                    "",
+                    "return '';"
                 ]
             },
-            "designerId": "16947a01-b55a-4f97-8f15-ec3a0c880d66"
+            "designerId": "b9a1c721-f144-4142-a336-49fb6eb4e0ea"
         },
         {
             "type": "basicfunction",
@@ -392,6 +397,23 @@
                 ]
             },
             "designerId": "843e74a7-c3de-4ad8-959b-e5ab44f08fae"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getParams",
+                "implHandler": [
+                    "if(this.domainName == 'foodpaint')",
+                    "return {foodpaintController:this.foodpaintController};",
+                    "else return '';"
+                ]
+            },
+            "designerId": "0c01a6e1-3de6-4594-8eb5-88f5497d74fe"
         }
     ]
 }
