@@ -73,10 +73,9 @@ Ext.define('foodprint.controller.ErpCustomerOrderDetController', {
             }
         });
 
-
-        this.domainName = 'customerOrderDet';
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'customerOrderDet';
         this.masterKey='customerOrder.id';
-        this.isErpDomain = true;
 
 
     }
