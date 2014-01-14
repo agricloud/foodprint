@@ -25,6 +25,7 @@ Ext.define('foodprint.store.ReportParamsStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'foodprint.model.ReportParams',
+            remoteSort: true,
             storeId: 'ReportParamsStore1'
         }, cfg)]);
     }

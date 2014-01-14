@@ -8,19 +8,22 @@ class ItemRouteController {
     def domainService
 
     def index = {
-        //找出指定品項的相關途程。
-        /*
-        * [Deep properties]
-        *
-        * itemRouteInstanceList::
-        *   -workstation
-        *   -operation
-        */
 
-        def itemRoute=Item.get(params.item.id).itemRoutes
-        def converter=[itemRouteInstanceList:itemRoute.collect(), itemRouteInstanceTotal: itemRoute.size()] as JSON
+        def item = Item.get(params.item.id)
 
-        converter.render(response)
+        if(item){
+
+            def itemRoute = ItemRoute.findAllByItem(item)
+
+            render (contentType: 'application/json') {
+               [success: true, data:itemRoute, total: itemRoute.size()]
+            }           
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'default.message.show.failed')]
+            }            
+        }
 
     }
 

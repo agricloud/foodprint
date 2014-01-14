@@ -27,7 +27,8 @@ Ext.define('foodprint.store.ItemRouteStore', {
             autoLoad: false,
             batchUpdateMode: 'complete',
             model: 'foodprint.model.ItemRoute',
-            storeId: 'ItemRouteDeepStore',
+            remoteSort: true,
+            storeId: 'ItemRouteStore',
             sorters: {
                 property: 'sequence'
             }
