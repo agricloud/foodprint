@@ -132,22 +132,6 @@ Ext.define('foodprint.view.BatchRouteGrid', {
 
     onBatchRouteGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
-    },
-
-    loadBatchRoute: function(batchId) {
-        console.log("View-batchRouteGrid.loadBatchRoute");
-
-        var store = this.getStore();
-
-        store.removeAll();
-        store.load({
-            params:{'batch.id':batchId},
-            callback:function(records, operation, success){
-                store.sort(store.sorters.items[0]);
-            }
-        });
-
-
     }
 
 });
