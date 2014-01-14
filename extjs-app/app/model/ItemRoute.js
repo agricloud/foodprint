@@ -69,8 +69,7 @@ Ext.define('foodprint.model.ItemRoute', {
         url: '/itemRoute',
         reader: {
             type: 'json',
-            root: 'itemRouteInstanceList',
-            totalProperty: 'itemRouteInstanceTotal'
+            root: 'data'
         }
     }
 });

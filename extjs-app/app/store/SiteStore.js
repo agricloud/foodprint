@@ -26,6 +26,7 @@ Ext.define('foodprint.store.SiteStore', {
         me.callParent([Ext.apply({
             autoLoad: false,
             model: 'foodprint.model.Site',
+            remoteSort: true,
             storeId: 'SiteStore'
         }, cfg)]);
     }

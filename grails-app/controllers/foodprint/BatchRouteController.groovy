@@ -11,8 +11,11 @@ class BatchRouteController {
     def index = {
 
         def batch=Batch.get(params.batch.id)
+        
         if(batch){
-            def batchRoute=batch.batchRoutes
+            
+            def batchRoute = BatchRoute.findAllByItem(batch)
+
             render (contentType: 'application/json') {
                [success: true, data:batchRoute, total: batchRoute.size()]
             }           
