@@ -27,7 +27,7 @@ Ext.define('foodprint.store.BatchRouteStore', {
             autoLoad: false,
             batchUpdateMode: 'complete',
             model: 'foodprint.model.BatchRotue',
-            storeId: 'BatchRouteDeepStore',
+            storeId: 'BatchRouteStore',
             sorters: {
                 property: 'sequence'
             }
