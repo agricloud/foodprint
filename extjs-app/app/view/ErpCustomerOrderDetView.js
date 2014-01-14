@@ -67,12 +67,14 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
                                     dataIndex: 'typeName',
                                     text: 'TypeName',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
                                     dataIndex: 'name',
                                     text: 'Name',
                                     flex: 1
@@ -81,7 +83,8 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
                                     xtype: 'numbercolumn',
                                     dataIndex: 'sequence',
                                     text: 'Sequence',
-                                    flex: 1
+                                    flex: 1,
+                                    format: '0,000'
                                 },
                                 {
                                     xtype: 'numbercolumn',
@@ -148,21 +151,31 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
                                     readOnly: true
                                 },
                                 {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'customerOrder.id',
+                                    name: 'customerOrder.id',
+                                    readOnly: true
+                                },
+                                {
                                     xtype: 'textfield',
                                     fieldLabel: 'typeName',
                                     name: 'typeName',
+                                    readOnly: true,
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'name',
                                     name: 'name',
+                                    readOnly: true,
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'sequence',
                                     name: 'sequence',
+                                    readOnly: true,
                                     allowBlank: false
                                 },
                                 {
@@ -195,7 +208,7 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'batchRoute');
+        return Utilities.processConfigBundle(config, 'ErpCustomerOrderDet');
     },
 
     onGridBeforeRender: function(component, eOpts) {

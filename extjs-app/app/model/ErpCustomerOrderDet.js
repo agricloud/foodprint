@@ -21,10 +21,13 @@ Ext.define('foodprint.model.ErpCustomerOrderDet', {
             name: 'id'
         },
         {
-            name: 'name'
+            name: 'customerOrder.id'
         },
         {
             name: 'typeName'
+        },
+        {
+            name: 'name'
         },
         {
             name: 'sequence'
@@ -54,13 +57,12 @@ Ext.define('foodprint.model.ErpCustomerOrderDet', {
 
     constructor: function() {
         var me = this;
-        me.processErpManufactureOrder(me);
+        me.processErpCustomerOrderDet(me);
         me.callParent(arguments);
     },
 
-    processErpManufactureOrder: function(config) {
-        console.log(config);
-        console.log(config.proxy.url);
+    processErpCustomerOrderDet: function(config) {
+
         config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/customerOrderDet";
         return config;
     }

@@ -53,11 +53,11 @@ Ext.define('foodprint.model.ErpCustomerOrder', {
 
     constructor: function() {
         var me = this;
-        me.processErpManufactureOrder(me);
+        me.processErpCustomerOrder(me);
         me.callParent(arguments);
     },
 
-    processErpManufactureOrder: function(config) {
+    processErpCustomerOrder: function(config) {
         console.log(config);
         console.log(config.proxy.url);
         config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/customerOrder";

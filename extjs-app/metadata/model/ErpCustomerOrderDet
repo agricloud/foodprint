@@ -31,9 +31,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "name"
+                "name": "customerOrder.id"
             },
-            "designerId": "1ca91ceb-dcfd-4794-90e3-8143e36946b5"
+            "designerId": "9cfc4375-b2b5-4c3b-9a1b-9e003a6af153"
         },
         {
             "type": "Ext.data.Field",
@@ -46,6 +46,18 @@
                 "name": "typeName"
             },
             "designerId": "20d76b06-fde8-4d58-904c-488738519fa0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "1ca91ceb-dcfd-4794-90e3-8143e36946b5"
         },
         {
             "type": "Ext.data.Field",
@@ -152,13 +164,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpManufactureOrder",
+                "fn": "processErpCustomerOrderDet",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "console.log(config);",
-                    "console.log(config.proxy.url);",
+                    "",
                     "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrderDet\";",
                     "return config;"
                 ]

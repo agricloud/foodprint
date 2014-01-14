@@ -226,7 +226,7 @@ Ext.define('foodprint.controller.CommonController', {
     getParams: function() {
         if(this.domainName == 'foodpaint')
         return {foodpaintController:this.foodpaintController};
-        else return '';
+        else return {};
     }
 
 });

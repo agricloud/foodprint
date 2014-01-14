@@ -7,11 +7,28 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": false,
+        "batchUpdateMode": "complete",
         "model": "ErpCustomerOrderDet",
         "remoteSort": true,
         "storeId": "ErpCustomerOrderDetStore",
         "designer|userClassName": "ErpCustomerOrderDetStore",
-        "pageSize": 50
+        "pageSize": null
     },
-    "designerId": "98e70172-45a5-4eeb-a19c-034307274dfc"
+    "designerId": "98e70172-45a5-4eeb-a19c-034307274dfc",
+    "cn": [
+        {
+            "type": "Ext.util.Sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "direction": null,
+                "property": "sequence",
+                "designer|displayName": "sequence"
+            },
+            "designerId": "f5afe6f1-d636-46ec-a086-019ec88dfde3"
+        }
+    ]
 }

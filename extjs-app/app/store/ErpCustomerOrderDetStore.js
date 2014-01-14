@@ -25,10 +25,13 @@ Ext.define('foodprint.store.ErpCustomerOrderDetStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             autoLoad: false,
+            batchUpdateMode: 'complete',
             model: 'foodprint.model.ErpCustomerOrderDet',
             remoteSort: true,
             storeId: 'ErpCustomerOrderDetStore',
-            pageSize: 50
+            sorters: {
+                property: 'sequence'
+            }
         }, cfg)]);
     }
 });

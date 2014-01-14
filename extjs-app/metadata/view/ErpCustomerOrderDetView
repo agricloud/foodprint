@@ -120,6 +120,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "dataIndex": "typeName",
                                 "text": "TypeName",
                                 "flex": 1
@@ -134,6 +135,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "dataIndex": "name",
                                 "text": "Name",
                                 "flex": 1
@@ -151,9 +153,9 @@
                                 "width": null,
                                 "defaultWidth": null,
                                 "dataIndex": "sequence",
-                                "groupable": null,
                                 "text": "Sequence",
-                                "flex": 1
+                                "flex": 1,
+                                "format": "0,000"
                             },
                             "designerId": "e9699339-1537-449d-96c0-b98646389354"
                         },
@@ -326,6 +328,21 @@
                             "designerId": "197226a7-1339-4905-8596-4ca6341b5132"
                         },
                         {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "fieldLabel": "customerOrder.id",
+                                "name": "customerOrder.id",
+                                "readOnly": true
+                            },
+                            "designerId": "4f916d91-ef38-4c1c-becf-60cf4016c75f"
+                        },
+                        {
                             "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
@@ -334,8 +351,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "disabled": null,
                                 "fieldLabel": "typeName",
                                 "name": "typeName",
+                                "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "b491d6cc-c591-4b15-8aa3-6c3738f3275d"
@@ -349,8 +368,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "disabled": null,
                                 "fieldLabel": "name",
                                 "name": "name",
+                                "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "d6da7f0e-bcc8-4c95-8070-0384dffedeac"
@@ -363,8 +384,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "disabled": null,
                                 "fieldLabel": "sequence",
                                 "name": "sequence",
+                                "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "53621e75-d08a-4f07-8198-4ecaebfcd2ee"
@@ -426,7 +449,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'batchRoute');"
+                                    "return Utilities.processConfigBundle(config, 'ErpCustomerOrderDet');"
                                 ]
                             },
                             "designerId": "b3b9255e-6630-4b04-a7d7-ee685b19c979"
