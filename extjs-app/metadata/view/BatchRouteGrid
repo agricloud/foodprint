@@ -250,36 +250,6 @@
             "designerId": "d66eff37-d04a-4699-b8d4-5e15a8f2c3c2"
         },
         {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "loadBatchRoute",
-                "designer|params": [
-                    "batchId"
-                ],
-                "implHandler": [
-                    "console.log(\"View-batchRouteGrid.loadBatchRoute\");",
-                    "",
-                    "var store = this.getStore();",
-                    "",
-                    "store.removeAll();",
-                    "store.load({",
-                    "    params:{'batch.id':batchId},",
-                    "    callback:function(records, operation, success){",
-                    "        store.sort(store.sorters.items[0]);",
-                    "    }",
-                    "});",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "5a5a9244-095f-4a4a-9b5c-a64e8ca4f17d"
-        },
-        {
             "type": "processcfgfunction",
             "reference": {
                 "name": "items",

@@ -130,9 +130,6 @@ Ext.define('foodprint.view.ItemRouteView', {
                                     flex: 1
                                 }
                             ],
-                            selModel: Ext.create('Ext.selection.RowModel', {
-
-                            }),
                             listeners: {
                                 beforerender: {
                                     fn: me.onGridBeforeRender,
