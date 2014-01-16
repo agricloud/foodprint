@@ -122,6 +122,8 @@ environments {
                 'grails.app.jobs'
             ]
         }
+        grails.plugin.databasemigration.updateOnStart = true
+        grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
     }
  
     test {
