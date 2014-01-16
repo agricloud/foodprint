@@ -58,7 +58,6 @@ Ext.define('foodprint.model.ErpCustomerOrder', {
     },
 
     processErpCustomerOrder: function(config) {
-        console.log(config);
         console.log(config.proxy.url);
         config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/customerOrder";
         return config;

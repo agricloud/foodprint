@@ -204,11 +204,11 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
     },
 
     processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'erpCustomerOrderDet');
+        return Utilities.processConfigBundle(config, 'customerOrderDet');
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'ErpCustomerOrderDet');
+        return Utilities.processConfigBundle(config, 'customerOrderDet');
     },
 
     onGridBeforeRender: function(component, eOpts) {
