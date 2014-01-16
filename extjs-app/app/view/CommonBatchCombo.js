@@ -61,6 +61,9 @@ Ext.define('foodprint.view.CommonBatchCombo', {
     onCommonBatchComboSelect: function(combo, records, eOpts) {
         if(combo.up() && combo.up().getForm()){
             combo.up().getForm().setValues({
+                'item.id':records[0].data['item.id'],
+                'item.name':records[0].data['item.name'],
+                'item.title':records[0].data['item.title'],
                 'childBatch.item.name':records[0].data['item.name'],
                 'childBatch.item.title':records[0].data['item.title']
             });

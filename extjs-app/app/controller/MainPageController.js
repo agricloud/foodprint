@@ -98,6 +98,12 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{
                 click:this.erpCustomerOrderDetMaintain
             },
+            'maincontainer button[itemId=erpMaterialSheetMaintain]':{
+                click:this.erpMaterialSheetMaintain
+            },
+            'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
+                click:this.erpMaterialSheetDetMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -256,6 +262,22 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpcustomerorderdetview';
         var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpMaterialSheetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialsheetview';
+        var tabName = Utilities.getMsg('mainContainer.materialSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpMaterialSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

@@ -18,10 +18,10 @@ Ext.define('foodprint.model.ErpCustomerOrderDet', {
 
     fields: [
         {
-            name: 'id'
+            name: 'customerOrder.id'
         },
         {
-            name: 'customerOrder.id'
+            name: 'id'
         },
         {
             name: 'typeName'

@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ErpCustomerOrderDet"
+        "designer|userClassName": "ErpMaterialSheetDet"
     },
-    "designerId": "4303857b-35e6-44a1-a5ec-828d3422c59a",
+    "designerId": "3b3b7e38-8a5a-4e67-9552-f08b7fa6ac4e",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -18,9 +18,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "customerOrder.id"
+                "name": "materialSheet.id"
             },
-            "designerId": "9cfc4375-b2b5-4c3b-9a1b-9e003a6af153"
+            "designerId": "31af6486-fcda-407f-a824-024b2cb55230"
         },
         {
             "type": "Ext.data.Field",
@@ -33,7 +33,7 @@
                 "mapping": null,
                 "name": "id"
             },
-            "designerId": "65011eea-2ad2-4553-b3f5-df32af731d15"
+            "designerId": "49df47d7-8ca9-4162-94e0-6f81fcc1c983"
         },
         {
             "type": "Ext.data.Field",
@@ -45,7 +45,7 @@
             "userConfig": {
                 "name": "typeName"
             },
-            "designerId": "20d76b06-fde8-4d58-904c-488738519fa0"
+            "designerId": "bee0d79d-b262-42fc-839d-42df183e2fb2"
         },
         {
             "type": "Ext.data.Field",
@@ -57,7 +57,7 @@
             "userConfig": {
                 "name": "name"
             },
-            "designerId": "1ca91ceb-dcfd-4794-90e3-8143e36946b5"
+            "designerId": "014f83db-e8b6-499f-9639-2bdc31aa2a0b"
         },
         {
             "type": "Ext.data.Field",
@@ -69,7 +69,43 @@
             "userConfig": {
                 "name": "sequence"
             },
-            "designerId": "a5a71fa0-0fb8-4b94-990e-55f5c3f5bfa0"
+            "designerId": "a6a63fc0-11d7-45e3-9d09-a8e1be30710e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.id"
+            },
+            "designerId": "7e593c23-e3b9-4601-ab54-572f2b1820c9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.typeName"
+            },
+            "designerId": "53954d08-8871-4450-9e4d-7d9247972fea"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.name"
+            },
+            "designerId": "fb2e846b-ac76-4484-8713-bbcba58fbb2d"
         },
         {
             "type": "Ext.data.Field",
@@ -82,7 +118,7 @@
                 "mapping": null,
                 "name": "item.id"
             },
-            "designerId": "cebb4acd-33af-45bd-8a88-9135205d67fe"
+            "designerId": "c7918e6f-37fb-4a5d-9ce9-75d900d81cef"
         },
         {
             "type": "Ext.data.Field",
@@ -95,7 +131,7 @@
                 "mapping": null,
                 "name": "item.name"
             },
-            "designerId": "720256dd-c4d8-49fb-b9b4-80e52bfc6d32"
+            "designerId": "7292847f-1b3d-452d-94a2-0081822e4a52"
         },
         {
             "type": "Ext.data.Field",
@@ -108,7 +144,31 @@
                 "mapping": null,
                 "name": "item.title"
             },
-            "designerId": "ef30ae0d-9349-4968-95cf-6a9ec7a28d74"
+            "designerId": "9199393d-8c4f-490f-9abc-a5ba9d40aaa6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.id"
+            },
+            "designerId": "a59ecf5c-1fba-4430-99dc-131f6d26fcad"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.name"
+            },
+            "designerId": "7628e892-7a82-4246-924a-aa78c11af773"
         },
         {
             "type": "Ext.data.Field",
@@ -120,7 +180,7 @@
             "userConfig": {
                 "name": "qty"
             },
-            "designerId": "96467b70-431c-4de5-b5f4-9b497778e333"
+            "designerId": "6e83b892-55e6-41c0-9244-1220cf07c2a8"
         },
         {
             "type": "Ext.data.proxy.Rest",
@@ -131,9 +191,9 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/customerOrderDet"
+                "url": " http://localhost:8180/materialSheetDet"
             },
-            "designerId": "26724922-7fc4-4623-9e27-5c15e96bfb72",
+            "designerId": "f4db9209-17b3-4117-b3c2-5d0925999d8a",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -152,7 +212,7 @@
                     "userConfig": {
                         "root": "data"
                     },
-                    "designerId": "bd151837-2311-4d89-b64b-b471d7f739f8"
+                    "designerId": "81558e2b-6f15-4483-b4b7-a0ed5c7c9b88"
                 }
             ]
         },
@@ -164,17 +224,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpCustomerOrderDet",
+                "fn": "processErpMaterialSheetDet",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
                     "",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrderDet\";",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/materialSheetDet\";",
                     "return config;"
                 ]
             },
-            "designerId": "cee4b318-cdb1-4889-a620-38ea46fd91de"
+            "designerId": "4ceec865-1a65-4435-b118-fbf8e354f8cd"
         }
     ]
 }

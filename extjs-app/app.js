@@ -58,7 +58,9 @@ Ext.application({
         'SupplierController',
         'BatchSourceController',
         'ErpCustomerOrderController',
-        'ErpCustomerOrderDetController'
+        'ErpCustomerOrderDetController',
+        'ErpMaterialSheetController',
+        'ErpMaterialSheetDetController'
     ],
     name: 'foodprint',
 

@@ -118,6 +118,16 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpManufactureOrderMaintain',
                                     text: 'ManufactureOrder Maintain'
                                 }),
+                                me.processErpMaterialSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialSheetMaintain',
+                                    text: 'MaterialSheet Maintain'
+                                }),
+                                me.processErpMaterialSheetDetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialSheetDetMaintain',
+                                    text: 'MaterialSheetDet Maintain'
+                                }),
                                 me.processErpCustomerOrderMaintain({
                                     xtype: 'button',
                                     itemId: 'erpCustomerOrderMaintain',
@@ -318,6 +328,18 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpManufactureOrderMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');
+
+        return config;
+    },
+
+    processErpMaterialSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpMaterialSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
 
         return config;
     },

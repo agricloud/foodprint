@@ -1,0 +1,163 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "erpCustomerOrderGrid1",
+        "designer|userClassName": "ErpMaterialSheetGrid",
+        "designer|userAlias": "erpmaterialsheetgrid",
+        "title": null,
+        "store": "ErpMaterialSheetStore"
+    },
+    "designerId": "da96b793-9530-4913-a5f4-fe887f4aada2",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "dbd68f71-db88-4b0c-8687-b922e0ccaa2e"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpMaterialSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'materialSheet'));"
+                ]
+            },
+            "designerId": "5d42cb3b-23f0-468c-bb86-be4845d122d2"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpManufactureOrderStore"
+            },
+            "designerId": "e56acd17-9c4b-44b3-8fdd-966eca8f0176"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "c9812a9d-5e30-4037-8619-d5782631386b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "typeName",
+                "text": "TypeName",
+                "flex": 1
+            },
+            "designerId": "f014ce2d-111e-48a4-b0b9-91e629ec62fd"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "3167c91b-0e10-4811-afcb-974b3ef2dc08"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpMaterialSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "8d125b79-6b77-4e83-afaa-1942f818a85d"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "workstation.id",
+                "text": "Workstation.Id",
+                "flex": 1
+            },
+            "designerId": "45ea0250-dca3-4f28-a9c0-00ff40303184"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "workstation.name",
+                "text": "Workstation.Name",
+                "flex": 1
+            },
+            "designerId": "76b72b72-6ef2-4db3-b428-6e2f9ebe3cae"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "workstation.title",
+                "text": "Workstation.Title",
+                "flex": 1
+            },
+            "designerId": "048d08da-b8fa-4a3a-bc84-32c50c9d7163"
+        }
+    ]
+}

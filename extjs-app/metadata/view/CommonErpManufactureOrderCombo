@@ -1,0 +1,69 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonErpManufactureOrderCombo",
+        "designer|userClassName": "CommonErpManufactureOrderCombo",
+        "designer|userAlias": "commonerpmanufactureordercombo",
+        "fieldLabel": "ManufactureOrder.typeName+name",
+        "name": "manufactureOrder.id",
+        "allowBlank": null,
+        "selectOnFocus": true,
+        "editable": null,
+        "autoSelect": null,
+        "displayField": "name",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryDelay": null,
+        "queryParam": "nameLike",
+        "store": "ErpManufactureOrderStore",
+        "triggerAction": null,
+        "typeAheadDelay": null,
+        "valueField": "id"
+    },
+    "designerId": "a673dea6-f084-44a3-b554-f2bf7775d043",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonErpManufactureOrderCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('erpManufactureOrder.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "018a6cac-a8e0-44d9-b49b-135b633a6e0b"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonErpManufactureOrderComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "7f363f8d-db3d-4c53-a72a-39ac03f4ded5"
+        }
+    ]
+}

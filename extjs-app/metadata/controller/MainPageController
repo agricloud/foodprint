@@ -109,6 +109,12 @@
                     "    'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{",
                     "        click:this.erpCustomerOrderDetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpMaterialSheetMaintain]':{",
+                    "        click:this.erpMaterialSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{",
+                    "        click:this.erpMaterialSheetDetMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -497,6 +503,44 @@
                 ]
             },
             "designerId": "ddfc7542-c972-430d-95df-60bfd4c87723"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "e3ede10a-43ca-426c-a6bd-22ccf704d731"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialsheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "42fd8d86-5e75-46c5-a206-03ed0cb9451b"
         }
     ]
 }
