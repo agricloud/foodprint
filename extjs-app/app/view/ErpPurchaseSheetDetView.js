@@ -46,8 +46,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetView', {
                     items: [
                         {
                             xtype: 'erppurchasesheetgrid',
-                            flex: 1,
-                            itemId: 'masterGrid'
+                            itemId: 'masterGrid',
+                            flex: 1
                         },
                         me.processGrid({
                             xtype: 'gridpanel',
@@ -194,9 +194,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'Batch.name',
-                                    name: 'batch.name',
-                                    allowBlank: false,
-                                    allowOnlyWhitespace: false
+                                    name: 'batch.name'
                                 },
                                 {
                                     xtype: 'commonitemcombo'

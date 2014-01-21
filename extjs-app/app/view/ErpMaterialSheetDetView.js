@@ -177,16 +177,17 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                             items: [
                                 {
                                     xtype: 'numberfield',
+                                    flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'id',
-                                    name: 'id',
+                                    fieldLabel: 'materialSheet.id',
+                                    name: 'materialSheet.id',
                                     readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
                                     hidden: true,
-                                    fieldLabel: 'materialSheet.id',
-                                    name: 'materialSheet.id',
+                                    fieldLabel: 'id',
+                                    name: 'id',
                                     readOnly: true
                                 },
                                 {

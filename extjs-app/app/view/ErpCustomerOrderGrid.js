@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpCustomerOrderGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpManufactureOrderStore'
+                    store: 'ErpCustomerOrderStore'
                 }
             ],
             columns: [

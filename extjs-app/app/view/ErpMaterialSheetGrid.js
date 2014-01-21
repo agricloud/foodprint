@@ -17,7 +17,7 @@ Ext.define('foodprint.view.ErpMaterialSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpmaterialsheetgrid',
 
-    itemId: 'erpCustomerOrderGrid1',
+    itemId: 'erpMaterialSheetGrid',
     store: 'ErpMaterialSheetStore',
 
     initComponent: function() {
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpMaterialSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpManufactureOrderStore'
+                    store: 'ErpMaterialSheetStore'
                 }
             ],
             columns: [
