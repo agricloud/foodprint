@@ -104,6 +104,12 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
                 click:this.erpMaterialSheetDetMaintain
             },
+            'maincontainer button[itemId=erpPurchaseSheetMaintain]':{
+                click:this.erpPurchaseSheetMaintain
+            },
+            'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{
+                click:this.erpPurchaseSheetDetMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -278,6 +284,22 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpmaterialsheetdetview';
         var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpPurchaseSheetMaintain: function() {
+
+        var xtypeStr = 'erppurchasesheetview';
+        var tabName = Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpPurchaseSheetDetMaintain: function() {
+
+        var xtypeStr = 'erppurchasesheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

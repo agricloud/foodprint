@@ -1,0 +1,117 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpPurchaseSheetDet",
+            "ErpPurchaseSheet"
+        ],
+        "stores": [
+            "ErpPurchaseSheetDetStore",
+            "ErpPurchaseSheetStore"
+        ],
+        "views": [
+            "ErpPurchaseSheetDetView"
+        ],
+        "designer|userClassName": "ErpPurchaseSheetDetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "86465e9a-c92f-4d8b-b1fd-2a3b8cf46508",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "erppurchasesheetdetview #masterGrid"
+            },
+            "designerId": "5b7b2689-625e-4822-8593-dce7ec5a35e4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erppurchasesheetdetview #grid"
+            },
+            "designerId": "fc7d1145-32e3-4425-a0fc-fceab4213eb7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erppurchasesheetdetview #form"
+            },
+            "designerId": "8fc2da9b-a587-4fc2-a094-c3c2bc69b326"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'erppurchasesheetdetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erppurchasesheetdetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erppurchasesheetdetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erppurchasesheetdetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erppurchasesheetdetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erppurchasesheetdetview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'erppurchasesheetdetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'purchaseSheetDet';",
+                    "this.masterKey='purchaseSheet.id';",
+                    ""
+                ]
+            },
+            "designerId": "f06023e9-be89-4bf0-bb54-e53e897a8ec9"
+        }
+    ]
+}
