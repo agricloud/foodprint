@@ -462,6 +462,78 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "erpCustomerOrderMaintain",
+                                "text": "CustomerOrder Maintain"
+                            },
+                            "designerId": "9063411f-49af-43d6-ae87-a9ea895199d0",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpCustomerOrderMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "6bfee9ae-0118-4fe7-b088-0142cbf384b1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpCustomerOrderDetMaintain",
+                                "text": "CustomerOrderDet Maintain"
+                            },
+                            "designerId": "21646703-434e-44d9-8206-0141234b401b",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpCustomerOrderDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "256d6b6e-69fa-4460-8d2d-52301cc009c5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "itemId": "erpPurchaseSheetMaintain",
                                 "text": "PurchaseSheet Maintain"
                             },
@@ -642,10 +714,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "erpCustomerOrderMaintain",
-                                "text": "CustomerOrder Maintain"
+                                "itemId": "erpStockInSheetMaintain",
+                                "text": "StockInSheet Maintain"
                             },
-                            "designerId": "9063411f-49af-43d6-ae87-a9ea895199d0",
+                            "designerId": "6f88c6c5-03f0-488c-8b33-73a8d11e92d5",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -655,17 +727,17 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processErpCustomerOrderMaintain",
+                                        "fn": "processErpStockInSheetMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.stockInSheetMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "6bfee9ae-0118-4fe7-b088-0142cbf384b1"
+                                    "designerId": "f641122e-f3e2-4339-bdad-cbd6cbb27450"
                                 }
                             ]
                         },
@@ -678,10 +750,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "erpCustomerOrderDetMaintain",
-                                "text": "CustomerOrderDet Maintain"
+                                "itemId": "erpStockInSheetDetMaintain",
+                                "text": "StockInSheetDet Maintain"
                             },
-                            "designerId": "21646703-434e-44d9-8206-0141234b401b",
+                            "designerId": "f78e3235-fd60-4cc8-a131-fa5dd15d8ba7",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -691,17 +763,17 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processErpCustomerOrderDetMaintain",
+                                        "fn": "processErpStockInSheetDetMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "256d6b6e-69fa-4460-8d2d-52301cc009c5"
+                                    "designerId": "9f0014df-8c95-41c5-8218-17208e34008c"
                                 }
                             ]
                         },

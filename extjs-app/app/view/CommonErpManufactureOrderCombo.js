@@ -36,6 +36,10 @@ Ext.define('foodprint.view.CommonErpManufactureOrderCombo', {
                 render: {
                     fn: me.onCommonErpManufactureOrderComboRender,
                     scope: me
+                },
+                select: {
+                    fn: me.onCommonErpManufactureOrderComboSelect,
+                    scope: me
                 }
             }
         });
@@ -52,6 +56,16 @@ Ext.define('foodprint.view.CommonErpManufactureOrderCombo', {
 
     onCommonErpManufactureOrderComboRender: function(component, eOpts) {
         component.getStore().load();
+    },
+
+    onCommonErpManufactureOrderComboSelect: function(combo, records, eOpts) {
+        if(combo.up() && combo.up().getForm()){
+            combo.up().getForm().setValues({
+                'item.id':records[0].data['item.id'],
+                'item.name':records[0].data['item.name'],
+                'item.title':records[0].data['item.title']
+            });
+        }
     }
 
 });

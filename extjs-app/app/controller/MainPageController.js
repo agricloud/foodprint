@@ -89,14 +89,20 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=batchSourceMaintain]':{
                 click:this.batchSourceMaintain
             },
-            'maincontainer button[itemId=erpManufactureOrderMaintain]':{
-                click:this.erpManufactureOrderMaintain
-            },
             'maincontainer button[itemId=erpCustomerOrderMaintain]':{
                 click:this.erpCustomerOrderMaintain
             },
             'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{
                 click:this.erpCustomerOrderDetMaintain
+            },
+            'maincontainer button[itemId=erpPurchaseSheetMaintain]':{
+                click:this.erpPurchaseSheetMaintain
+            },
+            'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{
+                click:this.erpPurchaseSheetDetMaintain
+            },
+            'maincontainer button[itemId=erpManufactureOrderMaintain]':{
+                click:this.erpManufactureOrderMaintain
             },
             'maincontainer button[itemId=erpMaterialSheetMaintain]':{
                 click:this.erpMaterialSheetMaintain
@@ -104,11 +110,11 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
                 click:this.erpMaterialSheetDetMaintain
             },
-            'maincontainer button[itemId=erpPurchaseSheetMaintain]':{
-                click:this.erpPurchaseSheetMaintain
+            'maincontainer button[itemId=erpStockInSheetMaintain]':{
+                click:this.erpStockInSheetMaintain
             },
-            'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{
-                click:this.erpPurchaseSheetDetMaintain
+            'maincontainer button[itemId=erpStockInSheetDetMaintain]':{
+                click:this.erpStockInSheetDetMaintain
             },
             'maincontainer':{
                 afterrender:function(){
@@ -300,6 +306,22 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erppurchasesheetdetview';
         var tabName = Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpStockInSheetMaintain: function() {
+
+        var xtypeStr = 'erpstockinsheetview';
+        var tabName = Utilities.getMsg('mainContainer.stockInSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpStockInSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpstockinsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

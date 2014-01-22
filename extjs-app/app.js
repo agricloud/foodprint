@@ -36,6 +36,9 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    views: [
+        'ErpStockInSheetGrid'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -60,7 +63,11 @@ Ext.application({
         'ErpCustomerOrderController',
         'ErpCustomerOrderDetController',
         'ErpMaterialSheetController',
-        'ErpMaterialSheetDetController'
+        'ErpMaterialSheetDetController',
+        'ErpPurchaseSheetController',
+        'ErpPurchaseSheetDetController',
+        'ErpStockInSheetMaintainController',
+        'ErpStockInSheetDetMaintainController'
     ],
     name: 'foodprint',
 

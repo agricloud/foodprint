@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ErpManufactureOrder"
+        "designer|userClassName": "ErpStockInSheet"
     },
-    "designerId": "cb77c353-ff0d-455a-801b-ae3473a6a947",
+    "designerId": "a7d25320-dbcf-423d-b697-c970112bcc80",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -18,10 +18,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "id",
+                "mapping": null,
                 "name": "id"
             },
-            "designerId": "ba97fdb3-e8f5-4c63-9ff1-2bec3ef64369"
+            "designerId": "e3f52320-c363-4cbd-9c4b-875b028dab29"
         },
         {
             "type": "Ext.data.Field",
@@ -33,7 +33,7 @@
             "userConfig": {
                 "name": "name"
             },
-            "designerId": "e2cc451b-72f0-481b-a032-046d474ecb63"
+            "designerId": "0a5a80e8-73ed-45db-8d4c-b806fbfad06c"
         },
         {
             "type": "Ext.data.Field",
@@ -45,7 +45,7 @@
             "userConfig": {
                 "name": "typeName"
             },
-            "designerId": "b978aac9-a78e-4098-babd-877887dfaee1"
+            "designerId": "691ca022-2fcd-4bab-b908-c3fb421cb0b5"
         },
         {
             "type": "Ext.data.Field",
@@ -55,10 +55,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "item.id",
-                "name": "item.id"
+                "name": "workstation.id"
             },
-            "designerId": "c6a97bf5-bec3-4f40-b279-f341407d5dc1"
+            "designerId": "7f5bb0a8-9b5d-4206-823a-dd85f07f5c67"
         },
         {
             "type": "Ext.data.Field",
@@ -68,10 +67,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "item.name",
-                "name": "item.name"
+                "name": "workstation.name"
             },
-            "designerId": "63559f28-ae6a-413c-82b9-8d5b102e826b"
+            "designerId": "4b16f64f-f120-4694-9f4e-f36ed1d0f386"
         },
         {
             "type": "Ext.data.Field",
@@ -81,9 +79,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "item.title"
+                "name": "workstation.title"
             },
-            "designerId": "5bd42dde-042b-444f-904e-b7d3fdc24688"
+            "designerId": "efb5b2d9-2428-47bb-bf7b-9696fcd6a591"
         },
         {
             "type": "Ext.data.Field",
@@ -93,35 +91,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "qty"
+                "name": "stockInDate",
+                "type": "date"
             },
-            "designerId": "10d3fe38-affb-456a-bd8c-80bc6b456e35"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "batch.id",
-                "name": "batch.id"
-            },
-            "designerId": "1b8a7c61-691d-41be-a2d2-20f196379ba5"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "mapping": "batch.name",
-                "name": "batch.name"
-            },
-            "designerId": "b20a96c4-6f4a-4a08-85ab-b386dc216b0c"
+            "designerId": "2979e23c-ea24-4511-8d44-52a43cbf07fe"
         },
         {
             "type": "Ext.data.proxy.Rest",
@@ -132,9 +105,9 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/manufactureOrder"
+                "url": " http://localhost:8180/stockInSheet"
             },
-            "designerId": "9a2610df-a09a-4e8b-b412-0f6d4fba3bef",
+            "designerId": "2127de92-f6f8-4f10-810e-8d6e09f50513",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -151,10 +124,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "root": "manufactureOrderInstanceList",
-                        "totalProperty": "manufactureOrderInstanceTotal"
+                        "root": "stockInSheetInstanceList",
+                        "totalProperty": "stockInSheetInstanceTotal"
                     },
-                    "designerId": "e6358e68-e7ed-48b1-8833-03c50fc3c017"
+                    "designerId": "ba79d586-ff0d-451e-9114-a938a852bb31"
                 }
             ]
         },
@@ -166,18 +139,18 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpManufactureOrder",
+                "fn": "processErpStockInSheetDet",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
                     "",
                     "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/manufactureOrder\";",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/stockInSheet\";",
                     "return config;"
                 ]
             },
-            "designerId": "bc2095b6-a0e7-4c21-ab05-601db3a6b409"
+            "designerId": "f198ed1c-1387-4bc0-a8d0-c309bbe5317d"
         }
     ]
 }

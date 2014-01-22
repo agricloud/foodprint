@@ -64,6 +64,29 @@
                 "scope": "me"
             },
             "designerId": "7f363f8d-db3d-4c53-a72a-39ac03f4ded5"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonErpManufactureOrderComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "        'item.id':records[0].data['item.id'],",
+                    "        'item.name':records[0].data['item.name'],",
+                    "        'item.title':records[0].data['item.title']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "9df3e432-aa02-4ec3-afaa-d48fb6e1ccd0"
         }
     ]
 }
