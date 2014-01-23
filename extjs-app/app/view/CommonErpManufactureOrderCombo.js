@@ -63,7 +63,8 @@ Ext.define('foodprint.view.CommonErpManufactureOrderCombo', {
             combo.up().getForm().setValues({
                 'item.id':records[0].data['item.id'],
                 'item.name':records[0].data['item.name'],
-                'item.title':records[0].data['item.title']
+                'item.title':records[0].data['item.title'],
+                'batch.name':records[0].data['batch.name']
             });
         }
     }

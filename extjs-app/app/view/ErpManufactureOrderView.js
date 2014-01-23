@@ -58,6 +58,7 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                             columns: [
                                 {
                                     xtype: 'numbercolumn',
+                                    hidden: true,
                                     dataIndex: 'id',
                                     text: 'Id'
                                 },
