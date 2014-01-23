@@ -49,7 +49,7 @@ Ext.define('foodprint.view.CommonErpManufactureOrderCombo', {
     },
 
     processCommonErpManufactureOrderCombo: function(config) {
-        config.fieldLabel=Utilities.getMsg('erpManufactureOrder.name.label');
+        config.fieldLabel=Utilities.getMsg('common.manufactureOrder.name.label');
 
         return config;
     },
