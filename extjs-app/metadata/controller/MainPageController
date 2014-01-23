@@ -127,6 +127,12 @@
                     "    'maincontainer button[itemId=erpStockInSheetDetMaintain]':{",
                     "        click:this.erpStockInSheetDetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseSheetDetMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -629,6 +635,44 @@
                 ]
             },
             "designerId": "810dc9e9-4091-4252-a328-dcb701f58658"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpOutSrcPurchaseSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpoutsrcpurchasesheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "8fec6248-b181-42ae-bbcb-05b030865b78"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpOutSrcPurchaseSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpoutsrcpurchasesheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "722891df-7900-47bc-b4d8-ae9302bd10b6"
         }
     ]
 }

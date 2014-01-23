@@ -157,6 +157,16 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpStockInSheetDetMaintain',
                                     text: 'StockInSheetDet Maintain'
+                                }),
+                                me.processErpOutSrcPurchaseSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpOutSrcPurchaseSheetMaintain',
+                                    text: 'OutSrcPurchase Maintain'
+                                }),
+                                me.processErpOutSrcPurchaseSheetDetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpOutSrcPurchaseSheetDetMaintain',
+                                    text: 'OutSrcPurchaseSheetDet Maintain'
                                 })
                             ]
                         }),
@@ -396,6 +406,18 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpStockInSheetDetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpOutSrcPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpOutSrcPurchaseSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
 
         return config;
     },

@@ -116,6 +116,12 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpStockInSheetDetMaintain]':{
                 click:this.erpStockInSheetDetMaintain
             },
+            'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{
+                click:this.erpOutSrcPurchaseSheetMaintain
+            },
+            'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{
+                click:this.erpOutSrcPurchaseSheetDetMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -322,6 +328,22 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpstockinsheetdetview';
         var tabName = Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpOutSrcPurchaseSheetMaintain: function() {
+
+        var xtypeStr = 'erpoutsrcpurchasesheetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpOutSrcPurchaseSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpoutsrcpurchasesheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }
