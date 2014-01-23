@@ -46,8 +46,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetDetView', {
                     items: [
                         {
                             xtype: 'erpoutsrcpurchasesheetgrid',
-                            flex: 1,
-                            itemId: 'masterGrid'
+                            itemId: 'masterGrid',
+                            flex: 1
                         },
                         me.processGrid({
                             xtype: 'gridpanel',

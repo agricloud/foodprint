@@ -74,8 +74,10 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                 },
                                 {
                                     xtype: 'numbercolumn',
+                                    hidden: true,
                                     dataIndex: 'item.id',
-                                    text: 'Item.id'
+                                    text: 'Item.id',
+                                    format: '0,000'
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -149,13 +151,7 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     name: 'typeName'
                                 },
                                 {
-                                    xtype: 'commonitemcombo',
-                                    listeners: {
-                                        select: {
-                                            fn: me.onCommonItemComboSelect,
-                                            scope: me
-                                        }
-                                    }
+                                    xtype: 'commonitemcombo'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -215,15 +211,6 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
 
     onGridAfterRender: function(component, eOpts) {
         component.getStore().load();
-    },
-
-    onCommonItemComboSelect: function(combo, records, eOpts) {
-
-        combo.up().down('field[itemId=item.title]').setValue(records[0].data.title);
-        combo.up().down('field[itemId=item.spec]').setValue(records[0].data.spec);
-        combo.up().down('field[itemId=item.unit]').setValue(records[0].data.unit);
-        combo.up().down('field[itemId=item.description]').setValue(records[0].data.description);
-
     }
 
 });

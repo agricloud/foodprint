@@ -48,8 +48,8 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
                     items: [
                         {
                             xtype: 'erpsalesheetgrid',
-                            flex: 1,
-                            itemId: 'masterGrid'
+                            itemId: 'masterGrid',
+                            flex: 1
                         },
                         me.processGrid({
                             xtype: 'gridpanel',
@@ -264,7 +264,7 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
     },
 
     processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
     },
 
     processForm: function(config) {

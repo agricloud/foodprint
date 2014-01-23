@@ -55,9 +55,11 @@ Ext.define('foodprint.view.ErpCustomerOrderGrid', {
                 },
                 {
                     xtype: 'numbercolumn',
+                    hidden: true,
                     dataIndex: 'customer.id',
                     text: 'Customer.id',
-                    flex: 1
+                    flex: 1,
+                    format: '0,000'
                 },
                 {
                     xtype: 'gridcolumn',

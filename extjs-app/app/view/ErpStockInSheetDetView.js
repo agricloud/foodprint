@@ -46,8 +46,8 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
                     items: [
                         {
                             xtype: 'erpstockinsheetgrid',
-                            flex: 1,
-                            itemId: 'masterGrid'
+                            itemId: 'masterGrid',
+                            flex: 1
                         },
                         me.processGrid({
                             xtype: 'gridpanel',
@@ -254,7 +254,7 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
     },
 
     processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'purchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'stockInSheetDet');
     },
 
     processForm: function(config) {

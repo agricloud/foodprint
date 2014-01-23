@@ -57,7 +57,10 @@ Ext.define('foodprint.view.CommonItemCombo', {
         if(combo.up() && combo.up().getForm()){
             combo.up().getForm().setValues({
 
-                'item.title':records[0].data['title']
+                'item.title':records[0].data['title'],
+                'item.spec':records[0].data['spec'],
+                'item.unit':records[0].data['unit'],
+                'item.description':records[0].data['description']
             });
         }
     },
