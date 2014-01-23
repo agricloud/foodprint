@@ -1,0 +1,90 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonErpCustomerOrderCombo",
+        "designer|userClassName": "CommonErpCustomerOrderCombo",
+        "designer|userAlias": "commonerpcustomerordercombo",
+        "fieldLabel": "CustomerOrder.typeName+name",
+        "name": "customerOrder.id",
+        "allowBlank": null,
+        "selectOnFocus": true,
+        "editable": null,
+        "autoSelect": null,
+        "displayField": "name",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryDelay": null,
+        "queryParam": "nameLike",
+        "store": "ErpManufactureOrderStore",
+        "triggerAction": null,
+        "typeAheadDelay": null,
+        "valueField": "id"
+    },
+    "designerId": "8c2ff9a1-c493-414e-8857-fce89dba4a26",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonErpCustomerOrderCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('erpCustomerOrder.name.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "94c51df0-6f64-4dea-8277-3652f566f09b"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonErpCustomerOrderComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "6218f494-dd16-44b5-a504-ae6f0ad39bb8"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonErpCustomerOrderComboChange",
+                "implHandler": [
+                    "if(field.up() && field.up().down('commonerpcustomerorderdetcombo')){",
+                    "    var params={};",
+                    "    params[\"customerOrder.id\"]=newValue;",
+                    "    field.up().down('commonerpcustomerorderdetcombo').getStore().getProxy().extraParams = params;",
+                    "}"
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "designerId": "3bc7bbe3-7119-4b74-92f0-76ddcf3d6a38"
+        }
+    ]
+}

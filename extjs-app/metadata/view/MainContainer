@@ -787,7 +787,7 @@
                             "userConfig": {
                                 "layout|flex": null,
                                 "itemId": "erpOutSrcPurchaseSheetMaintain",
-                                "text": "OutSrcPurchase Maintain"
+                                "text": "OutSrcPurchaseSheet Maintain"
                             },
                             "designerId": "9ba3eaf0-6f77-4aeb-8c6b-aaa28d15b1bb",
                             "cn": [
@@ -846,6 +846,78 @@
                                         ]
                                     },
                                     "designerId": "fa2ad5b4-cc83-4cc7-9480-8f8eda1b88dc"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpSaleSheetMaintain",
+                                "text": "SaleSheet Maintain"
+                            },
+                            "designerId": "506fcfc3-3778-4b3c-992c-405ffad9fac8",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpSaleSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.saleSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "1163ca75-d68d-4bf5-9954-f0aef14b2b38"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpSaleSheetDetMaintain",
+                                "text": "SaleSheetDet Maintain"
+                            },
+                            "designerId": "b99fd83d-6e5f-4c6b-824e-d7a3e59804af",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpSaleSheetDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "20978755-f3d2-43cb-a4a4-9fa458eae6a7"
                                 }
                             ]
                         },
