@@ -25,7 +25,7 @@ Ext.define('foodprint.view.CommonErpCustomerOrderCombo', {
     forceSelection: true,
     minChars: 0,
     queryParam: 'nameLike',
-    store: 'ErpManufactureOrderStore',
+    store: 'ErpCustomerOrderStore',
     valueField: 'id',
 
     initComponent: function() {

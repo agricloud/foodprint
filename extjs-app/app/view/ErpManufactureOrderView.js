@@ -182,6 +182,13 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     name: 'item.description'
                                 },
                                 {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'batch.id',
+                                    name: 'batch.id',
+                                    readOnly: true
+                                },
+                                {
                                     xtype: 'textfield',
                                     fieldLabel: 'batch.name',
                                     name: 'batch.name'

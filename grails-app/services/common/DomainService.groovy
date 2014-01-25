@@ -56,7 +56,7 @@ class DomainService {
                 log.error messageSource.getMessage(it, Locale.getDefault())
             }
 
-            msg = messageSource.getMessage("default.message.update.failed", args, Locale.getDefault())
+            msg = messageSource.getMessage("default.message.save.failed", args, Locale.getDefault())
             success=false;
         }
 
