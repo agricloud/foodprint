@@ -57,7 +57,18 @@ Ext.application({
         'ErpManufactureOrderController',
         'SupplierController',
         'BatchSourceController',
-        'ErpCustomerOrderController'
+        'ErpCustomerOrderController',
+        'ErpCustomerOrderDetController',
+        'ErpMaterialSheetController',
+        'ErpMaterialSheetDetController',
+        'ErpPurchaseSheetController',
+        'ErpPurchaseSheetDetController',
+        'ErpStockInSheetController',
+        'ErpStockInSheetDetController',
+        'ErpOutSrcPurchaseSheetController',
+        'ErpOutSrcPurchaseSheetDetController',
+        'ErpSaleSheetController',
+        'ErpSaleSheetDetController'
     ],
     name: 'foodprint',
 

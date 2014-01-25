@@ -1,0 +1,98 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpMaterialSheet"
+        ],
+        "stores": [
+            "ErpMaterialSheetStore"
+        ],
+        "views": [
+            "ErpMaterialSheetView"
+        ],
+        "designer|userClassName": "ErpMaterialSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "afaf3170-e5eb-41d2-8069-965b78e165bb",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpmaterialsheetview #grid"
+            },
+            "designerId": "40f2f510-657d-4076-923f-5abc6fda2008"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpmaterialsheetview #form"
+            },
+            "designerId": "e108c58d-8747-453a-bfd2-6ce243097c0c"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpmaterialsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erpmaterialsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erpmaterialsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpmaterialsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpmaterialsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpmaterialsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'materialSheet';"
+                ]
+            },
+            "designerId": "5dd9f004-4278-44f4-9bf5-fa44f7e7b208"
+        }
+    ]
+}

@@ -16,8 +16,6 @@
 Ext.define('foodprint.controller.CommonController', {
     extend: 'Ext.app.Controller',
 
-    isErpDomain: false,
-
     doShow: function(callback) {
         console.log('commonController--'+this.domainName+'--doShow');
 
@@ -31,6 +29,7 @@ Ext.define('foodprint.controller.CommonController', {
 
         this.getMainForm().getForm().load({
             url:this.getRoot()+'/'+this.domainName+'/show/'+id,
+            params: this.getParams(),
             waitMsg:Utilities.getMsg('default.message.load'),
             success: function(form, action) {
                 that.activeEditor();
@@ -57,13 +56,13 @@ Ext.define('foodprint.controller.CommonController', {
     doCreate: function() {
         console.log('commonController--'+this.domainName+'--doCreate');
         var that = this
-        var params = {}
 
-        params[this.masterKey]=this.masterId
+        var params = this.getParams();
+        params[this.masterKey]=this.masterId;
         this.getMainForm().getForm().reset(true);
 
         this.getMainForm().getForm().load({
-            url:this.getRoot()+'/'+this.domainName+'/create',
+            url: this.getRoot()+'/'+this.domainName+'/create',
             params:params,
             success: function(form, action) {
                 that.actionName = 'save';
@@ -146,16 +145,16 @@ Ext.define('foodprint.controller.CommonController', {
 
         grid.getStore().getProxy().extraParams = params;
         grid.getStore().load();
-        console.log(grid.getStore());
+
 
     },
 
     submitForm: function(callback) {
-
         console.log('/'+this.domainName+'/'+this.actionName);
 
         this.getMainForm().getForm().submit({
             url: this.getRoot()+'/'+this.domainName+'/'+this.actionName,
+            params: this.getParams(),
             submitEmptyText: false,
             waitMsg: 'Updating Data...',
             success: function(form,action) {
@@ -215,15 +214,19 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     getRoot: function() {
+        /* 0111 erpDomain統一呼叫foodpaintController 刪除isErpDomain參數
         if(this.isErpDomain)
         return Utilities.getSysConfig("foodpaintUrl");
         else return '';
+        */
+
+        return '';
     },
 
-    doIndexFoodpaint: function() {
-        var grid = this.getMainGrid();
-        grid.getStore().getProxy().url = this.getRoot()+"/"+this.domainName
-        grid.getStore().load();
+    getParams: function() {
+        if(this.domainName == 'foodpaint')
+        return {foodpaintController:this.foodpaintController};
+        else return {};
     }
 
 });

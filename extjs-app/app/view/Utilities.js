@@ -196,6 +196,8 @@ Ext.define('foodprint.view.Utilities', {
         }
 
         if (config.columns) {
+            if(config.title != null)
+            config.title = this.getMsg(prefix+'.label');
             for (var i=0; i<config.columns.length; i++) {
                 var target = config.columns[i];
 

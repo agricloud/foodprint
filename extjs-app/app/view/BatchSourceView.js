@@ -54,6 +54,7 @@ Ext.define('foodprint.view.BatchSourceView', {
                             xtype: 'gridpanel',
                             flex: 1,
                             itemId: 'grid',
+                            title: 'BatchSource',
                             store: 'BatchSourceStore',
                             viewConfig: {
                                 loadingText: 'Loading..'

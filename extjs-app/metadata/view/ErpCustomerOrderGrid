@@ -1,0 +1,178 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "erpCustomerOrderGrid",
+        "designer|userClassName": "ErpCustomerOrderGrid",
+        "designer|userAlias": "erpcustomerordergrid",
+        "title": null,
+        "store": "ErpCustomerOrderStore"
+    },
+    "designerId": "2efb4c35-8765-40df-8927-701f6ea32aa1",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "b6de994a-b207-4ca8-973d-762a32b247db"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpCustomerOrderGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'customerOrder'));"
+                ]
+            },
+            "designerId": "03aff278-aabe-4c3c-bdd8-f240662ab9af"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpCustomerOrderStore"
+            },
+            "designerId": "14bd59ce-b9bc-4cfd-b690-5fa1f2869dc2"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "484a913e-fb65-4d63-b7fb-f2d556d62c24"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "typeName",
+                "text": "TypeName",
+                "flex": 1
+            },
+            "designerId": "70f33ce0-1a36-4362-9290-31fdd15e09ff"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "ce1d7865-dae7-4a3a-b3ef-47353d47b099"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "customer.id",
+                "text": "Customer.id",
+                "flex": 1,
+                "format": "0,000"
+            },
+            "designerId": "d64a23e2-4778-44af-8ad8-0e059cf066af"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.name",
+                "text": "Customer.name",
+                "flex": 1
+            },
+            "designerId": "124caa25-316a-4f7a-bdcb-25f15f3dde35"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.title",
+                "text": "Customer.title",
+                "flex": 1
+            },
+            "designerId": "ac8ac4e3-5d38-4e3b-8fc9-6255aa7e4995"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "dueDate",
+                "text": "dueDate",
+                "flex": 1
+            },
+            "designerId": "0dfa4dd3-1f0a-4cf0-a32e-0100784b9639"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpCustomerOrderGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "f2c92bb7-6683-4545-b38b-8d50281af480"
+        }
+    ]
+}

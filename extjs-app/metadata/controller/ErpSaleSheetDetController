@@ -1,0 +1,117 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpSaleSheetDet",
+            "ErpSaleSheet"
+        ],
+        "stores": [
+            "ErpSaleSheetDetStore",
+            "ErpSaleSheetStore"
+        ],
+        "views": [
+            "ErpSaleSheetDetView"
+        ],
+        "designer|userClassName": "ErpSaleSheetDetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "226b9840-ab81-4f33-ac7e-a92227139d9b",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpsalesheetdetview #grid"
+            },
+            "designerId": "ac7bf0d1-5d3f-4ea2-b05d-70763faba8c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpsalesheetdetview #form"
+            },
+            "designerId": "87789ae7-0567-4d63-b991-d6467e2ba481"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "erpsalesheetdetview #masterGrid"
+            },
+            "designerId": "017afa03-3442-4ca7-8f71-7a8cac7d00d6"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'erpsalesheetdetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erpsalesheetdetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erpsalesheetdetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpsalesheetdetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpsalesheetdetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpsalesheetdetview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'erpsalesheetdetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'saleSheetDet';",
+                    "this.masterKey='saleSheet.id';",
+                    ""
+                ]
+            },
+            "designerId": "839d4c90-3fb4-4ecb-9010-33ab4a7c79d0"
+        }
+    ]
+}

@@ -26,7 +26,7 @@ Ext.define('foodprint.store.BatchReportDetStore', {
         me.callParent([Ext.apply({
             model: 'foodprint.model.BatchReportDet',
             remoteSort: true,
-            storeId: 'MyJsonStore'
+            storeId: 'BatchReportDetStore'
         }, cfg)]);
     }
 });

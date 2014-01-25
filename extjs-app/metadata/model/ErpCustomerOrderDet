@@ -1,0 +1,180 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpCustomerOrderDet"
+    },
+    "designerId": "4303857b-35e6-44a1-a5ec-828d3422c59a",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customerOrder.id"
+            },
+            "designerId": "9cfc4375-b2b5-4c3b-9a1b-9e003a6af153"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "65011eea-2ad2-4553-b3f5-df32af731d15"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "20d76b06-fde8-4d58-904c-488738519fa0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "1ca91ceb-dcfd-4794-90e3-8143e36946b5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sequence"
+            },
+            "designerId": "a5a71fa0-0fb8-4b94-990e-55f5c3f5bfa0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.id"
+            },
+            "designerId": "cebb4acd-33af-45bd-8a88-9135205d67fe"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.name"
+            },
+            "designerId": "720256dd-c4d8-49fb-b9b4-80e52bfc6d32"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.title"
+            },
+            "designerId": "ef30ae0d-9349-4968-95cf-6a9ec7a28d74"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qty"
+            },
+            "designerId": "96467b70-431c-4de5-b5f4-9b497778e333"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/customerOrderDet"
+            },
+            "designerId": "26724922-7fc4-4623-9e27-5c15e96bfb72",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "designerId": "bd151837-2311-4d89-b64b-b471d7f739f8"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpCustomerOrderDet",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrderDet\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "cee4b318-cdb1-4889-a620-38ea46fd91de"
+        }
+    ]
+}

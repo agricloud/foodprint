@@ -1,0 +1,240 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpStockInSheetDet"
+    },
+    "designerId": "f5d17bc1-1977-4f62-bcc4-da51d8c59fc9",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "stockInSheet.id"
+            },
+            "designerId": "c9344a57-8ee7-429c-8c4e-50063df7cfe0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "1e4f0049-b1d4-4d31-9b9b-8cd844573f43"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "3ee8499f-8836-4dca-9e0f-dd8de78e912e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "c8fe91ac-f128-40fd-8b82-cc0ad62180e5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sequence"
+            },
+            "designerId": "d2c07568-e655-46dd-aa35-dd31c6fe80b2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.id"
+            },
+            "designerId": "1c424d00-9626-42e3-aaa5-284bb6c32e8a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.name"
+            },
+            "designerId": "65b21499-a1be-4fb2-a2da-fedc94eb0888"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "item.title"
+            },
+            "designerId": "a7d26fdf-537c-45bd-8d49-57b9cbca02f0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.id"
+            },
+            "designerId": "6c5dc758-cc3b-40eb-824e-a5ee93cd68b2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.name"
+            },
+            "designerId": "44ba92a5-7d67-482f-a636-e15b79e47d50"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.id"
+            },
+            "designerId": "e5b1d0f3-df7b-4cca-a7ce-ca9fa4c37d53"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.typeName"
+            },
+            "designerId": "15ac9101-d1a1-47ce-a232-fcb4f0f455a3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "manufactureOrder.name"
+            },
+            "designerId": "081424e9-317e-4125-bd4d-a3d272455118"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qty"
+            },
+            "designerId": "b5849b20-5836-404f-a136-9d5769c66372"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/stockInSheetDet"
+            },
+            "designerId": "478cf723-7bbf-4c7e-8722-85fa4a771eb7",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "designerId": "78a0466d-d1a1-43b4-8616-b5185e37d0ba"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpStockInSheetDet",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/stockInSheetDet\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "79358d87-5fce-4ace-8b92-4e9961641a66"
+        }
+    ]
+}

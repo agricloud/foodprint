@@ -1,0 +1,156 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpOutSrcPurchaseSheet"
+    },
+    "designerId": "09c2b775-3943-46e5-a02a-771ede66d62b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "c8a360e6-f0e3-46d7-8807-a84303d62feb"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "93a48066-d832-4f63-9e2d-41e53b7c3e8f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "f6937b90-fd6e-44ec-9a69-d53d6a5300ec"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.id"
+            },
+            "designerId": "616ba292-f8c3-4696-a771-e10ba6834ba7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.name"
+            },
+            "designerId": "2e4e1b40-a62d-42d7-9940-bc2845d0ff22"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.title"
+            },
+            "designerId": "733b5b87-964f-40ef-9276-237730d47e03"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "outSrcPurchaseDate",
+                "type": "date"
+            },
+            "designerId": "feab5ee1-0594-48a9-817d-f21aabe7d7eb"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/outSrcPurchaseSheet"
+            },
+            "designerId": "c20663c5-5703-46ee-b347-43de76870a42",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "outSrcPurchaseSheetInstanceList",
+                        "totalProperty": "outSrcPurchaseSheetInstanceTotal"
+                    },
+                    "designerId": "1a8e9eab-518e-46a2-b28e-a472ed98cc5f"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpOutSrcPurchaseSheet",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(config.proxy.url);",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/outSrcPurchaseSheet\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "494e3b1c-d53a-4d82-9882-d0b2631973e7"
+        }
+    ]
+}

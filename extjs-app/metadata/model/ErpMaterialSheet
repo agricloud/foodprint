@@ -1,0 +1,143 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpMaterialSheet"
+    },
+    "designerId": "69062f01-852a-4c58-a886-dc5253e7e187",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "c6949e9c-f367-43a3-a1cf-cb88e4bfe863"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "bcd94ea3-a3d1-452b-b1d0-d0ff4b864dbd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "6b6ccc1e-141c-4a7b-9763-39f68bda6738"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.id"
+            },
+            "designerId": "30a5f779-525e-4806-81df-ceb187406218"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.name"
+            },
+            "designerId": "a0282aed-7883-46cf-b0a3-3c3c8bfa9c7b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.title"
+            },
+            "designerId": "16aabe2f-bcbc-475c-ac17-5b7cd135a31f"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/materialSheet"
+            },
+            "designerId": "9a2e3e58-0bbb-4d9c-bc0b-ec99be3fce0f",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "materialSheetInstanceList",
+                        "totalProperty": "materialSheetInstanceTotal"
+                    },
+                    "designerId": "c6841f14-d1c3-48f8-a12c-671b3f82cc38"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpMaterialSheet",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(config.proxy.url);",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/materialSheet\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "30f21f8d-555b-48c4-a342-da70428f1122"
+        }
+    ]
+}

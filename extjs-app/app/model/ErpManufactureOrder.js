@@ -36,6 +36,9 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
             name: 'item.name'
         },
         {
+            name: 'item.title'
+        },
+        {
             name: 'qty'
         },
         {
@@ -65,7 +68,7 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
     },
 
     processErpManufactureOrder: function(config) {
-        console.log(config);
+
         console.log(config.proxy.url);
         config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/manufactureOrder";
         return config;

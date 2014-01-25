@@ -1,0 +1,156 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpStockInSheet"
+    },
+    "designerId": "a7d25320-dbcf-423d-b697-c970112bcc80",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "e3f52320-c363-4cbd-9c4b-875b028dab29"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "0a5a80e8-73ed-45db-8d4c-b806fbfad06c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "691ca022-2fcd-4bab-b908-c3fb421cb0b5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.id"
+            },
+            "designerId": "7f5bb0a8-9b5d-4206-823a-dd85f07f5c67"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.name"
+            },
+            "designerId": "4b16f64f-f120-4694-9f4e-f36ed1d0f386"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.title"
+            },
+            "designerId": "efb5b2d9-2428-47bb-bf7b-9696fcd6a591"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "stockInDate",
+                "type": "date"
+            },
+            "designerId": "2979e23c-ea24-4511-8d44-52a43cbf07fe"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": " http://localhost:8180/stockInSheet"
+            },
+            "designerId": "2127de92-f6f8-4f10-810e-8d6e09f50513",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "stockInSheetInstanceList",
+                        "totalProperty": "stockInSheetInstanceTotal"
+                    },
+                    "designerId": "ba79d586-ff0d-451e-9114-a938a852bb31"
+                }
+            ]
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpStockInSheetDet",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "console.log(config.proxy.url);",
+                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/stockInSheet\";",
+                    "return config;"
+                ]
+            },
+            "designerId": "f198ed1c-1387-4bc0-a8d0-c309bbe5317d"
+        }
+    ]
+}

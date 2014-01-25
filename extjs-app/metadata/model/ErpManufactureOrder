@@ -81,6 +81,18 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "item.title"
+            },
+            "designerId": "5bd42dde-042b-444f-904e-b7d3fdc24688"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "qty"
             },
             "designerId": "10d3fe38-affb-456a-bd8c-80bc6b456e35"
@@ -159,7 +171,7 @@
                     "config"
                 ],
                 "implHandler": [
-                    "console.log(config);",
+                    "",
                     "console.log(config.proxy.url);",
                     "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/manufactureOrder\";",
                     "return config;"

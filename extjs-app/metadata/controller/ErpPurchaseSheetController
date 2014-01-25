@@ -1,0 +1,98 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpPurchaseSheet"
+        ],
+        "stores": [
+            "ErpPurchaseSheetStore"
+        ],
+        "views": [
+            "ErpPurchaseSheetView"
+        ],
+        "designer|userClassName": "ErpPurchaseSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "2291e950-cfd5-4400-a8ae-368fe5d4e47c",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erppurchasesheetview #grid"
+            },
+            "designerId": "2e780f71-dafa-49be-8ac7-1471baac56f7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erppurchasesheetview #form"
+            },
+            "designerId": "c0f687a0-52d6-43be-b682-4f8631f7a973"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erppurchasesheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erppurchasesheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erppurchasesheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erppurchasesheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erppurchasesheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erppurchasesheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'purchaseSheet';"
+                ]
+            },
+            "designerId": "530e0bc2-db08-408d-8b16-44d687cffc24"
+        }
+    ]
+}

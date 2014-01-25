@@ -1,0 +1,98 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpOutSrcPurchaseSheet"
+        ],
+        "stores": [
+            "ErpOutSrcPurchaseSheetStore"
+        ],
+        "views": [
+            "ErpOutSrcPurchaseSheetView"
+        ],
+        "designer|userClassName": "ErpOutSrcPurchaseSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "cf61c13d-c53e-491b-872b-1904859c1eac",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpoutsrcpurchasesheetview #grid"
+            },
+            "designerId": "e161479e-165a-4e34-aa5c-8750b49bcd3e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpoutsrcpurchasesheetview #form"
+            },
+            "designerId": "44c94353-0da4-4cea-a7e6-3e53d94451f3"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpoutsrcpurchasesheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erpoutsrcpurchasesheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpoutsrcpurchasesheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'outSrcPurchaseSheet';"
+                ]
+            },
+            "designerId": "01917f90-3915-444d-902f-ed9018ff66a8"
+        }
+    ]
+}

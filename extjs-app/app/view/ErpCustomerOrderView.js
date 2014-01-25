@@ -18,6 +18,7 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
     alias: 'widget.erpcustomerorderview',
 
     requires: [
+        'foodprint.view.ErpCustomerOrderGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -42,57 +43,10 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                         type: 'fit'
                     },
                     items: [
-                        me.processGrid({
-                            xtype: 'gridpanel',
-                            itemId: 'grid',
-                            store: 'ErpCustomerOrderStore',
-                            dockedItems: [
-                                {
-                                    xtype: 'pagingtoolbar',
-                                    dock: 'bottom',
-                                    width: 360,
-                                    displayInfo: true,
-                                    store: 'ErpManufactureOrderStore'
-                                }
-                            ],
-                            columns: [
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'id',
-                                    text: 'Id'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'typeName',
-                                    text: 'TypeName'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'name',
-                                    text: 'Name'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'customer.id',
-                                    text: 'Customer.id'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'customer.name',
-                                    text: 'Customer.name'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'customer.title',
-                                    text: 'Customer.title'
-                                },
-                                {
-                                    xtype: 'datecolumn',
-                                    dataIndex: 'dueDate',
-                                    text: 'dueDate'
-                                }
-                            ]
-                        })
+                        {
+                            xtype: 'erpcustomerordergrid',
+                            itemId: 'grid'
+                        }
                     ]
                 },
                 {
@@ -126,17 +80,19 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    fieldLabel: 'typeName',
+                                    name: 'typeName',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
                                     fieldLabel: 'name',
                                     name: 'name',
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'typeName',
-                                    name: 'typeName'
-                                },
-                                {
-                                    xtype: 'commoncustomercombo'
+                                    xtype: 'commoncustomercombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -158,10 +114,6 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
         });
 
         me.callParent(arguments);
-    },
-
-    processGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'customerOrder'));
     },
 
     processForm: function(config) {

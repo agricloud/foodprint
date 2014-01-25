@@ -1,0 +1,179 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "erpOutSrcPurchaseSheetGrid",
+        "designer|userClassName": "ErpOutSrcPurchaseSheetGrid",
+        "designer|userAlias": "erpoutsrcpurchasesheetgrid",
+        "title": null,
+        "store": "ErpOutSrcPurchaseSheetStore"
+    },
+    "designerId": "65373f98-a025-4e44-a0cf-cd78c12e0dcb",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "3a343be3-8ed3-40ed-841e-9c27e779206c"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpOutSrcPurchaseSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'outSrcPurchaseSheet'));"
+                ]
+            },
+            "designerId": "f75fa192-c7bb-4a81-bb68-de98522ca73f"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpOutSrcPurchaseSheetStore"
+            },
+            "designerId": "dbc33188-5c27-4012-b9e4-3461141eb84d"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "3cac7036-2371-45bb-8c5b-05e4832e609d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "typeName",
+                "text": "TypeName",
+                "flex": 1
+            },
+            "designerId": "d56812eb-2878-4d9b-ad7c-dfc570c6694a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "ed1d68a1-24a3-4e7a-8992-b8d343e96947"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpOutSrcPurchaseSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "032f5d2f-82b1-41f8-9099-39f06dc7cd0e"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "supplier.id",
+                "text": "Supplier.Id",
+                "flex": 1
+            },
+            "designerId": "03ff4936-7810-4870-890d-1dd8a6759a95"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "supplier.name",
+                "text": "Supplier.Name",
+                "flex": 1
+            },
+            "designerId": "bbdc47a1-dbf7-4d26-adf7-41355a643006"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "supplier.title",
+                "text": "Supplier.Title",
+                "flex": 1
+            },
+            "designerId": "cba5dbc3-c042-4a20-a629-f226e2826f1a"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "dataIndex": "outSrcPurchaseDate",
+                "text": "OutSrcPurchaseDate",
+                "flex": 1,
+                "format": "Y-m-d"
+            },
+            "designerId": "afefc419-99d7-4efa-a3f2-04efa24028c5"
+        }
+    ]
+}

@@ -61,16 +61,13 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
             'erpmanufactureorderview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow,
-                afterrender: this.doIndexFoodpaint
+                itemdblclick: this.doShow
             }
 
         });
 
-
-        this.domainName = 'manufactureOrder';
-        this.isErpDomain = true;
-
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'manufactureOrder';
     }
 
 });

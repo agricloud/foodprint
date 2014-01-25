@@ -18,7 +18,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "mapping": "id",
+                "mapping": null,
                 "name": "id"
             },
             "designerId": "c35c478d-c8cb-4a16-bcca-404c15635955"
@@ -142,12 +142,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpManufactureOrder",
+                "fn": "processErpCustomerOrder",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "console.log(config);",
                     "console.log(config.proxy.url);",
                     "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/customerOrder\";",
                     "return config;"
