@@ -90,32 +90,6 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
                                 {
                                     xtype: 'numbercolumn',
                                     hidden: true,
-                                    dataIndex: 'customerOrderDet.id',
-                                    text: 'CustomerOrderDet.id',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'customerOrderDet.typeName',
-                                    text: 'CustomerOrderDet.typeName',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'customerOrderDet.name',
-                                    text: 'CustomerOrderDet.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'customerOrderDet.sequence',
-                                    text: 'CustomerOrderDet.sequence',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
                                     dataIndex: 'batch.id',
                                     text: 'Batch.id',
                                     flex: 1
@@ -150,6 +124,32 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
                                     dataIndex: 'qty',
                                     text: 'qty',
                                     flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'customerOrderDet.id',
+                                    text: 'CustomerOrderDet.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customerOrderDet.typeName',
+                                    text: 'CustomerOrderDet.typeName',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customerOrderDet.name',
+                                    text: 'CustomerOrderDet.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    dataIndex: 'customerOrderDet.sequence',
+                                    text: 'CustomerOrderDet.sequence',
+                                    flex: 1,
+                                    format: '0,000'
                                 }
                             ],
                             listeners: {
