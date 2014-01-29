@@ -227,6 +227,21 @@ Ext.define('foodprint.controller.CommonController', {
         if(this.domainName == 'foodpaint')
         return {foodpaintController:this.foodpaintController};
         else return {};
+    },
+
+    activeManufactureOrderIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
+    },
+
+    doSelectManufactureOrderGrid: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name']
+        });
+        this.activeEditor();
     }
 
 });

@@ -19,8 +19,9 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
 
     requires: [
         'foodprint.view.ErpMaterialSheetGrid',
-        'foodprint.view.CommonErpManufactureOrderCombo',
+        'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonBatchCombo',
+        'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -177,7 +178,6 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                             items: [
                                 {
                                     xtype: 'numberfield',
-                                    flex: 1,
                                     hidden: true,
                                     fieldLabel: 'materialSheet.id',
                                     name: 'materialSheet.id',
@@ -185,6 +185,7 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                                 },
                                 {
                                     xtype: 'numberfield',
+                                    flex: 1,
                                     hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
@@ -212,14 +213,41 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonerpmanufactureordercombo'
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'manufactureOrderContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'manufactureOrder.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'ManufactureOrder.sheetNum',
+                                            name: 'manufactureOrder.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'manufactureOrder.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'commonbatchcombo'
                                 },
                                 {
                                     xtype: 'numberfield',
-                                    flex: 1,
                                     hidden: true,
                                     fieldLabel: 'item.id',
                                     name: 'item.id',
@@ -244,6 +272,21 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                                 }
                             ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'manufactureOrderIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpmanufactureordergrid',
+                            flex: 1,
+                            title: 'manufactureOrder'
+                        }
                     ]
                 }
             ]

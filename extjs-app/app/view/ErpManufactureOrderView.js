@@ -18,6 +18,7 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
     alias: 'widget.erpmanufactureorderview',
 
     requires: [
+        'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -42,72 +43,10 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                         type: 'fit'
                     },
                     items: [
-                        me.processGrid({
-                            xtype: 'gridpanel',
-                            itemId: 'grid',
-                            store: 'ErpManufactureOrderStore',
-                            dockedItems: [
-                                {
-                                    xtype: 'pagingtoolbar',
-                                    dock: 'bottom',
-                                    width: 360,
-                                    displayInfo: true,
-                                    store: 'ErpManufactureOrderStore'
-                                }
-                            ],
-                            columns: [
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'id',
-                                    text: 'Id'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'typeName',
-                                    text: 'TypeName'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'name',
-                                    text: 'Name'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'item.id',
-                                    text: 'Item.id',
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.name',
-                                    text: 'Item.name'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'batch.id',
-                                    text: 'Batch.id'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'batch.name',
-                                    text: 'Batch.name'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'qty',
-                                    text: 'qty'
-                                }
-                            ],
-                            listeners: {
-                                afterrender: {
-                                    fn: me.onGridAfterRender,
-                                    scope: me
-                                }
-                            }
-                        })
+                        {
+                            xtype: 'erpmanufactureordergrid',
+                            itemId: 'grid'
+                        }
                     ]
                 },
                 {
@@ -208,16 +147,8 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
         me.callParent(arguments);
     },
 
-    processGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'manufactureOrder'));
-    },
-
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'manufactureOrder');
-    },
-
-    onGridAfterRender: function(component, eOpts) {
-        component.getStore().load();
     }
 
 });

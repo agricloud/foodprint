@@ -389,6 +389,46 @@
                 ]
             },
             "designerId": "0c01a6e1-3de6-4594-8eb5-88f5497d74fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeManufactureOrderIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=manufactureOrderIndex]\"));"
+                ]
+            },
+            "designerId": "0be99408-678d-43f2-b2a0-78ebb1d56f64"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrderGrid",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getMainForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name']",
+                    "});",
+                    "this.activeEditor();"
+                ]
+            },
+            "designerId": "a1f79221-c0d7-4dba-b542-f2303a2bd339"
         }
     ]
 }
