@@ -1,0 +1,42 @@
+{
+    "type": "Ext.button.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonSelectBtn",
+        "style": "font-family:Pictos;",
+        "designer|userClassName": "CommonSelectBtn",
+        "designer|userAlias": "commonselectbtn",
+        "text": "Select"
+    },
+    "configAlternates": {
+        "style": "string"
+    },
+    "designerId": "51a68706-28ee-4908-afc0-672c74f28c75",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonSelectBtn",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.text=Utilities.getMsg('common.selectBtn.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "b5706618-ad4b-48aa-b23c-b3669ad432dd"
+        }
+    ]
+}

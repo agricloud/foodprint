@@ -102,6 +102,12 @@
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
                     "        itemdblclick: this.doShow",
+                    "    },",
+                    "    'erpstockinsheetdetview #show commonselectbtn':{",
+                    "        click:this.activeManufactureOrderIndex",
+                    "    },",
+                    "    'erpstockinsheetdetview #manufactureOrderIndex erpmanufactureordergrid':{",
+                    "        itemdblclick: this.doSelectManufactureOrderGrid",
                     "    }",
                     "});",
                     "",
@@ -112,6 +118,34 @@
                 ]
             },
             "designerId": "32994ab0-a9b0-4435-be4b-ea81e3db03bd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrderGrid",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getMainForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.name':record.data['batch.name']",
+                    "});",
+                    "this.activeEditor();"
+                ]
+            },
+            "designerId": "37b62781-c7f1-40d1-89b8-4c9f3857aa35"
         }
     ]
 }

@@ -72,6 +72,12 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetDetController', {
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
                 itemdblclick: this.doShow
+            },
+            'erpoutsrcpurchasesheetdetview #show commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpoutsrcpurchasesheetdetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrderGrid
             }
         });
 
@@ -79,6 +85,20 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetDetController', {
         this.foodpaintController = 'outSrcPurchaseSheetDet';
         this.masterKey='outSrcPurchaseSheet.id';
 
+    },
+
+    doSelectManufactureOrderGrid: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.name':record.data['batch.name']
+        });
+        this.activeEditor();
     }
 
 });

@@ -19,7 +19,8 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
 
     requires: [
         'foodprint.view.ErpStockInSheetGrid',
-        'foodprint.view.CommonErpManufactureOrderCombo',
+        'foodprint.view.CommonSelectBtn',
+        'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -211,7 +212,35 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonerpmanufactureordercombo'
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'manufactureOrderContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'manufactureOrder.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'ManufactureOrder.sheetNum',
+                                            name: 'manufactureOrder.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'manufactureOrder.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -253,6 +282,21 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
                                 }
                             ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'manufactureOrderIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpmanufactureordergrid',
+                            title: 'manufactureOrder',
+                            flex: 1
+                        }
                     ]
                 }
             ]

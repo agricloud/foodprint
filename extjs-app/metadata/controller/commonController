@@ -42,6 +42,54 @@
                     "    params: this.getParams(),",
                     "    waitMsg:Utilities.getMsg('default.message.load'),",
                     "    success: function(form, action) {",
+                    "",
+                    "    \t//由於store設定load第1-50筆",
+                    "    \t//導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    \t//在此使combo在doShow重新load store",
+                    "        var formField=form.getFields();",
+                    "",
+                    "        formField.each(function(item,index,len){",
+                    "            if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){",
+                    "                console.log(item);",
+                    "                var displayField;",
+                    "                switch(item.xtype){",
+                    "                    case 'commonitemcombo':",
+                    "                    displayField='item.name';",
+                    "                    break;",
+                    "                    case 'commonbatchcombo':",
+                    "                    displayField='batch.name';",
+                    "                    break;",
+                    "                    case 'commonsuppliercombo':",
+                    "                    displayField='supplier.name';",
+                    "                    break;",
+                    "                    case 'commonworkstationcombo':",
+                    "                    displayField='workstation.name';",
+                    "                    break;",
+                    "                    case 'commonoperationcombo':",
+                    "                    displayField='operation.name';",
+                    "                    break;",
+                    "                    case 'commonreportcombo':",
+                    "                    displayField='report.name';",
+                    "                    break;",
+                    "                    case 'commonparamcombo':",
+                    "                    displayField='param.name';",
+                    "                    break;",
+                    "                    case 'commoncustomercombo':",
+                    "                    displayField='customer.name';",
+                    "                    break;",
+                    "                    //case 'commoncountrycombo':",
+                    "                    //displayField='countryTitle';",
+                    "                    //break;",
+                    "                }",
+                    "",
+                    "                var params = {}",
+                    "                params['nameLike']=action.result.data[displayField];",
+                    "                item.getStore().getProxy().extraParams = params;",
+                    "                item.getStore().load();",
+                    "                item.setValue(action.result.data[item.getName()]);",
+                    "            }",
+                    "        });",
+                    "",
                     "        that.activeEditor();",
                     "        that.actionName = 'update';",
                     "",
@@ -389,6 +437,46 @@
                 ]
             },
             "designerId": "0c01a6e1-3de6-4594-8eb5-88f5497d74fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeManufactureOrderIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=manufactureOrderIndex]\"));"
+                ]
+            },
+            "designerId": "0be99408-678d-43f2-b2a0-78ebb1d56f64"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrderGrid",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getMainForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name']",
+                    "});",
+                    "this.activeEditor();"
+                ]
+            },
+            "designerId": "a1f79221-c0d7-4dba-b542-f2303a2bd339"
         }
     ]
 }

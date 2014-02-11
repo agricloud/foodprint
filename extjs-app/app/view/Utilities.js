@@ -190,7 +190,20 @@ Ext.define('foodprint.view.Utilities', {
                     // Check lang def exists
                     if (this.getMsg(key) !== key+".undefined") {
                         target.fieldLabel = this.getMsg(key);
-                    }else console.log(key)
+                    }else console.log(key);
+                }
+                if(target.items){
+                    for(var j=0; j<target.items.length; j++){
+                        var innerTarget=target.items[j];
+                        if(innerTarget.fieldLabel){
+                            key = prefix+'.'+innerTarget.name+'.label';
+
+                            // Check lang def exists
+                            if (this.getMsg(key) !== key+".undefined") {
+                                innerTarget.fieldLabel = this.getMsg(key);
+                            }else console.log(key);
+                        }
+                    }
                 }
             }
         }
