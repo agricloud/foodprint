@@ -32,6 +32,54 @@ Ext.define('foodprint.controller.CommonController', {
             params: this.getParams(),
             waitMsg:Utilities.getMsg('default.message.load'),
             success: function(form, action) {
+
+                //由於store設定load第1-50筆
+                //導致doShow時若資料屬於第50筆之後無法正常顯示
+                //在此使combo在doShow重新load store
+                var formField=form.getFields();
+
+                formField.each(function(item,index,len){
+                    if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
+                        console.log(item);
+                        var displayField;
+                        switch(item.xtype){
+                            case 'commonitemcombo':
+                            displayField='item.name';
+                            break;
+                            case 'commonbatchcombo':
+                            displayField='batch.name';
+                            break;
+                            case 'commonsuppliercombo':
+                            displayField='supplier.name';
+                            break;
+                            case 'commonworkstationcombo':
+                            displayField='workstation.name';
+                            break;
+                            case 'commonoperationcombo':
+                            displayField='operation.name';
+                            break;
+                            case 'commonreportcombo':
+                            displayField='report.name';
+                            break;
+                            case 'commonparamcombo':
+                            displayField='param.name';
+                            break;
+                            case 'commoncustomercombo':
+                            displayField='customer.name';
+                            break;
+                            //case 'commoncountrycombo':
+                            //displayField='countryTitle';
+                            //break;
+                        }
+
+                        var params = {}
+                        params['nameLike']=action.result.data[displayField];
+                        item.getStore().getProxy().extraParams = params;
+                        item.getStore().load();
+                        item.setValue(action.result.data[item.getName()]);
+                    }
+                });
+
                 that.activeEditor();
                 that.actionName = 'update';
 
