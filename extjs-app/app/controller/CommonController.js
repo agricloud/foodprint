@@ -40,7 +40,6 @@ Ext.define('foodprint.controller.CommonController', {
 
                 formField.each(function(item,index,len){
                     if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
-                        console.log(item);
                         var displayField;
                         switch(item.xtype){
                             case 'commonitemcombo':
@@ -77,6 +76,7 @@ Ext.define('foodprint.controller.CommonController', {
                         item.getStore().getProxy().extraParams = params;
                         item.getStore().load();
                         item.setValue(action.result.data[item.getName()]);
+                        item.getStore().getProxy().extraParams = {};
                     }
                 });
 
