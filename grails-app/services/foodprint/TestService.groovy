@@ -94,6 +94,7 @@ class TestService {
 
     def createTestMessage = { messageSource ->
         messageSource.addMessage("default.message.save.success", Locale.getDefault(), "儲存成功")
+        messageSource.addMessage("default.message.save.failed", Locale.getDefault(), "儲存失敗")
         messageSource.addMessage("default.message.delete.success", Locale.getDefault(), "刪除成功")
         messageSource.addMessage("default.message.update.failed", Locale.getDefault(), "更新失敗")
 

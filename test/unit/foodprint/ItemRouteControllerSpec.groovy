@@ -31,10 +31,10 @@ class ItemRouteControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 itemRouteInstanceList 屬性，且有一筆資料 sequence 屬性為 1"
-            assert response.json.itemRouteInstanceList[0].sequence == 1
+            assert response.json.data[0].sequence == 1
 
         then: "json 裡有 itemRouteInstanceTotal 屬性為 1"
-            assert response.json.itemRouteInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

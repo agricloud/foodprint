@@ -14,7 +14,7 @@ class BatchRouteController {
         
         if(batch){
             
-            def batchRoute = BatchRoute.findAllByItem(batch)
+            def batchRoute = BatchRoute.findAllByBatch(batch)
 
             render (contentType: 'application/json') {
                [success: true, data:batchRoute, total: batchRoute.size()]
