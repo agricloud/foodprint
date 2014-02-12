@@ -81,12 +81,10 @@
                     "                    //break;",
                     "                }",
                     "",
-                    "                var params = {}",
-                    "                params['nameLike']=action.result.data[displayField];",
-                    "                item.getStore().getProxy().extraParams = params;",
-                    "                item.getStore().load();",
+                    "                item.getStore().load({",
+                    "                    params: {'nameLike': action.result.data[displayField]}",
+                    "                });",
                     "                item.setValue(action.result.data[item.getName()]);",
-                    "\t\t\t\titem.getStore().getProxy().extraParams = {};",
                     "            }",
                     "        });",
                     "",
@@ -453,30 +451,6 @@
                 ]
             },
             "designerId": "0be99408-678d-43f2-b2a0-78ebb1d56f64"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSelectManufactureOrderGrid",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getMainForm().getForm().setValues({",
-                    "",
-                    "    'manufactureOrder.id':record.data['id'],",
-                    "    'manufactureOrder.typeName':record.data['typeName'],",
-                    "    'manufactureOrder.name':record.data['name']",
-                    "});",
-                    "this.activeEditor();"
-                ]
-            },
-            "designerId": "a1f79221-c0d7-4dba-b542-f2303a2bd339"
         },
         {
             "type": "basicfunction",

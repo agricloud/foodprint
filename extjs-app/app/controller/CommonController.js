@@ -71,12 +71,10 @@ Ext.define('foodprint.controller.CommonController', {
                             //break;
                         }
 
-                        var params = {}
-                        params['nameLike']=action.result.data[displayField];
-                        item.getStore().getProxy().extraParams = params;
-                        item.getStore().load();
+                        item.getStore().load({
+                            params: {'nameLike': action.result.data[displayField]}
+                        });
                         item.setValue(action.result.data[item.getName()]);
-                        item.getStore().getProxy().extraParams = {};
                     }
                 });
 
@@ -280,16 +278,6 @@ Ext.define('foodprint.controller.CommonController', {
     activeManufactureOrderIndex: function() {
 
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
-    },
-
-    doSelectManufactureOrderGrid: function(obj, record, index, eOpts) {
-        this.getMainForm().getForm().setValues({
-
-            'manufactureOrder.id':record.data['id'],
-            'manufactureOrder.typeName':record.data['typeName'],
-            'manufactureOrder.name':record.data['name']
-        });
-        this.activeEditor();
     },
 
     activeCustomerOrderDetIndex: function() {

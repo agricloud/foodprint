@@ -85,6 +85,16 @@ Ext.define('foodprint.controller.ErpMaterialSheetDetController', {
         this.foodpaintController = 'materialSheetDet';
         this.masterKey='materialSheet.id';
 
+    },
+
+    doSelectManufactureOrderGrid: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name']
+        });
+        this.activeEditor();
     }
 
 });

@@ -91,15 +91,12 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
     },
 
     doIndexDetailCustomerOrderGrid: function(obj, record, index, eOpts) {
-
-
         var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
 
         grid.getStore().data.clear();
 
         var params = {}
         params["customerOrder.id"]=record.data.id;
-
 
         grid.getStore().getProxy().extraParams = params;
         grid.getStore().load();
@@ -117,7 +114,21 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
             'item.title':record.data['item.title'],
             'qty':record.data['qty']
         });
+        this.reloadBatchComboByItem(record.data['item.id']);
         this.activeEditor();
+    },
+
+    reloadBatchComboByItem: function(itemId) {
+        var combo = this.getMainForm().down("combo[itemId=commonBatchCombo]");
+        combo.getStore().load({
+            url:'/batch/indexByItem',
+            params: {'item.id': itemId}
+        });
+        //combo在remote模式下
+        //設定第一次trigger時自動load
+        //造成此處指定查詢的Batch結果會被覆蓋
+        //給定lastQuery使系統默認為已load過
+        combo.lastQuery='';
     }
 
 });

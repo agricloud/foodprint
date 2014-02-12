@@ -16,6 +16,15 @@ class BatchController {
         }
     }
 
+    def indexByItem = {
+        def item = Item.get(params.item.id)
+        def list = Batch.findAllByItem(item)     
+
+        render (contentType: 'application/json') {
+            [batchInstanceList: list, batchInstanceTotal: list.size()]
+        }
+    }
+
     def typeahead = {
 
         def list = Batch.createCriteria().list(params,{
