@@ -19,9 +19,10 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
 
     requires: [
         'foodprint.view.ErpSaleSheetGrid',
-        'foodprint.view.CommonErpCustomerOrderCombo',
-        'foodprint.view.CommonErpCustomerOrderDetCombo',
+        'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonBatchCombo',
+        'foodprint.view.ErpCustomerOrderGrid',
+        'foodprint.view.ErpCustomerOrderDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -220,10 +221,40 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonerpcustomerordercombo'
-                                },
-                                {
-                                    xtype: 'commonerpcustomerorderdetcombo'
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'customerOrderDetContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'customerOrderDet.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'CustomerOrderDet.sheetNum',
+                                            name: 'customerOrderDet.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'customerOrderDet.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'customerOrderDet.sequence',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -255,6 +286,24 @@ Ext.define('foodprint.view.ErpSaleSheetDetView', {
                                 }
                             ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'customerOrderDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpcustomerordergrid',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'erpcustomerorderdetgrid',
+                            flex: 1
+                        }
                     ]
                 }
             ]

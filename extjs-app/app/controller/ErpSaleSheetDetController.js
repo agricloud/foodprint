@@ -72,6 +72,15 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
                 itemdblclick: this.doShow
+            },
+            'erpsalesheetdetview #show commonselectbtn':{
+                click:this.activeCustomerOrderDetIndex
+            },
+            'erpsalesheetdetview #customerOrderDetIndex erpcustomerordergrid':{
+                select: this.doIndexDetailCustomerOrderGrid
+            },
+            'erpsalesheetdetview #customerOrderDetIndex erpcustomerorderdetgrid':{
+                itemdblclick: this.doSelectCustomerOrderDetGrid
             }
         });
 
@@ -79,6 +88,36 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
         this.foodpaintController = 'saleSheetDet';
         this.masterKey='saleSheet.id';
 
+    },
+
+    doIndexDetailCustomerOrderGrid: function(obj, record, index, eOpts) {
+
+
+        var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["customerOrder.id"]=record.data.id;
+
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+    },
+
+    doSelectCustomerOrderDetGrid: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'customerOrderDet.id':record.data['id'],
+            'customerOrderDet.typeName':record.data['typeName'],
+            'customerOrderDet.name':record.data['name'],
+            'customerOrderDet.sequence':record.data['sequence'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'qty':record.data['qty']
+        });
+        this.activeEditor();
     }
 
 });

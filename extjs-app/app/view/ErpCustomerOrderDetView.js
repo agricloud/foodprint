@@ -19,6 +19,7 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
 
     requires: [
         'foodprint.view.ErpCustomerOrderGrid',
+        'foodprint.view.ErpCustomerOrderDetGrid',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -50,75 +51,11 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
                             autoScroll: true,
                             flex: 1
                         },
-                        me.processGrid({
-                            xtype: 'gridpanel',
-                            flex: 1,
+                        {
+                            xtype: 'erpcustomerorderdetgrid',
                             itemId: 'grid',
-                            autoScroll: true,
-                            title: 'ErpCustomerOrderDet',
-                            store: 'ErpCustomerOrderDetStore',
-                            columns: [
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'id',
-                                    text: 'Id',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    hidden: true,
-                                    dataIndex: 'typeName',
-                                    text: 'TypeName',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    hidden: true,
-                                    dataIndex: 'name',
-                                    text: 'Name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'sequence',
-                                    text: 'Sequence',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'item.id',
-                                    text: 'Item.id',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.name',
-                                    text: 'Item.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.title',
-                                    text: 'Item.title',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'qty',
-                                    text: 'qty',
-                                    flex: 1
-                                }
-                            ],
-                            listeners: {
-                                beforerender: {
-                                    fn: me.onGridBeforeRender,
-                                    scope: me
-                                }
-                            }
-                        })
+                            flex: 1
+                        }
                     ]
                 },
                 {
@@ -203,16 +140,8 @@ Ext.define('foodprint.view.ErpCustomerOrderDetView', {
         me.callParent(arguments);
     },
 
-    processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'customerOrderDet');
-    },
-
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'customerOrderDet');
-    },
-
-    onGridBeforeRender: function(component, eOpts) {
-        component.getStore().removeAll();
     }
 
 });

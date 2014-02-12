@@ -477,6 +477,25 @@
                 ]
             },
             "designerId": "a1f79221-c0d7-4dba-b542-f2303a2bd339"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeCustomerOrderDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\"));",
+                    "",
+                    "var customerOrderDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=customerOrderDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "cab8fcfd-1ca6-4855-beda-3c4dcd0a7422"
         }
     ]
 }

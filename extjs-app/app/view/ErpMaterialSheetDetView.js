@@ -284,8 +284,8 @@ Ext.define('foodprint.view.ErpMaterialSheetDetView', {
                     items: [
                         {
                             xtype: 'erpmanufactureordergrid',
-                            flex: 1,
-                            title: 'manufactureOrder'
+                            title: 'manufactureOrder',
+                            flex: 1
                         }
                     ]
                 }
