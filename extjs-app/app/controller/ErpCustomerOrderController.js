@@ -38,6 +38,14 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
         {
             ref: 'mainForm',
             selector: 'erpcustomerorderview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpcustomerorderview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpcustomerorderview #detailForm'
         }
     ],
 
@@ -47,7 +55,7 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
                 click:this.doCreate
             },
             'erpcustomerorderview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowAndIndexDetail
             },
             'erpcustomerorderview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,7 +69,27 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
             'erpcustomerorderview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowAndIndexDetail
+            },
+            'erpcustomerorderview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpcustomerorderview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erpcustomerorderview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpcustomerorderview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpcustomerorderview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpcustomerorderview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
             }
 
         });
@@ -69,6 +97,8 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'customerOrder';
+        this.foodpaintDetController = 'customerOrderDet';
+        this.masterKey='customerOrder.id';
     }
 
 });
