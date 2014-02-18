@@ -28,6 +28,8 @@ class BootStrap {
                     def ws = new Workstation(name:"workstation"+i,title:"民雄線"+i).save(failOnError: true, flush: true)
                     def op = new Operation(name:"operation"+i,title:"施肥"+i).save(failOnError: true)
                     def sp = new Supplier(name:"supplier"+i,title:"福智麻園"+i,country:Country.TAIWAN).save(failOnError: true, flush: true)
+                    def bh = new Batch(name:"batch"+i,item:item,dueDate:new Date(),supplier:sp,
+                        manufactureDate: new Date(), expirationDate: new Date(), remark: '備註').save(failOnError: true)
 
                     if(i==70){
                         def itemRoute=new ItemRoute(item:item,sequence:1,operation:op,workstation:ws,supplier:sp)

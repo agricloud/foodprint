@@ -46,7 +46,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'batchview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowBatch",
                     "    },",
                     "    'batchview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -60,7 +60,7 @@
                     "    'batchview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShow",
+                    "        itemdblclick: this.doShowBatch",
                     "    }",
                     "",
                     "});",
@@ -95,6 +95,30 @@
                 "selector": "batchview #form"
             },
             "designerId": "8fb39afa-d74e-4e16-814e-eccdda96aad3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowBatch",
+                "implHandler": [
+                    "this.doShow(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "\tUtilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "\tUtilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "4bd22962-48d9-4e7b-a760-a48ee5e7d343"
         }
     ]
 }

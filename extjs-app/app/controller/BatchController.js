@@ -51,7 +51,7 @@ Ext.define('foodprint.controller.BatchController', {
                 click:this.doCreate
             },
             'batchview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowBatch
             },
             'batchview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -65,12 +65,25 @@ Ext.define('foodprint.controller.BatchController', {
             'batchview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowBatch
             }
 
         });
 
         this.domainName = 'batch';
+    },
+
+    doShowBatch: function() {
+        this.doShow(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
+        });
+
     }
 
 });
