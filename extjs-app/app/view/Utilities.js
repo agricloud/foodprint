@@ -253,6 +253,14 @@ Ext.define('foodprint.view.Utilities', {
 
     getSysConfig: function(name) {
         return this.sysConfig[name];
+    },
+
+    comboReload: function(combo, id, value) {
+        combo.getStore().load({
+            params: {'nameLike': value}
+        });
+        combo.setValue(id);
+
     }
 
 });

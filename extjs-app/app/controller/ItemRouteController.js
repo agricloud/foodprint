@@ -52,7 +52,7 @@ Ext.define('foodprint.controller.ItemRouteController', {
                 click:this.doCreate
             },
             'itemrouteview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowItemRoute
             },
             'itemrouteview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -70,13 +70,30 @@ Ext.define('foodprint.controller.ItemRouteController', {
             'itemrouteview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowItemRoute
             }
         });
 
 
         this.domainName = 'itemRoute';
         this.masterKey='item.id';
+    },
+
+    doShowItemRoute: function() {
+        this.doShow(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var wscombo=form.findField('workstation.id');
+            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+            var opcombo=form.findField('operation.id');
+            Utilities.comboReload(opcombo,action.result.data['operation.id'],action.result.data['operation.name']);
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
+
+        });
+
+
     }
 
 });

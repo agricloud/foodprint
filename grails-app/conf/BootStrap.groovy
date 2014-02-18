@@ -23,6 +23,18 @@ class BootStrap {
             }
 
             development {
+                for(int i=0;i<100;i++){
+                    def item = new Item(name:"item"+i,title:"華珍玉米"+i,spec:"華珍甜玉米，高糖分、皮薄",unit:"kg",description:"非基因轉殖品種").save(failOnError: true)
+                    def ws = new Workstation(name:"workstation"+i,title:"民雄線"+i).save(failOnError: true, flush: true)
+                    def op = new Operation(name:"operation"+i,title:"施肥"+i).save(failOnError: true)
+                    def sp = new Supplier(name:"supplier"+i,title:"福智麻園"+i,country:Country.TAIWAN).save(failOnError: true, flush: true)
+
+                    if(i==70){
+                        def itemRoute=new ItemRoute(item:item,sequence:1,operation:op,workstation:ws,supplier:sp)
+                        item.addToItemRoutes(itemRoute).save(failOnError: true)
+                    }
+                }
+  
                 /*
                 def testService = new TestService()
 

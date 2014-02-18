@@ -426,6 +426,28 @@
                 ]
             },
             "designerId": "4f178b8a-d985-400d-9433-38da790cc0cb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "comboReload",
+                "designer|params": [
+                    "combo, id, value"
+                ],
+                "implHandler": [
+                    "combo.getStore().load({",
+                    "    params: {'nameLike': value}",
+                    "});",
+                    "combo.setValue(id);",
+                    ""
+                ]
+            },
+            "designerId": "566be20c-bd25-4889-9652-63b539778e05"
         }
     ]
 }
