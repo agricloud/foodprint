@@ -77,7 +77,7 @@ Ext.define('foodprint.controller.ErpStockInSheetDetController', {
                 click:this.activeManufactureOrderIndex
             },
             'erpstockinsheetdetview #manufactureOrderIndex erpmanufactureordergrid':{
-                itemdblclick: this.doSelectManufactureOrderGrid
+                itemdblclick: this.doSelectManufactureOrder
             }
         });
 
@@ -87,7 +87,7 @@ Ext.define('foodprint.controller.ErpStockInSheetDetController', {
 
     },
 
-    doSelectManufactureOrderGrid: function(obj, record, index, eOpts) {
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
         this.getMainForm().getForm().setValues({
 
             'manufactureOrder.id':record.data['id'],

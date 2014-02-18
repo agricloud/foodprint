@@ -77,10 +77,10 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
                 click:this.activeCustomerOrderDetIndex
             },
             'erpsalesheetdetview #customerOrderDetIndex erpcustomerordergrid':{
-                select: this.doIndexDetailCustomerOrderGrid
+                select: this.doIndexDetailCustomerOrder
             },
             'erpsalesheetdetview #customerOrderDetIndex erpcustomerorderdetgrid':{
-                itemdblclick: this.doSelectCustomerOrderDetGrid
+                itemdblclick: this.doSelectCustomerOrderDet
             }
         });
 
@@ -90,7 +90,7 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
 
     },
 
-    doIndexDetailCustomerOrderGrid: function(obj, record, index, eOpts) {
+    doIndexDetailCustomerOrder: function(obj, record, index, eOpts) {
         var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
 
         grid.getStore().data.clear();
@@ -102,7 +102,7 @@ Ext.define('foodprint.controller.ErpSaleSheetDetController', {
         grid.getStore().load();
     },
 
-    doSelectCustomerOrderDetGrid: function(obj, record, index, eOpts) {
+    doSelectCustomerOrderDet: function(obj, record, index, eOpts) {
         this.getMainForm().getForm().setValues({
 
             'customerOrderDet.id':record.data['id'],
