@@ -496,10 +496,10 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     submitDetailForm: function(callback) {
-        console.log('/'+this.domainName+'/'+this.actionName);
+        console.log('/'+this.domainName+'/'+this.detailActionName);
 
         this.getDetailForm().getForm().submit({
-            url: this.getRoot()+'/'+this.domainName+'/'+this.actionName,
+            url: this.getRoot()+'/'+this.domainName+'/'+this.detailActionName,
             params: this.getDetailParams(),
             submitEmptyText: false,
             waitMsg: 'Updating Data...',
