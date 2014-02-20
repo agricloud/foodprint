@@ -32,7 +32,7 @@
           <div class="row product-info clearfix">
             <div class="dashline"></div>  
               
-            <div class="col-md-4 col-sm-4"><g:img uri='/attachment/show/${batch.item.id}?domainName=item' class="thumbnail" /></div>
+            <div class="col-md-4 col-sm-4"><g:img uri='/attachment/show/${batch.item.id}?domainName=item&fileType=jpg' class="thumbnail" /></div>
               <div class="col-md-8 col-sm-8">
                 <table>
 

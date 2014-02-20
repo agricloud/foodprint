@@ -122,7 +122,7 @@ class ReportViewerController {
             param["supplier.title"] = childBatch?.supplier?.title
             param["batch.country"] = childBatch.country
             param["item.description"] = childBatch.item.description
-            param["default.image"] = "/attachment/show/${childBatch.item.id}?domainName=item"
+            param["default.image"] = "/attachment/show/${childBatch.item.id}?domainName=item&fileType=jpg"
 
 
             batchSourceReportMap.params << param
@@ -163,7 +163,7 @@ class ReportViewerController {
             param["agriculture.workstation.title"] = batchRoute?.workstation?.title
             param["operation.description"] = batchRoute?.operation?.description
 
-            param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute"
+            param["default.image"] = "/attachment/show/${batchRoute.id}?domainName=batchRoute&fileType=jpg"
 
             batchRouteReportMap.params << param
 
