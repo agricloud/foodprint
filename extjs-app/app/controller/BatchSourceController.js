@@ -53,7 +53,7 @@ Ext.define('foodprint.controller.BatchSourceController', {
                 click:this.doCreate
             },
             'batchsourceview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowBatchSource
             },
             'batchsourceview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -71,13 +71,23 @@ Ext.define('foodprint.controller.BatchSourceController', {
             'batchsourceview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowBatchSource
             }
         });
 
 
         this.domainName = 'batchSource';
         this.masterKey='batch.id';
+    },
+
+    doShowBatchSource: function() {
+        this.doShow(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var cbcombo=form.findField('childBatch.id');
+            Utilities.comboReload(cbcombo,action.result.data['childBatch.id'],action.result.data['childBatch.name']);
+        });
     }
 
 });

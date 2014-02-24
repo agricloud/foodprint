@@ -107,10 +107,10 @@
                     "        click:this.activeCustomerOrderDetIndex",
                     "    },",
                     "    'erpsalesheetdetview #customerOrderDetIndex erpcustomerordergrid':{",
-                    "        select: this.doIndexDetailCustomerOrderGrid",
+                    "        select: this.doIndexDetailCustomerOrder",
                     "    },",
                     "    'erpsalesheetdetview #customerOrderDetIndex erpcustomerorderdetgrid':{",
-                    "        itemdblclick: this.doSelectCustomerOrderDetGrid",
+                    "        itemdblclick: this.doSelectCustomerOrderDet",
                     "    }",
                     "});",
                     "",
@@ -130,7 +130,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doIndexDetailCustomerOrderGrid",
+                "fn": "doIndexDetailCustomerOrder",
                 "designer|params": [
                     "obj, record, index, eOpts"
                 ],
@@ -156,7 +156,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectCustomerOrderDetGrid",
+                "fn": "doSelectCustomerOrderDet",
                 "designer|params": [
                     "obj, record, index, eOpts"
                 ],
@@ -193,8 +193,8 @@
                 "implHandler": [
                     "var combo = this.getMainForm().down(\"combo[itemId=commonBatchCombo]\");",
                     "combo.getStore().load({",
-                    "  url:'/batch/indexByItem',",
-                    "  params: {'item.id': itemId}",
+                    "    url:'/batch/indexByItem',",
+                    "    params: {'item.id': itemId}",
                     "});",
                     "//combo在remote模式下",
                     "//設定第一次trigger時自動load",

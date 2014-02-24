@@ -36,63 +36,65 @@ Ext.define('foodprint.controller.CommonController', {
                 //由於store設定load第1-50筆
                 //導致doShow時若資料屬於第50筆之後無法正常顯示
                 //在此使combo在doShow重新load store
+                /*
                 var formField=form.getFields();
 
                 formField.each(function(item,index,len){
-                    if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
-                        var displayField;
-                        switch(item.xtype){
-                            case 'commonitemcombo':
-                            displayField='item.name';
-                            break;
-                            case 'commonbatchcombo':
-                            displayField='batch.name';
-                            break;
-                            case 'commonsuppliercombo':
-                            displayField='supplier.name';
-                            break;
-                            case 'commonworkstationcombo':
-                            displayField='workstation.name';
-                            break;
-                            case 'commonoperationcombo':
-                            displayField='operation.name';
-                            break;
-                            case 'commonreportcombo':
-                            displayField='report.name';
-                            break;
-                            case 'commonparamcombo':
-                            displayField='param.name';
-                            break;
-                            case 'commoncustomercombo':
-                            displayField='customer.name';
-                            break;
-                            //case 'commoncountrycombo':
-                            //displayField='countryTitle';
-                            //break;
-                        }
+                if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
+                var displayField;
+                switch(item.xtype){
+                case 'commonitemcombo':
+                displayField='item.name';
+                break;
+                case 'commonbatchcombo':
+                displayField='batch.name';
+                break;
+                case 'commonsuppliercombo':
+                displayField='supplier.name';
+                break;
+                case 'commonworkstationcombo':
+                displayField='workstation.name';
+                break;
+                case 'commonoperationcombo':
+                displayField='operation.name';
+                break;
+                case 'commonreportcombo':
+                displayField='report.name';
+                break;
+                case 'commonparamcombo':
+                displayField='param.name';
+                break;
+                case 'commoncustomercombo':
+                displayField='customer.name';
+                break;
+                //case 'commoncountrycombo':
+                //displayField='countryTitle';
+                //break;
+            }//end switch
 
-                        item.getStore().load({
-                            params: {'nameLike': action.result.data[displayField]}
-                        });
-                        item.setValue(action.result.data[item.getName()]);
-                    }
-                });
+            item.getStore().load({
+                params: {'nameLike': action.result.data[displayField]}
+            });
+            item.setValue(action.result.data[item.getName()]);
+        }//end if
+    });//end formField
+    */
 
-                that.activeEditor();
-                that.actionName = 'update';
+    that.activeEditor();
+    that.actionName = 'update';
 
-                if (callback && callback instanceof Function) {
-                    callback(true,form,action)
-                }
-            },
+    if (callback && callback instanceof Function) {
+        callback(true,form,action)
+    }
+    },
 
-            failure: function(form, action) {
-                Ext.MessageBox.alert('Failure',action.result.message);
-                if (callback && callback instanceof Function){
-                    callback(false,form,action)
-                }
-            }
-        });
+    failure: function(form, action) {
+    Ext.MessageBox.alert('Failure',action.result.message);
+    if (callback && callback instanceof Function){
+        callback(false,form,action)
+    }
+    }
+});
 
 
 
@@ -286,6 +288,243 @@ Ext.define('foodprint.controller.CommonController', {
 
         var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
 
+    },
+
+    doShowAndIndexDetail: function(obj, record, index, eOpts) {
+        this.doShow();
+
+
+        //this.doIndexDetail(obj, record, index, eOpts);
+
+        this.masterId = record.data.id;
+
+        console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');
+
+        var grid = this.getDetailGrid();
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params[this.masterKey]=this.masterId
+
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+
+    },
+
+    doShowDetail: function(callback) {
+        console.log('commonController--'+this.domainName+'--doShow');
+
+        var that = this;
+        var record= this.getDetailGrid().getSelectionModel().getSelection()[0];
+        var id = -1;
+
+        if(this.getDetailGrid().getSelectionModel().getSelection()[0])
+        id = record.data.id;
+
+
+        this.getDetailForm().getForm().load({
+            url:this.getRoot()+'/'+this.domainName+'/show/'+id,
+            params: this.getDetailParams(),
+            waitMsg:Utilities.getMsg('default.message.load'),
+            success: function(form, action) {
+
+                //由於store設定load第1-50筆
+                //導致doShow時若資料屬於第50筆之後無法正常顯示
+                //在此使combo在doShow重新load store
+                var formField=form.getFields();
+
+                formField.each(function(item,index,len){
+                    if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
+                        var displayField;
+                        switch(item.xtype){
+                            case 'commonitemcombo':
+                            displayField='item.name';
+                            break;
+                            case 'commonbatchcombo':
+                            displayField='batch.name';
+                            break;
+                            case 'commonsuppliercombo':
+                            displayField='supplier.name';
+                            break;
+                            case 'commonworkstationcombo':
+                            displayField='workstation.name';
+                            break;
+                            case 'commonoperationcombo':
+                            displayField='operation.name';
+                            break;
+                            case 'commonreportcombo':
+                            displayField='report.name';
+                            break;
+                            case 'commonparamcombo':
+                            displayField='param.name';
+                            break;
+                            case 'commoncustomercombo':
+                            displayField='customer.name';
+                            break;
+                            //case 'commoncountrycombo':
+                            //displayField='countryTitle';
+                            //break;
+                        }
+
+                        item.getStore().load({
+                            params: {'nameLike': action.result.data[displayField]}
+                        });
+                        item.setValue(action.result.data[item.getName()]);
+                    }
+                });
+
+                that.activeDetailEditor();
+                that.detailActionName = 'update';
+
+                if (callback && callback instanceof Function) {
+                    callback(true,form,action)
+                }
+            },
+
+            failure: function(form, action) {
+                Ext.MessageBox.alert('Failure',action.result.message);
+                if (callback && callback instanceof Function){
+                    callback(false,form,action)
+                }
+            }
+        });
+
+
+
+    },
+
+    doCreateDetail: function() {
+        console.log('commonController--'+this.domainName+'--doCreate');
+        var that = this
+
+        var params = this.getDetailParams();
+        params[this.masterKey]=this.masterId;
+        this.getDetailForm().getForm().reset(true);
+
+        this.getDetailForm().getForm().load({
+            url: this.getRoot()+'/'+this.domainName+'/create',
+            params:params,
+            success: function(form, action) {
+                that.detailActionName = 'save';
+                that.activeDetailEditor();
+                that.getDetailForm().up('panel[itemId=showDetail]').down('commondeletebtn').setDisabled(true);
+
+            },
+
+            failure: function(form, action) {
+                Ext.MessageBox.alert('Failure',action.result.message);
+            }
+
+        });
+    },
+
+    doDeleteDetail: function() {
+        var that = this ;
+
+        var msg = Ext.Msg;
+        msg.buttonText={
+            no: Utilities.getMsg('default.message.no'),
+            yes: Utilities.getMsg('default.message.yes')
+        };
+
+        msg.confirm('Confirm delete', Utilities.getMsg('default.message.deleteConfirm'), function(e)
+        {
+            if(e == 'yes')
+            {
+                that.detailActionName='delete';
+                that.submitDetailForm(function(success){
+                    if(success){
+                        that.activeDetailGrid();
+                        that.detailActionName = '' ;
+                        that.getDetailGrid().getStore().reload();
+                        that.disableDetailShowBtn();
+                    }
+                    that.detailActionName='update';
+
+                });
+            }
+        });
+    },
+
+    doSaveDetail: function() {
+        console.log('commonController--'+this.domainName+'--doSave');
+        var that = this ;
+
+        this.submitDetailForm(function(success){
+            if(success){
+
+                that.getDetailGrid().getStore().reload();
+
+                if(that.detailActionName === 'save'){
+                    that.activeDetailGrid();
+                    that.detailActionName = '' ;
+                }
+            }
+
+        });
+
+    },
+
+    activeDetailEditor: function() {
+        if(this.getDetailForm().up('panel[itemId=showDetail]').down('commondeletebtn'))
+        this.getDetailForm().up('panel[itemId=showDetail]').down('commondeletebtn').setDisabled(false);
+        this.getDetailForm().up('panel[itemId=showDetail]').up().getLayout().setActiveItem(this.getDetailForm().up('panel[itemId=showDetail]'));
+    },
+
+    activeDetailGrid: function() {
+
+        this.getDetailForm().up('panel[itemId=showDetail]').up().getLayout().setActiveItem(this.getDetailGrid().down().up("panel[itemId=show]"));
+    },
+
+    doCancelDetail: function() {
+        this.getDetailForm().getForm().reset(true);
+        this.activeDetailGrid();
+    },
+
+    enableDetailShowBtn: function() {
+        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(false);
+    },
+
+    disableDetailShowBtn: function() {
+        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(true);
+    },
+
+    getDetailParams: function() {
+        if(this.domainName == 'foodpaint')
+        return {foodpaintController:this.foodpaintDetController};
+        else return {};
+    },
+
+    submitDetailForm: function(callback) {
+        console.log('/'+this.domainName+'/'+this.detailActionName);
+
+        this.getDetailForm().getForm().submit({
+            url: this.getRoot()+'/'+this.domainName+'/'+this.detailActionName,
+            params: this.getDetailParams(),
+            submitEmptyText: false,
+            waitMsg: 'Updating Data...',
+            success: function(form,action) {
+                Ext.MessageBox.alert('Success',action.result.message);
+
+                if (callback) {
+                    callback(true,form,action)
+                }
+
+            },
+            failure: function(form,action) {
+                var msg ="";
+                for(var key in action.result.errors){
+                    msg+=action.result.errors[key];
+                }
+                msg = action.result.message+'<br>'+msg;
+                Ext.MessageBox.alert('Failure',msg);
+                if (callback) {
+                    callback(false,form,action)
+                }
+            }
+        });
     }
 
 });
