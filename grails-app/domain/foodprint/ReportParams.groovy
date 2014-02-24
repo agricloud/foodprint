@@ -18,7 +18,6 @@ class ReportParams {
     Supplier supplier
 	Item item 	
 	Operation operation
-	Batch batch
 
     static constraints = {
         site nullable:true
@@ -27,7 +26,5 @@ class ReportParams {
         param unique:'report'
     	workstation nullable:true
         supplier nullable:true
-    	item nullable:true
-    	batch nullable:true
     }
 }
