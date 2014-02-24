@@ -20,6 +20,8 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
     requires: [
         'foodprint.view.ErpStockInSheetGrid',
         'foodprint.view.CommonWorkstationCombo',
+        'foodprint.view.CommonSelectBtn',
+        'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -57,7 +59,7 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                     itemId: 'show',
                     layout: {
                         align: 'stretch',
-                        type: 'hbox'
+                        type: 'vbox'
                     },
                     items: [
                         me.processForm({
@@ -105,7 +107,268 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                     name: 'stockInDate'
                                 }
                             ]
+                        }),
+                        {
+                            xtype: 'panel',
+                            tbar: {
+                                xtype: 'commonindextoolbar'
+                            },
+                            flex: 1,
+                            itemId: 'indexDetail',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            items: [
+                                me.processDetailGrid({
+                                    xtype: 'gridpanel',
+                                    flex: 1,
+                                    itemId: 'detailGrid',
+                                    autoScroll: true,
+                                    title: 'ErpStockInSheetDet',
+                                    store: 'ErpStockInSheetDetStore',
+                                    columns: [
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'id',
+                                            text: 'Id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            hidden: true,
+                                            dataIndex: 'typeName',
+                                            text: 'TypeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            hidden: true,
+                                            dataIndex: 'name',
+                                            text: 'Name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'sequence',
+                                            text: 'Sequence',
+                                            flex: 1,
+                                            format: '0,000'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'manufactureOrder.id',
+                                            text: 'ManufactureOrder.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'manufactureOrder.typeName',
+                                            text: 'ManufactureOrder.typeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'manufactureOrder.name',
+                                            text: 'ManufactureOrder.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'batch.id',
+                                            text: 'Batch.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'batch.name',
+                                            text: 'Batch.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'item.id',
+                                            text: 'Item.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.name',
+                                            text: 'Item.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.title',
+                                            text: 'Item.title',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'qty',
+                                            text: 'qty',
+                                            flex: 1
+                                        }
+                                    ],
+                                    listeners: {
+                                        beforerender: {
+                                            fn: me.onGridBeforeRender1,
+                                            scope: me
+                                        }
+                                    }
+                                })
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
+                    itemId: 'showDetail',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        me.processDetailForm({
+                            xtype: 'form',
+                            flex: 1,
+                            itemId: 'detailForm',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            bodyPadding: 10,
+                            title: '',
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'stockInSheet.id',
+                                    name: 'stockInSheet.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'typeName',
+                                    name: 'typeName',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'name',
+                                    name: 'name',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'sequence',
+                                    name: 'sequence',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'manufactureOrderContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'manufactureOrder.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'ManufactureOrder.sheetNum',
+                                            name: 'manufactureOrder.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'manufactureOrder.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'item.id',
+                                    name: 'item.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.name',
+                                    name: 'item.name'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'item.title'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'batch.id',
+                                    name: 'batch.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'qty',
+                                    name: 'qty'
+                                }
+                            ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'manufactureOrderIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpmanufactureordergrid',
+                            title: 'manufactureOrder',
+                            flex: 1
+                        }
                     ]
                 }
             ]
@@ -116,6 +379,18 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
 
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'stockInSheet');
+    },
+
+    processDetailGrid: function(config) {
+        return Utilities.processConfigBundle(config, 'stockInSheetDet');
+    },
+
+    processDetailForm: function(config) {
+        return Utilities.processConfigBundle(config, 'stockInSheetDet');
+    },
+
+    onGridBeforeRender1: function(component, eOpts) {
+        component.getStore().removeAll();
     }
 
 });
