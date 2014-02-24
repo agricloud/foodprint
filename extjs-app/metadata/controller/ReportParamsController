@@ -44,7 +44,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'reportparamsview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowReportParams",
                     "    },",
                     "    'reportparamsview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -62,7 +62,7 @@
                     "    'reportparamsview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShow",
+                    "        itemdblclick: this.doShowReportParams",
                     "    }",
                     "});",
                     "",
@@ -111,6 +111,35 @@
                 "selector": "reportparamsview #masterForm"
             },
             "designerId": "8d511466-19a3-4ec7-be5d-22adefb4ebad"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowReportParams",
+                "implHandler": [
+                    "this.doShow(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var paramcombo=form.findField('param.id');",
+                    "    Utilities.comboReload(paramcombo,action.result.data['param.id'],action.result.data['param.name']);",
+                    "    var wscombo=form.findField('workstation.id');",
+                    "    Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);",
+                    "    var opcombo=form.findField('operation.id');",
+                    "    Utilities.comboReload(opcombo,action.result.data['operation.id'],action.result.data['operation.name']);",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "\tvar itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "03750942-22e8-42fd-b39f-cf41eb9ab351"
         }
     ]
 }

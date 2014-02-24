@@ -37,7 +37,10 @@ class BootStrap {
                         batch.addToBatchRoutes(batchRoute).save(failOnError: true)
                     
                     def cs = new Customer(name:"customer"+i,title:"新鮮超市"+i).save(failOnError: true, flush: true)
-                
+
+                    def param = new Param(name:"param"+i,title:"參數"+i,defaultValue:"100",paramType:ParamType.INTEGER).save(failOnError: true)
+                    def report = new Report(name:"report"+i,title:"檢驗紀錄集"+i).save(failOnError: true)
+                    def reportparam = new ReportParams (report:report,param:param,workstation:ws,supplier:sp,operation:op,item:item).save(failOnError: true)
                 }
                 for(int i=1;i<=100;i++){
                     def batchSource = new BatchSource(batch:Batch.get(i),childBatch:Batch.get(101-i)).save(failOnError: true)
