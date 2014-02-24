@@ -36,13 +36,12 @@ class BootStrap {
                     def batchRoute = new BatchRoute(batch:batch,workstation:ws,sequence:1,operation:op,supplier:sp)
                         batch.addToBatchRoutes(batchRoute).save(failOnError: true)
                     
-                    if(i!=1)
-                    def batchSource = new BatchSource(batch:Batch.get(i),childBatch:Batch.get(i-1)).save(failOnError: true)
-
                     def cs = new Customer(name:"customer"+i,title:"新鮮超市"+i).save(failOnError: true, flush: true)
                 
                 }
-  
+                for(int i=1;i<=100;i++){
+                    def batchSource = new BatchSource(batch:Batch.get(i),childBatch:Batch.get(101-i)).save(failOnError: true)
+                }
                 /*
                 def testService = new TestService()
 
