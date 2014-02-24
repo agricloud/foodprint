@@ -120,6 +120,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpCustomerOrderDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpCustomerOrderDetMaintain',
                                     text: 'CustomerOrderDet Maintain'
                                 }),
@@ -130,6 +131,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpPurchaseSheetDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpPurchaseSheetDetMaintain',
                                     text: 'PurchaseSheetDet Maintain'
                                 }),
@@ -145,6 +147,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpMaterialSheetDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpMaterialSheetDetMaintain',
                                     text: 'MaterialSheetDet Maintain'
                                 }),
@@ -155,6 +158,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpStockInSheetDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpStockInSheetDetMaintain',
                                     text: 'StockInSheetDet Maintain'
                                 }),
@@ -165,6 +169,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpOutSrcPurchaseSheetDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpOutSrcPurchaseSheetDetMaintain',
                                     text: 'OutSrcPurchaseSheetDet Maintain'
                                 }),
@@ -175,6 +180,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processErpSaleSheetDetMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'erpSaleSheetDetMaintain',
                                     text: 'SaleSheetDet Maintain'
                                 })
