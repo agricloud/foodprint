@@ -38,6 +38,14 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
         {
             ref: 'mainForm',
             selector: 'erppurchasesheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erppurchasesheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erppurchasesheetview #detailForm'
         }
     ],
 
@@ -47,7 +55,7 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
                 click:this.doCreate
             },
             'erppurchasesheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowAndIndexDetail
             },
             'erppurchasesheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,7 +69,27 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
             'erppurchasesheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowAndIndexDetail
+            },
+            'erppurchasesheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erppurchasesheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erppurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erppurchasesheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erppurchasesheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erppurchasesheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
             }
 
         });
@@ -69,6 +97,8 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'purchaseSheet';
+        this.foodpaintDetController = 'purchaseSheetDet';
+        this.masterKey='purchaseSheet.id';
     }
 
 });

@@ -38,6 +38,14 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
         {
             ref: 'mainForm',
             selector: 'erpmaterialsheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpmaterialsheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpmaterialsheetview #detailForm'
         }
     ],
 
@@ -47,7 +55,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
                 click:this.doCreate
             },
             'erpmaterialsheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowAndIndexDetail
             },
             'erpmaterialsheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,7 +69,33 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             'erpmaterialsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowAndIndexDetail
+            },
+            'erpmaterialsheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpmaterialsheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erpmaterialsheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpmaterialsheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpmaterialsheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpmaterialsheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
+            },
+            'erpmaterialsheetview #showDetail commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpmaterialsheetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrder
             }
 
         });
@@ -69,6 +103,18 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'materialSheet';
+        this.foodpaintDetController = 'materialSheetDet';
+        this.masterKey='materialSheet.id';
+    },
+
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name']
+        });
+        this.activeDetailEditor();
     }
 
 });

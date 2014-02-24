@@ -68,7 +68,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'erpstockinsheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowAndIndexDetail",
                     "    },",
                     "    'erpstockinsheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,17 +82,99 @@
                     "    'erpstockinsheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShow",
+                    "        itemdblclick: this.doShowAndIndexDetail",
+                    "    },",
+                    "    'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpstockinsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowDetail",
+                    "    },",
+                    "    'erpstockinsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpstockinsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpstockinsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpstockinsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowDetail",
+                    "    },",
+                    "    'erpstockinsheetview #showDetail commonselectbtn':{",
+                    "        click:this.activeManufactureOrderIndex",
+                    "    },",
+                    "    'erpstockinsheetview #manufactureOrderIndex erpmanufactureordergrid':{",
+                    "        itemdblclick: this.doSelectManufactureOrder",
                     "    }",
                     "",
                     "});",
                     "",
                     "",
                     "this.domainName = 'foodpaint';",
-                    "this.foodpaintController = 'stockInSheet';"
+                    "this.foodpaintController = 'stockInSheet';",
+                    "this.foodpaintDetController = 'stockInSheetDet';",
+                    "this.masterKey='stockInSheet.id';"
                 ]
             },
             "designerId": "d4a203e8-3ef1-4362-ae01-f0f4e161d2c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpstockinsheetview #detailGrid"
+            },
+            "designerId": "7c5bf5cb-aa85-4fd1-a4f3-188f6800a2d9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpstockinsheetview #detailForm"
+            },
+            "designerId": "1e697f3b-d959-4c39-9a3a-3be6e68beb9e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.name':record.data['batch.name']",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "739e5c8a-6c08-43bd-b34a-59e6cc9f1384"
         }
     ]
 }

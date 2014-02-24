@@ -20,6 +20,10 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
     requires: [
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.CommonCustomerCombo',
+        'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonBatchCombo',
+        'foodprint.view.ErpCustomerOrderGrid',
+        'foodprint.view.ErpCustomerOrderDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -57,7 +61,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                     itemId: 'show',
                     layout: {
                         align: 'stretch',
-                        type: 'hbox'
+                        type: 'vbox'
                     },
                     items: [
                         me.processForm({
@@ -105,7 +109,273 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     name: 'saleDate'
                                 }
                             ]
+                        }),
+                        {
+                            xtype: 'panel',
+                            tbar: {
+                                xtype: 'commonindextoolbar'
+                            },
+                            flex: 1,
+                            itemId: 'indexDetail',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            items: [
+                                me.processDetailGrid({
+                                    xtype: 'gridpanel',
+                                    flex: 1,
+                                    itemId: 'detailGrid',
+                                    autoScroll: true,
+                                    title: 'ErpSaleSheetDet',
+                                    store: 'ErpSaleSheetDetStore',
+                                    columns: [
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'id',
+                                            text: 'Id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            hidden: true,
+                                            dataIndex: 'typeName',
+                                            text: 'TypeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            hidden: true,
+                                            dataIndex: 'name',
+                                            text: 'Name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'sequence',
+                                            text: 'Sequence',
+                                            flex: 1,
+                                            format: '0,000'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'batch.id',
+                                            text: 'Batch.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'batch.name',
+                                            text: 'Batch.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'item.id',
+                                            text: 'Item.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.name',
+                                            text: 'Item.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.title',
+                                            text: 'Item.title',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'qty',
+                                            text: 'qty',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'customerOrderDet.id',
+                                            text: 'CustomerOrderDet.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'customerOrderDet.typeName',
+                                            text: 'CustomerOrderDet.typeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'customerOrderDet.name',
+                                            text: 'CustomerOrderDet.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'customerOrderDet.sequence',
+                                            text: 'CustomerOrderDet.sequence',
+                                            flex: 1,
+                                            format: '0,000'
+                                        }
+                                    ],
+                                    listeners: {
+                                        beforerender: {
+                                            fn: me.onGridBeforeRender1,
+                                            scope: me
+                                        }
+                                    }
+                                })
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
+                    itemId: 'showDetail',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        me.processDetailForm({
+                            xtype: 'form',
+                            flex: 1,
+                            itemId: 'detailForm',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            bodyPadding: 10,
+                            title: '',
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'saleSheet.id',
+                                    name: 'saleSheet.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'typeName',
+                                    name: 'typeName',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'name',
+                                    name: 'name',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'sequence',
+                                    name: 'sequence',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'customerOrderDetContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'customerOrderDet.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'CustomerOrderDet.sheetNum',
+                                            name: 'customerOrderDet.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'customerOrderDet.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'customerOrderDet.sequence',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'item.id',
+                                    name: 'item.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.name',
+                                    name: 'item.name'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'item.title'
+                                },
+                                {
+                                    xtype: 'commonbatchcombo'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'qty',
+                                    name: 'qty'
+                                }
+                            ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'customerOrderDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpcustomerordergrid',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'erpcustomerorderdetgrid',
+                            flex: 1
+                        }
                     ]
                 }
             ]
@@ -116,6 +386,18 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
 
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'saleSheet');
+    },
+
+    processDetailGrid: function(config) {
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
+    },
+
+    processDetailForm: function(config) {
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
+    },
+
+    onGridBeforeRender1: function(component, eOpts) {
+        component.getStore().removeAll();
     }
 
 });

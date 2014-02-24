@@ -38,6 +38,14 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
         {
             ref: 'mainForm',
             selector: 'erpstockinsheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpstockinsheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpstockinsheetview #detailForm'
         }
     ],
 
@@ -47,7 +55,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
                 click:this.doCreate
             },
             'erpstockinsheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowAndIndexDetail
             },
             'erpstockinsheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,7 +69,33 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             'erpstockinsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowAndIndexDetail
+            },
+            'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpstockinsheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erpstockinsheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpstockinsheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpstockinsheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpstockinsheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
+            },
+            'erpstockinsheetview #showDetail commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpstockinsheetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrder
             }
 
         });
@@ -69,6 +103,22 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'stockInSheet';
+        this.foodpaintDetController = 'stockInSheetDet';
+        this.masterKey='stockInSheet.id';
+    },
+
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.name':record.data['batch.name']
+        });
+        this.activeDetailEditor();
     }
 
 });

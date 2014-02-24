@@ -68,7 +68,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'erpsalesheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowAndIndexDetail",
                     "    },",
                     "    'erpsalesheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,17 +82,157 @@
                     "    'erpsalesheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShow",
+                    "        itemdblclick: this.doShowAndIndexDetail",
+                    "    },",
+                    "    'erpsalesheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpsalesheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowDetail",
+                    "    },",
+                    "    'erpsalesheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpsalesheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpsalesheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpsalesheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowDetail",
+                    "    },",
+                    "    'erpsalesheetview #showDetail commonselectbtn':{",
+                    "        click:this.activeCustomerOrderDetIndex",
+                    "    },",
+                    "    'erpsalesheetview #customerOrderDetIndex erpcustomerordergrid':{",
+                    "        select: this.doIndexDetailCustomerOrder",
+                    "    },",
+                    "    'erpsalesheetview #customerOrderDetIndex erpcustomerorderdetgrid':{",
+                    "        itemdblclick: this.doSelectCustomerOrderDet",
                     "    }",
                     "",
                     "});",
                     "",
                     "",
                     "this.domainName = 'foodpaint';",
-                    "this.foodpaintController = 'saleSheet';"
+                    "this.foodpaintController = 'saleSheet';",
+                    "this.foodpaintDetController = 'saleSheetDet';",
+                    "this.masterKey='saleSheet.id';"
                 ]
             },
             "designerId": "5336596d-f742-4e00-9fd3-6d7099dc3c13"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpsalesheetview #detailGrid"
+            },
+            "designerId": "f7b88d47-fa77-41a8-91c8-20d2331d1691"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpsalesheetview #detailForm"
+            },
+            "designerId": "59a671ac-54e4-493c-9126-be629efbf683"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailCustomerOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=erpCustomerOrderDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"customerOrder.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "4f65fcf0-4da8-4e97-b6eb-30bab7ef9dc4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectCustomerOrderDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'customerOrderDet.id':record.data['id'],",
+                    "    'customerOrderDet.typeName':record.data['typeName'],",
+                    "    'customerOrderDet.name':record.data['name'],",
+                    "    'customerOrderDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "46c2ab4b-06be-41fd-a90c-f0a1293b0054"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadBatchComboByItem",
+                "designer|params": [
+                    "itemId"
+                ],
+                "implHandler": [
+                    "var combo = this.getDetailForm().down(\"combo[itemId=commonBatchCombo]\");",
+                    "combo.getStore().load({",
+                    "    url:'/batch/indexByItem',",
+                    "    params: {'item.id': itemId}",
+                    "});",
+                    "//combo在remote模式下",
+                    "//設定第一次trigger時自動load",
+                    "//造成此處指定查詢的Batch結果會被覆蓋",
+                    "//給定lastQuery使系統默認為已load過",
+                    "combo.lastQuery='';"
+                ]
+            },
+            "designerId": "d7247078-0d0c-45e2-bd33-9d62101e59c9"
         }
     ]
 }

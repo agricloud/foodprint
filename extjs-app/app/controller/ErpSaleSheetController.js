@@ -38,6 +38,14 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
         {
             ref: 'mainForm',
             selector: 'erpsalesheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpsalesheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpsalesheetview #detailForm'
         }
     ],
 
@@ -47,7 +55,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
                 click:this.doCreate
             },
             'erpsalesheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowAndIndexDetail
             },
             'erpsalesheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,7 +69,36 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'erpsalesheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowAndIndexDetail
+            },
+            'erpsalesheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpsalesheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erpsalesheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpsalesheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpsalesheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpsalesheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
+            },
+            'erpsalesheetview #showDetail commonselectbtn':{
+                click:this.activeCustomerOrderDetIndex
+            },
+            'erpsalesheetview #customerOrderDetIndex erpcustomerordergrid':{
+                select: this.doIndexDetailCustomerOrder
+            },
+            'erpsalesheetview #customerOrderDetIndex erpcustomerorderdetgrid':{
+                itemdblclick: this.doSelectCustomerOrderDet
             }
 
         });
@@ -69,6 +106,49 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'saleSheet';
+        this.foodpaintDetController = 'saleSheetDet';
+        this.masterKey='saleSheet.id';
+    },
+
+    doIndexDetailCustomerOrder: function(obj, record, index, eOpts) {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["customerOrder.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+    },
+
+    doSelectCustomerOrderDet: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'customerOrderDet.id':record.data['id'],
+            'customerOrderDet.typeName':record.data['typeName'],
+            'customerOrderDet.name':record.data['name'],
+            'customerOrderDet.sequence':record.data['sequence'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'qty':record.data['qty']
+        });
+        this.reloadBatchComboByItem(record.data['item.id']);
+        this.activeDetailEditor();
+    },
+
+    reloadBatchComboByItem: function(itemId) {
+        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
+        combo.getStore().load({
+            url:'/batch/indexByItem',
+            params: {'item.id': itemId}
+        });
+        //combo在remote模式下
+        //設定第一次trigger時自動load
+        //造成此處指定查詢的Batch結果會被覆蓋
+        //給定lastQuery使系統默認為已load過
+        combo.lastQuery='';
     }
 
 });
