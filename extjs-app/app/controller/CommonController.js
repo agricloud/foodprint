@@ -396,7 +396,7 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     doCreateDetail: function() {
-        console.log('commonController--'+this.domainName+'--doCreate');
+        console.log('commonController--'+this.domainName+'--doCreateDetail');
         var that = this
 
         var params = this.getDetailParams();
