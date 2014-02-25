@@ -33,68 +33,21 @@ Ext.define('foodprint.controller.CommonController', {
             waitMsg:Utilities.getMsg('default.message.load'),
             success: function(form, action) {
 
-                //由於store設定load第1-50筆
-                //導致doShow時若資料屬於第50筆之後無法正常顯示
-                //在此使combo在doShow重新load store
-                /*
-                var formField=form.getFields();
+                that.activeEditor();
+                that.actionName = 'update';
 
-                formField.each(function(item,index,len){
-                if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){
-                var displayField;
-                switch(item.xtype){
-                case 'commonitemcombo':
-                displayField='item.name';
-                break;
-                case 'commonbatchcombo':
-                displayField='batch.name';
-                break;
-                case 'commonsuppliercombo':
-                displayField='supplier.name';
-                break;
-                case 'commonworkstationcombo':
-                displayField='workstation.name';
-                break;
-                case 'commonoperationcombo':
-                displayField='operation.name';
-                break;
-                case 'commonreportcombo':
-                displayField='report.name';
-                break;
-                case 'commonparamcombo':
-                displayField='param.name';
-                break;
-                case 'commoncustomercombo':
-                displayField='customer.name';
-                break;
-                //case 'commoncountrycombo':
-                //displayField='countryTitle';
-                //break;
-            }//end switch
+                if (callback && callback instanceof Function) {
+                    callback(true,form,action)
+                }
+            },
 
-            item.getStore().load({
-                params: {'nameLike': action.result.data[displayField]}
-            });
-            item.setValue(action.result.data[item.getName()]);
-        }//end if
-    });//end formField
-    */
-
-    that.activeEditor();
-    that.actionName = 'update';
-
-    if (callback && callback instanceof Function) {
-        callback(true,form,action)
-    }
-    },
-
-    failure: function(form, action) {
-    Ext.MessageBox.alert('Failure',action.result.message);
-    if (callback && callback instanceof Function){
-        callback(false,form,action)
-    }
-    }
-});
+            failure: function(form, action) {
+                Ext.MessageBox.alert('Failure',action.result.message);
+                if (callback && callback instanceof Function){
+                    callback(false,form,action)
+                }
+            }
+        });
 
 
 
@@ -171,6 +124,9 @@ Ext.define('foodprint.controller.CommonController', {
                 if(that.actionName === 'save'){
                     that.activeGrid();
                     that.actionName = '' ;
+                    if(that.getMainForm().up().down('[itemId=detailGrid]')){
+                        that.enableDetailCreateBtn();
+                    }
                 }
             }
 
@@ -242,7 +198,9 @@ Ext.define('foodprint.controller.CommonController', {
 
         this.getMainForm().getForm().reset(true);
         this.activeGrid();
-
+        if(this.getMainForm().up().down('[itemId=detailGrid]')){
+            this.enableDetailCreateBtn();
+        }
 
     },
 
@@ -290,12 +248,19 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
-    doShowAndIndexDetail: function(obj, record, index, eOpts) {
+    doCreateAndIndexDetail: function() {
+        this.doCreate();
+        //單頭單身合併時 需將單身store移除
+        this.getDetailGrid().getStore().removeAll();
+        this.disableDetailCreateBtn();
+        this.disableDetailShowBtn();
+    },
+
+    doShowAndIndexDetail: function() {
         this.doShow();
 
 
-        //this.doIndexDetail(obj, record, index, eOpts);
-
+        var record= this.getMainGrid().getSelectionModel().getSelection()[0];
         this.masterId = record.data.id;
 
         console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');
@@ -484,11 +449,11 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     enableDetailShowBtn: function() {
-        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(false);
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(false);
     },
 
     disableDetailShowBtn: function() {
-        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(true);
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(true);
     },
 
     getDetailParams: function() {
@@ -525,6 +490,14 @@ Ext.define('foodprint.controller.CommonController', {
                 }
             }
         });
+    },
+
+    enableDetailCreateBtn: function() {
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(false);
+    },
+
+    disableDetailCreateBtn: function() {
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
     }
 
 });

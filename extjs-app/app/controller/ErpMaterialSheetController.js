@@ -52,7 +52,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
     init: function(application) {
         this.control({
             'erpmaterialsheetview #index commonindextoolbar commoncreatebtn':{
-                click:this.doCreate
+                click:this.doCreateAndIndexDetail
             },
             'erpmaterialsheetview #index commonindextoolbar commonshowbtn':{
                 click:this.doShowAndIndexDetail

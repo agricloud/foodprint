@@ -43,67 +43,20 @@
                     "    waitMsg:Utilities.getMsg('default.message.load'),",
                     "    success: function(form, action) {",
                     "",
-                    "        //由於store設定load第1-50筆",
-                    "        //導致doShow時若資料屬於第50筆之後無法正常顯示",
-                    "        //在此使combo在doShow重新load store",
-                    "        /*",
-                    "        var formField=form.getFields();",
+                    "        that.activeEditor();",
+                    "        that.actionName = 'update';",
                     "",
-                    "        formField.each(function(item,index,len){",
-                    "        if(item instanceof Ext.form.field.ComboBox && item.xtype!='commoncountrycombo'){",
-                    "        var displayField;",
-                    "        switch(item.xtype){",
-                    "        case 'commonitemcombo':",
-                    "        displayField='item.name';",
-                    "        break;",
-                    "        case 'commonbatchcombo':",
-                    "        displayField='batch.name';",
-                    "        break;",
-                    "        case 'commonsuppliercombo':",
-                    "        displayField='supplier.name';",
-                    "        break;",
-                    "        case 'commonworkstationcombo':",
-                    "        displayField='workstation.name';",
-                    "        break;",
-                    "        case 'commonoperationcombo':",
-                    "        displayField='operation.name';",
-                    "        break;",
-                    "        case 'commonreportcombo':",
-                    "        displayField='report.name';",
-                    "        break;",
-                    "        case 'commonparamcombo':",
-                    "        displayField='param.name';",
-                    "        break;",
-                    "        case 'commoncustomercombo':",
-                    "        displayField='customer.name';",
-                    "        break;",
-                    "        //case 'commoncountrycombo':",
-                    "        //displayField='countryTitle';",
-                    "        //break;",
-                    "    }//end switch",
+                    "        if (callback && callback instanceof Function) {",
+                    "            callback(true,form,action)",
+                    "        }",
+                    "    },",
                     "",
-                    "    item.getStore().load({",
-                    "        params: {'nameLike': action.result.data[displayField]}",
-                    "    });",
-                    "    item.setValue(action.result.data[item.getName()]);",
-                    "}//end if",
-                    "});//end formField",
-                    "*/",
-                    "",
-                    "that.activeEditor();",
-                    "that.actionName = 'update';",
-                    "",
-                    "if (callback && callback instanceof Function) {",
-                    "callback(true,form,action)",
-                    "}",
-                    "},",
-                    "",
-                    "failure: function(form, action) {",
-                    "Ext.MessageBox.alert('Failure',action.result.message);",
-                    "if (callback && callback instanceof Function){",
-                    "callback(false,form,action)",
-                    "}",
-                    "}",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback && callback instanceof Function){",
+                    "            callback(false,form,action)",
+                    "        }",
+                    "    }",
                     "});",
                     "",
                     "",
@@ -137,7 +90,7 @@
                     "        that.actionName = 'save';",
                     "        that.activeEditor();",
                     "        that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);",
-                    "",
+                    "      ",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
@@ -214,6 +167,9 @@
                     "        if(that.actionName === 'save'){",
                     "            that.activeGrid();",
                     "            that.actionName = '' ;",
+                    "            if(that.getMainForm().up().down('[itemId=detailGrid]')){",
+                    "                that.enableDetailCreateBtn();",
+                    "            }",
                     "        }",
                     "    }",
                     "",
@@ -346,7 +302,9 @@
                     "",
                     "this.getMainForm().getForm().reset(true);",
                     "this.activeGrid();",
-                    "",
+                    "if(this.getMainForm().up().down('[itemId=detailGrid]')){",
+                    "    this.enableDetailCreateBtn();",
+                    "}",
                     ""
                 ]
             },
@@ -481,16 +439,31 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateAndIndexDetail",
+                "implHandler": [
+                    "this.doCreate();",
+                    "//單頭單身合併時 需將單身store移除",
+                    "this.getDetailGrid().getStore().removeAll();",
+                    "this.disableDetailCreateBtn();",
+                    "this.disableDetailShowBtn();"
+                ]
+            },
+            "designerId": "5b3bed73-a83e-4c0c-aa70-b88acc52be81"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowAndIndexDetail",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
                 "implHandler": [
                     "this.doShow();",
                     "",
                     "",
-                    "//this.doIndexDetail(obj, record, index, eOpts);",
-                    "",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0];",
                     "this.masterId = record.data.id;",
                     "",
                     "console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');",
@@ -770,7 +743,7 @@
             "userConfig": {
                 "fn": "enableDetailShowBtn",
                 "implHandler": [
-                    "this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(false);"
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(false);"
                 ]
             },
             "designerId": "6e9ed3c4-6743-4d07-a6c8-8b8685be5b25"
@@ -785,7 +758,7 @@
             "userConfig": {
                 "fn": "disableDetailShowBtn",
                 "implHandler": [
-                    "this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(true);"
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(true);"
                 ]
             },
             "designerId": "64eab7c8-b27d-4c2c-bafc-6c0e10193e7c"
@@ -850,6 +823,36 @@
                 ]
             },
             "designerId": "f19a3094-3e82-4545-bda9-08aaa2991e5f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "enableDetailCreateBtn",
+                "implHandler": [
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(false);"
+                ]
+            },
+            "designerId": "c44574aa-47a5-4ac1-9fe8-930ace29003a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "disableDetailCreateBtn",
+                "implHandler": [
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);"
+                ]
+            },
+            "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
         }
     ]
 }

@@ -52,7 +52,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
     init: function(application) {
         this.control({
             'erpstockinsheetview #index commonindextoolbar commoncreatebtn':{
-                click:this.doCreate
+                click:this.doCreateAndIndexDetail
             },
             'erpstockinsheetview #index commonindextoolbar commonshowbtn':{
                 click:this.doShowAndIndexDetail

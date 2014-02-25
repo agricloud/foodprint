@@ -52,7 +52,7 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
     init: function(application) {
         this.control({
             'erpcustomerorderview #index commonindextoolbar commoncreatebtn':{
-                click:this.doCreate
+                click:this.doCreateAndIndexDetail
             },
             'erpcustomerorderview #index commonindextoolbar commonshowbtn':{
                 click:this.doShowAndIndexDetail
