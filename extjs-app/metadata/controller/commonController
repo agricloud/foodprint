@@ -137,7 +137,12 @@
                     "        that.actionName = 'save';",
                     "        that.activeEditor();",
                     "        that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);",
-                    "",
+                    "        //單頭單身合併時 需將單身store移除",
+                    "        if(that.getMainForm().up().down('[itemId=detailGrid]')){",
+                    "            that.getMainForm().up().down('[itemId=detailGrid]').getStore().removeAll();",
+                    "            that.disableDetailCreateBtn();",
+                    "    \t\tthat.disableDetailShowBtn();",
+                    "        }",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
@@ -214,6 +219,9 @@
                     "        if(that.actionName === 'save'){",
                     "            that.activeGrid();",
                     "            that.actionName = '' ;",
+                    "            if(that.getMainForm().up().down('[itemId=detailGrid]')){",
+                    "                that.enableDetailCreateBtn();",
+                    "            }",
                     "        }",
                     "    }",
                     "",
@@ -346,7 +354,9 @@
                     "",
                     "this.getMainForm().getForm().reset(true);",
                     "this.activeGrid();",
-                    "",
+                    "if(this.getMainForm().up().down('[itemId=detailGrid]')){",
+                    "    this.enableDetailCreateBtn();",
+                    "}",
                     ""
                 ]
             },
@@ -482,15 +492,11 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doShowAndIndexDetail",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
                 "implHandler": [
                     "this.doShow();",
                     "",
                     "",
-                    "//this.doIndexDetail(obj, record, index, eOpts);",
-                    "",
+                    "var record= this.getMainGrid().getSelectionModel().getSelection()[0];",
                     "this.masterId = record.data.id;",
                     "",
                     "console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');",
@@ -770,7 +776,7 @@
             "userConfig": {
                 "fn": "enableDetailShowBtn",
                 "implHandler": [
-                    "this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(false);"
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(false);"
                 ]
             },
             "designerId": "6e9ed3c4-6743-4d07-a6c8-8b8685be5b25"
@@ -785,7 +791,7 @@
             "userConfig": {
                 "fn": "disableDetailShowBtn",
                 "implHandler": [
-                    "this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(true);"
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(true);"
                 ]
             },
             "designerId": "64eab7c8-b27d-4c2c-bafc-6c0e10193e7c"
@@ -850,6 +856,36 @@
                 ]
             },
             "designerId": "f19a3094-3e82-4545-bda9-08aaa2991e5f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "enableDetailCreateBtn",
+                "implHandler": [
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(false);"
+                ]
+            },
+            "designerId": "c44574aa-47a5-4ac1-9fe8-930ace29003a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "disableDetailCreateBtn",
+                "implHandler": [
+                    "this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);"
+                ]
+            },
+            "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
         }
     ]
 }

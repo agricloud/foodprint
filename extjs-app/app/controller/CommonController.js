@@ -116,7 +116,12 @@ Ext.define('foodprint.controller.CommonController', {
                 that.actionName = 'save';
                 that.activeEditor();
                 that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);
-
+                //單頭單身合併時 需將單身store移除
+                if(that.getMainForm().up().down('[itemId=detailGrid]')){
+                    that.getMainForm().up().down('[itemId=detailGrid]').getStore().removeAll();
+                    that.disableDetailCreateBtn();
+                    that.disableDetailShowBtn();
+                }
             },
 
             failure: function(form, action) {
@@ -171,6 +176,9 @@ Ext.define('foodprint.controller.CommonController', {
                 if(that.actionName === 'save'){
                     that.activeGrid();
                     that.actionName = '' ;
+                    if(that.getMainForm().up().down('[itemId=detailGrid]')){
+                        that.enableDetailCreateBtn();
+                    }
                 }
             }
 
@@ -242,7 +250,9 @@ Ext.define('foodprint.controller.CommonController', {
 
         this.getMainForm().getForm().reset(true);
         this.activeGrid();
-
+        if(this.getMainForm().up().down('[itemId=detailGrid]')){
+            this.enableDetailCreateBtn();
+        }
 
     },
 
@@ -290,12 +300,11 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
-    doShowAndIndexDetail: function(obj, record, index, eOpts) {
+    doShowAndIndexDetail: function() {
         this.doShow();
 
 
-        //this.doIndexDetail(obj, record, index, eOpts);
-
+        var record= this.getMainGrid().getSelectionModel().getSelection()[0];
         this.masterId = record.data.id;
 
         console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');
@@ -484,11 +493,11 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     enableDetailShowBtn: function() {
-        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(false);
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(false);
     },
 
     disableDetailShowBtn: function() {
-        this.getDetailGrid().up('panel[itemId=show]').down('commonshowbtn').setDisabled(true);
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commonshowbtn').setDisabled(true);
     },
 
     getDetailParams: function() {
@@ -525,6 +534,14 @@ Ext.define('foodprint.controller.CommonController', {
                 }
             }
         });
+    },
+
+    enableDetailCreateBtn: function() {
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(false);
+    },
+
+    disableDetailCreateBtn: function() {
+        this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
     }
 
 });
