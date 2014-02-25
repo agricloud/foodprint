@@ -94,6 +94,44 @@ class ReportViewerController {
 
     }
 
+    def nutrition = {
+
+        if(!params?.name || params?.name == 'null'){
+            flash.message = "未指定批號！"
+            render (view: 'search')
+            return 
+        }
+
+        def batch = Batch.findByName(params.name)
+
+        def batchNutritionReportMap = [:]
+        batchNutritionReportMap.title = "營養標示履歷"
+        batchNutritionReportMap.params=[]
+
+        def batchReportDets = BatchReportDet.findAllByBatch(batch)
+        batchReportDets.each(){ batchReportDet ->
+            println batchReportDet
+            println batchReportDet.reportParams.report.reportType
+            if(batchReportDet.reportParams.report.reportType == ReportType.NUTRITION){
+                def param = [:]
+
+                param["param.name"] = batchReportDet.reportParams.param.name
+                param["param.title"] = batchReportDet.reportParams.param.title
+                param["param.description"] = batchReportDet.reportParams.param.description
+                param["param.unit"] = batchReportDet.reportParams.param.unit
+                param["batchReportDet.value"] = batchReportDet.value
+
+                batchNutritionReportMap.params << param
+            }
+
+        }
+
+        [batch: batch, report: batchNutritionReportMap]
+
+
+
+    }
+
     def material = {
 
         if(!params?.name || params?.name == 'null'){
