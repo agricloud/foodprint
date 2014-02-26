@@ -279,7 +279,7 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     doShowDetail: function(callback) {
-        console.log('commonController--'+this.domainName+'--doShow');
+        console.log('commonController--'+this.domainName+'--doShowDetail');
 
         var that = this;
         var record= this.getDetailGrid().getSelectionModel().getSelection()[0];
@@ -336,6 +336,7 @@ Ext.define('foodprint.controller.CommonController', {
                         item.getStore().load({
                             params: {'nameLike': action.result.data[displayField]}
                         });
+                        console.log(action.result.data[item.getName()]);
                         item.setValue(action.result.data[item.getName()]);
                     }
                 });

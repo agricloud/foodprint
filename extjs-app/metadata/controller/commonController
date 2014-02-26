@@ -496,7 +496,7 @@
                     "callback"
                 ],
                 "implHandler": [
-                    "console.log('commonController--'+this.domainName+'--doShow');",
+                    "console.log('commonController--'+this.domainName+'--doShowDetail');",
                     "",
                     "var that = this;",
                     "var record= this.getDetailGrid().getSelectionModel().getSelection()[0];",
@@ -549,10 +549,11 @@
                     "                    //displayField='countryTitle';",
                     "                    //break;",
                     "                }",
-                    "",
+                    "\t\t\t\t",
                     "                item.getStore().load({",
                     "                    params: {'nameLike': action.result.data[displayField]}",
                     "                });",
+                    "\t\t\t\tconsole.log(action.result.data[item.getName()]);",
                     "                item.setValue(action.result.data[item.getName()]);",
                     "            }",
                     "        });",
