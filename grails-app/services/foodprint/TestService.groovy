@@ -58,9 +58,10 @@ class TestService {
         def batch = Batch.get(1)
         def workstation = Workstation.get(1)
         def operation = Operation.get(2)
-        def param= new Param(name:"paramNutrition",title:"Pack", unit:"玻璃瓶[60 毫升/62g]",paramType:ParamType.INTEGER).save(failOnError: true)
+        def param= new Param(name:"paramNutrition",title:"Pack", unit:"毫升/g",paramType:ParamType.INTEGER).save(failOnError: true)
         def report=new Report(name:"reportNutrition",title:"營養標示履歷", reportType: ReportType.NUTRITION).save(failOnError: true)
         def reportparam=new  ReportParams (report:report,param:param,workstation:workstation,operation:operation,item:item).save(failOnError: true)
+        new BatchReportDet (batch:batch,reportParams:reportparam,value:123).save(failOnError: true, flush: true)
     }
     def createInspectReport = {
         def item = Item.get(1)
