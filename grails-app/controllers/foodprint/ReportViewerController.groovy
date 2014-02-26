@@ -52,24 +52,7 @@ class ReportViewerController {
             reportMap.reportType = report.reportType
 
 
-            if(reportMap.reportType == ReportType.NUTRITION){
-                batchReportDets.each(){ batchReportDet ->
-                    if(batchReportDet.reportParams.report == report){
-                        def param = [:]
-
-                        param["param.name"] = batchReportDet.reportParams.param.name
-                        param["param.title"] = batchReportDet.reportParams.param.title
-                        param["param.description"] = batchReportDet.reportParams.param.description
-                        param["param.unit"] = batchReportDet.reportParams.param.unit
-                        param["batchReportDet.value"] = batchReportDet.value
-
-                        reportMap.params << param
-                    }
-                    
-                }
-                otherReports << reportMap
-
-            } else if(reportMap.reportType == ReportType.OTHER){
+            if(reportMap.reportType == ReportType.OTHER){
                 batchReportDets.each(){ batchReportDet ->
                     if(batchReportDet.reportParams.report == report){
                         def param = [:]

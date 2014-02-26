@@ -52,7 +52,7 @@
     <div class="container pc">
 
       <g:link url="/reports/${params?.name}/index" class="menu-01"><g:img dir="images" file="menu-01.png" /></g:link>
-      <g:link url="/reports/${params?.name}/quality" class="menu-02"><g:img dir="images" file="menu-05.png" /></g:link> 
+      <g:link url="/reports/${params?.name}/nutrition" class="menu-02"><g:img dir="images" file="menu-05.png" /></g:link> 
       <g:link url="/reports/${params?.name}/material" class="menu-03"><g:img dir="images" file="menu-02.png" /></g:link>
       <g:link url="/reports/${params?.name}/cultivate" class="menu-04"><g:img dir="images" file="menu-03.png" /></g:link>
       <g:link url="/reports/${params?.name}/quality" class="menu-05"><g:img dir="images" file="menu-04.png" /></g:link>
@@ -64,7 +64,7 @@
         <div class="wrap clearfix">
           <g:link url="/reports/${params?.name}/index" class="menu-01 current">
           <div class="icon-menu-01 menu"></div><span>產品說明</span></g:link>
-          <g:link url="/reports/${params?.name}/quality" class="menu-04">
+          <g:link url="/reports/${params?.name}/nutrition" class="menu-04">
           <div class="icon-menu-01 menu"></div><span>營養標示</span></g:link>
           <g:link url="/reports/${params?.name}/material" class="menu-02">
           <div class="icon-menu-02 menu"></div><span>原料履歷</span></g:link>
