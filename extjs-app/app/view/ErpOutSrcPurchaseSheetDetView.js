@@ -263,14 +263,6 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetDetView', {
                                     name: 'item.title'
                                 },
                                 {
-                                    xtype: 'numberfield',
-                                    flex: 1,
-                                    hidden: true,
-                                    fieldLabel: 'batch.id',
-                                    name: 'batch.id',
-                                    readOnly: true
-                                },
-                                {
                                     xtype: 'textfield',
                                     fieldLabel: 'Batch.name',
                                     name: 'batch.name'
