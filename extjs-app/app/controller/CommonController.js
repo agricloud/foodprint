@@ -36,6 +36,11 @@ Ext.define('foodprint.controller.CommonController', {
                 that.activeEditor();
                 that.actionName = 'update';
 
+                if(form.findField('typeName')&&form.findField('name')){
+                    form.findField('typeName').setReadOnly( true );
+                    form.findField('name').setReadOnly( true );
+                }
+
                 if (callback && callback instanceof Function) {
                     callback(true,form,action)
                 }
@@ -69,6 +74,11 @@ Ext.define('foodprint.controller.CommonController', {
                 that.actionName = 'save';
                 that.activeEditor();
                 that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);
+
+                if(form.findField('typeName')&&form.findField('name')){
+                    form.findField('typeName').setReadOnly( false );
+                    form.findField('name').setReadOnly( false );
+                }
 
             },
 

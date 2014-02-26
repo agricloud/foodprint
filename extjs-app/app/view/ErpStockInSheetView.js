@@ -84,12 +84,14 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'typeName',
                                     name: 'typeName',
+                                    readOnly: true,
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'name',
                                     name: 'name',
+                                    readOnly: true,
                                     allowBlank: false
                                 },
                                 {
