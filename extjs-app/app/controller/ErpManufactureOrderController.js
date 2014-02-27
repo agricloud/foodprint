@@ -47,7 +47,7 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
                 click:this.doCreate
             },
             'erpmanufactureorderview #index commonindextoolbar commonshowbtn':{
-                click:this.doShow
+                click:this.doShowManufactureOrder
             },
             'erpmanufactureorderview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -61,13 +61,23 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
             'erpmanufactureorderview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShow
+                itemdblclick: this.doShowManufactureOrder
             }
 
         });
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'manufactureOrder';
+    },
+
+    doShowManufactureOrder: function() {
+        this.doShow(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+        });
     }
 
 });
