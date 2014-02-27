@@ -88,7 +88,7 @@
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erpcustomerorderview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowDetail",
+                    "        click:this.doShowCustomerOrderDet",
                     "    },",
                     "    'erpcustomerorderview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -102,7 +102,7 @@
                     "    'erpcustomerorderview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowDetail",
+                    "        itemdblclick: this.doShowCustomerOrderDet",
                     "    }",
                     "",
                     "});",
@@ -163,6 +163,27 @@
                 ]
             },
             "designerId": "8571d0e5-21f7-44fe-82d8-be545598db2d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowCustomerOrderDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "1ccc46b6-1a6b-4022-a3c0-8854e29020ae"
         }
     ]
 }
