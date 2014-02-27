@@ -75,7 +75,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
                 click:this.doCreateDetail
             },
             'erpmaterialsheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowMaterialSheetDet
             },
             'erpmaterialsheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             'erpmaterialsheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowMaterialSheetDet
             },
             'erpmaterialsheetview #showDetail commonselectbtn':{
                 click:this.activeManufactureOrderIndex
@@ -124,6 +124,16 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             //在此使combo重新load store
             var wscombo=form.findField('workstation.id');
             Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+        });
+    },
+
+    doShowMaterialSheetDet: function() {
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
         });
     }
 

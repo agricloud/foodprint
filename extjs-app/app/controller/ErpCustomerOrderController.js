@@ -75,7 +75,7 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
                 click:this.doCreateDetail
             },
             'erpcustomerorderview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowCustomerOrderDet
             },
             'erpcustomerorderview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
             'erpcustomerorderview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowCustomerOrderDet
             }
 
         });
@@ -109,6 +109,16 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
             var cucombo=form.findField('customer.id');
             Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
 
+        });
+    },
+
+    doShowCustomerOrderDet: function() {
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
         });
     }
 
