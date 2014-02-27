@@ -75,7 +75,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
                 click:this.doCreateDetail
             },
             'erpsalesheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowSaleSheetDet
             },
             'erpsalesheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'erpsalesheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowSaleSheetDet
             },
             'erpsalesheetview #showDetail commonselectbtn':{
                 click:this.activeCustomerOrderDetIndex
@@ -159,6 +159,16 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             var cucombo=form.findField('customer.id');
             Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
 
+        });
+    },
+
+    doShowSaleSheetDet: function() {
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
         });
     }
 

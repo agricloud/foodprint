@@ -88,7 +88,7 @@
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erpsalesheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowDetail",
+                    "        click:this.doShowSaleSheetDet",
                     "    },",
                     "    'erpsalesheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -102,7 +102,7 @@
                     "    'erpsalesheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowDetail",
+                    "        itemdblclick: this.doShowSaleSheetDet",
                     "    },",
                     "    'erpsalesheetview #showDetail commonselectbtn':{",
                     "        click:this.activeCustomerOrderDetIndex",
@@ -255,6 +255,27 @@
                 ]
             },
             "designerId": "cf359228-d23c-47f2-bfbd-13134e77aaf5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleSheetDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "5671cc17-3cf2-4f79-b28d-4391c19b49d4"
         }
     ]
 }
