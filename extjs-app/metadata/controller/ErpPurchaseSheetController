@@ -88,7 +88,7 @@
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erppurchasesheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowDetail",
+                    "        click:this.doShowPurchaseSheetDet",
                     "    },",
                     "    'erppurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -102,7 +102,7 @@
                     "    'erppurchasesheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowDetail",
+                    "        itemdblclick: this.doShowPurchaseSheetDet",
                     "    }",
                     "",
                     "});",
@@ -163,6 +163,27 @@
                 ]
             },
             "designerId": "1a71ed33-18d2-4dde-a812-14706a727888"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowPurchaseSheetDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "ad21bdf7-c4be-4e7d-b271-3739a508d756"
         }
     ]
 }

@@ -75,7 +75,7 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
                 click:this.doCreateDetail
             },
             'erppurchasesheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowPurchaseSheetDet
             },
             'erppurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
             'erppurchasesheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowPurchaseSheetDet
             }
 
         });
@@ -109,6 +109,16 @@ Ext.define('foodprint.controller.ErpPurchaseSheetController', {
             var spcombo=form.findField('supplier.id');
             Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
 
+        });
+    },
+
+    doShowPurchaseSheetDet: function() {
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
         });
     }
 
