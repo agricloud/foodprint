@@ -68,7 +68,7 @@
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
                     "    'erpcustomerorderview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowAndIndexDetail",
+                    "        click:this.doShowCustomerOrder",
                     "    },",
                     "    'erpcustomerorderview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,7 +82,7 @@
                     "    'erpcustomerorderview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowAndIndexDetail",
+                    "        itemdblclick: this.doShowCustomerOrder",
                     "    },",
                     "    'erpcustomerorderview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
@@ -141,6 +141,28 @@
                 "selector": "erpcustomerorderview #detailForm"
             },
             "designerId": "dd94f044-e2ca-40fe-812d-10e7577fcea6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowCustomerOrder",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var cucombo=form.findField('customer.id');",
+                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "8571d0e5-21f7-44fe-82d8-be545598db2d"
         }
     ]
 }

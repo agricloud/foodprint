@@ -68,7 +68,7 @@
                     "        click:this.doCreate",
                     "    },",
                     "    'erpmanufactureorderview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShow",
+                    "        click:this.doShowManufactureOrder",
                     "    },",
                     "    'erpmanufactureorderview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,7 +82,7 @@
                     "    'erpmanufactureorderview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShow",
+                    "        itemdblclick: this.doShowManufactureOrder",
                     "    }",
                     "",
                     "});",
@@ -92,6 +92,27 @@
                 ]
             },
             "designerId": "dd42bc76-4958-44e5-a887-b5b3379a3aef"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowManufactureOrder",
+                "implHandler": [
+                    "this.doShow(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "48a6d987-6009-4c77-a431-b3a4fc1aba77"
         }
     ]
 }

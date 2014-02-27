@@ -55,7 +55,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
                 click:this.doCreateAndIndexDetail
             },
             'erpsalesheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShowAndIndexDetail
+                click:this.doShowSaleSheet
             },
             'erpsalesheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -69,7 +69,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'erpsalesheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShowAndIndexDetail
+                itemdblclick: this.doShowSaleSheet
             },
             'erpsalesheetview #show commonindextoolbar commoncreatebtn':{
                 click:this.doCreateDetail
@@ -149,6 +149,17 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
         //造成此處指定查詢的Batch結果會被覆蓋
         //給定lastQuery使系統默認為已load過
         combo.lastQuery='';
+    },
+
+    doShowSaleSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var cucombo=form.findField('customer.id');
+            Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
+
+        });
     }
 
 });

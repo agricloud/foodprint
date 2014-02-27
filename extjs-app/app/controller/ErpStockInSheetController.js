@@ -55,7 +55,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
                 click:this.doCreateAndIndexDetail
             },
             'erpstockinsheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShowAndIndexDetail
+                click:this.doShowStockInSheet
             },
             'erpstockinsheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -69,7 +69,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             'erpstockinsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShowAndIndexDetail
+                itemdblclick: this.doShowStockInSheet
             },
             'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{
                 click:this.doCreateDetail
@@ -119,6 +119,16 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             'batch.name':record.data['batch.name']
         });
         this.activeDetailEditor();
+    },
+
+    doShowStockInSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var wscombo=form.findField('workstation.id');
+            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+        });
     }
 
 });

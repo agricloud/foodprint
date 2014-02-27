@@ -266,25 +266,31 @@ Ext.define('foodprint.controller.CommonController', {
         this.disableDetailShowBtn();
     },
 
-    doShowAndIndexDetail: function() {
-        this.doShow();
+    doShowAndIndexDetail: function(callback) {
+        var that=this;
+        this.doShow(function(success,form,action){
+
+            if (callback && callback instanceof Function) {
+                callback(true,form,action)
+            }
+
+            var record= that.getMainGrid().getSelectionModel().getSelection()[0];
+            that.masterId = record.data.id;
+
+            console.log('commonController--'+that.domainName+'/'+that.masterId+'--doShowAndIndexDetail');
+
+            var grid = that.getDetailGrid();
+
+            grid.getStore().data.clear();
+
+            var params = {}
+            params[that.masterKey]=that.masterId
 
 
-        var record= this.getMainGrid().getSelectionModel().getSelection()[0];
-        this.masterId = record.data.id;
+            grid.getStore().getProxy().extraParams = params;
+            grid.getStore().load();
+        });
 
-        console.log('commonController--'+this.domainName+'/'+this.masterId+'--doIndexDetail');
-
-        var grid = this.getDetailGrid();
-
-        grid.getStore().data.clear();
-
-        var params = {}
-        params[this.masterKey]=this.masterId
-
-
-        grid.getStore().getProxy().extraParams = params;
-        grid.getStore().load();
 
     },
 
