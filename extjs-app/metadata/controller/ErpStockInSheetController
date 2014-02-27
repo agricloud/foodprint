@@ -68,7 +68,7 @@
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
                     "    'erpstockinsheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowAndIndexDetail",
+                    "        click:this.doShowStockInSheet",
                     "    },",
                     "    'erpstockinsheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,7 +82,7 @@
                     "    'erpstockinsheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowAndIndexDetail",
+                    "        itemdblclick: this.doShowStockInSheet",
                     "    },",
                     "    'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
@@ -175,6 +175,27 @@
                 ]
             },
             "designerId": "739e5c8a-6c08-43bd-b34a-59e6cc9f1384"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowStockInSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var wscombo=form.findField('workstation.id');",
+                    "    Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "559b2977-3c62-4fa2-8fa8-530f19ffe14b"
         }
     ]
 }
