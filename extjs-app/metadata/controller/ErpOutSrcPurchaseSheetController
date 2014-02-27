@@ -68,7 +68,7 @@
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowAndIndexDetail",
+                    "        click:this.doShowOutSrcPurchaseSheet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -82,7 +82,7 @@
                     "    'erpoutsrcpurchasesheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowAndIndexDetail",
+                    "        itemdblclick: this.doShowOutSrcPurchaseSheet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
@@ -175,6 +175,28 @@
                 ]
             },
             "designerId": "4373b9e2-e5c8-4304-a999-7b7cac47c3d5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowOutSrcPurchaseSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "e179123a-ee99-4033-9b15-5abf8b54052f"
         }
     ]
 }
