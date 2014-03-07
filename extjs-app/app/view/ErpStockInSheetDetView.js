@@ -108,6 +108,25 @@ Ext.define('foodprint.view.ErpStockInSheetDetView', {
                                 {
                                     xtype: 'numbercolumn',
                                     hidden: true,
+                                    dataIndex: 'warehouse.id',
+                                    text: 'Warehouse.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouse.name',
+                                    text: 'Warehouse.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouse.title',
+                                    text: 'Warehouse.title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
                                     dataIndex: 'batch.id',
                                     text: 'Batch.id',
                                     flex: 1
