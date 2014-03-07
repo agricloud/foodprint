@@ -1,0 +1,143 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Inventory"
+    },
+    "designerId": "4315482c-1968-4da5-807a-bfcdcac8566c",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "dfaae499-7654-479e-a8b0-9e1ef91a5dee"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.id"
+            },
+            "designerId": "54606493-8e56-454a-b373-f83c9f98552d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.name"
+            },
+            "designerId": "5034df2c-cbd8-49c8-b47e-0733fa0a208c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.title"
+            },
+            "designerId": "167ad9ee-abe5-49eb-944e-5c3ea039988d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.id"
+            },
+            "designerId": "76c4da11-0fca-4d70-bf2b-3e00c57f326f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.name"
+            },
+            "designerId": "751c088d-5d9b-4cdc-bfda-ae557a747046"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.title"
+            },
+            "designerId": "eb3bce73-dddd-4dc1-9e7a-2176b91c64ea"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qty"
+            },
+            "designerId": "b3aadb2b-c5e5-4583-9f51-9e119c58f3e9"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    foodpaintController:'inventory'",
+                    "}"
+                ],
+                "url": "/foodpaint"
+            },
+            "designerId": "468d01cb-8799-4cc2-8d1c-836fdb7afe8f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "inventoryInstanceList",
+                        "totalProperty": "inventoryInstanceTotal"
+                    },
+                    "designerId": "7e360e30-f195-41ad-a23b-dcf6ae3c701e"
+                }
+            ]
+        }
+    ]
+}

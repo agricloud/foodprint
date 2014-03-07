@@ -92,6 +92,12 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=warehouseMaintain]':{
                 click:this.warehouseMaintain
             },
+            'maincontainer button[itemId=inventoryView]':{
+                click:this.inventoryView
+            },
+            'maincontainer button[itemId=inventoryDetailView]':{
+                click:this.inventoryDetailView
+            },
             'maincontainer button[itemId=erpCustomerOrderMaintain]':{
                 click:this.erpCustomerOrderMaintain
             },
@@ -377,6 +383,22 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'warehouseview';
         var tabName = Utilities.getMsg('mainContainer.warehouseMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    inventoryView: function() {
+
+        var xtypeStr = 'inventoryview';
+        var tabName = Utilities.getMsg('mainContainer.inventoryView.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    inventoryDetailView: function() {
+
+        var xtypeStr = 'inventorydetailview';
+        var tabName = Utilities.getMsg('mainContainer.inventoryDetailView.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

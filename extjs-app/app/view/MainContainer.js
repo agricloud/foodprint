@@ -116,17 +116,17 @@ Ext.define('foodprint.view.MainContainer', {
                                 me.processWarehouseMaintain({
                                     xtype: 'button',
                                     itemId: 'warehouseMaintain',
-                                    text: 'User Maintain'
+                                    text: 'Warehouse Maintain'
                                 }),
-                                me.processInventoryMaintain({
+                                me.processInventoryView({
                                     xtype: 'button',
-                                    itemId: 'inventoryMaintain',
-                                    text: 'Item Maintain'
+                                    itemId: 'inventoryView',
+                                    text: 'Inventory View'
                                 }),
-                                me.processInventoryDetailMaintain({
+                                me.processInventoryDetailView({
                                     xtype: 'button',
-                                    itemId: 'inventoryDetailMaintain',
-                                    text: 'Item Maintain'
+                                    itemId: 'inventoryDetailView',
+                                    text: 'InventoryDetail View'
                                 })
                             ]
                         }),
@@ -405,14 +405,14 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processInventoryMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.inventoryMaintain.label');
+    processInventoryView: function(config) {
+        config.text=Utilities.getMsg('mainContainer.inventoryView.label');
 
         return config;
     },
 
-    processInventoryDetailMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.inventoryDetailMaintain.label');
+    processInventoryDetailView: function(config) {
+        config.text=Utilities.getMsg('mainContainer.inventoryDetailView.label');
 
         return config;
     },

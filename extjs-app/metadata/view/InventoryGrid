@@ -1,0 +1,192 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "inventoryGrid",
+        "designer|userClassName": "InventoryGrid",
+        "designer|userAlias": "invetorygrid",
+        "title": null,
+        "store": "InventoryStore"
+    },
+    "designerId": "0d6df30b-7b99-4c6f-8774-a35295f3e28c",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "23f1716d-a21e-462e-91c3-aaa50afdbb33"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processInventoryGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'inventory'));"
+                ]
+            },
+            "designerId": "c1de6b62-3496-465b-b478-7ad0e2434b35"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "InventoryStore"
+            },
+            "designerId": "5bd1b6b2-17fb-414c-bfe7-1b85b8c16383"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "3eb52a49-fec2-4e4d-a3eb-d91855c2f274"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "warehouse.id",
+                "text": "Warehouse.id",
+                "flex": 1
+            },
+            "designerId": "66bfc087-0469-48e4-a05a-09e360cb0216"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "warehouse.name",
+                "text": "Warehouse.name",
+                "flex": 1
+            },
+            "designerId": "a6d5cc80-e1b4-4a7f-9d47-b23d23ca1f07"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "warehouse.title",
+                "text": "Warehouse.title",
+                "flex": 1
+            },
+            "designerId": "1a31b524-01fd-470a-a1fb-4ae98dd13945"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "item.id",
+                "text": "Item.id",
+                "flex": 1
+            },
+            "designerId": "9120e42f-979d-4b62-8703-8b036a35ceae"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "item.name",
+                "text": "Item.name",
+                "flex": 1
+            },
+            "designerId": "6b523593-93b1-4b84-8653-8d3746d84a0b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "item.title",
+                "text": "Item.title",
+                "flex": 1
+            },
+            "designerId": "898590a4-4b16-49a5-b00d-a62c94044525"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onInventoryGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "578606d1-f764-470b-b1c0-48efeee9a455"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "qty",
+                "text": "Qty",
+                "flex": 1
+            },
+            "designerId": "c0e9568e-2631-43a9-bf95-15e40ba692c3"
+        }
+    ]
+}
