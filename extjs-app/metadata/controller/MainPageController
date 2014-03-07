@@ -100,6 +100,9 @@
                     "    'maincontainer button[itemId=batchSourceMaintain]':{",
                     "        click:this.batchSourceMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=warehouseMaintain]':{",
+                    "        click:this.warehouseMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=erpCustomerOrderMaintain]':{",
                     "        click:this.erpCustomerOrderMaintain",
                     "    },",
@@ -717,6 +720,25 @@
                 ]
             },
             "designerId": "ffbd88aa-6768-45c1-be04-c277d1961df2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "warehouseMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'warehouseview';",
+                    "var tabName = Utilities.getMsg('mainContainer.warehouseMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a7861c32-a813-41bc-91c7-6ea33034b74c"
         }
     ]
 }

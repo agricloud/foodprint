@@ -41,7 +41,7 @@ Ext.define('foodprint.view.MainContainer', {
                     bodyBorder: false,
                     title: '',
                     items: [
-                        me.processBasicDataMainten({
+                        me.processBasicDataMaintain({
                             xtype: 'panel',
                             height: 250,
                             width: 400,
@@ -49,7 +49,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 align: 'stretch',
                                 type: 'vbox'
                             },
-                            title: 'Basic Data Mainten',
+                            title: 'Basic Data Maintain',
                             items: [
                                 me.processUserMaintain({
                                     xtype: 'button',
@@ -103,7 +103,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 })
                             ]
                         }),
-                        me.processSheetMainten({
+                        me.processBasicInventoryMaintain({
                             xtype: 'panel',
                             height: 250,
                             width: 400,
@@ -111,7 +111,34 @@ Ext.define('foodprint.view.MainContainer', {
                                 align: 'stretch',
                                 type: 'vbox'
                             },
-                            title: 'Sheet Mainten',
+                            title: 'Basic Inventory Maintain',
+                            items: [
+                                me.processWarehouseMaintain({
+                                    xtype: 'button',
+                                    itemId: 'warehouseMaintain',
+                                    text: 'User Maintain'
+                                }),
+                                me.processInventoryMaintain({
+                                    xtype: 'button',
+                                    itemId: 'inventoryMaintain',
+                                    text: 'Item Maintain'
+                                }),
+                                me.processInventoryDetailMaintain({
+                                    xtype: 'button',
+                                    itemId: 'inventoryDetailMaintain',
+                                    text: 'Item Maintain'
+                                })
+                            ]
+                        }),
+                        me.processSheetMaintain({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Sheet Maintain',
                             items: [
                                 me.processErpCustomerOrderMaintain({
                                     xtype: 'button',
@@ -366,8 +393,32 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processBasicDataMainten: function(config) {
+    processBasicDataMaintain: function(config) {
         config.title=Utilities.getMsg('mainContainer.basicDataMaintain.label');
+
+        return config;
+    },
+
+    processWarehouseMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.warehouseMaintain.label');
+
+        return config;
+    },
+
+    processInventoryMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.inventoryMaintain.label');
+
+        return config;
+    },
+
+    processInventoryDetailMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.inventoryDetailMaintain.label');
+
+        return config;
+    },
+
+    processBasicInventoryMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.basicInventoryMaintain.label');
 
         return config;
     },
@@ -450,7 +501,7 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processSheetMainten: function(config) {
+    processSheetMaintain: function(config) {
         config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
 
         return config;

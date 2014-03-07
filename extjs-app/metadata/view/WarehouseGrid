@@ -1,0 +1,134 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "warehouseGrid",
+        "designer|userClassName": "WarehouseGrid",
+        "designer|userAlias": "warehousegrid",
+        "title": null,
+        "store": "WarehouseStore"
+    },
+    "designerId": "f0eff647-8010-4abe-8c1d-b20f5ac71b89",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "d3251a20-21cc-42a7-85ec-2eee3fd67fbe"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processWarehouseGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'warehouse'));"
+                ]
+            },
+            "designerId": "ed97a71c-7d85-4dd4-b247-07e8b4631903"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "WarehouseStore"
+            },
+            "designerId": "409a3272-4f79-4f67-89d2-2751c4150cfc"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "714d9c65-9eb9-4abb-99e1-f8b9a8ce6814"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "99210267-fcaf-4ad2-9c4a-d1d655748e01"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "title",
+                "text": "Title",
+                "flex": 1
+            },
+            "designerId": "b80e1a28-028e-467e-851b-86d6e70ece07"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "remark",
+                "text": "Remark",
+                "flex": 1
+            },
+            "designerId": "b33fd145-bf72-4c23-a69f-2858c48e61ab"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWarehouseGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "a4b7745d-2e98-423c-b2d9-727956dc2dbd"
+        }
+    ]
+}

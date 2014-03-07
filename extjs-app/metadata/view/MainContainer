@@ -49,7 +49,7 @@
                         "width": 400,
                         "designer|displayName": null,
                         "layout": "vbox",
-                        "title": "Basic Data Mainten"
+                        "title": "Basic Data Maintain"
                     },
                     "designerId": "3496945d-c7bb-4f61-9de3-f469562c4fdf",
                     "cn": [
@@ -421,7 +421,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processBasicDataMainten",
+                                "fn": "processBasicDataMaintain",
                                 "designer|params": [
                                     "config"
                                 ],
@@ -445,11 +445,158 @@
                     "userConfig": {
                         "container|align": "stretch",
                         "height": 250,
+                        "width": 400,
+                        "designer|displayName": null,
+                        "layout": "vbox",
+                        "title": "Basic Inventory Maintain"
+                    },
+                    "designerId": "365d2b09-8627-48ff-a8b0-79abb6dd41ed",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "warehouseMaintain",
+                                "text": "User Maintain"
+                            },
+                            "designerId": "7ed385a0-d09a-4223-a868-515caeeab787",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processWarehouseMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.warehouseMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "f91f7c1a-8212-4e9b-887d-e1559aa6e02f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "inventoryMaintain",
+                                "text": "Item Maintain"
+                            },
+                            "designerId": "cdefbab3-c7ac-4eb4-aa02-a95bc7eba993",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processInventoryMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.inventoryMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "fc8e984b-2cf9-45b2-8ccc-d3d60ace61f7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "inventoryDetailMaintain",
+                                "text": "Item Maintain"
+                            },
+                            "designerId": "000b3c9e-f92f-44fd-85a6-4226b55bccbe",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processInventoryDetailMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.inventoryDetailMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "dc9045a1-1821-486e-ba75-51488081fb0d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processBasicInventoryMaintain",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config.title=Utilities.getMsg('mainContainer.basicInventoryMaintain.label');",
+                                    "",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "eb4292f3-593f-427e-8edc-fac9127c669a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
                         "hidden": null,
                         "width": 400,
                         "designer|displayName": null,
                         "layout": "vbox",
-                        "title": "Sheet Mainten"
+                        "title": "Sheet Maintain"
                     },
                     "designerId": "37d4cce6-f1ab-4380-b5eb-9b7c2b503b24",
                     "cn": [
@@ -935,7 +1082,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processSheetMainten",
+                                "fn": "processSheetMaintain",
                                 "designer|params": [
                                     "config"
                                 ],
