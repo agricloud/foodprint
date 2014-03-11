@@ -112,7 +112,7 @@ Ext.define('foodprint.view.UserView', {
                         })
                     ]
                 },
-                me.processShow({
+                {
                     xtype: 'panel',
                     tbar: {
                         xtype: 'commonshowtoolbar'
@@ -128,7 +128,7 @@ Ext.define('foodprint.view.UserView', {
                             flex: 1
                         }
                     ]
-                })
+                }
             ]
         });
 
@@ -137,10 +137,6 @@ Ext.define('foodprint.view.UserView', {
 
     processGrid: function(config) {
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'user'));
-    },
-
-    processShow: function(config) {
-        return Utilities.processConfigBundle(config, 'user');
     },
 
     onGridAfterRender: function(component, eOpts) {

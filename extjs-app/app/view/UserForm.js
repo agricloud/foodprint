@@ -84,11 +84,6 @@ Ext.define('foodprint.view.UserForm', {
 
     processUserForm: function(config) {
         return Utilities.processConfigBundle(config, 'user');
-    },
-
-    doDisplay: function(record) {
-        console.log("View-userForm.doDisplay");
-        this.loadRecord(record);
     }
 
 });
