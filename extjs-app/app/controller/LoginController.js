@@ -48,17 +48,14 @@ Ext.define('foodprint.controller.LoginController', {
             'form[itemId=loginForm] button[itemId=cancelBtn]': {
                 click: this.doReset
             },
-            'form[itemId=loginForm] button[itemId=addAccountBtn]': {
-                click: this.doCreate
+            'form[itemId=loginForm] button[itemId=registerBtn]': {
+                click: this.doCreateUser
             },
-            '#mainVP #newAccount commonshowtoolbar commoncancelbtn': {
-                click: this.doCancel
+            '#mainVP #register commonshowtoolbar commoncancelbtn': {
+                click: this.doCancelUser
             },
-            '#mainVP #newAccount commonshowtoolbar commondeletebtn': {
-                click: this.doDelete
-            },
-            '#mainVP #newAccount commonshowtoolbar commonsavebtn': {
-                click: this.doSave
+            '#mainVP #register commonshowtoolbar commonsavebtn': {
+                click: this.doSaveUser
             }
 
         });
@@ -100,13 +97,11 @@ Ext.define('foodprint.controller.LoginController', {
         form.reset();
     },
 
-    doCreate: function(btn, e, eOpts) {
+    doCreateUser: function(btn, e, eOpts) {
         var mainVP = Ext.getCmp('mainVP');
-        mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=newAccount]'));
+        mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=register]'));
 
-        this.getMainForm().up('panel[itemId=newAccount]').down('commondeletebtn').setVisible(false);
-
-        console.log('commonController--'+this.domainName+'--doCreate');
+        console.log('loginController--'+this.domainName+'--doCreate');
         var that = this
         var params = {}
 
@@ -127,13 +122,7 @@ Ext.define('foodprint.controller.LoginController', {
         });
     },
 
-    doCancel: function(btn, e, eOpts) {
-        var mainVP = Ext.getCmp('mainVP');
-        mainVP.getLayout().setActiveItem(mainVP.down('logincontainer'));
-
-    },
-
-    doSave: function(btn,e,eOpts) {
+    doSaveUser: function(btn,e,eOpts) {
         console.log('loginController--'+this.domainName+'--doSave');
         var that = this ;
 
@@ -147,6 +136,12 @@ Ext.define('foodprint.controller.LoginController', {
             }
 
         });
+
+    },
+
+    doCancelUser: function(btn, e, eOpts) {
+        var mainVP = Ext.getCmp('mainVP');
+        mainVP.getLayout().setActiveItem(mainVP.down('logincontainer'));
 
     }
 

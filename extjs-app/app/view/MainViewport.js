@@ -35,12 +35,12 @@ Ext.define('foodprint.view.MainViewport', {
                 {
                     xtype: 'logincontainer'
                 },
-                me.processNewAccount({
+                {
                     xtype: 'panel',
                     tbar: {
                         xtype: 'commonshowtoolbar'
                     },
-                    itemId: 'newAccount',
+                    itemId: 'register',
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
@@ -50,8 +50,14 @@ Ext.define('foodprint.view.MainViewport', {
                             xtype: 'userform',
                             flex: 1
                         }
-                    ]
-                })
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onRegisterAfterRender,
+                            scope: me
+                        }
+                    }
+                }
             ],
             listeners: {
                 afterrender: {
@@ -64,10 +70,6 @@ Ext.define('foodprint.view.MainViewport', {
         me.callParent(arguments);
     },
 
-    processNewAccount: function(config) {
-        return Utilities.processConfigBundle(config, 'user');
-    },
-
     onMainVPAfterRender: function(component, eOpts) {
         var mask = Ext.get('loading-mask');
         // Destroy the masks
@@ -75,6 +77,10 @@ Ext.define('foodprint.view.MainViewport', {
         mask.fadeOut({callback: function(){ mask.destroy(); }});
 
         Ext.getBody().removeCls( 'splash' );
+    },
+
+    onRegisterAfterRender: function(component, eOpts) {
+        component.down('commondeletebtn').setVisible(false);
     }
 
 });

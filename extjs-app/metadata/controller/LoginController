@@ -47,17 +47,14 @@
                     "    'form[itemId=loginForm] button[itemId=cancelBtn]': {",
                     "        click: this.doReset",
                     "    },",
-                    "    'form[itemId=loginForm] button[itemId=addAccountBtn]': {",
-                    "        click: this.doCreate",
+                    "    'form[itemId=loginForm] button[itemId=registerBtn]': {",
+                    "        click: this.doCreateUser",
                     "    },",
-                    "    '#mainVP #newAccount commonshowtoolbar commoncancelbtn': {",
-                    "        click: this.doCancel",
+                    "    '#mainVP #register commonshowtoolbar commoncancelbtn': {",
+                    "        click: this.doCancelUser",
                     "    },",
-                    "    '#mainVP #newAccount commonshowtoolbar commondeletebtn': {",
-                    "        click: this.doDelete",
-                    "    },",
-                    "    '#mainVP #newAccount commonshowtoolbar commonsavebtn': {",
-                    "        click: this.doSave",
+                    "    '#mainVP #register commonshowtoolbar commonsavebtn': {",
+                    "        click: this.doSaveUser",
                     "    }",
                     "",
                     "});",
@@ -175,7 +172,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doCreate",
+                "fn": "doCreateUser",
                 "designer|params": [
                     "btn",
                     "e",
@@ -183,11 +180,9 @@
                 ],
                 "implHandler": [
                     "var mainVP = Ext.getCmp('mainVP');",
-                    "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=newAccount]'));",
+                    "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=register]'));",
                     "",
-                    "this.getMainForm().up('panel[itemId=newAccount]').down('commondeletebtn').setVisible(false);",
-                    "",
-                    "console.log('commonController--'+this.domainName+'--doCreate');",
+                    "console.log('loginController--'+this.domainName+'--doCreate');",
                     "var that = this",
                     "var params = {}",
                     "",
@@ -218,7 +213,38 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doCancel",
+                "fn": "doSaveUser",
+                "designer|params": [
+                    "btn,e,eOpts"
+                ],
+                "implHandler": [
+                    "console.log('loginController--'+this.domainName+'--doSave');",
+                    "var that = this ;",
+                    "",
+                    "this.submitForm(function(success){",
+                    "    if(success){",
+                    "",
+                    "        if(that.actionName === 'save'){",
+                    "            that.doCancel();",
+                    "            that.actionName = '' ;",
+                    "        }",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "166e8f2d-f679-485a-aa24-57ec610fe867"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelUser",
                 "designer|params": [
                     "btn",
                     "e",
@@ -244,37 +270,6 @@
                 "selector": "mainviewport #form"
             },
             "designerId": "01d3f3eb-0a2f-4123-9c1c-a174db8cbc33"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSave",
-                "designer|params": [
-                    "btn,e,eOpts"
-                ],
-                "implHandler": [
-                    "console.log('loginController--'+this.domainName+'--doSave');",
-                    "var that = this ;",
-                    "",
-                    "this.submitForm(function(success){",
-                    "    if(success){",
-                    "",
-                    "        if(that.actionName === 'save'){",
-                    "            that.doCancel();",
-                    "            that.actionName = '' ;",
-                    "        }",
-                    "    }",
-                    "",
-                    "});",
-                    ""
-                ]
-            },
-            "designerId": "166e8f2d-f679-485a-aa24-57ec610fe867"
         }
     ]
 }
