@@ -11,5 +11,6 @@ public enum Country {
     AMERICA,
     AUSTRALIA,
     FRENCE,
-    BRITAIN
+    BRITAIN,
+    SPAIN
 }

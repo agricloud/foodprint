@@ -63,7 +63,7 @@
                     "}"
                 ],
                 "container|align": "stretch",
-                "itemId": "newAccount",
+                "itemId": "register",
                 "layout": "vbox",
                 "title": null
             },
@@ -90,22 +90,21 @@
                     "masterInstanceId": "44fbd9a7-9dc3-4893-b20d-da6e958e60d8"
                 },
                 {
-                    "type": "processcfgfunction",
+                    "type": "basiceventbinding",
                     "reference": {
-                        "name": "items",
+                        "name": "listeners",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "processNewAccount",
-                        "designer|params": [
-                            "config"
-                        ],
+                        "fn": "onRegisterAfterRender",
                         "implHandler": [
-                            "return Utilities.processConfigBundle(config, 'user');"
-                        ]
+                            "component.down('commondeletebtn').setVisible(false);"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
                     },
-                    "designerId": "568c06da-aa59-4d77-9cc6-5a219e3603ae"
+                    "designerId": "de674b45-577a-4693-bdb0-b7964a451522"
                 }
             ]
         }

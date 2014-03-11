@@ -41,6 +41,12 @@ Ext.define('foodprint.controller.MainPageController', {
 
     init: function(application) {
         this.control({
+            'maincontainer button[itemId=siteMaintain]':{
+                click:this.siteMaintain
+            },
+            'maincontainer button[itemId=userMaintain]':{
+                click:this.userMaintain
+            },
             'maincontainer button[itemId=itemMaintain]':{
                 click:this.itemMaintain
             },
@@ -64,9 +70,6 @@ Ext.define('foodprint.controller.MainPageController', {
             },
             'maincontainer button[itemId=reportParamsMaintain]':{
                 click:this.reportParamsMaintain
-            },
-            'maincontainer button[itemId=userMaintain]':{
-                click:this.userMaintain
             },
             'maincontainer button[itemId=forwardTrace]':{
                 click:this.forwardTrace
@@ -164,6 +167,20 @@ Ext.define('foodprint.controller.MainPageController', {
 
     },
 
+    siteMaintain: function() {
+        var xtypeStr = 'siteview';
+        var tabName = Utilities.getMsg('mainContainer.siteMaintain.label');//'工廠維護';
+        var docLink = '';//'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    userMaintain: function() {
+        var xtypeStr = 'userview';
+        var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';
+        var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     itemMaintain: function() {
         var xtypeStr = 'itemview';
         var tabName = Utilities.getMsg('mainContainer.itemMaintain.label');//'品項維護';
@@ -210,13 +227,6 @@ Ext.define('foodprint.controller.MainPageController', {
         var xtypeStr = 'batchreportdetview';
         var tabName = Utilities.getMsg('mainContainer.batchParamsMaintain.label');//'批號履歷維護';
         var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisZDlmbmpyR0NaYmM/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
-    userMaintain: function() {
-        var xtypeStr = 'userview';
-        var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';
-        var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 

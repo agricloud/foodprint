@@ -51,8 +51,12 @@ class ExtJSFilters {
                 params.criteria = {
                     def user =springSecurityService.currentUser
 
-                    if(user.username != 'admin')
-                        eq('site',user.site)
+                    if(user.username != 'admin'){
+                        if(params.controller != 'site')
+                            eq('site',user.site)
+                        else
+                            eq('id',user.site.id)
+                    }
 
                     if(params.filter){                           
                         def filterJson = grails.converters.JSON.parse(params.filter)
