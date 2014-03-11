@@ -52,6 +52,12 @@
                 ],
                 "implHandler": [
                     "this.control({",
+                    "    'maincontainer button[itemId=siteMaintain]':{",
+                    "        click:this.siteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=userMaintain]':{",
+                    "        click:this.userMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=itemMaintain]':{",
                     "        click:this.itemMaintain",
                     "    },",
@@ -75,9 +81,6 @@
                     "    },",
                     "    'maincontainer button[itemId=reportParamsMaintain]':{",
                     "        click:this.reportParamsMaintain",
-                    "    },",
-                    "    'maincontainer button[itemId=userMaintain]':{",
-                    "        click:this.userMaintain",
                     "    },",
                     "    'maincontainer button[itemId=forwardTrace]':{",
                     "        click:this.forwardTrace",
@@ -183,6 +186,42 @@
                 ]
             },
             "designerId": "c050570c-d3ef-47c4-8bcc-b06180495a4c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "siteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'siteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.siteMaintain.label');//'工廠維護';",
+                    "var docLink = '';//'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "83530780-cf04-452c-8a53-2ca26104e397"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "userMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'userview';",
+                    "var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
         },
         {
             "type": "basicfunction",
@@ -309,24 +348,6 @@
                 ]
             },
             "designerId": "07188dc5-2164-4dcb-bb32-94a25de15900"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "userMaintain",
-                "implHandler": [
-                    "var xtypeStr = 'userview';",
-                    "var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';",
-                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
-                    "this.maintainBtn(xtypeStr,tabName,docLink);"
-                ]
-            },
-            "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
         },
         {
             "type": "basicfunction",

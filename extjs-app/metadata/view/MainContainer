@@ -62,6 +62,42 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "siteMaintain",
+                                "text": "Site Maintain"
+                            },
+                            "designerId": "b04fc5ea-dce9-44de-8c6c-fd353b928ca3",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processSiteMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.siteMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "6a76407e-e1e6-4e30-9e8b-5f59a53d9aff"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "itemId": "userMaintain",
                                 "text": "User Maintain"
                             },

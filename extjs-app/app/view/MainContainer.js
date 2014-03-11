@@ -51,6 +51,11 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'Basic Data Mainten',
                             items: [
+                                me.processSiteMaintain({
+                                    xtype: 'button',
+                                    itemId: 'siteMaintain',
+                                    text: 'Site Maintain'
+                                }),
                                 me.processUserMaintain({
                                     xtype: 'button',
                                     itemId: 'userMaintain',
@@ -304,6 +309,12 @@ Ext.define('foodprint.view.MainContainer', {
         });
 
         me.callParent(arguments);
+    },
+
+    processSiteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.siteMaintain.label');
+
+        return config;
     },
 
     processUserMaintain: function(config) {
