@@ -101,11 +101,6 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Supplier.title',
                                     name: 'supplier.title'
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'incomingDate',
-                                    name: 'incomingDate'
                                 }
                             ]
                         }),
