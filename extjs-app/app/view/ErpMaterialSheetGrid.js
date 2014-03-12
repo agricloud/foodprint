@@ -71,6 +71,25 @@ Ext.define('foodprint.view.ErpMaterialSheetGrid', {
                     dataIndex: 'workstation.title',
                     text: 'Workstation.Title',
                     flex: 1
+                },
+                {
+                    xtype: 'numbercolumn',
+                    hidden: true,
+                    dataIndex: 'supplier.id',
+                    text: 'Supplier.Id',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'supplier.name',
+                    text: 'Supplier.Name',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'supplier.title',
+                    text: 'Supplier.Title',
+                    flex: 1
                 }
             ],
             listeners: {

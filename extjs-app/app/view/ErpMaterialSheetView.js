@@ -20,6 +20,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
     requires: [
         'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.CommonWorkstationCombo',
+        'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpManufactureOrderGrid',
@@ -103,6 +104,15 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Workstation_title',
                                     name: 'workstation.title'
+                                },
+                                {
+                                    xtype: 'commonsuppliercombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Supplier_title',
+                                    name: 'supplier.title'
                                 }
                             ]
                         }),
