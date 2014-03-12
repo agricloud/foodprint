@@ -38,50 +38,59 @@ Ext.define('foodprint.view.ErpManufactureOrderGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id'
+                    text: 'Id',
+                    flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'typeName',
-                    text: 'TypeName'
+                    text: 'TypeName',
+                    flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name'
+                    text: 'Name',
+                    flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'item.id',
                     text: 'Item.id',
+                    flex: 1,
                     format: '0,000'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.name',
-                    text: 'Item.name'
+                    text: 'Item.name',
+                    flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.title',
-                    text: 'Item.title'
+                    text: 'Item.title',
+                    flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'batch.id',
-                    text: 'Batch.id'
+                    text: 'Batch.id',
+                    flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'batch.name',
-                    text: 'Batch.name'
+                    text: 'Batch.name',
+                    flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     dataIndex: 'qty',
-                    text: 'qty'
+                    text: 'qty',
+                    flex: 1
                 }
             ],
             listeners: {
