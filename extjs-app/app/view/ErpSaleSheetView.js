@@ -104,11 +104,6 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Customer.title',
                                     name: 'customer.title'
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'saleDate',
-                                    name: 'saleDate'
                                 }
                             ]
                         }),

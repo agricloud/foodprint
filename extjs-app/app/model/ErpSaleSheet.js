@@ -34,10 +34,6 @@ Ext.define('foodprint.model.ErpSaleSheet', {
         },
         {
             name: 'customer.title'
-        },
-        {
-            name: 'saleDate',
-            type: 'date'
         }
     ],
 
