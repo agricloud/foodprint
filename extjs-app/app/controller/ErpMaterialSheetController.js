@@ -124,6 +124,8 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             //在此使combo重新load store
             var wscombo=form.findField('workstation.id');
             Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
         });
     },
 

@@ -40,12 +40,14 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                     },
                     itemId: 'index',
                     layout: {
-                        type: 'fit'
+                        align: 'stretch',
+                        type: 'vbox'
                     },
                     items: [
                         {
                             xtype: 'erpmanufactureordergrid',
-                            itemId: 'grid'
+                            itemId: 'grid',
+                            flex: 1
                         }
                     ]
                 },

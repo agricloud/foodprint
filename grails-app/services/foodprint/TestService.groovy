@@ -111,6 +111,7 @@ class TestService {
         messageSource.addMessage("country.AUSTRALIA.label", Locale.getDefault(), "澳洲") 
         messageSource.addMessage("country.FRENCE.label", Locale.getDefault(), "法國") 
         messageSource.addMessage("country.BRITAIN.label", Locale.getDefault(), "英國") 
+        messageSource.addMessage("country.SPAIN.label", Locale.getDefault(), "西班牙") 
 	
     }
 
