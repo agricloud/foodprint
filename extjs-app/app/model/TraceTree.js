@@ -18,46 +18,14 @@ Ext.define('foodprint.model.TraceTree', {
 
     fields: [
         {
-            mapping: 'id',
-            name: 'id'
+            name: 'note'
+        },
+        {
+            name: 'type'
         },
         {
             mapping: 'name',
             name: 'name'
-        },
-        {
-            name: 'sheet.typeName'
-        },
-        {
-            name: 'sheet.name'
-        },
-        {
-            mapping: 'expectQty',
-            name: 'expectQty'
-        },
-        {
-            mapping: 'dueDate',
-            name: 'dueDate',
-            type: 'date'
-        },
-        {
-            mapping: 'manufactureDate',
-            name: 'manufactureDate'
-        },
-        {
-            mapping: 'expirationDate',
-            name: 'expirationDate'
-        },
-        {
-            mapping: 'batchType.name',
-            name: 'batchType'
-        },
-        {
-            name: 'countryTitle'
-        },
-        {
-            mapping: 'item.id',
-            name: 'item.id'
         },
         {
             mapping: 'item.name',
@@ -68,8 +36,22 @@ Ext.define('foodprint.model.TraceTree', {
             name: 'item.title'
         },
         {
-            mapping: 'supplier.id',
-            name: 'supplier.id'
+            name: 'item.spec'
+        },
+        {
+            name: 'qty'
+        },
+        {
+            name: 'item.unit'
+        },
+        {
+            name: 'sheet'
+        },
+        {
+            name: 'class'
+        },
+        {
+            name: 'arrow'
         }
     ]
 });

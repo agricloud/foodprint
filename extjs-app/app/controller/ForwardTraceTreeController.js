@@ -30,17 +30,13 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
         {
             ref: 'forwardTraceTreeCt',
             selector: 'forwardtracetreeview'
-        },
-        {
-            ref: 'commonTraceToolbar',
-            selector: 'forwardtracetreeview commontracetoolbar'
         }
     ],
 
     init: function(application) {
         this.control({
             'forwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{
-                select: this.doSearchBatch
+                select: this.doSetRoot
             },
             'forwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{
                 click: this.doExpandall
@@ -49,24 +45,24 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
                 click: this.doCollapseall
             },
             'forwardtracetreeview treepanel[itemId=forwardTraceTreePanel]':{
-                beforeitemappend: this.beforeitemappend
+                beforeitemexpand: this.addExtraParamsToStore
             }
         });
     },
 
-    doSearchBatch: function() {
+    doSetRoot: function() {
 
         console.log("forwardTraceTree.doSearchBatch");
 
         if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
 
             var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();
-
+            var that = this;
             Ext.Ajax.request({
                 method: 'GET',
-                url:'/traceTree/getBatchRoot/',
+                url:'/traceTree/forwardTraceRoot/',
                 params:{
-                    'id':this.getCommonTraceToolbar().down('combo[itemId=commonBatchCombo]').getValue()
+                    'id':this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()
                 },
                 success:function(response,options){
                     //console.log(response);
@@ -74,18 +70,21 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
                     var record = Ext.decode(response.responseText);
                     //console.log(record);
                     var root={
-                        id:record.id,
-                        name:record.name,
+                        'note':record.note,
+                        'class':record.class,
+                        'type':record.type,
+                        'name':record.name,
+                        'sheet':record.sheet,
+                        'item.name':record.item.name,
                         'item.title':record.item.title,
-                        'sheet.name':record.sheet.name,
-                        'sheet.typeName':record.sheet.typeName,
-                        expectQty:record.expectQty,
-                        'countryTitle':record.countryTitle,
-                        dueDate:record.dueDate,
-                        'supplier.id':record.supplier.id
+                        'item.spec':record.item.spec,
+                        'item.unit':record.item.unit,
+                        'qty':record.qty
 
                     };
                     treeStore.setRootNode(root);
+                    that.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
+                    that.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
                 },
                 callback: function(options,success,response) {
 
@@ -145,9 +144,13 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
     },
 
-    beforeitemappend: function() {
-        this.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
-        this.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
+    addExtraParamsToStore: function(node, eOpts) {
+        console.log('addExtraParamsToStore');
+        console.log(node.data);
+        var params={};
+        params.class = node.data.class;
+        params.name = node.data.name;
+        this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore().getProxy().extraParams = params;
     }
 
 });

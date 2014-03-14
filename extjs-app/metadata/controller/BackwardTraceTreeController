@@ -34,7 +34,7 @@
                 "implHandler": [
                     "this.control({",
                     "    'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{",
-                    "        select:this.doSearchBatch",
+                    "        select:this.doSetRoot",
                     "    },",
                     "",
                     "    'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
@@ -44,7 +44,7 @@
                     "        click: this.doCollapseall",
                     "    },",
                     "    'backwardtracetreeview treepanel[itemId=backwardTraceTreePanel]':{",
-                    "        beforeitemappend: this.beforeitemappend",
+                    "        beforeitemexpand: this.addExtraParamsToStore",
                     "    }",
                     "});",
                     "",
@@ -74,17 +74,18 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSearchBatch",
+                "fn": "doSetRoot",
                 "implHandler": [
-                    "console.log(\"TraceTree.doSearchBatch\");",
+                    "console.log(\"TraceTree.doSearchBatchAndSetRoot\");",
+                    "",
                     "",
                     "if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
                     "",
                     "    var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
-                    "",
+                    "\tvar that = this;",
                     "    Ext.Ajax.request({",
                     "        method: 'GET',",
-                    "        url:'/traceTree/getBatchRoot/',",
+                    "        url:'/traceTree/backwardTraceRoot/',",
                     "        params:{",
                     "            'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()",
                     "        },",
@@ -94,46 +95,27 @@
                     "            var record = Ext.decode(response.responseText);",
                     "            //console.log(record);",
                     "            var root={",
-                    "                id:record.id,",
-                    "                name:record.name,",
+                    "                'note':record.note,",
+                    "                'class':record.class,",
+                    "                'type':record.type,",
+                    "                'name':record.name,",
+                    "                'sheet':record.sheet,",
+                    "                'item.name':record.item.name,",
                     "                'item.title':record.item.title,",
-                    "                'sheet.name':record.sheet.name,",
-                    "                'sheet.typeName':record.sheet.typeName,",
-                    "                expectQty:record.expectQty,",
-                    "                'countryTitle':record.countryTitle,",
-                    "                dueDate:record.dueDate,",
-                    "                'supplier.id':record.supplier.id",
+                    "                'item.spec':record.item.spec,",
+                    "                'item.unit':record.item.unit,",
+                    "                'qty':record.qty",
                     "",
                     "            };",
                     "            treeStore.setRootNode(root);",
+                    "            that.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "\t\t\tthat.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    "",
                     "        },",
                     "        callback: function(options,success,response) {",
                     "",
                     "        }",
                     "    });",
-                    "",
-                    "    /*未加入批號單據之處理方式",
-                    "    var batchStore=Ext.getStore('BatchShowDeepStore');",
-                    "    console.log(batchStore);",
-                    "    batchStore.load({",
-                    "",
-                    "    params:{",
-                    "    'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()",
-                    "    },",
-                    "    callback: function(records, operation, success) {",
-                    "    console.log(records[0].data);",
-                    "    var root={",
-                    "    id:records[0].data.id,",
-                    "    name:records[0].data.name,",
-                    "    'item.title':records[0].data['item.title'],",
-                    "    expectQty:records[0].data.expectQty,",
-                    "    country:records[0].data.country,",
-                    "    supplier:records[0].data.supplier",
-                    "    };",
-                    "    treeStore.setRootNode(root);",
-                    "    }",
-                    "    });",
-                    "    */",
                     "}"
                 ]
             },
@@ -153,7 +135,7 @@
                 ],
                 "implHandler": [
                     "",
-                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "",
                     "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
                     "    var toolbar = button.up('toolbar');",
                     "",
@@ -164,7 +146,7 @@
                     "        me.getEl().unmask();",
                     "        toolbar.enable();",
                     "    });",
-                    "}"
+                    ""
                 ]
             },
             "designerId": "9a7801e5-8924-4b9e-9ecb-9b63d78bbbeb"
@@ -182,7 +164,7 @@
                     "button, e, eOpts"
                 ],
                 "implHandler": [
-                    "if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {",
+                    "",
                     "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
                     "    var toolbar = button.up('toolbar');",
                     "",
@@ -190,7 +172,7 @@
                     "    me.collapseAll(function() {",
                     "        toolbar.enable();",
                     "    });",
-                    "}"
+                    ""
                 ]
             },
             "designerId": "2e12f4ee-fb98-44a4-b784-dea28dcdf033"
@@ -203,14 +185,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "beforeitemappend",
+                "fn": "addExtraParamsToStore",
+                "designer|params": [
+                    "node, eOpts"
+                ],
                 "implHandler": [
-                    "this.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
-                    "this.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
-                    ""
+                    "console.log('addExtraParamsToStore');",
+                    "console.log(node.data);",
+                    "var params={};",
+                    "params.class = node.data.class;",
+                    "params.name = node.data.name;",
+                    "this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore().getProxy().extraParams = params;"
                 ]
             },
-            "designerId": "5e57b4f6-ff85-4cf4-a1ba-f42c3807cb5b"
+            "designerId": "5d58c40d-08a5-478f-8301-9088795f06f7"
         }
     ]
 }
