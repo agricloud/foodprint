@@ -82,7 +82,8 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                         'item.title':record.item.title,
                         'item.spec':record.item.spec,
                         'item.unit':record.item.unit,
-                        'qty':record.qty
+                        'qty':record.qty,
+                        'children':record.children
 
                     };
                     treeStore.setRootNode(root);

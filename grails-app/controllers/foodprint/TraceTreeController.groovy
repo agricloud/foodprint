@@ -44,7 +44,7 @@ class TraceTreeController {
                         if(sourceSheet.data){
                             rootJson.note = "在製"
                             rootJson.sheet = "製令: "
-                            rootJson.leaf = true
+                            rootJson.children = []
                         } 
                     }
                 }
@@ -230,7 +230,7 @@ class TraceTreeController {
                     if(sourceSheet.data){
                         rootJson.note = "在製"
                         rootJson.sheet = "製令: "
-                        rootJson.leaf = true
+                        rootJson.children = []
                     }
                 }
             }
