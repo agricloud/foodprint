@@ -71,13 +71,6 @@ Ext.define('foodprint.view.ErpStockInSheetGrid', {
                     dataIndex: 'workstation.title',
                     text: 'Workstation.Title',
                     flex: 1
-                },
-                {
-                    xtype: 'datecolumn',
-                    dataIndex: 'stockInDate',
-                    text: 'StockInDate',
-                    flex: 1,
-                    format: 'Y-m-d'
                 }
             ],
             listeners: {

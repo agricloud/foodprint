@@ -103,6 +103,15 @@
                     "    'maincontainer button[itemId=batchSourceMaintain]':{",
                     "        click:this.batchSourceMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=warehouseMaintain]':{",
+                    "        click:this.warehouseMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=inventoryView]':{",
+                    "        click:this.inventoryView",
+                    "    },",
+                    "    'maincontainer button[itemId=inventoryDetailView]':{",
+                    "        click:this.inventoryDetailView",
+                    "    },",
                     "    'maincontainer button[itemId=erpCustomerOrderMaintain]':{",
                     "        click:this.erpCustomerOrderMaintain",
                     "    },",
@@ -738,6 +747,63 @@
                 ]
             },
             "designerId": "ffbd88aa-6768-45c1-be04-c277d1961df2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "warehouseMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'warehouseview';",
+                    "var tabName = Utilities.getMsg('mainContainer.warehouseMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a7861c32-a813-41bc-91c7-6ea33034b74c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "inventoryView",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'inventoryview';",
+                    "var tabName = Utilities.getMsg('mainContainer.inventoryView.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "6825873a-7249-46af-b395-90ba00ef0e51"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "inventoryDetailView",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'inventorydetailview';",
+                    "var tabName = Utilities.getMsg('mainContainer.inventoryDetailView.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "1766eea0-8b3c-4144-ba85-68ae7eb53a44"
         }
     ]
 }

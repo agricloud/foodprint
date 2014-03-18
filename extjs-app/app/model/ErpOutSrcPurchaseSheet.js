@@ -34,10 +34,6 @@ Ext.define('foodprint.model.ErpOutSrcPurchaseSheet', {
         },
         {
             name: 'supplier.title'
-        },
-        {
-            name: 'outSrcPurchaseDate',
-            type: 'date'
         }
     ],
 

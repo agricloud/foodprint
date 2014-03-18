@@ -1,0 +1,95 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Warehouse"
+    },
+    "designerId": "49d7ec7d-7aa7-40af-97dc-e55d25f4e2da",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "439dc1ea-9a74-4b3e-8897-0d94f656e6a1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "b07410fb-efab-4d41-a93a-9088ba066f0b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "6a94fd1e-0dc6-4cbe-b304-fc8c8cd9833f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "remark"
+            },
+            "designerId": "cf7d5b46-4a6b-49ad-9ba1-7c7a35ca1da6"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    foodpaintController:'warehouse'",
+                    "}"
+                ],
+                "url": "/foodpaint"
+            },
+            "designerId": "ecfcaf55-d79e-4327-8109-0662a0d85957",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "warehouseInstanceList",
+                        "totalProperty": "warehouseInstanceTotal"
+                    },
+                    "designerId": "d46df13d-830c-41f7-8040-c6fcb2381213"
+                }
+            ]
+        }
+    ]
+}

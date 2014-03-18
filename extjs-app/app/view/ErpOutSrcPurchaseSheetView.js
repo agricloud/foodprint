@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
         'foodprint.view.ErpOutSrcPurchaseSheetGrid',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -102,11 +103,6 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Supplier.title',
                                     name: 'supplier.title'
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'outSrcPurchaseDate',
-                                    name: 'outSrcPurchaseDate'
                                 }
                             ]
                         }),
@@ -175,6 +171,25 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'manufactureOrder.name',
                                             text: 'ManufactureOrder.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'warehouse.id',
+                                            text: 'Warehouse.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouse.name',
+                                            text: 'Warehouse.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouse.title',
+                                            text: 'Warehouse.title',
                                             flex: 1
                                         },
                                         {
@@ -315,6 +330,15 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
                                             xtype: 'commonselectbtn'
                                         }
                                     ]
+                                },
+                                {
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
                                 },
                                 {
                                     xtype: 'numberfield',

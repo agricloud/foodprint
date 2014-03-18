@@ -116,7 +116,8 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
             'item.id':record.data['item.id'],
             'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
-            'batch.name':record.data['batch.name']
+            'batch.name':record.data['batch.name'],
+            'qty':record.data['qty']
         });
         this.activeDetailEditor();
     },

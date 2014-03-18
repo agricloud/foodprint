@@ -7,6 +7,16 @@ class FoodpaintController {
 
     def grailsApplication
 
+    def index = {
+
+        def queryParams = processParams()
+
+        def url = "${grailsApplication.config.grails.foodpaint.service.server.url}/${params.foodpaintController}/index"
+        
+        render (contentType: 'application/json') {
+            doCallFoodpaint(url, queryParams)
+        }
+    }
 
     def show = {
 

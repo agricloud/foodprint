@@ -33,6 +33,27 @@ Ext.define('foodprint.model.ErpSaleSheetDet', {
             name: 'sequence'
         },
         {
+            name: 'customerOrderDet.id'
+        },
+        {
+            name: 'customerOrderDet.typeName'
+        },
+        {
+            name: 'customerOrderDet.name'
+        },
+        {
+            name: 'customerOrderDet.sequence'
+        },
+        {
+            name: 'warehouse.id'
+        },
+        {
+            name: 'warehouse.name'
+        },
+        {
+            name: 'warehouse.title'
+        },
+        {
             name: 'item.id'
         },
         {
@@ -46,21 +67,6 @@ Ext.define('foodprint.model.ErpSaleSheetDet', {
         },
         {
             name: 'batch.name'
-        },
-        {
-            name: 'customerOrderDet.id'
-        },
-        {
-            name: 'customerOrderDet.typeName'
-        },
-        {
-            name: 'customerOrderDet.name'
-        },
-        {
-            name: 'customerOrderDet.sequence'
-        },
-        {
-            name: 'customerOrder.id'
         },
         {
             name: 'qty'

@@ -1,0 +1,179 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "InventoryDetail"
+    },
+    "designerId": "895deee0-aa38-4bf2-841b-4c3703f396cd",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "7b4a11d4-b1f9-4159-a976-c1a779b17859"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.id"
+            },
+            "designerId": "a86d8102-853a-4b5e-a279-64b1ae321ef6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.name"
+            },
+            "designerId": "8fb3939e-8820-4b0e-8d29-24ddd7eddb9f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "warehouse.title"
+            },
+            "designerId": "dab9b111-628e-412d-b3ee-53db5f166fc2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.id"
+            },
+            "designerId": "a5616ce4-e690-4ccb-acca-0b8046cf97e1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.name"
+            },
+            "designerId": "891ded03-6dbe-457d-922f-c4d793e7442a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "item.title"
+            },
+            "designerId": "cd7fd9d1-5f72-4239-b7fe-1e5ca37fc700"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.id"
+            },
+            "designerId": "9703dd55-eecd-4d6d-a7a7-58a25a5aaf21"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.name"
+            },
+            "designerId": "65044559-cf82-4bb7-bfff-3a1b4f9e10e6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "batch.title"
+            },
+            "designerId": "7b78c481-afe4-449d-b92e-119400a676f9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qty"
+            },
+            "designerId": "295d6eee-62b4-40c0-aba6-dcb369fd8c31"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    foodpaintController:'inventoryDetail'",
+                    "}"
+                ],
+                "url": "/foodpaint"
+            },
+            "designerId": "4029086c-ba8d-4f04-832a-4dec324fc5be",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "inventoryDetailInstanceList",
+                        "totalProperty": "inventoryDetailInstanceTotal"
+                    },
+                    "designerId": "1db73f72-0423-4536-ba8d-9e7a6cde2724"
+                }
+            ]
+        }
+    ]
+}

@@ -69,6 +69,9 @@ Ext.application({
         'ErpOutSrcPurchaseSheetDetController',
         'ErpSaleSheetController',
         'ErpSaleSheetDetController',
+        'WarehouseController',
+        'InventoryController',
+        'InventoryDetailController',
         'SiteController'
     ],
     name: 'foodprint',
