@@ -203,7 +203,6 @@ class FoodpaintService {
 
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByCustomerAndBatch/?customerName=${customerName}&batchName=${batchName}"
         def resp = rest.get(url)
-        println resp
         JSON.parse(resp.text)
     }
 
@@ -217,7 +216,6 @@ class FoodpaintService {
 
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFormStockInSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
         def resp = rest.get(url)
-        println resp
         JSON.parse(resp.text)
     }
 
@@ -231,7 +229,6 @@ class FoodpaintService {
 
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
         def resp = rest.get(url)
-        println resp
         JSON.parse(resp.text)
     }
     

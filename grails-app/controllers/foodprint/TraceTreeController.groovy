@@ -52,14 +52,14 @@ class TraceTreeController {
         }
 
         sourceSheet.data.eachWithIndex{ sheet , i->
-            rootJson.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
+            if(rootJson.note != "在製")
+                rootJson.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
+            else
+                rootJson.sheet += sheet.typeName+"-"+sheet.name
             if(i != sourceSheet.data.size()-1)
                 rootJson.sheet += ","
         }
         rootJson.qty = "抓庫存數量？單據數量？"
-
-
-        println rootJson
         
         render (contentType: 'application/json') {
             rootJson
@@ -67,6 +67,7 @@ class TraceTreeController {
     }
 
     //逆溯批號來源，可能是由製令製造或由供應商進貨。
+    //由於foodprint製令有記錄批號，因此可能會有在製狀態未入庫的製令，尚未處理。
     def backwardTraceByBatch(){
         def batch=Batch.findByName(params.name)
 
@@ -184,8 +185,6 @@ class TraceTreeController {
     }
     def backwardTrace(){
 
-        println params
-
         def childJson
         if(params.class == "Batch")
             childJson = backwardTraceByBatch()
@@ -237,15 +236,15 @@ class TraceTreeController {
         }
 
         sourceSheet.data.eachWithIndex{ sheet , i->
-            rootJson.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
+            if(rootJson.note != "在製")
+                rootJson.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
+            else
+                rootJson.sheet += sheet.typeName+"-"+sheet.name
             if(i != sourceSheet.data.size()-1)
                 rootJson.sheet += ","
         }
         rootJson.qty = "抓庫存數量？單據數量？"
 
-
-        println rootJson
-        
         render (contentType: 'application/json') {
             rootJson
         }
@@ -374,8 +373,6 @@ class TraceTreeController {
     }
 
     def forwardTrace(){
-
-        println params
 
         def childJson
         if(params.class == "Batch")
