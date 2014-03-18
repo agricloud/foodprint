@@ -36,7 +36,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
     init: function(application) {
         this.control({
             'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{
-                select:this.doSearchBatch
+                select:this.doSetRoot
             },
 
             'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{
@@ -46,23 +46,24 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                 click: this.doCollapseall
             },
             'backwardtracetreeview treepanel[itemId=backwardTraceTreePanel]':{
-                beforeitemappend: this.beforeitemappend
+                beforeitemexpand: this.addExtraParamsToStore
             }
         });
 
 
     },
 
-    doSearchBatch: function() {
-        console.log("TraceTree.doSearchBatch");
+    doSetRoot: function() {
+        console.log("TraceTree.doSearchBatchAndSetRoot");
+
 
         if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
 
             var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();
-
+            var that = this;
             Ext.Ajax.request({
                 method: 'GET',
-                url:'/traceTree/getBatchRoot/',
+                url:'/traceTree/backwardTraceRoot/',
                 params:{
                     'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()
                 },
@@ -72,81 +73,66 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                     var record = Ext.decode(response.responseText);
                     //console.log(record);
                     var root={
-                        id:record.id,
-                        name:record.name,
+                        'note':record.note,
+                        'class':record.class,
+                        'type':record.type,
+                        'name':record.name,
+                        'sheet':record.sheet,
+                        'item.name':record.item.name,
                         'item.title':record.item.title,
-                        'sheet.name':record.sheet.name,
-                        'sheet.typeName':record.sheet.typeName,
-                        expectQty:record.expectQty,
-                        'countryTitle':record.countryTitle,
-                        dueDate:record.dueDate,
-                        'supplier.id':record.supplier.id
+                        'item.spec':record.item.spec,
+                        'item.unit':record.item.unit,
+                        'qty':record.qty,
+                        'children':record.children
 
                     };
                     treeStore.setRootNode(root);
+                    that.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
+                    that.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
+
                 },
                 callback: function(options,success,response) {
 
                 }
             });
-
-            /*未加入批號單據之處理方式
-            var batchStore=Ext.getStore('BatchShowDeepStore');
-            console.log(batchStore);
-            batchStore.load({
-
-            params:{
-            'id':this.getBackwardTraceTreeCt().down('triggerfield[itemId=commonBatchTrigger]').getValue()
-            },
-            callback: function(records, operation, success) {
-            console.log(records[0].data);
-            var root={
-            id:records[0].data.id,
-            name:records[0].data.name,
-            'item.title':records[0].data['item.title'],
-            expectQty:records[0].data.expectQty,
-            country:records[0].data.country,
-            supplier:records[0].data.supplier
-            };
-            treeStore.setRootNode(root);
-            }
-            });
-            */
         }
     },
 
     doExpandall: function(button, e, eOpts) {
 
-        if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {
-            var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
-            var toolbar = button.up('toolbar');
 
-            me.getEl().mask('Expanding tree...');
-            toolbar.disable();
+        var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
+        var toolbar = button.up('toolbar');
 
-            me.expandAll(function() {
-                me.getEl().unmask();
-                toolbar.enable();
-            });
-        }
+        me.getEl().mask('Expanding tree...');
+        toolbar.disable();
+
+        me.expandAll(function() {
+            me.getEl().unmask();
+            toolbar.enable();
+        });
+
     },
 
     doCollapseall: function(button, e, eOpts) {
-        if(button.up().up().down('treepanel[itemId=backwardTraceTreePanel]').getRootNode()!=null) {
-            var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
-            var toolbar = button.up('toolbar');
 
-            toolbar.disable();
-            me.collapseAll(function() {
-                toolbar.enable();
-            });
-        }
+        var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
+        var toolbar = button.up('toolbar');
+
+        toolbar.disable();
+        me.collapseAll(function() {
+            toolbar.enable();
+        });
+
     },
 
-    beforeitemappend: function() {
-        this.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
-        this.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
-
+    addExtraParamsToStore: function(node, eOpts) {
+        console.log('addExtraParamsToStore');
+        console.log(node.data);
+        var params={};
+        params.class = node.data.class;
+        params.name = node.data.name;
+        this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore().getProxy().extraParams = params;
     }
 
 });

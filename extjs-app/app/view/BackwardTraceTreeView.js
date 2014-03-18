@@ -46,15 +46,28 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
                     columns: [
                         {
                             xtype: 'treecolumn',
-                            dataIndex: 'item.title',
-                            text: 'item.title',
-                            flex: 2
+                            dataIndex: 'arrow',
+                            text: 'arrow',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'note',
+                            text: 'note',
+                            flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
                             hidden: true,
-                            dataIndex: 'id',
-                            text: 'id'
+                            dataIndex: 'class',
+                            text: 'class',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'type',
+                            text: 'type',
+                            flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
@@ -64,41 +77,39 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'sheet.typeName',
-                            text: 'sheet.typeName',
+                            dataIndex: 'item.name',
+                            text: 'item.name',
                             flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'sheet.name',
-                            text: 'sheet.name',
+                            dataIndex: 'item.title',
+                            text: 'item.title',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'item.spec',
+                            text: 'item.spec',
                             flex: 1
                         },
                         {
                             xtype: 'numbercolumn',
-                            dataIndex: 'expectQty',
-                            text: 'expectQty',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'datecolumn',
-                            hidden: true,
-                            dataIndex: 'dueDate',
-                            text: 'dueDate',
+                            dataIndex: 'qty',
+                            text: 'qty',
                             flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'countryTitle',
-                            text: 'country.title',
+                            dataIndex: 'item.unit',
+                            text: 'item.unit',
                             flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
-                            hidden: true,
-                            dataIndex: 'supplier.id',
-                            text: 'supplier.id',
-                            flex: 1
+                            dataIndex: 'sheet',
+                            text: 'sheet',
+                            flex: 3
                         }
                     ]
                 })
