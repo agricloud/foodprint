@@ -71,13 +71,6 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetGrid', {
                     dataIndex: 'supplier.title',
                     text: 'Supplier.Title',
                     flex: 1
-                },
-                {
-                    xtype: 'datecolumn',
-                    dataIndex: 'outSrcPurchaseDate',
-                    text: 'OutSrcPurchaseDate',
-                    flex: 1,
-                    format: 'Y-m-d'
                 }
             ],
             listeners: {
