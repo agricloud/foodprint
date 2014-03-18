@@ -76,7 +76,7 @@
             "userConfig": {
                 "fn": "doSetRoot",
                 "implHandler": [
-                    "console.log(\"TraceTree.doSearchBatchAndSetRoot\");",
+                    "console.log(\"backwardTraceTree.doSetRoot\");",
                     "",
                     "",
                     "if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
@@ -137,16 +137,16 @@
                 "implHandler": [
                     "",
                     "",
-                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
-                    "    var toolbar = button.up('toolbar');",
+                    "var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "var toolbar = button.up('toolbar');",
                     "",
-                    "    me.getEl().mask('Expanding tree...');",
-                    "    toolbar.disable();",
+                    "me.getEl().mask('Expanding tree...');",
+                    "toolbar.disable();",
                     "",
-                    "    me.expandAll(function() {",
-                    "        me.getEl().unmask();",
-                    "        toolbar.enable();",
-                    "    });",
+                    "me.expandAll(function() {",
+                    "    me.getEl().unmask();",
+                    "    toolbar.enable();",
+                    "});",
                     ""
                 ]
             },
@@ -191,8 +191,6 @@
                     "node, eOpts"
                 ],
                 "implHandler": [
-                    "console.log('addExtraParamsToStore');",
-                    "console.log(node.data);",
                     "var params={};",
                     "params.class = node.data.class;",
                     "params.name = node.data.name;",

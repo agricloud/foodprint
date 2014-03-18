@@ -52,7 +52,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
     doSetRoot: function() {
 
-        console.log("forwardTraceTree.doSearchBatch");
+        console.log("forwardTraceTree.doSetRoot");
 
         if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
 
@@ -120,7 +120,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
     },
 
     doExpandall: function(button, e, eOpts) {
-        console.log(button);
+
         var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');
         var toolbar = button.up('toolbar');
 
@@ -146,8 +146,6 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
     },
 
     addExtraParamsToStore: function(node, eOpts) {
-        console.log('addExtraParamsToStore');
-        console.log(node.data);
         var params={};
         params.class = node.data.class;
         params.name = node.data.name;

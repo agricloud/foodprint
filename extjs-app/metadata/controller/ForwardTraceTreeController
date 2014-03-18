@@ -74,7 +74,7 @@
                 "fn": "doSetRoot",
                 "implHandler": [
                     "",
-                    "console.log(\"forwardTraceTree.doSearchBatch\");",
+                    "console.log(\"forwardTraceTree.doSetRoot\");",
                     "",
                     "if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
                     "",
@@ -156,7 +156,7 @@
                     "button, e, eOpts"
                 ],
                 "implHandler": [
-                    "console.log(button);",
+                    "",
                     "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
                     "var toolbar = button.up('toolbar');",
                     "",
@@ -210,8 +210,6 @@
                     "node, eOpts"
                 ],
                 "implHandler": [
-                    "console.log('addExtraParamsToStore');",
-                    "console.log(node.data);",
                     "var params={};",
                     "params.class = node.data.class;",
                     "params.name = node.data.name;",

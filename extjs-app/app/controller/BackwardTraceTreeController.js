@@ -54,7 +54,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
     },
 
     doSetRoot: function() {
-        console.log("TraceTree.doSearchBatchAndSetRoot");
+        console.log("backwardTraceTree.doSetRoot");
 
 
         if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
@@ -127,8 +127,6 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
     },
 
     addExtraParamsToStore: function(node, eOpts) {
-        console.log('addExtraParamsToStore');
-        console.log(node.data);
         var params={};
         params.class = node.data.class;
         params.name = node.data.name;
