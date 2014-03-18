@@ -193,23 +193,6 @@
                             "designerId": "be00dfce-e5cb-48a2-986d-ac905e0188d4"
                         },
                         {
-                            "type": "Ext.form.field.Date",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": null,
-                                "fieldLabel": "outSrcPurchaseDate",
-                                "name": "outSrcPurchaseDate",
-                                "format": null,
-                                "submitFormat": null
-                            },
-                            "designerId": "f3fb6e4c-00f9-477a-9039-2f0d398574f2"
-                        },
-                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",
@@ -403,6 +386,54 @@
                                         "flex": 1
                                     },
                                     "designerId": "ffb1f856-2ed5-44f2-96f9-03707761758f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
+                                        "dataIndex": "warehouse.id",
+                                        "groupable": null,
+                                        "text": "Warehouse.id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "b4499226-7fad-43ab-89ae-e1f42d9dfb0a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "warehouse.name",
+                                        "text": "Warehouse.name",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d694468b-91e9-48f2-a001-25a745a2dcc2"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "warehouse.title",
+                                        "text": "Warehouse.title",
+                                        "flex": 1
+                                    },
+                                    "designerId": "dbcd1223-77b5-4f06-8b2e-688598e507e5"
                                 },
                                 {
                                     "type": "Ext.grid.column.Number",
@@ -757,6 +788,35 @@
                                     "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
                                 }
                             ]
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "257d5b48-eed4-4cfc-bc1b-eeea3a2ce8ea",
+                            "masterInstanceId": "075e795e-4c25-4803-acfa-3b40b50d6c74"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "Warehouse.title",
+                                "name": "warehouse.title",
+                                "allowBlank": null
+                            },
+                            "designerId": "1193fde9-0d57-480f-8077-389eb6f27fbf"
                         },
                         {
                             "type": "Ext.form.field.Number",

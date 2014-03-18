@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpCustomerOrderGrid',
         'foodprint.view.ErpCustomerOrderDetGrid',
@@ -154,6 +155,25 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                             text: 'Sequence',
                                             flex: 1,
                                             format: '0,000'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'warehouse.id',
+                                            text: 'Warehouse.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouse.name',
+                                            text: 'Warehouse.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouse.title',
+                                            text: 'Warehouse.title',
+                                            flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
@@ -324,6 +344,15 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                             xtype: 'commonselectbtn'
                                         }
                                     ]
+                                },
+                                {
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
                                 },
                                 {
                                     xtype: 'numberfield',

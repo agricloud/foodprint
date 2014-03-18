@@ -57,6 +57,15 @@ Ext.define('foodprint.model.ErpMaterialSheetDet', {
             name: 'batch.name'
         },
         {
+            name: 'warehouse.id'
+        },
+        {
+            name: 'warehouse.name'
+        },
+        {
+            name: 'warehouse.title'
+        },
+        {
             name: 'qty'
         }
     ],
