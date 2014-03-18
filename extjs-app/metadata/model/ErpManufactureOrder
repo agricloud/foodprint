@@ -132,7 +132,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/manufactureOrder"
+                "url": "/foodpaint?foodpaintController=manufactureOrder"
             },
             "designerId": "9a2610df-a09a-4e8b-b412-0f6d4fba3bef",
             "customConfigs": [
@@ -157,27 +157,6 @@
                     "designerId": "e6358e68-e7ed-48b1-8833-03c50fc3c017"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpManufactureOrder",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/manufactureOrder\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "bc2095b6-a0e7-4c21-ab05-601db3a6b409"
         }
     ]
 }

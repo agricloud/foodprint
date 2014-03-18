@@ -128,7 +128,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/materialSheet"
+                "url": "/foodpaint?foodpaintController=materialSheet"
             },
             "designerId": "9a2e3e58-0bbb-4d9c-bc0b-ec99be3fce0f",
             "customConfigs": [
@@ -153,27 +153,6 @@
                     "designerId": "c6841f14-d1c3-48f8-a12c-671b3f82cc38"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpMaterialSheet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/materialSheet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "30f21f8d-555b-48c4-a342-da70428f1122"
         }
     ]
 }

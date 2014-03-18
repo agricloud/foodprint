@@ -72,23 +72,10 @@ Ext.define('foodprint.model.ErpMaterialSheetDet', {
 
     proxy: {
         type: 'rest',
-        url: ' http://localhost:8180/materialSheetDet',
+        url: '/foodpaint?foodpaintController=materialSheetDet',
         reader: {
             type: 'json',
             root: 'data'
         }
-    },
-
-    constructor: function() {
-        var me = this;
-        me.processErpMaterialSheetDet(me);
-        me.callParent(arguments);
-    },
-
-    processErpMaterialSheetDet: function(config) {
-
-        config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/materialSheetDet";
-        return config;
     }
-
 });

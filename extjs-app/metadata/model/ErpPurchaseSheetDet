@@ -191,7 +191,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/purchaseSheetDet"
+                "url": "/foodpaint?foodpaintController=purchaseSheetDet"
             },
             "designerId": "1f4c7ada-d5ae-420d-92d2-40707c21776d",
             "customConfigs": [
@@ -215,26 +215,6 @@
                     "designerId": "8801dbee-f8f0-4415-bbc7-b22808922ea8"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpMaterialSheetDet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/purchaseSheetDet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "5163a8aa-d8a5-4b04-a275-cb89411bacbb"
         }
     ]
 }

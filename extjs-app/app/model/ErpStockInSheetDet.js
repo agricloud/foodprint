@@ -72,23 +72,10 @@ Ext.define('foodprint.model.ErpStockInSheetDet', {
 
     proxy: {
         type: 'rest',
-        url: ' http://localhost:8180/stockInSheetDet',
+        url: '/foodpaint?foodpaintController=stockInSheetDet',
         reader: {
             type: 'json',
             root: 'data'
         }
-    },
-
-    constructor: function() {
-        var me = this;
-        me.processErpStockInSheetDet(me);
-        me.callParent(arguments);
-    },
-
-    processErpStockInSheetDet: function(config) {
-
-        config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/stockInSheetDet";
-        return config;
     }
-
 });

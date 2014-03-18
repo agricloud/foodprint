@@ -92,7 +92,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/stockInSheet"
+                "url": "/foodpaint?foodpaintController=stockInSheet"
             },
             "designerId": "2127de92-f6f8-4f10-810e-8d6e09f50513",
             "customConfigs": [
@@ -117,27 +117,6 @@
                     "designerId": "ba79d586-ff0d-451e-9114-a938a852bb31"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpStockInSheetDet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/stockInSheet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "f198ed1c-1387-4bc0-a8d0-c309bbe5317d"
         }
     ]
 }

@@ -72,23 +72,10 @@ Ext.define('foodprint.model.ErpOutSrcPurchaseSheetDet', {
 
     proxy: {
         type: 'rest',
-        url: ' http://localhost:8180/outSrcPurchaseSheetDet',
+        url: '/foodpaint?foodpaintController=outSrcPurchaseSheetDet',
         reader: {
             type: 'json',
             root: 'data'
         }
-    },
-
-    constructor: function() {
-        var me = this;
-        me.processErpOutSrcPurchaseSheetDet(me);
-        me.callParent(arguments);
-    },
-
-    processErpOutSrcPurchaseSheetDet: function(config) {
-
-        config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/outSrcPurchaseSheetDet";
-        return config;
     }
-
 });

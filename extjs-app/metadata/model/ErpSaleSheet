@@ -92,7 +92,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/saleSheet"
+                "url": "/foodpaint?foodpaintController=saleSheet"
             },
             "designerId": "fccb9991-cf97-4c4b-8b28-8b8923bf3741",
             "customConfigs": [
@@ -117,27 +117,6 @@
                     "designerId": "40d370e6-7334-4634-9414-92759feabbf1"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpSaleSheet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "console.log(config.proxy.url);",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/saleSheet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "f325a264-6121-489e-a369-c8383d533349"
         }
     ]
 }

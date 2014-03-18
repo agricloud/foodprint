@@ -227,7 +227,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/materialSheetDet"
+                "url": "/foodpaint?foodpaintController=materialSheetDet"
             },
             "designerId": "f4db9209-17b3-4117-b3c2-5d0925999d8a",
             "customConfigs": [
@@ -251,26 +251,6 @@
                     "designerId": "81558e2b-6f15-4483-b4b7-a0ed5c7c9b88"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpMaterialSheetDet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/materialSheetDet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "4ceec865-1a65-4435-b118-fbf8e354f8cd"
         }
     ]
 }

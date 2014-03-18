@@ -239,7 +239,7 @@
             "codeClass": null,
             "userConfig": {
                 "hasMany": null,
-                "url": " http://localhost:8180/saleSheetDet"
+                "url": "/foodpaint?foodpaintController=saleSheetDet"
             },
             "designerId": "d897b7e2-28e7-4492-8604-f860e32e3c17",
             "customConfigs": [
@@ -263,26 +263,6 @@
                     "designerId": "a3c8b0c1-f4eb-471d-8cce-d1a207d37151"
                 }
             ]
-        },
-        {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpSaleSheetDet",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "",
-                    "config.proxy.url = Utilities.getSysConfig(\"foodpaintUrl\")+\"/saleSheetDet\";",
-                    "return config;"
-                ]
-            },
-            "designerId": "6eebecf5-b21d-476e-91b5-6e846f8dd13a"
         }
     ]
 }

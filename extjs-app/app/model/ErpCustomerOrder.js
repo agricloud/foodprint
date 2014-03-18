@@ -43,24 +43,11 @@ Ext.define('foodprint.model.ErpCustomerOrder', {
 
     proxy: {
         type: 'rest',
-        url: ' http://localhost:8180/customerOrder',
+        url: '/foodpaint?foodpaintController=customerOrder',
         reader: {
             type: 'json',
             root: 'customerOrderInstanceList',
             totalProperty: 'customerOrderInstanceTotal'
         }
-    },
-
-    constructor: function() {
-        var me = this;
-        me.processErpCustomerOrder(me);
-        me.callParent(arguments);
-    },
-
-    processErpCustomerOrder: function(config) {
-        console.log(config.proxy.url);
-        config.proxy.url = Utilities.getSysConfig("foodpaintUrl")+"/customerOrder";
-        return config;
     }
-
 });

@@ -46,14 +46,18 @@ class ExtJSFilters {
                     params.sort = sortJson[0].property
                     params.order = sortJson[0].direction
                 }
-
+                
+                def user =springSecurityService.currentUser
+                if(user){
+                    params["site.id"] = user.site?.id.toString()
+                }
 
                 params.criteria = {
-                    def user =springSecurityService.currentUser
 
                     if(user.username != 'admin'){
-                        if(params.controller != 'site')
+                        if(params.controller != 'site'){
                             eq('site',user.site)
+                        }
                         else
                             eq('id',user.site.id)
                     }

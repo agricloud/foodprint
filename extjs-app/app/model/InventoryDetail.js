@@ -54,10 +54,7 @@ Ext.define('foodprint.model.InventoryDetail', {
 
     proxy: {
         type: 'rest',
-        extraParams: {
-            foodpaintController: 'inventoryDetail'
-        },
-        url: '/foodpaint',
+        url: '/foodpaint?foodpaintController=inventoryDetail',
         reader: {
             type: 'json',
             root: 'inventoryDetailInstanceList',

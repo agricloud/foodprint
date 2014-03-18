@@ -33,10 +33,7 @@ Ext.define('foodprint.model.Warehouse', {
 
     proxy: {
         type: 'rest',
-        extraParams: {
-            foodpaintController: 'warehouse'
-        },
-        url: '/foodpaint',
+        url: '/foodpaint?foodpaintController=warehouse',
         reader: {
             type: 'json',
             root: 'warehouseInstanceList',
