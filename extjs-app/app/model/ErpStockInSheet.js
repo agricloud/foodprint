@@ -34,10 +34,6 @@ Ext.define('foodprint.model.ErpStockInSheet', {
         },
         {
             name: 'workstation.title'
-        },
-        {
-            name: 'stockInDate',
-            type: 'date'
         }
     ],
 

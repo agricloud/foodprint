@@ -103,11 +103,6 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Workstation_title',
                                     name: 'workstation.title'
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'stockInDate',
-                                    name: 'stockInDate'
                                 }
                             ]
                         }),
