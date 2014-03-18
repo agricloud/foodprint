@@ -350,6 +350,54 @@
                                         "hidden": true,
                                         "width": null,
                                         "defaultWidth": null,
+                                        "dataIndex": "warehouse.id",
+                                        "groupable": null,
+                                        "text": "Warehouse.id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "b318b1d4-bd14-4c72-809d-1b4b59cfc127"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "warehouse.name",
+                                        "text": "Warehouse.name",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d0c45982-d8a9-4789-99b5-137337990e5b"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "warehouse.title",
+                                        "text": "Warehouse.title",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d7deb592-8f74-448a-bb39-9ce2e9e9c981"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
                                         "dataIndex": "batch.id",
                                         "groupable": null,
                                         "text": "Batch.id",
@@ -609,6 +657,35 @@
                                 "allowBlank": false
                             },
                             "designerId": "1fd17aa1-379f-43b6-b17e-2acc7e1eea66"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "6854afc4-9b57-4976-8ed2-382d9e11e02b",
+                            "masterInstanceId": "075e795e-4c25-4803-acfa-3b40b50d6c74"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "Warehouse.title",
+                                "name": "warehouse.title",
+                                "allowBlank": null
+                            },
+                            "designerId": "6b3ab395-fd50-440d-b7c6-a7477e3a9c47"
                         },
                         {
                             "type": "Ext.form.field.Text",
