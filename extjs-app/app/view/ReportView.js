@@ -108,8 +108,8 @@ Ext.define('foodprint.view.ReportView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'decription',
-                                    name: 'decription'
+                                    fieldLabel: 'description',
+                                    name: 'description'
                                 }
                             ]
                         })

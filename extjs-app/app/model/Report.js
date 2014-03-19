@@ -34,7 +34,7 @@ Ext.define('foodprint.model.Report', {
             name: 'reportTypeTitle'
         },
         {
-            name: 'decription'
+            name: 'description'
         }
     ],
 

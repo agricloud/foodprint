@@ -54,8 +54,8 @@ Ext.define('foodprint.view.ReportGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'decription',
-                    text: 'Decription',
+                    dataIndex: 'description',
+                    text: 'Description',
                     flex: 1
                 }
             ],
