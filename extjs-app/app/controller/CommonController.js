@@ -94,7 +94,7 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
-    doDelete: function() {
+    doDelete: function(callback) {
         var that = this ;
 
         var msg = Ext.Msg;
@@ -115,14 +115,19 @@ Ext.define('foodprint.controller.CommonController', {
                         that.getMainGrid().getStore().reload();
                         that.disableShowBtn();
                     }
+
                     that.actionName='update';
+
+                    if (callback && callback instanceof Function) {
+                        callback(success)
+                    }
 
                 });
             }
         });
     },
 
-    doSave: function() {
+    doSave: function(callback) {
         console.log('commonController--'+this.domainName+'--doSave');
         var that = this ;
 
@@ -137,6 +142,10 @@ Ext.define('foodprint.controller.CommonController', {
                     if(that.getMainForm().up().down('[itemId=detailGrid]')){
                         that.enableDetailCreateBtn();
                     }
+                }
+
+                if (callback && callback instanceof Function) {
+                    callback(success)
                 }
             }
 
@@ -204,14 +213,16 @@ Ext.define('foodprint.controller.CommonController', {
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().up('panel[itemId=show]'));
     },
 
-    doCancel: function() {
+    doCancel: function(callback) {
 
         this.getMainForm().getForm().reset(true);
         this.activeGrid();
         if(this.getMainForm().up().down('[itemId=detailGrid]')){
             this.enableDetailCreateBtn();
         }
-
+        if (callback && callback instanceof Function) {
+            callback()
+        }
     },
 
     setImageUploader: function() {

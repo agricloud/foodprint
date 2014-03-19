@@ -126,6 +126,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doDelete",
+                "designer|params": [
+                    "callback"
+                ],
                 "implHandler": [
                     "var that = this ;",
                     "",
@@ -147,7 +150,12 @@
                     "                that.getMainGrid().getStore().reload();",
                     "                that.disableShowBtn();",
                     "            }",
+                    "            ",
                     "            that.actionName='update';",
+                    "            ",
+                    "            if (callback && callback instanceof Function) {",
+                    "                callback(success)",
+                    "            }",
                     "",
                     "        });",
                     "    }",
@@ -165,6 +173,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doSave",
+                "designer|params": [
+                    "callback"
+                ],
                 "implHandler": [
                     "console.log('commonController--'+this.domainName+'--doSave');",
                     "var that = this ;",
@@ -180,6 +191,10 @@
                     "            if(that.getMainForm().up().down('[itemId=detailGrid]')){",
                     "                that.enableDetailCreateBtn();",
                     "            }",
+                    "        }",
+                    "",
+                    "        if (callback && callback instanceof Function) {",
+                    "            callback(success)",
                     "        }",
                     "    }",
                     "",
@@ -308,6 +323,9 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "doCancel",
+                "designer|params": [
+                    "callback"
+                ],
                 "implHandler": [
                     "",
                     "this.getMainForm().getForm().reset(true);",
@@ -315,7 +333,9 @@
                     "if(this.getMainForm().up().down('[itemId=detailGrid]')){",
                     "    this.enableDetailCreateBtn();",
                     "}",
-                    ""
+                    "if (callback && callback instanceof Function) {",
+                    "    callback()",
+                    "}"
                 ]
             },
             "designerId": "50d24f56-c168-411c-b0f0-08c22c2f718a"

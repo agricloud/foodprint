@@ -56,13 +56,13 @@ Ext.define('foodprint.controller.BatchSourceController', {
                 click:this.doShowBatchSource
             },
             'batchsourceview #show commonshowtoolbar commondeletebtn':{
-                click:this.doDelete
+                click:this.doDeleteBatchSource
             },
             'batchsourceview #show commonshowtoolbar commonsavebtn':{
-                click:this.doSave
+                click:this.doSaveBatchSource
             },
             'batchsourceview #show commonshowtoolbar commoncancelbtn':{
-                click:this.doCancel
+                click:this.doCancelBatchSource
             },
 
             'batchsourceview #index #masterGrid':{
@@ -81,6 +81,7 @@ Ext.define('foodprint.controller.BatchSourceController', {
     },
 
     doShowBatchSource: function() {
+        var that=this;
         this.doShow(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -88,6 +89,31 @@ Ext.define('foodprint.controller.BatchSourceController', {
             var cbcombo=form.findField('childBatch.id');
             Utilities.comboReload(cbcombo,action.result.data['childBatch.id'],action.result.data['childBatch.name']);
         });
+
+    },
+
+    doCancelBatchSource: function() {
+        var that=this;
+        this.doCancel(function(){
+            that.getMasterGrid().getStore().load();
+        });
+
+    },
+
+    doDeleteBatchSource: function() {
+        var that=this;
+        this.doDelete(function(success){
+            that.getMasterGrid().getStore().load();
+        });
+
+    },
+
+    doSaveBatchSource: function() {
+        var that=this;
+        this.doSave(function(success){
+            that.getMasterGrid().getStore().load();
+        });
+
     }
 
 });

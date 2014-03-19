@@ -258,15 +258,15 @@ Ext.define('foodprint.view.BatchSourceView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    disabled: true,
                                     fieldLabel: 'childBatch.item.name',
-                                    name: 'childBatch.item.name',
-                                    readOnly: true
+                                    name: 'childBatch.item.name'
                                 },
                                 {
                                     xtype: 'textfield',
+                                    disabled: true,
                                     fieldLabel: 'childBatch.item.title',
-                                    name: 'childBatch.item.title',
-                                    readOnly: true
+                                    name: 'childBatch.item.title'
                                 }
                             ]
                         })

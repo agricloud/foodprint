@@ -47,13 +47,13 @@
                     "        click:this.doShowBatchSource",
                     "    },",
                     "    'batchsourceview #show commonshowtoolbar commondeletebtn':{",
-                    "        click:this.doDelete",
+                    "        click:this.doDeleteBatchSource",
                     "    },",
                     "    'batchsourceview #show commonshowtoolbar commonsavebtn':{",
-                    "        click:this.doSave",
+                    "        click:this.doSaveBatchSource",
                     "    },",
                     "    'batchsourceview #show commonshowtoolbar commoncancelbtn':{",
-                    "        click:this.doCancel",
+                    "        click:this.doCancelBatchSource",
                     "    },",
                     "",
                     "    'batchsourceview #index #masterGrid':{",
@@ -122,16 +122,75 @@
             "userConfig": {
                 "fn": "doShowBatchSource",
                 "implHandler": [
+                    "var that=this;",
                     "this.doShow(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
                     "    //在此使combo重新load store",
                     "    var cbcombo=form.findField('childBatch.id');",
                     "    Utilities.comboReload(cbcombo,action.result.data['childBatch.id'],action.result.data['childBatch.name']);",
-                    "});"
+                    "});",
+                    ""
                 ]
             },
             "designerId": "2e393043-08c7-4740-8940-3f659555b4a8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelBatchSource",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCancel(function(){",
+                    "\tthat.getMasterGrid().getStore().load();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "586b8110-4abf-42e2-82fd-7b941bd74b1d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doDeleteBatchSource",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doDelete(function(success){",
+                    "\tthat.getMasterGrid().getStore().load();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "ed7d12e9-f178-4aca-a3d4-50f96229162b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSaveBatchSource",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doSave(function(success){",
+                    "\tthat.getMasterGrid().getStore().load();",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "4fc0117c-d852-4f8d-b511-b54426aa5e63"
         }
     ]
 }
