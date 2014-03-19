@@ -134,7 +134,10 @@ class ConvertService {
 	    result.spec = item.spec
 	    result.unit = item.unit
 	    result.description = item.description
-
+	    result.dueDays = item.dueDays
+	    result.effectStartDate = item.effectStartDate
+	    result.effectEndDate = item.effectEndDate
+	    
 	    result
     }
 
