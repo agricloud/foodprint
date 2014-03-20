@@ -21,20 +21,13 @@ Ext.define('foodprint.controller.ItemController', {
     },
 
     models: [
-        'Operation',
-        'Item',
-        'Workstation',
-        'ItemRoute'
+        'Item'
     ],
     stores: [
-        'OperationStore',
-        'WorkstationStore',
-        'ItemStore',
-        'ItemRouteStore'
+        'ItemStore'
     ],
     views: [
-        'ItemView',
-        'CommonImageUploader'
+        'ItemView'
     ],
 
     refs: [

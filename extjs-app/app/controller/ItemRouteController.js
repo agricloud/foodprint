@@ -21,10 +21,16 @@ Ext.define('foodprint.controller.ItemRouteController', {
     },
 
     models: [
-        'ItemRoute'
+        'ItemRoute',
+        'Workstation',
+        'Supplier',
+        'Operation'
     ],
     stores: [
-        'ItemRouteStore'
+        'ItemRouteStore',
+        'WorkstationStore',
+        'SupplierStore',
+        'OperationStore'
     ],
     views: [
         'ItemRouteView',
