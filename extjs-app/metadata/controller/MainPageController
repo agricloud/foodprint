@@ -106,6 +106,9 @@
                     "    'maincontainer button[itemId=warehouseMaintain]':{",
                     "        click:this.warehouseMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=storageLocationMaintain]':{",
+                    "        click:this.storageLocationMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=inventoryView]':{",
                     "        click:this.inventoryView",
                     "    },",
@@ -766,6 +769,25 @@
                 ]
             },
             "designerId": "a7861c32-a813-41bc-91c7-6ea33034b74c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "storageLocationMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'storagelocationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.storageLocationMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a20ee31b-c8e4-46fc-8111-fe97af21f839"
         },
         {
             "type": "basicfunction",

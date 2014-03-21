@@ -95,6 +95,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=warehouseMaintain]':{
                 click:this.warehouseMaintain
             },
+            'maincontainer button[itemId=storageLocationMaintain]':{
+                click:this.storageLocationMaintain
+            },
             'maincontainer button[itemId=inventoryView]':{
                 click:this.inventoryView
             },
@@ -393,6 +396,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'warehouseview';
         var tabName = Utilities.getMsg('mainContainer.warehouseMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    storageLocationMaintain: function() {
+
+        var xtypeStr = 'storagelocationview';
+        var tabName = Utilities.getMsg('mainContainer.storageLocationMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
