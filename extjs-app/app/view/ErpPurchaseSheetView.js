@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
         'foodprint.view.ErpPurchaseSheetGrid',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonStorageLocationCombo',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -175,6 +176,25 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
+                                            dataIndex: 'storageLocation.id',
+                                            text: 'StorageLocation.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'storageLocation.name',
+                                            text: 'StorageLocation.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'storageLocation.title',
+                                            text: 'StorageLocation.title',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
                                             dataIndex: 'batch.id',
                                             text: 'Batch.id',
                                             flex: 1
@@ -288,6 +308,15 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Warehouse.title',
                                     name: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'commonstoragelocationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'StorageLocation.title',
+                                    name: 'storageLocation.title'
                                 },
                                 {
                                     xtype: 'textfield',

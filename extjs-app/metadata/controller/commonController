@@ -150,9 +150,9 @@
                     "                that.getMainGrid().getStore().reload();",
                     "                that.disableShowBtn();",
                     "            }",
-                    "            ",
+                    "",
                     "            that.actionName='update';",
-                    "            ",
+                    "",
                     "            if (callback && callback instanceof Function) {",
                     "                callback(success)",
                     "            }",
@@ -553,6 +553,8 @@
                     "",
                     "        that.activeDetailEditor();",
                     "        that.detailActionName = 'update';",
+                    "        if(that.getDetailForm().down('commonstoragelocationcombo'))",
+                    "        that.enableCommonStorageLocationCombo(action.result.data['warehouse.id'],action.result.data['storageLocation.id']);",
                     "",
                     "        if (callback && callback instanceof Function) {",
                     "            callback(true,form,action)",
@@ -847,6 +849,31 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "enableCommonStorageLocationCombo",
+                "designer|params": [
+                    "warehouseId, storageLocationId"
+                ],
+                "implHandler": [
+                    "var slcombo = this.getDetailForm().down('commonstoragelocationcombo');",
+                    "slcombo.getStore().load({",
+                    "    params: {'warehouse.id':warehouseId}",
+                    "});",
+                    "slcombo.setValue(storageLocationId);",
+                    "slcombo.setDisabled(false);",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "066a07dc-306d-4644-84a8-16081ca9f14c"
         }
     ]
 }

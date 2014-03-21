@@ -474,6 +474,54 @@
                                         "hidden": true,
                                         "width": null,
                                         "defaultWidth": null,
+                                        "dataIndex": "storageLocation.id",
+                                        "groupable": null,
+                                        "text": "StorageLocation.id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d5551b6f-8cc2-4849-a85e-b997db02c151"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "storageLocation.name",
+                                        "text": "StorageLocation.name",
+                                        "flex": 1
+                                    },
+                                    "designerId": "631948eb-5991-4006-842e-011ca625f175"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "storageLocation.title",
+                                        "text": "StorageLocation.title",
+                                        "flex": 1
+                                    },
+                                    "designerId": "e7a518df-4ff0-4d7e-8317-c86bf94a8ebd"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
                                         "dataIndex": "batch.id",
                                         "groupable": null,
                                         "text": "Batch.id",
@@ -847,6 +895,35 @@
                                 "allowBlank": null
                             },
                             "designerId": "898d4d53-d2f2-4eb8-95d4-9f3fabbe97cb"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "f54640cb-2a24-4e5d-9849-1b7b7df58558",
+                            "masterInstanceId": "0613f809-a9f5-40fe-87df-2059b3efd8f1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "StorageLocation.title",
+                                "name": "storageLocation.title",
+                                "allowBlank": null
+                            },
+                            "designerId": "99d6a2f4-ba46-4670-824c-eac632e8ce0f"
                         },
                         {
                             "type": "linkedinstance",

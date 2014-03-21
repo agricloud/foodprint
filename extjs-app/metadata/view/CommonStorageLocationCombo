@@ -6,21 +6,23 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "commonWarehouseCombo",
-        "designer|userClassName": "CommonWarehouseCombo",
-        "designer|userAlias": "commonwarehousecombo",
-        "fieldLabel": "Warehouse.name",
-        "name": "warehouse.id",
+        "disabled": true,
+        "itemId": "commonStorageLocationCombo",
+        "designer|userClassName": "CommonStorageLocationCombo",
+        "designer|userAlias": "commonstoragelocationcombo",
+        "fieldLabel": "StorageLocation.name",
+        "name": "storageLocation.id",
         "editable": null,
         "displayField": "name",
         "forceSelection": true,
         "hiddenName": null,
         "minChars": 0,
+        "queryMode": "local",
         "queryParam": "nameLike",
-        "store": "WarehouseStore",
+        "store": "StorageLocationStore",
         "valueField": "id"
     },
-    "designerId": "075e795e-4c25-4803-acfa-3b40b50d6c74",
+    "designerId": "0613f809-a9f5-40fe-87df-2059b3efd8f1",
     "cn": [
         {
             "type": "processcfgfunction",
@@ -30,17 +32,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processCommonWarehouseCombo",
+                "fn": "processCommonStorageLocationCombo",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "config.fieldLabel=Utilities.getMsg('warehouse.name.label');",
+                    "config.fieldLabel=Utilities.getMsg('storageLocation.name.label');",
                     "",
                     "return config;"
                 ]
             },
-            "designerId": "5b0223ad-693b-4699-a142-2f1810198f23"
+            "designerId": "a763e81b-4c6e-4fbe-9c30-44da7057dce8"
         },
         {
             "type": "basiceventbinding",
@@ -50,45 +52,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onCommonWarehouseComboRender",
-                "implHandler": [
-                    "component.getStore().load();"
-                ],
-                "name": "render",
-                "scope": "me"
-            },
-            "designerId": "6fa4cad5-991c-4e0d-8da8-7dc1f2bd54cd"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onCommonWarehouseComboSelect",
+                "fn": "onCommonStorageLocationComboSelect",
                 "implHandler": [
                     "if(combo.up() && combo.up().getForm()){",
                     "    combo.up().getForm().setValues({",
-                    "        'warehouse.title':records[0].data['title']",
+                    "\t\t//'warehouse.id':records[0].data['warehouse.id'],",
+                    "        //'warehouse.title':records[0].data['warehouse.title'],",
+                    "        'storageLocation.title':records[0].data['title']",
                     "    });",
-                    "}",
-                    "",
-                    "var slcombo = combo.up().down('commonstoragelocationcombo');",
-                    "",
-                    "if(slcombo){",
-                    "    slcombo.getStore().load({",
-                    "        params:{'warehouse.id': records[0].data['id']}",
-                    "    });",
-                    "    slcombo.setDisabled(false);  ",
-                    "}",
-                    ""
+                    "}"
                 ],
                 "name": "select",
                 "scope": "me"
             },
-            "designerId": "27695147-5044-456f-aa30-e72f8157cc6a"
+            "designerId": "00fcc090-c285-4e14-9b20-32d46e40104f"
         },
         {
             "type": "basiceventbinding",
@@ -98,14 +75,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onCommonWarehouseComboChange",
+                "fn": "onCommonStorageLocationComboChange",
                 "implHandler": [
                     "if (newValue == null) {",
                     "    field.reset();",
                     "    if(field.up() && field.up().getForm()){",
                     "        field.up().getForm().setValues({",
-                    "            'warehouse.title':null,",
-                    "            'storageLocation.id':null,",
+                    "            //'warehouse.id':null,",
+                    "            //'warehouse.title':null,",
                     "            'storageLocation.title':null",
                     "        });",
                     "    }",
@@ -114,7 +91,7 @@
                 "name": "change",
                 "scope": "me"
             },
-            "designerId": "26d95165-f1c6-4d23-b70b-e66d65949486"
+            "designerId": "67fa858a-59d5-4afc-80c3-dc6b9a193498"
         }
     ]
 }

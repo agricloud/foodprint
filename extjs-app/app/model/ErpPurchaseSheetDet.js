@@ -57,6 +57,15 @@ Ext.define('foodprint.model.ErpPurchaseSheetDet', {
             name: 'warehouse.title'
         },
         {
+            name: 'storageLocation.id'
+        },
+        {
+            name: 'storageLocation.name'
+        },
+        {
+            name: 'storageLocation.title'
+        },
+        {
             name: 'qty'
         }
     ],
