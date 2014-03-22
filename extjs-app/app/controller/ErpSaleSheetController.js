@@ -91,8 +91,14 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowSaleSheetDet
             },
-            'erpsalesheetview #showDetail commonselectbtn':{
+            'erpsalesheetview #showDetail #customerOrderDetContainer commonselectbtn':{
                 click:this.activeCustomerOrderDetIndex
+            },
+            'erpsalesheetview #showDetail #customerOrderDetContainer commoncancelbtn':{
+                click:this.doCancelCustomerOrderDet
+            },
+            'erpsalesheetview #showDetail commonitemcombo':{
+                select:this.doCancelCustomerOrderDet
             },
             'erpsalesheetview #customerOrderDetIndex erpcustomerordergrid':{
                 select: this.doIndexDetailCustomerOrder
@@ -130,12 +136,21 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'customerOrderDet.name':record.data['name'],
             'customerOrderDet.sequence':record.data['sequence'],
             'item.id':record.data['item.id'],
-            'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
             'qty':record.data['qty']
         });
         this.reloadBatchComboByItem(record.data['item.id']);
         this.activeDetailEditor();
+    },
+
+    doCancelCustomerOrderDet: function() {
+
+        this.getDetailForm().getForm().setValues({
+            'customerOrderDet.id':null,
+            'customerOrderDet.typeName':null,
+            'customerOrderDet.name':null,
+            'customerOrderDet.sequence':null
+        });
     },
 
     reloadBatchComboByItem: function(itemId) {
@@ -167,8 +182,12 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
             var batchcombo=form.findField('batch.id');
             Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
         });
     }
 

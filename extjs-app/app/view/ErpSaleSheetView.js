@@ -21,7 +21,9 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpCustomerOrderGrid',
         'foodprint.view.ErpCustomerOrderDetGrid',
@@ -341,7 +343,14 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                             readOnly: true
                                         },
                                         {
-                                            xtype: 'commonselectbtn'
+                                            xtype: 'commonselectbtn',
+                                            margins: '1'
+                                        },
+                                        {
+                                            xtype: 'commoncancelbtn',
+                                            frame: false,
+                                            glyph: 0,
+                                            margins: '1'
                                         }
                                     ]
                                 },
@@ -355,18 +364,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'numberfield',
-                                    flex: 1,
-                                    hidden: true,
-                                    fieldLabel: 'item.id',
-                                    name: 'item.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'Item.name',
-                                    name: 'item.name'
+                                    xtype: 'commonitemcombo'
                                 },
                                 {
                                     xtype: 'textfield',
