@@ -41,7 +41,7 @@ class BatchReportDetControllerSpec extends Specification {
             params["supplier.id"]=null
 
         when: "執行 BatchReportDetController 提供的 index action"
-            controller.showBatchRouteParams()
+            controller.indexByBatchRoute()
 
         then: "response 要能取得 BatchReportDet json 格式初始資料"
             assert response.json
@@ -83,7 +83,7 @@ class BatchReportDetControllerSpec extends Specification {
             params["1"]="50.0"
 
         when: "執行 update action"
-            controller.doSaveOrUpdate()
+            controller.saveOrUpdate()
         
         then: "response 要能取得 json 格式初始資料"
             assert response.json

@@ -35,7 +35,7 @@ class BatchReportDetControllerTests {
         testService.createOtherReport()
 
         populateValidParams(params)
-        controller.doSaveOrUpdate()
+        controller.saveOrUpdate()
 
         assert BatchReportDet.count() == 1
         assert BatchReportDet.get(1).batchRoute
