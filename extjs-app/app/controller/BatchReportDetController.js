@@ -283,12 +283,12 @@ Ext.define('foodprint.controller.BatchReportDetController', {
     },
 
     doSaveOrUpdate: function() {
-        console.log('batchParamsEditorController--'+'BatchReportDet'+'--doSave');
+        console.log('batchReportDetController--'+'BatchReportDet'+'--doSaveOrUpdate');
 
         var that=this;
 
         this.getMainForm().getForm().submit({
-            url: '/'+'batchReportDet'+'/'+'doSaveOrUpdate',
+            url: '/'+'batchReportDet'+'/'+'saveOrUpdate',
             submitEmptyText: false,
             waitMsg: Utilities.getMsg('default.message.update'),
             success: function(form,action) {
