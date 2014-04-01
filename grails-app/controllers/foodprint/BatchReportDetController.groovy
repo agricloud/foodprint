@@ -12,7 +12,7 @@ class BatchReportDetController {
      * @param operation.id
      * 找出指定批號及製程中所有相關參數
     **/
-    def showBatchRouteParams = {
+    def indexByBatchRoute = {
 
         log.debug "BatchReportDetController--batchRouteParamsDetList"
 
@@ -55,8 +55,8 @@ class BatchReportDetController {
         }
     }
 
-    def doSaveOrUpdate = {
-        log.debug "BatchReportDetController--doSaveOrUpdate"
+    def saveOrUpdate = {
+        log.debug "BatchReportDetController--saveOrUpdate"
         log.debug params
 
         def failure=[]

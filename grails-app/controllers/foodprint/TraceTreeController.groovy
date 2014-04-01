@@ -14,6 +14,7 @@ class TraceTreeController {
         rootJson.class = "Batch"
         rootJson.name = batch.name
         rootJson.item = batch.item
+        rootJson.qty = 0
 
         def sourceSheet=foodpaintService.querySaleSheetDetByBatch(batch.name)
         if(sourceSheet.data){
@@ -56,10 +57,12 @@ class TraceTreeController {
                 rootJson.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
             else
                 rootJson.sheet += sheet.typeName+"-"+sheet.name
+
             if(i != sourceSheet.data.size()-1)
                 rootJson.sheet += ","
+
+            rootJson.qty = rootJson.qty.toLong()+sheet.qty.toLong()
         }
-        rootJson.qty = "抓庫存數量？單據數量？"
         
         render (contentType: 'application/json') {
             rootJson
@@ -83,6 +86,7 @@ class TraceTreeController {
                 node.class = "ManufactureOrder"
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
+                node.qty = manufactureOrder.qty
                 manufactureOrder.stockInSheetDets.eachWithIndex(){ stockInSheetDet, i ->
                     node.sheet += stockInSheetDet.typeName+"-"+stockInSheetDet.name+"-"+stockInSheetDet.sequence
                     if(i != manufactureOrder.stockInSheetDets.size()-1)
@@ -102,6 +106,7 @@ class TraceTreeController {
                 node.class = "ManufactureOrder"
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
+                node.qty = manufactureOrder.qty
                 manufactureOrder.outSrcPurchaseSheetDets.eachWithIndex(){ outSrcPurchaseSheetDet, i ->
                     node.sheet += outSrcPurchaseSheetDet.typeName+"-"+outSrcPurchaseSheetDet.name+"-"+outSrcPurchaseSheetDet.sequence
                     if(i != manufactureOrder.outSrcPurchaseSheetDets.size()-1)
@@ -121,11 +126,13 @@ class TraceTreeController {
                 node.class = "Supplier"
                 node.name = supplier.name+"/"+supplier.title
                 node.item = batch.item
+                node.qty = 0
                 def purchaseSheetDets=foodpaintService.queryPurchaseSheetDetBySupplierAndBatch(supplier.name,batch.name)
                 purchaseSheetDets.data.eachWithIndex(){ purchaseSheetDet, i ->
                     node.sheet += purchaseSheetDet.typeName+"-"+purchaseSheetDet.name+"-"+purchaseSheetDet.sequence
                     if(i != purchaseSheetDets.data.size()-1)
                         node.sheet += ","
+                    node.qty = node.qty.toLong()+purchaseSheetDet.qty.toLong()
                 }
                 childJson << node
             }
@@ -150,6 +157,7 @@ class TraceTreeController {
             node.class = "Batch"
             node.name = batch.name
             node.item = batch.item
+            node.qty = 0
 
             def sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
             if(sourceSheet.data){
@@ -175,8 +183,8 @@ class TraceTreeController {
                 node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
                 if(i != sourceSheet.data.size()-1)
                     node.sheet += ","
+                node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
-            node.qty = "抓庫存數量？單據數量？"
             childJson << node
         }
 
@@ -205,6 +213,7 @@ class TraceTreeController {
         rootJson.class = "Batch"
         rootJson.name = batch.name
         rootJson.item = batch.item
+        rootJson.qty = 0
 
         def sourceSheet=foodpaintService.queryPurchaseSheetDetByBatch(batch.name)
         if(sourceSheet.data){
@@ -242,8 +251,8 @@ class TraceTreeController {
                 rootJson.sheet += sheet.typeName+"-"+sheet.name
             if(i != sourceSheet.data.size()-1)
                 rootJson.sheet += ","
+            rootJson.qty = rootJson.qty.toLong()+sheet.qty.toLong()
         }
-        rootJson.qty = "抓庫存數量？單據數量？"
 
         render (contentType: 'application/json') {
             rootJson
@@ -267,6 +276,7 @@ class TraceTreeController {
                 node.class = "ManufactureOrder"
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = manufactureOrder.item
+                node.qty = manufactureOrder.qty
 
                 manufactureOrder.materialSheetDets.eachWithIndex(){ materialSheetDet, i ->
                     node.sheet += materialSheetDet.typeName+"-"+materialSheetDet.name+"-"+materialSheetDet.sequence
@@ -288,11 +298,14 @@ class TraceTreeController {
                 node.class = "Customer"
                 node.name = customer.name+"/"+customer.title
                 node.item = batch.item
+                node.qty = 0
+
                 def saleSheetDets=foodpaintService.querySaleSheetDetByCustomerAndBatch(customer.name,batch.name)
                 saleSheetDets.data.eachWithIndex(){ saleSheetDet, i ->
                     node.sheet += saleSheetDet.typeName+"-"+saleSheetDet.name+"-"+saleSheetDet.sequence
                     if(i != saleSheetDets.data.size()-1)
                         node.sheet += ","
+                    node.qty = node.qty.toLong()+saleSheetDet.qty.toLong()
                 }
                 childJson << node
             }
@@ -334,6 +347,7 @@ class TraceTreeController {
             node.name = batch.name
             node.item = batch.item
             node.sheet = "入庫單: "
+            node.qty = 0
 
             def sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
 
@@ -341,8 +355,8 @@ class TraceTreeController {
                 node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
                 if(i != sourceSheet.data.size()-1)
                     node.sheet += ","
+                node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
-            node.qty = "抓庫存數量？單據數量？"
             childJson << node
         }
 
@@ -355,6 +369,7 @@ class TraceTreeController {
             node.name = batch.name
             node.item = batch.item
             node.sheet = "託外進貨單: "
+            node.qty = 0
 
             def sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatch(batch.name)
 
@@ -362,8 +377,8 @@ class TraceTreeController {
                 node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
                 if(i != sourceSheet.data.size()-1)
                     node.sheet += ","
+                node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
-            node.qty = "抓庫存數量？單據數量？"
             childJson << node
         }
         //葉節點：查詢該製令是否仍有在製品

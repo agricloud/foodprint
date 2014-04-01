@@ -25,7 +25,7 @@ Ext.define('foodprint.store.BatchRouteParamsStore', {
             storeId: 'BatchRouteParamsStore',
             proxy: {
                 type: 'rest',
-                url: '/batchReportDet/showBatchRouteParams/',
+                url: '/batchReportDet/indexByBatchRoute/',
                 reader: {
                     type: 'json',
                     messageProperty: 'message',
