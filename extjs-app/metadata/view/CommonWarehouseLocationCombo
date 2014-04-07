@@ -7,11 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "disabled": true,
-        "itemId": "commonStorageLocationCombo",
-        "designer|userClassName": "CommonStorageLocationCombo",
-        "designer|userAlias": "commonstoragelocationcombo",
-        "fieldLabel": "StorageLocation.name",
-        "name": "storageLocation.id",
+        "itemId": "commonWarehouseLocationCombo",
+        "designer|userClassName": "CommonWarehouseLocationCombo",
+        "designer|userAlias": "commonwarehouselocationcombo",
+        "fieldLabel": "WarehouseLocation.name",
+        "name": "warehouseLocation.id",
         "editable": null,
         "displayField": "name",
         "forceSelection": true,
@@ -19,7 +19,7 @@
         "minChars": 0,
         "queryMode": "local",
         "queryParam": "nameLike",
-        "store": "StorageLocationStore",
+        "store": "WarehouseLocationStore",
         "valueField": "id"
     },
     "designerId": "0613f809-a9f5-40fe-87df-2059b3efd8f1",
@@ -32,12 +32,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processCommonStorageLocationCombo",
+                "fn": "processCommonWarehouseLocationCombo",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "config.fieldLabel=Utilities.getMsg('storageLocation.name.label');",
+                    "config.fieldLabel=Utilities.getMsg('warehouseLocation.name.label');",
                     "",
                     "return config;"
                 ]
@@ -52,13 +52,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onCommonStorageLocationComboSelect",
+                "fn": "onCommonWarehouseLocationComboSelect",
                 "implHandler": [
                     "if(combo.up() && combo.up().getForm()){",
                     "    combo.up().getForm().setValues({",
-                    "\t\t//'warehouse.id':records[0].data['warehouse.id'],",
+                    "        //'warehouse.id':records[0].data['warehouse.id'],",
                     "        //'warehouse.title':records[0].data['warehouse.title'],",
-                    "        'storageLocation.title':records[0].data['title']",
+                    "        'warehouseLocation.title':records[0].data['title']",
                     "    });",
                     "}"
                 ],
@@ -75,7 +75,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onCommonStorageLocationComboChange",
+                "fn": "onCommonWarehouseLocationComboChange",
                 "implHandler": [
                     "if (newValue == null) {",
                     "    field.reset();",
@@ -83,7 +83,7 @@
                     "        field.up().getForm().setValues({",
                     "            //'warehouse.id':null,",
                     "            //'warehouse.title':null,",
-                    "            'storageLocation.title':null",
+                    "            'warehouseLocation.title':null",
                     "        });",
                     "    }",
                     "}"

@@ -63,20 +63,20 @@ Ext.define('foodprint.view.InventoryDetailGrid', {
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
-                    dataIndex: 'storageLocation.id',
-                    text: 'StorageLocation.id',
+                    dataIndex: 'warehouseLocation.id',
+                    text: 'WarehouseLocation.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'storageLocation.name',
-                    text: 'StorageLocation.name',
+                    dataIndex: 'warehouseLocation.name',
+                    text: 'WarehouseLocation.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'storageLocation.title',
-                    text: 'StorageLocation.title',
+                    dataIndex: 'warehouseLocation.title',
+                    text: 'WarehouseLocation.title',
                     flex: 1
                 },
                 {
@@ -115,6 +115,12 @@ Ext.define('foodprint.view.InventoryDetailGrid', {
                     xtype: 'numbercolumn',
                     dataIndex: 'qty',
                     text: 'Qty',
+                    flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'lastUpdated',
+                    text: 'LastUpdated',
                     flex: 1
                 }
             ],

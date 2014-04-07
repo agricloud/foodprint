@@ -23,7 +23,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
-        'foodprint.view.CommonStorageLocationCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpCustomerOrderGrid',
@@ -181,20 +181,20 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
-                                            dataIndex: 'storageLocation.id',
-                                            text: 'StorageLocation.id',
+                                            dataIndex: 'warehouseLocation.id',
+                                            text: 'WarehouseLocation.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'storageLocation.name',
-                                            text: 'StorageLocation.name',
+                                            dataIndex: 'warehouseLocation.name',
+                                            text: 'WarehouseLocation.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'storageLocation.title',
-                                            text: 'StorageLocation.title',
+                                            dataIndex: 'warehouseLocation.title',
+                                            text: 'WarehouseLocation.title',
                                             flex: 1
                                         },
                                         {
@@ -384,13 +384,13 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonstoragelocationcombo'
+                                    xtype: 'commonwarehouselocationcombo'
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'StorageLocation.title',
-                                    name: 'storageLocation.title'
+                                    fieldLabel: 'WarehouseLocation.title',
+                                    name: 'warehouseLocation.title'
                                 },
                                 {
                                     xtype: 'commonitemcombo',

@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "StorageLocation",
+            "WarehouseLocation",
             "Warehouse"
         ],
         "stores": [
@@ -17,7 +17,7 @@
         "views": [
             "StorageLocationView"
         ],
-        "designer|userClassName": "StorageLocationController",
+        "designer|userClassName": "WarehouseLocationController",
         "mixins": [
             "{",
             "    commonController: 'foodprint.controller.CommonController'",
@@ -35,7 +35,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "storagelocationview #grid"
+                "selector": "warehouselocationview #grid"
             },
             "designerId": "b6a64391-01da-4690-ab7f-cf19fcbd2f4c"
         },
@@ -48,7 +48,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "storagelocationview #form"
+                "selector": "warehouselocationview #form"
             },
             "designerId": "376ba58c-2edf-4f5c-907a-73dae8c9558b"
         },
@@ -61,7 +61,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "masterGrid",
-                "selector": "storagelocationview #masterGrid"
+                "selector": "warehouselocationview #masterGrid"
             },
             "designerId": "e721ca02-e7b6-47d8-bfb4-cd03d2cc6d50"
         },
@@ -79,26 +79,26 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'storagelocationview #index commonindextoolbar commoncreatebtn':{",
+                    "    'warehouselocationview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreate",
                     "    },",
-                    "    'storagelocationview #index commonindextoolbar commonshowbtn':{",
+                    "    'warehouselocationview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShow",
                     "    },",
-                    "    'storagelocationview #show commonshowtoolbar commondeletebtn':{",
+                    "    'warehouselocationview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'storagelocationview #show commonshowtoolbar commonsavebtn':{",
+                    "    'warehouselocationview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'storagelocationview #show commonshowtoolbar commoncancelbtn':{",
+                    "    'warehouselocationview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    },",
                     "",
-                    "    'storagelocationview #index #masterGrid':{",
+                    "    'warehouselocationview #index #masterGrid':{",
                     "        select:this.doIndexDetail",
                     "    },",
-                    "    'storagelocationview #grid':{",
+                    "    'warehouselocationview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
                     "        itemdblclick: this.doShow",
@@ -107,7 +107,7 @@
                     "",
                     "",
                     "this.domainName = 'foodpaint';",
-                    "this.foodpaintController = 'storageLocation';",
+                    "this.foodpaintController = 'warehouseLocation';",
                     "this.masterKey='warehouse.id';"
                 ]
             },

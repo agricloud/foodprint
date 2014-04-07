@@ -68,7 +68,7 @@ Ext.define('foodprint.view.CommonWarehouseCombo', {
             });
         }
 
-        var slcombo = combo.up().down('commonstoragelocationcombo');
+        var slcombo = combo.up().down('commonwarehouselocationcombo');
 
         if(slcombo){
             slcombo.getStore().load({
@@ -85,8 +85,8 @@ Ext.define('foodprint.view.CommonWarehouseCombo', {
             if(field.up() && field.up().getForm()){
                 field.up().getForm().setValues({
                     'warehouse.title':null,
-                    'storageLocation.id':null,
-                    'storageLocation.title':null
+                    'warehouseLocation.id':null,
+                    'warehouseLocation.title':null
                 });
             }
         }

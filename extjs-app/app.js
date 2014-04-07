@@ -73,7 +73,7 @@ Ext.application({
         'InventoryController',
         'InventoryDetailController',
         'SiteController',
-        'StorageLocationController'
+        'WarehouseLocationController'
     ],
     name: 'foodprint',
 
