@@ -18,6 +18,9 @@ Ext.define('foodprint.view.InventoryView', {
     alias: 'widget.inventoryview',
 
     requires: [
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonItemCombo',
+        'foodprint.view.CommonQueryBtn',
         'foodprint.view.InventoryGrid'
     ],
 
@@ -32,21 +35,110 @@ Ext.define('foodprint.view.InventoryView', {
             items: [
                 {
                     xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonindextoolbar'
+                    },
                     itemId: 'index',
                     layout: {
                         type: 'fit'
                     },
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'commonwarehousecombo',
+                                    labelWidth: 65
+                                },
+                                {
+                                    xtype: 'commonitemcombo',
+                                    labelWidth: 40
+                                },
+                                {
+                                    xtype: 'commonquerybtn'
+                                }
+                            ]
+                        }
+                    ],
                     items: [
                         {
                             xtype: 'invetorygrid',
                             itemId: 'grid'
                         }
                     ]
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
+                    itemId: 'show',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        me.processForm({
+                            xtype: 'form',
+                            flex: 1,
+                            itemId: 'form',
+                            layout: {
+                                align: 'stretch',
+                                padding: 10,
+                                type: 'vbox'
+                            },
+                            title: '',
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'commonitemcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'item.title'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'qty',
+                                    name: 'qty',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'datefield',
+                                    disabled: true,
+                                    fieldLabel: 'lastUpdated',
+                                    name: 'lastUpdated'
+                                }
+                            ]
+                        })
+                    ]
                 }
             ]
         });
 
         me.callParent(arguments);
+    },
+
+    processForm: function(config) {
+        return Utilities.processConfigBundle(config, 'inventory');
     }
 
 });

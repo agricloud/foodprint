@@ -15,7 +15,135 @@
         "views": [
             "InventoryView"
         ],
-        "designer|userClassName": "InventoryController"
+        "designer|userClassName": "InventoryController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
     },
-    "designerId": "ea68f6ce-8d13-48a9-bde3-67f57907ca38"
+    "designerId": "ea68f6ce-8d13-48a9-bde3-67f57907ca38",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'inventoryview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'inventoryview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowInventory",
+                    "    },",
+                    "    'inventoryview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'inventoryview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'inventoryview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'inventoryview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowInventory",
+                    "    },",
+                    "    'inventoryview #index toolbar commonquerybtn':{",
+                    "        click:this.doIndexByWarehouseAndItem",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'inventory';"
+                ]
+            },
+            "designerId": "5fe027d7-b128-4b53-a861-468462b05c75"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "inventoryview #grid"
+            },
+            "designerId": "e01a203e-a1a6-4777-b96a-3a24e7fe354f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "inventoryview #form"
+            },
+            "designerId": "de2d1b80-3d4a-4131-99ba-aa35128b6788"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexByWarehouseAndItem",
+                "implHandler": [
+                    "var store = this.getMainGrid().getStore();",
+                    "",
+                    "store.load({",
+                    "    url:'/'+this.domainName+'/action/',",
+                    "    params:{",
+                    "        'foodpaintController':this.foodpaintController,",
+                    "        'foodpaintAction':'indexByWarehouseAndItem',",
+                    "        'warehouse.id':this.getMainGrid().up().down('commonwarehousecombo').getValue(),",
+                    "        'item.id':this.getMainGrid().up().down('commonitemcombo').getValue()",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "78ff41d5-0121-4b32-9a5b-0545c7a445ec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowInventory",
+                "implHandler": [
+                    "this.doShow(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "    ",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "dbe03744-7e62-4fd0-ba87-b071263c5881"
+        }
+    ]
 }

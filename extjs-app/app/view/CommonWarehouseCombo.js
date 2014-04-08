@@ -62,19 +62,19 @@ Ext.define('foodprint.view.CommonWarehouseCombo', {
     },
 
     onCommonWarehouseComboSelect: function(combo, records, eOpts) {
-        if(combo.up() && combo.up().getForm()){
+        if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){
             combo.up().getForm().setValues({
                 'warehouse.title':records[0].data['title']
             });
         }
 
-        var slcombo = combo.up().down('commonwarehouselocationcombo');
+        var wlcombo = combo.up().down('commonwarehouselocationcombo');
 
-        if(slcombo){
-            slcombo.getStore().load({
+        if(wlcombo){
+            wlcombo.getStore().load({
                 params:{'warehouse.id': records[0].data['id']}
             });
-            slcombo.setDisabled(false);  
+            wlcombo.setReadOnly(false);  
         }
 
     },
@@ -82,7 +82,7 @@ Ext.define('foodprint.view.CommonWarehouseCombo', {
     onCommonWarehouseComboChange: function(field, newValue, oldValue, eOpts) {
         if (newValue == null) {
             field.reset();
-            if(field.up() && field.up().getForm()){
+            if(field.up() && field.up() instanceof Ext.form.Panel && field.up().getForm()){
                 field.up().getForm().setValues({
                     'warehouse.title':null,
                     'warehouseLocation.id':null,

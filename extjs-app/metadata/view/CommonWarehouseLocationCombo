@@ -6,12 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "disabled": true,
+        "disabled": null,
         "itemId": "commonWarehouseLocationCombo",
         "designer|userClassName": "CommonWarehouseLocationCombo",
         "designer|userAlias": "commonwarehouselocationcombo",
         "fieldLabel": "WarehouseLocation.name",
         "name": "warehouseLocation.id",
+        "readOnly": true,
         "editable": null,
         "displayField": "name",
         "forceSelection": true,
@@ -54,7 +55,7 @@
             "userConfig": {
                 "fn": "onCommonWarehouseLocationComboSelect",
                 "implHandler": [
-                    "if(combo.up() && combo.up().getForm()){",
+                    "if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){",
                     "    combo.up().getForm().setValues({",
                     "        //'warehouse.id':records[0].data['warehouse.id'],",
                     "        //'warehouse.title':records[0].data['warehouse.title'],",
@@ -79,7 +80,7 @@
                 "implHandler": [
                     "if (newValue == null) {",
                     "    field.reset();",
-                    "    if(field.up() && field.up().getForm()){",
+                    "    if(field.up() && field.up() instanceof Ext.form.Panel && field.up().getForm()){",
                     "        field.up().getForm().setValues({",
                     "            //'warehouse.id':null,",
                     "            //'warehouse.title':null,",

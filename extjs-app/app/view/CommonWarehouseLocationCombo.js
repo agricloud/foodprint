@@ -17,10 +17,10 @@ Ext.define('foodprint.view.CommonWarehouseLocationCombo', {
     extend: 'Ext.form.field.ComboBox',
     alias: 'widget.commonwarehouselocationcombo',
 
-    disabled: true,
     itemId: 'commonWarehouseLocationCombo',
     fieldLabel: 'WarehouseLocation.name',
     name: 'warehouseLocation.id',
+    readOnly: true,
     displayField: 'name',
     forceSelection: true,
     minChars: 0,
@@ -56,7 +56,7 @@ Ext.define('foodprint.view.CommonWarehouseLocationCombo', {
     },
 
     onCommonWarehouseLocationComboSelect: function(combo, records, eOpts) {
-        if(combo.up() && combo.up().getForm()){
+        if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){
             combo.up().getForm().setValues({
                 //'warehouse.id':records[0].data['warehouse.id'],
                 //'warehouse.title':records[0].data['warehouse.title'],
@@ -68,7 +68,7 @@ Ext.define('foodprint.view.CommonWarehouseLocationCombo', {
     onCommonWarehouseLocationComboChange: function(field, newValue, oldValue, eOpts) {
         if (newValue == null) {
             field.reset();
-            if(field.up() && field.up().getForm()){
+            if(field.up() && field.up() instanceof Ext.form.Panel && field.up().getForm()){
                 field.up().getForm().setValues({
                     //'warehouse.id':null,
                     //'warehouse.title':null,
