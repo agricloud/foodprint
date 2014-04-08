@@ -393,8 +393,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo',
-                                    flex: 1
+                                    xtype: 'commonitemcombo'
                                 },
                                 {
                                     xtype: 'textfield',

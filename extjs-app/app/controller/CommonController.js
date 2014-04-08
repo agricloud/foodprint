@@ -324,8 +324,6 @@ Ext.define('foodprint.controller.CommonController', {
 
                 that.activeDetailEditor();
                 that.detailActionName = 'update';
-                if(that.getDetailForm().down('commonwarehouselocationcombo'))
-                that.enableCommonWarehouseLocationCombo(action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 
                 if (callback && callback instanceof Function) {
                     callback(true,form,action)
@@ -482,17 +480,6 @@ Ext.define('foodprint.controller.CommonController', {
 
     disableDetailCreateBtn: function() {
         this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
-    },
-
-    enableCommonWarehouseLocationCombo: function(warehouseId, warehouseLocationId) {
-        var slcombo = this.getDetailForm().down('commonwarehouselocationcombo');
-        slcombo.getStore().load({
-            params: {'warehouse.id':warehouseId}
-        });
-        slcombo.setValue(warehouseLocationId);
-        slcombo.setDisabled(false);
-
-
     }
 
 });

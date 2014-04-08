@@ -88,7 +88,7 @@
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowDetail",
+                    "        click:this.doShowOutSrcPurchaseSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -102,7 +102,7 @@
                     "    'erpoutsrcpurchasesheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowDetail",
+                    "        itemdblclick: this.doShowOutSrcPurchaseSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #showDetail commonselectbtn':{",
                     "        click:this.activeManufactureOrderIndex",
@@ -198,6 +198,32 @@
                 ]
             },
             "designerId": "e179123a-ee99-4033-9b15-5abf8b54052f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowOutSrcPurchaseSheetDet",
+                "implHandler": [
+                    "",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "\tvar wlcombo=form.findField('warehouseLocation.id');",
+                    "\tUtilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "});"
+                ]
+            },
+            "designerId": "8952a41d-e347-45ec-8a81-ece5ff4cf5fc"
         }
     ]
 }

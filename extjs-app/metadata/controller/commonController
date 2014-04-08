@@ -553,9 +553,7 @@
                     "",
                     "        that.activeDetailEditor();",
                     "        that.detailActionName = 'update';",
-                    "        if(that.getDetailForm().down('commonwarehouselocationcombo'))",
-                    "        that.enableCommonWarehouseLocationCombo(action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
-                    "",
+                    "        ",
                     "        if (callback && callback instanceof Function) {",
                     "            callback(true,form,action)",
                     "        }",
@@ -849,31 +847,6 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "enableCommonWarehouseLocationCombo",
-                "designer|params": [
-                    "warehouseId, warehouseLocationId"
-                ],
-                "implHandler": [
-                    "var slcombo = this.getDetailForm().down('commonwarehouselocationcombo');",
-                    "slcombo.getStore().load({",
-                    "    params: {'warehouse.id':warehouseId}",
-                    "});",
-                    "slcombo.setValue(warehouseLocationId);",
-                    "slcombo.setDisabled(false);",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "066a07dc-306d-4644-84a8-16081ca9f14c"
         }
     ]
 }

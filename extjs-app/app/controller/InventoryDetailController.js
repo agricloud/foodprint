@@ -90,6 +90,7 @@ Ext.define('foodprint.controller.InventoryDetailController', {
     },
 
     doShowInventoryDetail: function() {
+
         this.doShow(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -105,11 +106,7 @@ Ext.define('foodprint.controller.InventoryDetailController', {
 
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
-            wlcombo.getStore().load({
-                params:{'warehouse.id': action.result.data['warehouse.id']}
-            });
-            wlcombo.setValue(action.result.data['warehouseLocation.id']);
-            wlcombo.setReadOnly(false);
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
         });
     }
 

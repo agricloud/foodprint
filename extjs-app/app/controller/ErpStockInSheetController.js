@@ -75,7 +75,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
                 click:this.doCreateDetail
             },
             'erpstockinsheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowStockInSheetDet
             },
             'erpstockinsheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             'erpstockinsheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowStockInSheetDet
             },
             'erpstockinsheetview #showDetail commonselectbtn':{
                 click:this.activeManufactureOrderIndex
@@ -129,6 +129,20 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             //在此使combo重新load store
             var wscombo=form.findField('workstation.id');
             Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+        });
+    },
+
+    doShowStockInSheetDet: function() {
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
         });
     }
 
