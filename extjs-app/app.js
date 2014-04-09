@@ -36,6 +36,29 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'ErpSaleReturnSheet',
+        'ErpSaleReturnSheetDet',
+        'ErpPurchaseReturnSheet',
+        'ErpPurchaseReturnSheetDet'
+    ],
+    stores: [
+        'ErpSaleReturnSheetStore',
+        'ErpSaleReturnSheetDetStore',
+        'ErpSaleSheetDetStore',
+        'ErpPurchaseReturnSheetStore',
+        'ErpPurchaseReturnSheetDetStore'
+    ],
+    views: [
+        'ErpSaleReturnSheetGrid',
+        'ErpSaleReturnSheetView',
+        'ErpSaleReturnSheetDetView',
+        'ErpPurchaseSheetGrid',
+        'ErpPurchaseSheetView',
+        'ErpPurchaseSheetDetView',
+        'ErpPurchaseReturnSheetView',
+        'ErpPurchaseReturnSheetGrid'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
