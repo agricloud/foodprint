@@ -176,6 +176,79 @@
                 ]
             },
             "designerId": "1fc0d365-b8b0-4e2e-ad23-31e021513d38"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectCustomerOrderDet",
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'customerOrderDet.id':record.data['id'],",
+                    "    'customerOrderDet.typeName':record.data['typeName'],",
+                    "    'customerOrderDet.name':record.data['name'],",
+                    "    'customerOrderDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "c1ac1e66-6a42-41e5-b6c0-a792b1b51d32"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var cucombo=form.findField('customer.id');",
+                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "35aae6de-a5e9-4aae-826a-cd3a79130517"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleReturnSheetDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "129b41bf-75c4-4476-926a-5ebb20e82eb8"
         }
     ]
 }

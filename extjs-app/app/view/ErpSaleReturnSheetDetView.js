@@ -17,7 +17,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetDetView', {
     extend: 'Ext.panel.Panel',
 
     requires: [
-        'foodprint.view.ErpSaleReturnSheetGrid',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpCustomerOrderGrid',
@@ -46,11 +45,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetDetView', {
                         type: 'vbox'
                     },
                     items: [
-                        {
-                            xtype: 'erpsalereturnsheetgrid',
-                            itemId: 'masterGrid',
-                            flex: 1
-                        },
                         me.processGrid({
                             xtype: 'gridpanel',
                             flex: 1,
