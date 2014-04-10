@@ -1147,6 +1147,79 @@
                             ]
                         },
                         {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpSaleReturnSheetMaintain",
+                                "text": "SaleReturnSheet Maintain"
+                            },
+                            "designerId": "01b26168-d4f2-4016-9265-8ff3888bdc1b",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpSaleReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "65bab0ad-278f-41c4-b818-1784357ebbda"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "itemId": "erpSaleReturnSheetDetMaintain",
+                                "text": "SaleReturnSheetDet Maintain"
+                            },
+                            "designerId": "b0e31a5e-1010-48c4-b556-c3f1dd976f04",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpSaleReturnSheetDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.saleSheetReturnDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "d49665f3-f56d-43da-8290-7ab883ef4b24"
+                                }
+                            ]
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",

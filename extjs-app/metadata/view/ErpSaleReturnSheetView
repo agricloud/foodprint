@@ -13,7 +13,11 @@
         "designer|userAlias": "erpsalereturnsheetview",
         "requires": [
             "foodprint.view.CommonIndexToolbar",
-            "foodprint.view.CommonShowToolbar"
+            "foodprint.view.CommonShowToolbar",
+            "foodprint.view.CommonWarehouseLocationCombo",
+            "foodprint.view.CommonWarehouseCombo",
+            "foodprint.view.CommonCancelBtn",
+            "foodprint.view.CommonItemCombo"
         ],
         "layout": "card"
     },
@@ -238,7 +242,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleSheet');"
+                                    "return Utilities.processConfigBundle(config, 'saleReturnSheet');"
                                 ]
                             },
                             "designerId": "306a46b5-a7c2-4a64-82b0-37b7dd6dd4e4"
@@ -598,7 +602,7 @@
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                            "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
                                         ]
                                     },
                                     "designerId": "bcd82afa-e7b0-484b-ad27-cff10cfd0e88"
@@ -963,7 +967,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
                                 ]
                             },
                             "designerId": "3566528b-a8b2-441a-87da-8ce95f548694"

@@ -154,6 +154,12 @@
                     "    'maincontainer button[itemId=erpSaleSheetDetMaintain]':{",
                     "        click:this.erpSaleSheetDetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpSaleReturnSheetMaintain]':{",
+                    "        click:this.erpSaleReturnSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpSaleReturnSheetDetMaintain]':{",
+                    "        click:this.erpSaleReturnSheetDetMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -731,6 +737,42 @@
                 ]
             },
             "designerId": "86c5422b-bea4-4b53-8393-6b5fe3816420"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpSaleReturnSheetMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpsalereturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "84f366c9-0608-48b7-a382-53f59ab0c1db"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpSaleReturnSheetDetMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpsalereturnsheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.saleReturnSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "f2d11cc8-45e3-493e-9718-8bf463be7c94"
         },
         {
             "type": "basicfunction",

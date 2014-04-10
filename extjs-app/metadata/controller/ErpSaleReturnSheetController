@@ -1,0 +1,181 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpSaleReturnSheet"
+        ],
+        "stores": [
+            "ErpSaleReturnSheetStore"
+        ],
+        "views": [
+            "ErpSaleReturnSheetView"
+        ],
+        "designer|userClassName": "ErpSaleReturnSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "7c92d12b-1450-4a77-bdd6-842274b54ca8",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "            'erpsalereturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "                click:this.doCreateAndIndexDetail",
+                    "            },",
+                    "            'erpsalereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "                click:this.doShowSaleSheet",
+                    "            },",
+                    "            'erpsalereturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "                click:this.doDelete",
+                    "            },",
+                    "            'erpsalereturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "                click:this.doSave",
+                    "            },",
+                    "            'erpsalereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "                click:this.doCancel",
+                    "            },",
+                    "            'erpsalereturnsheetview #grid':{",
+                    "                select: this.enableShowBtn,",
+                    "                deselect: this.disableShowBtn,",
+                    "                itemdblclick: this.doShowSaleSheet",
+                    "            },",
+                    "            'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "                click:this.doCreateDetail",
+                    "            },",
+                    "            'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "                click:this.doShowSaleSheetDet",
+                    "            },",
+                    "            'erpsalereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "                click:this.doDeleteDetail",
+                    "            },",
+                    "            'erpsalereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "                click:this.doSaveDetail",
+                    "            },",
+                    "            'erpsalereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "                click:this.doCancelDetail",
+                    "            },",
+                    "            'erpsalereturnsheetview #detailGrid':{",
+                    "                select: this.enableDetailShowBtn,",
+                    "                deselect: this.disableDetailShowBtn,",
+                    "                itemdblclick: this.doShowSaleSheetDet",
+                    "            },",
+                    "            'erpsalereturnsheetview #showDetail commonselectbtn':{",
+                    "                click:this.activeCustomerOrderDetIndex",
+                    "            },",
+                    "            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerordergrid':{",
+                    "                select: this.doIndexDetailCustomerOrder",
+                    "            },",
+                    "            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerorderdetgrid':{",
+                    "                itemdblclick: this.doSelectCustomerOrderDet",
+                    "            }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'saleReturnSheet';",
+                    "this.foodpaintDetController = 'saleReturnSheetDet';",
+                    "this.masterKey='saleReturnSheet.id';"
+                ]
+            },
+            "designerId": "ab224ba5-c3b0-40b6-9c9c-e94a509d9469"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpsalereturnsheetvie #grid"
+            },
+            "designerId": "c277c182-0698-430f-b81d-634f1b0669e8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpsalereturnsheetview #form"
+            },
+            "designerId": "618861c2-dee5-4b41-b1ff-2cf79eaabe20"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpsalereturnsheetview #detailgrid"
+            },
+            "designerId": "8b05350b-7d85-435b-8d55-f710f689a33f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpsalereturnsheetview #detailform"
+            },
+            "designerId": "ea9dd4a1-7b0b-4d46-b804-b164ee8a14ac"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailCustomerOrder",
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'customerOrderDet.id':record.data['id'],",
+                    "    'customerOrderDet.typeName':record.data['typeName'],",
+                    "    'customerOrderDet.name':record.data['name'],",
+                    "    'customerOrderDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "1fc0d365-b8b0-4e2e-ad23-31e021513d38"
+        }
+    ]
+}

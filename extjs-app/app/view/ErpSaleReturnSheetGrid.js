@@ -42,19 +42,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetGrid', {
                     flex: 1
                 },
                 {
-                    xtype: 'numbercolumn',
-                    hidden: true,
-                    dataIndex: 'saleSheetDet.id',
-                    text: 'saleSheetDet.Id',
-                    flex: 1
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'saleSheetDet.name',
-                    text: 'saleSheetDet.Name',
-                    flex: 1
-                },
-                {
                     xtype: 'gridcolumn',
                     dataIndex: 'typeName',
                     text: 'TypeName',

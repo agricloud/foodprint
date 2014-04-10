@@ -25,7 +25,11 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.ErpCustomerOrderGrid',
         'foodprint.view.ErpCustomerOrderDetGrid',
         'foodprint.view.CommonIndexToolbar',
-        'foodprint.view.CommonShowToolbar'
+        'foodprint.view.CommonShowToolbar',
+        'foodprint.view.CommonWarehouseLocationCombo',
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonCancelBtn',
+        'foodprint.view.CommonItemCombo'
     ],
 
     layout: {
@@ -425,15 +429,15 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheet');
+        return Utilities.processConfigBundle(config, 'saleReturnSheet');
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {
