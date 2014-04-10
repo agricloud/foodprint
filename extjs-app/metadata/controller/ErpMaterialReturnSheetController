@@ -1,0 +1,206 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpMaterialReturnSheetController"
+    },
+    "designerId": "5b2c688a-3183-428f-8d27-6bf6759681e9",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpmaterialreturnsheetview #grid"
+            },
+            "designerId": "aaf3969e-1aeb-4aa9-b5b4-f03eb9a1abfa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpmaterialreturnsheetview #form"
+            },
+            "designerId": "90116ba6-3df6-4f10-bcc7-4bb0418eecf7"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpmaterialreturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowMaterialSheet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowMaterialSheet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowMaterialSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowMaterialSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
+                    "        click:this.activeManufactureOrderIndex",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{",
+                    "        itemdblclick: this.doSelectManufactureOrder",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'materialReturnSheet';",
+                    "this.foodpaintDetController = 'materialReturnSheetDet';",
+                    "this.masterKey='materialReturnSheet.id';"
+                ]
+            },
+            "designerId": "23d09f47-d699-4a9e-b5fa-0b123f35655d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpmaterialreturnsheetview #detailGrid"
+            },
+            "designerId": "de10f169-abcf-4b01-b9d0-78b3645267ce"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpmaterialreturnsheetview #detailForm"
+            },
+            "designerId": "5f21d804-a0a0-4145-837a-24b530da47e5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name']",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "35349635-3109-4443-b36a-3a13ff7d396b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowMaterialReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var wscombo=form.findField('workstation.id');",
+                    "    Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "ad549b24-164c-4d38-b380-d7b31f153f46"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowMaterialReturnSheetDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "3d1db56e-4529-4420-837e-2635a4851673"
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpMaterialReturnSheet"
+    },
+    "designerId": "ed72ab34-e2bb-452a-9e70-13dd92333daf",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "f68a339a-464e-48b4-ae6a-b49d75f149c9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "13ef70fb-4dc6-4f5b-b4f5-d7e71c81f8ca"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "16f06313-e04b-4acb-b353-bf1a6e301128"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.id"
+            },
+            "designerId": "78a06bca-d2e3-4be1-b2d3-05aa175f0ef4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.name"
+            },
+            "designerId": "781df4f1-3371-4e13-a01d-88b45b603e1f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "workstation.title"
+            },
+            "designerId": "bf02ddd6-9e96-4bc4-9366-dc2063c3e685"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.id"
+            },
+            "designerId": "235a16c5-b374-4075-9726-c97b63368a4c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.name"
+            },
+            "designerId": "708e9fbd-9ee5-4bdd-a0aa-ae4794a46dda"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.title"
+            },
+            "designerId": "45e5c59e-12ff-4e61-978f-e8dcb19111f3"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": "/foodpaint?foodpaintController=materialSheet"
+            },
+            "designerId": "28bacc68-6288-4d23-94fa-2956ecf51cbb",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "materialSheetInstanceList",
+                        "totalProperty": "materialSheetInstanceTotal"
+                    },
+                    "designerId": "b1f50f86-41af-423b-8b97-c5b004f9ae98"
+                }
+            ]
+        }
+    ]
+}

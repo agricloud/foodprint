@@ -48,8 +48,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                     items: [
                         {
                             xtype: 'erpmaterialreturnsheetgrid',
-                            flex: 1,
-                            itemId: 'masterGrid'
+                            itemId: 'masterGrid',
+                            flex: 1
                         },
                         me.processGrid({
                             xtype: 'gridpanel',

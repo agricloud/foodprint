@@ -182,6 +182,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpMaterialSheetMaintain',
                                     text: 'MaterialSheet Maintain'
                                 }),
+                                me.processErpMaterialReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialReturnSheetMaintain',
+                                    text: 'MaterialReturnSheet Maintain'
+                                }),
                                 me.processErpMaterialSheetDetMaintain({
                                     xtype: 'button',
                                     hidden: true,
@@ -203,6 +208,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpOutSrcPurchaseSheetMaintain',
                                     text: 'OutSrcPurchaseSheet Maintain'
+                                }),
+                                me.processErpOutSrcPurchaseReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpOutSrcPurchaseReturnSheetMaintain',
+                                    text: 'OutSrcPurchaseReturnSheet Maintain'
                                 }),
                                 me.processErpOutSrcPurchaseSheetDetMaintain({
                                     xtype: 'button',
@@ -481,6 +491,12 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processErpMaterialReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
+
+        return config;
+    },
+
     processErpMaterialSheetDetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
 
@@ -501,6 +517,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpOutSrcPurchaseSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpOutSrcPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');
 
         return config;
     },

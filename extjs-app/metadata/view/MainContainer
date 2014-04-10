@@ -899,6 +899,42 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "erpMaterialReturnSheetMaintain",
+                                "text": "MaterialReturnSheet Maintain"
+                            },
+                            "designerId": "8fd0097b-6022-4f14-9e67-ee5440d80825",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpMaterialReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "c9b79e8a-3dd5-4001-9789-29b02c108552"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "hidden": true,
                                 "itemId": "erpMaterialSheetDetMaintain",
                                 "text": "MaterialSheetDet Maintain"
@@ -1033,6 +1069,42 @@
                                         ]
                                     },
                                     "designerId": "89268859-e107-4005-8aa6-f748452a7168"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpOutSrcPurchaseReturnSheetMaintain",
+                                "text": "OutSrcPurchaseReturnSheet Maintain"
+                            },
+                            "designerId": "e74f3003-1711-4420-a153-1708a128188d",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpOutSrcPurchaseReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "1c009d82-e9c2-4c37-ad41-8ebd30103c33"
                                 }
                             ]
                         },

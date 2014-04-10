@@ -320,6 +320,14 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpMaterialReturnSheetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialreturnsheetview';
+        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpMaterialSheetDetMaintain: function() {
 
         var xtypeStr = 'erpmaterialsheetdetview';
