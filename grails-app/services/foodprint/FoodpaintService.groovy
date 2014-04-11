@@ -37,189 +37,87 @@ class FoodpaintService {
 
     //逆溯
     def querySaleSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryStockInSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryStockInSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryOutSrcPurchaseSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryOutSrcPurchaseSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryPurchaseSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryManufactureOrderByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryManufactureOrderFromStockInSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromStockInSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def querySupplierFromPurchaseSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySupplierFromPurchaseSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryPurchaseSheetDetBySupplierAndBatch(String supplierName, String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseSheetDetBySupplierAndBatch/?supplierName=${supplierName}&batchName=${batchName}"
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryBatchFromMaterialSheetDetByManufactureOrder(String typeName, String name){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFromMaterialSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     //順溯
     def queryManufactureOrderFromMaterialSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromMaterialSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryCustomerFromSaleSheetDetByBatch(String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryCustomerFromSaleSheetDetByBatch/?batchName="+batchName
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
+    }
+
+    def queryInventoryByBatchAndGroupByWarehouse(String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryInventoryByBatchAndGroupByWarehouse/?batchName=${batchName}"
+        doCallFoodpaint(url)
     }
 
     def querySaleSheetDetByCustomerAndBatch(String customerName, String batchName){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByCustomerAndBatch/?customerName=${customerName}&batchName=${batchName}"
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryBatchFormStockInSheetDetByManufactureOrder(String typeName, String name){
-        if (!ping()) {
-            return
-        }
-
-        def rest = new RestBuilder()
-        rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
-
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFormStockInSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
-        def resp = rest.get(url)
-        JSON.parse(resp.text)
+        doCallFoodpaint(url)
     }
 
     def queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder(String typeName, String name){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
+        doCallFoodpaint(url)
+    }
+
+    def doCallFoodpaint(url){
         if (!ping()) {
             return
         }
@@ -227,7 +125,6 @@ class FoodpaintService {
         def rest = new RestBuilder()
         rest.restTemplate.setMessageConverters([new StringHttpMessageConverter(Charset.forName("UTF-8"))])
 
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
         def resp = rest.get(url)
         JSON.parse(resp.text)
     }

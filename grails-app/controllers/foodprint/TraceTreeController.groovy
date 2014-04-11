@@ -115,6 +115,8 @@ class TraceTreeController {
                 childJson << node
             }
         }
+
+        //葉節點：供應商
         def suppliers=foodpaintService.querySupplierFromPurchaseSheetDetByBatch(batch.name)
         if(suppliers.data){
             suppliers.data.each(){ supplier->
@@ -286,7 +288,7 @@ class TraceTreeController {
                 childJson << node
             }
         }
-
+        //葉節點：客戶
         def customers=foodpaintService.queryCustomerFromSaleSheetDetByBatch(batch.name)
         if(customers.data){
             customers.data.each(){ customer->
@@ -311,20 +313,24 @@ class TraceTreeController {
             }
         }
         //葉節點：庫存
-        // def warehouses=foodpaintService.queryWarehouseByBatch(batch.name)
-        // if(warehouses.data){
-        //     warehouses.data.each(){ warehouse ->
-        //         def node = [:]
-        //         node.leaf = true
-        //         node.note = "庫存"
-        //         node.sheet = null
-        //         node.type = "倉庫"
-        //         node.class = "Warehouse"
-        //         node.name = warehouse.name+"/"+warehouse.title
-        //         node.item = batch.item
-        //         childJson << node
-        //     }
-        // }
+        def inventoryDetails=foodpaintService.queryInventoryByBatchAndGroupByWarehouse(batch.name)
+        if(inventoryDetails.data){
+            inventoryDetails.data.each(){ inventoryDetail ->
+                //0:warehouse.id,1:warehouse.name,2:warehouse.title,3:item.id,4:item.name,5:item.title,6:batch.id,7:batch.name,8:sum(qty)
+                def node = [:]
+                node.leaf = true
+                node.note = "庫存"
+                node.sheet = null
+                node.type = "倉庫"
+                node.class = "Warehouse"
+                // node.name = inventoryDetail.warehouse.name+"/"+inventoryDetail.warehouse.title
+                node.name = inventoryDetail[1]+"/"+inventoryDetail[2]
+                node.item = batch.item
+                // node.qty = inventoryDetail.qty
+                node.qty = inventoryDetail[8]
+                childJson << node
+            }
+        }
 
         return childJson
 
