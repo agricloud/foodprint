@@ -36,6 +36,30 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'ErpSaleReturnSheet',
+        'ErpSaleReturnSheetDet',
+        'ErpPurchaseReturnSheet',
+        'ErpPurchaseReturnSheetDet'
+    ],
+    stores: [
+        'ErpSaleReturnSheetStore',
+        'ErpSaleReturnSheetDetStore',
+        'ErpSaleSheetDetStore',
+        'ErpPurchaseReturnSheetStore',
+        'ErpPurchaseReturnSheetDetStore'
+    ],
+    views: [
+        'ErpSaleReturnSheetGrid',
+        'ErpSaleReturnSheetView',
+        'ErpSaleReturnSheetDetView',
+        'ErpPurchaseSheetGrid',
+        'ErpPurchaseSheetView',
+        'ErpPurchaseSheetDetView',
+        'ErpPurchaseReturnSheetView',
+        'ErpPurchaseReturnSheetGrid',
+        'ErpSaleSheetView'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -69,7 +93,12 @@ Ext.application({
         'ErpOutSrcPurchaseSheetDetController',
         'ErpSaleSheetController',
         'ErpSaleSheetDetController',
-        'SiteController'
+        'WarehouseController',
+        'InventoryController',
+        'InventoryDetailController',
+        'SiteController',
+        'WarehouseLocationController',
+        'ErpSaleReturnSheetController'
     ],
     name: 'foodprint',
 
