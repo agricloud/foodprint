@@ -288,7 +288,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     xtype: 'numberfield',
                                     flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'saleSheet.id',
+                                    fieldLabel: 'saleReturnSheet.id',
                                     name: 'saleReturnSheet.id',
                                     readOnly: true
                                 },
@@ -515,13 +515,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     flex: 1,
                                     format: '0,000'
                                 }
-                            ],
-                            listeners: {
-                                beforerender: {
-                                    fn: me.onGridBeforeRender1,
-                                    scope: me
-                                }
-                            }
+                            ]
                         })
                     ]
                 }
@@ -545,10 +539,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
 
     processErpSaleSheetDetGrid: function(config) {
         return Utilities.processConfigBundle(config, 'saleSheetDet');
-    },
-
-    onGridBeforeRender1: function(component, eOpts) {
-        component.getStore().removeAll();
     },
 
     onGridBeforeRender1: function(component, eOpts) {
