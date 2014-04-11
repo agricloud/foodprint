@@ -140,6 +140,29 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         this.activeDetailEditor();
     },
 
+    doCancelCustomerOrderDet: function() {
+
+        this.getDetailForm().getForm().setValues({
+            'customerOrderDet.id':null,
+            'customerOrderDet.typeName':null,
+            'customerOrderDet.name':null,
+            'customerOrderDet.sequence':null
+        });
+    },
+
+    reloadBatchComboByItem: function(itemId) {
+        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
+        combo.getStore().load({
+            url:'/batch/indexByItem',
+            params: {'item.id': itemId}
+        });
+        //combo在remote模式下
+        //設定第一次trigger時自動load
+        //造成此處指定查詢的Batch結果會被覆蓋
+        //給定lastQuery使系統默認為已load過
+        combo.lastQuery='';
+    },
+
     doShowSaleReturnSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
             //由於store設定load第1-50筆

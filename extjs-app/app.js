@@ -40,14 +40,16 @@ Ext.application({
         'ErpSaleReturnSheet',
         'ErpSaleReturnSheetDet',
         'ErpPurchaseReturnSheet',
-        'ErpPurchaseReturnSheetDet'
+        'ErpPurchaseReturnSheetDet',
+        'ErpSaleSheet'
     ],
     stores: [
         'ErpSaleReturnSheetStore',
         'ErpSaleReturnSheetDetStore',
         'ErpSaleSheetDetStore',
         'ErpPurchaseReturnSheetStore',
-        'ErpPurchaseReturnSheetDetStore'
+        'ErpPurchaseReturnSheetDetStore',
+        'ErpSaleSheetStore'
     ],
     views: [
         'ErpSaleReturnSheetGrid',
@@ -58,7 +60,8 @@ Ext.application({
         'ErpPurchaseSheetDetView',
         'ErpPurchaseReturnSheetView',
         'ErpPurchaseReturnSheetGrid',
-        'ErpSaleSheetView'
+        'ErpSaleSheetView',
+        'ErpSaleSheetGrid'
     ],
     autoCreateViewport: true,
     controllers: [

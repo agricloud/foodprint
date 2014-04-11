@@ -39,7 +39,7 @@ Ext.define('foodprint.model.ErpSaleReturnSheet', {
 
     proxy: {
         type: 'rest',
-        url: ' http://localhost:8180/saleReturnSheet',
+        url: '/foodpaint?foodpaintController=saleReturnSheet',
         reader: {
             type: 'json',
             root: 'saleReturnSheetInstanceList',

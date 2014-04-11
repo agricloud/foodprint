@@ -22,8 +22,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonBatchCombo',
-        'foodprint.view.ErpCustomerOrderGrid',
-        'foodprint.view.ErpCustomerOrderDetGrid',
+        'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar',
         'foodprint.view.CommonWarehouseLocationCombo',
@@ -89,7 +88,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'numberfield',
                                     hidden: true,
-                                    itemId: 'saleSheetDet.id',
+                                    itemId: 'saleReturnSheetDet.id',
                                     fieldLabel: 'id',
                                     name: 'saleSheetDet.id',
                                     readOnly: true
@@ -97,7 +96,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'saleSheetDet.name',
-                                    name: 'saleSheetDet.name',
+                                    name: 'saleReturnSheetDet.name',
                                     readOnly: true,
                                     allowBlank: false
                                 },
@@ -144,7 +143,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     itemId: 'detailGrid',
                                     autoScroll: true,
                                     title: 'ErpSaleReturnSheetDet',
-                                    store: 'ErpSaleSheetDetStore',
+                                    store: 'ErpSaleReurnSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
@@ -406,20 +405,124 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                 },
                 {
                     xtype: 'panel',
-                    itemId: 'customerOrderDetIndex',
+                    itemId: 'salesheetDetIndex',
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
                     },
                     items: [
                         {
-                            xtype: 'erpcustomerordergrid',
+                            xtype: 'erpsalesheetgrid',
                             flex: 1
                         },
-                        {
-                            xtype: 'erpcustomerorderdetgrid',
-                            flex: 1
-                        }
+                        me.processErpSaleSheetDetGrid({
+                            xtype: 'gridpanel',
+                            flex: 1,
+                            itemId: 'erpSaleSheetDetGrid',
+                            autoScroll: true,
+                            title: 'ErpSaleSheetDet',
+                            store: 'ErpSaleSheetDetStore',
+                            columns: [
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'id',
+                                    text: 'Id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'typeName',
+                                    text: 'TypeName',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'name',
+                                    text: 'Name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    dataIndex: 'sequence',
+                                    text: 'Sequence',
+                                    flex: 1,
+                                    format: '0,000'
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'batch.id',
+                                    text: 'Batch.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'batch.name',
+                                    text: 'Batch.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'item.id',
+                                    text: 'Item.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.name',
+                                    text: 'Item.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.title',
+                                    text: 'Item.title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'qty',
+                                    text: 'qty',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'customerOrderDet.id',
+                                    text: 'CustomerOrderDet.id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customerOrderDet.typeName',
+                                    text: 'CustomerOrderDet.typeName',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customerOrderDet.name',
+                                    text: 'CustomerOrderDet.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    dataIndex: 'customerOrderDet.sequence',
+                                    text: 'CustomerOrderDet.sequence',
+                                    flex: 1,
+                                    format: '0,000'
+                                }
+                            ],
+                            listeners: {
+                                beforerender: {
+                                    fn: me.onGridBeforeRender1,
+                                    scope: me
+                                }
+                            }
+                        })
                     ]
                 }
             ]
@@ -438,6 +541,14 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
+    },
+
+    processErpSaleSheetDetGrid: function(config) {
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
+    },
+
+    onGridBeforeRender1: function(component, eOpts) {
+        component.getStore().removeAll();
     },
 
     onGridBeforeRender1: function(component, eOpts) {

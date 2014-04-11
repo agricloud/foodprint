@@ -17,8 +17,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpsalereturnsheetgrid',
 
-    itemId: 'erpSaleSheetGrid',
-    store: 'ErpSaleSheetStore',
+    itemId: 'erpSaleReturnSheetGrid',
+    store: 'ErpSaleReturnSheetStore',
 
     initComponent: function() {
         var me = this;
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpSaleSheetStore'
+                    store: 'ErpSaleReturnSheetStore'
                 }
             ],
             columns: [
@@ -75,21 +75,21 @@ Ext.define('foodprint.view.ErpSaleReturnSheetGrid', {
             ],
             listeners: {
                 afterrender: {
-                    fn: me.onErpSaleSheetGridAfterRender,
+                    fn: me.onErpSaleReturnSheetGridAfterRender,
                     scope: me
                 }
             }
         });
 
-        me.processErpSaleSheetGrid(me);
+        me.processErpSaleReturnSheetGrid(me);
         me.callParent(arguments);
     },
 
-    processErpSaleSheetGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleSheet'));
+    processErpSaleReturnSheetGrid: function(config) {
+        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleReturnSheet'));
     },
 
-    onErpSaleSheetGridAfterRender: function(component, eOpts) {
+    onErpSaleReturnSheetGridAfterRender: function(component, eOpts) {
         component.getStore().load();
     }
 

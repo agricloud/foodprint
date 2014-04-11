@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "erpSaleSheetGrid",
+        "itemId": "erpSaleReturnSheetGrid",
         "designer|userClassName": "ErpSaleReturnSheetGrid",
         "designer|userAlias": "erpsalereturnsheetgrid",
         "title": null,
-        "store": "ErpSaleSheetStore"
+        "store": "ErpSaleReturnSheetStore"
     },
     "designerId": "0d5a61f3-62db-41ca-83b9-80ae83b46501",
     "cn": [
@@ -31,12 +31,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpSaleSheetGrid",
+                "fn": "processErpSaleReturnSheetGrid",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleSheet'));"
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleReturnSheet'));"
                 ]
             },
             "designerId": "32cce641-31a1-4931-b991-17ec70189a3d"
@@ -52,7 +52,7 @@
                 "dock": "bottom",
                 "width": 360,
                 "displayInfo": true,
-                "store": "ErpSaleSheetStore"
+                "store": "ErpSaleReturnSheetStore"
             },
             "designerId": "68a9f742-3339-4250-8461-dc04949a661d"
         },
@@ -107,7 +107,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onErpSaleSheetGridAfterRender",
+                "fn": "onErpSaleReturnSheetGridAfterRender",
                 "implHandler": [
                     "component.getStore().load();"
                 ],
