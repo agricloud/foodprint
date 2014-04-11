@@ -18,18 +18,7 @@ Ext.define('foodprint.controller.MainPageController', {
 
     views: [
         'MainContainer',
-        'OperationView',
-        'MainViewport',
-        'ItemView',
-        'UserView',
-        'ItemRouteView',
-        'BatchView',
-        'BatchRouteView',
-        'CustomerView',
-        'BatchReportDetView',
-        'ReportView',
-        'ParamView',
-        'WorkstationView'
+        'MainViewport'
     ],
 
     refs: [

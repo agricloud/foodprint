@@ -21,10 +21,24 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
     },
 
     models: [
-        'ErpSaleSheet'
+        'ErpSaleSheet',
+        'ErpSaleSheetDet',
+        'Batch',
+        'Customer',
+        'Warehouse',
+        'WarehouseLocation',
+        'ErpCustomerOrder',
+        'ErpCustomerOrderDet'
     ],
     stores: [
-        'ErpSaleSheetStore'
+        'ErpSaleSheetStore',
+        'ErpSaleSheetDetStore',
+        'BatchStore',
+        'CustomerStore',
+        'WarehouseStore',
+        'WarehouseLocationStore',
+        'ErpCustomerOrderStore',
+        'ErpCustomerOrderDetStore'
     ],
     views: [
         'ErpSaleSheetView'
