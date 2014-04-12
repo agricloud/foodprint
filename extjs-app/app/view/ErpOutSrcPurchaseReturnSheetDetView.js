@@ -55,8 +55,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetDetView', {
                             flex: 1,
                             itemId: 'grid',
                             autoScroll: true,
-                            title: 'ErpOutSrcPurchaseSheetDet',
-                            store: 'ErpOutSrcPurchaseSheetDetStore',
+                            title: 'ErpOutSrcPurchaseReturnSheetDet',
+                            store: 'ErpOutSrcPurchaseReturnSheetDetStore',
                             columns: [
                                 {
                                     xtype: 'numbercolumn',
@@ -179,8 +179,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetDetView', {
                                     xtype: 'numberfield',
                                     flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'outSrcPurchaseSheet.id',
-                                    name: 'outSrcPurchaseSheet.id',
+                                    fieldLabel: 'outSrcPurchaseReturnSheet.id',
+                                    name: 'outSrcPurchaseReturnSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -298,11 +298,11 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetDetView', {
     },
 
     processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheetDet');
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheetDet');
     },
 
     onGridBeforeRender: function(component, eOpts) {

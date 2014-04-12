@@ -972,6 +972,43 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "hidden": true,
+                                "itemId": "erpMaterialReturnSheetDetMaintain",
+                                "text": "MaterialReturnSheetDet Maintain"
+                            },
+                            "designerId": "67cc8347-b576-477e-972a-517976562e77",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpMaterialReturnSheetDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.materialReturnSheetDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "3280593f-e816-41ac-a665-49b6bf097665"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "itemId": "erpStockInSheetMaintain",
                                 "text": "StockInSheet Maintain"
                             },
@@ -1131,17 +1168,54 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processErpOutSrcPurchaseSheetDetMaintain",
+                                        "fn": "processErpOutSrcPurchaseReturnSheetDetMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetDetMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
                                     },
                                     "designerId": "fa2ad5b4-cc83-4cc7-9480-8f8eda1b88dc"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "itemId": "erpOutSrcPurchaseReturnSheetDetMaintain",
+                                "text": "OutSrcPurchaseReturnSheetDet Maintain"
+                            },
+                            "designerId": "31ae141e-381e-42e2-915c-418f363a21fe",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpOutSrcPurchaseReturnSheetDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "2548e6aa-c08d-400a-b863-399615c89da2"
                                 }
                             ]
                         },

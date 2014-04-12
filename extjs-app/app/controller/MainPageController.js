@@ -336,6 +336,14 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpMaterialReturnSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialreturnsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpPurchaseSheetMaintain: function() {
 
         var xtypeStr = 'erppurchasesheetview';
@@ -376,10 +384,26 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpOutSrcPurchaseReturnSheetMaintain: function() {
+
+        var xtypeStr = 'erpoutsrcpurchasereturnsheetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpOutSrcPurchaseSheetDetMaintain: function() {
 
         var xtypeStr = 'erpoutsrcpurchasesheetdetview';
         var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpOutSrcPurchaseReturnSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpoutsrcpurchasereturnsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },

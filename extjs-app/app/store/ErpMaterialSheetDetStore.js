@@ -17,7 +17,7 @@ Ext.define('foodprint.store.ErpMaterialSheetDetStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'foodprint.model.ErpMaterialReturnSheetDet'
+        'foodprint.model.ErpMaterialSheetDet'
     ],
 
     constructor: function(cfg) {
@@ -26,7 +26,7 @@ Ext.define('foodprint.store.ErpMaterialSheetDetStore', {
         me.callParent([Ext.apply({
             autoLoad: false,
             batchUpdateMode: 'complete',
-            model: 'foodprint.model.ErpMaterialReturnSheetDet',
+            model: 'foodprint.model.ErpMaterialSheetDet',
             remoteSort: true,
             storeId: 'ErpMaterialSheetDetStore',
             sorters: {

@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "erpMaterialSheetGrid",
+        "itemId": "erpMaterialReturnSheetGrid",
         "designer|userClassName": "ErpMaterialReturnSheetGrid",
         "designer|userAlias": "erpmaterialreturnsheetgrid",
         "title": null,
-        "store": "ErpMaterialSheetStore"
+        "store": "ErpMaterialReturnSheetStore"
     },
     "designerId": "dcf4b37b-217c-4382-8cf9-7668c874d085",
     "cn": [
@@ -24,24 +24,6 @@
             "designerId": "4faf5ecc-52b9-452a-99bd-71df59d07953"
         },
         {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpMaterialSheetGrid",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'materialSheet'));"
-                ]
-            },
-            "designerId": "311ec674-cb43-40bb-9cd4-ca897094264c"
-        },
-        {
             "type": "Ext.toolbar.Paging",
             "reference": {
                 "name": "dockedItems",
@@ -52,7 +34,7 @@
                 "dock": "bottom",
                 "width": 360,
                 "displayInfo": true,
-                "store": "ErpMaterialSheetStore"
+                "store": "ErpMaterialReturnSheetStore"
             },
             "designerId": "3ef12c4a-25f8-462b-81cd-c9f109b40a85"
         },
@@ -98,23 +80,6 @@
                 "flex": 1
             },
             "designerId": "cc9da073-f241-4599-874e-16aa766ad150"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onErpMaterialSheetGridAfterRender",
-                "implHandler": [
-                    "component.getStore().load();"
-                ],
-                "name": "afterrender",
-                "scope": "me"
-            },
-            "designerId": "5d8d63ca-19a1-4d4c-9837-e98d120bd9f7"
         },
         {
             "type": "Ext.grid.column.Number",
@@ -201,6 +166,41 @@
                 "flex": 1
             },
             "designerId": "e0c15a2c-5113-450d-b847-0d63f27ae8a2"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpMaterialReturnSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "423cca63-f487-4cab-9b46-9552cf459097"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpMaterialReturnSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'materialReturnSheet'));"
+                ]
+            },
+            "designerId": "7297ec47-def2-498b-b436-a110860ed747"
         }
     ]
 }

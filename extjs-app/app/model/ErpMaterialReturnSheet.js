@@ -48,11 +48,11 @@ Ext.define('foodprint.model.ErpMaterialReturnSheet', {
 
     proxy: {
         type: 'rest',
-        url: '/foodpaint?foodpaintController=materialSheet',
+        url: '/foodpaint?foodpaintController=materialReturnSheet',
         reader: {
             type: 'json',
-            root: 'materialSheetInstanceList',
-            totalProperty: 'materialSheetInstanceTotal'
+            root: 'materialReturnSheetInstanceList',
+            totalProperty: 'materialReturnSheetInstanceTotal'
         }
     }
 });

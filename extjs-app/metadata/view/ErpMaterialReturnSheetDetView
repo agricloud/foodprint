@@ -76,8 +76,8 @@
                         "padding": null,
                         "width": null,
                         "autoScroll": true,
-                        "title": "ErpMaterialSheetDet",
-                        "store": "ErpMaterialSheetDetStore"
+                        "title": "ErpMaterialReturnSheetDet",
+                        "store": "ErpMaterialReturnSheetDetStore"
                     },
                     "configAlternates": {
                         "tbar": "object"
@@ -323,6 +323,45 @@
                             "designerId": "64a22a1e-1a6a-424d-a379-49d6597245cd"
                         },
                         {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "materialSheetDet.id",
+                                "text": "materialSheetDet.id"
+                            },
+                            "designerId": "c8c431c1-3467-40c2-8eb2-0caa73f15bae"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "materialSheetDet.typeName",
+                                "text": "materialSheetDet.typeName"
+                            },
+                            "designerId": "d0729ac8-0e15-48e7-9182-7360dcf19d38"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "materialSheetDet.name",
+                                "text": "materialSheetDet.name"
+                            },
+                            "designerId": "2da73233-0bb1-46fa-a8d7-fb944aaafb78"
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",
@@ -335,7 +374,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'materialSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'materialReturnSheetDet');"
                                 ]
                             },
                             "designerId": "622193f9-a6ae-423a-bc1c-9e5607706e8c"
@@ -404,8 +443,8 @@
                                 "dock": null,
                                 "hidden": true,
                                 "width": null,
-                                "fieldLabel": "materialSheet.id",
-                                "name": "materialSheet.id",
+                                "fieldLabel": "materialReturnSheet.id",
+                                "name": "materialReturnSheet.id",
                                 "readOnly": true
                             },
                             "designerId": "8864df13-05b8-4262-a4e4-cd1c65524082"
@@ -636,6 +675,56 @@
                             "designerId": "c54348ee-c63e-4687-96e4-f81b6371db33"
                         },
                         {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "hidden": true,
+                                "fieldLabel": "materialSheetDet.id",
+                                "name": "materialSheetDet.id",
+                                "readOnly": true
+                            },
+                            "designerId": "b3980276-fe94-4e9c-b0fd-0e749f2942dd"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "materialSheetDet.typeName",
+                                "name": "materialSheetDet.typeName",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "0a269e55-97aa-4bb7-a15c-52d1333ccec5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "materialSheetDet.name",
+                                "name": "materialSheetDet.name",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "7e7bcad4-7fbe-418d-8e29-ac058ee061e9"
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",
@@ -648,7 +737,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'materialSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'materialReturnSheetDet');"
                                 ]
                             },
                             "designerId": "271cdaea-0bd3-4072-9e91-3737935fb448"

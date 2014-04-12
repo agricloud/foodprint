@@ -49,7 +49,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                     items: [
                         {
                             xtype: 'erpoutsrcpurchasereturnsheetgrid',
-                            itemId: 'grid'
+                            itemId: 'grid',
+                            store: 'ErpOutSrcPurchaseReturnReturnSheetDetStore'
                         }
                     ]
                 },
@@ -124,8 +125,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     flex: 1,
                                     itemId: 'detailGrid',
                                     autoScroll: true,
-                                    title: 'ErpOutSrcPurchaseSheetDet',
-                                    store: 'ErpOutSrcPurchaseSheetDetStore',
+                                    title: 'ErpOutSrcPurchaseReturnSheetDet',
+                                    store: 'ErpOutSrcPurchaseReturnSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
@@ -288,8 +289,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     xtype: 'numberfield',
                                     flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'outSrcPurchaseSheet.id',
-                                    name: 'outSrcPurchaseSheet.id',
+                                    fieldLabel: 'outSrcPurchaseReturnSheet.id',
+                                    name: 'outSrcPurchaseReturnSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -425,15 +426,15 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheet');
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {

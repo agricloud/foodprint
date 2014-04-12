@@ -56,8 +56,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                             flex: 1,
                             itemId: 'grid',
                             autoScroll: true,
-                            title: 'ErpMaterialSheetDet',
-                            store: 'ErpMaterialSheetDetStore',
+                            title: 'ErpMaterialReturnSheetDet',
+                            store: 'ErpMaterialReturnSheetDetStore',
                             columns: [
                                 {
                                     xtype: 'numbercolumn',
@@ -143,6 +143,21 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                                     dataIndex: 'qty',
                                     text: 'qty',
                                     flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'materialSheetDet.id',
+                                    text: 'materialSheetDet.id'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'materialSheetDet.typeName',
+                                    text: 'materialSheetDet.typeName'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'materialSheetDet.name',
+                                    text: 'materialSheetDet.name'
                                 }
                             ],
                             listeners: {
@@ -179,8 +194,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                                 {
                                     xtype: 'numberfield',
                                     hidden: true,
-                                    fieldLabel: 'materialSheet.id',
-                                    name: 'materialSheet.id',
+                                    fieldLabel: 'materialReturnSheet.id',
+                                    name: 'materialReturnSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -269,6 +284,28 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'materialSheetDet.id',
+                                    name: 'materialSheetDet.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'materialSheetDet.typeName',
+                                    name: 'materialSheetDet.typeName',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'materialSheetDet.name',
+                                    name: 'materialSheetDet.name',
+                                    readOnly: true,
+                                    allowBlank: false
                                 }
                             ]
                         })
@@ -296,11 +333,11 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
     },
 
     processGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheetDet');
+        return Utilities.processConfigBundle(config, 'materialReturnSheetDet');
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheetDet');
+        return Utilities.processConfigBundle(config, 'materialReturnSheetDet');
     },
 
     onGridBeforeRender: function(component, eOpts) {

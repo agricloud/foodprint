@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "erpOutSrcPurchaseSheetGrid",
+        "itemId": "erpOutSrcPurchaseReturnSheetGrid",
         "designer|userClassName": "ErpOutSrcPurchaseReturnSheetGrid",
         "designer|userAlias": "erpoutsrcpurchasereturnsheetgrid",
         "title": null,
-        "store": "ErpOutSrcPurchaseSheetStore"
+        "store": "ErpOutSrcPurchaseReturnSheetStore"
     },
     "designerId": "c508e35c-1f09-4463-83d3-05120bf99f41",
     "cn": [
@@ -24,24 +24,6 @@
             "designerId": "8f18a81f-ea28-4318-8e03-bf7906c42b50"
         },
         {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpOutSrcPurchaseSheetGrid",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'outSrcPurchaseSheet'));"
-                ]
-            },
-            "designerId": "f0605d6b-6ce5-4996-9175-cfdb10f2ed4d"
-        },
-        {
             "type": "Ext.toolbar.Paging",
             "reference": {
                 "name": "dockedItems",
@@ -52,7 +34,7 @@
                 "dock": "bottom",
                 "width": 360,
                 "displayInfo": true,
-                "store": "ErpOutSrcPurchaseSheetStore"
+                "store": "ErpOutSrcPurchaseReturnSheetStore"
             },
             "designerId": "d7c67c08-8977-4ce1-a09d-8c94147a68cb"
         },
@@ -100,23 +82,6 @@
             "designerId": "35d2a003-e86e-4182-bbb0-85baf023374b"
         },
         {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onErpOutSrcPurchaseSheetGridAfterRender",
-                "implHandler": [
-                    "component.getStore().load();"
-                ],
-                "name": "afterrender",
-                "scope": "me"
-            },
-            "designerId": "be83c977-679a-48c3-9cb3-471b2f4156a6"
-        },
-        {
             "type": "Ext.grid.column.Number",
             "reference": {
                 "name": "columns",
@@ -158,6 +123,41 @@
                 "flex": 1
             },
             "designerId": "544e0092-87c7-4973-b112-f7470f9c9870"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpOutSrcPurchaseReturnSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "02a688a9-d066-43ac-a773-e361d775f493"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpOutSrcPurchaseReturnSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheet'));"
+                ]
+            },
+            "designerId": "8bae5e0c-30a7-4c41-af5b-5bd8192604b3"
         }
     ]
 }

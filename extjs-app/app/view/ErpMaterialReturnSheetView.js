@@ -135,8 +135,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     flex: 1,
                                     itemId: 'detailGrid',
                                     autoScroll: true,
-                                    title: 'ErpMaterialSheetDet',
-                                    store: 'ErpMaterialSheetDetStore',
+                                    title: 'ErpMaterialReturnSheetDet',
+                                    store: 'ErpMaterialReturnSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
@@ -298,8 +298,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'numberfield',
                                     hidden: true,
-                                    fieldLabel: 'materialSheet.id',
-                                    name: 'materialSheet.id',
+                                    fieldLabel: 'materialReturnSheet.id',
+                                    name: 'materialReturnSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -433,15 +433,15 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheet');
+        return Utilities.processConfigBundle(config, 'materialReturnSheet');
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheetDet');
+        return Utilities.processConfigBundle(config, 'materialReturnSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheetDet');
+        return Utilities.processConfigBundle(config, 'materialReturnSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {

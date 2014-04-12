@@ -17,8 +17,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpmaterialreturnsheetgrid',
 
-    itemId: 'erpMaterialSheetGrid',
-    store: 'ErpMaterialSheetStore',
+    itemId: 'erpMaterialReturnSheetGrid',
+    store: 'ErpMaterialReturnSheetStore',
 
     initComponent: function() {
         var me = this;
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpMaterialSheetStore'
+                    store: 'ErpMaterialReturnSheetStore'
                 }
             ],
             columns: [
@@ -94,21 +94,21 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetGrid', {
             ],
             listeners: {
                 afterrender: {
-                    fn: me.onErpMaterialSheetGridAfterRender,
+                    fn: me.onErpMaterialReturnSheetGridAfterRender,
                     scope: me
                 }
             }
         });
 
-        me.processErpMaterialSheetGrid(me);
+        me.processErpMaterialReturnSheetGrid(me);
         me.callParent(arguments);
     },
 
-    processErpMaterialSheetGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'materialSheet'));
+    processErpMaterialReturnSheetGrid: function(config) {
+        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'materialReturnSheet'));
     },
 
-    onErpMaterialSheetGridAfterRender: function(component, eOpts) {
+    onErpMaterialReturnSheetGridAfterRender: function(component, eOpts) {
         component.getStore().load();
     }
 

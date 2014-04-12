@@ -17,8 +17,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpoutsrcpurchasereturnsheetgrid',
 
-    itemId: 'erpOutSrcPurchaseSheetGrid',
-    store: 'ErpOutSrcPurchaseSheetStore',
+    itemId: 'erpOutSrcPurchaseReturnSheetGrid',
+    store: 'ErpOutSrcPurchaseReturnSheetStore',
 
     initComponent: function() {
         var me = this;
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpOutSrcPurchaseSheetStore'
+                    store: 'ErpOutSrcPurchaseReturnSheetStore'
                 }
             ],
             columns: [
@@ -75,21 +75,21 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetGrid', {
             ],
             listeners: {
                 afterrender: {
-                    fn: me.onErpOutSrcPurchaseSheetGridAfterRender,
+                    fn: me.onErpOutSrcPurchaseReturnSheetGridAfterRender,
                     scope: me
                 }
             }
         });
 
-        me.processErpOutSrcPurchaseSheetGrid(me);
+        me.processErpOutSrcPurchaseReturnSheetGrid(me);
         me.callParent(arguments);
     },
 
-    processErpOutSrcPurchaseSheetGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'outSrcPurchaseSheet'));
+    processErpOutSrcPurchaseReturnSheetGrid: function(config) {
+        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheet'));
     },
 
-    onErpOutSrcPurchaseSheetGridAfterRender: function(component, eOpts) {
+    onErpOutSrcPurchaseReturnSheetGridAfterRender: function(component, eOpts) {
         component.getStore().load();
     }
 

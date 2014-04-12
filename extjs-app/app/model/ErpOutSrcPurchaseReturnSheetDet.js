@@ -81,7 +81,7 @@ Ext.define('foodprint.model.ErpOutSrcPurchaseReturnSheetDet', {
 
     proxy: {
         type: 'rest',
-        url: '/foodpaint?foodpaintController=outSrcPurchaseSheetDet',
+        url: '/foodpaint?foodpaintController=outSrcPurchaseReturnSheetDet',
         reader: {
             type: 'json',
             root: 'data'

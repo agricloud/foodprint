@@ -76,12 +76,21 @@ Ext.define('foodprint.model.ErpMaterialReturnSheetDet', {
         },
         {
             name: 'qty'
+        },
+        {
+            name: 'materialSheetDet.id'
+        },
+        {
+            name: 'materialSheetDet.typeName'
+        },
+        {
+            name: 'materialSheetDet.name'
         }
     ],
 
     proxy: {
         type: 'rest',
-        url: '/foodpaint?foodpaintController=materialSheetDet',
+        url: '/foodpaint?foodpaintController=materialReturnSheetDet',
         reader: {
             type: 'json',
             root: 'data'
