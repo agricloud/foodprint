@@ -14,5 +14,109 @@
  */
 
 Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
-    extend: 'Ext.app.Controller'
+    extend: 'Ext.app.Controller',
+
+    refs: [
+        {
+            ref: 'mainGrid',
+            selector: 'erpoutsrcpurchasereturnsheetview #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'erpoutsrcpurchasereturnsheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpoutsrcpurchasereturnsheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpoutsrcpurchasereturnsheetview #detailForm'
+        }
+    ],
+
+    init: function(application) {
+        this.control({
+            'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreateAndIndexDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commonshowbtn':{
+                click:this.doShowOutSrcPurchaseSheet
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'erpoutsrcpurchasereturnsheetview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShowOutSrcPurchaseSheet
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowDetail
+            },
+            'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpoutsrcpurchasereturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrder
+            }
+
+        });
+
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'outSrcPurchaseReturnSheet';
+        this.foodpaintDetController = 'outSrcPurchaseReturnSheetDet';
+        this.masterKey='outSrcPurchaseReturnSheet.id';
+    },
+
+    doSelectManufactureOrder: function() {
+        this.getDetailForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.name':record.data['batch.name'],
+            'qty':record.data['qty']
+        });
+        this.activeDetailEditor();
+    },
+
+    doShowOutSrcPurchaseSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
+
+        });
+    }
+
 });

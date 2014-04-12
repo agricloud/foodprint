@@ -8,5 +8,124 @@
     "userConfig": {
         "designer|userClassName": "ErpMaterialReturnSheetDetController"
     },
-    "designerId": "05de5a21-34b9-434c-b7c1-f8c86e8aa3e8"
+    "designerId": "05de5a21-34b9-434c-b7c1-f8c86e8aa3e8",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpmaterialreturnsheetdetview #grid"
+            },
+            "designerId": "a7ad20b6-411f-4d15-afca-4372ee9fc1b7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpmaterialreturnsheetdetview #form"
+            },
+            "designerId": "7a9a394f-36d1-4574-a10e-2c4f3c344a8e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "masterGrid",
+                "selector": "erpmaterialreturnsheetdetview #masterGrid"
+            },
+            "designerId": "8eee3513-6475-4f9d-995a-40b1d5a5ee39"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "",
+                    "this.control({",
+                    "    'erpmaterialreturnsheetdetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreate",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShow",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #index #masterGrid':{",
+                    "        select:this.doIndexDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShow",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #show commonselectbtn':{",
+                    "        click:this.activeManufactureOrderIndex",
+                    "    },",
+                    "    'erpmaterialreturnsheetdetview #manufactureOrderIndex erpmanufactureordergrid':{",
+                    "        itemdblclick: this.doSelectManufactureOrder",
+                    "    }",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'materialReturnSheetDet';",
+                    "this.masterKey='materialReturnSheet.id';",
+                    ""
+                ]
+            },
+            "designerId": "3586a2a8-7840-4000-8d8b-b0a62464beae"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getMainForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name']",
+                    "});",
+                    "this.activeEditor();"
+                ]
+            },
+            "designerId": "fc6f15ba-cb0d-4033-9c8b-67706e4f6de2"
+        }
+    ]
 }

@@ -14,5 +14,75 @@
  */
 
 Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetDetController', {
-    extend: 'Ext.app.Controller'
+    extend: 'Ext.app.Controller',
+
+    refs: [
+        {
+            ref: 'masterGrid',
+            selector: 'erpoutsrcpurchasereturnsheetdetview #masterGrid'
+        },
+        {
+            ref: 'mainGrid',
+            selector: 'erpoutsrcpurchasereturnsheetdetview #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'erpoutsrcpurchasereturnsheetdetview #form'
+        }
+    ],
+
+    init: function(application) {
+
+        this.control({
+            'erpoutsrcpurchasereturnsheetdetview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreate
+            },
+            'erpoutsrcpurchasereturnsheetdetview #index commonindextoolbar commonshowbtn':{
+                click:this.doShow
+            },
+            'erpoutsrcpurchasereturnsheetdetview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'erpoutsrcpurchasereturnsheetdetview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'erpoutsrcpurchasereturnsheetdetview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'erpoutsrcpurchasereturnsheetdetview #index #masterGrid':{
+                select:this.doIndexDetail
+            },
+            'erpoutsrcpurchasereturnsheetdetview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShow
+            },
+            'erpoutsrcpurchasereturnsheetdetview #show commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpoutsrcpurchasereturnsheetdetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrder
+            }
+        });
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'outSrcPurchaseReturnSheetDet';
+        this.masterKey='outSrcPurchaseReturnSheet.id';
+
+    },
+
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.name':record.data['batch.name']
+        });
+        this.activeEditor();
+    }
+
 });

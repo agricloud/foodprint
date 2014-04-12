@@ -14,5 +14,71 @@
  */
 
 Ext.define('foodprint.controller.ErpMaterialReturnSheetDetController', {
-    extend: 'Ext.app.Controller'
+    extend: 'Ext.app.Controller',
+
+    refs: [
+        {
+            ref: 'mainGrid',
+            selector: 'erpmaterialreturnsheetdetview #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'erpmaterialreturnsheetdetview #form'
+        },
+        {
+            ref: 'masterGrid',
+            selector: 'erpmaterialreturnsheetdetview #masterGrid'
+        }
+    ],
+
+    init: function(application) {
+
+        this.control({
+            'erpmaterialreturnsheetdetview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreate
+            },
+            'erpmaterialreturnsheetdetview #index commonindextoolbar commonshowbtn':{
+                click:this.doShow
+            },
+            'erpmaterialreturnsheetdetview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'erpmaterialreturnsheetdetview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'erpmaterialreturnsheetdetview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'erpmaterialreturnsheetdetview #index #masterGrid':{
+                select:this.doIndexDetail
+            },
+            'erpmaterialreturnsheetdetview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShow
+            },
+            'erpmaterialreturnsheetdetview #show commonselectbtn':{
+                click:this.activeManufactureOrderIndex
+            },
+            'erpmaterialreturnsheetdetview #manufactureOrderIndex erpmanufactureordergrid':{
+                itemdblclick: this.doSelectManufactureOrder
+            }
+        });
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'materialReturnSheetDet';
+        this.masterKey='materialReturnSheet.id';
+
+    },
+
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
+        this.getMainForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name']
+        });
+        this.activeEditor();
+    }
+
 });
