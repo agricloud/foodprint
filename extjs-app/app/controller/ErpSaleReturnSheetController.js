@@ -21,10 +21,22 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
     },
 
     models: [
-        'ErpSaleReturnSheet'
+        'ErpSaleReturnSheet',
+        'ErpSaleSheet',
+        'ErpSaleSheetDet',
+        'ErpSaleReturnSheetDet',
+        'Customer',
+        'ErpCustomerOrder',
+        'ErpCustomerOrderDet'
     ],
     stores: [
-        'ErpSaleReturnSheetStore'
+        'ErpSaleReturnSheetStore',
+        'ErpCustomerOrderStore',
+        'ErpCustomerOrderDetStore',
+        'ErpSaleReturnSheetDetStore',
+        'ErpSaleSheetStore',
+        'ErpSaleSheetDetStore',
+        'CustomerStore'
     ],
     views: [
         'ErpSaleReturnSheetView'
@@ -33,7 +45,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
     refs: [
         {
             ref: 'mainGrid',
-            selector: 'erpsalereturnsheetvie #grid'
+            selector: 'erpsalereturnsheetview #grid'
         },
         {
             ref: 'mainForm',
@@ -55,7 +67,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
                 click:this.doCreateAndIndexDetail
             },
             'erpsalereturnsheetview #index commonindextoolbar commonshowbtn':{
-                click:this.doShowSaleSheet
+                click:this.doShowSaleReturnSheet
             },
             'erpsalereturnsheetview #show commonshowtoolbar commondeletebtn':{
                 click:this.doDelete
@@ -69,13 +81,13 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'erpsalereturnsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
-                itemdblclick: this.doShowSaleSheet
+                itemdblclick: this.doShowSaleReturnSheet
             },
             'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{
                 click:this.doCreateDetail
             },
             'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowSaleSheetDet
+                click:this.doShowSaleReturnSheetDet
             },
             'erpsalereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +101,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'erpsalereturnsheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowSaleSheetDet
+                itemdblclick: this.doShowSaleReturnSheetDet
             },
             'erpsalereturnsheetview #showDetail commonselectbtn':{
                 click:this.activeCustomerOrderDetIndex
@@ -117,6 +129,21 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'customerOrderDet.typeName':record.data['typeName'],
             'customerOrderDet.name':record.data['name'],
             'customerOrderDet.sequence':record.data['sequence'],
+            'item.id':record.data['item.id'],
+            'item.title':record.data['item.title'],
+            'qty':record.data['qty']
+        });
+        this.reloadBatchComboByItem(record.data['item.id']);
+        this.activeDetailEditor();
+    },
+
+    doIndexDetailSaleSheetDet: function() {
+        this.getDetailForm().getForm().setValues({
+
+            'saleSheetDet.id':record.data['id'],
+            'saleSheetDet.typeName':record.data['typeName'],
+            'saleSheetDet.name':record.data['name'],
+            'saleSheetDet.sequence':record.data['sequence'],
             'item.id':record.data['item.id'],
             'item.title':record.data['item.title'],
             'qty':record.data['qty']

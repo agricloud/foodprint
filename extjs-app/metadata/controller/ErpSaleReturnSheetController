@@ -7,10 +7,22 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "ErpSaleReturnSheet"
+            "ErpSaleReturnSheet",
+            "ErpSaleSheet",
+            "ErpSaleSheetDet",
+            "ErpSaleReturnSheetDet",
+            "Customer",
+            "ErpCustomerOrder",
+            "ErpCustomerOrderDet"
         ],
         "stores": [
-            "ErpSaleReturnSheetStore"
+            "ErpSaleReturnSheetStore",
+            "ErpCustomerOrderStore",
+            "ErpCustomerOrderDetStore",
+            "ErpSaleReturnSheetDetStore",
+            "ErpSaleSheetStore",
+            "ErpSaleSheetDetStore",
+            "CustomerStore"
         ],
         "views": [
             "ErpSaleReturnSheetView"
@@ -42,7 +54,7 @@
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
                     "    'erpsalereturnsheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowSaleSheet",
+                    "        click:this.doShowSaleReturnSheet",
                     "    },",
                     "    'erpsalereturnsheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
@@ -56,13 +68,13 @@
                     "    'erpsalereturnsheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowSaleSheet",
+                    "        itemdblclick: this.doShowSaleReturnSheet",
                     "    },",
                     "    'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowSaleSheetDet",
+                    "        click:this.doShowSaleReturnSheetDet",
                     "    },",
                     "    'erpsalereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -76,7 +88,7 @@
                     "    'erpsalereturnsheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowSaleSheetDet",
+                    "        itemdblclick: this.doShowSaleReturnSheetDet",
                     "    },",
                     "    'erpsalereturnsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeCustomerOrderDetIndex",
@@ -108,7 +120,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "erpsalereturnsheetvie #grid"
+                "selector": "erpsalereturnsheetview #grid"
             },
             "designerId": "c277c182-0698-430f-b81d-634f1b0669e8"
         },
@@ -176,6 +188,32 @@
                 ]
             },
             "designerId": "1fc0d365-b8b0-4e2e-ad23-31e021513d38"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailSaleSheetDet",
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'saleSheetDet.id':record.data['id'],",
+                    "    'saleSheetDet.typeName':record.data['typeName'],",
+                    "    'saleSheetDet.name':record.data['name'],",
+                    "    'saleSheetDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "3e0e979a-617c-4838-a21c-a809de96df22"
         },
         {
             "type": "basicfunction",
