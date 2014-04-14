@@ -44,6 +44,14 @@ Ext.define('foodprint.model.Inventory', {
         {
             name: 'lastUpdated',
             type: 'date'
+        },
+        {
+            name: 'lastInDate',
+            type: 'date'
+        },
+        {
+            name: 'lastOutDate',
+            type: 'date'
         }
     ],
 

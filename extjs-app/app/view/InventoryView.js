@@ -120,12 +120,6 @@ Ext.define('foodprint.view.InventoryView', {
                                     fieldLabel: 'qty',
                                     name: 'qty',
                                     allowBlank: false
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    disabled: true,
-                                    fieldLabel: 'lastUpdated',
-                                    name: 'lastUpdated'
                                 }
                             ]
                         })
