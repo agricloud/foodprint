@@ -125,6 +125,12 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
                 click:this.erpMaterialSheetDetMaintain
             },
+            'maincontainer button[itemId=erpMaterialReturnSheetMaintain]':{
+                click:this.erpMaterialReturnSheetMaintain
+            },
+            'maincontainer button[itemId=erpMaterialReturnSheetDetMaintain]':{
+                click:this.erpMaterialReturnSheetDetMaintain
+            },
             'maincontainer button[itemId=erpStockInSheetMaintain]':{
                 click:this.erpStockInSheetMaintain
             },
@@ -136,6 +142,12 @@ Ext.define('foodprint.controller.MainPageController', {
             },
             'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{
                 click:this.erpOutSrcPurchaseSheetDetMaintain
+            },
+            'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetMaintain]':{
+                click:this.erpOutSrcPurchaseReturnSheetMaintain
+            },
+            'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetDetMaintain]':{
+                click:this.erpOutSrcPurchaseReturnSheetDetMaintain
             },
             'maincontainer button[itemId=erpSaleSheetMaintain]':{
                 click:this.erpSaleSheetMaintain
@@ -320,14 +332,6 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpMaterialReturnSheetMaintain: function() {
-
-        var xtypeStr = 'erpmaterialreturnsheetview';
-        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
     erpMaterialSheetDetMaintain: function() {
 
         var xtypeStr = 'erpmaterialsheetdetview';
@@ -452,6 +456,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'inventorydetailview';
         var tabName = Utilities.getMsg('mainContainer.inventoryDetailView.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpMaterialReturnSheetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialreturnsheetview';
+        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     }

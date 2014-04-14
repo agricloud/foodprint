@@ -136,6 +136,12 @@
                     "    'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{",
                     "        click:this.erpMaterialSheetDetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpMaterialReturnSheetMaintain]':{",
+                    "        click:this.erpMaterialReturnSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpMaterialReturnSheetDetMaintain]':{",
+                    "        click:this.erpMaterialReturnSheetDetMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=erpStockInSheetMaintain]':{",
                     "        click:this.erpStockInSheetMaintain",
                     "    },",
@@ -147,6 +153,12 @@
                     "    },",
                     "    'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{",
                     "        click:this.erpOutSrcPurchaseSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseReturnSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetDetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseReturnSheetDetMaintain",
                     "    },",
                     "    'maincontainer button[itemId=erpSaleSheetMaintain]':{",
                     "        click:this.erpSaleSheetMaintain",
@@ -588,25 +600,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "erpMaterialReturnSheetMaintain",
-                "implHandler": [
-                    "",
-                    "var xtypeStr = 'erpmaterialreturnsheetview';",
-                    "var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');",
-                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
-                    "this.maintainBtn(xtypeStr,tabName,docLink);"
-                ]
-            },
-            "designerId": "0a1dd301-4480-43f4-9594-9780c96fdd62"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "erpMaterialSheetDetMaintain",
                 "implHandler": [
                     "",
@@ -902,6 +895,25 @@
                 ]
             },
             "designerId": "1766eea0-8b3c-4144-ba85-68ae7eb53a44"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialReturnSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialreturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "0a1dd301-4480-43f4-9594-9780c96fdd62"
         }
     ]
 }

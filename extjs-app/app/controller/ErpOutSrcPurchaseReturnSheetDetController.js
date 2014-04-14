@@ -16,6 +16,18 @@
 Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetDetController', {
     extend: 'Ext.app.Controller',
 
+    models: [
+        'ErpOutSrcPurchaseReturnSheet',
+        'ErpOutSrcPurchaseReturnSheetDet'
+    ],
+    stores: [
+        'ErpOutSrcPurchaseReturnSheetStore',
+        'ErpOutSrcPurchaseReturnSheetDetStore'
+    ],
+    views: [
+        'ErpOutSrcPurchaseReturnSheetDetView'
+    ],
+
     refs: [
         {
             ref: 'masterGrid',

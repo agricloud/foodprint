@@ -38,23 +38,18 @@ Ext.application({
     },
     models: [
         'ErpMaterialReturnSheet',
-        'ErpMaterialReturnSheetDet',
-        'ErpOutSrcPurchaseReturnSheet',
-        'ErpOutSrcPurchaseReturnSheetDet'
+        'ErpMaterialReturnSheetDet'
     ],
     stores: [
         'ErpMaterialReturnSheetStore',
-        'ErpMaterialReturnSheetDetStore',
-        'ErpOutSrcPurchaseReturnSheetStore',
-        'ErpOutSrcPurchaseReturnSheetDetStore'
+        'ErpMaterialReturnSheetDetStore'
     ],
     views: [
         'ErpMaterialReturnSheetGrid',
         'ErpMaterialReturnSheetView',
         'ErpMaterialReturnSheetDetView',
         'ErpOutSrcPurchaseReturnSheetGrid',
-        'ErpOutSrcPurchaseReturnSheetView',
-        'ErpOutSrcPurchaseReturnSheetDetView'
+        'ErpOutSrcPurchaseSheetGrid'
     ],
     autoCreateViewport: true,
     controllers: [
