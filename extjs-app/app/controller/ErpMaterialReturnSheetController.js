@@ -16,6 +16,20 @@
 Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        commonController: 'foodprint.controller.CommonController'
+    },
+
+    models: [
+        'ErpMaterialReturnSheet'
+    ],
+    stores: [
+        'ErpMaterialReturnSheetStore'
+    ],
+    views: [
+        'ErpMaterialReturnSheetView'
+    ],
+
     refs: [
         {
             ref: 'mainGrid',

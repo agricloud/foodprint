@@ -6,7 +6,23 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ErpMaterialReturnSheetDetController"
+        "models": [
+            "ErpMaterialReturnSheetDet",
+            "ErpMaterialReturnSheet"
+        ],
+        "stores": [
+            "ErpMaterialReturnSheetDetStore",
+            "ErpMaterialReturnSheetStore"
+        ],
+        "views": [
+            "ErpMaterialReturnSheetDetView"
+        ],
+        "designer|userClassName": "ErpMaterialReturnSheetDetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
     },
     "designerId": "05de5a21-34b9-434c-b7c1-f8c86e8aa3e8",
     "cn": [
