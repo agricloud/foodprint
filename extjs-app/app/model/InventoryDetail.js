@@ -30,13 +30,13 @@ Ext.define('foodprint.model.InventoryDetail', {
             name: 'warehouse.title'
         },
         {
-            name: 'storageLocation.id'
+            name: 'warehouseLocation.id'
         },
         {
-            name: 'storageLocation.name'
+            name: 'warehouseLocation.name'
         },
         {
-            name: 'storageLocation.title'
+            name: 'warehouseLocation.title'
         },
         {
             name: 'item.id'
@@ -58,6 +58,18 @@ Ext.define('foodprint.model.InventoryDetail', {
         },
         {
             name: 'qty'
+        },
+        {
+            name: 'lastInDate',
+            type: 'date'
+        },
+        {
+            name: 'lastOutDate',
+            type: 'date'
+        },
+        {
+            name: 'lastUpdated',
+            type: 'date'
         }
     ],
 

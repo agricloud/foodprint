@@ -22,7 +22,7 @@ Ext.define('foodprint.view.CommonIndexToolbar', {
         'foodprint.view.CommonShowBtn'
     ],
 
-    itemId: 'commonEditorToolbar',
+    itemId: 'commonIndexToolbar',
 
     initComponent: function() {
         var me = this;

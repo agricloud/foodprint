@@ -21,10 +21,24 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
     },
 
     models: [
-        'ErpSaleSheet'
+        'ErpSaleSheet',
+        'ErpSaleSheetDet',
+        'Batch',
+        'Customer',
+        'Warehouse',
+        'WarehouseLocation',
+        'ErpCustomerOrder',
+        'ErpCustomerOrderDet'
     ],
     stores: [
-        'ErpSaleSheetStore'
+        'ErpSaleSheetStore',
+        'ErpSaleSheetDetStore',
+        'BatchStore',
+        'CustomerStore',
+        'WarehouseStore',
+        'WarehouseLocationStore',
+        'ErpCustomerOrderStore',
+        'ErpCustomerOrderDetStore'
     ],
     views: [
         'ErpSaleSheetView'
@@ -178,6 +192,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
     },
 
     doShowSaleSheetDet: function() {
+
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -188,6 +203,11 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
             var itemcombo=form.findField('item.id');
             Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
         });
     }
 

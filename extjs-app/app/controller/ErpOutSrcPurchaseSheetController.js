@@ -21,10 +21,20 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
     },
 
     models: [
-        'ErpOutSrcPurchaseSheet'
+        'ErpOutSrcPurchaseSheet',
+        'ErpOutSrcPurchaseSheetDet',
+        'Supplier',
+        'Warehouse',
+        'WarehouseLocation',
+        'ErpManufactureOrder'
     ],
     stores: [
-        'ErpOutSrcPurchaseSheetStore'
+        'ErpOutSrcPurchaseSheetStore',
+        'ErpOutSrcPurchaseSheetDetStore',
+        'SupplierStore',
+        'WarehouseStore',
+        'WarehouseLocationStore',
+        'ErpManufactureOrderStore'
     ],
     views: [
         'ErpOutSrcPurchaseSheetView'
@@ -75,7 +85,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
                 click:this.doCreateDetail
             },
             'erpoutsrcpurchasesheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowDetail
+                click:this.doShowOutSrcPurchaseSheetDet
             },
             'erpoutsrcpurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -89,7 +99,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
             'erpoutsrcpurchasesheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowDetail
+                itemdblclick: this.doShowOutSrcPurchaseSheetDet
             },
             'erpoutsrcpurchasesheetview #showDetail commonselectbtn':{
                 click:this.activeManufactureOrderIndex
@@ -130,6 +140,21 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
             var spcombo=form.findField('supplier.id');
             Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
 
+        });
+    },
+
+    doShowOutSrcPurchaseSheetDet: function() {
+
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
         });
     }
 

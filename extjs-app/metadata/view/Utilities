@@ -448,6 +448,31 @@
                 ]
             },
             "designerId": "566be20c-bd25-4889-9652-63b539778e05"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "compositionComboReload",
+                "designer|params": [
+                    "combo, masterKey, masterId, id"
+                ],
+                "implHandler": [
+                    "var params={};",
+                    "params[masterKey]=masterId;",
+                    "",
+                    "combo.getStore().load({",
+                    "    params: params",
+                    "});",
+                    "combo.setValue(id);",
+                    "combo.setReadOnly(false);"
+                ]
+            },
+            "designerId": "6484bea7-6d16-4ec9-90d2-7417c1e7ed36"
         }
     ]
 }

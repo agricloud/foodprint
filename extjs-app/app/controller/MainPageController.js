@@ -18,18 +18,7 @@ Ext.define('foodprint.controller.MainPageController', {
 
     views: [
         'MainContainer',
-        'OperationView',
-        'MainViewport',
-        'ItemView',
-        'UserView',
-        'ItemRouteView',
-        'BatchView',
-        'BatchRouteView',
-        'CustomerView',
-        'BatchReportDetView',
-        'ReportView',
-        'ParamView',
-        'WorkstationView'
+        'MainViewport'
     ],
 
     refs: [
@@ -95,8 +84,8 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=warehouseMaintain]':{
                 click:this.warehouseMaintain
             },
-            'maincontainer button[itemId=storageLocationMaintain]':{
-                click:this.storageLocationMaintain
+            'maincontainer button[itemId=warehouseLocationMaintain]':{
+                click:this.warehouseLocationMaintain
             },
             'maincontainer button[itemId=inventoryView]':{
                 click:this.inventoryView
@@ -436,10 +425,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    storageLocationMaintain: function() {
+    warehouseLocationMaintain: function() {
 
-        var xtypeStr = 'storagelocationview';
-        var tabName = Utilities.getMsg('mainContainer.storageLocationMaintain.label');
+        var xtypeStr = 'warehouselocationview';
+        var tabName = Utilities.getMsg('mainContainer.warehouseLocationMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },

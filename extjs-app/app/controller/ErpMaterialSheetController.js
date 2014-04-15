@@ -21,10 +21,24 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
     },
 
     models: [
-        'ErpMaterialSheet'
+        'ErpMaterialSheet',
+        'ErpMaterialSheetDet',
+        'Workstation',
+        'Supplier',
+        'Warehouse',
+        'WarehouseLocation',
+        'Batch',
+        'ErpManufactureOrder'
     ],
     stores: [
-        'ErpMaterialSheetStore'
+        'ErpMaterialSheetStore',
+        'ErpMaterialSheetDetStore',
+        'WorkstationStore',
+        'SupplierStore',
+        'WarehouseStore',
+        'WarehouseLocationStore',
+        'BatchStore',
+        'ErpManufactureOrderStore'
     ],
     views: [
         'ErpMaterialSheetView'
@@ -130,12 +144,20 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
     },
 
     doShowMaterialSheetDet: function() {
+
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
             var batchcombo=form.findField('batch.id');
             Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
         });
     }
 

@@ -123,10 +123,10 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'warehouseMaintain',
                                     text: 'Warehouse Maintain'
                                 }),
-                                me.processStorageLocationMaintain({
+                                me.processWarehouseLocationMaintain({
                                     xtype: 'button',
-                                    itemId: 'storageLocationMaintain',
-                                    text: 'StorageLocation Maintain'
+                                    itemId: 'warehouseLocationMaintain',
+                                    text: 'WarehouseLocation Maintain'
                                 }),
                                 me.processInventoryView({
                                     xtype: 'button',
@@ -443,8 +443,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processStorageLocationMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.storageLocationMaintain.label');
+    processWarehouseLocationMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.warehouseLocationMaintain.label');
 
         return config;
     },

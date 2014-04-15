@@ -84,6 +84,24 @@ Ext.define('foodprint.view.InventoryGrid', {
                     dataIndex: 'qty',
                     text: 'Qty',
                     flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'lastInDate',
+                    text: 'LastInDate',
+                    flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'lastOutDate',
+                    text: 'LastOutDate',
+                    flex: 1
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'lastUpdated',
+                    text: 'LastUpdated',
+                    flex: 1
                 }
             ],
             listeners: {

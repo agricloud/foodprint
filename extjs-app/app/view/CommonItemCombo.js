@@ -54,7 +54,7 @@ Ext.define('foodprint.view.CommonItemCombo', {
     },
 
     onCommonItemComboSelect: function(combo, records, eOpts) {
-        if(combo.up() && combo.up().getForm()){
+        if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){
             combo.up().getForm().setValues({
 
                 'item.title':records[0].data['title'],

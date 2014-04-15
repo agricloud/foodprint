@@ -18,7 +18,12 @@ Ext.define('foodprint.view.InventoryDetailView', {
     alias: 'widget.inventorydetailview',
 
     requires: [
-        'foodprint.view.InventoryDetailGrid'
+        'foodprint.view.InventoryDetailGrid',
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
+        'foodprint.view.CommonItemCombo',
+        'foodprint.view.CommonBatchCombo',
+        'foodprint.view.CommonQueryBtn'
     ],
 
     layout: {
@@ -32,6 +37,9 @@ Ext.define('foodprint.view.InventoryDetailView', {
             items: [
                 {
                     xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonindextoolbar'
+                    },
                     itemId: 'index',
                     layout: {
                         type: 'fit'
@@ -41,12 +49,112 @@ Ext.define('foodprint.view.InventoryDetailView', {
                             xtype: 'inventorydetailgrid',
                             itemId: 'grid'
                         }
+                    ],
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'commonwarehousecombo',
+                                    labelWidth: 65
+                                },
+                                {
+                                    xtype: 'commonwarehouselocationcombo',
+                                    labelWidth: 65
+                                },
+                                {
+                                    xtype: 'commonitemcombo',
+                                    labelWidth: 40
+                                },
+                                {
+                                    xtype: 'commonbatchcombo',
+                                    labelWidth: 40
+                                },
+                                {
+                                    xtype: 'commonquerybtn'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
+                    itemId: 'show',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        me.processForm({
+                            xtype: 'form',
+                            flex: 1,
+                            itemId: 'form',
+                            layout: {
+                                align: 'stretch',
+                                padding: 10,
+                                type: 'vbox'
+                            },
+                            title: '',
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'commonwarehouselocationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'WarehouseLocation.title',
+                                    name: 'warehouseLocation.title'
+                                },
+                                {
+                                    xtype: 'commonitemcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'item.title'
+                                },
+                                {
+                                    xtype: 'commonbatchcombo'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'qty',
+                                    name: 'qty',
+                                    allowBlank: false
+                                }
+                            ]
+                        })
                     ]
                 }
             ]
         });
 
         me.callParent(arguments);
+    },
+
+    processForm: function(config) {
+        return Utilities.processConfigBundle(config, 'inventoryDetail');
     }
 
 });

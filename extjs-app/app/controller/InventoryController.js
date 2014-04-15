@@ -16,6 +16,10 @@
 Ext.define('foodprint.controller.InventoryController', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        commonController: 'foodprint.controller.CommonController'
+    },
+
     models: [
         'Inventory'
     ],
@@ -24,5 +28,76 @@ Ext.define('foodprint.controller.InventoryController', {
     ],
     views: [
         'InventoryView'
-    ]
+    ],
+
+    refs: [
+        {
+            ref: 'mainGrid',
+            selector: 'inventoryview #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'inventoryview #form'
+        }
+    ],
+
+    init: function(application) {
+        this.control({
+            'inventoryview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreate
+            },
+            'inventoryview #index commonindextoolbar commonshowbtn':{
+                click:this.doShowInventory
+            },
+            'inventoryview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'inventoryview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'inventoryview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'inventoryview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShowInventory
+            },
+            'inventoryview #index toolbar commonquerybtn':{
+                click:this.doIndexByWarehouseAndItem
+            }
+
+        });
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'inventory';
+    },
+
+    doIndexByWarehouseAndItem: function() {
+        var store = this.getMainGrid().getStore();
+
+        store.load({
+            url:'/'+this.domainName+'/action/',
+            params:{
+                'foodpaintController':this.foodpaintController,
+                'foodpaintAction':'indexByWarehouseAndItem',
+                'warehouse.id':this.getMainGrid().up().down('commonwarehousecombo').getValue(),
+                'item.id':this.getMainGrid().up().down('commonitemcombo').getValue()
+            }
+        });
+    },
+
+    doShowInventory: function() {
+        this.doShow(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+        });
+    }
+
 });

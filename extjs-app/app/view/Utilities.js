@@ -261,6 +261,17 @@ Ext.define('foodprint.view.Utilities', {
         });
         combo.setValue(id);
 
+    },
+
+    compositionComboReload: function(combo, masterKey, masterId, id) {
+        var params={};
+        params[masterKey]=masterId;
+
+        combo.getStore().load({
+            params: params
+        });
+        combo.setValue(id);
+        combo.setReadOnly(false);
     }
 
 });

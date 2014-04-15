@@ -8,8 +8,8 @@
     "userConfig": {
         "height": null,
         "width": null,
-        "designer|userClassName": "StorageLocationView",
-        "designer|userAlias": "storagelocationview",
+        "designer|userClassName": "WarehouseLocationView",
+        "designer|userAlias": "warehouselocationview",
         "requires": [
             "foodprint.view.CommonIndexToolbar",
             "foodprint.view.CommonShowToolbar"
@@ -73,7 +73,7 @@
                         "layout|flex": 1,
                         "itemId": "grid",
                         "title": null,
-                        "store": "StorageLocationStore"
+                        "store": "WarehouseLocationStore"
                     },
                     "designerId": "423e3fb2-68e1-49ea-9e44-3e7d2eb53538",
                     "cn": [
@@ -94,12 +94,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processStorageLocationGrid",
+                                "fn": "processWarehouseLocationGrid",
                                 "designer|params": [
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'storageLocation'));"
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'warehouseLocation'));"
                                 ]
                             },
                             "designerId": "92622645-a171-452f-84f0-b0c7155bc47d"
@@ -351,7 +351,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'storageLocation');"
+                                    "return Utilities.processConfigBundle(config, 'warehouseLocation');"
                                 ]
                             },
                             "designerId": "2dbd01e6-0c83-40f1-89eb-7461fa61f5f5"

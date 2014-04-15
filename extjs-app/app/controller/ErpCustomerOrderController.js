@@ -21,10 +21,14 @@ Ext.define('foodprint.controller.ErpCustomerOrderController', {
     },
 
     models: [
-        'ErpCustomerOrder'
+        'ErpCustomerOrder',
+        'ErpCustomerOrderDet',
+        'Item'
     ],
     stores: [
-        'ErpCustomerOrderStore'
+        'ErpCustomerOrderStore',
+        'ErpCustomerOrderDetStore',
+        'ItemStore'
     ],
     views: [
         'ErpCustomerOrderView'

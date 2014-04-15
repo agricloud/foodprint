@@ -73,6 +73,17 @@ class FoodpaintController {
             doCallFoodpaint(url, queryParams)
         }
     }
+    
+    def action = {
+
+        def queryParams = processParams()
+
+        def url = "${grailsApplication.config.grails.foodpaint.service.server.url}/${params.foodpaintController}/${params.foodpaintAction}"
+        
+        render (contentType: 'application/json') {
+            doCallFoodpaint(url, queryParams)
+        }
+    }
 
     def private processParams(){
 
