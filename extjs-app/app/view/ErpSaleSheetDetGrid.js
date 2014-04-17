@@ -17,7 +17,7 @@ Ext.define('foodprint.view.ErpSaleSheetDetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpsalesheetdetgrid',
 
-    itemId: 'erpCustomerOrderDetGrid',
+    itemId: 'erpSaleSheetDetGrid',
     autoScroll: true,
     title: 'ErpSaleSheetDet',
     store: 'ErpSaleSheetDetStore',
