@@ -346,7 +346,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'saleSheetDetContainer',
+                                    itemId: 'saleReturnSheetDetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -362,7 +362,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                         {
                                             xtype: 'textfield',
                                             fieldLabel: 'SaleSheetDet.sheetNum',
-                                            name: 'SaleReturnsheetDet.typeName',
+                                            name: 'SaleSheetDet.typeName',
                                             readOnly: true
                                         },
                                         {

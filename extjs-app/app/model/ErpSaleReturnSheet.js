@@ -43,7 +43,7 @@ Ext.define('foodprint.model.ErpSaleReturnSheet', {
         reader: {
             type: 'json',
             root: 'saleReturnSheetInstanceList',
-            totalProperty: 'saleReturnSheetInstancetotal'
+            totalProperty: 'saleReturnSheetInstanceTotal'
         }
     }
 });
