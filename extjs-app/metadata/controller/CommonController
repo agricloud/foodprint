@@ -22,6 +22,21 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "abc",
+                "implHandler": [
+                    "consol.log"
+                ]
+            },
+            "designerId": "0a69f285-3564-43da-93bd-530f881980c2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShow",
                 "designer|params": [
                     "callback"
@@ -107,12 +122,7 @@
                     "        Ext.MessageBox.alert('Failure',action.result.message);",
                     "    }",
                     "",
-                    "});",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
+                    "});"
                 ]
             },
             "designerId": "e5d44e70-a03d-4bda-8fd9-3f5590d5b18e"
@@ -460,6 +470,25 @@
                 ]
             },
             "designerId": "cab8fcfd-1ca6-4855-beda-3c4dcd0a7422"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeSaleSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\"));",
+                    "",
+                    "var customerOrderDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=saleSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "e34ff9fb-4d90-4c03-92a4-575bad651f92"
         },
         {
             "type": "basicfunction",

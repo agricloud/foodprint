@@ -7,15 +7,22 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "ErpSaleReturnSheet"
+            "ErpSaleReturnSheet",
+            "ErpSaleReturnSheetDet"
         ],
         "stores": [
-            "ErpSaleReturnSheetStore"
+            "ErpSaleReturnSheetStore",
+            "ErpSaleReturnSheetDetStore"
         ],
         "views": [
             "ErpSaleReturnSheetView"
         ],
-        "designer|userClassName": "ErpSaleReturnSheetController"
+        "designer|userClassName": "ErpSaleReturnSheetController",
+        "mixins": [
+            "{",
+            "\tcommonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
     },
     "designerId": "959d1e04-8bff-48b7-9d7f-b3ee68e86351",
     "cn": [
@@ -99,20 +106,20 @@
                     "        deselect: this.disableDetailShowBtn,",
                     "        itemdblclick: this.doShowSaleReturnSheetDet",
                     "    },",
-                    "    'erpsalereturnsheetview #showDetail #customerOrderDetContainer commonselectbtn':{",
-                    "        click:this.activeCustomerOrderDetIndex",
+                    "    'erpsalereturnsheetview #showDetail #saleSheetDetContainer commonselectbtn':{",
+                    "        click:this.activeSaleSheetDetIndex",
                     "    },",
-                    "    'erpsalereturnsheetview #showDetail #customerOrderDetContainer commoncancelbtn':{",
-                    "        click:this.doCancelCustomerOrderDet",
+                    "    'erpsalereturnsheetview #showDetail #saleSheetDetContainer commoncancelbtn':{",
+                    "        click:this.doCancelSaleSheetDet",
                     "    },",
                     "    'erpsalereturnsheetview #showDetail commonitemcombo':{",
-                    "        select:this.doCancelCustomerOrderDet",
+                    "        select:this.doCancelSaleSheetDet",
                     "    },",
-                    "    'erpsalereturnsheetview #customerOrderDetIndex erpcustomerordergrid':{",
-                    "        select: this.doIndexDetailCustomerOrder",
+                    "    'erpsalereturnsheetview #saleSheetDetIndex erpsalesheetgrid':{",
+                    "        select: this.doIndexDetailSaleSheet",
                     "    },",
-                    "    'erpsalereturnsheetview #customerOrderDetIndex erpcustomerorderdetgrid':{",
-                    "        itemdblclick: this.doSelectCustomerOrderDet",
+                    "    'erpsalereturnsheetview #saleSheetDetIndex erpsalesheetdetgrid':{",
+                    "        itemdblclick: this.doSelectSaleSheetDet",
                     "    }",
                     "",
                     "});",
@@ -159,6 +166,103 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doIndexDetailSaleSheetDet",
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=erpSaleSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"saleSheetDet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "71952039-2235-4c3b-8ffa-e8cb18fbc421"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectSaleSheetDet",
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'saleSheetDet.id':record.data['id'],",
+                    "    'saleSheetDet.typeName':record.data['typeName'],",
+                    "    'saleSheetDet.name':record.data['name'],",
+                    "    'saleSheetDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "5f546c0e-3eb2-47d6-9264-3a0492c43cb3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelSaleSheetDet",
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "    'saleSheetDet.id':null,",
+                    "    'saleSheetDet.typeName':null,",
+                    "    'saleSheetDet.name':null,",
+                    "    'saleSheetDet.sequence':null",
+                    "});"
+                ]
+            },
+            "designerId": "81c2a51a-d2c0-4840-b17e-043fafd4a29b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadBatchComboByItem",
+                "designer|params": [
+                    "itemId"
+                ],
+                "implHandler": [
+                    "var combo = this.getDetailForm().down(\"combo[itemId=commonBatchCombo]\");",
+                    "combo.getStore().load({",
+                    "    url:'/batch/indexByItem',",
+                    "    params: {'item.id': itemId}",
+                    "});",
+                    "//combo在remote模式下",
+                    "//設定第一次trigger時自動load",
+                    "//造成此處指定查詢的Batch結果會被覆蓋",
+                    "//給定lastQuery使系統默認為已load過",
+                    "combo.lastQuery='';"
+                ]
+            },
+            "designerId": "9090e0a1-f8a6-481a-92d4-b9330a6e0409"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowSaleReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
@@ -172,6 +276,37 @@
                 ]
             },
             "designerId": "1c8807f9-94fc-4746-b997-272eee270d1a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleReturnSheetDet",
+                "implHandler": [
+                    "",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "346cdaca-047d-45cb-82e0-7ae21f40acef"
         }
     ]
 }

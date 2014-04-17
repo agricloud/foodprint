@@ -16,6 +16,10 @@
 Ext.define('foodprint.controller.CommonController', {
     extend: 'Ext.app.Controller',
 
+    abc: function() {
+        consol.log
+    },
+
     doShow: function(callback) {
         console.log('commonController--'+this.domainName+'--doShow');
 
@@ -87,11 +91,6 @@ Ext.define('foodprint.controller.CommonController', {
             }
 
         });
-
-
-
-
-
     },
 
     doDelete: function(callback) {
@@ -266,6 +265,14 @@ Ext.define('foodprint.controller.CommonController', {
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
 
         var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
+
+    },
+
+    activeSaleSheetDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]"));
+
+        var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=saleSheetDetGrid]");
 
     },
 

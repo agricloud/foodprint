@@ -16,11 +16,17 @@
 Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        commonController: 'foodprint.controller.CommonController'
+    },
+
     models: [
-        'ErpSaleReturnSheet'
+        'ErpSaleReturnSheet',
+        'ErpSaleReturnSheetDet'
     ],
     stores: [
-        'ErpSaleReturnSheetStore'
+        'ErpSaleReturnSheetStore',
+        'ErpSaleReturnSheetDetStore'
     ],
     views: [
         'ErpSaleReturnSheetView'
@@ -87,20 +93,20 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowSaleReturnSheetDet
             },
-            'erpsalereturnsheetview #showDetail #customerOrderDetContainer commonselectbtn':{
-                click:this.activeCustomerOrderDetIndex
+            'erpsalereturnsheetview #showDetail #saleSheetDetContainer commonselectbtn':{
+                click:this.activeSaleSheetDetIndex
             },
-            'erpsalereturnsheetview #showDetail #customerOrderDetContainer commoncancelbtn':{
-                click:this.doCancelCustomerOrderDet
+            'erpsalereturnsheetview #showDetail #saleSheetDetContainer commoncancelbtn':{
+                click:this.doCancelSaleSheetDet
             },
             'erpsalereturnsheetview #showDetail commonitemcombo':{
-                select:this.doCancelCustomerOrderDet
+                select:this.doCancelSaleSheetDet
             },
-            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerordergrid':{
-                select: this.doIndexDetailCustomerOrder
+            'erpsalereturnsheetview #saleSheetDetIndex erpsalesheetgrid':{
+                select: this.doIndexDetailSaleSheet
             },
-            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerorderdetgrid':{
-                itemdblclick: this.doSelectCustomerOrderDet
+            'erpsalereturnsheetview #saleSheetDetIndex erpsalesheetdetgrid':{
+                itemdblclick: this.doSelectSaleSheetDet
             }
 
         });
@@ -111,6 +117,56 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         this.masterKey='saleReturnSheet.id';
     },
 
+    doIndexDetailSaleSheetDet: function() {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=erpSaleSheetDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["saleSheetDet.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+    },
+
+    doSelectSaleSheetDet: function() {
+        this.getDetailForm().getForm().setValues({
+
+            'saleSheetDet.id':record.data['id'],
+            'saleSheetDet.typeName':record.data['typeName'],
+            'saleSheetDet.name':record.data['name'],
+            'saleSheetDet.sequence':record.data['sequence'],
+            'item.id':record.data['item.id'],
+            'item.title':record.data['item.title'],
+            'qty':record.data['qty']
+        });
+        this.reloadBatchComboByItem(record.data['item.id']);
+        this.activeDetailEditor();
+    },
+
+    doCancelSaleSheetDet: function() {
+
+        this.getDetailForm().getForm().setValues({
+            'saleSheetDet.id':null,
+            'saleSheetDet.typeName':null,
+            'saleSheetDet.name':null,
+            'saleSheetDet.sequence':null
+        });
+    },
+
+    reloadBatchComboByItem: function(itemId) {
+        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
+        combo.getStore().load({
+            url:'/batch/indexByItem',
+            params: {'item.id': itemId}
+        });
+        //combo在remote模式下
+        //設定第一次trigger時自動load
+        //造成此處指定查詢的Batch結果會被覆蓋
+        //給定lastQuery使系統默認為已load過
+        combo.lastQuery='';
+    },
+
     doShowSaleReturnSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
             //由於store設定load第1-50筆
@@ -118,6 +174,26 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             //在此使combo重新load store
             var cucombo=form.findField('customer.id');
             Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
+
+        });
+    },
+
+    doShowSaleReturnSheetDet: function() {
+
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 
         });
     }
