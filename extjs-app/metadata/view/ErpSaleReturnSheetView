@@ -661,7 +661,7 @@
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                            "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
                                         ]
                                     },
                                     "designerId": "fceeae26-8652-4b33-9de5-1931480f88a4"
@@ -732,8 +732,8 @@
                                 "dock": null,
                                 "hidden": true,
                                 "width": null,
-                                "fieldLabel": "saleSheet.id",
-                                "name": "saleSheet.id",
+                                "fieldLabel": "saleReturnSheet.id",
+                                "name": "saleReturnSheet.id",
                                 "readOnly": true
                             },
                             "designerId": "400564f7-4fda-48f2-abe8-0dce12417179"
@@ -814,12 +814,12 @@
                                 "layout|flex": null,
                                 "container|align": "stretch",
                                 "height": null,
-                                "itemId": "customerOrderDetContainer",
+                                "itemId": "saleSheetDetContainer",
                                 "width": null,
                                 "layout": "hbox",
                                 "fieldLabel": null
                             },
-                            "designerId": "36dadf13-258f-4b16-b24b-5c311b637b3e",
+                            "designerId": "48801c26-c152-4aec-a5c3-85ab6ee3dc7f",
                             "cn": [
                                 {
                                     "type": "Ext.form.field.Number",
@@ -831,11 +831,11 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "ManufactureOrder.id",
-                                        "name": "customerOrderDet.id",
+                                        "fieldLabel": "salesheet.id",
+                                        "name": "saleSheetDet.id",
                                         "readOnly": true
                                     },
-                                    "designerId": "791ee1c1-303c-4bc2-8d1b-247748d126b1"
+                                    "designerId": "93520b2b-1253-4d3d-961f-92d5633fd57b"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -847,29 +847,12 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "CustomerOrderDet.sheetNum",
-                                        "name": "customerOrderDet.typeName",
+                                        "fieldLabel": "SaleSheetDet.sheetNum",
+                                        "name": "SaleReturnsheetDet.typeName",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
-                                    "designerId": "dace26af-6302-4341-8ea2-b9c14c58556d"
-                                },
-                                {
-                                    "type": "Ext.form.field.Text",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "layout|flex": null,
-                                        "disabled": null,
-                                        "fieldLabel": null,
-                                        "name": "customerOrderDet.name",
-                                        "readOnly": true,
-                                        "allowBlank": null
-                                    },
-                                    "designerId": "47c916bb-b9a2-4772-a558-256098f029fd"
+                                    "designerId": "5efc3c53-ddf8-4c91-9f32-b37d6d3f91ef"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -882,11 +865,28 @@
                                         "layout|flex": null,
                                         "disabled": null,
                                         "fieldLabel": null,
-                                        "name": "customerOrderDet.sequence",
+                                        "name": "saleSheetDet.name",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
-                                    "designerId": "745988ee-59fd-4f4d-a814-bd0540ea53bb"
+                                    "designerId": "e239d9fc-2070-46a0-897f-03dd228e6e64"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "saleSheetDet.sequence",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "ac805551-861c-4cd1-a5c9-14436a4e5801"
                                 },
                                 {
                                     "type": "linkedinstance",
@@ -900,7 +900,7 @@
                                         "layout|flex": null,
                                         "layout|margins": "1"
                                     },
-                                    "designerId": "054632f3-7f50-47fb-bc9e-c9c0c72f645a",
+                                    "designerId": "898a6a35-6392-4356-b574-78285ea3c12f",
                                     "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
                                 },
                                 {
@@ -917,7 +917,7 @@
                                         "layout|flex": null,
                                         "layout|margins": "1"
                                     },
-                                    "designerId": "d25f8390-e3df-4638-8f28-8e85e9f47cd9",
+                                    "designerId": "93bcb157-4532-48f7-b087-c4ea165ff0b4",
                                     "masterInstanceId": "54035366-0ec4-4e3f-9b1a-81680113395d"
                                 }
                             ]
@@ -1049,7 +1049,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
                                 ]
                             },
                             "designerId": "166fb43a-8a67-442c-a5ee-43898a4501c7"

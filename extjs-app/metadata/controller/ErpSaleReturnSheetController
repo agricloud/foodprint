@@ -6,7 +6,172 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "ErpSaleReturnSheet"
+        ],
+        "stores": [
+            "ErpSaleReturnSheetStore"
+        ],
+        "views": [
+            "ErpSaleReturnSheetView"
+        ],
         "designer|userClassName": "ErpSaleReturnSheetController"
     },
-    "designerId": "959d1e04-8bff-48b7-9d7f-b3ee68e86351"
+    "designerId": "959d1e04-8bff-48b7-9d7f-b3ee68e86351",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpsalereturnsheetview #grid"
+            },
+            "designerId": "612db970-4607-4781-8abc-83efe1afefce"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpsalereturnsheetview #form"
+            },
+            "designerId": "39e215f8-b363-47be-ba68-542d7ef34702"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpsalereturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erpsalereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowSaleReturnSheet",
+                    "    },",
+                    "    'erpsalereturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpsalereturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpsalereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpsalereturnsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowSaleReturnSheet",
+                    "    },",
+                    "    'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowSaleReturnSheetDet",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpsalereturnsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowSaleReturnSheetDet",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail #customerOrderDetContainer commonselectbtn':{",
+                    "        click:this.activeCustomerOrderDetIndex",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail #customerOrderDetContainer commoncancelbtn':{",
+                    "        click:this.doCancelCustomerOrderDet",
+                    "    },",
+                    "    'erpsalereturnsheetview #showDetail commonitemcombo':{",
+                    "        select:this.doCancelCustomerOrderDet",
+                    "    },",
+                    "    'erpsalereturnsheetview #customerOrderDetIndex erpcustomerordergrid':{",
+                    "        select: this.doIndexDetailCustomerOrder",
+                    "    },",
+                    "    'erpsalereturnsheetview #customerOrderDetIndex erpcustomerorderdetgrid':{",
+                    "        itemdblclick: this.doSelectCustomerOrderDet",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'saleReturnSheet';",
+                    "this.foodpaintDetController = 'saleReturnSheetDet';",
+                    "this.masterKey='saleReturnSheet.id';"
+                ]
+            },
+            "designerId": "b9efb595-b565-4e87-bbcf-b93d7b0d63c1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpsalereturnsheetview #detailGrid"
+            },
+            "designerId": "6c920c13-0296-489e-8503-b95d56d693c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpsalereturnsheetview #detailForm"
+            },
+            "designerId": "75d62488-7aab-4928-913c-99f7a7e7cd8c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var cucombo=form.findField('customer.id');",
+                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "1c8807f9-94fc-4746-b997-272eee270d1a"
+        }
+    ]
 }

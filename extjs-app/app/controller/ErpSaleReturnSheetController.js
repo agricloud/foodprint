@@ -14,5 +14,112 @@
  */
 
 Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
-    extend: 'Ext.app.Controller'
+    extend: 'Ext.app.Controller',
+
+    models: [
+        'ErpSaleReturnSheet'
+    ],
+    stores: [
+        'ErpSaleReturnSheetStore'
+    ],
+    views: [
+        'ErpSaleReturnSheetView'
+    ],
+
+    refs: [
+        {
+            ref: 'mainGrid',
+            selector: 'erpsalereturnsheetview #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'erpsalereturnsheetview #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpsalereturnsheetview #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpsalereturnsheetview #detailForm'
+        }
+    ],
+
+    init: function(application) {
+        this.control({
+            'erpsalereturnsheetview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreateAndIndexDetail
+            },
+            'erpsalereturnsheetview #index commonindextoolbar commonshowbtn':{
+                click:this.doShowSaleReturnSheet
+            },
+            'erpsalereturnsheetview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'erpsalereturnsheetview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'erpsalereturnsheetview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'erpsalereturnsheetview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShowSaleReturnSheet
+            },
+            'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowSaleReturnSheetDet
+            },
+            'erpsalereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpsalereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpsalereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpsalereturnsheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowSaleReturnSheetDet
+            },
+            'erpsalereturnsheetview #showDetail #customerOrderDetContainer commonselectbtn':{
+                click:this.activeCustomerOrderDetIndex
+            },
+            'erpsalereturnsheetview #showDetail #customerOrderDetContainer commoncancelbtn':{
+                click:this.doCancelCustomerOrderDet
+            },
+            'erpsalereturnsheetview #showDetail commonitemcombo':{
+                select:this.doCancelCustomerOrderDet
+            },
+            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerordergrid':{
+                select: this.doIndexDetailCustomerOrder
+            },
+            'erpsalereturnsheetview #customerOrderDetIndex erpcustomerorderdetgrid':{
+                itemdblclick: this.doSelectCustomerOrderDet
+            }
+
+        });
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'saleReturnSheet';
+        this.foodpaintDetController = 'saleReturnSheetDet';
+        this.masterKey='saleReturnSheet.id';
+    },
+
+    doShowSaleReturnSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var cucombo=form.findField('customer.id');
+            Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
+
+        });
+    }
+
 });

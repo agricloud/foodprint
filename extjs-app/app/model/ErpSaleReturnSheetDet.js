@@ -36,6 +36,39 @@ Ext.define('foodprint.model.ErpSaleReturnSheetDet', {
             name: 'SaleSheetDet.id'
         },
         {
+            name: 'customerOrderDet.id'
+        },
+        {
+            name: 'customerOrder.id'
+        },
+        {
+            name: 'customerOrderDet.typeName'
+        },
+        {
+            name: 'customerOrderDet.name'
+        },
+        {
+            name: 'customerOrderDet.sequence'
+        },
+        {
+            name: 'warehouse.id'
+        },
+        {
+            name: 'warehouse.name'
+        },
+        {
+            name: 'warehouse.title'
+        },
+        {
+            name: 'warehouseLocation.id'
+        },
+        {
+            name: 'warehouseLocation.name'
+        },
+        {
+            name: 'warehouseLocation.title'
+        },
+        {
             name: 'item.id'
         },
         {
@@ -51,25 +84,13 @@ Ext.define('foodprint.model.ErpSaleReturnSheetDet', {
             name: 'batch.name'
         },
         {
-            name: 'customerOrderDet.id'
-        },
-        {
-            name: 'customerOrderDet.typeName'
-        },
-        {
-            name: 'customerOrderDet.name'
-        },
-        {
-            name: 'customerOrderDet.sequence'
-        },
-        {
-            name: 'customerOrder.id'
+            name: 'qty'
         }
     ],
 
     proxy: {
         type: 'rest',
-        url: '/foodpaint?foodpaintController=saleReturnSheet',
+        url: '/foodpaint?foodpaintController=saleReturnSheetDet',
         reader: {
             type: 'json',
             root: 'data'

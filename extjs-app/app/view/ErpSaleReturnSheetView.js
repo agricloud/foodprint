@@ -312,8 +312,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     xtype: 'numberfield',
                                     flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'saleSheet.id',
-                                    name: 'saleSheet.id',
+                                    fieldLabel: 'saleReturnSheet.id',
+                                    name: 'saleReturnSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -346,7 +346,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'customerOrderDetContainer',
+                                    itemId: 'saleSheetDetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -355,24 +355,24 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'ManufactureOrder.id',
-                                            name: 'customerOrderDet.id',
+                                            fieldLabel: 'salesheet.id',
+                                            name: 'saleSheetDet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'CustomerOrderDet.sheetNum',
-                                            name: 'customerOrderDet.typeName',
+                                            fieldLabel: 'SaleSheetDet.sheetNum',
+                                            name: 'SaleReturnsheetDet.typeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'customerOrderDet.name',
+                                            name: 'saleSheetDet.name',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'customerOrderDet.sequence',
+                                            name: 'saleSheetDet.sequence',
                                             readOnly: true
                                         },
                                         {
@@ -455,11 +455,11 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {
