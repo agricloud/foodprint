@@ -22,7 +22,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonWarehouseCombo',
-        'foodprint.view.CommonStorageLocationCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -362,7 +362,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonstoragelocationcombo'
+                                    xtype: 'commonwarehouselocationcombo'
                                 },
                                 {
                                     xtype: 'textfield',

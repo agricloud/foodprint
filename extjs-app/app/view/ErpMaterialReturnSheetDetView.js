@@ -145,9 +145,11 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                                     flex: 1
                                 },
                                 {
-                                    xtype: 'gridcolumn',
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
                                     dataIndex: 'materialSheetDet.id',
-                                    text: 'materialSheetDet.id'
+                                    text: 'MaterialSheetDet.id',
+                                    flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
