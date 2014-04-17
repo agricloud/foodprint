@@ -36,10 +36,13 @@ Ext.define('foodprint.model.ErpSaleReturnSheetDet', {
             name: 'SaleSheetDet.id'
         },
         {
+            name: 'SaleSheetDet.name'
+        },
+        {
             name: 'SaleSheetDet.typeName'
         },
         {
-            name: 'SaleSheetDet.name'
+            name: 'customerOrderDet.name'
         },
         {
             name: 'SaleSheetDet.sequence'

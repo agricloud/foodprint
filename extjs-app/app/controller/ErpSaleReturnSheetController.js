@@ -117,7 +117,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         this.masterKey='saleReturnSheet.id';
     },
 
-    doIndexDetailSaleSheetDet: function() {
+    doIndexDetailSaleSheet: function(obj, record, index, eOpts) {
         var grid = this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=erpSaleSheetDetGrid]");
 
         grid.getStore().data.clear();
@@ -129,13 +129,13 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         grid.getStore().load();
     },
 
-    doSelectSaleSheetDet: function() {
+    doSelectSaleSheetDet: function(obj, record, index, eOpts) {
         this.getDetailForm().getForm().setValues({
 
-            'saleSheetDet.id':record.data['id'],
-            'saleSheetDet.typeName':record.data['typeName'],
-            'saleSheetDet.name':record.data['name'],
-            'saleSheetDet.sequence':record.data['sequence'],
+            'SaleSheetDet.id':record.data['id'],
+            'SaleSheetDet.typeName':record.data['typeName'],
+            'SaleSheetDet.name':record.data['name'],
+            'SaleSheetDet.sequence':record.data['sequence'],
             'item.id':record.data['item.id'],
             'item.title':record.data['item.title'],
             'qty':record.data['qty']
@@ -150,7 +150,20 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'saleSheetDet.id':null,
             'saleSheetDet.typeName':null,
             'saleSheetDet.name':null,
-            'saleSheetDet.sequence':null
+            'saleSheetDet.sequence':null,
+            'saleSheetDet.batch.id':null,
+            'saleSheetDet.batch.name':null,
+            'item.id':null,
+            'item.name':null,  
+            'item.title':null,
+            'qty':null,
+            'CustomerOrderDet.id':null,
+            'CustomerOrderDet.typeName':null,
+            'CustomerOrderDet.name':null,
+            'CustomerOrderDet.sequence':null,
+
+
+
         });
     },
 
