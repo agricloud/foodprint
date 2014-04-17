@@ -53,15 +53,14 @@ Ext.application({
     ],
     views: [
         'ErpSaleReturnSheetGrid',
-        'ErpSaleReturnSheetView',
-        'ErpSaleReturnSheetDetView',
         'ErpPurchaseSheetGrid',
         'ErpPurchaseSheetView',
         'ErpPurchaseSheetDetView',
         'ErpPurchaseReturnSheetView',
         'ErpPurchaseReturnSheetGrid',
         'ErpSaleSheetView',
-        'ErpSaleSheetGrid'
+        'ErpSaleSheetGrid',
+        'ErpSaleReturnSheetView'
     ],
     autoCreateViewport: true,
     controllers: [
