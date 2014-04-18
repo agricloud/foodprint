@@ -94,7 +94,7 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #showDetail commonselectbtn':{
                 click:this.activeMaterialSheetIndex
             },
-            'erpmaterialreturnsheetview #materialSheetIndex erpmatrialsheetgrid':{
+            'erpmaterialreturnsheetview #materialSheetIndex erpmaterialsheetgrid':{
                 itemdblclick: this.doSelectMaterialSheet
             }
 
@@ -124,9 +124,9 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'materialSheet.typeName':record.data['typeName'],
             'materialSheet.name':record.data['name'],
 
-            'manufactureOrder.id':record.data['manufactureOrder.id'],
+            /*'manufactureOrder.id':record.data['manufactureOrder.id'],
             'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],
-            'manufactureOrder.name':record.data['manufactureOrder.name']
+            'manufactureOrder.name':record.data['manufactureOrder.name']*/
 
         });
         this.activeDetailEditor();
