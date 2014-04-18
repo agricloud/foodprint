@@ -139,7 +139,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'saleSheetDet.sequence':record.data['sequence'],
             'warehouse.id':record.data['warehouse.id'],
             'warehouse.title':record.data['warehouse.title'],
-            //  'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
             'warehouseLocation.title':record.data['warehouseLocation.title'],   
             'item.id':record.data['item.id'],   
             'item.title':record.data['item.title'],
@@ -150,6 +150,9 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
 
         });
 
+        //warehouseLocation combo需指定warehouse id才可load
+        var wlcombo=get('warehouseLocation.id');
+        Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
 
 
         this.activeDetailEditor();

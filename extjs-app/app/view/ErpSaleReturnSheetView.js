@@ -388,8 +388,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     ]
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo',
-                                    readOnly: false
+                                    xtype: 'commonwarehousecombo'
                                 },
                                 {
                                     xtype: 'textfield',
