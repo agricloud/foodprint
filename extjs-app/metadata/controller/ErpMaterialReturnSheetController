@@ -105,10 +105,10 @@
                     "        itemdblclick: this.doShowMaterialReturnSheetDet",
                     "    },",
                     "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
-                    "        click:this.activeMaterialSheetDetIndex",
+                    "        click:this.activeMaterialSheetIndex",
                     "    },",
-                    "    'erpmaterialreturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{",
-                    "        itemdblclick: this.doSelectManufactureOrder",
+                    "    'erpmaterialreturnsheetview #materialSheetIndex erpmatrialsheetgrid':{",
+                    "        itemdblclick: this.doSelectMaterialSheet",
                     "    }",
                     "",
                     "});",
@@ -171,6 +171,35 @@
                 ]
             },
             "designerId": "35349635-3109-4443-b36a-3a13ff7d396b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectMaterialSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'materialSheet.id':record.data['id'],",
+                    "    'materialSheet.typeName':record.data['typeName'],",
+                    "    'materialSheet.name':record.data['name'],",
+                    "",
+                    "    'manufactureOrder.id':record.data['manufactureOrder.id'],",
+                    "    'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],",
+                    "    'manufactureOrder.name':record.data['manufactureOrder.name']",
+                    "",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "6334faec-b7b7-4838-88cc-3a9594f8858e"
         },
         {
             "type": "basicfunction",

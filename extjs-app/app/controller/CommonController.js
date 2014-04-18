@@ -261,9 +261,9 @@ Ext.define('foodprint.controller.CommonController', {
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
     },
 
-    activeMaterialSheetDetIndex: function() {
+    activeMaterialSheetIndex: function() {
 
-        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]"));
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=materialSheetIndex]"));
     },
 
     activeCustomerOrderDetIndex: function() {

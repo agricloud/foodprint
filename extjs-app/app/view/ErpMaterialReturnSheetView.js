@@ -334,7 +334,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'materialSheetDetContainer',
+                                    itemId: 'materialSheetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -343,19 +343,19 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'MaterialSheetDet.id',
-                                            name: 'materialSheetDet.id',
+                                            fieldLabel: 'MaterialSheet.id',
+                                            name: 'materialSheet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'MaterialSheetDet.typeName',
-                                            name: 'materialSheetDet.typeName',
+                                            fieldLabel: 'MaterialSheet.typeName',
+                                            name: 'materialSheet.typeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'materialSheetDet.name',
+                                            name: 'materialSheet.name',
                                             readOnly: true
                                         },
                                         {
@@ -364,35 +364,23 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     ]
                                 },
                                 {
-                                    xtype: 'fieldcontainer',
-                                    itemId: 'manufactureOrderContainer',
-                                    layout: {
-                                        align: 'stretch',
-                                        type: 'hbox'
-                                    },
-                                    items: [
-                                        {
-                                            xtype: 'numberfield',
-                                            hidden: true,
-                                            fieldLabel: 'ManufactureOrder.id',
-                                            name: 'manufactureOrder.id',
-                                            readOnly: true
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            fieldLabel: 'ManufactureOrder.sheetNum',
-                                            name: 'manufactureOrder.typeName',
-                                            readOnly: true
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            name: 'manufactureOrder.name',
-                                            readOnly: true
-                                        },
-                                        {
-                                            xtype: 'commonselectbtn'
-                                        }
-                                    ]
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'ManufactureOrder.id',
+                                    name: 'manufactureOrder.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'ManufactureOrder.sheetNum',
+                                    name: 'manufactureOrder.typeName',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'ManufactureOrder.name',
+                                    name: 'manufactureOrder.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'commonwarehousecombo'
@@ -460,7 +448,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                 },
                 {
                     xtype: 'panel',
-                    itemId: 'materialSheetDetIndex',
+                    itemId: 'materialSheetIndex',
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
