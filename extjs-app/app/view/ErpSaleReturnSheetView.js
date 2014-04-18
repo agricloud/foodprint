@@ -356,23 +356,23 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             xtype: 'numberfield',
                                             hidden: true,
                                             fieldLabel: 'saleSheetDet.id',
-                                            name: 'SaleSheetDet.id',
+                                            name: 'saleSheetDet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
                                             fieldLabel: 'SaleSheetDet.sheetNum',
-                                            name: 'SaleSheetDet.typeName',
+                                            name: 'saleSheetDet.typeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'SaleSheetDet.name',
+                                            name: 'saleSheetDet.name',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'SaleSheetDet.sequence',
+                                            name: 'saleSheetDet.sequence',
                                             readOnly: true
                                         },
                                         {
