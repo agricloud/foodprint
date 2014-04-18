@@ -149,7 +149,6 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'qty':record.data['qty']
         });
 
-
         this.activeDetailEditor();
     },
 
