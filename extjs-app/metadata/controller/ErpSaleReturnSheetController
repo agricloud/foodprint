@@ -198,16 +198,18 @@
                 ],
                 "implHandler": [
                     "this.getDetailForm().getForm().setValues({",
-                    "    ",
+                    "",
                     "    'SaleSheetDet.id':record.data['id'],",
                     "    'SaleSheetDet.typeName':record.data['typeName'],",
                     "    'SaleSheetDet.name':record.data['name'],",
                     "    'SaleSheetDet.sequence':record.data['sequence'],",
-                    "    'item.id':record.data['item.id'],",
+                    "    'item.id':record.data['item.id'],   ",
                     "    'item.title':record.data['item.title'],",
+                    "    'batch.name':record.data['batch.name'],",
                     "    'qty':record.data['qty']",
                     "});",
                     "this.reloadBatchComboByItem(record.data['item.id']);",
+                    "",
                     "this.activeDetailEditor();"
                 ]
             },
@@ -239,9 +241,9 @@
                     "    'CustomerOrderDet.typeName':null,",
                     "    'CustomerOrderDet.name':null,",
                     "    'CustomerOrderDet.sequence':null,",
-                    "    ",
-                    "    ",
-                    "    ",
+                    "",
+                    "",
+                    "",
                     "});"
                 ]
             },
@@ -263,8 +265,9 @@
                     "var combo = this.getDetailForm().down(\"combo[itemId=commonBatchCombo]\");",
                     "combo.getStore().load({",
                     "    url:'/batch/indexByItem',",
-                    "    params: {'item.id': itemId}",
+                    "    params: {'item.id': itemId},",
                     "});",
+                    "",
                     "//combo在remote模式下",
                     "//設定第一次trigger時自動load",
                     "//造成此處指定查詢的Batch結果會被覆蓋",
@@ -288,7 +291,7 @@
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
                     "    //在此使combo重新load store",
-                    "      var cucombo=form.findField('customer.id');",
+                    "    var cucombo=form.findField('customer.id');",
                     "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
                     "",
                     "});"

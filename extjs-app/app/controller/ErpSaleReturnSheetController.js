@@ -136,11 +136,13 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'SaleSheetDet.typeName':record.data['typeName'],
             'SaleSheetDet.name':record.data['name'],
             'SaleSheetDet.sequence':record.data['sequence'],
-            'item.id':record.data['item.id'],
+            'item.id':record.data['item.id'],   
             'item.title':record.data['item.title'],
+            'batch.name':record.data['batch.name'],
             'qty':record.data['qty']
         });
         this.reloadBatchComboByItem(record.data['item.id']);
+
         this.activeDetailEditor();
     },
 
@@ -171,8 +173,9 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
         combo.getStore().load({
             url:'/batch/indexByItem',
-            params: {'item.id': itemId}
+            params: {'item.id': itemId},
         });
+
         //combo在remote模式下
         //設定第一次trigger時自動load
         //造成此處指定查詢的Batch結果會被覆蓋
