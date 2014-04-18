@@ -105,10 +105,10 @@
                     "        itemdblclick: this.doShowMaterialReturnSheetDet",
                     "    },",
                     "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
-                    "        click:this.activeMaterialSheetIndex",
+                    "        click:this.activeMaterialSheetDetIndex",
                     "    },",
-                    "    'erpmaterialreturnsheetview #materialSheetIndex erpmaterialsheetgrid':{",
-                    "        itemdblclick: this.doSelectMaterialSheet",
+                    "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{",
+                    "        itemdblclick: this.doSelectMaterialSheetDet",
                     "    }",
                     "",
                     "});",
@@ -209,6 +209,31 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doSelectMaterialSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'materialSheetDet.id':record.data['id'],",
+                    "    'materialSheetDet.typeName':record.data['typeName'],",
+                    "    'materialSheetDet.name':record.data['name']",
+                    "",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "82ee89ab-7fd0-4cb1-91f2-4d486cb75054"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowMaterialReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
@@ -248,10 +273,10 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
-                    "    ",
+                    "",
                     "    var msdcombo=form.findField('materialSheetDet.id');",
                     "    Utilities.comboReload(msdcombo,action.result.data['materialSheetDet.id'],action.result.data['materialSheetDet.name']);",
-                    "    ",
+                    "",
                     "});"
                 ]
             },
