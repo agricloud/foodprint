@@ -26,6 +26,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpManufactureOrderGrid',
+        'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -333,6 +334,37 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
+                                    itemId: 'materialSheetDetContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'MaterialSheetDet.id',
+                                            name: 'materialSheetDet.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'MaterialSheetDet.typeName',
+                                            name: 'materialSheetDet.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'materialSheetDet.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
                                     itemId: 'manufactureOrderContainer',
                                     layout: {
                                         align: 'stretch',
@@ -422,6 +454,20 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                         {
                             xtype: 'erpmanufactureordergrid',
                             title: 'manufactureOrder',
+                            flex: 1
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'materialSheetDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpmaterialsheetgrid',
                             flex: 1
                         }
                     ]

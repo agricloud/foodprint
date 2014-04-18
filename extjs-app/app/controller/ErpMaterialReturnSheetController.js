@@ -92,7 +92,7 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 itemdblclick: this.doShowMaterialReturnSheetDet
             },
             'erpmaterialreturnsheetview #showDetail commonselectbtn':{
-                click:this.activeManufactureOrderIndex
+                click:this.activeMaterialSheetDetIndex
             },
             'erpmaterialreturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{
                 itemdblclick: this.doSelectManufactureOrder
