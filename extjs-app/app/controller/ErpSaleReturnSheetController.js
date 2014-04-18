@@ -151,7 +151,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         });
 
         //warehouseLocation combo需指定warehouse id才可load
-        var wlcombo=get('warehouseLocation.id');
+        var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
         Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
 
 
