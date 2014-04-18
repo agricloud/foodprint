@@ -388,7 +388,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     ]
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    readOnly: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -406,16 +407,19 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonitemcombo',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Item.title',
-                                    name: 'item.title'
+                                    name: 'item.title',
+                                    readOnly: true
                                 },
                                 {
-                                    xtype: 'commonbatchcombo'
+                                    xtype: 'commonbatchcombo',
+                                    readOnly: true,
+                                    editable: false
                                 },
                                 {
                                     xtype: 'numberfield',

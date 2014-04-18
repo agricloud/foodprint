@@ -136,12 +136,19 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'SaleSheetDet.typeName':record.data['typeName'],
             'SaleSheetDet.name':record.data['name'],
             'SaleSheetDet.sequence':record.data['sequence'],
+            'warehouse.id':record.data[' warehouse.id'],
+            'warehouse.name':record.data['warehouse.name'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data[' warehouseLocation.id'],    
+            'warehouseLocation.name':record.data['warehouseLocation.name'],      
+            'warehouseLocation.title':record.data['warehouseLocation.title'],   
             'item.id':record.data['item.id'],   
             'item.title':record.data['item.title'],
+            'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
             'qty':record.data['qty']
         });
-        this.reloadBatchComboByItem(record.data['item.id']);
+
 
         this.activeDetailEditor();
     },
@@ -149,12 +156,17 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
     doCancelSaleSheetDet: function() {
 
         this.getDetailForm().getForm().setValues({
-            'saleSheetDet.id':null,
-            'saleSheetDet.typeName':null,
-            'saleSheetDet.name':null,
-            'saleSheetDet.sequence':null,
-            'saleSheetDet.batch.id':null,
-            'saleSheetDet.batch.name':null,
+
+            'SaleSheetDet.id':null,
+            'SaleSheetDet.typeName':null,
+            'SaleSheetDet.name':null,
+            'SaleSheetDet.sequence':null,
+            'warehouse.id':null,
+            'warehouse.name':null,
+            'warehouse.title':null,
+            'warehouseLocation.id':null,    
+            'warehouseLocation.name':null,
+            'warehouseLocation.title':null, 
             'item.id':null,
             'item.name':null,  
             'item.title':null,
@@ -163,24 +175,12 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'CustomerOrderDet.typeName':null,
             'CustomerOrderDet.name':null,
             'CustomerOrderDet.sequence':null,
-
+            'batch.id':null,
+            'batch.name':null,
+            'qty':null,
 
 
         });
-    },
-
-    reloadBatchComboByItem: function(itemId) {
-        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
-        combo.getStore().load({
-            url:'/batch/indexByItem',
-            params: {'item.id': itemId},
-        });
-
-        //combo在remote模式下
-        //設定第一次trigger時自動load
-        //造成此處指定查詢的Batch結果會被覆蓋
-        //給定lastQuery使系統默認為已load過
-        combo.lastQuery='';
     },
 
     doShowSaleReturnSheet: function() {
