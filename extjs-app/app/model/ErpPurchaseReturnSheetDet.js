@@ -33,7 +33,7 @@ Ext.define('foodprint.model.ErpPurchaseReturnSheetDet', {
             name: 'sequence'
         },
         {
-            name: 'purchaseSheet.id'
+            name: 'purchaseSheetDet.id'
         },
         {
             name: 'item.id'
@@ -51,13 +51,31 @@ Ext.define('foodprint.model.ErpPurchaseReturnSheetDet', {
             name: 'batch.name'
         },
         {
+            name: 'warehouse.id'
+        },
+        {
+            name: 'warehouse.name'
+        },
+        {
+            name: 'warehouse.title'
+        },
+        {
+            name: 'warehouseLocation.id'
+        },
+        {
+            name: 'warehouseLocation.name'
+        },
+        {
+            name: 'warehouseLocation.title'
+        },
+        {
             name: 'qty'
         }
     ],
 
     proxy: {
         type: 'rest',
-        url: 'http://localhost:8180/purchaseReturnSheetDet',
+        url: '/foodpaint?foodpaintController=purchaseReturnSheetDet',
         reader: {
             type: 'json',
             root: 'data'

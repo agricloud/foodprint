@@ -39,11 +39,11 @@ Ext.define('foodprint.model.ErpPurchaseReturnSheet', {
 
     proxy: {
         type: 'rest',
-        url: 'http://localhost:8180/purchaseReturmSheet',
+        url: '/foodpaint?foodpaintController=purchaseReturnSheet',
         reader: {
             type: 'json',
             root: 'purchaseReturnSheetInstanceList',
-            totalProperty: 'purchaseSheetInstanceTotal'
+            totalProperty: 'purchaseReturnSheetInstanceTotal'
         }
     }
 });
