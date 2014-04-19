@@ -22,10 +22,12 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
         'foodprint.view.CommonWorkstationCombo',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpManufactureOrderGrid',
+        'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.ErpMaterialSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -343,23 +345,36 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'MaterialSheet.id',
-                                            name: 'materialSheet.id',
+                                            fieldLabel: 'MaterialSheetDet.id',
+                                            name: 'materialSheetDet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'MaterialSheet.typeName',
-                                            name: 'materialSheet.typeName',
+                                            fieldLabel: 'MaterialSheetDet.typeName',
+                                            name: 'materialSheetDet.typeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'materialSheet.name',
+                                            name: 'materialSheetDet.name',
                                             readOnly: true
+                                        },
+                                        {
+                                            xtype: 'numberfield',
+                                            fieldLabel: '',
+                                            name: 'materialSheetDet.sequence',
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'commonselectbtn'
+                                        },
+                                        {
+                                            xtype: 'commoncancelbtn',
+                                            frame: false,
+                                            glyph: 0,
+                                            margins: '1'
                                         }
                                     ]
                                 },
@@ -435,6 +450,10 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                         type: 'vbox'
                     },
                     items: [
+                        {
+                            xtype: 'erpmaterialsheetgrid',
+                            flex: 1
+                        },
                         {
                             xtype: 'erpmaterialsheetdetgrid',
                             flex: 1

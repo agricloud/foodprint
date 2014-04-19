@@ -107,9 +107,19 @@
                     "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeMaterialSheetDetIndex",
                     "    },",
+                    "    'erpmaterialreturnsheetview #customerOrderDetIndex erpmaterialsheetgrid':{",
+                    "        select: this.doIndexDetailMaterialSheet",
+                    "    },",
                     "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{",
                     "        itemdblclick: this.doSelectMaterialSheetDet",
                     "    }",
+                    "    /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{",
+                    "        click:this.doCancelMaterialSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonitemcombo':{",
+                    "        select:this.doCancelMaterialSheetDet",
+                    "    }*/",
+                    "",
                     "",
                     "});",
                     "",
@@ -147,30 +157,6 @@
                 "selector": "erpmaterialreturnsheetview #detailForm"
             },
             "designerId": "5f21d804-a0a0-4145-837a-24b530da47e5"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSelectManufactureOrder",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'manufactureOrder.id':record.data['id'],",
-                    "    'manufactureOrder.typeName':record.data['typeName'],",
-                    "    'manufactureOrder.name':record.data['name']",
-                    "});",
-                    "this.activeDetailEditor();"
-                ]
-            },
-            "designerId": "35349635-3109-4443-b36a-3a13ff7d396b"
         },
         {
             "type": "basicfunction",
@@ -225,6 +211,53 @@
                 ]
             },
             "designerId": "82ee89ab-7fd0-4cb1-91f2-4d486cb75054"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailMaterialSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=erpMaterialSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"materialSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "56f9ff8e-1248-4319-87a2-0f3419870f4d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelMaterialSheetDet",
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "    'materialSheetDet.id':null,",
+                    "    'materialSheetDet.typeName':null,",
+                    "    'materialSheetDet.name':null,",
+                    "    'materialSheetDet.sequence':null",
+                    "});"
+                ]
+            },
+            "designerId": "429e10ad-12cf-4543-bb80-43337e920776"
         },
         {
             "type": "basicfunction",

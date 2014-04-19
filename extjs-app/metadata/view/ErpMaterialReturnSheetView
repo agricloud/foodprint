@@ -812,8 +812,8 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "MaterialSheet.id",
-                                        "name": "materialSheet.id",
+                                        "fieldLabel": "MaterialSheetDet.id",
+                                        "name": "materialSheetDet.id",
                                         "readOnly": true
                                     },
                                     "designerId": "f885ffb5-3710-4c3f-a15a-5ac91ee97d59"
@@ -828,8 +828,8 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "MaterialSheet.typeName",
-                                        "name": "materialSheet.typeName",
+                                        "fieldLabel": "MaterialSheetDet.typeName",
+                                        "name": "materialSheetDet.typeName",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
@@ -846,11 +846,28 @@
                                         "layout|flex": null,
                                         "disabled": null,
                                         "fieldLabel": null,
-                                        "name": "materialSheet.name",
+                                        "name": "materialSheetDet.name",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
                                     "designerId": "0f129a77-4f02-4e8b-9e84-89624db81e77"
+                                },
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": "",
+                                        "name": "materialSheetDet.sequence",
+                                        "readOnly": true,
+                                        "allowBlank": false
+                                    },
+                                    "designerId": "2c52ea59-0728-4a00-9694-6ddf201b0e30"
                                 },
                                 {
                                     "type": "linkedinstance",
@@ -864,6 +881,23 @@
                                     },
                                     "designerId": "ba82e07f-b0ee-4668-b8dc-623c9e1018f8",
                                     "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "frame": false,
+                                        "margin": null,
+                                        "glyph": 0,
+                                        "layout|flex": null,
+                                        "layout|margins": "1"
+                                    },
+                                    "designerId": "94e6d4e6-fc9e-48bf-970b-b593e8b3d3f8",
+                                    "masterInstanceId": "54035366-0ec4-4e3f-9b1a-81680113395d"
                                 }
                             ]
                         },
@@ -1088,6 +1122,19 @@
                 }
             ],
             "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "be783382-32e3-4730-9874-283a727c9a0d",
+                    "masterInstanceId": "da96b793-9530-4913-a5f4-fe887f4aada2"
+                },
                 {
                     "type": "linkedinstance",
                     "reference": {

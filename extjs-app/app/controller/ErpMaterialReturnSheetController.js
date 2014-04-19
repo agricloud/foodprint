@@ -94,9 +94,19 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #showDetail commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
             },
+            'erpmaterialreturnsheetview #customerOrderDetIndex erpmaterialsheetgrid':{
+                select: this.doIndexDetailMaterialSheet
+            },
             'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{
                 itemdblclick: this.doSelectMaterialSheetDet
             }
+            /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{
+            click:this.doCancelMaterialSheetDet
+            },
+            'erpmaterialreturnsheetview #showDetail commonitemcombo':{
+            select:this.doCancelMaterialSheetDet
+            }*/
+
 
         });
 
@@ -105,16 +115,6 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
         this.foodpaintController = 'materialReturnSheet';
         this.foodpaintDetController = 'materialReturnSheetDet';
         this.masterKey='materialReturnSheet.id';
-    },
-
-    doSelectManufactureOrder: function(obj, record, index, eOpts) {
-        this.getDetailForm().getForm().setValues({
-
-            'manufactureOrder.id':record.data['id'],
-            'manufactureOrder.typeName':record.data['typeName'],
-            'manufactureOrder.name':record.data['name']
-        });
-        this.activeDetailEditor();
     },
 
     doSelectMaterialSheet: function(obj, record, index, eOpts) {
@@ -141,6 +141,28 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
 
         });
         this.activeDetailEditor();
+    },
+
+    doIndexDetailMaterialSheet: function(obj, record, index, eOpts) {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=erpMaterialSheetDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["materialSheet.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+    },
+
+    doCancelMaterialSheetDet: function() {
+
+        this.getDetailForm().getForm().setValues({
+            'materialSheetDet.id':null,
+            'materialSheetDet.typeName':null,
+            'materialSheetDet.name':null,
+            'materialSheetDet.sequence':null
+        });
     },
 
     doShowMaterialReturnSheet: function() {
