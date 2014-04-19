@@ -261,19 +261,19 @@ Ext.define('foodprint.controller.CommonController', {
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
     },
 
-    activeMaterialSheetDetIndex: function() {
-
-        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]"));
-
-        var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=materialSheetDetGrid]");
-
-    },
-
     activeCustomerOrderDetIndex: function() {
 
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
 
         var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
+
+    },
+
+    activeMaterialSheetDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]"));
+
+        //var MaterialSheetDetGrid=this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=materialSheetDetGrid]");
 
     },
 

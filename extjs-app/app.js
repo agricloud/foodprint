@@ -37,7 +37,7 @@ Ext.application({
         noCache: true//,format: 'json'
     },
     views: [
-        'ErpMaterialReturnSheetGrid',
+        'ErpMaterialSheetGrid',
         'ErpMaterialSheetDetGrid'
     ],
     autoCreateViewport: true,

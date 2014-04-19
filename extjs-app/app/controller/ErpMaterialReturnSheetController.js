@@ -94,10 +94,10 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #showDetail commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
             },
-            'erpmaterialreturnsheetview #customerOrderDetIndex erpmaterialsheetgrid':{
+            'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{
                 select: this.doIndexDetailMaterialSheet
             },
-            'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{
+            'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid #detailGrid':{
                 itemdblclick: this.doSelectMaterialSheetDet
             }
             /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{
@@ -144,15 +144,18 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
     },
 
     doIndexDetailMaterialSheet: function(obj, record, index, eOpts) {
-        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=erpMaterialSheetDetGrid]");
+        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("panel[itemId=erpMaterialSheetDetGrid]").down("grid[itemId=detailGrid]");
+        console.log();
+        var store=grid.getStore(grid);
+        console.log(store);
 
-        grid.getStore().data.clear();
+        store.data.clear();
 
-        var params = {}
+        var params = {};
         params["materialSheet.id"]=record.data.id;
 
-        grid.getStore().getProxy().extraParams = params;
-        grid.getStore().load();
+        store.getProxy().extraParams = params;
+        store.load();
     },
 
     doCancelMaterialSheetDet: function() {

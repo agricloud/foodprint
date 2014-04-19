@@ -450,25 +450,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activeMaterialSheetDetIndex",
-                "implHandler": [
-                    "",
-                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));",
-                    "",
-                    "var customerOrderDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=materialSheetDetGrid]\");",
-                    ""
-                ]
-            },
-            "designerId": "d21d71f1-045f-4db0-a929-b4dd91ec9a5a"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "activeCustomerOrderDetIndex",
                 "implHandler": [
                     "",
@@ -479,6 +460,25 @@
                 ]
             },
             "designerId": "cab8fcfd-1ca6-4855-beda-3c4dcd0a7422"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeMaterialSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));",
+                    "",
+                    "//var MaterialSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=materialSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "30e93b37-8e75-479e-ac37-749d754eeb14"
         },
         {
             "type": "basicfunction",
