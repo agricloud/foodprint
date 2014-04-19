@@ -36,14 +36,9 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    models: [
-        'ErpPurchaseSheetDet',
-        'ErpPurchaseSheet',
-        'ErpPurchaseReturnSheetDet'
-    ],
-    stores: [
-        'ErpPurchaseReturnSheetDetStore',
-        'ErpPurchaseReturnSheetStore'
+    views: [
+        'ErpPurchaseSheetView',
+        'ErpPurchaseSheetDetGrid'
     ],
     autoCreateViewport: true,
     controllers: [

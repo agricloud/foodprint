@@ -20,7 +20,12 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
     requires: [
         'foodprint.view.ErpPurchaseReturnSheetGrid',
         'foodprint.view.CommonSupplierCombo',
+        'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonCancelBtn',
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonItemCombo',
+        'foodprint.view.ErpPurchaseSheetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -153,16 +158,47 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                             format: '0,000'
                                         },
                                         {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'PurchaseSheetDet.name',
+                                            text: 'Purchasesheetdet.name',
+                                            flex: 1
+                                        },
+                                        {
                                             xtype: 'numbercolumn',
                                             hidden: true,
-                                            dataIndex: 'purchaseSheetDet.id',
-                                            text: 'purchaseSheetDet.id',
+                                            dataIndex: 'warehouse.id',
+                                            text: 'Warehouse.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'purchaseSheetDet.name',
-                                            text: 'purchaseSheetDet.name',
+                                            dataIndex: 'warehouse.name',
+                                            text: 'Warehouse.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouse.title',
+                                            text: 'Warehouse.title',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'warehouseLocation.id',
+                                            text: 'WarehouseLocation.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouseLocation.name',
+                                            text: 'WarehouseLocation.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'warehouseLocation.title',
+                                            text: 'WarehouseLocation.title',
                                             flex: 1
                                         },
                                         {
@@ -206,7 +242,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     ],
                                     listeners: {
                                         beforerender: {
-                                            fn: me.onGridBeforeRender1,
+                                            fn: me.onGridBeforeRender11,
                                             scope: me
                                         }
                                     }
@@ -254,13 +290,6 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'purchaseReturnSheet.name',
-                                    name: 'purchaseReturnSheet.name',
-                                    readOnly: true,
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'textfield',
                                     fieldLabel: 'typeName',
                                     name: 'typeName',
                                     readOnly: true,
@@ -281,12 +310,75 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Batch.name',
-                                    name: 'batch.name'
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'saleSheetDetContainer1',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'saleSheetDet.id',
+                                            name: 'saleSheetDet.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'PurchaseSheetDet.sheetNum',
+                                            name: 'purchaseSheetDet.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'purchaseSheetDet.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'purchaseSheetDet.sequence',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn',
+                                            margins: '1'
+                                        },
+                                        {
+                                            xtype: 'commoncancelbtn',
+                                            frame: false,
+                                            glyph: 0,
+                                            margins: '1'
+                                        }
+                                    ]
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'commonwarehouselocationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'WarehouseLocation.title',
+                                    name: 'warehouseLocation.title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'commonitemcombo',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
@@ -301,6 +393,20 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                 }
                             ]
                         })
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'purchaseSheetDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erppurchasesheetgrid',
+                            flex: 1
+                        }
                     ]
                 }
             ]
@@ -321,7 +427,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
         return Utilities.processConfigBundle(config, 'purchaseSheetDet');
     },
 
-    onGridBeforeRender1: function(component, eOpts) {
+    onGridBeforeRender11: function(component, eOpts) {
         component.getStore().removeAll();
     }
 

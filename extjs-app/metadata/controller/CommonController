@@ -469,6 +469,25 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "activeSaleSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\"));",
+                    "",
+                    "var saleSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=saleSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "0956aa03-26a6-4d62-966b-ef77afddd7a4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doCreateAndIndexDetail",
                 "implHandler": [
                     "this.doCreate();",
