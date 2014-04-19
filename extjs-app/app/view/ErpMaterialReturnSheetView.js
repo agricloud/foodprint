@@ -23,9 +23,6 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
-        'foodprint.view.CommonWarehouseCombo',
-        'foodprint.view.CommonWarehouseLocationCombo',
-        'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.ErpMaterialSheetDetGrid',
@@ -361,11 +358,9 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                             readOnly: true
                                         },
                                         {
-                                            xtype: 'numberfield',
-                                            fieldLabel: '',
+                                            xtype: 'textfield',
                                             name: 'materialSheetDet.sequence',
-                                            readOnly: true,
-                                            allowBlank: false
+                                            readOnly: true
                                         },
                                         {
                                             xtype: 'commonselectbtn'
@@ -377,27 +372,6 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                             margins: '1'
                                         }
                                     ]
-                                },
-                                {
-                                    xtype: 'commonwarehousecombo'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title'
-                                },
-                                {
-                                    xtype: 'commonwarehouselocationcombo'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'StorageLocation.title',
-                                    name: 'storageLocation.title'
-                                },
-                                {
-                                    xtype: 'commonbatchcombo'
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -417,6 +391,42 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Item.title',
                                     name: 'item.title'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.id',
+                                    name: 'warehouse.id'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Warehouse.title',
+                                    name: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    disabled: true,
+                                    fieldLabel: 'WarehouseLocation.id',
+                                    name: 'warehouseLocation.id'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'WarehouseLocation.title',
+                                    name: 'warehouseLocation.title'
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    disabled: true,
+                                    fieldLabel: 'Batch.id',
+                                    name: 'batch.id'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name'
                                 },
                                 {
                                     xtype: 'numberfield',
