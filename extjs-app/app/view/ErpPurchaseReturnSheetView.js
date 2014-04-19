@@ -26,6 +26,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.ErpPurchaseSheetGrid',
+        'foodprint.view.ErpPurchaseSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -405,6 +406,10 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                     items: [
                         {
                             xtype: 'erppurchasesheetgrid',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'erppurchasesheetdetgrid',
                             flex: 1
                         }
                     ]

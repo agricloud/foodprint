@@ -790,6 +790,42 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "erpPurchaseReturnSheetMaintain",
+                                "text": "PurchaseReturnSheet Maintain"
+                            },
+                            "designerId": "05af3d13-c44f-46d5-9cc3-be19217780a0",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "bff39ac9-c7ab-4329-b76c-774a07d13948"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "hidden": true,
                                 "itemId": "erpPurchaseSheetDetMaintain",
                                 "text": "PurchaseSheetDet Maintain"

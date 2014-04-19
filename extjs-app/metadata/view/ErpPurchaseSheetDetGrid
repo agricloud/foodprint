@@ -7,13 +7,14 @@
     "codeClass": null,
     "userConfig": {
         "height": null,
-        "itemId": "erpSaleSheetDetGrid",
+        "itemId": "erpPurchaseSheetDetGrid",
         "padding": null,
         "width": null,
         "designer|userClassName": "ErpPurchaseSheetDetGrid",
+        "designer|userAlias": "erppurchasesheetdetgrid",
         "autoScroll": true,
-        "title": "PurchaseSheetDet",
-        "store": "ErpSaleSheetDetStore"
+        "title": "PurchaseSheetDetGrid",
+        "store": "ErpPurchaseSheetDetStore"
     },
     "configAlternates": {
         "tbar": "object"
@@ -307,70 +308,6 @@
             "designerId": "fb5b4aa6-516d-48b5-88db-b3f432017876"
         },
         {
-            "type": "Ext.grid.column.Number",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": true,
-                "width": null,
-                "defaultWidth": null,
-                "dataIndex": "customerOrderDet.id",
-                "groupable": null,
-                "text": "CustomerOrderDet.id",
-                "flex": 1
-            },
-            "designerId": "88476e4a-72a9-4d61-a65b-7b4cb6ed29d1"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.typeName",
-                "text": "CustomerOrderDet.typeName",
-                "flex": 1
-            },
-            "designerId": "2a3b98cc-c8c3-4d1b-a3b5-6c73dfbab450"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.name",
-                "text": "CustomerOrderDet.name",
-                "flex": 1
-            },
-            "designerId": "b41cdca8-c92f-4997-93ce-f3d48a6781b6"
-        },
-        {
-            "type": "Ext.grid.column.Number",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.sequence",
-                "text": "CustomerOrderDet.sequence",
-                "flex": 1,
-                "format": "0,000"
-            },
-            "designerId": "f2b2eb83-b6fe-42d3-80e5-00e68aee6e76"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -378,9 +315,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpSaleSheetDetGrid",
+                "fn": "processErpPurchaseSheetDetGrid",
                 "implHandler": [
-                    "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                    "return Utilities.processConfigBundle(config, 'purchaseSheetDetGrid');"
                 ]
             },
             "designerId": "4573f955-c97f-4a4c-9518-d4af2bf61bf3"

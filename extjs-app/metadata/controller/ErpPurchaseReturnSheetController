@@ -1,0 +1,199 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpPurchaseReturnSheet",
+            "ErpPurchaseReturnSheetDet"
+        ],
+        "stores": [
+            "ErpPurchaseReturnSheetDetStore",
+            "ErpSaleReturnSheetDetStore"
+        ],
+        "views": [
+            "ErpPurchaseReturnSheetView"
+        ],
+        "designer|userClassName": "ErpPurchaseReturnSheetController",
+        "mixins": [
+            " {",
+            "        commonController: 'foodprint.controller.CommonController'",
+            "    }"
+        ]
+    },
+    "designerId": "fe81dde9-ff23-4169-92f4-8a33c7683ea8",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erppurchasereturnsheetview #grid"
+            },
+            "designerId": "bcc748dd-4490-49ec-b646-1b6638cc2ac8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erppurchasereturnsheetview #form"
+            },
+            "designerId": "65d53d26-d07c-4b73-9def-c3d9630783af"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erppurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowPurchaseReturnSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erppurchasereturnsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowPurchaseReturnSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowPurchaseSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowPurchaseReturnSheetDet",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'purchaseReturnSheet';",
+                    "this.foodpaintDetController = 'purchaseReturnSheetDet';",
+                    "this.masterKey='purchaseReturnSheet.id';"
+                ]
+            },
+            "designerId": "b897eaf3-7813-49a8-a3eb-cce643dfe6c5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erppurchasereturnsheetview #detailGrid"
+            },
+            "designerId": "6fa00759-d8be-48ba-b9c4-80b1cd704cc8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erppurchasereturnsheetview #detailForm"
+            },
+            "designerId": "0b203f8f-6122-48df-bbe7-815dd45bc8f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowPurchaseReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "c973a430-36b6-42ca-bc9c-d7f4618e5da4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowPurchaseReturnSheetDet",
+                "implHandler": [
+                    "",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "});"
+                ]
+            },
+            "designerId": "435ea23a-c794-49db-b8c5-10ffa6d0a4ad"
+        }
+    ]
+}

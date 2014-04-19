@@ -15,11 +15,12 @@
 
 Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
     extend: 'Ext.grid.Panel',
+    alias: 'widget.erppurchasesheetdetgrid',
 
-    itemId: 'erpSaleSheetDetGrid',
+    itemId: 'erpPurchaseSheetDetGrid',
     autoScroll: true,
-    title: 'PurchaseSheetDet',
-    store: 'ErpSaleSheetDetStore',
+    title: 'PurchaseSheetDetGrid',
+    store: 'ErpPurchaseSheetDetStore',
 
     initComponent: function() {
         var me = this;
@@ -135,32 +136,6 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
                     dataIndex: 'qty',
                     text: 'qty',
                     flex: 1
-                },
-                {
-                    xtype: 'numbercolumn',
-                    hidden: true,
-                    dataIndex: 'customerOrderDet.id',
-                    text: 'CustomerOrderDet.id',
-                    flex: 1
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'customerOrderDet.typeName',
-                    text: 'CustomerOrderDet.typeName',
-                    flex: 1
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'customerOrderDet.name',
-                    text: 'CustomerOrderDet.name',
-                    flex: 1
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'customerOrderDet.sequence',
-                    text: 'CustomerOrderDet.sequence',
-                    flex: 1,
-                    format: '0,000'
                 }
             ]
         });
@@ -172,8 +147,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
         component.getStore().removeAll();
     },
 
-    processErpSaleSheetDetGrid: function() {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+    processErpPurchaseSheetDetGrid: function() {
+        return Utilities.processConfigBundle(config, 'purchaseSheetDetGrid');
     }
 
 });
