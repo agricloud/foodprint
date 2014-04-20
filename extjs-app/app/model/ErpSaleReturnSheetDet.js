@@ -18,7 +18,7 @@ Ext.define('foodprint.model.ErpSaleReturnSheetDet', {
 
     fields: [
         {
-            name: 'SaleReturnSheetDet.id'
+            name: 'saleReturnSheetDet.id'
         },
         {
             name: 'id'
@@ -33,19 +33,19 @@ Ext.define('foodprint.model.ErpSaleReturnSheetDet', {
             name: 'sequence'
         },
         {
-            name: 'SaleSheetDet.id'
+            name: 'saleSheetDet.id'
         },
         {
-            name: 'SaleSheetDet.name'
+            name: 'saleSheetDet.name'
         },
         {
-            name: 'SaleSheetDet.typeName'
+            name: 'saleSheetDet.typeName'
         },
         {
             name: 'customerOrderDet.name'
         },
         {
-            name: 'SaleSheetDet.sequence'
+            name: 'saleSheetDet.sequence'
         },
         {
             name: 'warehouse.id'
