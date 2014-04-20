@@ -26,7 +26,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
     ],
     stores: [
         'ErpPurchaseReturnSheetDetStore',
-        'ErpSaleReturnSheetDetStore'
+        'ErpPurchaseReturnSheetStore'
     ],
     views: [
         'ErpPurchaseReturnSheetView'
@@ -77,7 +77,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
                 click:this.doCreateDetail
             },
             'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{
-                click:this.doShowPurchaseSheetDet
+                click:this.doShowPurchaseReturnSheetDet
             },
             'erppurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
@@ -92,15 +92,96 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowPurchaseReturnSheetDet
+            },
+            'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commonselectbtn':{
+                click:this.activePurchaseSheetDetIndex
+            },
+            'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commoncancelbtn':{
+                click:this.doCancelPurchaseSheetDet
+            },
+            'erppurchasereturnsheetview #showDetail commonitemcombo':{
+                select:this.doCancelPurchaseSheetDet
+            },
+            'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetgrid':{
+                select: this.doIndexDetailPurchaseSheet
+            },
+            'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetdetgrid':{
+                itemdblclick: this.doSelectPurchaseSheetDet
             }
 
         });
-
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'purchaseReturnSheet';
         this.foodpaintDetController = 'purchaseReturnSheetDet';
         this.masterKey='purchaseReturnSheet.id';
+    },
+
+    doIndexDetailPurchaseSheet: function(obj, record, index, eOpts) {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=purchaseSheetDetIndex]").down("grid[itemId=erpPurchaseSheetDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["purchaseSheet.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+    },
+
+    doSelectPurchaseSheetDet: function(obj, record, index, eOpts) {
+
+        this.getDetailForm().getForm().setValues({
+
+            'purchaseSheetDet.id':record.data['id'],
+            'purchaseSheetDet.typeName':record.data['typeName'],
+            'purchaseSheetDet.name':record.data['name'],
+            'purchaseSheetDet.sequence':record.data['sequence'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.title':record.data['warehouseLocation.title'],   
+            'item.id':record.data['item.id'],   
+            'item.title':record.data['item.title'],
+            'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],
+            'qty':record.data['qty']
+
+
+        });
+
+        //warehouseLocation combo需指定warehouse id才可load
+        var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
+        Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
+
+
+        this.activeDetailEditor();
+    },
+
+    doCancelPurchaseSheetDet: function() {
+
+        this.getDetailForm().getForm().setValues({
+
+            'purchaseSheetDet.id':null,
+            'purchaseSheetDet.typeName':null,
+            'purchaseSheetDet.name':null,
+            'purchaseSheetDet.sequence':null,
+            'warehouse.id':null,
+            'warehouse.name':null,
+            'warehouse.title':null,
+            'warehouseLocation.id':null,    
+            'warehouseLocation.name':null,
+            'warehouseLocation.title':null, 
+            'item.id':null,
+            'item.name':null,  
+            'item.title':null,
+            'qty':null,
+            'batch.id':null,
+            'batch.name':null,
+            'qty':null,
+
+
+        });
     },
 
     doShowPurchaseReturnSheet: function() {

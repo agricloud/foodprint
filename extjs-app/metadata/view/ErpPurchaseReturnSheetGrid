@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "itemId": "erpPurchaseSheetGrid",
+        "itemId": "erpPurchaseReturnSheetGrid",
         "designer|userClassName": "ErpPurchaseReturnSheetGrid",
         "designer|userAlias": "erppurchasereturnsheetgrid",
         "title": null,
-        "store": "ErpPurchaseSheetStore"
+        "store": "ErpPurchaseReturnSheetStore"
     },
     "designerId": "ebfda8f7-283a-409b-93d5-b1326177fb97",
     "cn": [
@@ -31,12 +31,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "processErpPurchaseSheetGrid",
+                "fn": "processErpPurchaseReturnSheetGrid",
                 "designer|params": [
                     "config"
                 ],
                 "implHandler": [
-                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'purchaseSheet'));"
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'purchaseReturnSheet'));"
                 ]
             },
             "designerId": "2da056e2-bf49-4328-aa0f-31dfbe64e2a1"
@@ -52,7 +52,7 @@
                 "dock": "bottom",
                 "width": 360,
                 "displayInfo": true,
-                "store": "ErpPurchaseSheetStore"
+                "store": "ErpPurchaseReturnSheetStore"
             },
             "designerId": "c0b78186-b9e3-4a28-b244-b8f824c50202"
         },
@@ -107,7 +107,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onErpPurchaseSheetGridAfterRender",
+                "fn": "onErpPurchaseReturnSheetGridAfterRender",
                 "implHandler": [
                     "component.getStore().load();"
                 ],

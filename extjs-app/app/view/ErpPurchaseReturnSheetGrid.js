@@ -17,8 +17,8 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erppurchasereturnsheetgrid',
 
-    itemId: 'erpPurchaseSheetGrid',
-    store: 'ErpPurchaseSheetStore',
+    itemId: 'erpPurchaseReturnSheetGrid',
+    store: 'ErpPurchaseReturnSheetStore',
 
     initComponent: function() {
         var me = this;
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpPurchaseSheetStore'
+                    store: 'ErpPurchaseReturnSheetStore'
                 }
             ],
             columns: [
@@ -75,21 +75,21 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetGrid', {
             ],
             listeners: {
                 afterrender: {
-                    fn: me.onErpPurchaseSheetGridAfterRender,
+                    fn: me.onErpPurchaseReturnSheetGridAfterRender,
                     scope: me
                 }
             }
         });
 
-        me.processErpPurchaseSheetGrid(me);
+        me.processErpPurchaseReturnSheetGrid(me);
         me.callParent(arguments);
     },
 
-    processErpPurchaseSheetGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'purchaseSheet'));
+    processErpPurchaseReturnSheetGrid: function(config) {
+        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'purchaseReturnSheet'));
     },
 
-    onErpPurchaseSheetGridAfterRender: function(component, eOpts) {
+    onErpPurchaseReturnSheetGridAfterRender: function(component, eOpts) {
         component.getStore().load();
     }
 

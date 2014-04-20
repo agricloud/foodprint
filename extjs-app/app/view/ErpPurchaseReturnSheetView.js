@@ -128,7 +128,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     itemId: 'detailGrid',
                                     autoScroll: true,
                                     title: 'ErpPurchaseReturnSheetDet',
-                                    store: 'ErpPurchaseSheetDetStore',
+                                    store: 'ErpPurchaseReturnSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
@@ -160,7 +160,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'PurchaseSheetDet.name',
+                                            dataIndex: 'purchaseSheetDet.name',
                                             text: 'Purchasesheetdet.name',
                                             flex: 1
                                         },
@@ -312,7 +312,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'saleSheetDetContainer1',
+                                    itemId: 'purchaseSheetDetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -321,8 +321,8 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'saleSheetDet.id',
-                                            name: 'saleSheetDet.id',
+                                            fieldLabel: 'PurchaseSheetDet.id',
+                                            name: 'purchaseSheetDet.id',
                                             readOnly: true
                                         },
                                         {
@@ -421,7 +421,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'purchaseSheet');
+        return Utilities.processConfigBundle(config, 'purchaseReturnSheet');
     },
 
     processDetailGrid: function(config) {

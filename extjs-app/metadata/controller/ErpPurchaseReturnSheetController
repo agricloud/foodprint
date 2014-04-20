@@ -12,7 +12,7 @@
         ],
         "stores": [
             "ErpPurchaseReturnSheetDetStore",
-            "ErpSaleReturnSheetDetStore"
+            "ErpPurchaseReturnSheetStore"
         ],
         "views": [
             "ErpPurchaseReturnSheetView"
@@ -90,7 +90,7 @@
                     "        click:this.doCreateDetail",
                     "    },",
                     "    'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowPurchaseSheetDet",
+                    "        click:this.doShowPurchaseReturnSheetDet",
                     "    },",
                     "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
@@ -105,10 +105,24 @@
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
                     "        itemdblclick: this.doShowPurchaseReturnSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commonselectbtn':{",
+                    "        click:this.activePurchaseSheetDetIndex",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commoncancelbtn':{",
+                    "        click:this.doCancelPurchaseSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonitemcombo':{",
+                    "        select:this.doCancelPurchaseSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetgrid':{",
+                    "        select: this.doIndexDetailPurchaseSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetdetgrid':{",
+                    "        itemdblclick: this.doSelectPurchaseSheetDet",
                     "    }",
                     "",
                     "});",
-                    "",
                     "",
                     "this.domainName = 'foodpaint';",
                     "this.foodpaintController = 'purchaseReturnSheet';",
@@ -143,6 +157,112 @@
                 "selector": "erppurchasereturnsheetview #detailForm"
             },
             "designerId": "0b203f8f-6122-48df-bbe7-815dd45bc8f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailPurchaseSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=erpPurchaseSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"purchaseSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "b3e45031-b2e6-499e-8889-de96bc8b846e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectPurchaseSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'purchaseSheetDet.id':record.data['id'],",
+                    "    'purchaseSheetDet.typeName':record.data['typeName'],",
+                    "    'purchaseSheetDet.name':record.data['name'],",
+                    "    'purchaseSheetDet.sequence':record.data['sequence'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],   ",
+                    "    'item.id':record.data['item.id'],   ",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "    'qty':record.data['qty']",
+                    "",
+                    "",
+                    "});",
+                    "",
+                    "//warehouseLocation combo需指定warehouse id才可load",
+                    "var wlcombo=this.getDetailForm().up().up().down(\"form[itemId=detailForm]\").down(\"combo[itemId=commonWarehouseLocationCombo]\");",
+                    "Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);",
+                    "",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "175d22c5-5387-4a0f-a285-c5f6e4efb722"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelPurchaseSheetDet",
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'purchaseSheetDet.id':null,",
+                    "    'purchaseSheetDet.typeName':null,",
+                    "    'purchaseSheetDet.name':null,",
+                    "    'purchaseSheetDet.sequence':null,",
+                    "    'warehouse.id':null,",
+                    "    'warehouse.name':null,",
+                    "    'warehouse.title':null,",
+                    "    'warehouseLocation.id':null,    ",
+                    "    'warehouseLocation.name':null,",
+                    "    'warehouseLocation.title':null, ",
+                    "    'item.id':null,",
+                    "    'item.name':null,  ",
+                    "    'item.title':null,",
+                    "    'qty':null,",
+                    "    'batch.id':null,",
+                    "    'batch.name':null,",
+                    "    'qty':null,",
+                    "",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "b565a14b-084e-402d-92b4-e5241d110c05"
         },
         {
             "type": "basicfunction",

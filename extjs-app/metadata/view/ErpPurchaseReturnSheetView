@@ -205,7 +205,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'purchaseSheet');"
+                                    "return Utilities.processConfigBundle(config, 'purchaseReturnSheet');"
                                 ]
                             },
                             "designerId": "cd386f53-9c50-412e-a669-340902084576"
@@ -258,7 +258,7 @@
                                 "width": null,
                                 "autoScroll": true,
                                 "title": "ErpPurchaseReturnSheetDet",
-                                "store": "ErpPurchaseSheetDetStore"
+                                "store": "ErpPurchaseReturnSheetDetStore"
                             },
                             "configAlternates": {
                                 "tbar": "object"
@@ -348,7 +348,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "width": null,
-                                        "dataIndex": "PurchaseSheetDet.name",
+                                        "dataIndex": "purchaseSheetDet.name",
                                         "text": "Purchasesheetdet.name",
                                         "flex": 1
                                     },
@@ -732,7 +732,7 @@
                                 "layout|flex": null,
                                 "container|align": "stretch",
                                 "height": null,
-                                "itemId": "saleSheetDetContainer1",
+                                "itemId": "purchaseSheetDetContainer",
                                 "width": null,
                                 "layout": "hbox",
                                 "fieldLabel": null
@@ -749,8 +749,8 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "saleSheetDet.id",
-                                        "name": "saleSheetDet.id",
+                                        "fieldLabel": "PurchaseSheetDet.id",
+                                        "name": "purchaseSheetDet.id",
                                         "readOnly": true
                                     },
                                     "designerId": "d66879c0-d11e-4f7e-b01c-a470ce751c8b"
