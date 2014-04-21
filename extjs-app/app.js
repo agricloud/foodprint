@@ -37,7 +37,10 @@ Ext.application({
         noCache: true//,format: 'json'
     },
     views: [
-        'ErpPurchaseReturnSheetView'
+        'ErpPurchaseReturnSheetView',
+        'ErpAccountSheetView',
+        'ErpAccountSheetGrid',
+        'CommonReceivablesCombo'
     ],
     autoCreateViewport: true,
     controllers: [

@@ -1,0 +1,163 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "erpSaleReturnSheetGrid1",
+        "designer|userClassName": "ErpAccountSheetGrid",
+        "designer|userAlias": "erpaccountsheetgrid",
+        "title": null,
+        "store": "ErpSaleReturnSheetStore"
+    },
+    "designerId": "cf3f575d-eb8d-4119-bd1b-d78ca3a4e56d",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "8245aea1-97bd-4232-8aab-07870383c036"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpSaleReturnSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleReturnSheet'));"
+                ]
+            },
+            "designerId": "edeaf2d5-acfc-4e20-935b-a89bca1cc8ba"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpSaleReturnSheetStore"
+            },
+            "designerId": "8c1e5ba5-9e39-458d-ada3-056aee62195b"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "68c6c17b-5657-44f0-858e-4aefd0073c71"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "typeName",
+                "text": "TypeName",
+                "flex": 1
+            },
+            "designerId": "28c635eb-d7e2-4178-b1af-9d962a9d6006"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "Name",
+                "flex": 1
+            },
+            "designerId": "128750eb-b3b8-4b28-ba2e-70833b06c91e"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpSaleReturnSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "c988cc58-05b5-4d55-bc6d-2cf45cff42e2"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "customer.id",
+                "text": "Customer.Id",
+                "flex": 1
+            },
+            "designerId": "fa49c9e1-cb5c-403f-9ac8-ee876e2c3162"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.name",
+                "text": "Customer.Name",
+                "flex": 1
+            },
+            "designerId": "39a6ba95-51a5-4faa-9177-646e2625c658"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.title",
+                "text": "Customer.Title",
+                "flex": 1
+            },
+            "designerId": "31a35eed-2098-4bd0-ba94-76d12bd7696a"
+        }
+    ]
+}
