@@ -395,6 +395,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'Warehouse.id',
                                     name: 'warehouse.id',
                                     readOnly: true
@@ -407,6 +408,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'WarehouseLocation.id',
                                     name: 'warehouseLocation.id',
                                     readOnly: true
@@ -419,6 +421,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'Batch.id',
                                     name: 'batch.id',
                                     readOnly: true
@@ -431,8 +434,15 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 },
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'ManufactureOrder.id',
                                     name: 'manufactureOrder.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'ManufactureOrder.name',
+                                    name: 'manufactureOrder.name',
                                     readOnly: true
                                 },
                                 {

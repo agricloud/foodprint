@@ -959,6 +959,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "hidden": true,
                                 "fieldLabel": "Warehouse.id",
                                 "name": "warehouse.id",
                                 "readOnly": true,
@@ -991,6 +992,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "hidden": true,
                                 "fieldLabel": "WarehouseLocation.id",
                                 "name": "warehouseLocation.id",
                                 "readOnly": true,
@@ -1023,6 +1025,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "hidden": true,
                                 "fieldLabel": "Batch.id",
                                 "name": "batch.id",
                                 "readOnly": true,
@@ -1055,12 +1058,29 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "hidden": true,
                                 "fieldLabel": "ManufactureOrder.id",
                                 "name": "manufactureOrder.id",
                                 "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "6b1163e1-7d7a-43e6-99d9-80f6724d27f8"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "ManufactureOrder.name",
+                                "name": "manufactureOrder.name",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "388d9c6a-1efc-4a38-8137-7498116e5e1b"
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -1188,8 +1208,8 @@
                     "userConfig": {
                         "layout|flex": 1
                     },
-                    "designerId": "a8666f4f-d90c-449c-a71a-0bda663767de",
-                    "masterInstanceId": "ea3020e9-f7fd-4192-81b2-9616903b3f9f"
+                    "designerId": "941ec73e-f002-49dc-8444-944bfbb5386a",
+                    "masterInstanceId": "34145e18-8216-41ee-99ff-13185037af2f"
                 }
             ]
         }

@@ -48,6 +48,9 @@ Ext.application({
         'ErpOutSrcPurchaseReturnSheetStore',
         'ErpOutSrcPurchaseReturnSheetDetStore'
     ],
+    views: [
+        'ErpMaterialSheetDetGrid'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

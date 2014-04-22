@@ -120,8 +120,22 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                             ]
                         }),
                         {
-                            xtype: 'erpmaterialsheetdetgrid',
-                            flex: 1
+                            xtype: 'panel',
+                            tbar: {
+                                xtype: 'commonindextoolbar'
+                            },
+                            flex: 1,
+                            itemId: 'erpMaterialSheetDetGrid',
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            items: [
+                                {
+                                    xtype: 'erpmaterialsheetdetgrid',
+                                    flex: 1
+                                }
+                            ]
                         }
                     ]
                 },

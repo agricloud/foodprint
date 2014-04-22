@@ -97,7 +97,7 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{
                 select: this.doIndexDetailMaterialSheet
             },
-            'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid #detailGrid':{
+            'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{
                 itemdblclick: this.doSelectMaterialSheetDet
             }
             /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{
@@ -148,13 +148,14 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'warehouseLocation.title':record.data['warehouseLocation.title'],
             'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
-            'manufactureOrder.id':record.data['manufactureOrder.id']
+            'manufactureOrder.id':record.data['manufactureOrder.id'],
+            'manufactureOrder.name':record.data['manufactureOrder.name']
         });
         this.activeDetailEditor();
     },
 
     doIndexDetailMaterialSheet: function(obj, record, index, eOpts) {
-        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("panel[itemId=erpMaterialSheetDetGrid]").down("grid[itemId=detailGrid]");
+        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=detailGrid]");
         console.log();
         var store=grid.getStore(grid);
         console.log(store);
@@ -192,6 +193,20 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
 
     doShowMaterialReturnSheetDet: function() {
 
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+        });
     }
 
 });

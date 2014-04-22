@@ -241,17 +241,50 @@
                     ]
                 },
                 {
-                    "type": "linkedinstance",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1
+                        "tbar": [
+                            "{",
+                            "    xtype: 'commonindextoolbar'",
+                            "}"
+                        ],
+                        "container|align": "stretch",
+                        "layout|flex": 1,
+                        "itemId": "erpMaterialSheetDetGrid",
+                        "layout": "vbox",
+                        "title": null
                     },
-                    "designerId": "62b43b99-eb2d-41dc-8e16-d8b193bcd645",
-                    "masterInstanceId": "ea3020e9-f7fd-4192-81b2-9616903b3f9f"
+                    "configAlternates": {
+                        "tbar": "object"
+                    },
+                    "designerId": "ea3020e9-f7fd-4192-81b2-9616903b3f9f",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "tbar",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "designerId": "21f417ab-809e-41aa-b8fb-09f793d14ebd",
+                            "masterInstanceId": "34145e18-8216-41ee-99ff-13185037af2f"
+                        }
+                    ]
                 }
             ]
         },
