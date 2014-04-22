@@ -147,15 +147,8 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'warehouseLocation.id':record.data['warehouseLocation.id'],
             'warehouseLocation.title':record.data['warehouseLocation.title'],
             'batch.id':record.data['batch.id'],
-            'batch.name':record.data['batch.name']
-
-
-
-
-
-
-
-
+            'batch.name':record.data['batch.name'],
+            'manufactureOrder.id':record.data['manufactureOrder.id']
         });
         this.activeDetailEditor();
     },

@@ -929,6 +929,7 @@
                                 "disabled": true,
                                 "fieldLabel": "Item.name",
                                 "name": "item.name",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "0d95d483-91b8-48f8-aa30-36b454b715d2"
@@ -942,9 +943,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Item.title",
                                 "name": "item.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "e212be25-0986-4df0-92a0-cac8cd764508"
@@ -958,9 +959,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Warehouse.id",
                                 "name": "warehouse.id",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "075b0115-4ba7-4d4d-8b50-893b9938aa63"
@@ -974,9 +975,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Warehouse.title",
                                 "name": "warehouse.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "4c160a01-be1b-47ed-9851-a6e5c45e88dc"
@@ -990,9 +991,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "WarehouseLocation.id",
                                 "name": "warehouseLocation.id",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "7db873ee-38a2-478e-9d8f-137c1c3c3ea8"
@@ -1006,9 +1007,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "WarehouseLocation.title",
                                 "name": "warehouseLocation.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "18e95a2a-592c-485f-a3a4-a8265ead055a"
@@ -1022,9 +1023,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Batch.id",
                                 "name": "batch.id",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "df9562fb-4474-4e6f-9e29-60cbc88aa065"
@@ -1038,12 +1039,28 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Batch.name",
                                 "name": "batch.name",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "8cfcbda0-d3b1-481d-bd98-f2b8429bc45c"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "ManufactureOrder.id",
+                                "name": "manufactureOrder.id",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "6b1163e1-7d7a-43e6-99d9-80f6724d27f8"
                         },
                         {
                             "type": "Ext.form.field.Number",

@@ -384,49 +384,56 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: 'Item.name',
-                                    name: 'item.name'
+                                    name: 'item.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Item.title',
-                                    name: 'item.title'
+                                    name: 'item.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
-                                    disabled: true,
                                     fieldLabel: 'Warehouse.id',
-                                    name: 'warehouse.id'
+                                    name: 'warehouse.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title'
+                                    name: 'warehouse.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
-                                    disabled: true,
                                     fieldLabel: 'WarehouseLocation.id',
-                                    name: 'warehouseLocation.id'
+                                    name: 'warehouseLocation.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'WarehouseLocation.title',
-                                    name: 'warehouseLocation.title'
+                                    name: 'warehouseLocation.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
-                                    disabled: true,
                                     fieldLabel: 'Batch.id',
-                                    name: 'batch.id'
+                                    name: 'batch.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Batch.name',
-                                    name: 'batch.name'
+                                    name: 'batch.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    fieldLabel: 'ManufactureOrder.id',
+                                    name: 'manufactureOrder.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
