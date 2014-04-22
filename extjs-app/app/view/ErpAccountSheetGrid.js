@@ -17,8 +17,8 @@ Ext.define('foodprint.view.ErpAccountSheetGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.erpaccountsheetgrid',
 
-    itemId: 'erpSaleReturnSheetGrid1',
-    store: 'ErpSaleReturnSheetStore',
+    itemId: 'erpAccountSheetGrid',
+    store: 'ErpAccountSheetStore',
 
     initComponent: function() {
         var me = this;
@@ -30,7 +30,7 @@ Ext.define('foodprint.view.ErpAccountSheetGrid', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'ErpSaleReturnSheetStore'
+                    store: 'ErpAccountSheetStore'
                 }
             ],
             columns: [
@@ -75,21 +75,21 @@ Ext.define('foodprint.view.ErpAccountSheetGrid', {
             ],
             listeners: {
                 afterrender: {
-                    fn: me.onErpSaleReturnSheetGridAfterRender,
+                    fn: me.onErpAccountSheetGridAfterRender,
                     scope: me
                 }
             }
         });
 
-        me.processErpSaleReturnSheetGrid(me);
+        me.processErpAccountSheetGrid(me);
         me.callParent(arguments);
     },
 
-    processErpSaleReturnSheetGrid: function(config) {
+    processErpAccountSheetGrid: function(config) {
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleReturnSheet'));
     },
 
-    onErpSaleReturnSheetGridAfterRender: function(component, eOpts) {
+    onErpAccountSheetGridAfterRender: function(component, eOpts) {
         component.getStore().load();
     }
 

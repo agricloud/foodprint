@@ -14,6 +14,6 @@
  */
 
 Ext.define('foodprint.view.Viewport', {
-    extend: 'foodprint.view.MainViewport',
+    extend: 'foodprint.view.ErpAccountSheetView',
     renderTo: Ext.getBody()
 });

@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "activeItem": 1,
         "height": null,
         "itemId": null,
         "width": null,
@@ -14,6 +15,7 @@
             "foodprint.view.CommonIndexToolbar",
             "foodprint.view.CommonShowToolbar"
         ],
+        "designer|initialView": true,
         "layout": "card"
     },
     "configAlternates": {
@@ -41,7 +43,7 @@
             "configAlternates": {
                 "tbar": "object"
             },
-            "designerId": "55ab06e9-a4af-4eb0-b03b-1df0b7dd5443",
+            "designerId": "25712114-6899-40a3-82fe-5e64a0f88f75",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -57,7 +59,10 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "designerId": "cfa53d2b-92f5-4438-af3c-98b7fecc7528",
+                    "userConfig": {
+                        "itemId": "grid"
+                    },
+                    "designerId": "c41bc590-a9b6-42bf-864d-95ee0b46b897",
                     "masterInstanceId": "cf3f575d-eb8d-4119-bd1b-d78ca3a4e56d"
                 }
             ]
@@ -110,7 +115,7 @@
                     "configAlternates": {
                         "tbar": "object"
                     },
-                    "designerId": "300c852b-2d18-4708-90aa-ee879921abf5",
+                    "designerId": "66de9079-ee6a-42b0-a262-96b7ce237e1b",
                     "cn": [
                         {
                             "type": "Ext.form.field.Number",
@@ -126,7 +131,7 @@
                                 "name": "id",
                                 "readOnly": true
                             },
-                            "designerId": "21ab26f0-6e97-4d88-a16b-e394bca1c7f0"
+                            "designerId": "9635f6d0-ca14-4c10-9b12-c491b3b9892b"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -142,7 +147,7 @@
                                 "readOnly": true,
                                 "allowBlank": false
                             },
-                            "designerId": "bdf37e9f-c071-42ae-a3a3-18253ccaf754"
+                            "designerId": "d5ee86df-31a0-4120-b74a-5b61cc8a4428"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -158,7 +163,7 @@
                                 "readOnly": true,
                                 "allowBlank": false
                             },
-                            "designerId": "1fbf7744-afdd-47bc-9879-7a638436c207"
+                            "designerId": "4d8824b6-8f70-45a8-81ba-c0ecc7418843"
                         },
                         {
                             "type": "linkedinstance",
@@ -170,7 +175,7 @@
                             "userConfig": {
                                 "layout|flex": null
                             },
-                            "designerId": "c8bdd729-6b2d-470c-8bf0-6598c7dc4b9b",
+                            "designerId": "4269fe88-4c20-4f68-866c-73083bd0bff2",
                             "masterInstanceId": "26f94ae1-0b0f-4fa5-bf33-93fa18d1683a"
                         },
                         {
@@ -186,7 +191,29 @@
                                 "fieldLabel": "Customer.title",
                                 "name": "customer.title"
                             },
-                            "designerId": "2b20ac68-0785-4a86-af7c-7bb76775b3e4"
+                            "designerId": "32296eda-6fa2-48a8-b21e-db962d3d9100"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": null,
+                                "itemId": "dateCreated",
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "padding": 3,
+                                "width": null,
+                                "fieldLabel": "dateCreated",
+                                "name": "dateCreated",
+                                "format": null,
+                                "submitFormat": null
+                            },
+                            "designerId": "160b639e-0ee9-413e-881c-e1ed74c316c5"
                         },
                         {
                             "type": "processcfgfunction",
@@ -204,7 +231,7 @@
                                     "return Utilities.processConfigBundle(config, 'saleReturnSheet');"
                                 ]
                             },
-                            "designerId": "dbacb7ed-121e-4bd2-ab8a-7f531d51115c"
+                            "designerId": "8ce000a5-637f-426e-b252-bbc3ad8ddc27"
                         }
                     ]
                 },
@@ -217,6 +244,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "dock": null,
+                        "minHeight": 250,
+                        "width": 100,
                         "activeTab": 0
                     },
                     "designerId": "2a38de70-d427-44cf-a57c-cd9d0a697de3",
@@ -229,44 +259,15 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "dock": null,
+                                "container|align": "stretch",
+                                "layout": "vbox",
                                 "title": "Account"
                             },
                             "designerId": "d090dc82-0dad-469f-a31d-0cce35bced83",
                             "cn": [
                                 {
-                                    "type": "Ext.form.field.Number",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "disabled": null,
-                                        "fieldLabel": "rate",
-                                        "name": "rate",
-                                        "readOnly": true,
-                                        "allowBlank": false
-                                    },
-                                    "designerId": "72071f8a-7410-49fa-83f5-9c4ac3a79d1c"
-                                },
-                                {
-                                    "type": "Ext.form.field.Date",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "anticipationDate",
-                                        "fieldLabel": "anticipationDate",
-                                        "name": "dueDate",
-                                        "format": null,
-                                        "submitFormat": null
-                                    },
-                                    "designerId": "519bd915-f207-4854-aa6c-5f27478191b8"
-                                },
-                                {
-                                    "type": "linkedinstance",
+                                    "type": "Ext.form.FieldContainer",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -274,26 +275,345 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "height": null,
-                                        "fixed": true
+                                        "itemId": "date",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
                                     },
-                                    "designerId": "b52afaf0-0ef6-4854-9936-f8943d317825",
-                                    "masterInstanceId": "5db35fa9-95b4-4dfe-a99d-73926fb59fba"
+                                    "designerId": "234b29d8-a237-4b9a-b16b-d324690ef71c",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Date",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": null,
+                                                "itemId": "accountDate",
+                                                "maxWidth": 250,
+                                                "minWidth": 250,
+                                                "padding": 5,
+                                                "width": 250,
+                                                "fieldLabel": "accountDate",
+                                                "name": "dueDate",
+                                                "format": null,
+                                                "submitFormat": null
+                                            },
+                                            "designerId": "3b38ef47-cca0-49d0-982e-176779b94513"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Date",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "anticipationDate",
+                                                "maxWidth": 250,
+                                                "minWidth": 250,
+                                                "padding": 5,
+                                                "width": 250,
+                                                "fieldLabel": "anticipationDate",
+                                                "name": "dueDate",
+                                                "format": null,
+                                                "submitFormat": null
+                                            },
+                                            "designerId": "519bd915-f207-4854-aa6c-5f27478191b8"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "type": "Ext.form.field.Date",
+                                    "type": "Ext.form.FieldContainer",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "itemId": "accountDate",
-                                        "fieldLabel": "accountDate",
-                                        "name": "dueDate",
-                                        "format": null,
-                                        "submitFormat": null
+                                        "height": null,
+                                        "itemId": "currency",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
                                     },
-                                    "designerId": "3b38ef47-cca0-49d0-982e-176779b94513"
+                                    "designerId": "8afc0c5b-96bc-4fa1-a36e-2e69def7823e",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Number",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "disabled": null,
+                                                "padding": 5,
+                                                "width": 250,
+                                                "fieldLabel": "rate",
+                                                "labelWidth": 50,
+                                                "name": "rate",
+                                                "readOnly": true,
+                                                "allowBlank": false
+                                            },
+                                            "designerId": "72071f8a-7410-49fa-83f5-9c4ac3a79d1c"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 250,
+                                                "fieldLabel": "currency"
+                                            },
+                                            "designerId": "e88bc6ab-c9ec-48e1-86c5-c7b7b758b79e"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldContainer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "receivables",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
+                                    },
+                                    "designerId": "52ed264b-ca61-453d-a365-de2ce34bdbb4",
+                                    "cn": [
+                                        {
+                                            "type": "linkedinstance",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 250,
+                                                "fixed": true
+                                            },
+                                            "designerId": "b52afaf0-0ef6-4854-9936-f8943d317825",
+                                            "masterInstanceId": "5db35fa9-95b4-4dfe-a99d-73926fb59fba"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Checkbox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "fieldLabel": "closedCode",
+                                                "labelWidth": 80,
+                                                "boxLabel": null
+                                            },
+                                            "designerId": "7b808481-2be3-43d2-8bf7-df4dade4a1cd"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "status",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "b3e864d2-6b36-4e84-940a-948523468a53"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldContainer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "original1",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
+                                    },
+                                    "designerId": "4992de8b-2bfa-415e-809b-8d7d196d277b",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "oAmounts",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "6009c205-9522-45c8-b5b1-1c5f63df2abb"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "otax",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "5986c693-7e42-4653-9084-020b59388233"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "oTotalAmount",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "2a045535-719c-420a-ba07-47caea8a1d94"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldContainer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "original3",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
+                                    },
+                                    "designerId": "353260ae-c3e1-4306-abfd-057f46bdc044",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "Amounts",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "5343b494-9c65-4da8-9fe4-1e0b7358543c"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "tax",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "5b74800e-410c-4cfb-96b5-069f3d535bd2"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "TotalAmount",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "e595f504-87d1-45fe-bd31-951f7ca22536"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldContainer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "original2",
+                                        "width": null,
+                                        "layout": "column",
+                                        "fieldLabel": null
+                                    },
+                                    "designerId": "23917b05-e774-420b-bc18-f05afa22606d",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "minWidth": 200,
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "originalReceived",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "2806b52f-ba32-4912-9b6a-73b953ca7bf8"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "minWidth": 200,
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "received",
+                                                "labelWidth": 70
+                                            },
+                                            "designerId": "9eb907a8-10c4-4e96-9421-8240d063d576"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.tab.Tab",
@@ -396,11 +716,12 @@
                                 "layout|flex": 1,
                                 "height": null,
                                 "itemId": "detailGrid",
+                                "minHeight": null,
                                 "padding": null,
                                 "width": null,
                                 "autoScroll": true,
                                 "title": "AccountSheetDet",
-                                "store": "ErpSaleReturnSheetDetStore"
+                                "store": null
                             },
                             "configAlternates": {
                                 "tbar": "object"
@@ -435,36 +756,6 @@
                                     "designerId": "e6badbb8-0717-4e4b-85ba-48e9c3914ec5"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "dataIndex": "typeName",
-                                        "text": "TypeName",
-                                        "flex": 1
-                                    },
-                                    "designerId": "f5acca15-14ea-494e-bdfe-ca78cb9d6aef"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "dataIndex": "name",
-                                        "text": "Name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "6c775ee9-0e51-498a-ba47-d26270193680"
-                                },
-                                {
                                     "type": "Ext.grid.column.Number",
                                     "reference": {
                                         "name": "columns",
@@ -480,234 +771,6 @@
                                         "format": "0,000"
                                     },
                                     "designerId": "123448d8-98ee-4479-a7f4-8f76c3d8558b"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "warehouse.id",
-                                        "groupable": null,
-                                        "text": "Warehouse.id",
-                                        "flex": 1
-                                    },
-                                    "designerId": "c275e031-58bf-4530-a177-a3b874ef68d3"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "saleSheetDet.id",
-                                        "groupable": null,
-                                        "text": "SaleSheet.id",
-                                        "flex": 1
-                                    },
-                                    "designerId": "2538e363-5c5a-42d1-8241-e2afa8e0a3f5"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "saleSheetDet.name",
-                                        "text": "SaleSheetDet.name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "c9a7c4e5-35e6-41ff-9d12-b276c3a55c8d"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "warehouse.name",
-                                        "text": "Warehouse.name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "d96a488f-3457-4d66-a943-43972c59c1a2"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "warehouse.title",
-                                        "text": "Warehouse.title",
-                                        "flex": 1
-                                    },
-                                    "designerId": "7ae96811-7b8c-4924-88d7-766f5692bce9"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "warehouseLocation.id",
-                                        "groupable": null,
-                                        "text": "WarehouseLocation.id",
-                                        "flex": 1
-                                    },
-                                    "designerId": "f9c0f3ec-ad91-4e97-a6a2-15353993ba23"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "warehouseLocation.name",
-                                        "text": "WarehouseLocation.name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "ecf41c79-1554-4d51-8923-6dfaf6212fbb"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "warehouseLocation.title",
-                                        "text": "WarehouseLocation.title",
-                                        "flex": 1
-                                    },
-                                    "designerId": "fb6a5289-838c-46ae-9e8d-b9154c0f4a55"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "batch.id",
-                                        "groupable": null,
-                                        "text": "Batch.id",
-                                        "flex": 1
-                                    },
-                                    "designerId": "46d28d44-56ad-4e72-8eeb-5709f403ae5c"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "batch.name",
-                                        "text": "Batch.name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "23dbda16-843f-4640-823b-cd3859760b11"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "item.id",
-                                        "groupable": null,
-                                        "text": "Item.id",
-                                        "flex": 1
-                                    },
-                                    "designerId": "61312d86-6365-4514-8661-74c065cb1aba"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "item.name",
-                                        "text": "Item.name",
-                                        "flex": 1
-                                    },
-                                    "designerId": "0891f6c7-ddda-4db6-b29e-2b8761ea9e5a"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "width": null,
-                                        "dataIndex": "item.title",
-                                        "text": "Item.title",
-                                        "flex": 1
-                                    },
-                                    "designerId": "85dbca94-5d64-4959-8563-943ddfaccd22"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": null,
-                                        "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "qty",
-                                        "groupable": null,
-                                        "text": "qty",
-                                        "flex": 1
-                                    },
-                                    "designerId": "30fa1e7e-3ad2-47f9-9ffe-39964fc08e32"
                                 },
                                 {
                                     "type": "basiceventbinding",
@@ -727,22 +790,184 @@
                                     "designerId": "b5e29809-8e04-499b-aca7-a0417d65aa27"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Number",
+                                    "type": "Ext.grid.column.CheckColumn",
                                     "reference": {
                                         "name": "columns",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "hidden": true,
                                         "width": null,
-                                        "defaultWidth": null,
-                                        "dataIndex": "customerOrderDet.id",
-                                        "groupable": null,
-                                        "text": "CustomerOrderDet.id",
+                                        "dataIndex": "status",
+                                        "text": "status",
                                         "flex": 1
                                     },
-                                    "designerId": "43d19651-f736-4d10-a72a-5c834d2e2e44"
+                                    "designerId": "80b69d76-b430-4b7a-8c45-bdc33a588f39"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "source",
+                                        "text": "Source",
+                                        "flex": 1
+                                    },
+                                    "designerId": "a8634c7b-48e4-49de-8786-c001928e47b8"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Date",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "documentDateCreated",
+                                        "text": "documentDateCreated",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d96a488f-3457-4d66-a943-43972c59c1a2"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "typeName",
+                                        "text": "typeName",
+                                        "flex": 1
+                                    },
+                                    "designerId": "2b507d34-f65b-4f09-8435-f984138b038b"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "warehouse.name",
+                                        "text": "name",
+                                        "flex": 1
+                                    },
+                                    "designerId": "ab1c68d1-4e5f-4b52-be5b-e1ecfeb2ac1e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "documentSequence",
+                                        "text": "documentSequence",
+                                        "flex": 1
+                                    },
+                                    "designerId": "e5ae0b3d-9815-4cf9-a863-3cef9f372818"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "originalAmounts",
+                                        "text": "originalAmounts",
+                                        "flex": 1
+                                    },
+                                    "designerId": "4ce42165-cca3-4b9d-a6f3-28f5a3408b5b"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "originaltax",
+                                        "text": "originaltax",
+                                        "flex": 1
+                                    },
+                                    "designerId": "76f83462-9a13-439b-844e-ed182cc62f74"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "originalTotalAmount",
+                                        "text": "originalTotalAmount",
+                                        "flex": 1
+                                    },
+                                    "designerId": "079fd272-2c54-49d9-ba3b-997ca5922b76"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": " subamounts",
+                                        "text": " subamounts",
+                                        "flex": 1
+                                    },
+                                    "designerId": "e509f6e1-3649-4f32-814f-52467bb5f869"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "tax",
+                                        "text": "tax",
+                                        "flex": 1
+                                    },
+                                    "designerId": "fc6e0dd8-629b-45e1-b0f9-2dea73d395fe"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": " totalAmount",
+                                        "text": " totalAmount",
+                                        "flex": 1
+                                    },
+                                    "designerId": "9f10a35b-bc9c-4058-96b8-864080be8424"
                                 },
                                 {
                                     "type": "processcfgfunction",
@@ -829,7 +1054,7 @@
                                 "hidden": true,
                                 "width": null,
                                 "fieldLabel": "saleReturnSheet.id",
-                                "name": "saleReturnSheet.id",
+                                "name": "accountSheet.id",
                                 "readOnly": true
                             },
                             "designerId": "62d593f7-7557-4c07-8c1e-2cdf0a64676e"
@@ -910,7 +1135,7 @@
                                 "layout|flex": null,
                                 "container|align": "stretch",
                                 "height": null,
-                                "itemId": "saleSheetDetContainer",
+                                "itemId": "sourceSheetContainer",
                                 "width": null,
                                 "layout": "hbox",
                                 "fieldLabel": null
@@ -943,7 +1168,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "SaleSheetDet.sheetNum",
+                                        "fieldLabel": "sourceSheet.Num",
                                         "name": "saleSheetDet.typeName",
                                         "readOnly": true,
                                         "allowBlank": null

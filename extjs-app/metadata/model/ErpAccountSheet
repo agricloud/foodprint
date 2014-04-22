@@ -1,0 +1,113 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpAccountSheet"
+    },
+    "designerId": "9b426717-927a-4c88-a6dc-1f21e07ee6bf",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "0f9570c6-6246-4fdb-91fd-ddd8408f2657"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "b7994632-f3e5-49db-9b78-420865e5ec84"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "665ee37b-6b9d-4e6b-98c0-4871dad6e88a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.id"
+            },
+            "designerId": "d6115547-ea9f-4230-b221-6f1eb79bbf24"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.name"
+            },
+            "designerId": "6e0de140-2fdc-49fd-855c-631fe879408c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.title"
+            },
+            "designerId": "4f16abf5-41c1-4b2d-9042-222f4e291503"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/foodpaint?foodpaintController=accountSheet"
+            },
+            "designerId": "a8cd2006-8699-442f-8ba4-b59cc677bb3b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "accountSheetInstanceList",
+                        "totalProperty": "accountSheetInstanceTotal"
+                    },
+                    "designerId": "f4b94b5f-7848-4d65-8c83-e05dfd9beb8f"
+                }
+            ]
+        }
+    ]
+}

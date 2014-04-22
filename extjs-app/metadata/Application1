@@ -15,6 +15,20 @@
             "    //,format: 'json'",
             "}"
         ],
+        "models": [
+            "ErpAccountSheet",
+            "ErpAccountSheetDet"
+        ],
+        "stores": [
+            "ErpAccountSheetStore",
+            "ErpAccountSheetDetStore"
+        ],
+        "views": [
+            "ErpPurchaseReturnSheetView",
+            "ErpAccountSheetView",
+            "ErpAccountSheetGrid",
+            "CommonReceivablesCombo"
+        ],
         "requires": [
             "foodprint.view.Utilities",
             "Ext.ux.grid.FiltersFeature",
@@ -54,7 +68,13 @@
             "ErpOutSrcPurchaseSheetDetController",
             "ErpSaleSheetController",
             "ErpSaleSheetDetController",
-            "SiteController"
+            "WarehouseController",
+            "InventoryController",
+            "InventoryDetailController",
+            "SiteController",
+            "WarehouseLocationController",
+            "ErpSaleReturnSheetController",
+            "ErpPurchaseReturnSheetController"
         ],
         "name": "foodprint"
     },

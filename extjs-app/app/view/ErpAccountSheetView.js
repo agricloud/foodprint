@@ -32,6 +32,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonShowToolbar'
     ],
 
+    activeItem: 1,
     layout: {
         type: 'card'
     },
@@ -52,7 +53,8 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                     },
                     items: [
                         {
-                            xtype: 'erpaccountsheetgrid'
+                            xtype: 'erpaccountsheetgrid',
+                            itemId: 'grid'
                         }
                     ]
                 },
@@ -107,40 +109,198 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Customer.title',
                                     name: 'customer.title'
+                                },
+                                {
+                                    xtype: 'datefield',
+                                    flex: 1,
+                                    itemId: 'dateCreated',
+                                    padding: 3,
+                                    fieldLabel: 'dateCreated',
+                                    name: 'dateCreated'
                                 }
                             ]
                         }),
                         {
                             xtype: 'tabpanel',
                             flex: 1,
+                            minHeight: 250,
+                            width: 100,
                             activeTab: 0,
                             items: [
                                 {
                                     xtype: 'panel',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'vbox'
+                                    },
                                     title: 'Account',
                                     items: [
                                         {
-                                            xtype: 'numberfield',
-                                            fieldLabel: 'rate',
-                                            name: 'rate',
-                                            readOnly: true,
-                                            allowBlank: false
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'date',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'datefield',
+                                                    itemId: 'accountDate',
+                                                    maxWidth: 250,
+                                                    minWidth: 250,
+                                                    padding: 5,
+                                                    width: 250,
+                                                    fieldLabel: 'accountDate',
+                                                    name: 'dueDate'
+                                                },
+                                                {
+                                                    xtype: 'datefield',
+                                                    itemId: 'anticipationDate',
+                                                    maxWidth: 250,
+                                                    minWidth: 250,
+                                                    padding: 5,
+                                                    width: 250,
+                                                    fieldLabel: 'anticipationDate',
+                                                    name: 'dueDate'
+                                                }
+                                            ]
                                         },
                                         {
-                                            xtype: 'datefield',
-                                            itemId: 'anticipationDate',
-                                            fieldLabel: 'anticipationDate',
-                                            name: 'dueDate'
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'currency',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'numberfield',
+                                                    padding: 5,
+                                                    width: 250,
+                                                    fieldLabel: 'rate',
+                                                    labelWidth: 50,
+                                                    name: 'rate',
+                                                    readOnly: true,
+                                                    allowBlank: false
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    padding: 5,
+                                                    width: 250,
+                                                    fieldLabel: 'currency'
+                                                }
+                                            ]
                                         },
                                         {
-                                            xtype: 'commonreceivablescombo',
-                                            fixed: true
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'receivables',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'commonreceivablescombo',
+                                                    padding: 5,
+                                                    width: 250,
+                                                    fixed: true
+                                                },
+                                                {
+                                                    xtype: 'checkboxfield',
+                                                    padding: 5,
+                                                    fieldLabel: 'closedCode',
+                                                    labelWidth: 80
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'status',
+                                                    labelWidth: 70
+                                                }
+                                            ]
                                         },
                                         {
-                                            xtype: 'datefield',
-                                            itemId: 'accountDate',
-                                            fieldLabel: 'accountDate',
-                                            name: 'dueDate'
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'original1',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'oAmounts',
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'otax',
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'oTotalAmount',
+                                                    labelWidth: 70
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'original3',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'Amounts',
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'tax',
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'TotalAmount',
+                                                    labelWidth: 70
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldcontainer',
+                                            itemId: 'original2',
+                                            layout: {
+                                                type: 'column'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'displayfield',
+                                                    minWidth: 200,
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'originalReceived',
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    minWidth: 200,
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'received',
+                                                    labelWidth: 70
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
@@ -172,27 +332,12 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     itemId: 'detailGrid',
                                     autoScroll: true,
                                     title: 'AccountSheetDet',
-                                    store: 'ErpSaleReturnSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'id',
                                             text: 'Id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            hidden: true,
-                                            dataIndex: 'typeName',
-                                            text: 'TypeName',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            hidden: true,
-                                            dataIndex: 'name',
-                                            text: 'Name',
                                             flex: 1
                                         },
                                         {
@@ -203,99 +348,75 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             format: '0,000'
                                         },
                                         {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'warehouse.id',
-                                            text: 'Warehouse.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'saleSheetDet.id',
-                                            text: 'SaleSheet.id',
+                                            xtype: 'checkcolumn',
+                                            dataIndex: 'status',
+                                            text: 'status',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'saleSheetDet.name',
-                                            text: 'SaleSheetDet.name',
+                                            dataIndex: 'source',
+                                            text: 'Source',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'datecolumn',
+                                            dataIndex: 'documentDateCreated',
+                                            text: 'documentDateCreated',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'typeName',
+                                            text: 'typeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouse.name',
-                                            text: 'Warehouse.name',
+                                            text: 'name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'warehouse.title',
-                                            text: 'Warehouse.title',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'warehouseLocation.id',
-                                            text: 'WarehouseLocation.id',
+                                            dataIndex: 'documentSequence',
+                                            text: 'documentSequence',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'warehouseLocation.name',
-                                            text: 'WarehouseLocation.name',
+                                            dataIndex: 'originalAmounts',
+                                            text: 'originalAmounts',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'warehouseLocation.title',
-                                            text: 'WarehouseLocation.title',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'batch.id',
-                                            text: 'Batch.id',
+                                            dataIndex: 'originaltax',
+                                            text: 'originaltax',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'batch.name',
-                                            text: 'Batch.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'item.id',
-                                            text: 'Item.id',
+                                            dataIndex: 'originalTotalAmount',
+                                            text: 'originalTotalAmount',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'item.name',
-                                            text: 'Item.name',
+                                            dataIndex: ' subamounts',
+                                            text: ' subamounts',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'item.title',
-                                            text: 'Item.title',
+                                            dataIndex: 'tax',
+                                            text: 'tax',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'qty',
-                                            text: 'qty',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'customerOrderDet.id',
-                                            text: 'CustomerOrderDet.id',
+                                            dataIndex: ' totalAmount',
+                                            text: ' totalAmount',
                                             flex: 1
                                         }
                                     ],
@@ -337,7 +458,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     flex: 1,
                                     hidden: true,
                                     fieldLabel: 'saleReturnSheet.id',
-                                    name: 'saleReturnSheet.id',
+                                    name: 'accountSheet.id',
                                     readOnly: true
                                 },
                                 {
@@ -370,7 +491,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'saleSheetDetContainer',
+                                    itemId: 'sourceSheetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -385,7 +506,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'SaleSheetDet.sheetNum',
+                                            fieldLabel: 'sourceSheet.Num',
                                             name: 'saleSheetDet.typeName',
                                             readOnly: true
                                         },
