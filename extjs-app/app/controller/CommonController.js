@@ -269,7 +269,12 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
-    activeOutSrcPurchaseSheetDetIndex: function() {
+    activeMaterialSheetDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]"));
+    },
+
+    activeOurSrcPurchaseSheetDetIndex: function() {
 
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=outSrcPurchaseSheetDetIndex]"));
     },

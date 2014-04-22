@@ -469,13 +469,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activeOutSrcPurchaseSheetDetIndex",
+                "fn": "activeMaterialSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));"
+                ]
+            },
+            "designerId": "f33e0283-6b71-4019-8b86-cc240b1c32bc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeOurSrcPurchaseSheetDetIndex",
                 "implHandler": [
                     "",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\"));"
                 ]
             },
-            "designerId": "ddbf008e-c85e-45d0-b1b3-40b7dd480b00"
+            "designerId": "75519c68-84f4-4103-bedf-924648e7c322"
         },
         {
             "type": "basicfunction",
