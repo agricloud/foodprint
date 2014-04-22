@@ -38,7 +38,8 @@ Ext.application({
     },
     views: [
         'ErpMaterialSheetGrid',
-        'ErpMaterialSheetDetGrid'
+        'ErpMaterialSheetDetGrid',
+        'ErpOutSrcPurchaseReturnSheetGrid'
     ],
     autoCreateViewport: true,
     controllers: [
@@ -79,7 +80,9 @@ Ext.application({
         'SiteController',
         'ErpMaterialReturnSheetController',
         'ErpMaterialReturnSheetDetController',
-        'WarehouseLocationController'
+        'WarehouseLocationController',
+        'ErpOutSrcPurchaseReturnSheetController',
+        'ErpOutSrcPurchaseReturnSheetDetController'
     ],
     name: 'foodprint',
 

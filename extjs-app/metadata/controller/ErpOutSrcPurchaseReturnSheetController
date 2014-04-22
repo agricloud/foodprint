@@ -7,32 +7,32 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "ErpOutSrcPurchaseSheet",
-            "ErpOutSrcPurchaseSheetDet",
+            "ErpOutSrcPurchaseReturnSheet",
+            "ErpOutSrcPurchaseReturnSheetDet",
             "Supplier",
             "Warehouse",
             "WarehouseLocation",
             "ErpManufactureOrder"
         ],
         "stores": [
-            "ErpOutSrcPurchaseSheetStore",
-            "ErpOutSrcPurchaseSheetDetStore",
+            "ErpOutSrcPurchaseReturnSheetStore",
+            "ErpOutSrcPurchaseReturnSheetDetStore",
             "SupplierStore",
             "WarehouseStore",
             "WarehouseLocationStore",
             "ErpManufactureOrderStore"
         ],
         "views": [
-            "ErpOutSrcPurchaseSheetView"
+            "ErpOutSrcPurchaseReturnSheetView"
         ],
-        "designer|userClassName": "ErpOutSrcPurchaseSheetController",
+        "designer|userClassName": "ErpOutSrcPurchaseReturnSheetController",
         "mixins": [
             "{",
             "    commonController: 'foodprint.controller.CommonController'",
             "}"
         ]
     },
-    "designerId": "cf61c13d-c53e-491b-872b-1904859c1eac",
+    "designerId": "a47ecbb3-aead-49f0-abcb-684c05560050",
     "cn": [
         {
             "type": "controllerref",
@@ -43,9 +43,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainGrid",
-                "selector": "erpoutsrcpurchasesheetview #grid"
+                "selector": "erpoutsrcpurchasereturnsheetview #grid"
             },
-            "designerId": "e161479e-165a-4e34-aa5c-8750b49bcd3e"
+            "designerId": "1c23f71d-6823-43a2-b46a-0688535c44c7"
         },
         {
             "type": "controllerref",
@@ -56,9 +56,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "mainForm",
-                "selector": "erpoutsrcpurchasesheetview #form"
+                "selector": "erpoutsrcpurchasereturnsheetview #form"
             },
-            "designerId": "44c94353-0da4-4cea-a7e6-3e53d94451f3"
+            "designerId": "b49ee5be-27d0-40a7-b89a-6a4f1769715f"
         },
         {
             "type": "fixedfunction",
@@ -74,50 +74,50 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'erpoutsrcpurchasesheetview #index commonindextoolbar commoncreatebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowOutSrcPurchaseSheet",
+                    "    'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowOutSrcPurchaseReturnSheet",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commondeletebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commonsavebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #grid':{",
+                    "    'erpoutsrcpurchasereturnsheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowOutSrcPurchaseSheet",
+                    "        itemdblclick: this.doShowOutSrcPurchaseReturnSheet",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #show commonindextoolbar commoncreatebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowOutSrcPurchaseSheetDet",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSaveDetail",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancelDetail",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #detailGrid':{",
+                    "    'erpoutsrcpurchasereturnsheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowOutSrcPurchaseSheetDet",
+                    "        itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #showDetail commonselectbtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeManufactureOrderIndex",
                     "    },",
-                    "    'erpoutsrcpurchasesheetview #manufactureOrderIndex erpmanufactureordergrid':{",
+                    "    'erpoutsrcpurchasereturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{",
                     "        itemdblclick: this.doSelectManufactureOrder",
                     "    }",
                     "",
@@ -125,12 +125,12 @@
                     "",
                     "",
                     "this.domainName = 'foodpaint';",
-                    "this.foodpaintController = 'outSrcPurchaseSheet';",
-                    "this.foodpaintDetController = 'outSrcPurchaseSheetDet';",
-                    "this.masterKey='outSrcPurchaseSheet.id';"
+                    "this.foodpaintController = 'outSrcPurchaseReturnSheet';",
+                    "this.foodpaintDetController = 'outSrcPurchaseReturnSheetDet';",
+                    "this.masterKey='outSrcPurchaseReturnSheet.id';"
                 ]
             },
-            "designerId": "01917f90-3915-444d-902f-ed9018ff66a8"
+            "designerId": "80f48e9e-a237-4e43-9a31-dcbb12629c1e"
         },
         {
             "type": "controllerref",
@@ -141,9 +141,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "detailGrid",
-                "selector": "erpoutsrcpurchasesheetview #detailGrid"
+                "selector": "erpoutsrcpurchasereturnsheetview #detailGrid"
             },
-            "designerId": "8e5a3604-d1d8-4024-99c3-e5f702c6c115"
+            "designerId": "4d568918-1bfe-437e-be2e-be36f1882a25"
         },
         {
             "type": "controllerref",
@@ -154,9 +154,9 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "detailForm",
-                "selector": "erpoutsrcpurchasesheetview #detailForm"
+                "selector": "erpoutsrcpurchasereturnsheetview #detailForm"
             },
-            "designerId": "d1bdb24a-7eba-4dc1-ac40-e73aeb944fa1"
+            "designerId": "e2219b9f-f0a7-4ea8-b73e-57d2f50c4e76"
         },
         {
             "type": "basicfunction",
@@ -185,7 +185,7 @@
                     "this.activeDetailEditor();"
                 ]
             },
-            "designerId": "4373b9e2-e5c8-4304-a999-7b7cac47c3d5"
+            "designerId": "5d79e4bc-866b-4b36-a2c6-99b972d6cdc7"
         },
         {
             "type": "basicfunction",
@@ -195,7 +195,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doShowOutSrcPurchaseSheet",
+                "fn": "doShowOutSrcPurchaseReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
@@ -207,7 +207,7 @@
                     "});"
                 ]
             },
-            "designerId": "e179123a-ee99-4033-9b15-5abf8b54052f"
+            "designerId": "707e2bad-5183-49ad-8bbc-5dc8607f17f7"
         },
         {
             "type": "basicfunction",
@@ -217,7 +217,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doShowOutSrcPurchaseSheetDet",
+                "fn": "doShowOutSrcPurchaseReturnSheetDet",
                 "implHandler": [
                     "",
                     "this.doShowDetail(function(success,form,action){",
@@ -233,7 +233,7 @@
                     "});"
                 ]
             },
-            "designerId": "8952a41d-e347-45ec-8a81-ece5ff4cf5fc"
+            "designerId": "b7d65f65-c351-495c-bd48-5d598acbd340"
         }
     ]
 }
