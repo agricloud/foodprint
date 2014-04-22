@@ -469,6 +469,21 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "activeMaterialSheetDetIndex",
+                "implHandler": [
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));"
+                ]
+            },
+            "designerId": "4bd131ab-91ea-496b-a0fb-f4a2eaa83d42"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doCreateAndIndexDetail",
                 "implHandler": [
                     "this.doCreate();",
@@ -553,16 +568,16 @@
                     "",
                     "        that.activeDetailEditor();",
                     "        that.detailActionName = 'update';",
-                    "        ",
+                    "",
                     "        if (callback && callback instanceof Function) {",
-                    "            callback(true,form,action)",
+                    "            callback(true,form,action);",
                     "        }",
                     "    },",
                     "",
                     "    failure: function(form, action) {",
                     "        Ext.MessageBox.alert('Failure',action.result.message);",
                     "        if (callback && callback instanceof Function){",
-                    "            callback(false,form,action)",
+                    "            callback(false,form,action);",
                     "        }",
                     "    }",
                     "});",
@@ -768,7 +783,7 @@
                 "fn": "getDetailParams",
                 "implHandler": [
                     "if(this.domainName == 'foodpaint')",
-                    "return {foodpaintController:this.foodpaintDetController};",
+                    "\treturn {foodpaintController:this.foodpaintDetController};",
                     "else return {};"
                 ]
             },
