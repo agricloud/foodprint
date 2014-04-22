@@ -36,6 +36,18 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'ErpMaterialReturnSheet',
+        'ErpMaterialReturnSheetDet',
+        'ErpOutSrcPurchaseReturnSheet',
+        'ErpOutSrcPurchaseReturnSheetDet'
+    ],
+    stores: [
+        'ErpMaterialReturnSheetDetStore',
+        'ErpMaterialReturnSheetStore',
+        'ErpOutSrcPurchaseReturnSheetStore',
+        'ErpOutSrcPurchaseReturnSheetDetStore'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

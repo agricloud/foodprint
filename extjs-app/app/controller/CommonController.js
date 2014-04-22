@@ -330,14 +330,14 @@ Ext.define('foodprint.controller.CommonController', {
                 that.detailActionName = 'update';
 
                 if (callback && callback instanceof Function) {
-                    callback(true,form,action);
+                    callback(true,form,action)
                 }
             },
 
             failure: function(form, action) {
                 Ext.MessageBox.alert('Failure',action.result.message);
                 if (callback && callback instanceof Function){
-                    callback(false,form,action);
+                    callback(false,form,action)
                 }
             }
         });
