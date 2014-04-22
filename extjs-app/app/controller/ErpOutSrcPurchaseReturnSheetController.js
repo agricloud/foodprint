@@ -99,14 +99,21 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             'erpoutsrcpurchasereturnsheetview #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet
+                itemdblclick: this.doSelectOutSrcPurchaseSheetDet
+                //itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet
             },
             'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
-                click:this.activeManufactureOrderIndex
+                click:this.activeOutSrcPurchaseSheetDetIndex
+            },
+            'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{
+                select: this.doIndexDetailOutSrcPurchaseSheet
+            }
+            /*'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
+            click:this.activeManufactureOrderIndex
             },
             'erpoutsrcpurchasereturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{
-                itemdblclick: this.doSelectManufactureOrder
-            }
+            itemdblclick: this.doSelectManufactureOrder
+            }*/
 
         });
 
@@ -132,6 +139,46 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
         this.activeDetailEditor();
     },
 
+    doSelectOutSrcPurchaseSheetDet: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'outSrcPurchaseSheetDet.id':record.data['id'],
+            'outSrcPurchaseSheetDet.typeName':record.data['typeName'],
+            'outSrcPurchaseSheetDet.name':record.data['name'],
+            'outSrcPurchaseSheetDet.sequence':record.data['sequence'],
+            'manufactureOrder.id':record.data['manufactureOrder.id'],
+            'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],
+            'manufactureOrder.name':record.data['manufactureOrder.name'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.name':record.data['warehouse.name'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'],
+            'warehouseLocation.title':record.data['warehouseLocation.title']
+            //'qty':record.data['qty']
+        });
+        this.activeDetailEditor();
+    },
+
+    doIndexDetailOutSrcPurchaseSheet: function(obj, record, index, eOpts) {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=outSrcPurchaseSheetDetIndex]").down("grid[itemId=detailGrid]");
+        console.log();
+        var store=grid.getStore(grid);
+        console.log(store);
+
+        store.data.clear();
+
+        var params = {};
+        params["outSrcPurchaseSheet.id"]=record.data.id;
+
+        store.getProxy().extraParams = params;
+        store.load();
+    },
+
     doShowOutSrcPurchaseReturnSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
             //由於store設定load第1-50筆
@@ -145,17 +192,17 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
 
     doShowOutSrcPurchaseReturnSheetDet: function() {
 
-        this.doShowDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var whcombo=form.findField('warehouse.id');
-            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+        //this.doShowDetail(function(success,form,action){
+        //由於store設定load第1-50筆
+        //導致doShow時若資料屬於第50筆之後無法正常顯示
+        //在此使combo重新load store
+        //var whcombo=form.findField('warehouse.id');
+        //Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
 
-            //warehouseLocation combo需指定warehouse id才可load
-            var wlcombo=form.findField('warehouseLocation.id');
-            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
-        });
+        //warehouseLocation combo需指定warehouse id才可load
+        //var wlcombo=form.findField('warehouseLocation.id');
+        //Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+        //});
     }
 
 });

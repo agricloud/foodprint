@@ -49,7 +49,10 @@ Ext.application({
         'ErpOutSrcPurchaseReturnSheetDetStore'
     ],
     views: [
-        'ErpMaterialSheetDetGrid'
+        'ErpMaterialSheetDetGrid',
+        'ErpOutSrcPurchaseReturnSheetGrid',
+        'ErpOutSrcPurchaseSheetDetGrid',
+        'ErpOutSrcPurchaseSheetDetView'
     ],
     autoCreateViewport: true,
     controllers: [

@@ -765,7 +765,7 @@
                                 "layout|flex": null,
                                 "container|align": "stretch",
                                 "height": null,
-                                "itemId": "manufactureOrderContainer",
+                                "itemId": "outSrcPurchaseSheetContainer",
                                 "width": null,
                                 "layout": "hbox",
                                 "fieldLabel": null
@@ -782,11 +782,11 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "ManufactureOrder.id",
-                                        "name": "manufactureOrder.id",
+                                        "fieldLabel": "OutSrcPurchaseSheetDet.id",
+                                        "name": "outSrcPurchaseSheetDet.id",
                                         "readOnly": true
                                     },
-                                    "designerId": "eb16756a-7ac3-4b48-8c27-77241f0810ae"
+                                    "designerId": "5c126556-2760-41c6-ac52-9c56662b2eb5"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -798,12 +798,12 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "ManufactureOrder.sheetNum",
-                                        "name": "manufactureOrder.typeName",
+                                        "fieldLabel": "OutSrcPurchaseSheetDet.typeName",
+                                        "name": "outSrcPurchaseSheetDet.typeName",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
-                                    "designerId": "80c054cb-c093-45f6-8705-54874b5c17cc"
+                                    "designerId": "2a4265f8-77d9-40e7-b7db-230af0300fdc"
                                 },
                                 {
                                     "type": "Ext.form.field.Text",
@@ -816,11 +816,28 @@
                                         "layout|flex": null,
                                         "disabled": null,
                                         "fieldLabel": null,
-                                        "name": "manufactureOrder.name",
+                                        "name": "outSrcPurchaseSheetDet.name",
                                         "readOnly": true,
                                         "allowBlank": null
                                     },
-                                    "designerId": "6480ee87-d3f6-496a-aaf7-ba0ad67dee5b"
+                                    "designerId": "ab5a3959-6497-4025-83f1-fd93e1c61203"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "outSrcPurchaseSheetDet.sequence",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "4907a276-69dc-4e60-bd80-c9a9cbda0d5b"
                                 },
                                 {
                                     "type": "linkedinstance",
@@ -834,21 +851,41 @@
                                     },
                                     "designerId": "42706c30-c80a-4078-8934-dee3f52d8155",
                                     "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "frame": false,
+                                        "margin": null,
+                                        "glyph": 0,
+                                        "layout|flex": null,
+                                        "layout|margins": "1"
+                                    },
+                                    "designerId": "fe19d500-99c5-4f7e-81aa-4d69c1dc229c",
+                                    "masterInstanceId": "54035366-0ec4-4e3f-9b1a-81680113395d"
                                 }
                             ]
                         },
                         {
-                            "type": "linkedinstance",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "ManufactureOrder.id",
+                                "name": "manufactureOrder.id",
+                                "readOnly": true
                             },
-                            "designerId": "c0483728-c718-48f2-957c-84bfa0bf7662",
-                            "masterInstanceId": "075e795e-4c25-4803-acfa-3b40b50d6c74"
+                            "designerId": "eb16756a-7ac3-4b48-8c27-77241f0810ae"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -859,25 +896,80 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
+                                "disabled": null,
+                                "fieldLabel": "ManufactureOrder.typeName",
+                                "name": "manufactureOrder.typeName",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "80c054cb-c093-45f6-8705-54874b5c17cc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "ManufactureOrder.name",
+                                "name": "manufactureOrder.name",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "6480ee87-d3f6-496a-aaf7-ba0ad67dee5b"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "Warehouse.id",
+                                "name": "warehouse.id",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "54f73390-26f1-496e-a097-56ba765b85f8"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "fieldLabel": "Warehouse.title",
                                 "name": "warehouse.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "81974628-2de2-4fbc-b612-5439875c1ac8"
                         },
                         {
-                            "type": "linkedinstance",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "WarehouseLocation.id",
+                                "name": "warehouseLocation.id",
+                                "readOnly": true,
+                                "allowBlank": null
                             },
-                            "designerId": "4dd56540-9c22-4419-9b3b-56b341eff6b4",
-                            "masterInstanceId": "0613f809-a9f5-40fe-87df-2059b3efd8f1"
+                            "designerId": "53ec6906-28d1-4118-8a6a-397519439dcf"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -888,9 +980,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "WarehouseLocation.title",
                                 "name": "warehouseLocation.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "cdb019d0-5ecf-4711-91e3-839ecf00f833"
@@ -920,9 +1012,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "disabled": true,
                                 "fieldLabel": "Item.name",
                                 "name": "item.name",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "6860bdb4-2738-478a-81bc-21ee67cd151b"
@@ -939,9 +1031,27 @@
                                 "disabled": true,
                                 "fieldLabel": "Item.title",
                                 "name": "item.title",
+                                "readOnly": true,
                                 "allowBlank": null
                             },
                             "designerId": "0a013dc0-e63e-4d49-8374-1a589840e0cd"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "Batch.id",
+                                "name": "batch.id",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "e163c1e8-bdc1-4973-9857-bf0d4e7e9bf2"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -955,6 +1065,7 @@
                                 "disabled": null,
                                 "fieldLabel": "Batch.name",
                                 "name": "batch.name",
+                                "readOnly": true,
                                 "allowBlank": null,
                                 "allowOnlyWhitespace": null
                             },
@@ -1034,6 +1145,59 @@
                     },
                     "designerId": "d77c8bbd-8c5d-4d69-b413-8937ecdcb871",
                     "masterInstanceId": "c3c60854-2d30-4c99-9b14-4900112770e1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "itemId": "outSrcPurchaseSheetDetIndex",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "df49c896-bec2-4892-8cc5-2b0247d069c3",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "d78e0999-70fe-408a-a6ba-a2bc13c9b737",
+                    "masterInstanceId": "65373f98-a025-4e44-a0cf-cd78c12e0dcb"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "31a01199-a1ff-4544-baa0-a6314fc41496",
+                    "masterInstanceId": "ec74314d-1866-4df5-9c54-18661bc4c91a"
                 }
             ]
         }

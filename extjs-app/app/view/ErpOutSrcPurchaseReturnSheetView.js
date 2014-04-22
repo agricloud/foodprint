@@ -21,9 +21,10 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
         'foodprint.view.ErpOutSrcPurchaseReturnSheetGrid',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
-        'foodprint.view.CommonWarehouseCombo',
-        'foodprint.view.CommonWarehouseLocationCombo',
+        'foodprint.view.CommonCancelBtn',
         'foodprint.view.ErpManufactureOrderGrid',
+        'foodprint.view.ErpOutSrcPurchaseSheetGrid',
+        'foodprint.view.ErpOutSrcPurchaseSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -322,7 +323,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'manufactureOrderContainer',
+                                    itemId: 'outSrcPurchaseSheetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -331,43 +332,81 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'ManufactureOrder.id',
-                                            name: 'manufactureOrder.id',
+                                            fieldLabel: 'OutSrcPurchaseSheetDet.id',
+                                            name: 'outSrcPurchaseSheetDet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'ManufactureOrder.sheetNum',
-                                            name: 'manufactureOrder.typeName',
+                                            fieldLabel: 'OutSrcPurchaseSheetDet.typeName',
+                                            name: 'outSrcPurchaseSheetDet.typeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'manufactureOrder.name',
+                                            name: 'outSrcPurchaseSheetDet.name',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'outSrcPurchaseSheetDet.sequence',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'commonselectbtn'
+                                        },
+                                        {
+                                            xtype: 'commoncancelbtn',
+                                            frame: false,
+                                            glyph: 0,
+                                            margins: '1'
                                         }
                                     ]
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'ManufactureOrder.id',
+                                    name: 'manufactureOrder.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
+                                    fieldLabel: 'ManufactureOrder.typeName',
+                                    name: 'manufactureOrder.typeName',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'ManufactureOrder.name',
+                                    name: 'manufactureOrder.name',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'Warehouse.id',
+                                    name: 'warehouse.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
                                     fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title'
+                                    name: 'warehouse.title',
+                                    readOnly: true
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo'
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'WarehouseLocation.id',
+                                    name: 'warehouseLocation.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'WarehouseLocation.title',
-                                    name: 'warehouseLocation.title'
+                                    name: 'warehouseLocation.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -379,20 +418,29 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Item.name',
-                                    name: 'item.name'
+                                    name: 'item.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: 'Item.title',
-                                    name: 'item.title'
+                                    name: 'item.title',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    hidden: true,
+                                    fieldLabel: 'Batch.id',
+                                    name: 'batch.id',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'Batch.name',
-                                    name: 'batch.name'
+                                    name: 'batch.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -414,6 +462,24 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                         {
                             xtype: 'erpmanufactureordergrid',
                             title: 'manufactureOrder',
+                            flex: 1
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'outSrcPurchaseSheetDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpoutsrcpurchasesheetgrid',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'erpoutsrcpurchasesheetdetgrid',
                             flex: 1
                         }
                     ]
