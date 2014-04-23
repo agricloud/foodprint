@@ -215,8 +215,6 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
 
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
 
-        var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
-
     }
 
 });

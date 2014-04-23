@@ -179,8 +179,14 @@ Ext.define('foodprint.view.Utilities', {
         if (!prefix) {
             console.warn("processConfigBundle require a prefix argument");
         }
+        if(config instanceof Ext.form.FieldContainer || config.xtype=='fieldcontainer' ){
+            var key = prefix+'.label';
+            if (this.getMsg(key) !== key+".undefined") {
+                config.fieldLabel = this.getMsg(key);
+            }else console.log(key);
+        }
 
-        if (config.items) {
+        if ((config instanceof Ext.form.Panel || config.xtype=='form') && config.items) {
             for (var i=0; i<config.items.length; i++) {
                 var target = config.items[i];
 
@@ -208,7 +214,7 @@ Ext.define('foodprint.view.Utilities', {
             }
         }
 
-        if (config.columns) {
+        if ((config instanceof Ext.grid.Panel || config.xtype=='gridpanel') && config.columns) {
             if(config.title != null)
             config.title = this.getMsg(prefix+'.label');
             for (var i=0; i<config.columns.length; i++) {

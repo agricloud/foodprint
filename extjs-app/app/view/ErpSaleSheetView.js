@@ -331,24 +331,24 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     readOnly: true,
                                     allowBlank: false
                                 },
-                                {
+                                me.processCustomerOrderDetContainer({
                                     xtype: 'fieldcontainer',
                                     itemId: 'customerOrderDetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
                                     },
+                                    fieldLabel: 'cusomerOrderDet.SheetNum',
                                     items: [
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'ManufactureOrder.id',
+                                            fieldLabel: 'CustomerOrderDet.id',
                                             name: 'customerOrderDet.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'CustomerOrderDet.sheetNum',
                                             name: 'customerOrderDet.typeName',
                                             readOnly: true
                                         },
@@ -373,7 +373,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                             margins: '1'
                                         }
                                     ]
-                                },
+                                }),
                                 {
                                     xtype: 'commonwarehousecombo'
                                 },
@@ -442,7 +442,13 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
     },
 
     processDetailGrid: function(config) {
+
         return Utilities.processConfigBundle(config, 'saleSheetDet');
+    },
+
+    processCustomerOrderDetContainer: function(config) {
+
+        return Utilities.processConfigBundle(config, 'customerOrderDet.sheetNum');
     },
 
     processDetailForm: function(config) {

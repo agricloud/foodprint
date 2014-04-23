@@ -628,6 +628,7 @@
                                             "config"
                                         ],
                                         "implHandler": [
+                                            "",
                                             "return Utilities.processConfigBundle(config, 'saleSheetDet');"
                                         ]
                                     },
@@ -784,7 +785,7 @@
                                 "itemId": "customerOrderDetContainer",
                                 "width": null,
                                 "layout": "hbox",
-                                "fieldLabel": null
+                                "fieldLabel": "cusomerOrderDet.SheetNum"
                             },
                             "designerId": "139412d4-16c9-4026-a3a6-a498223e2d15",
                             "cn": [
@@ -798,7 +799,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "ManufactureOrder.id",
+                                        "fieldLabel": "CustomerOrderDet.id",
                                         "name": "customerOrderDet.id",
                                         "readOnly": true
                                     },
@@ -814,7 +815,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "CustomerOrderDet.sheetNum",
+                                        "fieldLabel": null,
                                         "name": "customerOrderDet.typeName",
                                         "readOnly": true,
                                         "allowBlank": null
@@ -886,6 +887,25 @@
                                     },
                                     "designerId": "49c87d8b-fcfc-443c-827c-d49e95f76f85",
                                     "masterInstanceId": "54035366-0ec4-4e3f-9b1a-81680113395d"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processCustomerOrderDetContainer",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "",
+                                            "return Utilities.processConfigBundle(config, 'customerOrderDet.sheetNum');"
+                                        ]
+                                    },
+                                    "designerId": "5a0ab455-583c-476e-b616-ce6598e85cbe"
                                 }
                             ]
                         },
