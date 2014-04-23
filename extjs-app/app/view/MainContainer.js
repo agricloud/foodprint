@@ -155,22 +155,10 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpCustomerOrderMaintain',
                                     text: 'CustomerOrder Maintain'
                                 }),
-                                me.processErpCustomerOrderDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpCustomerOrderDetMaintain',
-                                    text: 'CustomerOrderDet Maintain'
-                                }),
                                 me.processErpPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpPurchaseSheetMaintain',
                                     text: 'PurchaseSheet Maintain'
-                                }),
-                                me.processErpPurchaseSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpPurchaseSheetDetMaintain',
-                                    text: 'PurchaseSheetDet Maintain'
                                 }),
                                 me.processErpManufactureOrderMaintain({
                                     xtype: 'button',
@@ -182,44 +170,20 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpMaterialSheetMaintain',
                                     text: 'MaterialSheet Maintain'
                                 }),
-                                me.processErpMaterialSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpMaterialSheetDetMaintain',
-                                    text: 'MaterialSheetDet Maintain'
-                                }),
                                 me.processErpStockInSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpStockInSheetMaintain',
                                     text: 'StockInSheet Maintain'
-                                }),
-                                me.processErpStockInSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpStockInSheetDetMaintain',
-                                    text: 'StockInSheetDet Maintain'
                                 }),
                                 me.processErpOutSrcPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpOutSrcPurchaseSheetMaintain',
                                     text: 'OutSrcPurchaseSheet Maintain'
                                 }),
-                                me.processErpOutSrcPurchaseSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpOutSrcPurchaseSheetDetMaintain',
-                                    text: 'OutSrcPurchaseSheetDet Maintain'
-                                }),
                                 me.processErpSaleSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpSaleSheetMaintain',
                                     text: 'SaleSheet Maintain'
-                                }),
-                                me.processErpSaleSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpSaleSheetDetMaintain',
-                                    text: 'SaleSheetDet Maintain'
                                 })
                             ]
                         }),
@@ -451,20 +415,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpCustomerOrderDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');
-
-        return config;
-    },
-
     processErpPurchaseSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
 
         return config;
     },
@@ -481,20 +433,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpMaterialSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
-
-        return config;
-    },
-
     processErpStockInSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.stockInSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpStockInSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
 
         return config;
     },
@@ -505,20 +445,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpOutSrcPurchaseSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
-
-        return config;
-    },
-
     processErpSaleSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.saleSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpSaleSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');
 
         return config;
     },

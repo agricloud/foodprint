@@ -96,14 +96,8 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpCustomerOrderMaintain]':{
                 click:this.erpCustomerOrderMaintain
             },
-            'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{
-                click:this.erpCustomerOrderDetMaintain
-            },
             'maincontainer button[itemId=erpPurchaseSheetMaintain]':{
                 click:this.erpPurchaseSheetMaintain
-            },
-            'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{
-                click:this.erpPurchaseSheetDetMaintain
             },
             'maincontainer button[itemId=erpManufactureOrderMaintain]':{
                 click:this.erpManufactureOrderMaintain
@@ -111,26 +105,14 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetMaintain]':{
                 click:this.erpMaterialSheetMaintain
             },
-            'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
-                click:this.erpMaterialSheetDetMaintain
-            },
             'maincontainer button[itemId=erpStockInSheetMaintain]':{
                 click:this.erpStockInSheetMaintain
-            },
-            'maincontainer button[itemId=erpStockInSheetDetMaintain]':{
-                click:this.erpStockInSheetDetMaintain
             },
             'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{
                 click:this.erpOutSrcPurchaseSheetMaintain
             },
-            'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{
-                click:this.erpOutSrcPurchaseSheetDetMaintain
-            },
             'maincontainer button[itemId=erpSaleSheetMaintain]':{
                 click:this.erpSaleSheetMaintain
-            },
-            'maincontainer button[itemId=erpSaleSheetDetMaintain]':{
-                click:this.erpSaleSheetDetMaintain
             },
             'maincontainer':{
                 afterrender:function(){
@@ -293,26 +275,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpCustomerOrderDetMaintain: function() {
-
-        var xtypeStr = 'erpcustomerorderdetview';
-        var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
     erpMaterialSheetMaintain: function() {
 
         var xtypeStr = 'erpmaterialsheetview';
         var tabName = Utilities.getMsg('mainContainer.materialSheetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
-    erpMaterialSheetDetMaintain: function() {
-
-        var xtypeStr = 'erpmaterialsheetdetview';
-        var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
@@ -325,26 +291,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpPurchaseSheetDetMaintain: function() {
-
-        var xtypeStr = 'erppurchasesheetdetview';
-        var tabName = Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
     erpStockInSheetMaintain: function() {
 
         var xtypeStr = 'erpstockinsheetview';
         var tabName = Utilities.getMsg('mainContainer.stockInSheetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
-    erpStockInSheetDetMaintain: function() {
-
-        var xtypeStr = 'erpstockinsheetdetview';
-        var tabName = Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
@@ -357,26 +307,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpOutSrcPurchaseSheetDetMaintain: function() {
-
-        var xtypeStr = 'erpoutsrcpurchasesheetdetview';
-        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
     erpSaleSheetMaintain: function() {
 
         var xtypeStr = 'erpsalesheetview';
         var tabName = Utilities.getMsg('mainContainer.saleSheetMaintain.label');
-        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
-        this.maintainBtn(xtypeStr,tabName,docLink);
-    },
-
-    erpSaleSheetDetMaintain: function() {
-
-        var xtypeStr = 'erpsalesheetdetview';
-        var tabName = Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
