@@ -160,6 +160,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpPurchaseSheetMaintain',
                                     text: 'PurchaseSheet Maintain'
                                 }),
+                                me.processErpPurchaseReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseReturnSheetMaintain',
+                                    text: 'PurchaseReturnSheet Maintain'
+                                }),
                                 me.processErpManufactureOrderMaintain({
                                     xtype: 'button',
                                     itemId: 'erpManufactureOrderMaintain',
@@ -417,6 +422,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpPurchaseSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
 
         return config;
     },

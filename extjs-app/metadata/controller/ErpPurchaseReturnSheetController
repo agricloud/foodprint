@@ -1,0 +1,301 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpPurchaseReturnSheet",
+            "ErpPurchaseReturnSheetDet",
+            "ErpPurchaseSheet",
+            "ErpPurchaseSheetDet",
+            "Supplier",
+            "Warehouse",
+            "WarehouseLocation"
+        ],
+        "stores": [
+            "ErpPurchaseReturnSheetStore",
+            "ErpPurchaseReturnSheetDetStore",
+            "ErpPurchaseSheetStore",
+            "ErpPurchaseSheetDetStore",
+            "SupplierStore",
+            "WarehouseStore",
+            "WarehouseLocationStore"
+        ],
+        "views": [
+            "ErpPurchaseReturnSheetView"
+        ],
+        "designer|userClassName": "ErpPurchaseReturnSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "47de51b0-a26c-479d-b6b0-499600652989",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erppurchasereturnsheetview #grid"
+            },
+            "designerId": "4a562b15-d3ed-459a-b4c3-c0891db21af6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erppurchasereturnsheetview #form"
+            },
+            "designerId": "1644e1a1-084e-410d-bf85-d5b434a609ac"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erppurchasereturnsheetview #detailGrid"
+            },
+            "designerId": "ba447eb8-c370-481c-acdd-79ced53db2f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erppurchasereturnsheetview #detailForm"
+            },
+            "designerId": "50f21e72-fcbd-418a-95b1-51a469d73598"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erppurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowPurchaseReturnSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erppurchasereturnsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowPurchaseReturnSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowPurchaseReturnSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erppurchasereturnsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowPurchaseReturnSheetDet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commonselectbtn':{",
+                    "        click:this.activePurchaseSheetDetIndex",
+                    "    },",
+                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetgrid':{",
+                    "        select: this.doIndexDetailPurchaseSheet",
+                    "    },",
+                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetdetgrid':{",
+                    "        itemdblclick: this.doSelectPurchaseSheetDet",
+                    "    }",
+                    "});",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'purchaseReturnSheet';",
+                    "this.foodpaintDetController = 'purchaseReturnSheetDet';",
+                    "this.masterKey='purchaseReturnSheet.id';"
+                ]
+            },
+            "designerId": "da0ecdde-2288-471f-818f-6e9558744910"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowPurchaseReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "6df182a5-9b8b-4acb-a2f9-c0fafcd607c6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowPurchaseReturnSheetDet",
+                "implHandler": [
+                    "",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "});"
+                ]
+            },
+            "designerId": "f49fd764-a10f-4e19-8657-fc5ea7d60639"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailPurchaseSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=erpPurchaseSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"purchaseSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "3b1fff06-339c-411e-a484-c2ff82ac4838"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectPurchaseSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "    'purchaseSheetDet.id':record.data['id'],",
+                    "    'purchaseSheetDet.typeName':record.data['typeName'],",
+                    "    'purchaseSheetDet.name':record.data['name'],",
+                    "    'purchaseSheetDet.sequence':record.data['sequence'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],   ",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],   ",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "    'qty':record.data['qty']",
+                    "",
+                    "});",
+                    "",
+                    "//在此使combo重新load store",
+                    "var whcombo=this.getDetailForm().getForm().findField('warehouse.id');",
+                    "Utilities.comboReload(whcombo,record.data['warehouse.id'],record.data['warehouse.name']);",
+                    "",
+                    "//warehouseLocation combo需指定warehouse id才可load",
+                    "var wlcombo=this.getDetailForm().getForm().findField('warehouseLocation.id');",
+                    "Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "ac7bcc69-8768-4f3e-b2f6-dc54005da83f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activePurchaseSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\"));",
+                    "",
+                    " "
+                ]
+            },
+            "designerId": "0210a62f-b2d2-4496-9468-7450d725183f"
+        }
+    ]
+}

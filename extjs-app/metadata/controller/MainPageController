@@ -110,6 +110,9 @@
                     "    'maincontainer button[itemId=erpPurchaseSheetMaintain]':{",
                     "        click:this.erpPurchaseSheetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpPurchaseReturnSheetMaintain]':{",
+                    "        click:this.erpPurchaseReturnSheetMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
                     "        click:this.erpManufactureOrderMaintain",
                     "    },",
@@ -550,6 +553,24 @@
                 ]
             },
             "designerId": "c39ed255-3445-4308-b32b-939727700131"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpPurchaseReturnSheetMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erppurchasereturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "48834214-35e0-473d-b664-1bccbe341c13"
         },
         {
             "type": "basicfunction",
