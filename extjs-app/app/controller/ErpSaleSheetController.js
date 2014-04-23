@@ -209,6 +209,14 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 
         });
+    },
+
+    activeCustomerOrderDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
+
+        var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
+
     }
 
 });

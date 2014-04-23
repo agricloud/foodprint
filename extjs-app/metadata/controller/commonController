@@ -436,30 +436,11 @@
             "userConfig": {
                 "fn": "activeManufactureOrderIndex",
                 "implHandler": [
-                    "",
+                    "//領料單、入庫單、託外進貨單會呼叫此方法",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=manufactureOrderIndex]\"));"
                 ]
             },
             "designerId": "0be99408-678d-43f2-b2a0-78ebb1d56f64"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "activeCustomerOrderDetIndex",
-                "implHandler": [
-                    "",
-                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\"));",
-                    "",
-                    "var customerOrderDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=customerOrderDetGrid]\");",
-                    ""
-                ]
-            },
-            "designerId": "cab8fcfd-1ca6-4855-beda-3c4dcd0a7422"
         },
         {
             "type": "basicfunction",

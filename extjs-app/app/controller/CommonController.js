@@ -257,16 +257,8 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     activeManufactureOrderIndex: function() {
-
+        //領料單、入庫單、託外進貨單會呼叫此方法
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
-    },
-
-    activeCustomerOrderDetIndex: function() {
-
-        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
-
-        var customerOrderDetGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=customerOrderDetGrid]");
-
     },
 
     doCreateAndIndexDetail: function() {

@@ -326,6 +326,25 @@
                 ]
             },
             "designerId": "5671cc17-3cf2-4f79-b28d-4391c19b49d4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeCustomerOrderDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\"));",
+                    "",
+                    "var customerOrderDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=customerOrderDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "8676bd37-1db7-4bab-b6a6-9258ff0acddd"
         }
     ]
 }
