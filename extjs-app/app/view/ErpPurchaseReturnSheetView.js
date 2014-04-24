@@ -180,7 +180,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     flex: 1,
                                     itemId: 'detailGrid',
                                     autoScroll: true,
-                                    title: 'ErpPurchaseSheetDet',
+                                    title: 'ErpPurchaseReturnSheetDet',
                                     store: 'ErpPurchaseReturnSheetDetStore',
                                     columns: [
                                         {
@@ -315,7 +315,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     ],
                                     listeners: {
                                         beforerender: {
-                                            fn: me.onGridBeforeRender1,
+                                            fn: me.onGridBeforeRender,
                                             scope: me
                                         }
                                     }
@@ -508,7 +508,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
     },
 
     processForm: function(config) {
-        return Utilities.processConfigBundle(config, 'purchaseSheet');
+        return Utilities.processConfigBundle(config, 'purchaseReturnSheet');
     },
 
     processDetailGrid: function(config) {
@@ -528,7 +528,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
         component.getStore().load();
     },
 
-    onGridBeforeRender1: function(component, eOpts) {
+    onGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
     }
 

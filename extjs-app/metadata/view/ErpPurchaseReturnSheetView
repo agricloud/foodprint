@@ -353,7 +353,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'purchaseSheet');"
+                                    "return Utilities.processConfigBundle(config, 'purchaseReturnSheet');"
                                 ]
                             },
                             "designerId": "95d4ea77-3c5c-46ca-9385-06233f3dd5b9"
@@ -405,7 +405,7 @@
                                 "padding": null,
                                 "width": null,
                                 "autoScroll": true,
-                                "title": "ErpPurchaseSheetDet",
+                                "title": "ErpPurchaseReturnSheetDet",
                                 "store": "ErpPurchaseReturnSheetDetStore"
                             },
                             "configAlternates": {
@@ -690,7 +690,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onGridBeforeRender1",
+                                        "fn": "onGridBeforeRender",
                                         "implHandler": [
                                             "component.getStore().removeAll();"
                                         ],

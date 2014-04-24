@@ -134,7 +134,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
             ],
             listeners: {
                 beforerender: {
-                    fn: me.onGridBeforeRender1,
+                    fn: me.onGridBeforeRender,
                     scope: me
                 }
             }
@@ -148,7 +148,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
         return Utilities.processConfigBundle(config, 'purchaseSheetDet');
     },
 
-    onGridBeforeRender1: function(component, eOpts) {
+    onGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
     }
 

@@ -253,7 +253,7 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                     ],
                                     listeners: {
                                         beforerender: {
-                                            fn: me.onGridBeforeRender1,
+                                            fn: me.onGridBeforeRender,
                                             scope: me
                                         }
                                     }
@@ -436,7 +436,7 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
         return Utilities.processConfigBundle(config, 'stockInSheetDet');
     },
 
-    onGridBeforeRender1: function(component, eOpts) {
+    onGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
     }
 
