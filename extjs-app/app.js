@@ -40,7 +40,8 @@ Ext.application({
         'ErpPurchaseReturnSheetView',
         'ErpAccountSheetView',
         'ErpAccountSheetGrid',
-        'CommonReceivablesCombo'
+        'CommonReceivablesCombo',
+        'MyPanel43'
     ],
     autoCreateViewport: true,
     controllers: [
@@ -81,7 +82,8 @@ Ext.application({
         'SiteController',
         'WarehouseLocationController',
         'ErpSaleReturnSheetController',
-        'ErpPurchaseReturnSheetController'
+        'ErpPurchaseReturnSheetController',
+        'ErpAccountSheetController'
     ],
     name: 'foodprint',
 

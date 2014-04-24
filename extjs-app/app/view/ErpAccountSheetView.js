@@ -15,9 +15,9 @@
 
 Ext.define('foodprint.view.ErpAccountSheetView', {
     extend: 'Ext.panel.Panel',
+    alias: 'widget.erpaccountsheetview',
 
     requires: [
-        'foodprint.view.ErpAccountSheetGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonReceivablesCombo',
         'foodprint.view.CommonSelectBtn',
@@ -32,7 +32,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonShowToolbar'
     ],
 
-    activeItem: 1,
     layout: {
         type: 'card'
     },
@@ -45,22 +44,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                 {
                     xtype: 'panel',
                     tbar: {
-                        xtype: 'commonindextoolbar'
-                    },
-                    itemId: 'index',
-                    layout: {
-                        type: 'fit'
-                    },
-                    items: [
-                        {
-                            xtype: 'erpaccountsheetgrid',
-                            itemId: 'grid'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
-                    tbar: {
                         xtype: 'commonshowtoolbar'
                     },
                     itemId: 'show',
@@ -68,16 +51,20 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                         align: 'stretch',
                         type: 'vbox'
                     },
+                    shrinkWrapDock: 2,
                     items: [
                         me.processForm1({
                             xtype: 'form',
                             flex: 1,
                             itemId: 'form1',
+                            width: 603,
+                            autoScroll: true,
                             layout: {
                                 align: 'stretch',
-                                padding: 10,
+                                pack: 'end',
                                 type: 'vbox'
                             },
+                            manageHeight: false,
                             title: '',
                             items: [
                                 {
@@ -112,82 +99,61 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'datefield',
-                                    flex: 1,
                                     itemId: 'dateCreated',
                                     padding: 3,
                                     fieldLabel: 'dateCreated',
                                     name: 'dateCreated'
-                                }
-                            ]
-                        }),
-                        {
-                            xtype: 'tabpanel',
-                            flex: 1,
-                            minHeight: 250,
-                            width: 100,
-                            activeTab: 0,
-                            items: [
+                                },
                                 {
                                     xtype: 'panel',
                                     layout: {
                                         align: 'stretch',
                                         type: 'vbox'
                                     },
+                                    collapsed: false,
+                                    collapsible: true,
                                     title: 'Account',
                                     items: [
                                         {
-                                            xtype: 'fieldcontainer',
-                                            itemId: 'date',
-                                            layout: {
-                                                type: 'column'
-                                            },
-                                            items: [
-                                                {
-                                                    xtype: 'datefield',
-                                                    itemId: 'accountDate',
-                                                    maxWidth: 250,
-                                                    minWidth: 250,
-                                                    padding: 5,
-                                                    width: 250,
-                                                    fieldLabel: 'accountDate',
-                                                    name: 'dueDate'
-                                                },
-                                                {
-                                                    xtype: 'datefield',
-                                                    itemId: 'anticipationDate',
-                                                    maxWidth: 250,
-                                                    minWidth: 250,
-                                                    padding: 5,
-                                                    width: 250,
-                                                    fieldLabel: 'anticipationDate',
-                                                    name: 'dueDate'
-                                                }
-                                            ]
+                                            xtype: 'datefield',
+                                            flex: 1,
+                                            itemId: 'accountDate',
+                                            padding: 5,
+                                            fieldLabel: 'accountDate',
+                                            name: 'dueDate'
+                                        },
+                                        {
+                                            xtype: 'datefield',
+                                            itemId: 'anticipationDate',
+                                            maxWidth: 250,
+                                            minWidth: 250,
+                                            padding: 5,
+                                            width: 250,
+                                            fieldLabel: 'anticipationDate',
+                                            name: 'dueDate'
+                                        },
+                                        {
+                                            xtype: 'numberfield',
+                                            padding: 5,
+                                            width: 250,
+                                            fieldLabel: 'rate',
+                                            labelWidth: 50,
+                                            name: 'rate',
+                                            readOnly: true,
+                                            allowBlank: false
+                                        },
+                                        {
+                                            xtype: 'combobox',
+                                            padding: 5,
+                                            width: 250,
+                                            fieldLabel: 'currency'
                                         },
                                         {
                                             xtype: 'fieldcontainer',
                                             itemId: 'currency',
                                             layout: {
                                                 type: 'column'
-                                            },
-                                            items: [
-                                                {
-                                                    xtype: 'numberfield',
-                                                    padding: 5,
-                                                    width: 250,
-                                                    fieldLabel: 'rate',
-                                                    labelWidth: 50,
-                                                    name: 'rate',
-                                                    readOnly: true,
-                                                    allowBlank: false
-                                                },
-                                                {
-                                                    xtype: 'combobox',
-                                                    padding: 5,
-                                                    width: 250,
-                                                    fieldLabel: 'currency'
-                                                }
-                                            ]
+                                            }
                                         },
                                         {
                                             xtype: 'fieldcontainer',
@@ -213,36 +179,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     padding: 5,
                                                     width: 150,
                                                     fieldLabel: 'status',
-                                                    labelWidth: 70
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            xtype: 'fieldcontainer',
-                                            itemId: 'original1',
-                                            layout: {
-                                                type: 'column'
-                                            },
-                                            items: [
-                                                {
-                                                    xtype: 'displayfield',
-                                                    padding: 5,
-                                                    width: 150,
-                                                    fieldLabel: 'oAmounts',
-                                                    labelWidth: 70
-                                                },
-                                                {
-                                                    xtype: 'displayfield',
-                                                    padding: 5,
-                                                    width: 150,
-                                                    fieldLabel: 'otax',
-                                                    labelWidth: 70
-                                                },
-                                                {
-                                                    xtype: 'displayfield',
-                                                    padding: 5,
-                                                    width: 150,
-                                                    fieldLabel: 'oTotalAmount',
                                                     labelWidth: 70
                                                 }
                                             ]
@@ -306,14 +242,18 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'panel',
+                                    collapsed: true,
+                                    collapsible: true,
                                     title: 'Invoice'
                                 },
                                 {
                                     xtype: 'panel',
+                                    collapsed: true,
+                                    collapsible: true,
                                     title: 'Other'
                                 }
                             ]
-                        },
+                        }),
                         {
                             xtype: 'panel',
                             tbar: {
@@ -321,6 +261,8 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                             },
                             flex: 1,
                             itemId: 'indexDetail',
+                            width: 150,
+                            autoScroll: true,
                             layout: {
                                 align: 'stretch',
                                 type: 'vbox'
@@ -330,7 +272,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     xtype: 'gridpanel',
                                     flex: 1,
                                     itemId: 'detailGrid',
-                                    autoScroll: true,
                                     title: 'AccountSheetDet',
                                     columns: [
                                         {

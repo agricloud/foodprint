@@ -1219,6 +1219,42 @@
                             ]
                         },
                         {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpAccountSheetMaintain",
+                                "text": "AccountSheet Maintain"
+                            },
+                            "designerId": "72c9cd7e-0e93-4437-9e3d-b9488f41b4b7",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpAccountSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "a5d57c60-964c-4029-957e-715d5a125082"
+                                }
+                            ]
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",

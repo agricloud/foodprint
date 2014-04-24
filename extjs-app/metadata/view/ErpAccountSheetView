@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "activeItem": 1,
         "height": null,
         "itemId": null,
         "width": null,
         "designer|userClassName": "ErpAccountSheetView",
+        "designer|userAlias": "erpaccountsheetview",
         "requires": [
             "foodprint.view.CommonIndexToolbar",
             "foodprint.view.CommonShowToolbar"
@@ -32,56 +32,13 @@
             "userConfig": {
                 "tbar": [
                     "{",
-                    "    xtype: 'commonindextoolbar'",
-                    "}"
-                ],
-                "itemId": "index",
-                "layout": "fit",
-                "title": null
-            },
-            "configAlternates": {
-                "tbar": "object"
-            },
-            "designerId": "25712114-6899-40a3-82fe-5e64a0f88f75",
-            "customConfigs": [
-                {
-                    "group": "(Custom Properties)",
-                    "name": "tbar",
-                    "type": "string"
-                }
-            ],
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "grid"
-                    },
-                    "designerId": "c41bc590-a9b6-42bf-864d-95ee0b46b897",
-                    "masterInstanceId": "cf3f575d-eb8d-4119-bd1b-d78ca3a4e56d"
-                }
-            ]
-        },
-        {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "tbar": [
-                    "{",
                     "    xtype: 'commonshowtoolbar'",
                     "}"
                 ],
                 "container|align": "stretch",
                 "itemId": "show",
-                "layout": "vbox"
+                "layout": "vbox",
+                "shrinkWrapDock": 2
             },
             "configAlternates": {
                 "tbar": "object"
@@ -104,11 +61,15 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "dock": null,
                         "container|align": "stretch",
-                        "container|padding": 10,
+                        "container|pack": "end",
                         "itemId": "form1",
+                        "width": 603,
                         "designer|displayName": null,
+                        "autoScroll": true,
                         "layout": "vbox",
+                        "manageHeight": false,
                         "title": ""
                     },
                     "configAlternates": {
@@ -124,7 +85,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "hidden": true,
                                 "fieldLabel": "id",
                                 "name": "id",
@@ -140,7 +100,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "fieldLabel": "typeName",
                                 "name": "typeName",
                                 "readOnly": true,
@@ -156,7 +115,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "fieldLabel": "name",
                                 "name": "name",
                                 "readOnly": true,
@@ -171,9 +129,6 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null
-                            },
                             "designerId": "4269fe88-4c20-4f68-866c-73083bd0bff2",
                             "masterInstanceId": "26f94ae1-0b0f-4fa5-bf33-93fa18d1683a"
                         },
@@ -185,7 +140,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
                                 "disabled": true,
                                 "fieldLabel": "Customer.title",
                                 "name": "customer.title"
@@ -200,7 +154,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": 1,
                                 "height": null,
                                 "itemId": "dateCreated",
                                 "maxWidth": null,
@@ -231,25 +184,7 @@
                                 ]
                             },
                             "designerId": "8ce000a5-637f-426e-b252-bbc3ad8ddc27"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.tab.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "dock": null,
-                        "minHeight": 250,
-                        "width": 100,
-                        "activeTab": 0
-                    },
-                    "designerId": "2a38de70-d427-44cf-a57c-cd9d0a697de3",
-                    "cn": [
+                        },
                         {
                             "type": "Ext.panel.Panel",
                             "reference": {
@@ -261,68 +196,86 @@
                                 "dock": null,
                                 "container|align": "stretch",
                                 "layout": "vbox",
+                                "collapsed": false,
+                                "collapsible": true,
                                 "title": "Account"
                             },
                             "designerId": "d090dc82-0dad-469f-a31d-0cce35bced83",
                             "cn": [
                                 {
-                                    "type": "Ext.form.FieldContainer",
+                                    "type": "Ext.form.field.Date",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "layout|flex": 1,
                                         "height": null,
-                                        "itemId": "date",
+                                        "itemId": "accountDate",
+                                        "maxWidth": null,
+                                        "minWidth": null,
+                                        "padding": 5,
                                         "width": null,
-                                        "layout": "column",
-                                        "fieldLabel": null
+                                        "fieldLabel": "accountDate",
+                                        "name": "dueDate",
+                                        "format": null,
+                                        "submitFormat": null
                                     },
-                                    "designerId": "234b29d8-a237-4b9a-b16b-d324690ef71c",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Date",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "height": null,
-                                                "itemId": "accountDate",
-                                                "maxWidth": 250,
-                                                "minWidth": 250,
-                                                "padding": 5,
-                                                "width": 250,
-                                                "fieldLabel": "accountDate",
-                                                "name": "dueDate",
-                                                "format": null,
-                                                "submitFormat": null
-                                            },
-                                            "designerId": "3b38ef47-cca0-49d0-982e-176779b94513"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Date",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "itemId": "anticipationDate",
-                                                "maxWidth": 250,
-                                                "minWidth": 250,
-                                                "padding": 5,
-                                                "width": 250,
-                                                "fieldLabel": "anticipationDate",
-                                                "name": "dueDate",
-                                                "format": null,
-                                                "submitFormat": null
-                                            },
-                                            "designerId": "519bd915-f207-4854-aa6c-5f27478191b8"
-                                        }
-                                    ]
+                                    "designerId": "3b38ef47-cca0-49d0-982e-176779b94513"
+                                },
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "anticipationDate",
+                                        "maxWidth": 250,
+                                        "minWidth": 250,
+                                        "padding": 5,
+                                        "width": 250,
+                                        "fieldLabel": "anticipationDate",
+                                        "name": "dueDate",
+                                        "format": null,
+                                        "submitFormat": null
+                                    },
+                                    "designerId": "519bd915-f207-4854-aa6c-5f27478191b8"
+                                },
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "disabled": null,
+                                        "padding": 5,
+                                        "width": 250,
+                                        "fieldLabel": "rate",
+                                        "labelWidth": 50,
+                                        "name": "rate",
+                                        "readOnly": true,
+                                        "allowBlank": false
+                                    },
+                                    "designerId": "72071f8a-7410-49fa-83f5-9c4ac3a79d1c"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "padding": 5,
+                                        "width": 250,
+                                        "fieldLabel": "currency"
+                                    },
+                                    "designerId": "e88bc6ab-c9ec-48e1-86c5-c7b7b758b79e"
                                 },
                                 {
                                     "type": "Ext.form.FieldContainer",
@@ -338,42 +291,7 @@
                                         "layout": "column",
                                         "fieldLabel": null
                                     },
-                                    "designerId": "8afc0c5b-96bc-4fa1-a36e-2e69def7823e",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Number",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "disabled": null,
-                                                "padding": 5,
-                                                "width": 250,
-                                                "fieldLabel": "rate",
-                                                "labelWidth": 50,
-                                                "name": "rate",
-                                                "readOnly": true,
-                                                "allowBlank": false
-                                            },
-                                            "designerId": "72071f8a-7410-49fa-83f5-9c4ac3a79d1c"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "padding": 5,
-                                                "width": 250,
-                                                "fieldLabel": "currency"
-                                            },
-                                            "designerId": "e88bc6ab-c9ec-48e1-86c5-c7b7b758b79e"
-                                        }
-                                    ]
+                                    "designerId": "8afc0c5b-96bc-4fa1-a36e-2e69def7823e"
                                 },
                                 {
                                     "type": "Ext.form.FieldContainer",
@@ -435,69 +353,6 @@
                                                 "labelWidth": 70
                                             },
                                             "designerId": "b3e864d2-6b36-4e84-940a-948523468a53"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.form.FieldContainer",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "height": null,
-                                        "itemId": "original1",
-                                        "width": null,
-                                        "layout": "column",
-                                        "fieldLabel": null
-                                    },
-                                    "designerId": "4992de8b-2bfa-415e-809b-8d7d196d277b",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Display",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "padding": 5,
-                                                "width": 150,
-                                                "fieldLabel": "oAmounts",
-                                                "labelWidth": 70
-                                            },
-                                            "designerId": "6009c205-9522-45c8-b5b1-1c5f63df2abb"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Display",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "padding": 5,
-                                                "width": 150,
-                                                "fieldLabel": "otax",
-                                                "labelWidth": 70
-                                            },
-                                            "designerId": "5986c693-7e42-4653-9084-020b59388233"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Display",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "padding": 5,
-                                                "width": 150,
-                                                "fieldLabel": "oTotalAmount",
-                                                "labelWidth": 70
-                                            },
-                                            "designerId": "2a045535-719c-420a-ba07-47caea8a1d94"
                                         }
                                     ]
                                 },
@@ -613,15 +468,6 @@
                                             "designerId": "9eb907a8-10c4-4e96-9421-8240d063d576"
                                         }
                                     ]
-                                },
-                                {
-                                    "type": "Ext.tab.Tab",
-                                    "reference": {
-                                        "name": "tabConfig",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "0eb41ef6-64db-4e9a-9b8e-c609076161b5"
                                 }
                             ]
                         },
@@ -633,20 +479,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "collapsed": true,
+                                "collapsible": true,
                                 "title": "Invoice"
                             },
-                            "designerId": "0a07a436-423c-48c9-9023-3466d81a5a1a",
-                            "cn": [
-                                {
-                                    "type": "Ext.tab.Tab",
-                                    "reference": {
-                                        "name": "tabConfig",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "d0e57764-bbf5-4bc4-83fb-24e76409a934"
-                                }
-                            ]
+                            "designerId": "0a07a436-423c-48c9-9023-3466d81a5a1a"
                         },
                         {
                             "type": "Ext.panel.Panel",
@@ -656,20 +493,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "collapsed": true,
+                                "collapsible": true,
                                 "title": "Other"
                             },
-                            "designerId": "bb226902-fe1a-45f6-b449-7a04afa7dbdb",
-                            "cn": [
-                                {
-                                    "type": "Ext.tab.Tab",
-                                    "reference": {
-                                        "name": "tabConfig",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "0d0f3f1d-740b-4ad0-9634-8a81e3ebc79d"
-                                }
-                            ]
+                            "designerId": "bb226902-fe1a-45f6-b449-7a04afa7dbdb"
                         }
                     ]
                 },
@@ -687,8 +515,12 @@
                             "}"
                         ],
                         "layout|flex": 1,
+                        "dock": null,
                         "container|align": "stretch",
                         "itemId": "indexDetail",
+                        "minHeight": null,
+                        "width": 150,
+                        "autoScroll": true,
                         "layout": "vbox",
                         "title": null
                     },
@@ -718,7 +550,6 @@
                                 "minHeight": null,
                                 "padding": null,
                                 "width": null,
-                                "autoScroll": true,
                                 "title": "AccountSheetDet",
                                 "store": null
                             },

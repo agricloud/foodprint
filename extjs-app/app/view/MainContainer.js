@@ -230,6 +230,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpSaleReturnSheetMaintain',
                                     text: 'SaleReturnSheet Maintain'
+                                }),
+                                me.processErpAccountSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpAccountSheetMaintain',
+                                    text: 'AccountSheet Maintain'
                                 })
                             ]
                         }),
@@ -541,6 +546,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpSaleReturnSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpAccountSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');
 
         return config;
     },

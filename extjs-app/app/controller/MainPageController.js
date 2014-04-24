@@ -408,6 +408,13 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpAccountSheetMaintain: function() {
+        var xtypeStr = 'erpaccountsheetview';
+        var tabName = Utilities.getMsg('mainContainer.accountSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpSaleSheetDetMaintain: function() {
 
         var xtypeStr = 'erpsalesheetdetview';
