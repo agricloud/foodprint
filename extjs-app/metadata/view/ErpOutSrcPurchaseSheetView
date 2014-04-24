@@ -768,7 +768,7 @@
                                 "itemId": "manufactureOrderContainer",
                                 "width": null,
                                 "layout": "hbox",
-                                "fieldLabel": null
+                                "fieldLabel": "manufactureOrder.sheetNum"
                             },
                             "designerId": "50b8edd2-cbd1-4ca1-a2a2-d859404e46e3",
                             "cn": [
@@ -782,7 +782,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "hidden": true,
-                                        "fieldLabel": "ManufactureOrder.id",
+                                        "fieldLabel": null,
                                         "name": "manufactureOrder.id",
                                         "readOnly": true
                                     },
@@ -798,7 +798,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "ManufactureOrder.sheetNum",
+                                        "fieldLabel": null,
                                         "name": "manufactureOrder.typeName",
                                         "readOnly": true,
                                         "allowBlank": null
@@ -834,6 +834,24 @@
                                     },
                                     "designerId": "f99538b2-c068-4593-aafa-825ddd493e8f",
                                     "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processManufactureOrderContainer",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "return Utilities.processConfigBundle(config, 'manufactureOrder.sheetNum');"
+                                        ]
+                                    },
+                                    "designerId": "cf5b1c78-2c43-4a09-808f-898fdf6df790"
                                 }
                             ]
                         },

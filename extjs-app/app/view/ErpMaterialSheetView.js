@@ -331,24 +331,23 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                     readOnly: true,
                                     allowBlank: false
                                 },
-                                {
+                                me.processManufactureOrderContainer({
                                     xtype: 'fieldcontainer',
                                     itemId: 'manufactureOrderContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
                                     },
+                                    fieldLabel: 'manufactureOrder.sheetNum',
                                     items: [
                                         {
                                             xtype: 'numberfield',
                                             hidden: true,
-                                            fieldLabel: 'ManufactureOrder.id',
                                             name: 'manufactureOrder.id',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'ManufactureOrder.sheetNum',
                                             name: 'manufactureOrder.typeName',
                                             readOnly: true
                                         },
@@ -361,7 +360,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                             xtype: 'commonselectbtn'
                                         }
                                     ]
-                                },
+                                }),
                                 {
                                     xtype: 'commonwarehousecombo'
                                 },
@@ -438,6 +437,10 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
 
     processDetailGrid: function(config) {
         return Utilities.processConfigBundle(config, 'materialSheetDet');
+    },
+
+    processManufactureOrderContainer: function(config) {
+        return Utilities.processConfigBundle(config, 'manufactureOrder.sheetNum');
     },
 
     processDetailForm: function(config) {
