@@ -1,0 +1,306 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "ErpMaterialReturnSheet",
+            "ErpMaterialReturnSheetDet",
+            "ErpMaterialSheet",
+            "ErpMaterialSheetDet",
+            "Workstation",
+            "Supplier",
+            "Warehouse",
+            "WarehouseLocation"
+        ],
+        "stores": [
+            "ErpMaterialReturnSheetStore",
+            "ErpMaterialReturnSheetDetStore",
+            "ErpMaterialSheetStore",
+            "ErpMaterialSheetDetStore",
+            "WorkstationStore",
+            "SupplierStore",
+            "WarehouseStore",
+            "WarehouseLocationStore"
+        ],
+        "views": [
+            "ErpMaterialReturnSheetView"
+        ],
+        "designer|userClassName": "ErpMaterialReturnSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
+    },
+    "designerId": "1ec76d5d-1642-4b29-97b0-23232fd112b2",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpmaterialreturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowMaterialReturnSheet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowMaterialReturnSheet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowMaterialReturnSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowMaterialReturnSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
+                    "        click:this.activeMaterialSheetDetIndex",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{",
+                    "        select: this.doIndexDetailMaterialSheet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{",
+                    "        itemdblclick: this.doSelectMaterialSheetDet",
+                    "    }",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'materialReturnSheet';",
+                    "this.foodpaintDetController = 'materialReturnSheetDet';",
+                    "this.masterKey='materialReturnSheet.id';"
+                ]
+            },
+            "designerId": "d4ae88eb-bf5b-4b9a-b7fe-d007faf4d673"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpmaterialreturnsheetview #grid"
+            },
+            "designerId": "a21003e4-8fd4-4710-9ee9-41047fa57f16"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpmaterialreturnsheetview #form"
+            },
+            "designerId": "c91e220f-fb1f-4f33-86cc-f0a0b83e6db5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpmaterialreturnsheetview #detailGrid"
+            },
+            "designerId": "b6babf8c-e33b-41e4-9fe2-12eb4e8f3750"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpmaterialreturnsheetview #detailForm"
+            },
+            "designerId": "05731d0d-4d24-4184-b4ed-284a5f5889ad"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowMaterialReturnSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var wscombo=form.findField('workstation.id');",
+                    "    Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);",
+                    "    var spcombo=form.findField('supplier.id');",
+                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "});"
+                ]
+            },
+            "designerId": "5155f00e-9dc3-45c2-8323-de2c4d503a35"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowMaterialReturnSheetDet",
+                "implHandler": [
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "});"
+                ]
+            },
+            "designerId": "5bbf645f-afb5-4f6f-8774-91e70587d768"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeMaterialSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));",
+                    ""
+                ]
+            },
+            "designerId": "abc277f2-b0a5-49b0-a786-27bafde8fe17"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailMaterialSheet",
+                "designer|params": [
+                    "obj, record, index, eOpt"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=erpMaterialSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"materialSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();"
+                ]
+            },
+            "designerId": "a72da2f8-7d9e-49a4-b4fb-341a0a5be03a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectMaterialSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpt"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'materialSheetDet.id':record.data['id'],",
+                    "    'materialSheetDet.typeName':record.data['typeName'],",
+                    "    'materialSheetDet.name':record.data['name'],",
+                    "    'materialSheetDet.sequence':record.data['sequence'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],   ",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "    'manufactureOrder.id':record.data['manufactureOrder.id'],",
+                    "    'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],",
+                    "    'manufactureOrder.name':record.data['manufactureOrder.name'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "",
+                    "",
+                    "//在此使combo重新load store",
+                    "var whcombo=this.getDetailForm().getForm().findField('warehouse.id');",
+                    "Utilities.comboReload(whcombo,record.data['warehouse.id'],record.data['warehouse.name']);",
+                    "",
+                    "//warehouseLocation combo需指定warehouse id才可load",
+                    "var wlcombo=this.getDetailForm().getForm().findField('warehouseLocation.id');",
+                    "Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "6dc39c81-7781-44bc-b5bb-82dfcbfae772"
+        }
+    ]
+}

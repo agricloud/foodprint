@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
         'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.CommonWorkstationCombo',
         'foodprint.view.CommonSupplierCombo',
+        'foodprint.view.ErpMaterialSheetDetGrid',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
@@ -130,145 +131,11 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 type: 'vbox'
                             },
                             items: [
-                                me.processDetailGrid({
-                                    xtype: 'gridpanel',
-                                    flex: 1,
+                                {
+                                    xtype: 'erpmaterialsheetdetgrid',
                                     itemId: 'detailGrid',
-                                    autoScroll: true,
-                                    title: 'ErpMaterialSheetDet',
-                                    store: 'ErpMaterialSheetDetStore',
-                                    columns: [
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'id',
-                                            text: 'Id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            hidden: true,
-                                            dataIndex: 'typeName',
-                                            text: 'TypeName',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            hidden: true,
-                                            dataIndex: 'name',
-                                            text: 'Name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            dataIndex: 'sequence',
-                                            text: 'Sequence',
-                                            flex: 1,
-                                            format: '0,000'
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'manufactureOrder.id',
-                                            text: 'ManufactureOrder.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'manufactureOrder.typeName',
-                                            text: 'ManufactureOrder.typeName',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'manufactureOrder.name',
-                                            text: 'ManufactureOrder.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'warehouse.id',
-                                            text: 'Warehouse.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'warehouse.name',
-                                            text: 'Warehouse.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'warehouse.title',
-                                            text: 'Warehouse.title',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'warehouseLocation.id',
-                                            text: 'WarehouseLocation.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'warehouseLocation.name',
-                                            text: 'WarehouseLocation.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'warehouseLocation.title',
-                                            text: 'WarehouseLocation.title',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'batch.id',
-                                            text: 'Batch.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'batch.name',
-                                            text: 'Batch.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'numbercolumn',
-                                            hidden: true,
-                                            dataIndex: 'item.id',
-                                            text: 'Item.id',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'item.name',
-                                            text: 'Item.name',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'item.title',
-                                            text: 'Item.title',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'qty',
-                                            text: 'qty',
-                                            flex: 1
-                                        }
-                                    ],
-                                    listeners: {
-                                        beforerender: {
-                                            fn: me.onGridBeforeRender,
-                                            scope: me
-                                        }
-                                    }
-                                })
+                                    flex: 1
+                                }
                             ]
                         }
                     ]
@@ -435,20 +302,12 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
         return Utilities.processConfigBundle(config, 'materialSheet');
     },
 
-    processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'materialSheetDet');
-    },
-
     processManufactureOrderContainer: function(config) {
         return Utilities.processConfigBundle(config, 'manufactureOrder.sheetNum');
     },
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'materialSheetDet');
-    },
-
-    onGridBeforeRender: function(component, eOpts) {
-        component.getStore().removeAll();
     }
 
 });

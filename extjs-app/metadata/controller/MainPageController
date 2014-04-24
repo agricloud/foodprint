@@ -119,6 +119,9 @@
                     "    'maincontainer button[itemId=erpMaterialSheetMaintain]':{",
                     "        click:this.erpMaterialSheetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpMaterialReturnSheetMaintain]':{",
+                    "        click:this.erpMaterialReturnSheetMaintain",
+                    "    },",
                     "    'maincontainer button[itemId=erpStockInSheetMaintain]':{",
                     "        click:this.erpStockInSheetMaintain",
                     "    },",
@@ -540,6 +543,25 @@
                 ]
             },
             "designerId": "e3ede10a-43ca-426c-a6bd-22ccf704d731"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialReturnSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialreturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "37bbcac6-e814-43b6-9014-4cef1010858b"
         },
         {
             "type": "basicfunction",

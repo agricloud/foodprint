@@ -175,6 +175,11 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpMaterialSheetMaintain',
                                     text: 'MaterialSheet Maintain'
                                 }),
+                                me.processErpMaterialReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialReturnSheetMaintain',
+                                    text: 'MaterialSheet Maintain'
+                                }),
                                 me.processErpStockInSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpStockInSheetMaintain',
@@ -450,6 +455,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpMaterialSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.materialSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpMaterialReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
 
         return config;
     },

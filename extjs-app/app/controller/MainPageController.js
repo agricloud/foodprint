@@ -108,6 +108,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetMaintain]':{
                 click:this.erpMaterialSheetMaintain
             },
+            'maincontainer button[itemId=erpMaterialReturnSheetMaintain]':{
+                click:this.erpMaterialReturnSheetMaintain
+            },
             'maincontainer button[itemId=erpStockInSheetMaintain]':{
                 click:this.erpStockInSheetMaintain
             },
@@ -288,6 +291,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpmaterialsheetview';
         var tabName = Utilities.getMsg('mainContainer.materialSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpMaterialReturnSheetMaintain: function() {
+
+        var xtypeStr = 'erpmaterialreturnsheetview';
+        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
