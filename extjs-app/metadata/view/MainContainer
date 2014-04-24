@@ -933,6 +933,42 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "erpOutSrcPurchaseReturnSheetMaintain",
+                                "text": "OutSrcPurchaseReturnSheet Maintain"
+                            },
+                            "designerId": "76d04064-84f5-4612-8928-2110daf6bada",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpOutSrcPurchaseReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "3ac44c2d-f46a-4ebb-9b7d-f8dd77657435"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "itemId": "erpSaleSheetMaintain",
                                 "text": "SaleSheet Maintain"
                             },

@@ -114,6 +114,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{
                 click:this.erpOutSrcPurchaseSheetMaintain
             },
+            'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetMaintain]':{
+                click:this.erpOutSrcPurchaseReturnSheetMaintain
+            },
             'maincontainer button[itemId=erpSaleSheetMaintain]':{
                 click:this.erpSaleSheetMaintain
             },
@@ -313,6 +316,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpoutsrcpurchasesheetview';
         var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpOutSrcPurchaseReturnSheetMaintain: function() {
+
+        var xtypeStr = 'erpoutsrcpurchasereturnsheetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },

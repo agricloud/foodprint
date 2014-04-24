@@ -7,87 +7,35 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "ErpPurchaseReturnSheet",
-            "ErpPurchaseReturnSheetDet",
-            "ErpPurchaseSheet",
-            "ErpPurchaseSheetDet",
+            "ErpOutSrcPurchaseReturnSheet",
+            "ErpOutSrcPurchaseReturnSheetDet",
+            "ErpOutSrcPurchaseSheet",
+            "ErpOutSrcPurchaseSheetDet",
             "Supplier",
             "Warehouse",
             "WarehouseLocation"
         ],
         "stores": [
-            "ErpPurchaseReturnSheetStore",
-            "ErpPurchaseReturnSheetDetStore",
-            "ErpPurchaseSheetStore",
-            "ErpPurchaseSheetDetStore",
+            "ErpOutSrcPurchaseReturnSheetStore",
+            "ErpOutSrcPurchaseReturnSheetDetStore",
+            "ErpOutSrcPurchaseSheetStore",
+            "ErpOutSrcPurchaseSheetDetStore",
             "SupplierStore",
             "WarehouseStore",
             "WarehouseLocationStore"
         ],
         "views": [
-            "ErpPurchaseReturnSheetView"
+            "ErpOutSrcPurchaseReturnSheetView"
         ],
-        "designer|userClassName": "ErpPurchaseReturnSheetController",
+        "designer|userClassName": "ErpOutSrcPurchaseReturnSheetController",
         "mixins": [
             "{",
             "    commonController: 'foodprint.controller.CommonController'",
             "}"
         ]
     },
-    "designerId": "47de51b0-a26c-479d-b6b0-499600652989",
+    "designerId": "a2524b0e-c74a-42e4-ad4c-3f24bd52a1d3",
     "cn": [
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "mainGrid",
-                "selector": "erppurchasereturnsheetview #grid"
-            },
-            "designerId": "4a562b15-d3ed-459a-b4c3-c0891db21af6"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "mainForm",
-                "selector": "erppurchasereturnsheetview #form"
-            },
-            "designerId": "1644e1a1-084e-410d-bf85-d5b434a609ac"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "detailGrid",
-                "selector": "erppurchasereturnsheetview #detailGrid"
-            },
-            "designerId": "ba447eb8-c370-481c-acdd-79ced53db2f8"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "detailForm",
-                "selector": "erppurchasereturnsheetview #detailForm"
-            },
-            "designerId": "50f21e72-fcbd-418a-95b1-51a469d73598"
-        },
         {
             "type": "fixedfunction",
             "reference": {
@@ -102,63 +50,89 @@
                 ],
                 "implHandler": [
                     "this.control({",
-                    "    'erppurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateAndIndexDetail",
                     "    },",
-                    "    'erppurchasereturnsheetview #index commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowPurchaseReturnSheet",
+                    "    'erpoutsrcpurchasereturnsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowOutSrcPurchaseReturnSheet",
                     "    },",
-                    "    'erppurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDelete",
                     "    },",
-                    "    'erppurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSave",
                     "    },",
-                    "    'erppurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancel",
                     "    },",
-                    "    'erppurchasereturnsheetview #grid':{",
+                    "    'erpoutsrcpurchasereturnsheetview #grid':{",
                     "        select: this.enableShowBtn,",
                     "        deselect: this.disableShowBtn,",
-                    "        itemdblclick: this.doShowPurchaseReturnSheet",
+                    "        itemdblclick: this.doShowOutSrcPurchaseReturnSheet",
                     "    },",
-                    "    'erppurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
                     "        click:this.doCreateDetail",
                     "    },",
-                    "    'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
-                    "        click:this.doShowPurchaseReturnSheetDet",
+                    "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
-                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
                     "    },",
-                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSaveDetail",
                     "    },",
-                    "    'erppurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancelDetail",
                     "    },",
-                    "    'erppurchasereturnsheetview #detailGrid':{",
+                    "    'erpoutsrcpurchasereturnsheetview #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        itemdblclick: this.doShowPurchaseReturnSheetDet",
+                    "        itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
-                    "    'erppurchasereturnsheetview #showDetail #purchaseSheetDetContainer commonselectbtn':{",
-                    "        click:this.activePurchaseSheetDetIndex",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{",
+                    "        click:this.activeOutSrcPurchaseSheetDetIndex",
                     "    },",
-                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetgrid':{",
-                    "        select: this.doIndexDetailPurchaseSheet",
+                    "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{",
+                    "        select: this.doIndexDetailOutSrcPurchaseSheet",
                     "    },",
-                    "    'erppurchasereturnsheetview #purchaseSheetDetIndex erppurchasesheetdetgrid':{",
-                    "        itemdblclick: this.doSelectPurchaseSheetDet",
+                    "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetdetgrid':{",
+                    "        itemdblclick: this.doSelectOutSrcPurchaseSheetDet",
                     "    }",
                     "});",
                     "this.domainName = 'foodpaint';",
-                    "this.foodpaintController = 'purchaseReturnSheet';",
-                    "this.foodpaintDetController = 'purchaseReturnSheetDet';",
-                    "this.masterKey='purchaseReturnSheet.id';"
+                    "this.foodpaintController = 'outSrcPurchaseReturnSheet';",
+                    "this.foodpaintDetController = 'outSrcPurchaseReturnSheetDet';",
+                    "this.masterKey='outSrcPurchaseReturnSheet.id';"
                 ]
             },
-            "designerId": "da0ecdde-2288-471f-818f-6e9558744910"
+            "designerId": "de316ba3-de65-470f-abc4-3214a5bc5070"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpoutsrcpurchasereturnsheetview #grid"
+            },
+            "designerId": "b73c18df-1a4b-41ff-975d-a01fa7f11afa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpoutsrcpurchasereturnsheetview #form"
+            },
+            "designerId": "007d3680-d894-41ae-9aca-74f2670a14d7"
         },
         {
             "type": "basicfunction",
@@ -168,7 +142,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doShowPurchaseReturnSheet",
+                "fn": "doShowOutSrcPurchaseReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
@@ -180,7 +154,7 @@
                     "});"
                 ]
             },
-            "designerId": "6df182a5-9b8b-4acb-a2f9-c0fafcd607c6"
+            "designerId": "579270e4-9f4b-40d0-84fb-7b6cbfb4d7ec"
         },
         {
             "type": "basicfunction",
@@ -190,9 +164,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doShowPurchaseReturnSheetDet",
+                "fn": "doShowOutSrcPurchaseReturnSheetDet",
                 "implHandler": [
-                    "",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -206,7 +179,7 @@
                     "});"
                 ]
             },
-            "designerId": "f49fd764-a10f-4e19-8657-fc5ea7d60639"
+            "designerId": "b58f98fd-37ca-4580-ad82-f469020d6c50"
         },
         {
             "type": "basicfunction",
@@ -216,23 +189,42 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doIndexDetailPurchaseSheet",
+                "fn": "activeOutSrcPurchaseSheetDetIndex",
                 "designer|params": [
                     "obj, record, index, eOpts"
                 ],
                 "implHandler": [
-                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=erpPurchaseSheetDetGrid]\");",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\"));"
+                ]
+            },
+            "designerId": "54244295-aebc-46fe-9260-add05779d899"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailOutSrcPurchaseSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\").down(\"grid[itemId=erpOutSrcPurchaseSheetDetGrid]\");",
                     "",
                     "grid.getStore().data.clear();",
                     "",
-                    "var params = {}",
-                    "params[\"purchaseSheet.id\"]=record.data.id;",
+                    "var params = {};",
+                    "params[\"outSrcPurchaseSheet.id\"]=record.data.id;",
                     "",
                     "grid.getStore().getProxy().extraParams = params;",
-                    "grid.getStore().load();"
+                    "grid.getStore().load();",
+                    ""
                 ]
             },
-            "designerId": "3b1fff06-339c-411e-a484-c2ff82ac4838"
+            "designerId": "dc4963e3-403c-4ad7-926c-94b6f7e17b4d"
         },
         {
             "type": "basicfunction",
@@ -242,17 +234,19 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectPurchaseSheetDet",
+                "fn": "doSelectOutSrcPurchaseSheetDet",
                 "designer|params": [
                     "obj, record, index, eOpts"
                 ],
                 "implHandler": [
-                    "",
                     "this.getDetailForm().getForm().setValues({",
-                    "    'purchaseSheetDet.id':record.data['id'],",
-                    "    'purchaseSheetDet.typeName':record.data['typeName'],",
-                    "    'purchaseSheetDet.name':record.data['name'],",
-                    "    'purchaseSheetDet.sequence':record.data['sequence'],",
+                    "    'outSrcPurchaseSheetDet.id':record.data['id'],",
+                    "    'outSrcPurchaseSheetDet.typeName':record.data['typeName'],",
+                    "    'outSrcPurchaseSheetDet.name':record.data['name'],",
+                    "    'outSrcPurchaseSheetDet.sequence':record.data['sequence'],",
+                    "    'manufactureOrder.id':record.data['manufactureOrder.id'],",
+                    "    'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],",
+                    "    'manufactureOrder.name':record.data['manufactureOrder.name'],",
                     "    'warehouse.id':record.data['warehouse.id'],",
                     "    'warehouse.title':record.data['warehouse.title'],",
                     "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
@@ -277,25 +271,33 @@
                     "this.activeDetailEditor();"
                 ]
             },
-            "designerId": "ac7bcc69-8768-4f3e-b2f6-dc54005da83f"
+            "designerId": "e1f3263b-c720-4d5d-939a-af301f9e324d"
         },
         {
-            "type": "basicfunction",
+            "type": "controllerref",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activePurchaseSheetDetIndex",
-                "implHandler": [
-                    "",
-                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\"));",
-                    "",
-                    ""
-                ]
+                "ref": "detailGrid",
+                "selector": "erpoutsrcpurchasereturnsheetview #detailGrid"
             },
-            "designerId": "0210a62f-b2d2-4496-9468-7450d725183f"
+            "designerId": "8d603fc8-c417-4a56-b6d9-8a160988a1d8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpoutsrcpurchasereturnsheetview #detailForm"
+            },
+            "designerId": "ee1af025-90a9-4039-ac0f-bb1a79e25174"
         }
     ]
 }

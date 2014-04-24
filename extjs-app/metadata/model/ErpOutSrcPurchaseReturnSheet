@@ -1,0 +1,122 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpOutSrcPurchaseReturnSheet"
+    },
+    "designerId": "0eb9ac7a-3968-43fa-8d25-862c0304372f",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "78bea5c3-255a-4410-96cf-bd5019f51754"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "bd86f77b-4e9e-4ee5-bc6f-5860f60f122f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "28552df7-ccba-47e9-8127-457b159ab5f7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.id"
+            },
+            "designerId": "eafe1e1f-ccaa-43e9-9f3b-f0496bf40596"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.name"
+            },
+            "designerId": "54062777-4343-45ab-af46-a02428844c4d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "supplier.title"
+            },
+            "designerId": "cba94aa3-6524-4664-b793-d77308169d8d"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": "/foodpaint?foodpaintController=outSrcPurchaseReturnSheet"
+            },
+            "designerId": "df552637-c969-446d-9f95-e2762a0ac885",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "outSrcPurchaseReturnSheetInstanceList",
+                        "totalProperty": "outSrcPurchaseReturnSheetInstanceTotal"
+                    },
+                    "designerId": "273bae0d-7e4e-4b85-914d-ce505d2d9ca4"
+                }
+            ]
+        }
+    ]
+}
