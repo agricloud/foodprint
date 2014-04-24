@@ -36,14 +36,6 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
-    models: [
-        'ErpAccountSheet',
-        'ErpAccountSheetDet'
-    ],
-    stores: [
-        'ErpAccountSheetStore',
-        'ErpAccountSheetDetStore'
-    ],
     views: [
         'ErpPurchaseReturnSheetView',
         'ErpAccountSheetView',
