@@ -1,0 +1,122 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ErpSaleReturnSheet"
+    },
+    "designerId": "d542990f-8e0c-4620-a854-6072842debc2",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "39eaf3cd-8b83-4a4a-933b-332a727e5d21"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "79ff2028-ac37-4269-8b1b-969e324b1642"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "typeName"
+            },
+            "designerId": "b964308c-8ed9-4255-b973-b3af56e4b729"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.id"
+            },
+            "designerId": "8d1dc21f-c214-4ff8-bc59-deec1caeee38"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.name"
+            },
+            "designerId": "a6ce4dd1-fb5e-4ec9-9efb-459aec7e1805"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "customer.title"
+            },
+            "designerId": "fbd9ab86-933b-4f7b-8165-c9cdac9aab84"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hasMany": null,
+                "url": "/foodpaint?foodpaintController=saleReturnSheet"
+            },
+            "designerId": "1282bcee-c2d2-4870-8109-d1731b1a83d9",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "hasMany",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "saleReturnSheetInstanceList",
+                        "totalProperty": "saleReturnSheetInstanceTotal"
+                    },
+                    "designerId": "b82d34fa-05a5-467e-90d1-d0a106e94393"
+                }
+            ]
+        }
+    ]
+}

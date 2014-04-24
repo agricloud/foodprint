@@ -997,6 +997,42 @@
                             ]
                         },
                         {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpSaleReturnSheetMaintain",
+                                "text": "SaleReturnSheet Maintain"
+                            },
+                            "designerId": "4d9313d4-84bf-4a97-b943-5d066da5d650",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpSaleReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "b0d7b276-299c-4145-955b-a9d67d3a53ef"
+                                }
+                            ]
+                        },
+                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",
