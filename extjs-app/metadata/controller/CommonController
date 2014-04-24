@@ -478,7 +478,26 @@
                     ""
                 ]
             },
-            "designerId": "075c8093-1193-43d0-99fa-8797ab750b5a"
+            "designerId": "da5ccbe7-b469-4c41-8f2f-1eeac6db6d49"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activePurchaseSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\"));",
+                    "",
+                    "var purchaseSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=purchaseSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "f98b7049-eb9a-4501-8b37-bbeff488e818"
         },
         {
             "type": "basicfunction",
