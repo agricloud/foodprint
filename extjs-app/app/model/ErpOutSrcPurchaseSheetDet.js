@@ -18,7 +18,7 @@ Ext.define('foodprint.model.ErpOutSrcPurchaseSheetDet', {
 
     fields: [
         {
-            name: 'outSrcPurchaseSheetDet.id'
+            name: 'outSrcPurchaseSheet.id'
         },
         {
             name: 'id'
