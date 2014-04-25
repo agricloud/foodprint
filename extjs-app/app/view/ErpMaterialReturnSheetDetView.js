@@ -154,12 +154,12 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetDetView', {
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'materialSheetDet.typeName',
-                                    text: 'materialSheetDet.typeName'
+                                    text: 'MaterialSheetDet.typeName'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'materialSheetDet.name',
-                                    text: 'materialSheetDet.name'
+                                    text: 'MaterialSheetDet.name'
                                 }
                             ],
                             listeners: {

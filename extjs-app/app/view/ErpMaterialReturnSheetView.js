@@ -207,19 +207,19 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
-                                            dataIndex: 'storageLocation.id',
+                                            dataIndex: 'warehouseLocation.id',
                                             text: 'StorageLocation.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'storageLocation.name',
+                                            dataIndex: 'warehouseLocation.name',
                                             text: 'StorageLocation.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'storageLocation.title',
+                                            dataIndex: 'warehouseLocation.title',
                                             text: 'StorageLocation.title',
                                             flex: 1
                                         },

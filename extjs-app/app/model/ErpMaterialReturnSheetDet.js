@@ -18,7 +18,7 @@ Ext.define('foodprint.model.ErpMaterialReturnSheetDet', {
 
     fields: [
         {
-            name: 'materialSheet.id'
+            name: 'materialReturnSheet.id'
         },
         {
             name: 'id'
@@ -66,13 +66,13 @@ Ext.define('foodprint.model.ErpMaterialReturnSheetDet', {
             name: 'warehouse.title'
         },
         {
-            name: 'storageLocation.id'
+            name: 'warehouseLocation.id'
         },
         {
-            name: 'storageLocation.name'
+            name: 'warehouseLocation.name'
         },
         {
-            name: 'storageLocation.title'
+            name: 'warehouseLocation.title'
         },
         {
             name: 'qty'
