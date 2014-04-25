@@ -97,7 +97,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonsuppliercombo'
+                                    xtype: 'commonsuppliercombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -156,7 +157,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     hidden: true,
                                     fieldLabel: 'purchaseSheet.id',
                                     name: 'purchaseSheet.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -187,7 +189,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -196,7 +199,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo'
+                                    xtype: 'commonwarehouselocationcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -207,10 +211,12 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'Batch.name',
-                                    name: 'batch.name'
+                                    name: 'batch.name',
+                                    allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonitemcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -221,7 +227,8 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
-                                    name: 'qty'
+                                    name: 'qty',
+                                    allowBlank: false
                                 }
                             ]
                         })

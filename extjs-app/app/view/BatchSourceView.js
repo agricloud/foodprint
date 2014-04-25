@@ -231,7 +231,8 @@ Ext.define('foodprint.view.BatchSourceView', {
                                     hidden: true,
                                     fieldLabel: 'batch.id',
                                     name: 'batch.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -249,12 +250,14 @@ Ext.define('foodprint.view.BatchSourceView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'batch.name',
                                     name: 'batch.name',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'commonbatchcombo',
                                     fieldLabel: 'childBatch.name',
-                                    name: 'childBatch.id'
+                                    name: 'childBatch.id',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',

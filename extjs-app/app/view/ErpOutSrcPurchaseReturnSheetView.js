@@ -153,7 +153,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commonsuppliercombo'
+                                    xtype: 'commonsuppliercombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -371,7 +372,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     hidden: true,
                                     fieldLabel: 'outSrcPurchaseReturnSheet.id',
                                     name: 'outSrcPurchaseReturnSheet.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -414,22 +416,26 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                             xtype: 'numberfield',
                                             hidden: true,
                                             name: 'outSrcPurchaseSheetDet.id',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'outSrcPurchaseSheetDet.typeName',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'outSrcPurchaseSheetDet.name',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'outSrcPurchaseSheetDet.sequence',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'commonselectbtn'
@@ -449,7 +455,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                             xtype: 'numberfield',
                                             hidden: true,
                                             name: 'manufactureOrder.id',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
@@ -459,12 +466,14 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                         {
                                             xtype: 'textfield',
                                             name: 'manufactureOrder.name',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         }
                                     ]
                                 }),
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -473,7 +482,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo'
+                                    xtype: 'commonwarehouselocationcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -487,13 +497,15 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     hidden: true,
                                     fieldLabel: 'item.id',
                                     name: 'item.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: 'Item.name',
-                                    name: 'item.name'
+                                    name: 'item.name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -507,18 +519,21 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     hidden: true,
                                     fieldLabel: 'batch.id',
                                     name: 'batch.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: 'Batch.name',
-                                    name: 'batch.name'
+                                    name: 'batch.name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
-                                    name: 'qty'
+                                    name: 'qty',
+                                    allowBlank: false
                                 }
                             ]
                         })

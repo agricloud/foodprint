@@ -151,7 +151,8 @@ Ext.define('foodprint.view.SupplierView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'name',
-                                    name: 'name'
+                                    name: 'name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',

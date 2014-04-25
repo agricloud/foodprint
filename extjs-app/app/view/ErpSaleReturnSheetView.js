@@ -22,8 +22,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
-        'foodprint.view.CommonItemCombo',
-        'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.ErpSaleSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
@@ -155,7 +153,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'commoncustomercombo'
+                                    xtype: 'commoncustomercombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -380,7 +379,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     hidden: true,
                                     fieldLabel: 'saleReturnSheet.id',
                                     name: 'saleReturnSheet.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -423,22 +423,26 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             xtype: 'numberfield',
                                             hidden: true,
                                             name: 'saleSheetDet.id',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'saleSheetDet.typeName',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'saleSheetDet.name',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'textfield',
                                             name: 'saleSheetDet.sequence',
-                                            readOnly: true
+                                            readOnly: true,
+                                            allowBlank: false
                                         },
                                         {
                                             xtype: 'commonselectbtn',
@@ -479,7 +483,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     ]
                                 }),
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -488,7 +493,8 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo'
+                                    xtype: 'commonwarehouselocationcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -497,7 +503,36 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'batch.id',
+                                    name: 'batch.id',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'item.id',
+                                    name: 'item.id',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.name',
+                                    name: 'item.name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -506,12 +541,10 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     name: 'item.title'
                                 },
                                 {
-                                    xtype: 'commonbatchcombo'
-                                },
-                                {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
-                                    name: 'qty'
+                                    name: 'qty',
+                                    allowBlank: false
                                 }
                             ]
                         })

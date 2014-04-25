@@ -98,7 +98,8 @@ Ext.define('foodprint.view.InventoryView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -107,7 +108,8 @@ Ext.define('foodprint.view.InventoryView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonitemcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',

@@ -49,7 +49,8 @@ Ext.define('foodprint.view.BatchForm', {
                     allowBlank: false
                 },
                 {
-                    xtype: 'commonitemcombo'
+                    xtype: 'commonitemcombo',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
@@ -79,8 +80,7 @@ Ext.define('foodprint.view.BatchForm', {
                     xtype: 'numberfield',
                     itemId: 'expectQty',
                     fieldLabel: 'expectQty',
-                    name: 'expectQty',
-                    allowBlank: false
+                    name: 'expectQty'
                 },
                 {
                     xtype: 'datefield',

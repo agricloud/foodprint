@@ -185,7 +185,8 @@ Ext.define('foodprint.view.ReportParamsView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'Report_id',
                                     name: 'report.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -196,6 +197,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 },
                                 {
                                     xtype: 'commonparamcombo',
+                                    allowBlank: false,
                                     flex: 1
                                 },
                                 {

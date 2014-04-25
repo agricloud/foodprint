@@ -94,7 +94,8 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonitemcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -127,12 +128,14 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'batch.name',
-                                    name: 'batch.name'
+                                    name: 'batch.name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
-                                    name: 'qty'
+                                    name: 'qty',
+                                    allowBlank: false
                                 }
                             ]
                         })

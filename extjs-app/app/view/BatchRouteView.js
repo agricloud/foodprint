@@ -88,7 +88,8 @@ Ext.define('foodprint.view.BatchRouteView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'Batch_id',
                                     name: 'batch.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',

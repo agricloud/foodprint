@@ -128,7 +128,8 @@ Ext.define('foodprint.view.CustomerView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: 'name',
-                                    name: 'name'
+                                    name: 'name',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',

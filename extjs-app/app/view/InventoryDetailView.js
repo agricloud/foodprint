@@ -108,7 +108,8 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo'
+                                    xtype: 'commonwarehousecombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -117,7 +118,8 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                     name: 'warehouse.title'
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo'
+                                    xtype: 'commonwarehouselocationcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -126,7 +128,8 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo'
+                                    xtype: 'commonitemcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -135,7 +138,8 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                     name: 'item.title'
                                 },
                                 {
-                                    xtype: 'commonbatchcombo'
+                                    xtype: 'commonbatchcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',

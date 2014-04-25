@@ -163,13 +163,15 @@ Ext.define('foodprint.view.ItemRouteView', {
                                     anchor: '100%',
                                     hidden: true,
                                     fieldLabel: 'item.id',
-                                    name: 'item.id'
+                                    name: 'item.id',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
                                     anchor: '100%',
                                     fieldLabel: 'sequence',
-                                    name: 'sequence'
+                                    name: 'sequence',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'commonoperationcombo',

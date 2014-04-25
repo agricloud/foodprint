@@ -167,7 +167,8 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                     hidden: true,
                                     fieldLabel: 'customerOrder.id',
                                     name: 'customerOrder.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -203,7 +204,8 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
-                                    name: 'qty'
+                                    name: 'qty',
+                                    allowBlank: false
                                 }
                             ]
                         })

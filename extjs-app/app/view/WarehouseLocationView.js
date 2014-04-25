@@ -122,7 +122,8 @@ Ext.define('foodprint.view.WarehouseLocationView', {
                                     hidden: true,
                                     fieldLabel: 'warehouse.id',
                                     name: 'warehouse.id',
-                                    readOnly: true
+                                    readOnly: true,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
