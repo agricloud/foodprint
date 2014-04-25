@@ -220,6 +220,10 @@
                     "    'item.title':record.data['item.title'],",
                     "    'qty':record.data['qty']",
                     "});",
+                    "",
+                    "var itemcombo=this.getDetailForm().getForm().findField('item.id');",
+                    "Utilities.comboReload(itemcombo,record.data['item.id'],record.data['item.name']);",
+                    "",
                     "this.reloadBatchComboByItem(record.data['item.id']);",
                     "this.activeDetailEditor();"
                 ]

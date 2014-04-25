@@ -67,6 +67,10 @@ Ext.define('foodprint.view.CommonBatchCombo', {
                 'childBatch.item.name':records[0].data['item.name'],
                 'childBatch.item.title':records[0].data['item.title']
             });
+            if(combo.up().getForm().findField('item.id') instanceof Ext.form.field.ComboBox){
+                var itemcombo=combo.up().getForm().findField('item.id');
+                Utilities.comboReload(itemcombo,records[0].data['item.id'],records[0].data['item.name']);
+            }
         }
     }
 
