@@ -726,7 +726,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'salSheetDet');
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
     },
 
     processDetailForm: function(config) {

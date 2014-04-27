@@ -73,7 +73,7 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
                 deselect: this.disableShowBtn,
                 itemdblclick: this.doShowAccountSheet
             },
-            'eraccountsheetview #show commonindextoolbar commoncreatebtn':{
+            'erpaccountsheetview #show commonindextoolbar commoncreatebtn':{
                 click:this.doCreateDetail
             },
             'erpaccountsheetview #show commonindextoolbar commonshowbtn':{
@@ -92,10 +92,12 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowAccountSheetDet
-            }
+            },
 
 
         });
+
+
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'accountSheet';
