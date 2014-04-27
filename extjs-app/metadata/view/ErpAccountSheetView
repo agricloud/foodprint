@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "activeItem": "",
         "height": null,
         "itemId": null,
         "width": null,
@@ -83,7 +82,7 @@
                 "container|align": "stretch",
                 "itemId": "show",
                 "layout": "vbox",
-                "shrinkWrapDock": 2
+                "shrinkWrapDock": null
             },
             "configAlternates": {
                 "tbar": "object"
@@ -242,24 +241,6 @@
                             "designerId": "3a76c0f0-63a1-48ef-99ac-38ac536de6c4"
                         },
                         {
-                            "type": "processcfgfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "processForm",
-                                "designer|params": [
-                                    "config"
-                                ],
-                                "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'accountSheet');"
-                                ]
-                            },
-                            "designerId": "8ce000a5-637f-426e-b252-bbc3ad8ddc27"
-                        },
-                        {
                             "type": "Ext.panel.Panel",
                             "reference": {
                                 "name": "items",
@@ -277,7 +258,7 @@
                                 "container|activeOnTop": false,
                                 "border": false,
                                 "height": null,
-                                "itemId": "collapsepanel",
+                                "itemId": "",
                                 "maxHeight": null,
                                 "width": null,
                                 "layout": "accordion",
@@ -925,8 +906,41 @@
                                             "designerId": "73b4b65a-0a7f-4811-9477-17bce4e0ba34"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processForm",
+                                        "implHandler": [
+                                            "return Utilities.processConfigBundle(config, 'accountSheet');"
+                                        ]
+                                    },
+                                    "designerId": "64f1e34a-3b84-4125-8d6e-9e4f171b51ca"
                                 }
                             ]
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'accountSheet');"
+                                ]
+                            },
+                            "designerId": "8ce000a5-637f-426e-b252-bbc3ad8ddc27"
                         }
                     ]
                 },
@@ -979,7 +993,7 @@
                                 "minHeight": null,
                                 "padding": null,
                                 "width": null,
-                                "title": "AccountSheetDet",
+                                "title": "ErpAccountSheetDet",
                                 "store": "ErpAccountSheetDetStore"
                             },
                             "configAlternates": {
@@ -1196,7 +1210,7 @@
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                            "return Utilities.processConfigBundle(config, 'accountSheetDet');"
                                         ]
                                     },
                                     "designerId": "7eef0fc5-3c2e-4bb9-b767-25ffb99cda9d"
@@ -1635,7 +1649,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'accountSheetDet');"
                                 ]
                             },
                             "designerId": "39f1571d-fcdc-47fa-9f60-bee182607c5b"

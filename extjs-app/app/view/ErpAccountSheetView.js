@@ -33,7 +33,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonShowToolbar'
     ],
 
-    activeItem: '',
     layout: {
         type: 'card'
     },
@@ -69,7 +68,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                         align: 'stretch',
                         type: 'vbox'
                     },
-                    shrinkWrapDock: 2,
                     items: [
                         me.processForm({
                             xtype: 'form',
@@ -138,8 +136,11 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'panel',
+                                    processForm: function() {
+                                        return Utilities.processConfigBundle(config, 'accountSheet');
+                                    },
                                     border: false,
-                                    itemId: 'collapsepanel',
+                                    itemId: '',
                                     layout: {
                                         autoWidth: false,
                                         titleCollapse: false,
@@ -453,7 +454,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     xtype: 'gridpanel',
                                     flex: 1,
                                     itemId: 'detailGrid',
-                                    title: 'AccountSheetDet',
+                                    title: 'ErpAccountSheetDet',
                                     store: 'ErpAccountSheetDetStore',
                                     columns: [
                                         {
@@ -726,11 +727,11 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'accountSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'saleSheetDet');
+        return Utilities.processConfigBundle(config, 'accountSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {
