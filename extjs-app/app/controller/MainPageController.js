@@ -155,9 +155,7 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpAccountSheetMaintain]':{
                 click:this.erpAccountSheetMaintain
             },    
-            'maincontainer button[itemId=erpAccountSheetDetMaintain]':{
-                click:this.erpAccountSheetDetMaintain
-            },    
+
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs

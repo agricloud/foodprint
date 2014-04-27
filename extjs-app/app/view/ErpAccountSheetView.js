@@ -33,7 +33,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonShowToolbar'
     ],
 
-    activeItem: 1,
+    activeItem: '',
     layout: {
         type: 'card'
     },
