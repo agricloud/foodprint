@@ -106,7 +106,7 @@
                     "        deselect: this.disableDetailShowBtn,",
                     "        itemdblclick: this.doShowAccountSheetDet",
                     "    },",
-                    "   ",
+                    "",
                     "",
                     "});",
                     "",
@@ -145,6 +145,59 @@
                 "selector": "erpaccountsheet #detailForm"
             },
             "designerId": "d1730a75-b6e5-436a-a234-ad67297211ff"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowAccountSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var cucombo=form.findField('customer.id');",
+                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "a6eca7a1-4092-4fdd-9213-2e193bac3e0b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowAccountSheetDet",
+                "implHandler": [
+                    "",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "986c605f-9197-4c36-861f-030ec2dd235d"
         }
     ]
 }
