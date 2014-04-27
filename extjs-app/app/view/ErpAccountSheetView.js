@@ -71,10 +71,10 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                     },
                     shrinkWrapDock: 2,
                     items: [
-                        me.processForm1({
+                        me.processForm({
                             xtype: 'form',
                             flex: 1,
-                            itemId: 'form1',
+                            itemId: 'form',
                             maxHeight: 350,
                             autoScroll: true,
                             layout: {
@@ -115,21 +115,22 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     name: 'customer.title'
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'datefield',
                                     fieldLabel: '結帳日期',
-                                    name: '',
+                                    name: 'accountDate',
                                     readOnly: true,
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'datefield',
                                     fieldLabel: '單據日期',
-                                    name: '',
+                                    name: 'dateCreated',
                                     readOnly: true,
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'datefield',
+                                    disabled: true,
                                     fieldLabel: '確認者',
                                     name: '',
                                     readOnly: true,
@@ -138,6 +139,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 {
                                     xtype: 'panel',
                                     border: false,
+                                    itemId: 'collapsepanel',
                                     layout: {
                                         autoWidth: false,
                                         titleCollapse: false,
@@ -186,6 +188,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 },
                                                 {
                                                     xtype: 'numberfield',
+                                                    disabled: true,
                                                     padding: 5,
                                                     fieldLabel: 'rate',
                                                     name: 'rate',
@@ -194,6 +197,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 },
                                                 {
                                                     xtype: 'combobox',
+                                                    disabled: true,
                                                     padding: 5,
                                                     width: 250,
                                                     fieldLabel: 'currency'
@@ -203,7 +207,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     itemId: 'accountDate',
                                                     padding: 5,
                                                     fieldLabel: 'accountDate',
-                                                    name: 'dueDate'
+                                                    name: 'accountDate'
                                                 },
                                                 {
                                                     xtype: 'datefield',
@@ -211,64 +215,80 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     padding: 5,
                                                     width: 250,
                                                     fieldLabel: 'anticipationDate',
-                                                    name: 'dueDate'
+                                                    name: 'anticipationDate'
                                                 },
                                                 {
                                                     xtype: 'displayfield',
+                                                    itemId: 'originalReceived',
                                                     minWidth: 200,
                                                     padding: 5,
                                                     width: 150,
                                                     fieldLabel: 'originalReceived',
-                                                    labelWidth: 70
+                                                    labelWidth: 70,
+                                                    name: 'originalReceived'
                                                 },
                                                 {
                                                     xtype: 'displayfield',
+                                                    itemId: 'received',
                                                     minWidth: 200,
                                                     padding: 5,
                                                     width: 150,
                                                     fieldLabel: 'received',
-                                                    labelWidth: 70
+                                                    labelWidth: 70,
+                                                    name: 'received'
                                                 },
                                                 {
                                                     xtype: 'displayfield',
+                                                    itemId: 'amounts',
                                                     padding: 5,
                                                     width: 150,
-                                                    fieldLabel: 'Amounts',
-                                                    labelWidth: 70
+                                                    fieldLabel: 'amounts',
+                                                    labelWidth: 70,
+                                                    name: 'amounts'
                                                 },
                                                 {
                                                     xtype: 'displayfield',
+                                                    itemId: 'tax',
                                                     padding: 5,
                                                     width: 150,
                                                     fieldLabel: 'tax',
-                                                    labelWidth: 70
+                                                    labelWidth: 70,
+                                                    name: 'tax'
                                                 },
                                                 {
                                                     xtype: 'displayfield',
+                                                    itemId: 'totalAmount',
                                                     padding: 5,
                                                     width: 150,
                                                     fieldLabel: 'TotalAmount',
-                                                    labelWidth: 70
-                                                },
-                                                {
-                                                    xtype: 'displayfield',
-                                                    padding: 5,
-                                                    width: 150,
-                                                    fieldLabel: 'status',
-                                                    labelWidth: 70
+                                                    labelWidth: 70,
+                                                    name: 'totalAmount'
                                                 },
                                                 {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
+                                                    disabled: true,
+                                                    itemId: 'closedCode',
                                                     padding: 5,
                                                     fieldLabel: 'closedCode',
-                                                    labelWidth: 80
+                                                    labelWidth: 80,
+                                                    name: 'closedCode'
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    itemId: 'status',
+                                                    padding: 5,
+                                                    width: 150,
+                                                    fieldLabel: 'status',
+                                                    labelWidth: 70,
+                                                    name: 'status'
                                                 }
                                             ]
                                         },
                                         {
                                             xtype: 'form',
                                             border: false,
+                                            disabled: true,
                                             padding: 10,
                                             layout: {
                                                 align: 'stretch',
@@ -282,7 +302,8 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             items: [
                                                 {
                                                     xtype: 'fieldcontainer',
-                                                    itemId: 'purchaseSheetDetContainer',
+                                                    disabled: true,
+                                                    itemId: '',
                                                     layout: {
                                                         align: 'stretch',
                                                         type: 'hbox'
@@ -291,25 +312,24 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                         {
                                                             xtype: 'numberfield',
                                                             hidden: true,
-                                                            fieldLabel: 'PurchaseSheetDet.id',
-                                                            name: 'purchaseSheetDet.id',
+                                                            name: '',
                                                             readOnly: true
                                                         },
                                                         {
                                                             xtype: 'textfield',
                                                             fieldLabel: '稅別碼',
-                                                            name: 'purchaseSheetDet.typeName',
+                                                            name: '',
                                                             readOnly: true
                                                         },
                                                         {
                                                             xtype: 'textfield',
-                                                            name: 'purchaseSheetDet.name',
+                                                            name: '',
                                                             readOnly: true
                                                         },
                                                         {
                                                             xtype: 'textfield',
                                                             fieldLabel: '發票聯數',
-                                                            name: 'purchaseSheetDet.sequence',
+                                                            name: '',
                                                             readOnly: true
                                                         },
                                                         {
@@ -332,69 +352,59 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 },
                                                 {
                                                     xtype: 'datefield',
-                                                    itemId: 'accountDate',
+                                                    itemId: 'Date',
                                                     padding: '',
                                                     fieldLabel: '申報年月',
-                                                    name: 'dueDate'
+                                                    name: ''
                                                 },
                                                 {
                                                     xtype: 'combobox',
-                                                    itemId: 'anticipationDate',
                                                     padding: '',
                                                     width: 250,
                                                     fieldLabel: '課稅別',
-                                                    name: 'dueDate'
+                                                    name: ''
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     fieldLabel: '營業稅率',
-                                                    name: 'purchaseSheetDet.typeName',
                                                     readOnly: true
                                                 },
                                                 {
                                                     xtype: 'datefield',
-                                                    itemId: 'anticipationDate1',
                                                     padding: '',
                                                     width: 250,
-                                                    fieldLabel: '發票日期',
-                                                    name: 'dueDate'
+                                                    fieldLabel: '發票日期'
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     fieldLabel: '公司名稱',
-                                                    name: 'purchaseSheetDet.typeName',
                                                     readOnly: true
                                                 },
                                                 {
                                                     xtype: 'displayfield',
-                                                    itemId: 'anticipationDate2',
                                                     padding: '',
                                                     width: 250,
-                                                    fieldLabel: '統一編號',
-                                                    name: 'dueDate'
+                                                    fieldLabel: '統一編號'
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     fieldLabel: '發票貨款',
-                                                    name: 'purchaseSheetDet.typeName',
                                                     readOnly: true
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     fieldLabel: '發票稅額',
-                                                    name: 'purchaseSheetDet.typeName',
+                                                    name: '',
                                                     readOnly: true
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     fieldLabel: '發票金額',
-                                                    name: 'purchaseSheetDet.typeName',
                                                     readOnly: true
                                                 },
                                                 {
                                                     xtype: 'combobox',
                                                     fieldLabel: '通關方式',
-                                                    name: 'purchaseSheetDet.typeName',
                                                     readOnly: true
                                                 }
                                             ]
@@ -444,6 +454,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     flex: 1,
                                     itemId: 'detailGrid',
                                     title: 'AccountSheetDet',
+                                    store: 'ErpAccountSheetDetStore',
                                     columns: [
                                         {
                                             xtype: 'numbercolumn',
@@ -551,7 +562,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     xtype: 'numberfield',
                                     flex: 1,
                                     hidden: true,
-                                    fieldLabel: 'saleReturnSheet.id',
+                                    fieldLabel: 'accountSheet.id',
                                     name: 'accountSheet.id',
                                     readOnly: true
                                 },
@@ -710,16 +721,16 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         me.callParent(arguments);
     },
 
-    processForm1: function(config) {
-        return Utilities.processConfigBundle(config, 'saleReturnSheet');
+    processForm: function(config) {
+        return Utilities.processConfigBundle(config, 'accountSheet');
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
+        return Utilities.processConfigBundle(config, 'salSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'saleReturnSheetDet');
+        return Utilities.processConfigBundle(config, 'saleSheetDet');
     },
 
     onGridBeforeRender1: function(component, eOpts) {

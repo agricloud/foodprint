@@ -14,5 +14,93 @@
  */
 
 Ext.define('foodprint.controller.ErpAccountSheetController', {
-    extend: 'Ext.app.Controller'
+    extend: 'Ext.app.Controller',
+
+    mixins: {
+        commonController: 'foodprint.controller.CommonController'
+    },
+
+    models: [
+        'ErpAccountSheetDet',
+        'ErpAccountSheet'
+    ],
+    stores: [
+        'ErpAccountSheetDetStore',
+        'ErpAccountSheetStore'
+    ],
+    views: [
+        'ErpAccountSheetView'
+    ],
+
+    refs: [
+        {
+            ref: 'mainGrid',
+            selector: 'erpaccountsheet #grid'
+        },
+        {
+            ref: 'mainForm',
+            selector: 'erpaccountsheet #form'
+        },
+        {
+            ref: 'detailGrid',
+            selector: 'erpaccountsheet #detailGrid'
+        },
+        {
+            ref: 'detailForm',
+            selector: 'erpaccountsheet #detailForm'
+        }
+    ],
+
+    init: function(application) {
+        this.control({
+            'erpaccountsheetview #index commonindextoolbar commoncreatebtn':{
+                click:this.doCreateAndIndexDetail
+            },
+            'erpaccountsheetview #index commonindextoolbar commonshowbtn':{
+                click:this.doShowAccountSheet
+            },
+            'erpaccountsheetview #show commonshowtoolbar commondeletebtn':{
+                click:this.doDelete
+            },
+            'erpaccountsheetview #show commonshowtoolbar commonsavebtn':{
+                click:this.doSave
+            },
+            'erpaccountsheetview #show commonshowtoolbar commoncancelbtn':{
+                click:this.doCancel
+            },
+            'erpaccountsheetview #grid':{
+                select: this.enableShowBtn,
+                deselect: this.disableShowBtn,
+                itemdblclick: this.doShowAccountSheet
+            },
+            'eraccountsheetview #show commonindextoolbar commoncreatebtn':{
+                click:this.doCreateDetail
+            },
+            'erpaccountsheetview #show commonindextoolbar commonshowbtn':{
+                click:this.doShowAccountSheetDet
+            },
+            'erpaccountsheetview #showDetail commonshowtoolbar commondeletebtn':{
+                click:this.doDeleteDetail
+            },
+            'erpaccountsheetview #showDetail commonshowtoolbar commonsavebtn':{
+                click:this.doSaveDetail
+            },
+            'erpaccountsheetview #showDetail commonshowtoolbar commoncancelbtn':{
+                click:this.doCancelDetail
+            },
+            'erpaccountsheetview #detailGrid':{
+                select: this.enableDetailShowBtn,
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowAccountSheetDet
+            }
+
+
+        });
+
+        this.domainName = 'foodpaint';
+        this.foodpaintController = 'accountSheet';
+        this.foodpaintDetController = 'accountSheetDet';
+        this.masterKey='accountSheet.id';
+    }
+
 });

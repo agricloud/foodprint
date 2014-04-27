@@ -6,7 +6,143 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "ErpAccountSheetController"
+        "models": [
+            "ErpAccountSheetDet",
+            "ErpAccountSheet"
+        ],
+        "stores": [
+            "ErpAccountSheetDetStore",
+            "ErpAccountSheetStore"
+        ],
+        "views": [
+            "ErpAccountSheetView"
+        ],
+        "designer|userClassName": "ErpAccountSheetController",
+        "mixins": [
+            "{",
+            "    commonController: 'foodprint.controller.CommonController'",
+            "}"
+        ]
     },
-    "designerId": "a1541b14-d1b4-4f87-b0d2-46056c9303fc"
+    "designerId": "a1541b14-d1b4-4f87-b0d2-46056c9303fc",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainGrid",
+                "selector": "erpaccountsheet #grid"
+            },
+            "designerId": "ff0a02e5-e7cc-47a7-9b75-739cfa85afcb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainForm",
+                "selector": "erpaccountsheet #form"
+            },
+            "designerId": "c334e8d9-9616-4572-a5d7-75135a56f345"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'erpaccountsheetview #index commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateAndIndexDetail",
+                    "    },",
+                    "    'erpaccountsheetview #index commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowAccountSheet",
+                    "    },",
+                    "    'erpaccountsheetview #show commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDelete",
+                    "    },",
+                    "    'erpaccountsheetview #show commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSave",
+                    "    },",
+                    "    'erpaccountsheetview #show commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancel",
+                    "    },",
+                    "    'erpaccountsheetview #grid':{",
+                    "        select: this.enableShowBtn,",
+                    "        deselect: this.disableShowBtn,",
+                    "        itemdblclick: this.doShowAccountSheet",
+                    "    },",
+                    "    'eraccountsheetview #show commonindextoolbar commoncreatebtn':{",
+                    "        click:this.doCreateDetail",
+                    "    },",
+                    "    'erpaccountsheetview #show commonindextoolbar commonshowbtn':{",
+                    "        click:this.doShowAccountSheetDet",
+                    "    },",
+                    "    'erpaccountsheetview #showDetail commonshowtoolbar commondeletebtn':{",
+                    "        click:this.doDeleteDetail",
+                    "    },",
+                    "    'erpaccountsheetview #showDetail commonshowtoolbar commonsavebtn':{",
+                    "        click:this.doSaveDetail",
+                    "    },",
+                    "    'erpaccountsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
+                    "        click:this.doCancelDetail",
+                    "    },",
+                    "    'erpaccountsheetview #detailGrid':{",
+                    "        select: this.enableDetailShowBtn,",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowAccountSheetDet",
+                    "    }",
+                    "   ",
+                    "",
+                    "});",
+                    "",
+                    "this.domainName = 'foodpaint';",
+                    "this.foodpaintController = 'accountSheet';",
+                    "this.foodpaintDetController = 'accountSheetDet';",
+                    "this.masterKey='accountSheet.id';"
+                ]
+            },
+            "designerId": "d280c3de-0276-45b4-b809-fb2b405d61f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailGrid",
+                "selector": "erpaccountsheet #detailGrid"
+            },
+            "designerId": "5c4bed8f-8851-4ed3-88d0-1ebf818ad453"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailForm",
+                "selector": "erpaccountsheet #detailForm"
+            },
+            "designerId": "d1730a75-b6e5-436a-a234-ad67297211ff"
+        }
+    ]
 }

@@ -86,7 +86,7 @@ Ext.define('foodprint.view.ErpAccountSheetGrid', {
     },
 
     processErpAccountSheetGrid: function(config) {
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleReturnSheet'));
+        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'accountSheet'));
     },
 
     onErpAccountSheetGridAfterRender: function(component, eOpts) {

@@ -109,7 +109,7 @@
                         "dock": null,
                         "container|align": "stretch",
                         "container|padding": 10,
-                        "itemId": "form1",
+                        "itemId": "form",
                         "maxHeight": 350,
                         "designer|displayName": null,
                         "autoScroll": true,
@@ -196,7 +196,7 @@
                             "designerId": "32296eda-6fa2-48a8-b21e-db962d3d9100"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Date",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -204,14 +204,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "結帳日期",
-                                "name": "",
+                                "name": "accountDate",
                                 "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "108e39d9-9ec4-4af8-aef6-4628b0255d10"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Date",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -219,20 +219,21 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "單據日期",
-                                "name": "",
+                                "name": "dateCreated",
                                 "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "808ce6b0-877a-422c-9994-8e8982238179"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Date",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "disabled": true,
                                 "fieldLabel": "確認者",
                                 "name": "",
                                 "readOnly": true,
@@ -248,12 +249,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processForm1",
+                                "fn": "processForm",
                                 "designer|params": [
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleReturnSheet');"
+                                    "return Utilities.processConfigBundle(config, 'accountSheet');"
                                 ]
                             },
                             "designerId": "8ce000a5-637f-426e-b252-bbc3ad8ddc27"
@@ -276,7 +277,7 @@
                                 "container|activeOnTop": false,
                                 "border": false,
                                 "height": null,
-                                "itemId": null,
+                                "itemId": "collapsepanel",
                                 "maxHeight": null,
                                 "width": null,
                                 "layout": "accordion",
@@ -361,7 +362,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "disabled": null,
+                                                "disabled": true,
                                                 "padding": 5,
                                                 "width": null,
                                                 "fieldLabel": "rate",
@@ -380,6 +381,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "disabled": true,
                                                 "padding": 5,
                                                 "width": 250,
                                                 "fieldLabel": "currency"
@@ -402,7 +404,7 @@
                                                 "padding": 5,
                                                 "width": null,
                                                 "fieldLabel": "accountDate",
-                                                "name": "dueDate",
+                                                "name": "accountDate",
                                                 "format": null,
                                                 "submitFormat": null
                                             },
@@ -422,7 +424,7 @@
                                                 "padding": 5,
                                                 "width": 250,
                                                 "fieldLabel": "anticipationDate",
-                                                "name": "dueDate",
+                                                "name": "anticipationDate",
                                                 "format": null,
                                                 "submitFormat": null
                                             },
@@ -436,11 +438,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "originalReceived",
                                                 "minWidth": 200,
                                                 "padding": 5,
                                                 "width": 150,
                                                 "fieldLabel": "originalReceived",
-                                                "labelWidth": 70
+                                                "labelWidth": 70,
+                                                "name": "originalReceived"
                                             },
                                             "designerId": "2806b52f-ba32-4912-9b6a-73b953ca7bf8"
                                         },
@@ -452,11 +456,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "received",
                                                 "minWidth": 200,
                                                 "padding": 5,
                                                 "width": 150,
                                                 "fieldLabel": "received",
-                                                "labelWidth": 70
+                                                "labelWidth": 70,
+                                                "name": "received"
                                             },
                                             "designerId": "9eb907a8-10c4-4e96-9421-8240d063d576"
                                         },
@@ -468,10 +474,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "amounts",
                                                 "padding": 5,
                                                 "width": 150,
-                                                "fieldLabel": "Amounts",
-                                                "labelWidth": 70
+                                                "fieldLabel": "amounts",
+                                                "labelWidth": 70,
+                                                "name": "amounts"
                                             },
                                             "designerId": "5343b494-9c65-4da8-9fe4-1e0b7358543c"
                                         },
@@ -483,10 +491,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "tax",
                                                 "padding": 5,
                                                 "width": 150,
                                                 "fieldLabel": "tax",
-                                                "labelWidth": 70
+                                                "labelWidth": 70,
+                                                "name": "tax"
                                             },
                                             "designerId": "5b74800e-410c-4cfb-96b5-069f3d535bd2"
                                         },
@@ -498,27 +508,14 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "totalAmount",
                                                 "padding": 5,
                                                 "width": 150,
                                                 "fieldLabel": "TotalAmount",
-                                                "labelWidth": 70
+                                                "labelWidth": 70,
+                                                "name": "totalAmount"
                                             },
                                             "designerId": "e595f504-87d1-45fe-bd31-951f7ca22536"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Display",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "padding": 5,
-                                                "width": 150,
-                                                "fieldLabel": "status",
-                                                "labelWidth": 70
-                                            },
-                                            "designerId": "b3e864d2-6b36-4e84-940a-948523468a53"
                                         },
                                         {
                                             "type": "Ext.form.field.Checkbox",
@@ -530,12 +527,32 @@
                                             "userConfig": {
                                                 "layout|flex": 1,
                                                 "dock": null,
+                                                "disabled": true,
+                                                "itemId": "closedCode",
                                                 "padding": 5,
                                                 "fieldLabel": "closedCode",
                                                 "labelWidth": 80,
+                                                "name": "closedCode",
                                                 "boxLabel": null
                                             },
                                             "designerId": "7b808481-2be3-43d2-8bf7-df4dade4a1cd"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Display",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "status",
+                                                "padding": 5,
+                                                "width": 150,
+                                                "fieldLabel": "status",
+                                                "labelWidth": 70,
+                                                "name": "status"
+                                            },
+                                            "designerId": "b3e864d2-6b36-4e84-940a-948523468a53"
                                         }
                                     ]
                                 },
@@ -550,6 +567,7 @@
                                         "container|align": "stretch",
                                         "container|padding": 10,
                                         "border": false,
+                                        "disabled": true,
                                         "padding": 10,
                                         "layout": "vbox",
                                         "bodyPadding": 10,
@@ -569,8 +587,9 @@
                                             "userConfig": {
                                                 "layout|flex": null,
                                                 "container|align": "stretch",
+                                                "disabled": true,
                                                 "height": null,
-                                                "itemId": "purchaseSheetDetContainer",
+                                                "itemId": "",
                                                 "width": null,
                                                 "layout": "hbox",
                                                 "fieldLabel": null
@@ -587,8 +606,8 @@
                                                     "userConfig": {
                                                         "layout|flex": null,
                                                         "hidden": true,
-                                                        "fieldLabel": "PurchaseSheetDet.id",
-                                                        "name": "purchaseSheetDet.id",
+                                                        "fieldLabel": null,
+                                                        "name": "",
                                                         "readOnly": true
                                                     },
                                                     "designerId": "d66879c0-d11e-4f7e-b01c-a470ce751c8b"
@@ -604,7 +623,7 @@
                                                         "layout|flex": null,
                                                         "disabled": null,
                                                         "fieldLabel": "稅別碼",
-                                                        "name": "purchaseSheetDet.typeName",
+                                                        "name": "",
                                                         "readOnly": true,
                                                         "allowBlank": null
                                                     },
@@ -621,7 +640,7 @@
                                                         "layout|flex": null,
                                                         "disabled": null,
                                                         "fieldLabel": null,
-                                                        "name": "purchaseSheetDet.name",
+                                                        "name": "",
                                                         "readOnly": true,
                                                         "allowBlank": null
                                                     },
@@ -638,7 +657,7 @@
                                                         "layout|flex": null,
                                                         "disabled": null,
                                                         "fieldLabel": "發票聯數",
-                                                        "name": "purchaseSheetDet.sequence",
+                                                        "name": "",
                                                         "readOnly": true,
                                                         "allowBlank": null
                                                     },
@@ -702,13 +721,13 @@
                                             "userConfig": {
                                                 "layout|flex": null,
                                                 "height": null,
-                                                "itemId": "accountDate",
+                                                "itemId": "Date",
                                                 "maxWidth": null,
                                                 "minWidth": null,
                                                 "padding": "",
                                                 "width": null,
                                                 "fieldLabel": "申報年月",
-                                                "name": "dueDate",
+                                                "name": "",
                                                 "format": null,
                                                 "submitFormat": null
                                             },
@@ -722,13 +741,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "itemId": "anticipationDate",
+                                                "itemId": null,
                                                 "maxWidth": null,
                                                 "minWidth": null,
                                                 "padding": "",
                                                 "width": 250,
                                                 "fieldLabel": "課稅別",
-                                                "name": "dueDate"
+                                                "name": ""
                                             },
                                             "designerId": "3a527548-19a7-4a86-a2b8-f319e7afaea2"
                                         },
@@ -743,7 +762,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "營業稅率",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": null,
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -757,13 +776,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "itemId": "anticipationDate1",
+                                                "itemId": null,
                                                 "maxWidth": null,
                                                 "minWidth": null,
                                                 "padding": "",
                                                 "width": 250,
                                                 "fieldLabel": "發票日期",
-                                                "name": "dueDate"
+                                                "name": null
                                             },
                                             "designerId": "05feeb19-bc69-47a5-95f9-245715d026de"
                                         },
@@ -778,7 +797,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "公司名稱",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": null,
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -792,13 +811,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "itemId": "anticipationDate2",
+                                                "itemId": null,
                                                 "maxWidth": null,
                                                 "minWidth": null,
                                                 "padding": "",
                                                 "width": 250,
                                                 "fieldLabel": "統一編號",
-                                                "name": "dueDate"
+                                                "name": null
                                             },
                                             "designerId": "2fcde811-8d5f-47a4-af7d-ad3fc9b7117e"
                                         },
@@ -813,7 +832,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "發票貨款",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": null,
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -830,7 +849,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "發票稅額",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": "",
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -847,7 +866,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "發票金額",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": null,
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -864,7 +883,7 @@
                                                 "layout|flex": null,
                                                 "disabled": null,
                                                 "fieldLabel": "通關方式",
-                                                "name": "purchaseSheetDet.typeName",
+                                                "name": null,
                                                 "readOnly": true,
                                                 "allowBlank": null
                                             },
@@ -961,7 +980,7 @@
                                 "padding": null,
                                 "width": null,
                                 "title": "AccountSheetDet",
-                                "store": null
+                                "store": "ErpAccountSheetDetStore"
                             },
                             "configAlternates": {
                                 "tbar": "object"
@@ -1177,7 +1196,7 @@
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
+                                            "return Utilities.processConfigBundle(config, 'salSheetDet');"
                                         ]
                                     },
                                     "designerId": "7eef0fc5-3c2e-4bb9-b767-25ffb99cda9d"
@@ -1248,7 +1267,7 @@
                                 "dock": null,
                                 "hidden": true,
                                 "width": null,
-                                "fieldLabel": "saleReturnSheet.id",
+                                "fieldLabel": "accountSheet.id",
                                 "name": "accountSheet.id",
                                 "readOnly": true
                             },
@@ -1616,7 +1635,7 @@
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "return Utilities.processConfigBundle(config, 'saleReturnSheetDet');"
+                                    "return Utilities.processConfigBundle(config, 'saleSheetDet');"
                                 ]
                             },
                             "designerId": "39f1571d-fcdc-47fa-9f60-bee182607c5b"
