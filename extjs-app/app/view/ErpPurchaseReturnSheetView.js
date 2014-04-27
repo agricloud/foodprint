@@ -312,7 +312,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'purchaseSheetDetContainer',
+                                    itemId: 'purchaseSheetDetContainer1',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
