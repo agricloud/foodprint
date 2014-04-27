@@ -40,7 +40,8 @@ Ext.application({
         'ErpPurchaseReturnSheetView',
         'ErpAccountSheetView',
         'ErpAccountSheetGrid',
-        'CommonReceivablesCombo'
+        'CommonReceivablesCombo',
+        'ErpSaleSheetGrid'
     ],
     autoCreateViewport: true,
     controllers: [
