@@ -1,0 +1,669 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|autoWidth": false,
+        "container|titleCollapse": false,
+        "container|hideCollapseTool": false,
+        "container|collapseFirst": false,
+        "container|animate": false,
+        "container|sequence": false,
+        "container|activeOnTop": false,
+        "border": false,
+        "height": null,
+        "itemId": "collapsepanel",
+        "maxHeight": null,
+        "width": null,
+        "designer|userClassName": "MyPanel2",
+        "layout": "accordion",
+        "bodyBorder": false,
+        "animCollapse": false,
+        "collapseFirst": false,
+        "titleCollapse": true
+    },
+    "configAlternates": {
+        "tbar": "object"
+    },
+    "designerId": "4ce2b52a-f654-4720-b84c-1dcf8c3f8d2a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": 10,
+                "border": false,
+                "padding": 10,
+                "defaults": [
+                    "{",
+                    "            anchor: '100%'",
+                    "        }",
+                    ""
+                ],
+                "layout": "vbox",
+                "bodyPadding": 10,
+                "collapsed": false,
+                "collapsible": false,
+                "title": "Account"
+            },
+            "designerId": "b0137b82-ce98-458a-8c34-2e773042e3f6",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "height": null,
+                        "itemId": "dateCreated",
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": 3,
+                        "width": null,
+                        "fieldLabel": "dateCreated",
+                        "name": "dateCreated",
+                        "format": null,
+                        "submitFormat": null
+                    },
+                    "designerId": "160b639e-0ee9-413e-881c-e1ed74c316c5"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "padding": 5,
+                        "width": 250,
+                        "fixed": true
+                    },
+                    "designerId": "b52afaf0-0ef6-4854-9936-f8943d317825",
+                    "masterInstanceId": "5db35fa9-95b4-4dfe-a99d-73926fb59fba"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "padding": 5,
+                        "width": null,
+                        "fieldLabel": "rate",
+                        "labelWidth": null,
+                        "name": "rate",
+                        "readOnly": true,
+                        "allowBlank": false
+                    },
+                    "designerId": "72071f8a-7410-49fa-83f5-9c4ac3a79d1c"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "padding": 5,
+                        "width": 250,
+                        "fieldLabel": "currency"
+                    },
+                    "designerId": "e88bc6ab-c9ec-48e1-86c5-c7b7b758b79e"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "height": null,
+                        "itemId": "accountDate",
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": 5,
+                        "width": null,
+                        "fieldLabel": "accountDate",
+                        "name": "accountDate",
+                        "format": null,
+                        "submitFormat": null
+                    },
+                    "designerId": "3b38ef47-cca0-49d0-982e-176779b94513"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "anticipationDate",
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": 5,
+                        "width": 250,
+                        "fieldLabel": "anticipationDate",
+                        "name": "anticipationDate",
+                        "format": null,
+                        "submitFormat": null
+                    },
+                    "designerId": "519bd915-f207-4854-aa6c-5f27478191b8"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "originalReceived",
+                        "minWidth": 200,
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "originalReceived",
+                        "labelWidth": 70,
+                        "name": "originalReceived"
+                    },
+                    "designerId": "2806b52f-ba32-4912-9b6a-73b953ca7bf8"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "received",
+                        "minWidth": 200,
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "received",
+                        "labelWidth": 70,
+                        "name": "received"
+                    },
+                    "designerId": "9eb907a8-10c4-4e96-9421-8240d063d576"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "amounts",
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "amounts",
+                        "labelWidth": 70,
+                        "name": "amounts"
+                    },
+                    "designerId": "5343b494-9c65-4da8-9fe4-1e0b7358543c"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "tax",
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "tax",
+                        "labelWidth": 70,
+                        "name": "tax"
+                    },
+                    "designerId": "5b74800e-410c-4cfb-96b5-069f3d535bd2"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "totalAmount",
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "TotalAmount",
+                        "labelWidth": 70,
+                        "name": "totalAmount"
+                    },
+                    "designerId": "e595f504-87d1-45fe-bd31-951f7ca22536"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "dock": null,
+                        "disabled": true,
+                        "itemId": "closedCode",
+                        "padding": 5,
+                        "fieldLabel": "closedCode",
+                        "labelWidth": 80,
+                        "name": "closedCode",
+                        "boxLabel": null
+                    },
+                    "designerId": "7b808481-2be3-43d2-8bf7-df4dade4a1cd"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "status",
+                        "padding": 5,
+                        "width": 150,
+                        "fieldLabel": "status",
+                        "labelWidth": 70,
+                        "name": "status"
+                    },
+                    "designerId": "b3e864d2-6b36-4e84-940a-948523468a53"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": 10,
+                "border": false,
+                "disabled": true,
+                "padding": 10,
+                "layout": "vbox",
+                "bodyPadding": 10,
+                "collapsed": false,
+                "collapsible": false,
+                "title": "Invoice"
+            },
+            "designerId": "9be04d53-7b73-4d64-9b46-0390ccdfb693",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "container|align": "stretch",
+                        "disabled": true,
+                        "height": null,
+                        "itemId": "",
+                        "width": null,
+                        "layout": "hbox",
+                        "fieldLabel": null
+                    },
+                    "designerId": "d494bf1b-36ca-4d25-b6e6-de9410da7128",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": null,
+                                "name": "",
+                                "readOnly": true
+                            },
+                            "designerId": "d66879c0-d11e-4f7e-b01c-a470ce751c8b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "稅別碼",
+                                "name": "",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "d927e043-3f08-412e-86a7-fae429c441bd"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": null,
+                                "name": "",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "467641f2-e7f8-4e41-a5b0-06312b9ea626"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "發票聯數",
+                                "name": "",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "1e97691c-6fe9-49c4-a013-2b7d3b964990"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": null,
+                                "layout|flex": null,
+                                "layout|margins": "1"
+                            },
+                            "designerId": "80aa7524-b043-4e8d-ab95-adae6adc70c3",
+                            "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": false,
+                                "margin": null,
+                                "glyph": 0,
+                                "layout|flex": null,
+                                "layout|margins": "1"
+                            },
+                            "designerId": "0706d08f-a085-4053-b6f1-4ad440fbd303",
+                            "masterInstanceId": "54035366-0ec4-4e3f-9b1a-81680113395d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "padding": "",
+                        "width": 250,
+                        "fieldLabel": "發票號碼"
+                    },
+                    "designerId": "b38d1512-ffbb-469d-bbf3-a227ae9cfeda"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "height": null,
+                        "itemId": "Date",
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": "",
+                        "width": null,
+                        "fieldLabel": "申報年月",
+                        "name": "",
+                        "format": null,
+                        "submitFormat": null
+                    },
+                    "designerId": "4fda83dd-e98b-4321-827d-00824621b7c2"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": null,
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": "",
+                        "width": 250,
+                        "fieldLabel": "課稅別",
+                        "name": ""
+                    },
+                    "designerId": "3a527548-19a7-4a86-a2b8-f319e7afaea2"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "營業稅率",
+                        "name": null,
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "7249b314-50ef-4dc1-8118-a26eb652a6bd"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": null,
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": "",
+                        "width": 250,
+                        "fieldLabel": "發票日期",
+                        "name": null
+                    },
+                    "designerId": "05feeb19-bc69-47a5-95f9-245715d026de"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "公司名稱",
+                        "name": null,
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "b37b834c-4e24-4a7f-932d-a5da11823099"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": null,
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "padding": "",
+                        "width": 250,
+                        "fieldLabel": "統一編號",
+                        "name": null
+                    },
+                    "designerId": "2fcde811-8d5f-47a4-af7d-ad3fc9b7117e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "發票貨款",
+                        "name": null,
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "85710149-f2a4-4078-8421-332bf7131f5c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "發票稅額",
+                        "name": "",
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "be25fe1f-9343-4774-a74b-ea6c45028efb"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "發票金額",
+                        "name": null,
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "9ee152fd-0dfd-4c94-b1ee-e6fdd9ef600e"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "disabled": null,
+                        "fieldLabel": "通關方式",
+                        "name": null,
+                        "readOnly": true,
+                        "allowBlank": null
+                    },
+                    "designerId": "6fced6bf-095a-4d33-b9fe-45eba0d266bc"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": 10,
+                "border": false,
+                "padding": 10,
+                "layout": "vbox",
+                "bodyPadding": 10,
+                "collapsed": false,
+                "collapsible": false,
+                "title": "Other"
+            },
+            "designerId": "40745a07-3db4-4bdb-876d-d0f509030bfe",
+            "cn": [
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "fieldLabel": "備註"
+                    },
+                    "designerId": "73b4b65a-0a7f-4811-9477-17bce4e0ba34"
+                }
+            ]
+        }
+    ]
+}
