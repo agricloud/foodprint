@@ -41,7 +41,9 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
         'ErpManufactureOrderStore'
     ],
     views: [
-        'ErpMaterialSheetView'
+        'ErpMaterialSheetView',
+        'ErpMaterialSheetDetGrid',
+        'ErpMaterialSheetGrid'
     ],
 
     refs: [

@@ -37,7 +37,9 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
         'ErpManufactureOrderStore'
     ],
     views: [
-        'ErpOutSrcPurchaseReturnSheetView'
+        'ErpOutSrcPurchaseReturnSheetView',
+        'ErpOutSrcPurchaseSheetGrid',
+        'ErpOutSrcPurchaseSheetDetGrid'
     ],
 
     refs: [
@@ -96,24 +98,18 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             'erpoutsrcpurchasereturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{
                 click:this.doCancelDetail
             },
-            'erpoutsrcpurchasereturnsheetview #detailGrid':{
+            'erpoutsrcpurchasereturnsheetview #show #indexDetail #detailGrid':{
                 select: this.enableDetailShowBtn,
                 deselect: this.disableDetailShowBtn,
-                itemdblclick: this.doSelectOutSrcPurchaseSheetDet
-                //itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet
+                //itemdblclick: this.doSelectOutSrcPurchaseSheetDet
+                itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet
             },
             'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
-                click:this.activeOutSrcPurchaseSheetDetIndex
+                click:this.activeOurSrcPurchaseSheetDetIndex
             },
             'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{
                 select: this.doIndexDetailOutSrcPurchaseSheet
             }
-            /*'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
-            click:this.activeManufactureOrderIndex
-            },
-            'erpoutsrcpurchasereturnsheetview #manufactureOrderIndex erpmanufactureordergrid':{
-            itemdblclick: this.doSelectManufactureOrder
-            }*/
 
         });
 
@@ -122,21 +118,6 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
         this.foodpaintController = 'outSrcPurchaseReturnSheet';
         this.foodpaintDetController = 'outSrcPurchaseReturnSheetDet';
         this.masterKey='outSrcPurchaseReturnSheet.id';
-    },
-
-    doSelectManufactureOrder: function(obj, record, index, eOpts) {
-        this.getDetailForm().getForm().setValues({
-
-            'manufactureOrder.id':record.data['id'],
-            'manufactureOrder.typeName':record.data['typeName'],
-            'manufactureOrder.name':record.data['name'],
-            'item.id':record.data['item.id'],
-            'item.name':record.data['item.name'],
-            'item.title':record.data['item.title'],
-            'batch.name':record.data['batch.name'],
-            'qty':record.data['qty']
-        });
-        this.activeDetailEditor();
     },
 
     doSelectOutSrcPurchaseSheetDet: function(obj, record, index, eOpts) {
@@ -159,7 +140,6 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             'warehouse.title':record.data['warehouse.title'],
             'warehouseLocation.id':record.data['warehouseLocation.id'],
             'warehouseLocation.title':record.data['warehouseLocation.title']
-            //'qty':record.data['qty']
         });
         this.activeDetailEditor();
     },
@@ -181,28 +161,15 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
 
     doShowOutSrcPurchaseReturnSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var spcombo=form.findField('supplier.id');
-            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
 
         });
     },
 
     doShowOutSrcPurchaseReturnSheetDet: function() {
 
-        //this.doShowDetail(function(success,form,action){
-        //由於store設定load第1-50筆
-        //導致doShow時若資料屬於第50筆之後無法正常顯示
-        //在此使combo重新load store
-        //var whcombo=form.findField('warehouse.id');
-        //Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+        this.doShowDetail(function(success,form,action){
 
-        //warehouseLocation combo需指定warehouse id才可load
-        //var wlcombo=form.findField('warehouseLocation.id');
-        //Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
-        //});
+        });
     }
 
 });

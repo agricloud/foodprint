@@ -37,7 +37,9 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
         'ErpManufactureOrderStore'
     ],
     views: [
-        'ErpOutSrcPurchaseSheetView'
+        'ErpOutSrcPurchaseSheetView',
+        'ErpOutSrcPurchaseSheetGrid',
+        'ErpOutSrcPurchaseSheetDetGrid'
     ],
 
     refs: [

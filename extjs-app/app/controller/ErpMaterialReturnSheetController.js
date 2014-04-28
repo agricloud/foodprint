@@ -33,10 +33,22 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
         'ErpMaterialReturnSheetDet'
     ],
     stores: [
-        'ErpMaterialReturnSheetStore'
+        'ErpMaterialReturnSheetStore',
+        'ErpMaterialSheetStore',
+        'ErpMaterialSheetDetStore',
+        'WorkstationStore',
+        'SupplierStore',
+        'WarehouseStore',
+        'WarehouseLocationStore',
+        'BatchStore',
+        'ErpManufactureOrderStore',
+        'ErpMaterialReturnSheetDetStore'
     ],
     views: [
-        'ErpMaterialReturnSheetView'
+        'ErpMaterialReturnSheetView',
+        'ErpMaterialSheetDetGrid',
+        'ErpMaterialSheetGrid',
+        'ErpMaterialReturnSheetGrid'
     ],
 
     refs: [
