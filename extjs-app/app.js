@@ -38,7 +38,6 @@ Ext.application({
     },
     models: [
         'ErpMaterialReturnSheet',
-        'ErpMaterialReturnSheetDet',
         'ErpOutSrcPurchaseReturnSheet',
         'ErpOutSrcPurchaseReturnSheetDet'
     ],
@@ -51,8 +50,7 @@ Ext.application({
     views: [
         'ErpMaterialSheetDetGrid',
         'ErpOutSrcPurchaseReturnSheetGrid',
-        'ErpOutSrcPurchaseSheetDetGrid',
-        'ErpOutSrcPurchaseSheetDetView'
+        'ErpOutSrcPurchaseSheetDetGrid'
     ],
     autoCreateViewport: true,
     controllers: [
@@ -78,13 +76,11 @@ Ext.application({
         'ErpCustomerOrderController',
         'ErpCustomerOrderDetController',
         'ErpMaterialSheetController',
-        'ErpMaterialSheetDetController',
         'ErpPurchaseSheetController',
         'ErpPurchaseSheetDetController',
         'ErpStockInSheetController',
         'ErpStockInSheetDetController',
         'ErpOutSrcPurchaseSheetController',
-        'ErpOutSrcPurchaseSheetDetController',
         'ErpSaleSheetController',
         'ErpSaleSheetDetController',
         'WarehouseController',
@@ -92,7 +88,6 @@ Ext.application({
         'InventoryDetailController',
         'SiteController',
         'ErpMaterialReturnSheetController',
-        'ErpMaterialReturnSheetDetController',
         'WarehouseLocationController',
         'ErpOutSrcPurchaseReturnSheetController',
         'ErpOutSrcPurchaseReturnSheetDetController'

@@ -7,7 +7,16 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "ErpMaterialReturnSheet"
+            "ErpMaterialReturnSheet",
+            "ErpMaterialSheet",
+            "ErpMaterialSheetDet",
+            "Workstation",
+            "Supplier",
+            "Warehouse",
+            "WarehouseLocation",
+            "Batch",
+            "ErpManufactureOrder",
+            "ErpMaterialReturnSheetDet"
         ],
         "stores": [
             "ErpMaterialReturnSheetStore"
@@ -99,28 +108,21 @@
                     "    'erpmaterialreturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{",
                     "        click:this.doCancelDetail",
                     "    },",
-                    "    'erpmaterialreturnsheetview #detailGrid':{",
+                    "    'erpmaterialreturnsheetview #show #indexDetail #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
-                    "        deselect: this.disableDetailShowBtn",
-                    "        //itemdblclick: this.doShowMaterialReturnSheetDet",
+                    "        deselect: this.disableDetailShowBtn,",
+                    "        itemdblclick: this.doShowMaterialReturnSheetDet",
+                    "    },",
+                    "    'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{",
+                    "        itemdblclick: this.doSelectMaterialSheetDet //暫用",
+                    "        //itemdblclick: this.doShowMaterialSheetDet //尚未調整好",
                     "    },",
                     "    'erpmaterialreturnsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeMaterialSheetDetIndex",
                     "    },",
                     "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{",
                     "        select: this.doIndexDetailMaterialSheet",
-                    "    },",
-                    "    'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{",
-                    "        itemdblclick: this.doSelectMaterialSheetDet",
                     "    }",
-                    "    /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{",
-                    "    click:this.doCancelMaterialSheetDet",
-                    "    },",
-                    "    'erpmaterialreturnsheetview #showDetail commonitemcombo':{",
-                    "    select:this.doCancelMaterialSheetDet",
-                    "    }*/",
-                    "",
-                    "",
                     "});",
                     "",
                     "",
@@ -141,7 +143,7 @@
             "codeClass": null,
             "userConfig": {
                 "ref": "detailGrid",
-                "selector": "erpmaterialreturnsheetview #detailGrid"
+                "selector": "erpmaterialreturnsheetview #show #indexDetail #detailGrid"
             },
             "designerId": "de10f169-abcf-4b01-b9d0-78b3645267ce"
         },
@@ -159,69 +161,17 @@
             "designerId": "5f21d804-a0a0-4145-837a-24b530da47e5"
         },
         {
-            "type": "basicfunction",
+            "type": "controllerref",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectMaterialSheet",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'materialSheet.id':record.data['id'],",
-                    "    'materialSheet.typeName':record.data['typeName'],",
-                    "    'materialSheet.name':record.data['name'],",
-                    "",
-                    "    'manufactureOrder.id':record.data['manufactureOrder.id'],",
-                    "    'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],",
-                    "    'manufactureOrder.name':record.data['manufactureOrder.name']",
-                    "",
-                    "});",
-                    "this.activeDetailEditor();"
-                ]
+                "ref": "materialSheetDetGrid",
+                "selector": "erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid"
             },
-            "designerId": "6334faec-b7b7-4838-88cc-3a9594f8858e"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doSelectMaterialSheetDet",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'materialSheetDet.id':record.data['id'],",
-                    "    'materialSheetDet.typeName':record.data['typeName'],",
-                    "    'materialSheetDet.name':record.data['name'],",
-                    "    'materialSheetDet.sequence':record.data['sequence'],",
-                    "    'item.id':record.data['item.id'],",
-                    "    'item.name':record.data['item.name'],",
-                    "    'item.title':record.data['item.title'],",
-                    "    'warehouse.id':record.data['warehouse.id'],",
-                    "    'warehouse.title':record.data['warehouse.title'],",
-                    "    'warehouseLocation.id':record.data['warehouseLocation.id'],",
-                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],",
-                    "    'batch.id':record.data['batch.id'],",
-                    "    'batch.name':record.data['batch.name'],",
-                    "    'manufactureOrder.id':record.data['manufactureOrder.id'],",
-                    "    'manufactureOrder.name':record.data['manufactureOrder.name']",
-                    "});",
-                    "this.activeDetailEditor();"
-                ]
-            },
-            "designerId": "82ee89ab-7fd0-4cb1-91f2-4d486cb75054"
+            "designerId": "1f8d1549-bffe-4221-acb2-605d0ccb1d89"
         },
         {
             "type": "basicfunction",
@@ -284,13 +234,7 @@
                 "fn": "doShowMaterialReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
-                    "    //由於store設定load第1-50筆",
-                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
-                    "    //在此使combo重新load store",
-                    "    var wscombo=form.findField('workstation.id');",
-                    "    Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);",
-                    "    var spcombo=form.findField('supplier.id');",
-                    "    Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);",
+                    "",
                     "});"
                 ]
             },
@@ -308,22 +252,98 @@
                 "implHandler": [
                     "",
                     "this.doShowDetail(function(success,form,action){",
-                    "    //由於store設定load第1-50筆",
-                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
-                    "    //在此使combo重新load store",
-                    "    var batchcombo=form.findField('batch.id');",
-                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
                     "",
-                    "    var whcombo=form.findField('warehouse.id');",
-                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
-                    "",
-                    "    //warehouseLocation combo需指定warehouse id才可load",
-                    "    var wlcombo=form.findField('warehouseLocation.id');",
-                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
                     "});"
                 ]
             },
             "designerId": "3d1db56e-4529-4420-837e-2635a4851673"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectMaterialSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'materialSheetDet.id':record.data['id'],",
+                    "    'materialSheetDet.typeName':record.data['typeName'],",
+                    "    'materialSheetDet.name':record.data['name'],",
+                    "    'materialSheetDet.sequence':record.data['sequence'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'],",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "\t'manufactureOrder.id':record.data['manufactureOrder.id'],",
+                    "\t'manufactureOrder.name':record.data['manufactureOrder.name']",
+                    "});",
+                    "",
+                    "this.activeDetailEditor();",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "82ee89ab-7fd0-4cb1-91f2-4d486cb75054"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowMaterialSheetDet",
+                "implHandler": [
+                    "console.log('commonController--'+this.domainName+'--doShowDetail');",
+                    "",
+                    "var that = this;",
+                    "console.log(this);",
+                    "console.log(that);",
+                    "console.log(this.getMaterialSheetDetGrid());",
+                    "var record= this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0];",
+                    "var id = -1;",
+                    "",
+                    "if(this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0])",
+                    "id = record.data.id;",
+                    "",
+                    "",
+                    "this.getDetailForm().getForm().load({",
+                    "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
+                    "    params: this.getDetailParams(),",
+                    "    waitMsg:Utilities.getMsg('default.message.load'),",
+                    "    success: function(form, action) {",
+                    "",
+                    "        that.activeDetailEditor();",
+                    "        that.detailActionName = 'update';",
+                    "",
+                    "        if (callback && callback instanceof Function) {",
+                    "            callback(true,form,action);",
+                    "        }",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback && callback instanceof Function){",
+                    "            callback(false,form,action);",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "6b94438d-235f-49bb-afc6-4f715e8df94b"
         }
     ]
 }

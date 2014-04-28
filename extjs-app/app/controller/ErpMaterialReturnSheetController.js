@@ -21,7 +21,16 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
     },
 
     models: [
-        'ErpMaterialReturnSheet'
+        'ErpMaterialReturnSheet',
+        'ErpMaterialSheet',
+        'ErpMaterialSheetDet',
+        'Workstation',
+        'Supplier',
+        'Warehouse',
+        'WarehouseLocation',
+        'Batch',
+        'ErpManufactureOrder',
+        'ErpMaterialReturnSheetDet'
     ],
     stores: [
         'ErpMaterialReturnSheetStore'
@@ -41,11 +50,15 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
         },
         {
             ref: 'detailGrid',
-            selector: 'erpmaterialreturnsheetview #detailGrid'
+            selector: 'erpmaterialreturnsheetview #show #indexDetail #detailGrid'
         },
         {
             ref: 'detailForm',
             selector: 'erpmaterialreturnsheetview #detailForm'
+        },
+        {
+            ref: 'materialSheetDetGrid',
+            selector: 'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid'
         }
     ],
 
@@ -86,28 +99,21 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #showDetail commonshowtoolbar commoncancelbtn':{
                 click:this.doCancelDetail
             },
-            'erpmaterialreturnsheetview #detailGrid':{
+            'erpmaterialreturnsheetview #show #indexDetail #detailGrid':{
                 select: this.enableDetailShowBtn,
-                deselect: this.disableDetailShowBtn
-                //itemdblclick: this.doShowMaterialReturnSheetDet
+                deselect: this.disableDetailShowBtn,
+                itemdblclick: this.doShowMaterialReturnSheetDet
+            },
+            'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{
+                itemdblclick: this.doSelectMaterialSheetDet //暫用
+                //itemdblclick: this.doShowMaterialSheetDet //尚未調整好
             },
             'erpmaterialreturnsheetview #showDetail commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
             },
             'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{
                 select: this.doIndexDetailMaterialSheet
-            },
-            'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{
-                itemdblclick: this.doSelectMaterialSheetDet
             }
-            /*'erpmaterialreturnsheetview #showDetail #materialSheetDetContainer commoncancelbtn':{
-            click:this.doCancelMaterialSheetDet
-            },
-            'erpmaterialreturnsheetview #showDetail commonitemcombo':{
-            select:this.doCancelMaterialSheetDet
-            }*/
-
-
         });
 
 
@@ -115,43 +121,6 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
         this.foodpaintController = 'materialReturnSheet';
         this.foodpaintDetController = 'materialReturnSheetDet';
         this.masterKey='materialReturnSheet.id';
-    },
-
-    doSelectMaterialSheet: function(obj, record, index, eOpts) {
-        this.getDetailForm().getForm().setValues({
-
-            'materialSheet.id':record.data['id'],
-            'materialSheet.typeName':record.data['typeName'],
-            'materialSheet.name':record.data['name'],
-
-            'manufactureOrder.id':record.data['manufactureOrder.id'],
-            'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],
-            'manufactureOrder.name':record.data['manufactureOrder.name']
-
-        });
-        this.activeDetailEditor();
-    },
-
-    doSelectMaterialSheetDet: function(obj, record, index, eOpts) {
-        this.getDetailForm().getForm().setValues({
-
-            'materialSheetDet.id':record.data['id'],
-            'materialSheetDet.typeName':record.data['typeName'],
-            'materialSheetDet.name':record.data['name'],
-            'materialSheetDet.sequence':record.data['sequence'],
-            'item.id':record.data['item.id'],
-            'item.name':record.data['item.name'],
-            'item.title':record.data['item.title'],
-            'warehouse.id':record.data['warehouse.id'],
-            'warehouse.title':record.data['warehouse.title'],
-            'warehouseLocation.id':record.data['warehouseLocation.id'],
-            'warehouseLocation.title':record.data['warehouseLocation.title'],
-            'batch.id':record.data['batch.id'],
-            'batch.name':record.data['batch.name'],
-            'manufactureOrder.id':record.data['manufactureOrder.id'],
-            'manufactureOrder.name':record.data['manufactureOrder.name']
-        });
-        this.activeDetailEditor();
     },
 
     doIndexDetailMaterialSheet: function(obj, record, index, eOpts) {
@@ -181,31 +150,76 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
 
     doShowMaterialReturnSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var wscombo=form.findField('workstation.id');
-            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
-            var spcombo=form.findField('supplier.id');
-            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
+
         });
     },
 
     doShowMaterialReturnSheetDet: function() {
 
         this.doShowDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var batchcombo=form.findField('batch.id');
-            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
 
-            var whcombo=form.findField('warehouse.id');
-            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+        });
+    },
 
-            //warehouseLocation combo需指定warehouse id才可load
-            var wlcombo=form.findField('warehouseLocation.id');
-            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+    doSelectMaterialSheetDet: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'materialSheetDet.id':record.data['id'],
+            'materialSheetDet.typeName':record.data['typeName'],
+            'materialSheetDet.name':record.data['name'],
+            'materialSheetDet.sequence':record.data['sequence'],
+            'item.id':record.data['item.id'],
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'],
+            'warehouseLocation.title':record.data['warehouseLocation.title'],
+            'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],
+            'manufactureOrder.id':record.data['manufactureOrder.id'],
+            'manufactureOrder.name':record.data['manufactureOrder.name']
+        });
+
+        this.activeDetailEditor();
+
+
+    },
+
+    doShowMaterialSheetDet: function() {
+        console.log('commonController--'+this.domainName+'--doShowDetail');
+
+        var that = this;
+        console.log(this);
+        console.log(that);
+        console.log(this.getMaterialSheetDetGrid());
+        var record= this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0];
+        var id = -1;
+
+        if(this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0])
+        id = record.data.id;
+
+
+        this.getDetailForm().getForm().load({
+            url:this.getRoot()+'/'+this.domainName+'/show/'+id,
+            params: this.getDetailParams(),
+            waitMsg:Utilities.getMsg('default.message.load'),
+            success: function(form, action) {
+
+                that.activeDetailEditor();
+                that.detailActionName = 'update';
+
+                if (callback && callback instanceof Function) {
+                    callback(true,form,action);
+                }
+            },
+
+            failure: function(form, action) {
+                Ext.MessageBox.alert('Failure',action.result.message);
+                if (callback && callback instanceof Function){
+                    callback(false,form,action);
+                }
+            }
         });
     }
 
