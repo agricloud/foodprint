@@ -182,7 +182,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'customerOrderDet.sequence':null,
             'batch.id':null,
             'batch.name':null,
-            'qty':null,
+            'qty':0,
 
 
         });

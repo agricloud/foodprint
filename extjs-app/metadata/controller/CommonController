@@ -469,6 +469,44 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "activeSaleSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\"));",
+                    "",
+                    "var saleSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=saleSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "5bf8c647-0391-40a8-bd24-3c40d8a85848"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activePurchaseSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\"));",
+                    "",
+                    "var purchaseSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=purchaseSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "e52d220f-a294-4e44-9e24-7c707ad6b256"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doCreateAndIndexDetail",
                 "implHandler": [
                     "this.doCreate();",

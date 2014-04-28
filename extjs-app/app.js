@@ -36,14 +36,17 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'ErpSaleReturnSheetDet'
+    ],
     stores: [
-        'ErpSaleReturnSheetDetStore'
+        'ErpSaleReturnSheetDetStore',
+        'ErpPurchaseReturnSheetDetStore'
     ],
     views: [
         'ErpPurchaseReturnSheetView',
         'ErpAccountSheetView',
         'ErpAccountSheetGrid',
-        'CommonReceivablesCombo',
         'ErpSaleSheetGrid',
         'ErpSaleReturnSheetView',
         'MyPanel2'

@@ -17,7 +17,6 @@ Ext.define('foodprint.view.MyPanel2', {
     extend: 'Ext.panel.Panel',
 
     requires: [
-        'foodprint.view.CommonReceivablesCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn'
     ],
@@ -68,12 +67,6 @@ Ext.define('foodprint.view.MyPanel2', {
                             padding: 3,
                             fieldLabel: 'dateCreated',
                             name: 'dateCreated'
-                        },
-                        {
-                            xtype: 'commonreceivablescombo',
-                            padding: 5,
-                            width: 250,
-                            fixed: true
                         },
                         {
                             xtype: 'numberfield',

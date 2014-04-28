@@ -36,6 +36,18 @@ Ext.define('foodprint.model.ErpPurchaseReturnSheetDet', {
             name: 'purchaseSheetDet.id'
         },
         {
+            name: 'purchaseSheetDet.name'
+        },
+        {
+            name: 'purchaseSheetDet.typeName'
+        },
+        {
+            name: 'supplier.name'
+        },
+        {
+            name: 'purchaseSheetDet.sequence'
+        },
+        {
             name: 'item.id'
         },
         {

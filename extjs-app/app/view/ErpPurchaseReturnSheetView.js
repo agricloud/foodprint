@@ -25,6 +25,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonItemCombo',
+        'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpPurchaseSheetGrid',
         'foodprint.view.ErpPurchaseSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
@@ -159,8 +160,16 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                             format: '0,000'
                                         },
                                         {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'purchaseSheetDet.id',
+                                            text: 'PurchaseSheetDet.id',
+                                            flex: 1
+                                        },
+                                        {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'purchaseSheetDet.name',
+                                            hideable: false,
                                             text: 'Purchasesheetdet.name',
                                             flex: 1
                                         },
@@ -239,6 +248,13 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                             dataIndex: 'qty',
                                             text: 'qty',
                                             flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
+                                            dataIndex: 'supplier.id',
+                                            text: 'CustomerOrderDet.id',
+                                            flex: 1
                                         }
                                     ],
                                     listeners: {
@@ -312,7 +328,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                 },
                                 {
                                     xtype: 'fieldcontainer',
-                                    itemId: 'purchaseSheetDetContainer1',
+                                    itemId: 'purchaseSheetDetContainer',
                                     layout: {
                                         align: 'stretch',
                                         type: 'hbox'
@@ -372,20 +388,19 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Batch.name',
-                                    name: 'batch.name',
-                                    readOnly: true
-                                },
-                                {
                                     xtype: 'commonitemcombo',
                                     readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    disabled: true,
                                     fieldLabel: 'Item.title',
-                                    name: 'item.title'
+                                    name: 'item.title',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'commonbatchcombo',
+                                    readOnly: true,
+                                    editable: false
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -425,11 +440,11 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
     },
 
     processDetailGrid: function(config) {
-        return Utilities.processConfigBundle(config, 'purchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'purchaseReturnSheetDet');
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'purchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'purchaseReturnSheetDet');
     },
 
     onGridBeforeRender11: function(component, eOpts) {

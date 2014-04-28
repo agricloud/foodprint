@@ -25,8 +25,8 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
         'ErpPurchaseReturnSheetDet'
     ],
     stores: [
-        'ErpPurchaseReturnSheetDetStore',
-        'ErpPurchaseReturnSheetStore'
+        'ErpPurchaseReturnSheetStore',
+        'ErpPurchaseReturnSheetDetStore'
     ],
     views: [
         'ErpPurchaseReturnSheetView'
@@ -141,7 +141,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             'warehouse.title':record.data['warehouse.title'],
             'warehouseLocation.id':record.data['warehouseLocation.id'], 
             'warehouseLocation.title':record.data['warehouseLocation.title'],   
-            'item.id':record.data['item.id'],   
+            'item.id':record.data['item.id'],        
             'item.title':record.data['item.title'],
             'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
@@ -178,7 +178,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             'qty':null,
             'batch.id':null,
             'batch.name':null,
-            'qty':null,
+            'qty':0,
 
 
         });
@@ -196,20 +196,21 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
     },
 
     doShowPurchaseReturnSheetDet: function() {
-
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
-            var itemcombo=form.findField('item.id');
-            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
-
             var whcombo=form.findField('warehouse.id');
             Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
 
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
         });
     }
 

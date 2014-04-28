@@ -20,7 +20,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
     requires: [
         'foodprint.view.ErpAccountSheetGrid',
         'foodprint.view.CommonCustomerCombo',
-        'foodprint.view.CommonReceivablesCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
@@ -136,9 +135,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'panel',
-                                    processForm: function() {
-                                        return Utilities.processConfigBundle(config, 'accountSheet');
-                                    },
                                     border: false,
                                     itemId: '',
                                     layout: {
@@ -180,12 +176,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     padding: 3,
                                                     fieldLabel: 'dateCreated',
                                                     name: 'dateCreated'
-                                                },
-                                                {
-                                                    xtype: 'commonreceivablescombo',
-                                                    padding: 5,
-                                                    width: 250,
-                                                    fixed: true
                                                 },
                                                 {
                                                     xtype: 'numberfield',
