@@ -168,7 +168,7 @@ Ext.define('foodprint.view.ErpPurchaseReturnSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'purchaseSheetDet.typeName',
+                                            dataIndex: 'purchaseSheetDet.name',
                                             hideable: false,
                                             text: 'PurchaseSheetDet.name',
                                             flex: 1
