@@ -495,7 +495,7 @@ Ext.define('foodprint.controller.CommonController', {
 
             success: function(response){
                 var obj = Ext.decode(response.responseText);
-                window.open("http://localhost:8180/reports/"+obj.fileName);
+                window.open("http://localhost:8180/reportFiles/"+obj.fileName);
             }
         });
     }
