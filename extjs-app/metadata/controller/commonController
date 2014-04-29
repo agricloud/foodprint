@@ -232,6 +232,7 @@
                     "grid.getStore().getProxy().extraParams = params;",
                     "grid.getStore().load();",
                     "",
+                    "",
                     ""
                 ]
             },
@@ -496,6 +497,8 @@
                     "",
                     "    grid.getStore().getProxy().extraParams = params;",
                     "    grid.getStore().load();",
+                    "    ",
+                    "\tthat.showPrintBtn();",
                     "});",
                     "",
                     ""
@@ -534,7 +537,7 @@
                     "",
                     "        that.activeDetailEditor();",
                     "        that.detailActionName = 'update';",
-                    "        ",
+                    "",
                     "        if (callback && callback instanceof Function) {",
                     "            callback(true,form,action)",
                     "        }",
@@ -828,6 +831,51 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showPrintBtn",
+                "implHandler": [
+                    "this.getMainForm().up('panel[itemId=show]').down('commonprintbtn').show();"
+                ]
+            },
+            "designerId": "4a684ee5-8a36-4a93-a3cf-5a89512044c8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doPrint",
+                "implHandler": [
+                    "",
+                    "var that = this;",
+                    "var id = -1;",
+                    "",
+                    "if(this.getMainForm().getForm().findField('id'))",
+                    "id = this.getMainForm().getForm().findField('id').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: this.getRoot()+'/'+this.domainName+'/'+'print?id='+id,",
+                    "    params: this.getParams(),",
+                    "",
+                    "    success: function(response){",
+                    "        var obj = Ext.decode(response.responseText);",
+                    "    \twindow.open(\"http://localhost:8180/reports/\"+obj.fileName);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "bec68629-f783-4a24-9b93-bfc6c26a19c8"
         }
     ]
 }

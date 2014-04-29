@@ -1,0 +1,43 @@
+{
+    "type": "Ext.button.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonPrinttBtn",
+        "style": "font-family:Pictos;",
+        "designer|userClassName": "CommonPrintBtn",
+        "designer|userAlias": "commonprintbtn",
+        "glyph": 77,
+        "text": "Print"
+    },
+    "configAlternates": {
+        "style": "string"
+    },
+    "designerId": "d3c8cb21-dff9-4ca6-b4e9-3f6cfaba53f4",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonPrintBtn",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "config.text=Utilities.getMsg('common.printBtn.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "a819e8f8-b77e-463f-a560-3f3da05a92ca"
+        }
+    ]
+}
