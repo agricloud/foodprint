@@ -469,6 +469,44 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "activeSaleSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\"));",
+                    "",
+                    "var saleSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=saleSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "e6c120ca-2ac5-4ff6-a5e1-8f87241ca2d8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activePurchaseSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\"));",
+                    "",
+                    "var purchaseSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=purchaseSheetDetIndex]\").down(\"grid[itemId=purchaseSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "cf102f59-5ece-4d25-8977-74a86db3a52e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doCreateAndIndexDetail",
                 "implHandler": [
                     "this.doCreate();",
@@ -847,21 +885,6 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "aaaa",
-                "implHandler": [
-                    ""
-                ]
-            },
-            "designerId": "321fa6de-db7c-467e-b71d-f6d2feeadbd5"
         }
     ]
 }

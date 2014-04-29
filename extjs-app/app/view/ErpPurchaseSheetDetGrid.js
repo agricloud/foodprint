@@ -149,7 +149,12 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
             ]
         });
 
+        me.processErpPurchaseSheetDetGrid1(me);
         me.callParent(arguments);
+    },
+
+    processErpPurchaseSheetDetGrid1: function(config) {
+        return Utilities.processConfigBundle(config, 'purchaseSheetDet');
     },
 
     onErpPurchaseSheetDetGridAfterRender: function(component, eOpts) {

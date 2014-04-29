@@ -308,71 +308,7 @@
             "designerId": "8308be66-fe6e-4274-acc6-2f759f1aa151"
         },
         {
-            "type": "Ext.grid.column.Number",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": true,
-                "width": null,
-                "defaultWidth": null,
-                "dataIndex": "customerOrderDet.id",
-                "groupable": null,
-                "text": "CustomerOrderDet.id",
-                "flex": 1
-            },
-            "designerId": "4f52b1e2-53ad-4e87-ae44-666c9928c9bc"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.typeName",
-                "text": "CustomerOrderDet.typeName",
-                "flex": 1
-            },
-            "designerId": "bd00771d-3c17-48d9-bb29-1d7ae059b965"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.name",
-                "text": "CustomerOrderDet.name",
-                "flex": 1
-            },
-            "designerId": "72c79baf-ef45-4462-bd4d-2e7d45b0d68c"
-        },
-        {
-            "type": "Ext.grid.column.Number",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "hidden": null,
-                "dataIndex": "customerOrderDet.sequence",
-                "text": "CustomerOrderDet.sequence",
-                "flex": 1,
-                "format": "0,000"
-            },
-            "designerId": "49e7838b-c3e8-402c-a1f3-bf602895d7e9"
-        },
-        {
-            "type": "basicfunction",
+            "type": "processcfgfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -380,11 +316,14 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "processErpSaleSheetDetGrid",
+                "designer|params": [
+                    "config"
+                ],
                 "implHandler": [
                     "return Utilities.processConfigBundle(config, 'saleSheetDet');"
                 ]
             },
-            "designerId": "adc0b3b4-5ad5-48b1-b7f0-44ae97014a8a"
+            "designerId": "be94227e-b7af-419d-ae15-6e3cf119e315"
         }
     ]
 }
