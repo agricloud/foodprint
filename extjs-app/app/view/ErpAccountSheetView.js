@@ -137,6 +137,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     xtype: 'panel',
                                     border: false,
                                     itemId: '',
+                                    padding: '',
                                     layout: {
                                         autoWidth: false,
                                         titleCollapse: false,
@@ -155,16 +156,16 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         {
                                             xtype: 'form',
                                             border: false,
-                                            padding: 10,
+                                            padding: '',
                                             defaults: {
                                                 anchor: '100%'
                                             },
                                             layout: {
                                                 align: 'stretch',
-                                                padding: 10,
+                                                padding: '',
                                                 type: 'vbox'
                                             },
-                                            bodyPadding: 10,
+                                            bodyPadding: '',
                                             collapsed: false,
                                             collapsible: false,
                                             title: 'Account',
@@ -173,14 +174,14 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     xtype: 'datefield',
                                                     flex: 1,
                                                     itemId: 'dateCreated',
-                                                    padding: 3,
+                                                    padding: '',
                                                     fieldLabel: 'dateCreated',
                                                     name: 'dateCreated'
                                                 },
                                                 {
                                                     xtype: 'numberfield',
                                                     disabled: true,
-                                                    padding: 5,
+                                                    padding: '',
                                                     fieldLabel: 'rate',
                                                     name: 'rate',
                                                     readOnly: true,
@@ -189,21 +190,21 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'combobox',
                                                     disabled: true,
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 250,
                                                     fieldLabel: 'currency'
                                                 },
                                                 {
                                                     xtype: 'datefield',
                                                     itemId: 'accountDate',
-                                                    padding: 5,
+                                                    padding: '',
                                                     fieldLabel: 'accountDate',
                                                     name: 'accountDate'
                                                 },
                                                 {
                                                     xtype: 'datefield',
                                                     itemId: 'anticipationDate',
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 250,
                                                     fieldLabel: 'anticipationDate',
                                                     name: 'anticipationDate'
@@ -212,7 +213,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     xtype: 'displayfield',
                                                     itemId: 'originalReceived',
                                                     minWidth: 200,
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'originalReceived',
                                                     labelWidth: 70,
@@ -222,7 +223,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     xtype: 'displayfield',
                                                     itemId: 'received',
                                                     minWidth: 200,
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'received',
                                                     labelWidth: 70,
@@ -231,7 +232,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'displayfield',
                                                     itemId: 'amounts',
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'amounts',
                                                     labelWidth: 70,
@@ -240,7 +241,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'displayfield',
                                                     itemId: 'tax',
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'tax',
                                                     labelWidth: 70,
@@ -249,7 +250,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'displayfield',
                                                     itemId: 'totalAmount',
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'TotalAmount',
                                                     labelWidth: 70,
@@ -260,7 +261,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     flex: 1,
                                                     disabled: true,
                                                     itemId: 'closedCode',
-                                                    padding: 5,
+                                                    padding: '',
                                                     fieldLabel: 'closedCode',
                                                     labelWidth: 80,
                                                     name: 'closedCode'
@@ -268,7 +269,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'displayfield',
                                                     itemId: 'status',
-                                                    padding: 5,
+                                                    padding: '',
                                                     width: 150,
                                                     fieldLabel: 'status',
                                                     labelWidth: 70,
@@ -279,14 +280,13 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         {
                                             xtype: 'form',
                                             border: false,
-                                            disabled: true,
-                                            padding: 10,
+                                            padding: '',
                                             layout: {
                                                 align: 'stretch',
-                                                padding: 10,
+                                                padding: '',
                                                 type: 'vbox'
                                             },
-                                            bodyPadding: 10,
+                                            bodyPadding: '',
                                             collapsed: false,
                                             collapsible: false,
                                             title: 'Invoice',
@@ -403,13 +403,13 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         {
                                             xtype: 'form',
                                             border: false,
-                                            padding: 10,
+                                            padding: '',
                                             layout: {
                                                 align: 'stretch',
-                                                padding: 10,
+                                                padding: '',
                                                 type: 'vbox'
                                             },
-                                            bodyPadding: 10,
+                                            bodyPadding: '',
                                             collapsed: false,
                                             collapsible: false,
                                             title: 'Other',

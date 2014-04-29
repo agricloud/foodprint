@@ -35,19 +35,19 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
     refs: [
         {
             ref: 'mainGrid',
-            selector: 'erpaccountsheet #grid'
+            selector: 'erpaccountsheetview #grid'
         },
         {
             ref: 'mainForm',
-            selector: 'erpaccountsheet #form'
+            selector: 'erpaccountsheetview #form'
         },
         {
             ref: 'detailGrid',
-            selector: 'erpaccountsheet #detailGrid'
+            selector: 'erpaccountsheetview #detailGrid'
         },
         {
             ref: 'detailForm',
-            selector: 'erpaccountsheet #detailForm'
+            selector: 'erpaccountsheetview #detailForm'
         }
     ],
 
