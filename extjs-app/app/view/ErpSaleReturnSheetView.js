@@ -21,7 +21,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.ErpSaleReturnSheetGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
-        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.CommonItemCombo',
@@ -358,12 +357,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                         },
                                         {
                                             xtype: 'commonselectbtn',
-                                            margins: '1'
-                                        },
-                                        {
-                                            xtype: 'commoncancelbtn',
-                                            frame: false,
-                                            glyph: 0,
                                             margins: '1'
                                         }
                                     ]
