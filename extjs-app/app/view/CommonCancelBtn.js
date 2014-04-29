@@ -19,7 +19,7 @@ Ext.define('foodprint.view.CommonCancelBtn', {
 
     itemId: 'commonCancelBtn',
     style: 'font-family:Pictos;',
-    glyph: 88,
+    glyph: 115,
     text: 'Cancel',
 
     initComponent: function() {
