@@ -49,7 +49,9 @@ Ext.application({
         'ErpAccountSheetGrid',
         'ErpSaleSheetGrid',
         'ErpSaleReturnSheetView',
-        'MyPanel2'
+        'MyPanel2',
+        'ErpPurchaseSheetGrid',
+        'ErpCustomerOrderDetGrid'
     ],
     autoCreateViewport: true,
     controllers: [

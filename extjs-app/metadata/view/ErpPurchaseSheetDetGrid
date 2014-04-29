@@ -13,7 +13,7 @@
         "designer|userClassName": "ErpPurchaseSheetDetGrid",
         "designer|userAlias": "erppurchasesheetdetgrid",
         "autoScroll": true,
-        "title": "PurchaseSheetDetGrid",
+        "title": "ErpPurchaseSheetDet",
         "store": "ErpPurchaseSheetDetStore"
     },
     "configAlternates": {
@@ -29,7 +29,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onGridBeforeRender11",
+                "fn": "onErpPurchaseSheetDetGridAfterRender",
                 "implHandler": [
                     "component.getStore().removeAll();"
                 ],
@@ -46,6 +46,36 @@
             },
             "codeClass": null,
             "designerId": "a3b15b79-2879-4cec-a43e-4fa00860db05"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpPurchaseSheetDetGrid",
+                "implHandler": [
+                    "return Utilities.processConfigBundle(config, 'purchaseSheetDet');"
+                ]
+            },
+            "designerId": "4573f955-c97f-4a4c-9518-d4af2bf61bf3"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpPurchaseSheetDetStore"
+            },
+            "designerId": "5a02b804-c5e2-4f3c-b7aa-1f580e2f59e7"
         },
         {
             "type": "Ext.grid.column.Number",
@@ -306,21 +336,6 @@
                 "flex": 1
             },
             "designerId": "fb5b4aa6-516d-48b5-88db-b3f432017876"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpPurchaseSheetDetGrid",
-                "implHandler": [
-                    "return Utilities.processConfigBundle(config, 'purchaseSheetDet');"
-                ]
-            },
-            "designerId": "4573f955-c97f-4a4c-9518-d4af2bf61bf3"
         }
     ]
 }

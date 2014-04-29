@@ -19,7 +19,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
 
     itemId: 'erpPurchaseSheetDetGrid',
     autoScroll: true,
-    title: 'PurchaseSheetDetGrid',
+    title: 'ErpPurchaseSheetDet',
     store: 'ErpPurchaseSheetDetStore',
 
     initComponent: function() {
@@ -28,10 +28,19 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
         Ext.applyIf(me, {
             listeners: {
                 beforerender: {
-                    fn: me.onGridBeforeRender11,
+                    fn: me.onErpPurchaseSheetDetGridAfterRender,
                     scope: me
                 }
             },
+            dockedItems: [
+                {
+                    xtype: 'pagingtoolbar',
+                    dock: 'bottom',
+                    width: 360,
+                    displayInfo: true,
+                    store: 'ErpPurchaseSheetDetStore'
+                }
+            ],
             columns: [
                 {
                     xtype: 'numbercolumn',
@@ -143,7 +152,7 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
         me.callParent(arguments);
     },
 
-    onGridBeforeRender11: function(component, eOpts) {
+    onErpPurchaseSheetDetGridAfterRender: function(component, eOpts) {
         component.getStore().removeAll();
     },
 
