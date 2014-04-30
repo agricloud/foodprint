@@ -22,11 +22,21 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
 
     models: [
         'ErpSaleReturnSheet',
-        'ErpSaleReturnSheetDet'
+        'ErpSaleReturnSheetDet',
+        'ErpSaleSheet',
+        'ErpSaleSheetDet',
+        'ErpCustomerOrder',
+        'ErpCustomerOrderDet',
+        'Customer'
     ],
     stores: [
         'ErpSaleReturnSheetStore',
-        'ErpSaleReturnSheetDetStore'
+        'ErpSaleReturnSheetDetStore',
+        'ErpSaleSheetStore',
+        'ErpCustomerOrderStore',
+        'CustomerStore',
+        'ErpSaleSheetDetStore',
+        'ErpCustomerOrderDetStore'
     ],
     views: [
         'ErpSaleReturnSheetView'
@@ -96,9 +106,6 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'erpsalereturnsheetview #showDetail #saleSheetDetContainer commonselectbtn':{
                 click:this.activeSaleSheetDetIndex
             },
-            'erpsalereturnsheetview #showDetail #saleSheetDetContainer commoncancelbtn':{
-                click:this.doCancelSaleSheetDet
-            },
             'erpsalereturnsheetview #showDetail commonitemcombo':{
                 select:this.doCancelSaleSheetDet
             },
@@ -141,7 +148,8 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'warehouse.title':record.data['warehouse.title'],
             'warehouseLocation.id':record.data['warehouseLocation.id'], 
             'warehouseLocation.title':record.data['warehouseLocation.title'],   
-            'item.id':record.data['item.id'],   
+            'item.id':record.data['item.id'], 
+            'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
             'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
@@ -207,12 +215,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             //在此使combo重新load store
             var whcombo=form.findField('warehouse.id');
             Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
-            var batchcombo=form.findField('batch.id');
-            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
-            var itemcombo=form.findField('item.id');
-            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
 
-            //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 

@@ -23,8 +23,6 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
-        'foodprint.view.CommonItemCombo',
-        'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.ErpSaleSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
@@ -212,7 +210,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
-                                            dataIndex: 'batch.id',
+                                            dataIndex: 'batch.name',
                                             text: 'Batch.id',
                                             flex: 1
                                         },
@@ -380,7 +378,17 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo',
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'item.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Item.name',
+                                    name: 'item.name',
                                     readOnly: true
                                 },
                                 {
@@ -390,9 +398,18 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonbatchcombo',
-                                    readOnly: true,
-                                    editable: false
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'batch.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
