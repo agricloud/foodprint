@@ -113,13 +113,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'datefield',
-                                    fieldLabel: '結帳日期',
-                                    name: 'accountDate',
-                                    readOnly: true,
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'datefield',
                                     fieldLabel: '單據日期',
                                     name: 'dateCreated',
                                     readOnly: true,
@@ -127,8 +120,15 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'datefield',
+                                    fieldLabel: '結帳日期',
+                                    name: 'accountDate',
+                                    readOnly: true,
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: '確認者',
+                                    fieldLabel: '簽核狀態',
                                     name: '',
                                     readOnly: true,
                                     allowBlank: false
@@ -136,7 +136,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 {
                                     xtype: 'panel',
                                     border: false,
-                                    itemId: '',
+                                    itemId: 'collaspe',
                                     padding: '',
                                     layout: {
                                         autoWidth: false,
@@ -176,7 +176,9 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     itemId: 'dateCreated',
                                                     padding: '',
                                                     fieldLabel: 'dateCreated',
-                                                    name: 'dateCreated'
+                                                    name: 'dateCreated',
+                                                    readOnly: true,
+                                                    editable: false
                                                 },
                                                 {
                                                     xtype: 'numberfield',
@@ -259,7 +261,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                 {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
-                                                    disabled: true,
                                                     itemId: 'closedCode',
                                                     padding: '',
                                                     fieldLabel: 'closedCode',

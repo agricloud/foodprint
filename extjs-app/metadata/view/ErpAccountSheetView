@@ -202,21 +202,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "結帳日期",
-                                "name": "accountDate",
-                                "readOnly": true,
-                                "allowBlank": false
-                            },
-                            "designerId": "108e39d9-9ec4-4af8-aef6-4628b0255d10"
-                        },
-                        {
-                            "type": "Ext.form.field.Date",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
                                 "fieldLabel": "單據日期",
                                 "name": "dateCreated",
                                 "readOnly": true,
@@ -232,8 +217,24 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "結帳日期",
+                                "name": "accountDate",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "108e39d9-9ec4-4af8-aef6-4628b0255d10"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
                                 "disabled": true,
-                                "fieldLabel": "確認者",
+                                "fieldLabel": "簽核狀態",
                                 "name": "",
                                 "readOnly": true,
                                 "allowBlank": false
@@ -257,7 +258,7 @@
                                 "container|activeOnTop": false,
                                 "border": false,
                                 "height": null,
-                                "itemId": "",
+                                "itemId": "collaspe",
                                 "maxHeight": null,
                                 "padding": "",
                                 "width": null,
@@ -315,6 +316,8 @@
                                                 "width": null,
                                                 "fieldLabel": "dateCreated",
                                                 "name": "dateCreated",
+                                                "readOnly": true,
+                                                "editable": false,
                                                 "format": null,
                                                 "submitFormat": null
                                             },
@@ -493,7 +496,6 @@
                                             "userConfig": {
                                                 "layout|flex": 1,
                                                 "dock": null,
-                                                "disabled": true,
                                                 "itemId": "closedCode",
                                                 "padding": "",
                                                 "fieldLabel": "closedCode",

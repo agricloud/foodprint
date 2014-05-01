@@ -68,7 +68,7 @@ Ext.define('foodprint.view.ErpAccountSheetGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'customer.title',
+                    dataIndex: 'accountDate',
                     text: 'Customer.Title',
                     flex: 1
                 }
