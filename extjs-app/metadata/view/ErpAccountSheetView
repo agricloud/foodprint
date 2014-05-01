@@ -202,28 +202,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "disabled": true,
                                 "fieldLabel": "單據日期",
                                 "name": "dateCreated",
-                                "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "808ce6b0-877a-422c-9994-8e8982238179"
-                        },
-                        {
-                            "type": "Ext.form.field.Date",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "fieldLabel": "結帳日期",
-                                "name": "accountDate",
-                                "readOnly": true,
-                                "allowBlank": false
-                            },
-                            "designerId": "108e39d9-9ec4-4af8-aef6-4628b0255d10"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -233,10 +217,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": null,
                                 "disabled": true,
                                 "fieldLabel": "簽核狀態",
                                 "name": "",
-                                "readOnly": true,
                                 "allowBlank": false
                             },
                             "designerId": "3a76c0f0-63a1-48ef-99ac-38ac536de6c4"
@@ -249,10 +233,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": null,
                                 "container|autoWidth": false,
                                 "container|titleCollapse": false,
                                 "container|hideCollapseTool": false,
-                                "container|collapseFirst": false,
+                                "container|collapseFirst": true,
                                 "container|animate": false,
                                 "container|sequence": false,
                                 "container|activeOnTop": false,
@@ -266,12 +251,13 @@
                                 "bodyBorder": false,
                                 "animCollapse": false,
                                 "collapseFirst": false,
+                                "hideCollapseTool": true,
                                 "titleCollapse": true
                             },
                             "configAlternates": {
                                 "tbar": "object"
                             },
-                            "designerId": "e68d9570-9d91-4466-943a-a9980ef3b218",
+                            "designerId": "d1d376a7-2f18-4ae4-87bc-3ee8203b5038",
                             "cn": [
                                 {
                                     "type": "Ext.form.Panel",
@@ -282,7 +268,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "container|align": "stretch",
-                                        "container|padding": "",
+                                        "container|padding": 5,
                                         "border": false,
                                         "padding": "",
                                         "defaults": [
@@ -307,64 +293,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "layout|flex": 1,
-                                                "height": null,
-                                                "itemId": "dateCreated",
-                                                "maxWidth": null,
-                                                "minWidth": null,
-                                                "padding": "",
-                                                "width": null,
-                                                "fieldLabel": "dateCreated",
-                                                "name": "dateCreated",
-                                                "readOnly": true,
-                                                "editable": false,
-                                                "format": null,
-                                                "submitFormat": null
-                                            },
-                                            "designerId": "59325afb-cbbc-48d9-b735-a6ec42077f94"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Number",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "disabled": true,
-                                                "padding": "",
-                                                "width": null,
-                                                "fieldLabel": "rate",
-                                                "labelWidth": null,
-                                                "name": "rate",
-                                                "readOnly": true,
-                                                "allowBlank": false
-                                            },
-                                            "designerId": "56f53c53-dcfd-41c1-984c-30ab9912fcb0"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "disabled": true,
-                                                "padding": "",
-                                                "width": 250,
-                                                "fieldLabel": "currency"
-                                            },
-                                            "designerId": "64a2c36b-5d30-45e7-9571-7a4940838b94"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Date",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
                                                 "layout|flex": null,
                                                 "height": null,
                                                 "itemId": "accountDate",
@@ -378,6 +306,53 @@
                                                 "submitFormat": null
                                             },
                                             "designerId": "2d99b8c7-686e-4db3-9dd8-ff007ed8c399"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "fieldLabel": "currency",
+                                                "name": "currency",
+                                                "allowBlank": false
+                                            },
+                                            "designerId": "7d0f22d4-974d-4054-b578-b68ef3eac40e"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Number",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "padding": "",
+                                                "width": null,
+                                                "fieldLabel": "rate",
+                                                "labelWidth": null,
+                                                "name": "rate",
+                                                "allowBlank": false
+                                            },
+                                            "designerId": "56f53c53-dcfd-41c1-984c-30ab9912fcb0"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "fieldLabel": "receivables",
+                                                "name": "receivables",
+                                                "allowBlank": false
+                                            },
+                                            "designerId": "d0f8fe46-273b-448f-970a-78bd3f1183b5"
                                         },
                                         {
                                             "type": "Ext.form.field.Date",
@@ -496,11 +471,13 @@
                                             "userConfig": {
                                                 "layout|flex": 1,
                                                 "dock": null,
+                                                "disabled": true,
                                                 "itemId": "closedCode",
                                                 "padding": "",
                                                 "fieldLabel": "closedCode",
                                                 "labelWidth": 80,
                                                 "name": "closedCode",
+                                                "readOnly": true,
                                                 "boxLabel": null
                                             },
                                             "designerId": "84912dd1-5762-4748-b82d-a3ce4be86202"
@@ -533,8 +510,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "container|align": "stretch",
-                                        "container|padding": "",
+                                        "container|padding": 5,
                                         "border": false,
+                                        "disabled": true,
                                         "padding": "",
                                         "layout": "vbox",
                                         "bodyPadding": "",
@@ -869,7 +847,8 @@
                                         "container|align": "stretch",
                                         "container|padding": "",
                                         "border": false,
-                                        "padding": "",
+                                        "disabled": true,
+                                        "padding": 3,
                                         "layout": "vbox",
                                         "bodyPadding": "",
                                         "collapsed": false,

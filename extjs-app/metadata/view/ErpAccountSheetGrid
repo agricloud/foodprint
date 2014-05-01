@@ -24,24 +24,6 @@
             "designerId": "8245aea1-97bd-4232-8aab-07870383c036"
         },
         {
-            "type": "processcfgfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "processErpAccountSheetGrid",
-                "designer|params": [
-                    "config"
-                ],
-                "implHandler": [
-                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'accountSheet'));"
-                ]
-            },
-            "designerId": "edeaf2d5-acfc-4e20-935b-a89bca1cc8ba"
-        },
-        {
             "type": "Ext.toolbar.Paging",
             "reference": {
                 "name": "dockedItems",
@@ -153,11 +135,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "accountDate",
+                "dataIndex": "customer.title",
                 "text": "Customer.Title",
                 "flex": 1
             },
             "designerId": "31a35eed-2098-4bd0-ba94-76d12bd7696a"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpAccountSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'accountSheet'));"
+                ]
+            },
+            "designerId": "5ad52214-05a7-4b1d-849a-0149ac24286b"
         }
     ]
 }

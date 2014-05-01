@@ -36,6 +36,12 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'MyModel'
+    ],
+    stores: [
+        'ErpAccountSheetStore'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
