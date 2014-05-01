@@ -3,27 +3,24 @@ package common
 class ExtJSFilters {
 
     def springSecurityService
+    def dateService
 
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-
                 params.each {
                     key, value ->
                     // Transform value from Ext JS to Grails date style 
                     // 時區 (\+|\-)\d\d:\d\d
                     if (value ==~ /^\d\d\d\d\-\d\d\-\d\dT\d\d:\d\d:\d\d$/) {
 
-                        params[key] = Date.parse('yyyy-MM-dd HH:mm:ss', value.replaceFirst('T', ' '))
+                        params[key] = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",value)
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
 
                     }else if (value ==~ /^\d\d\d\d\-\d\d\-\d\d$/) {
-
-                        params[key] = Date.parse('yyyy-MM-dd', value)
+                        params[key] = dateService.parseToUTC('yyyy-MM-dd',value)
                         log.info "Found ${value} is a Ext JS date format, transform into Grails style"
                     }
-
-
 
                     // 參考連結 http://grails.org/doc/latest/guide/single.html#dataBinding
                     // 其中：An association property can be set to null by passing the literal String "null".
@@ -71,7 +68,7 @@ class ExtJSFilters {
                             }else if(it.type == 'numeric'){
                                  it.value = it.value.toLong()
                             }else if(it.type == 'date'){
-                                 it.value = Date.parse('MM/dd/yyyy', it.value)
+                                it.value = dateService.parseToUTC('MM/dd/yyyy',it.value)
                             }
 
                             if(it.comparison){
@@ -89,9 +86,6 @@ class ExtJSFilters {
                     }
 
                 }
-
-
-
             }
             after = { Map model ->
 

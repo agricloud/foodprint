@@ -4,6 +4,7 @@ import grails.converters.JSON
 class ConvertService {
 
 	def enumService
+	def dateService
 
     def getDomainFields(domainClassName) {
     		def fields = []
@@ -31,10 +32,10 @@ class ConvertService {
 	    result.id= batch.id
 	    result.name=batch.name
 	    result.item = batch.item
-	    result.dueDate = batch.dueDate
+	    result.dueDate = dateService.formatWithISO8601(batch.dueDate)
 	    result.expectQty = batch.expectQty
-	    result.manufactureDate = batch.manufactureDate
-	    result.expirationDate = batch.expirationDate
+	    result.manufactureDate = dateService.formatWithISO8601(batch.manufactureDate)
+	    result.expirationDate = dateService.formatWithISO8601(batch.expirationDate)
 	    result.remark = batch.remark
 	    if(batch.item){
 	        result["item.id"] = batch.item.id
@@ -68,10 +69,10 @@ class ConvertService {
 		    result.batch = batchSource.batch
 		    result["batch.id"]= batchSource.batch.id
 		    result["batch.name"] =batchSource.batch.name
-		    result["batch.dueDate"] = batchSource.batch.dueDate
+		    result["batch.dueDate"] = dateService.formatWithISO8601(batchSource.batch.dueDate)
 		    result["batch.expectQty"] = batchSource.batch.expectQty
-		    result["batch.manufactureDate"] = batchSource.batch.manufactureDate
-		    result["batch.expirationDate"] = batchSource.batch.expirationDate
+		    result["batch.manufactureDate"] = dateService.formatWithISO8601(batchSource.batch.manufactureDate)
+		    result["batch.expirationDate"] = dateService.formatWithISO8601(batchSource.batch.expirationDate)
 		    result["batch.remark"] = batchSource.batch.remark
 
 		    if(batchSource.batch.item){
@@ -97,10 +98,10 @@ class ConvertService {
 	     	result.childBatch = batchSource.childBatch
 	        result["childBatch.id"]= batchSource.childBatch.id
 		    result["childBatch.name"] =batchSource.childBatch.name
-		    result["childBatch.dueDate"] = batchSource.childBatch.dueDate
+		    result["childBatch.dueDate"] = dateService.formatWithISO8601(batchSource.childBatch.dueDate)
 		    result["childBatch.expectQty"] = batchSource.childBatch.expectQty
-		    result["childBatch.manufactureDate"] = batchSource.childBatch.manufactureDate
-		    result["childBatch.expirationDate"] = batchSource.childBatch.expirationDate
+		    result["childBatch.manufactureDate"] = dateService.formatWithISO8601(batchSource.childBatch.manufactureDate)
+		    result["childBatch.expirationDate"] = dateService.formatWithISO8601(batchSource.childBatch.expirationDate)
 		    result["childBatch.remark"] = batchSource.childBatch.remark
 		    if(batchSource.childBatch.item){
 		        result["childBatch.item.id"] = batchSource.childBatch.item.id
@@ -135,9 +136,9 @@ class ConvertService {
 	    result.unit = item.unit
 	    result.description = item.description
 	    result.dueDays = item.dueDays
-	    result.effectStartDate = item.effectStartDate
-	    result.effectEndDate = item.effectEndDate
-	    
+	    result.effectStartDate = dateService.formatWithISO8601(item.effectStartDate)
+	    result.effectEndDate = dateService.formatWithISO8601(item.effectEndDate)
+
 	    result
     }
 
@@ -211,8 +212,8 @@ class ConvertService {
    		def result = [:]
    		result.id=batchRoute.id
    		result.sequence=batchRoute.sequence
-   		result.startDate=batchRoute.startDate
-   		result.endDate=batchRoute.endDate
+   		result.startDate=dateService.formatWithISO8601(batchRoute.startDate)
+   		result.endDate=dateService.formatWithISO8601(batchRoute.endDate)
    		result.batch=batchRoute.batch
    		result["batch.id"] = batchRoute.batch.id
    		result["batch.name"] = batchRoute.batch.name
@@ -264,8 +265,8 @@ class ConvertService {
 	    result.reportType = reportType.name
         result.reportTypeTitle = reportType.title
 	    result.description = report.description
-	    result.effectStartDate = report.effectStartDate
-	    result.effectEndDate = report.effectEndDate
+	    result.effectStartDate = dateService.formatWithISO8601(report.effectStartDate)
+	    result.effectEndDate = dateService.formatWithISO8601(report.effectEndDate)
 	    result
     }
 
