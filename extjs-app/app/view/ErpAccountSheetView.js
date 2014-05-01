@@ -119,6 +119,13 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     allowBlank: false
                                 },
                                 {
+                                    xtype: 'datefield',
+                                    itemId: 'accountDate',
+                                    padding: '',
+                                    fieldLabel: 'accountDate',
+                                    name: 'accountDate'
+                                },
+                                {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: '簽核狀態',
@@ -163,13 +170,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             collapsible: false,
                                             title: 'Account',
                                             items: [
-                                                {
-                                                    xtype: 'datefield',
-                                                    itemId: 'accountDate',
-                                                    padding: '',
-                                                    fieldLabel: 'accountDate',
-                                                    name: 'accountDate'
-                                                },
                                                 {
                                                     xtype: 'textfield',
                                                     flex: 1,

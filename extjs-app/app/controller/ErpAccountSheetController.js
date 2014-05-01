@@ -22,7 +22,8 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
 
     models: [
         'ErpAccountSheetDet',
-        'ErpAccountSheet'
+        'ErpAccountSheet',
+        'Customer'
     ],
     stores: [
         'ErpAccountSheetDetStore',

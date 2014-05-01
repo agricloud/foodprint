@@ -309,6 +309,297 @@ Ext.define('foodprint.view.MyPanel2', {
                             xtype: 'textareafield',
                             flex: 1,
                             fieldLabel: '備註'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            itemId: 'collaspe',
+                            padding: '',
+                            layout: {
+                                autoWidth: false,
+                                titleCollapse: false,
+                                hideCollapseTool: false,
+                                collapseFirst: true,
+                                animate: false,
+                                sequence: false,
+                                activeOnTop: false,
+                                type: 'accordion'
+                            },
+                            bodyBorder: false,
+                            animCollapse: false,
+                            collapseFirst: false,
+                            hideCollapseTool: true,
+                            titleCollapse: true,
+                            items: [
+                                {
+                                    xtype: 'form',
+                                    border: false,
+                                    padding: '',
+                                    defaults: {
+                                        anchor: '100%'
+                                    },
+                                    layout: {
+                                        align: 'stretch',
+                                        padding: 5,
+                                        type: 'vbox'
+                                    },
+                                    bodyPadding: '',
+                                    collapsed: false,
+                                    collapsible: false,
+                                    title: 'Account',
+                                    items: [
+                                        {
+                                            xtype: 'datefield',
+                                            itemId: 'accountDate',
+                                            padding: '',
+                                            fieldLabel: 'accountDate',
+                                            name: 'accountDate'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            flex: 1,
+                                            fieldLabel: 'currency',
+                                            name: 'currency',
+                                            allowBlank: false
+                                        },
+                                        {
+                                            xtype: 'numberfield',
+                                            padding: '',
+                                            fieldLabel: 'rate',
+                                            name: 'rate',
+                                            allowBlank: false
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            flex: 1,
+                                            fieldLabel: 'receivables',
+                                            name: 'receivables',
+                                            allowBlank: false
+                                        },
+                                        {
+                                            xtype: 'datefield',
+                                            itemId: 'anticipationDate',
+                                            padding: '',
+                                            width: 250,
+                                            fieldLabel: 'anticipationDate',
+                                            name: 'anticipationDate'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'originalReceived',
+                                            minWidth: 200,
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'originalReceived',
+                                            labelWidth: 70,
+                                            name: 'originalReceived'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'received',
+                                            minWidth: 200,
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'received',
+                                            labelWidth: 70,
+                                            name: 'received'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'amounts',
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'amounts',
+                                            labelWidth: 70,
+                                            name: 'amounts'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'tax',
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'tax',
+                                            labelWidth: 70,
+                                            name: 'tax'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'totalAmount',
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'TotalAmount',
+                                            labelWidth: 70,
+                                            name: 'totalAmount'
+                                        },
+                                        {
+                                            xtype: 'checkboxfield',
+                                            flex: 1,
+                                            disabled: true,
+                                            itemId: 'closedCode',
+                                            padding: '',
+                                            fieldLabel: 'closedCode',
+                                            labelWidth: 80,
+                                            name: 'closedCode',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            itemId: 'status',
+                                            padding: '',
+                                            width: 150,
+                                            fieldLabel: 'status',
+                                            labelWidth: 70,
+                                            name: 'status'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'form',
+                                    border: false,
+                                    disabled: true,
+                                    padding: '',
+                                    layout: {
+                                        align: 'stretch',
+                                        padding: 5,
+                                        type: 'vbox'
+                                    },
+                                    bodyPadding: '',
+                                    collapsed: false,
+                                    collapsible: false,
+                                    title: 'Invoice',
+                                    items: [
+                                        {
+                                            xtype: 'fieldcontainer',
+                                            disabled: true,
+                                            itemId: '',
+                                            layout: {
+                                                align: 'stretch',
+                                                type: 'hbox'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'numberfield',
+                                                    hidden: true,
+                                                    name: '',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: '稅別碼',
+                                                    name: '',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    name: '',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: '發票聯數',
+                                                    name: '',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'commonselectbtn',
+                                                    margins: '1'
+                                                },
+                                                {
+                                                    xtype: 'commoncancelbtn',
+                                                    frame: false,
+                                                    glyph: 0,
+                                                    margins: '1'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'combobox',
+                                            padding: '',
+                                            width: 250,
+                                            fieldLabel: '發票號碼'
+                                        },
+                                        {
+                                            xtype: 'datefield',
+                                            itemId: 'Date',
+                                            padding: '',
+                                            fieldLabel: '申報年月',
+                                            name: ''
+                                        },
+                                        {
+                                            xtype: 'combobox',
+                                            padding: '',
+                                            width: 250,
+                                            fieldLabel: '課稅別',
+                                            name: ''
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '營業稅率',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'datefield',
+                                            padding: '',
+                                            width: 250,
+                                            fieldLabel: '發票日期'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '公司名稱',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            padding: '',
+                                            width: 250,
+                                            fieldLabel: '統一編號'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '發票貨款',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '發票稅額',
+                                            name: '',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '發票金額',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'combobox',
+                                            fieldLabel: '通關方式',
+                                            readOnly: true
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'form',
+                                    border: false,
+                                    disabled: true,
+                                    padding: 3,
+                                    layout: {
+                                        align: 'stretch',
+                                        padding: '',
+                                        type: 'vbox'
+                                    },
+                                    bodyPadding: '',
+                                    collapsed: false,
+                                    collapsible: false,
+                                    title: 'Other',
+                                    items: [
+                                        {
+                                            xtype: 'textareafield',
+                                            flex: 1,
+                                            fieldLabel: '備註'
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
