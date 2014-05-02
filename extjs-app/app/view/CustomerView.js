@@ -66,6 +66,12 @@ Ext.define('foodprint.view.CustomerView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'tel',
+                                    text: 'Tel',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'email',
                                     text: 'Email',
                                     flex: 1
@@ -135,6 +141,11 @@ Ext.define('foodprint.view.CustomerView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'title',
                                     name: 'title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'tel',
+                                    name: 'tel'
                                 },
                                 {
                                     xtype: 'textfield',

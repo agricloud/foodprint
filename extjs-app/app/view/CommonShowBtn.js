@@ -19,7 +19,7 @@ Ext.define('foodprint.view.CommonShowBtn', {
 
     itemId: 'commonShowBtn',
     style: 'font-family:Pictos;',
-    glyph: 88,
+    glyph: 47,
     text: 'Show',
 
     initComponent: function() {

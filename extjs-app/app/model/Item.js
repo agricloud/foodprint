@@ -18,7 +18,6 @@ Ext.define('foodprint.model.Item', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {
@@ -40,10 +39,12 @@ Ext.define('foodprint.model.Item', {
             name: 'dueDays'
         },
         {
-            name: 'effectStartDate'
+            name: 'effectStartDate',
+            type: 'date'
         },
         {
-            name: 'effectEndDate'
+            name: 'effectEndDate',
+            type: 'date'
         }
     ],
 

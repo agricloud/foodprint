@@ -170,6 +170,7 @@ Ext.define('foodprint.controller.CommonController', {
         grid.getStore().load();
 
 
+
     },
 
     submitForm: function(callback) {
@@ -292,6 +293,8 @@ Ext.define('foodprint.controller.CommonController', {
 
             grid.getStore().getProxy().extraParams = params;
             grid.getStore().load();
+
+            that.showPrintBtn();
         });
 
 
@@ -472,6 +475,29 @@ Ext.define('foodprint.controller.CommonController', {
 
     disableDetailCreateBtn: function() {
         this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
+    },
+
+    showPrintBtn: function() {
+        this.getMainForm().up('panel[itemId=show]').down('commonprintbtn').show();
+    },
+
+    doPrint: function() {
+
+        var that = this;
+        var id = -1;
+
+        if(this.getMainForm().getForm().findField('id'))
+        id = this.getMainForm().getForm().findField('id').getValue();
+
+        Ext.Ajax.request({
+            url: this.getRoot()+'/'+this.domainName+'/'+'print?id='+id,
+            params: this.getParams(),
+
+            success: function(response){
+                var obj = Ext.decode(response.responseText);
+                window.open("http://localhost:8180/reportFiles/"+obj.fileName);
+            }
+        });
     }
 
 });

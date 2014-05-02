@@ -20,7 +20,8 @@ Ext.define('foodprint.view.CommonShowToolbar', {
     requires: [
         'foodprint.view.CommonSaveBtn',
         'foodprint.view.CommonDeleteBtn',
-        'foodprint.view.CommonCancelBtn'
+        'foodprint.view.CommonCancelBtn',
+        'foodprint.view.CommonPrintBtn'
     ],
 
     itemId: 'commonEditorToolbar',
@@ -38,6 +39,10 @@ Ext.define('foodprint.view.CommonShowToolbar', {
                 },
                 {
                     xtype: 'commoncancelbtn'
+                },
+                {
+                    xtype: 'commonprintbtn',
+                    hidden: true
                 }
             ]
         });

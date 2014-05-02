@@ -8,6 +8,7 @@ import grails.converters.*
 class FoodpaintService {
 
     def grailsApplication
+    def dateService
 
     /**
      * Ping to /api/ping to check service available
@@ -180,15 +181,11 @@ class FoodpaintService {
                 def fields =domainClass.persistentProperties.collect { it.name }
                 records[importClass].each{ domainJson ->
                     def domain = getDomainIntance(importClass, domainJson)
-                    domain.properties = getDomainProperties(domainJson, fields)
                     domain.save(flush: true, failOnError:true) 
                 }
             }
 
         }
-
-
-
 
         log.debug "品項清單："
         Item.list().each{
@@ -197,32 +194,23 @@ class FoodpaintService {
 
     }
 
-    def private getDomainProperties(record, fields){
-        def props=[:]
-        fields.each{ field ->
-            //println field+"====="+record[field]
-            if(record[field] && record[field]&& !field.contains("Date")&& !field.contains("importFlag")){
-                props[field]=record[field]
+
+    def private processDomainJson(domainJson){
+        domainJson.site = Site.findByName(domainJson.site.name)
+        domainJson.lastUpdated = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",domainJson.lastUpdated)
+        domainJson.dateCreated = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",domainJson.dateCreated)
+        domainJson.each{ key, value->
+            if(value.toString()=='null'){
+                domainJson[key]=null
             }
         }
-
-        props
-
-    }
-
-
-    def private processDefaultTable(domainJson){
-        domainJson.site = Site.findByName(domainJson.site.name)
-        domainJson.lastUpdated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",domainJson.lastUpdated)
-        domainJson.dateCreated = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",domainJson.dateCreated)
-
         domainJson
     }
 
     def private getDomainIntance(className, domainJson){
         def domain
 
-        domainJson = processDefaultTable(domainJson)
+        domainJson = processDomainJson(domainJson)
 
         if(className == "item")
             domain=getItemInstance(domainJson)
@@ -253,6 +241,17 @@ class FoodpaintService {
         if(!domain){
             domain = new Item(name:object.name)
         }
+        if(object.site)
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
+        domain.title=object.title
+        domain.description=object.description
+        domain.spec=object.spec
+        domain.unit=object.unit
+
         domain
     }
 
@@ -261,7 +260,15 @@ class FoodpaintService {
         def domain = Workstation.findByName(object.name)
         if(!domain){
             domain = new Workstation(name:object.name)
-        }    
+        }
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
+        domain.title=object.title
+        domain.description=object.description
+
         domain
     }
 
@@ -270,7 +277,15 @@ class FoodpaintService {
         def domain = Operation.findByName(object.name)
         if(!domain){
             domain = new Operation(name:object.name)
-        }    
+        }
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
+        domain.title=object.title
+        domain.description=object.description
+
         domain
     }
 
@@ -279,7 +294,18 @@ class FoodpaintService {
         def domain = Supplier.findByName(object.name)
         if(!domain){
             domain = new Supplier(name:object.name)
-        }   
+        }
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
+        domain.title=object.title
+        domain.country=object.country
+        domain.tel=object.tel
+        domain.email=object.email
+        domain.address=object.address
+
         domain
     }
 
@@ -288,7 +314,17 @@ class FoodpaintService {
         def domain = Customer.findByName(object.name)
         if(!domain){
             domain = new Customer(name:object.name)
-        }    
+        }
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
+        domain.title=object.title
+        domain.tel=object.tel
+        domain.email=object.email
+        domain.address=object.address
+
         domain
     }
 
@@ -297,15 +333,23 @@ class FoodpaintService {
         def domain = Batch.findByName(object.name)
         if(!domain){
             domain = new Batch(name:object.name)
-        } 
+        }
 
-        //log.debug object.item.name
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
         domain.item = Item.findByName(object.item.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
+        domain.expectQty = object.expectQty
+        domain.batchType = object.batchType
+        domain.country = object.country
+
         log.debug "匯入前domain::batch-manufactureDate"+domain.manufactureDate
         log.debug "傳入資料foodpaint::batch-manufactureDate"+object.manufactureDate
         if(object.manufactureDate && object.manufactureDate!=null){
-            domain.manufactureDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.manufactureDate)
+            domain.manufactureDate = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",object.manufactureDate)
         }
         log.debug "預計匯入domain::batch-manufactureDate"+domain.manufactureDate
         domain
@@ -319,7 +363,11 @@ class FoodpaintService {
         if(!domain){
             domain = new BatchRoute(batch:batch,sequence:object.sequence)
         }    
-
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
         domain.operation = Operation.findByName(object.operation.name)
         domain.workstation = Workstation.findByName(object.workstation.name)
         domain.supplier = Supplier.findByName(object.supplier.name)
@@ -329,9 +377,9 @@ class FoodpaintService {
         
         //製程日期以print為主 若print無資料記錄 才匯入paint段
         if(object.startDate && object.startDate!=null && (!domain.startDate||domain.startDate==null))
-            domain.startDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.startDate)
+            domain.startDate = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",object.startDate)
         if(object.endDate && object.endDate!=null && (!domain.startDate||domain.startDate==null))
-            domain.endDate = Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'",object.endDate)
+            domain.endDate = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",object.endDate)
 
         log.debug "預計匯入domain::batchRoute-date"+domain.startDate+"/"+domain.endDate
 
@@ -341,7 +389,6 @@ class FoodpaintService {
     def private getBatchSourceInstance(object){
 
         //println "建立batchSource"+object.batch.name+"//"+object.childBatch.name
-
         def batch = Batch.findByName(object.batch.name)
         def childBatch = Batch.findByName(object.childBatch.name)
 
@@ -349,6 +396,11 @@ class FoodpaintService {
         if(!domain){
             domain = new BatchSource(batch:batch,childBatch:childBatch)
         }
+        domain.site=object.site
+        domain.editor=object.editor
+        domain.creator=object.creator
+        domain.dateCreated=object.dateCreated
+        domain.lastUpdated=object.lastUpdated
         
         domain
     }
