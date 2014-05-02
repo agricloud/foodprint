@@ -426,6 +426,72 @@
                                         "hidden": true,
                                         "width": null,
                                         "defaultWidth": null,
+                                        "dataIndex": "materialSheetDet.id",
+                                        "groupable": null,
+                                        "text": "MaterialSheetDet.id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "d78fec7f-67f6-4c5f-8709-93a9c290a08d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "materialSheetDet.typeName",
+                                        "text": "MaterialSheetDet.typeName",
+                                        "flex": 1
+                                    },
+                                    "designerId": "bf99af3e-c857-4863-8ed5-a7b81832f122"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "materialSheetDet.name",
+                                        "text": "MaterialSheetDet.name",
+                                        "flex": 1
+                                    },
+                                    "designerId": "b8d5cd72-efca-49b1-9861-10ed356e2f4e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "defaultWidth": null,
+                                        "dataIndex": "materialSheetDet.sequence",
+                                        "groupable": null,
+                                        "text": "MaterialSheetDet.sequence",
+                                        "flex": 1,
+                                        "format": "0,000"
+                                    },
+                                    "designerId": "8c5f9973-eddf-4338-a65f-02d876cef4f6"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
                                         "dataIndex": "warehouse.id",
                                         "groupable": null,
                                         "text": "Warehouse.id",
@@ -476,7 +542,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "warehouseLocation.id",
                                         "groupable": null,
-                                        "text": "StorageLocation.id",
+                                        "text": "WarehouseLocation.id",
                                         "flex": 1
                                     },
                                     "designerId": "1e942357-8e83-44dd-bd3c-19e2f6b995b0"
@@ -491,7 +557,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouseLocation.name",
-                                        "text": "StorageLocation.name",
+                                        "text": "WarehouseLocation.name",
                                         "flex": 1
                                     },
                                     "designerId": "68f161e8-d0ff-41ca-9dfe-fee923dfcbac"
@@ -506,7 +572,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouseLocation.title",
-                                        "text": "StorageLocation.title",
+                                        "text": "WarehouseLocation.title",
                                         "flex": 1
                                     },
                                     "designerId": "80450cfe-14f2-40e3-9032-c1768cd5e061"
@@ -845,7 +911,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": null,
+                                        "fieldLabel": "MaterialSheetDet.name",
                                         "name": "materialSheetDet.name",
                                         "readOnly": true,
                                         "allowBlank": null
@@ -862,7 +928,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": null,
+                                        "fieldLabel": "MaterialSheetDet.sequence",
                                         "name": "materialSheetDet.sequence",
                                         "readOnly": true,
                                         "allowBlank": null

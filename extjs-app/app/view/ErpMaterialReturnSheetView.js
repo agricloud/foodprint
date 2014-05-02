@@ -188,6 +188,32 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
+                                            dataIndex: 'materialSheetDet.id',
+                                            text: 'MaterialSheetDet.id',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'materialSheetDet.typeName',
+                                            text: 'MaterialSheetDet.typeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'materialSheetDet.name',
+                                            text: 'MaterialSheetDet.name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'materialSheetDet.sequence',
+                                            text: 'MaterialSheetDet.sequence',
+                                            flex: 1,
+                                            format: '0,000'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            hidden: true,
                                             dataIndex: 'warehouse.id',
                                             text: 'Warehouse.id',
                                             flex: 1
@@ -208,19 +234,19 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'warehouseLocation.id',
-                                            text: 'StorageLocation.id',
+                                            text: 'WarehouseLocation.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.name',
-                                            text: 'StorageLocation.name',
+                                            text: 'WarehouseLocation.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.title',
-                                            text: 'StorageLocation.title',
+                                            text: 'WarehouseLocation.title',
                                             flex: 1
                                         },
                                         {
@@ -354,11 +380,13 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         },
                                         {
                                             xtype: 'textfield',
+                                            fieldLabel: 'MaterialSheetDet.name',
                                             name: 'materialSheetDet.name',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
+                                            fieldLabel: 'MaterialSheetDet.sequence',
                                             name: 'materialSheetDet.sequence',
                                             readOnly: true
                                         },

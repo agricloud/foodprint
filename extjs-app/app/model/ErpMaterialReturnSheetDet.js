@@ -85,6 +85,9 @@ Ext.define('foodprint.model.ErpMaterialReturnSheetDet', {
         },
         {
             name: 'materialSheetDet.name'
+        },
+        {
+            name: 'materialSheetDet.sequence'
         }
     ],
 
