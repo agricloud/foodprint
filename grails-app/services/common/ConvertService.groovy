@@ -358,6 +358,7 @@ class ConvertService {
         result.id = customer.id
     	result.name = customer.name
 		result.title = customer.title
+		result.tel = customer.tel
 		result.email = customer.email
 		result.address = customer.address
 

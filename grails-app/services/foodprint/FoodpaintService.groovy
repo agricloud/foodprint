@@ -195,17 +195,22 @@ class FoodpaintService {
     }
 
 
-    def private processDefaultTable(domainJson){
+    def private processDomainJson(domainJson){
         domainJson.site = Site.findByName(domainJson.site.name)
         domainJson.lastUpdated = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",domainJson.lastUpdated)
         domainJson.dateCreated = dateService.parseToUTC("yyyy-MM-dd'T'HH:mm:ss",domainJson.dateCreated)
+        domainJson.each{ key, value->
+            if(value.toString()=='null'){
+                domainJson[key]=null
+            }
+        }
         domainJson
     }
 
     def private getDomainIntance(className, domainJson){
         def domain
 
-        domainJson = processDefaultTable(domainJson)
+        domainJson = processDomainJson(domainJson)
 
         if(className == "item")
             domain=getItemInstance(domainJson)
@@ -316,6 +321,7 @@ class FoodpaintService {
         domain.dateCreated=object.dateCreated
         domain.lastUpdated=object.lastUpdated
         domain.title=object.title
+        domain.tel=object.tel
         domain.email=object.email
         domain.address=object.address
 
