@@ -424,12 +424,10 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo',
-                                    flex: 1
+                                    xtype: 'commonwarehousecombo'
                                 },
                                 {
-                                    xtype: 'commonwarehouselocationcombo',
-                                    flex: 1
+                                    xtype: 'commonwarehouselocationcombo'
                                 },
                                 {
                                     xtype: 'numberfield',
