@@ -117,8 +117,8 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 itemdblclick: this.doShowMaterialReturnSheetDet
             },
             'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{
-                // itemdblclick: this.doSelectMaterialSheetDet //暫用
-                itemdblclick: this.doShowMaterialSheetDet //尚未調整好
+                itemdblclick: this.doSelectMaterialSheetDet //暫用
+                //itemdblclick: this.doShowMaterialSheetDet //尚未調整好
             },
             'erpmaterialreturnsheetview #showDetail #detailForm commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
@@ -187,12 +187,15 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
             'warehouse.id':record.data['warehouse.id'],
+            'warehouse.name':record.data['warehouse.name'],
             'warehouse.title':record.data['warehouse.title'],
             'warehouseLocation.id':record.data['warehouseLocation.id'],
+            'warehouseLocation.name':record.data['warehouseLocation.name'],
             'warehouseLocation.title':record.data['warehouseLocation.title'],
             'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
             'manufactureOrder.id':record.data['manufactureOrder.id'],
+            'manufactureOrder.typeName':record.data['manufactureOrder.typeName'],
             'manufactureOrder.name':record.data['manufactureOrder.name']
         });
 
@@ -206,13 +209,14 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
-
+            /*
             var whcombo=form.findField('warehouse.id');
             Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
 
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+            */
         });
     },
 

@@ -911,7 +911,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "MaterialSheetDet.name",
+                                        "fieldLabel": "",
                                         "name": "materialSheetDet.name",
                                         "readOnly": true,
                                         "allowBlank": null
@@ -928,7 +928,7 @@
                                     "userConfig": {
                                         "layout|flex": null,
                                         "disabled": null,
-                                        "fieldLabel": "MaterialSheetDet.sequence",
+                                        "fieldLabel": "",
                                         "name": "materialSheetDet.sequence",
                                         "readOnly": true,
                                         "allowBlank": null
@@ -1076,7 +1076,7 @@
                             "designerId": "8cfcbda0-d3b1-481d-bd98-f2b8429bc45c"
                         },
                         {
-                            "type": "Ext.form.field.Number",
+                            "type": "Ext.form.FieldContainer",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -1084,29 +1084,66 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "hidden": true,
-                                "fieldLabel": "ManufactureOrder.id",
-                                "name": "manufactureOrder.id",
-                                "readOnly": true,
-                                "allowBlank": null
+                                "container|align": "stretch",
+                                "height": null,
+                                "itemId": "manufactureOrderContainer",
+                                "width": null,
+                                "layout": "hbox",
+                                "fieldLabel": null
                             },
-                            "designerId": "6b1163e1-7d7a-43e6-99d9-80f6724d27f8"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "fieldLabel": "ManufactureOrder.name",
-                                "name": "manufactureOrder.name",
-                                "readOnly": true,
-                                "allowBlank": null
-                            },
-                            "designerId": "388d9c6a-1efc-4a38-8137-7498116e5e1b"
+                            "designerId": "9994a2d9-a702-4fbe-846d-a5fd8c41de7c",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "hidden": true,
+                                        "fieldLabel": "ManufactureOrder.id",
+                                        "name": "manufactureOrder.id",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "29ee8a03-c2ac-4bb7-85df-83ada849d76d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": "ManufactureOrder.sheetNum",
+                                        "name": "manufactureOrder.typeName",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "59ced988-7d61-4d18-b953-90b0647874e3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "manufactureOrder.name",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "efb880b4-e368-47ea-a733-4e7f13e551bd"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Number",

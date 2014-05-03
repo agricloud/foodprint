@@ -382,13 +382,13 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'MaterialSheetDet.name',
+                                            fieldLabel: '',
                                             name: 'materialSheetDet.name',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'MaterialSheetDet.sequence',
+                                            fieldLabel: '',
                                             name: 'materialSheetDet.sequence',
                                             readOnly: true
                                         },
@@ -445,17 +445,32 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'ManufactureOrder.id',
-                                    name: 'manufactureOrder.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'ManufactureOrder.name',
-                                    name: 'manufactureOrder.name',
-                                    readOnly: true
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'manufactureOrderContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'manufactureOrder.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'ManufactureOrder.sheetNum',
+                                            name: 'manufactureOrder.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'manufactureOrder.name',
+                                            readOnly: true
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'numberfield',
