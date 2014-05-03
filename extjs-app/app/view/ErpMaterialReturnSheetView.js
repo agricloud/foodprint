@@ -23,6 +23,8 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.ErpMaterialSheetGrid',
         'foodprint.view.ErpMaterialSheetDetGrid',
@@ -422,30 +424,12 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'Warehouse.id',
-                                    name: 'warehouse.id',
-                                    readOnly: true
+                                    xtype: 'commonwarehousecombo',
+                                    flex: 1
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'WarehouseLocation.id',
-                                    name: 'warehouseLocation.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'WarehouseLocation.title',
-                                    name: 'warehouseLocation.title',
-                                    readOnly: true
+                                    xtype: 'commonwarehouselocationcombo',
+                                    flex: 1
                                 },
                                 {
                                     xtype: 'numberfield',
