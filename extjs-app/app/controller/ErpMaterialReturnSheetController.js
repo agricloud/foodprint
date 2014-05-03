@@ -120,8 +120,11 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 itemdblclick: this.doSelectMaterialSheetDet //暫用
                 //itemdblclick: this.doShowMaterialSheetDet //尚未調整好
             },
-            'erpmaterialreturnsheetview #showDetail commonselectbtn':{
+            'erpmaterialreturnsheetview #showDetail #detailForm commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
+            },
+            'erpmaterialreturnsheetview #showDetail #detailForm commoncancelbtn':{
+                click:this.doCancelSelectMaterialSheetDet
             },
             'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{
                 select: this.doIndexDetailMaterialSheet
@@ -233,6 +236,23 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 }
             }
         });
+    },
+
+    doCancelSelectMaterialSheetDet: function() {
+        var form=this.getDetailForm();
+        var id=form.down('field[name=id]').getValue();
+        var typeName=form.down('field[name=typeName]').getValue();
+        var name=form.down('field[name=name]').getValue();
+        var sequence=form.down('field[name=sequence]').getValue();
+        form.getForm().reset(true);
+
+        form.getForm().setValues({
+            'id':id,
+            'typeName':typeName,
+            'name':name,
+            'sequence':sequence
+        });
+
     }
 
 });
