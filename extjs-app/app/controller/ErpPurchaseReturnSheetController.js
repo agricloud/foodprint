@@ -139,11 +139,16 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             'purchaseSheetDet.id':record.data['id'],
             'purchaseSheetDet.typeName':record.data['typeName'],
             'purchaseSheetDet.name':record.data['name'],
-            'purchaseSheetDet.sequence':record.data['sequence'],   
+            'purchaseSheetDet.sequence':record.data['sequence'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.title':record.data['warehouseLocation.title'],  
             'item.id':record.data['item.id'],  
             'item.name':record.data['item.name'],  
             'item.title':record.data['item.title'],
             'batch.id':record.data['batch.id'],
+            'batch.title':record.data['batch.title'],
             'batch.name':record.data['batch.name'],
             'qty':record.data['qty']
 

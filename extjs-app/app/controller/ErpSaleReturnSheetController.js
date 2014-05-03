@@ -144,10 +144,15 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'saleSheetDet.typeName':record.data['typeName'],
             'saleSheetDet.name':record.data['name'],
             'saleSheetDet.sequence':record.data['sequence'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.title':record.data['warehouseLocation.title'],  
             'item.id':record.data['item.id'], 
             'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
             'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],    
             'qty':record.data['qty'],
             'price':record.data['price'],    
             'tax':record.data['tax'],
@@ -208,7 +213,6 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
     },
 
     doShowSaleReturnSheetDet: function() {
-
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
