@@ -1,0 +1,88 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonItemCombo",
+        "designer|userClassName": "CommonCurrencyCombo",
+        "designer|userAlias": "commoncurrencycombo",
+        "fieldLabel": "currency.currencyName",
+        "name": "currency.id",
+        "allowBlank": null,
+        "editable": null,
+        "displayField": "currencyName",
+        "forceSelection": true,
+        "hiddenName": null,
+        "minChars": 0,
+        "queryParam": "nameLike",
+        "store": "CurrencyStore",
+        "valueField": "id"
+    },
+    "designerId": "37a34729-ad2f-4bfc-8a6e-a4941d5cbf50",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonCurrencyCombo",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.fieldLabel=Utilities.getMsg('currency.currencyName.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "bf01934a-357b-4d96-b72d-12f3004a3c7f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommoncurrencyComboSelect",
+                "implHandler": [
+                    "if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){",
+                    "    combo.up().getForm().setValues({",
+                    "",
+                    "        'currency.id':records[0].data['id'],",
+                    "        'currency.currencyName':records[0].data['currencyName'],",
+                    "         'currency.rate':records[0].data['rate']",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "designerId": "c1d1bdcf-f3f5-4444-999d-2f392b00826d"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onCommonCurrencyComboRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "designerId": "4ad22681-e090-45bd-a7e9-642fb0959277"
+        }
+    ]
+}

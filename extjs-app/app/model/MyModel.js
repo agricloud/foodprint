@@ -24,28 +24,13 @@ Ext.define('foodprint.model.MyModel', {
             name: 'name'
         },
         {
-            name: 'accountDate'
-        },
-        {
-            name: 'anticipationDate'
-        },
-        {
             name: 'typeName'
-        },
-        {
-            name: 'currency'
-        },
-        {
-            name: 'rate'
         },
         {
             name: 'customer.id'
         },
         {
             name: 'customer.name'
-        },
-        {
-            name: 'receivables'
         },
         {
             name: 'customer.title'

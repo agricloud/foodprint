@@ -119,13 +119,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     allowBlank: false
                                 },
                                 {
-                                    xtype: 'datefield',
-                                    itemId: 'accountDate',
-                                    padding: '',
-                                    fieldLabel: 'accountDate',
-                                    name: 'accountDate'
-                                },
-                                {
                                     xtype: 'textfield',
                                     disabled: true,
                                     fieldLabel: '簽核狀態',
@@ -171,15 +164,22 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             title: 'Account',
                                             items: [
                                                 {
-                                                    xtype: 'textfield',
+                                                    xtype: 'datefield',
+                                                    itemId: 'accountDate',
+                                                    padding: '',
+                                                    fieldLabel: 'accountDate',
+                                                    name: 'accountDate'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: 'currency',
-                                                    name: 'currency',
+                                                    name: 'currency.currencyName',
                                                     allowBlank: false
                                                 },
                                                 {
-                                                    xtype: 'numberfield',
-                                                    padding: '',
+                                                    xtype: 'textfield',
+                                                    flex: 1,
                                                     fieldLabel: 'rate',
                                                     name: 'rate',
                                                     allowBlank: false

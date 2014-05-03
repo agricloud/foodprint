@@ -37,10 +37,15 @@ Ext.application({
         noCache: true//,format: 'json'
     },
     models: [
-        'MyModel'
+        'MyModel',
+        'Currency'
     ],
     stores: [
-        'ErpAccountSheetStore'
+        'ErpAccountSheetStore',
+        'CurrencyStore'
+    ],
+    views: [
+        'CommonCurrencyCombo'
     ],
     autoCreateViewport: true,
     controllers: [

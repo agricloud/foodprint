@@ -54,6 +54,18 @@ Ext.define('foodprint.model.ErpAccountSheetDet', {
             name: 'totalAmount'
         },
         {
+            name: 'item.id'
+        },
+        {
+            name: 'item.name'
+        },
+        {
+            name: 'item.title'
+        },
+        {
+            name: 'qty'
+        },
+        {
             name: 'status'
         },
         {

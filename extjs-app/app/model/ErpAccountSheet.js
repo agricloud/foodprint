@@ -34,6 +34,24 @@ Ext.define('foodprint.model.ErpAccountSheet', {
         },
         {
             name: 'customer.title'
+        },
+        {
+            name: 'accountDate'
+        },
+        {
+            name: 'anticipationDate'
+        },
+        {
+            name: 'currency.id'
+        },
+        {
+            name: 'currency.currencyName'
+        },
+        {
+            name: 'currency.rate'
+        },
+        {
+            name: 'receivables'
         }
     ],
 

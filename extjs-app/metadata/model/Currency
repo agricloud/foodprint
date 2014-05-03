@@ -1,0 +1,79 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Currency"
+    },
+    "designerId": "031c6a1a-4eaf-4523-9964-af0512e8f04a",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "id"
+            },
+            "designerId": "ddffde82-8ded-4d8f-9152-ebc8b7e54072"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "currencyName"
+            },
+            "designerId": "c1e36009-6327-4836-b3fb-dabc0ce0e0c1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rate"
+            },
+            "designerId": "eb91da21-e8eb-414a-bf51-401925bd069b"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": null,
+                "url": "/foodpaint?foodpaintController=currency"
+            },
+            "designerId": "32cb83b5-3153-49d7-95fb-fcc3f94a63cb",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "currencyInstanceList",
+                        "totalProperty": "currencyInstanceTotal"
+                    },
+                    "designerId": "ba1d3af6-cd67-4495-9115-afb71e020f1b"
+                }
+            ]
+        }
+    ]
+}
