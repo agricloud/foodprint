@@ -568,6 +568,51 @@
                                     "designerId": "6655f81a-e5fd-4330-b2e1-f139775de24f"
                                 },
                                 {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "price",
+                                        "text": "單價",
+                                        "flex": 1
+                                    },
+                                    "designerId": "9db5f224-fa29-42fc-a67c-c53d9d24eb9f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "subamounts",
+                                        "text": "貨款",
+                                        "flex": 1
+                                    },
+                                    "designerId": "be8ea009-d01f-46ef-978f-bed87bfe076c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "tax",
+                                        "text": "稅額",
+                                        "flex": 1
+                                    },
+                                    "designerId": "506420ac-ea5d-41e6-a119-d70ed4a1b2e5"
+                                },
+                                {
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -583,6 +628,21 @@
                                         "scope": "me"
                                     },
                                     "designerId": "fc102041-ab37-4dd4-8861-d9e493ee5966"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "totalAmount",
+                                        "text": "合計金額",
+                                        "flex": 1
+                                    },
+                                    "designerId": "4791a804-fcfe-40b8-9e37-15b8884d1112"
                                 },
                                 {
                                     "type": "Ext.grid.column.Number",
@@ -995,7 +1055,7 @@
                                 "readOnly": true,
                                 "allowBlank": null
                             },
-                            "designerId": "5b875079-65a2-4517-b659-c99a7633b763"
+                            "designerId": "f8f5c0e2-ce1b-4a6f-a6a7-11a31662ceb7"
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -1005,11 +1065,44 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": null,
                                 "disabled": null,
                                 "fieldLabel": "qty",
                                 "name": "qty"
                             },
                             "designerId": "e4f560eb-f993-444d-a0e5-c29ad3ecbd87"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "單價",
+                                "name": "price",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "93310f84-8f79-41fe-9f98-9161fadd5090"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "稅額",
+                                "name": "tax",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "a00c4281-3698-4e17-beed-315f15f40b4c"
                         },
                         {
                             "type": "processcfgfunction",

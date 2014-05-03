@@ -148,12 +148,15 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'item.name':record.data['item.name'],
             'item.title':record.data['item.title'],
             'batch.id':record.data['batch.id'],
-            'batch.name':record.data['batch.name'],
-            'qty':record.data['qty']
+            'qty':record.data['qty'],
+            'price':record.data['price'],    
+            'tax':record.data['tax'],
 
 
         });
 
+        var whcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseCombo]");
+        Utilities.compositionComboReload(whcombo,'warehouse.id',record.data['warehouse.name']);
         //warehouseLocation combo需指定warehouse id才可load
         var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
         Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
@@ -187,7 +190,8 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             'batch.id':null,
             'batch.name':null,
             'qty':0,
-
+            'price':0,    
+            'tax':0
 
         });
     },
@@ -211,7 +215,6 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             //在此使combo重新load store
             var whcombo=form.findField('warehouse.id');
             Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
-
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 

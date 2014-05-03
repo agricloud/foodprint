@@ -136,6 +136,30 @@ Ext.define('foodprint.view.ErpSaleSheetDetGrid', {
                     dataIndex: 'qty',
                     text: 'qty',
                     flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'price',
+                    text: '單價',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'subamounts',
+                    text: '貨款',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'tax',
+                    text: '稅額',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'totalAmount',
+                    text: '合計金額',
+                    flex: 1
                 }
             ]
         });

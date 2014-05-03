@@ -17,7 +17,7 @@ Ext.define('foodprint.view.CommonCurrencyCombo', {
     extend: 'Ext.form.field.ComboBox',
     alias: 'widget.commoncurrencycombo',
 
-    itemId: 'commonItemCombo',
+    itemId: 'commonCurrencyCombo',
     fieldLabel: 'currency.currencyName',
     name: 'currency.id',
     displayField: 'currencyName',

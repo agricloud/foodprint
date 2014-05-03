@@ -246,6 +246,30 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             flex: 1
                                         },
                                         {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'price',
+                                            text: '單價',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'subamounts',
+                                            text: '貨款',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'tax',
+                                            text: '稅額',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'totalAmount',
+                                            text: '合計金額',
+                                            flex: 1
+                                        },
+                                        {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'customerOrderDet.id',
@@ -415,6 +439,18 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: '單價',
+                                    name: 'price',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: '稅額',
+                                    name: 'tax',
+                                    readOnly: true
                                 }
                             ]
                         })

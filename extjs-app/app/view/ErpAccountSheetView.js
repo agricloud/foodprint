@@ -24,8 +24,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
-        'foodprint.view.CommonItemCombo',
-        'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.ErpSaleSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
@@ -174,7 +172,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: 'currency',
-                                                    name: 'currency.currencyName',
+                                                    name: 'currency',
                                                     allowBlank: false
                                                 },
                                                 {
@@ -462,7 +460,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'source',
+                                            dataIndex: 'documentSource',
                                             text: 'Source',
                                             flex: 1
                                         },
@@ -474,7 +472,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'typeName',
+                                            dataIndex: 'documentSource',
                                             text: 'typeName',
                                             flex: 1
                                         },
@@ -579,6 +577,11 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     allowBlank: false
                                 },
                                 {
+                                    xtype: 'combobox',
+                                    fieldLabel: 'documentSource',
+                                    name: 'documentSource'
+                                },
+                                {
                                     xtype: 'fieldcontainer',
                                     itemId: 'sourceSheetContainer',
                                     layout: {
@@ -612,12 +615,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         {
                                             xtype: 'commonselectbtn',
                                             margins: '1'
-                                        },
-                                        {
-                                            xtype: 'commoncancelbtn',
-                                            frame: false,
-                                            glyph: 0,
-                                            margins: '1'
                                         }
                                     ]
                                 },
@@ -640,19 +637,24 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonitemcombo',
-                                    readOnly: true
-                                },
-                                {
                                     xtype: 'textfield',
                                     fieldLabel: 'Item.title',
                                     name: 'item.title',
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonbatchcombo',
-                                    readOnly: true,
-                                    editable: false
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'item.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Item.name',
+                                    name: 'item.name',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -660,21 +662,41 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     name: 'qty'
                                 },
                                 {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'batch.id',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
+                                    readOnly: true
+                                },
+                                {
                                     xtype: 'textfield',
                                     fieldLabel: '貨款',
-                                    name: 'item.title',
+                                    name: 'subamounts',
                                     readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: '稅額',
-                                    name: 'item.title',
+                                    name: 'tax',
                                     readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: '金額',
-                                    name: 'item.title',
+                                    name: 'totalAmount',
+                                    readOnly: true
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: '備註',
+                                    name: 'remark',
                                     readOnly: true
                                 }
                             ]

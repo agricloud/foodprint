@@ -138,6 +138,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'item.id':record.data['item.id'],
             'item.title':record.data['item.title'],
             'qty':record.data['qty']
+
         });
         this.reloadBatchComboByItem(record.data['item.id']);
         this.activeDetailEditor();

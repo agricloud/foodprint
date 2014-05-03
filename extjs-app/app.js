@@ -38,14 +38,16 @@ Ext.application({
     },
     models: [
         'MyModel',
-        'Currency'
+        'Currency',
+        'ErpSaleSheetDet'
     ],
     stores: [
         'ErpAccountSheetStore',
         'CurrencyStore'
     ],
     views: [
-        'CommonCurrencyCombo'
+        'CommonCurrencyCombo',
+        'ErpSaleReturnSheetView'
     ],
     autoCreateViewport: true,
     controllers: [

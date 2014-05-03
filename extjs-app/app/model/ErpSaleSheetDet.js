@@ -72,6 +72,18 @@ Ext.define('foodprint.model.ErpSaleSheetDet', {
             name: 'item.title'
         },
         {
+            name: 'tax'
+        },
+        {
+            name: 'price'
+        },
+        {
+            name: 'subamounts'
+        },
+        {
+            name: 'totalAmount'
+        },
+        {
             name: 'batch.id'
         },
         {
