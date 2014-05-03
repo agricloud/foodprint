@@ -160,8 +160,6 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
 
         });
 
-        var whcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseCombo]");
-        Utilities.compositionComboReload(whcombo,'warehouse.id',record.data['warehouse.name']);
         //warehouseLocation combo需指定warehouse id才可load
         var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
         Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);

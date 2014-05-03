@@ -443,14 +443,12 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: '單價',
-                                    name: 'price',
-                                    readOnly: true
+                                    name: 'price'
                                 },
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: '稅額',
-                                    name: 'tax',
-                                    readOnly: true
+                                    name: 'tax'
                                 }
                             ]
                         })
