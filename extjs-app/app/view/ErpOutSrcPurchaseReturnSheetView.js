@@ -22,6 +22,8 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
+        'foodprint.view.CommonWarehouseCombo',
+        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.ErpOutSrcPurchaseSheetGrid',
         'foodprint.view.ErpOutSrcPurchaseSheetDetGrid',
@@ -364,49 +366,38 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     ]
                                 },
                                 {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'ManufactureOrder.id',
-                                    name: 'manufactureOrder.id',
-                                    readOnly: true
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'manufactureOrderContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'ManufactureOrder.id',
+                                            name: 'manufactureOrder.id',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'ManufactureOrder.sheetNum',
+                                            name: 'manufactureOrder.typeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'manufactureOrder.name',
+                                            readOnly: true
+                                        }
+                                    ]
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'ManufactureOrder.typeName',
-                                    name: 'manufactureOrder.typeName',
-                                    readOnly: true
+                                    xtype: 'commonwarehousecombo'
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'ManufactureOrder.name',
-                                    name: 'manufactureOrder.name',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'Warehouse.id',
-                                    name: 'warehouse.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'WarehouseLocation.id',
-                                    name: 'warehouseLocation.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'WarehouseLocation.title',
-                                    name: 'warehouseLocation.title',
-                                    readOnly: true
+                                    xtype: 'commonwarehouselocationcombo'
                                 },
                                 {
                                     xtype: 'numberfield',

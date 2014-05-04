@@ -126,7 +126,7 @@
                     "        select: this.doIndexDetailOutSrcPurchaseSheet",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex #detailGrid':{",
-                    "        itemdblclick: this.doSelectOutSrcPurchaseSheetDet",
+                    "        itemdblclick: this.doShowOutSrcPurchaseSheetDet",
                     "    }",
                     "",
                     "});",
@@ -167,6 +167,19 @@
             "designerId": "e2219b9f-f0a7-4ea8-b73e-57d2f50c4e76"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outSrcPurchaseSheetDetGrid",
+                "selector": "erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex #detailGrid"
+            },
+            "designerId": "d2cea598-a714-419a-8928-3051b87c7d4d"
+        },
+        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -203,6 +216,62 @@
                 ]
             },
             "designerId": "fc0b912c-6261-4045-85ae-8f0e7373e0a9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowOutSrcPurchaseSheetDet",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "/*",
+                    "this.doShowDetail(function(success,form,action){",
+                    "});",
+                    "*/",
+                    "",
+                    "console.log('commonController--'+this.domainName+'--doShowDetail');",
+                    "",
+                    "var that = this;",
+                    "console.log(that);",
+                    "",
+                    "var record= this.getOutSrcPurchaseSheetDetGrid().getSelectionModel().getSelection()[0];",
+                    "var id = -1;",
+                    "",
+                    "if(this.getOutSrcPurchaseSheetDetGrid().getSelectionModel().getSelection()[0])",
+                    "id = record.data.id;",
+                    "",
+                    "",
+                    "this.getDetailForm().getForm().load({",
+                    "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
+                    "    params: this.getDetailParams(),",
+                    "    waitMsg:Utilities.getMsg('default.message.load'),",
+                    "    success: function(form, action) {",
+                    "",
+                    "        that.activeDetailEditor();",
+                    "        that.detailActionName = 'update';",
+                    "",
+                    "        if (callback && callback instanceof Function) {",
+                    "            callback(true,form,action);",
+                    "        }",
+                    "    },",
+                    "",
+                    "    failure: function(form, action) {",
+                    "        Ext.MessageBox.alert('Failure',action.result.message);",
+                    "        if (callback && callback instanceof Function){",
+                    "            callback(false,form,action);",
+                    "        }",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "5f9dc0ed-708d-424c-8262-dfc1f7aaa8a7"
         },
         {
             "type": "basicfunction",
