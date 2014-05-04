@@ -114,14 +114,19 @@
                     "    'erpoutsrcpurchasereturnsheetview #show #indexDetail #detailGrid':{",
                     "        select: this.enableDetailShowBtn,",
                     "        deselect: this.disableDetailShowBtn,",
-                    "        //itemdblclick: this.doSelectOutSrcPurchaseSheetDet",
                     "        itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeOurSrcPurchaseSheetDetIndex",
                     "    },",
+                    "    'erpoutsrcpurchasereturnsheetview #showDetail #detailForm commoncancelbtn':{",
+                    "        click:this.doCancelSelectOutSrcPurchaseSheetDet",
+                    "    },",
                     "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{",
                     "        select: this.doIndexDetailOutSrcPurchaseSheet",
+                    "    },",
+                    "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex #detailGrid':{",
+                    "        itemdblclick: this.doSelectOutSrcPurchaseSheetDet",
                     "    }",
                     "",
                     "});",
@@ -239,7 +244,7 @@
                 "fn": "doShowOutSrcPurchaseReturnSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
-                    "    ",
+                    "",
                     "});"
                 ]
             },
@@ -257,11 +262,26 @@
                 "implHandler": [
                     "",
                     "this.doShowDetail(function(success,form,action){",
-                    "    ",
+                    "",
                     "});"
                 ]
             },
             "designerId": "b7d65f65-c351-495c-bd48-5d598acbd340"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelSelectOutSrcPurchaseSheetDet",
+                "implHandler": [
+                    "this.doCancelSelect();"
+                ]
+            },
+            "designerId": "f7213f48-8130-4e0b-895f-68e09ae1eecd"
         }
     ]
 }

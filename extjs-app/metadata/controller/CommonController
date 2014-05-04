@@ -585,7 +585,7 @@
                     "",
                     "        that.activeDetailEditor();",
                     "        that.detailActionName = 'update';",
-                    "	",
+                    "        ",
                     "        if (callback && callback instanceof Function) {",
                     "            callback(true,form,action)",
                     "        }",
@@ -879,6 +879,33 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCancelSelect",
+                "implHandler": [
+                    "var form=this.getDetailForm();",
+                    "var id=form.down('field[name=id]').getValue();",
+                    "var typeName=form.down('field[name=typeName]').getValue();",
+                    "var name=form.down('field[name=name]').getValue();",
+                    "var sequence=form.down('field[name=sequence]').getValue();",
+                    "form.getForm().reset(true);",
+                    "",
+                    "form.getForm().setValues({",
+                    "    'id':id,",
+                    "    'typeName':typeName,",
+                    "    'name':name,",
+                    "    'sequence':sequence",
+                    "});"
+                ]
+            },
+            "designerId": "ac7bc535-cda1-43bb-aeeb-6fc17dc3166a"
         }
     ]
 }

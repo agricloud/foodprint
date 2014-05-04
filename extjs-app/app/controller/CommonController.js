@@ -490,6 +490,22 @@ Ext.define('foodprint.controller.CommonController', {
 
     disableDetailCreateBtn: function() {
         this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
+    },
+
+    doCancelSelect: function() {
+        var form=this.getDetailForm();
+        var id=form.down('field[name=id]').getValue();
+        var typeName=form.down('field[name=typeName]').getValue();
+        var name=form.down('field[name=name]').getValue();
+        var sequence=form.down('field[name=sequence]').getValue();
+        form.getForm().reset(true);
+
+        form.getForm().setValues({
+            'id':id,
+            'typeName':typeName,
+            'name':name,
+            'sequence':sequence
+        });
     }
 
 });

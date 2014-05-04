@@ -117,8 +117,8 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 itemdblclick: this.doShowMaterialReturnSheetDet
             },
             'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{
-                //itemdblclick: this.doSelectMaterialSheetDet //暫用
-                itemdblclick: this.doShowMaterialSheetDet //尚未調整好
+                //itemdblclick: this.doSelectMaterialSheetDet //另解
+                itemdblclick: this.doShowMaterialSheetDet
             },
             'erpmaterialreturnsheetview #showDetail #detailForm commonselectbtn':{
                 click:this.activeMaterialSheetDetIndex
@@ -261,7 +261,6 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'name':name,
             'sequence':sequence
         });
-
     }
 
 });
