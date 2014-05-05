@@ -36,16 +36,35 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": null,
-                "height": 70,
+                "container|align": "stretch",
+                "container|pack": "center",
+                "height": null,
                 "html": [
                     "<header>",
-                    "    <div class=\"top-slogan\"><img src=\"resources/images/top-slogan.png\"></div>",
-                    "    <div class=\"signature\"><img src=\"resources/images/signature.png\"></div>",
+                    "    <!--div class=\"top-slogan\"><img src=\"resources/images/top-slogan.png\"></div-->",
+                    "    <!--div class=\"signature\"><img src=\"resources/images/signature.png\"></div-->",
                     "</header>"
                 ],
-                "itemId": "header"
+                "itemId": "header",
+                "layout": "hbox"
             },
-            "designerId": "c900e939-8a20-43f4-8c3d-e3017ca47647"
+            "designerId": "c900e939-8a20-43f4-8c3d-e3017ca47647",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "width": null,
+                        "src": "resources/images/top-slogan.png"
+                    },
+                    "designerId": "6302989a-331f-42ca-971a-b90e15997efb"
+                }
+            ]
         },
         {
             "type": "Ext.container.Container",
@@ -90,7 +109,7 @@
                                 "baseCls": "logo",
                                 "cls": null,
                                 "html": [
-                                    "<img src=\"resources/images/logo.png\" width=\"166\">"
+                                    "<!--img src=\"resources/images/logo.png\" width=\"\"-->"
                                 ],
                                 "itemId": "logo",
                                 "width": null
@@ -122,7 +141,7 @@
                                     "userConfig": {
                                         "cls": "top",
                                         "html": [
-                                            "<span><img src=\"resources/images/icon-lock.png\"></span>食品足跡系統"
+                                            "<span><img src=\"resources/images/icon-lock.png\"></span>雲端農場管理系統"
                                         ],
                                         "itemId": "top"
                                     },
@@ -139,9 +158,10 @@
                                         "baseCls": "info",
                                         "cls": null,
                                         "html": [
-                                            "Welcome to The Foodprint Tracing System."
+                                            "Welcome to The CloudFarm MIS."
                                         ],
-                                        "itemId": "info"
+                                        "itemId": "info",
+                                        "width": 286
                                     },
                                     "designerId": "27bdc36a-957f-4cb8-af4c-48233269a638"
                                 },
@@ -429,7 +449,7 @@
                 "height": 81,
                 "html": [
                     "<footer>",
-                    "    <div class=\"left-trees\"><img src=\"resources/images/left-trees.png\"></div>",
+                    "    <!--div class=\"left-trees\"><img src=\"resources/images/left-trees.png\"></div-->",
                     "    <div class=\"btn-fb\"><a href=\"#\"><img src=\"resources/images/btn-fb.png\"></a></div>",
                     "    <div class=\"right-slogan\">．擁有產品履歷．安全．信賴．e化管理</div>",
                     "    <div class=\"bar\"></div>",

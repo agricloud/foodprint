@@ -62,42 +62,6 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "siteMaintain",
-                                "text": "Site Maintain"
-                            },
-                            "designerId": "b04fc5ea-dce9-44de-8c6c-fd353b928ca3",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processSiteMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.siteMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "6a76407e-e1e6-4e30-9e8b-5f59a53d9aff"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
                                 "itemId": "userMaintain",
                                 "text": "User Maintain"
                             },
@@ -134,10 +98,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "itemMaintain",
-                                "text": "Item Maintain"
+                                "itemId": "siteMaintain",
+                                "text": "Site Maintain"
                             },
-                            "designerId": "0e77c526-564c-41f3-84fc-073ea98dbd16",
+                            "designerId": "b04fc5ea-dce9-44de-8c6c-fd353b928ca3",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -147,161 +111,17 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processItemMaintain",
+                                        "fn": "processSiteMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.itemMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.siteMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "a48a3ddf-95db-4e61-a8a4-35a053e2d67e"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "itemRouteMaintain",
-                                "text": "Item Route Maintain"
-                            },
-                            "designerId": "5acdedfa-f1f3-4fb7-9d9b-67df0329f34d",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processItemRouteMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "d49d30c8-1871-4b2b-94f4-20eaaa0482cd"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "batchMaintain",
-                                "text": "Batch Maintain"
-                            },
-                            "designerId": "e389716f-1115-452a-82c4-65d6d1afedaf",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processBatchMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.batchMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "5a20af50-aa5f-4934-96bb-1538357423ef"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "batchRouteMaintain",
-                                "text": "Batch Route Maintain"
-                            },
-                            "designerId": "526632e8-e266-42ba-a801-76cc0f531d8b",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processBatchRouteMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "3d0476d2-b6f9-498e-8872-98e51a3c079b"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "operationMaintain",
-                                "text": "Operation Maintain"
-                            },
-                            "designerId": "5d71daa1-23c1-4963-8e6d-0c1354de2e3d",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processOperationMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.operationMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "73b6dda4-524f-4f89-a22c-b45acb1be697"
+                                    "designerId": "6a76407e-e1e6-4e30-9e8b-5f59a53d9aff"
                                 }
                             ]
                         },
@@ -350,10 +170,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "customerMaintain",
-                                "text": "Customer Maintain"
+                                "itemId": "operationMaintain",
+                                "text": "Operation Maintain"
                             },
-                            "designerId": "235384bf-4b2f-4c9f-99ad-3fba8604c80f",
+                            "designerId": "5d71daa1-23c1-4963-8e6d-0c1354de2e3d",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -363,17 +183,17 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processCustomerMaintain",
+                                        "fn": "processOperationMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.customerMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.operationMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "21bace99-e195-42c3-b8d1-6720bf2bc32d"
+                                    "designerId": "73b6dda4-524f-4f89-a22c-b45acb1be697"
                                 }
                             ]
                         },
@@ -422,6 +242,150 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
+                                "itemId": "itemMaintain",
+                                "text": "Item Maintain"
+                            },
+                            "designerId": "0e77c526-564c-41f3-84fc-073ea98dbd16",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processItemMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.itemMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "a48a3ddf-95db-4e61-a8a4-35a053e2d67e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "batchMaintain",
+                                "text": "Batch Maintain"
+                            },
+                            "designerId": "e389716f-1115-452a-82c4-65d6d1afedaf",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processBatchMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.batchMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "5a20af50-aa5f-4934-96bb-1538357423ef"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "itemRouteMaintain",
+                                "text": "Item Route Maintain"
+                            },
+                            "designerId": "5acdedfa-f1f3-4fb7-9d9b-67df0329f34d",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processItemRouteMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "d49d30c8-1871-4b2b-94f4-20eaaa0482cd"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "batchRouteMaintain",
+                                "text": "Batch Route Maintain"
+                            },
+                            "designerId": "526632e8-e266-42ba-a801-76cc0f531d8b",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processBatchRouteMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "3d0476d2-b6f9-498e-8872-98e51a3c079b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
                                 "itemId": "batchSourceMaintain",
                                 "text": "Batch Source Maintain"
                             },
@@ -446,6 +410,42 @@
                                         ]
                                     },
                                     "designerId": "f3b5256c-a604-4c9b-bd41-b140fa925a07"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "customerMaintain",
+                                "text": "Customer Maintain"
+                            },
+                            "designerId": "235384bf-4b2f-4c9f-99ad-3fba8604c80f",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processCustomerMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "21bace99-e195-42c3-b8d1-6720bf2bc32d"
                                 }
                             ]
                         },
@@ -1520,10 +1520,10 @@
                     "userConfig": {
                         "baseCls": null,
                         "html": [
-                            "<div class=\"mainpage-image\"><img src=\"resources/images/main-select.png\" width=\"185\" height=\"125\"></div>",
+                            "<!--div class=\"mainpage-image\"><img src=\"resources/images/main-select.png\" width=\"185\" height=\"125\"></div-->",
                             "",
-                            "<div class=\"left-trees\"><img src=\"resources/images/left-trees.png\" width=\"110\" height=\"50\"></div>",
-                            "<div class=\"right-tree\"><img src=\"resources/images/right-tree.png\" width=\"28\" height=\"37\"></div>"
+                            "<!--div class=\"left-trees\"><img src=\"resources/images/left-trees.png\" width=\"110\" height=\"50\"></div-->",
+                            "<!--div class=\"right-tree\"><img src=\"resources/images/right-tree.png\" width=\"28\" height=\"37\"></div-->"
                         ],
                         "id": null,
                         "itemId": "wellcome",
@@ -1554,13 +1554,13 @@
                 "height": 40,
                 "html": [
                     "<header>",
-                    "\t<div class=\"logo\"><img src=\"resources/images/logo.png\" width=\"166\"></div>",
-                    "    <div class=\"logo-text\">&gt;&gt; <span class=\"lspace\">食品足跡系統</span> <small>V.1.0</small> <span class=\"font-brown\"><strong>FoodPrint System</strong></span></div>",
+                    "\t<!--div class=\"logo\"><img src=\"resources/images/logo.png\" width=\"20\"></div-->",
+                    "    <div class=\"logo-text\">&gt;&gt; <span class=\"lspace\">雲端農場管理系統</span> <small>V.1.0</small> <span class=\"font-brown\"><strong>The CloudFarm Management Information System</strong></span></div>",
                     "  ",
                     "    ",
-                    "\t<div class=\"signature\"><img src=\"resources/images/signature.png\"></div>",
+                    "\t<!--div class=\"signature\"><img src=\"resources/images/signature.png\"></div-->",
                     "    <a href=\"#\" class=\"btn-logout\" id= 'btn-logout'><img src=\"resources/images/btn-logout.jpg\" width=\"66\" height=\"20\"></a>",
-                    "    <div class=\"username\" id=\"username\" >Chi Yen Hsiao</div>",
+                    "    <div class=\"username\" id=\"username\" >Yuntech</div>",
                     "</header>"
                 ],
                 "itemId": "northPanel"

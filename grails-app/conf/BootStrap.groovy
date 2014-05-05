@@ -23,17 +23,17 @@ class BootStrap {
             }
 
             development {
-                /*
+                
                 def testService = new TestService()
 
                 testService.createStdTestData()
-                testService.createExtraRouteData()
-                testService.createOtherReport()
-                testService.createNutritionReport()
-                testService.createInspectReport()
-                testService.createBatchSource()
-                testService.createOtherDomain()
-                */
+                // testService.createExtraRouteData()
+                // testService.createOtherReport()
+                // testService.createNutritionReport()
+                // testService.createInspectReport()
+                // testService.createBatchSource()
+                // testService.createOtherDomain()
+                
                 // 除了標準測試資料外，額外的測試資料定義於此
             }
         }

@@ -44,6 +44,9 @@ Ext.define('foodprint.controller.SiteController', {
     init: function(application) {
 
         this.control({
+            'siteview #index commonindextoolbar commoncreatebtn': {
+                click: this.doCreate
+            },
             'siteview #index commonindextoolbar commonshowbtn': {
                 click: this.doShow
             },

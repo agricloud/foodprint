@@ -177,7 +177,7 @@ Ext.define('foodprint.view.SiteView', {
     },
 
     onIndexAfterRender: function(component, eOpts) {
-        component.down('commoncreatebtn').setVisible(false);
+        //component.down('commoncreatebtn').setVisible(false);
     },
 
     onShowAfterRender: function(component, eOpts) {

@@ -36,9 +36,19 @@ Ext.define('foodprint.view.LoginContainer', {
             items: [
                 {
                     xtype: 'container',
-                    height: 70,
-                    html: '<header>\n    <div class="top-slogan"><img src="resources/images/top-slogan.png"></div>\n    <div class="signature"><img src="resources/images/signature.png"></div>\n</header>',
-                    itemId: 'header'
+                    html: '<header>\n    <!--div class="top-slogan"><img src="resources/images/top-slogan.png"></div-->\n    <!--div class="signature"><img src="resources/images/signature.png"></div-->\n</header>',
+                    itemId: 'header',
+                    layout: {
+                        align: 'stretch',
+                        pack: 'center',
+                        type: 'hbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'image',
+                            src: 'resources/images/top-slogan.png'
+                        }
+                    ]
                 },
                 {
                     xtype: 'container',
@@ -62,7 +72,7 @@ Ext.define('foodprint.view.LoginContainer', {
                                 {
                                     xtype: 'container',
                                     baseCls: 'logo',
-                                    html: '<img src="resources/images/logo.png" width="166">',
+                                    html: '<!--img src="resources/images/logo.png" width=""-->',
                                     itemId: 'logo'
                                 },
                                 {
@@ -73,14 +83,15 @@ Ext.define('foodprint.view.LoginContainer', {
                                         {
                                             xtype: 'container',
                                             cls: 'top',
-                                            html: '<span><img src="resources/images/icon-lock.png"></span>食品足跡系統',
+                                            html: '<span><img src="resources/images/icon-lock.png"></span>雲端農場管理系統',
                                             itemId: 'top'
                                         },
                                         {
                                             xtype: 'container',
                                             baseCls: 'info',
-                                            html: 'Welcome to The Foodprint Tracing System.',
-                                            itemId: 'info'
+                                            html: 'Welcome to The CloudFarm MIS.',
+                                            itemId: 'info',
+                                            width: 286
                                         },
                                         {
                                             xtype: 'container',
@@ -188,7 +199,7 @@ Ext.define('foodprint.view.LoginContainer', {
                 {
                     xtype: 'container',
                     height: 81,
-                    html: '<footer>\n    <div class="left-trees"><img src="resources/images/left-trees.png"></div>\n    <div class="btn-fb"><a href="#"><img src="resources/images/btn-fb.png"></a></div>\n    <div class="right-slogan">．擁有產品履歷．安全．信賴．e化管理</div>\n    <div class="bar"></div>\n</footer>',
+                    html: '<footer>\n    <!--div class="left-trees"><img src="resources/images/left-trees.png"></div-->\n    <div class="btn-fb"><a href="#"><img src="resources/images/btn-fb.png"></a></div>\n    <div class="right-slogan">．擁有產品履歷．安全．信賴．e化管理</div>\n    <div class="bar"></div>\n</footer>',
                     itemId: 'footer'
                 }
             ]

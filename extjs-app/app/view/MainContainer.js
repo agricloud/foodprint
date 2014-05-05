@@ -51,60 +51,60 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'Basic Data Maintain',
                             items: [
-                                me.processSiteMaintain({
-                                    xtype: 'button',
-                                    itemId: 'siteMaintain',
-                                    text: 'Site Maintain'
-                                }),
                                 me.processUserMaintain({
                                     xtype: 'button',
                                     itemId: 'userMaintain',
                                     text: 'User Maintain'
                                 }),
-                                me.processItemMaintain({
+                                me.processSiteMaintain({
                                     xtype: 'button',
-                                    itemId: 'itemMaintain',
-                                    text: 'Item Maintain'
-                                }),
-                                me.processItemRouteMaintain({
-                                    xtype: 'button',
-                                    itemId: 'itemRouteMaintain',
-                                    text: 'Item Route Maintain'
-                                }),
-                                me.processBatchMaintain({
-                                    xtype: 'button',
-                                    itemId: 'batchMaintain',
-                                    text: 'Batch Maintain'
-                                }),
-                                me.processBatchRouteMaintain({
-                                    xtype: 'button',
-                                    itemId: 'batchRouteMaintain',
-                                    text: 'Batch Route Maintain'
-                                }),
-                                me.processOperationMaintain({
-                                    xtype: 'button',
-                                    itemId: 'operationMaintain',
-                                    text: 'Operation Maintain'
+                                    itemId: 'siteMaintain',
+                                    text: 'Site Maintain'
                                 }),
                                 me.processWorkstationMaintain({
                                     xtype: 'button',
                                     itemId: 'workstationMaintain',
                                     text: 'Workstation Maintain'
                                 }),
-                                me.processCustomerMaintain({
+                                me.processOperationMaintain({
                                     xtype: 'button',
-                                    itemId: 'customerMaintain',
-                                    text: 'Customer Maintain'
+                                    itemId: 'operationMaintain',
+                                    text: 'Operation Maintain'
                                 }),
                                 me.processSupplierMaintain({
                                     xtype: 'button',
                                     itemId: 'supplierMaintain',
                                     text: 'Supplier Maintain'
                                 }),
+                                me.processItemMaintain({
+                                    xtype: 'button',
+                                    itemId: 'itemMaintain',
+                                    text: 'Item Maintain'
+                                }),
+                                me.processBatchMaintain({
+                                    xtype: 'button',
+                                    itemId: 'batchMaintain',
+                                    text: 'Batch Maintain'
+                                }),
+                                me.processItemRouteMaintain({
+                                    xtype: 'button',
+                                    itemId: 'itemRouteMaintain',
+                                    text: 'Item Route Maintain'
+                                }),
+                                me.processBatchRouteMaintain({
+                                    xtype: 'button',
+                                    itemId: 'batchRouteMaintain',
+                                    text: 'Batch Route Maintain'
+                                }),
                                 me.processBatchSourceMaintain({
                                     xtype: 'button',
                                     itemId: 'batchSourceMaintain',
                                     text: 'Batch Source Maintain'
+                                }),
+                                me.processCustomerMaintain({
+                                    xtype: 'button',
+                                    itemId: 'customerMaintain',
+                                    text: 'Customer Maintain'
                                 })
                             ]
                         }),
@@ -292,7 +292,7 @@ Ext.define('foodprint.view.MainContainer', {
                     items: [
                         {
                             xtype: 'panel',
-                            html: '<div class="mainpage-image"><img src="resources/images/main-select.png" width="185" height="125"></div>\n\n<div class="left-trees"><img src="resources/images/left-trees.png" width="110" height="50"></div>\n<div class="right-tree"><img src="resources/images/right-tree.png" width="28" height="37"></div>',
+                            html: '<!--div class="mainpage-image"><img src="resources/images/main-select.png" width="185" height="125"></div-->\n\n<!--div class="left-trees"><img src="resources/images/left-trees.png" width="110" height="50"></div-->\n<!--div class="right-tree"><img src="resources/images/right-tree.png" width="28" height="37"></div-->',
                             itemId: 'wellcome',
                             layout: {
                                 type: 'fit'
@@ -311,7 +311,7 @@ Ext.define('foodprint.view.MainContainer', {
                     xtype: 'container',
                     region: 'north',
                     height: 40,
-                    html: '<header>\n	<div class="logo"><img src="resources/images/logo.png" width="166"></div>\n    <div class="logo-text">&gt;&gt; <span class="lspace">食品足跡系統</span> <small>V.1.0</small> <span class="font-brown"><strong>FoodPrint System</strong></span></div>\n  \n    \n	<div class="signature"><img src="resources/images/signature.png"></div>\n    <a href="#" class="btn-logout" id= \'btn-logout\'><img src="resources/images/btn-logout.jpg" width="66" height="20"></a>\n    <div class="username" id="username" >Chi Yen Hsiao</div>\n</header>',
+                    html: '<header>\n	<!--div class="logo"><img src="resources/images/logo.png" width="20"></div-->\n    <div class="logo-text">&gt;&gt; <span class="lspace">雲端農場管理系統</span> <small>V.1.0</small> <span class="font-brown"><strong>The CloudFarm Management Information System</strong></span></div>\n  \n    \n	<!--div class="signature"><img src="resources/images/signature.png"></div-->\n    <a href="#" class="btn-logout" id= \'btn-logout\'><img src="resources/images/btn-logout.jpg" width="66" height="20"></a>\n    <div class="username" id="username" >Yuntech</div>\n</header>',
                     itemId: 'northPanel'
                 },
                 {
@@ -327,44 +327,14 @@ Ext.define('foodprint.view.MainContainer', {
         me.callParent(arguments);
     },
 
-    processSiteMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.siteMaintain.label');
-
-        return config;
-    },
-
     processUserMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.userMaintain.label');
 
         return config;
     },
 
-    processItemMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.itemMaintain.label');
-
-        return config;
-    },
-
-    processItemRouteMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');
-
-        return config;
-    },
-
-    processBatchMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.batchMaintain.label');
-
-        return config;
-    },
-
-    processBatchRouteMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');
-
-        return config;
-    },
-
-    processOperationMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.operationMaintain.label');
+    processSiteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.siteMaintain.label');
 
         return config;
     },
@@ -375,8 +345,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processCustomerMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerMaintain.label');
+    processOperationMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.operationMaintain.label');
 
         return config;
     },
@@ -387,8 +357,38 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processItemMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.itemMaintain.label');
+
+        return config;
+    },
+
+    processBatchMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchMaintain.label');
+
+        return config;
+    },
+
+    processItemRouteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');
+
+        return config;
+    },
+
+    processBatchRouteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');
+
+        return config;
+    },
+
     processBatchSourceMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.batchSourceMaintain.label');
+
+        return config;
+    },
+
+    processCustomerMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerMaintain.label');
 
         return config;
     },
