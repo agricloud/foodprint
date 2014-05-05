@@ -22,8 +22,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
-        'foodprint.view.CommonWarehouseCombo',
-        'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.ErpSaleSheetDetGrid',
         'foodprint.view.ErpSaleReturnSheetGrid',
@@ -648,24 +646,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             margins: '1'
                                         }
                                     ]
-                                },
-                                {
-                                    xtype: 'commonwarehousecombo'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'Warehouse.title',
-                                    name: 'warehouse.title'
-                                },
-                                {
-                                    xtype: 'commonwarehouselocationcombo'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
-                                    name: 'warehouseLocation.title'
                                 },
                                 {
                                     xtype: 'textfield',

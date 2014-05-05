@@ -21,6 +21,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
         'foodprint.view.ErpSaleReturnSheetGrid',
         'foodprint.view.CommonCustomerCombo',
         'foodprint.view.CommonSelectBtn',
+        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpSaleSheetGrid',
@@ -69,6 +70,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                             xtype: 'form',
                             flex: 1,
                             itemId: 'form',
+                            autoScroll: true,
                             layout: {
                                 align: 'stretch',
                                 padding: 10,
@@ -105,6 +107,255 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     disabled: true,
                                     fieldLabel: 'Customer.title',
                                     name: 'customer.title'
+                                },
+                                {
+                                    xtype: 'datefield',
+                                    disabled: true,
+                                    fieldLabel: '單據日期',
+                                    name: 'dateCreated',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: '簽核狀態',
+                                    name: '',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'panel',
+                                    border: false,
+                                    itemId: 'collaspe2',
+                                    padding: '',
+                                    layout: {
+                                        autoWidth: false,
+                                        titleCollapse: false,
+                                        hideCollapseTool: false,
+                                        collapseFirst: true,
+                                        animate: false,
+                                        sequence: false,
+                                        activeOnTop: false,
+                                        type: 'accordion'
+                                    },
+                                    bodyBorder: false,
+                                    animCollapse: false,
+                                    collapseFirst: false,
+                                    hideCollapseTool: true,
+                                    titleCollapse: true,
+                                    items: [
+                                        {
+                                            xtype: 'form',
+                                            border: false,
+                                            padding: '',
+                                            defaults: {
+                                                anchor: '100%'
+                                            },
+                                            layout: {
+                                                align: 'stretch',
+                                                padding: 5,
+                                                type: 'vbox'
+                                            },
+                                            bodyPadding: '',
+                                            collapsed: false,
+                                            collapsible: false,
+                                            title: '交易資料',
+                                            items: [
+                                                {
+                                                    xtype: 'datefield',
+                                                    itemId: 'accountDate',
+                                                    padding: '',
+                                                    fieldLabel: '退貨日期',
+                                                    name: 'accountDate'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    flex: 1,
+                                                    fieldLabel: '部門代號',
+                                                    name: 'currency',
+                                                    allowBlank: false,
+                                                    displayField: 'currencyName',
+                                                    store: 'CurrencyStore',
+                                                    valueField: 'rate'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    flex: 1,
+                                                    fieldLabel: '業務人員',
+                                                    name: 'currency',
+                                                    allowBlank: false,
+                                                    displayField: 'currencyName',
+                                                    store: 'CurrencyStore',
+                                                    valueField: 'rate'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    flex: 1,
+                                                    fieldLabel: '幣別',
+                                                    name: 'currency',
+                                                    allowBlank: false,
+                                                    displayField: 'currencyName',
+                                                    store: 'CurrencyStore',
+                                                    valueField: 'rate'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    flex: 1,
+                                                    itemId: 'rate',
+                                                    fieldLabel: '匯率',
+                                                    name: 'rate',
+                                                    allowBlank: false
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    itemId: 'subamounts',
+                                                    padding: '',
+                                                    width: 150,
+                                                    fieldLabel: '退貨金額',
+                                                    name: 'subamounts',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    itemId: 'tax',
+                                                    padding: '',
+                                                    width: 150,
+                                                    fieldLabel: '退貨稅額',
+                                                    name: 'tax',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    itemId: 'totalAmount',
+                                                    padding: '',
+                                                    width: 150,
+                                                    fieldLabel: '合計',
+                                                    name: 'totalAmount',
+                                                    readOnly: true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'form',
+                                            border: false,
+                                            padding: 3,
+                                            layout: {
+                                                align: 'stretch',
+                                                padding: '',
+                                                type: 'vbox'
+                                            },
+                                            bodyPadding: '',
+                                            collapsed: false,
+                                            collapsible: false,
+                                            title: '收貨資料'
+                                        },
+                                        {
+                                            xtype: 'form',
+                                            border: false,
+                                            padding: '',
+                                            layout: {
+                                                align: 'stretch',
+                                                padding: 5,
+                                                type: 'vbox'
+                                            },
+                                            bodyPadding: '',
+                                            collapsed: false,
+                                            collapsible: false,
+                                            title: '發票資料',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldcontainer',
+                                                    disabled: true,
+                                                    itemId: '',
+                                                    layout: {
+                                                        align: 'stretch',
+                                                        type: 'hbox'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            hidden: true,
+                                                            name: '',
+                                                            readOnly: true
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            fieldLabel: '稅別碼',
+                                                            name: '',
+                                                            readOnly: true
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            name: '',
+                                                            readOnly: true
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            fieldLabel: '發票聯數',
+                                                            name: '',
+                                                            readOnly: true
+                                                        },
+                                                        {
+                                                            xtype: 'commonselectbtn',
+                                                            margins: '1'
+                                                        },
+                                                        {
+                                                            xtype: 'commoncancelbtn',
+                                                            frame: false,
+                                                            glyph: 0,
+                                                            margins: '1'
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    padding: '',
+                                                    width: 250,
+                                                    fieldLabel: '發票號碼'
+                                                },
+                                                {
+                                                    xtype: 'datefield',
+                                                    itemId: 'Date',
+                                                    padding: '',
+                                                    fieldLabel: '申報年月',
+                                                    name: ''
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    padding: '',
+                                                    width: 250,
+                                                    fieldLabel: '課稅別',
+                                                    name: ''
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: '營業稅率',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'datefield',
+                                                    padding: '',
+                                                    width: 250,
+                                                    fieldLabel: '發票日期'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: '公司名稱',
+                                                    readOnly: true
+                                                },
+                                                {
+                                                    xtype: 'displayfield',
+                                                    padding: '',
+                                                    width: 250,
+                                                    fieldLabel: '統一編號'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    fieldLabel: '通關方式',
+                                                    readOnly: true
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }),

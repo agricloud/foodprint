@@ -53,7 +53,8 @@ Ext.application({
         'ErpSaleReturnSheetView',
         'ErpSaleSheetDetGrid',
         'ErpSaleReturnSheetDetGrid',
-        'ErpSaleSheetGrid'
+        'ErpSaleSheetGrid',
+        'ReceivableSheet'
     ],
     autoCreateViewport: true,
     controllers: [

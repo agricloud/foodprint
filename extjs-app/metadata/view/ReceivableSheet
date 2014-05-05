@@ -1,0 +1,1100 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "itemId": null,
+        "width": null,
+        "designer|userClassName": "ReceivableSheet",
+        "requires": [
+            "foodprint.view.CommonIndexToolbar",
+            "foodprint.view.CommonShowToolbar"
+        ],
+        "layout": "card"
+    },
+    "configAlternates": {
+        "tbar": "object"
+    },
+    "designerId": "428fc157-83e4-4d31-a24e-04b6feb4e1d7",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonindextoolbar'",
+                    "}"
+                ],
+                "itemId": "index",
+                "layout": "fit",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "fad633ac-44c2-4062-8cef-d32bde365fb0",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "grid"
+                    },
+                    "designerId": "09d8a7bf-38e3-475b-9210-0ab831290869",
+                    "masterInstanceId": "28112f36-8ef3-4012-b196-85902bb21430"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "show",
+                "layout": "vbox"
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "3ac0393c-7533-49c2-9114-acbbc35b9318",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "container|align": "stretch",
+                        "container|padding": 10,
+                        "itemId": "form",
+                        "designer|displayName": null,
+                        "autoScroll": true,
+                        "layout": "vbox",
+                        "title": ""
+                    },
+                    "configAlternates": {
+                        "tbar": "object"
+                    },
+                    "designerId": "7f1c5803-d5a2-4a04-850c-8bb8356d6b9c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "fieldLabel": "id",
+                                "name": "id",
+                                "readOnly": true
+                            },
+                            "designerId": "e44cde04-e770-41fd-b614-c0d716f90ce3"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "typeName",
+                                "name": "typeName",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "1354238f-095b-429e-80fe-33fe789522af"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "name",
+                                "name": "name",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "f4f389fd-2ac0-486a-9774-c199ee7e3af1"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "designerId": "0c0d9d24-7948-4d65-ab57-f7f19694db10",
+                            "masterInstanceId": "26f94ae1-0b0f-4fa5-bf33-93fa18d1683a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "Customer.title",
+                                "name": "customer.title"
+                            },
+                            "designerId": "35fd0cda-3b17-4479-9657-7b36df7be033"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "單據日期",
+                                "name": "dateCreated",
+                                "allowBlank": false
+                            },
+                            "designerId": "ef33bb8e-d46f-48da-a948-3ab391831859"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "簽核狀態",
+                                "name": "",
+                                "allowBlank": false
+                            },
+                            "designerId": "6a343341-3c04-466c-a344-b57ba48338f9"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processForm",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'saleSheet');"
+                                ]
+                            },
+                            "designerId": "60770cc1-1045-4f04-aea2-2ba97859ca92"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "tbar": [
+                            "{",
+                            "    xtype: 'commonindextoolbar'",
+                            "}"
+                        ],
+                        "layout|flex": 1,
+                        "container|align": "stretch",
+                        "itemId": "indexDetail",
+                        "layout": "vbox",
+                        "title": null
+                    },
+                    "configAlternates": {
+                        "tbar": "object"
+                    },
+                    "designerId": "a56463cd-647a-4b50-b7c1-596f0184ed3c",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "tbar",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": null,
+                                "itemId": "detailGrid",
+                                "padding": null,
+                                "width": null,
+                                "autoScroll": true,
+                                "title": "ErpReceivableSheetDet",
+                                "store": "ErpSaleSheetDetStore"
+                            },
+                            "configAlternates": {
+                                "tbar": "object"
+                            },
+                            "designerId": "9994b875-2c87-4641-b803-11e5aedddc16",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "a87d6166-5d6b-44ac-9e48-59449bad5b94"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
+                                        "dataIndex": "id",
+                                        "groupable": null,
+                                        "text": "Id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "6d97e9b4-3fa2-46b2-ac03-9ca232145d38"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "defaultWidth": null,
+                                        "dataIndex": "sequence",
+                                        "text": "Sequence",
+                                        "flex": 1,
+                                        "format": "0,000"
+                                    },
+                                    "designerId": "a1fd8c15-351f-41a0-93a0-4da72848907e"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onGridBeforeRender1",
+                                        "implHandler": [
+                                            "component.getStore().removeAll();"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "43af0152-7c35-4f02-8011-2d1e1549d43f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "name",
+                                        "text": "借/貸",
+                                        "flex": 1
+                                    },
+                                    "designerId": "1c563f02-6c4d-428c-9be0-7f80c468b42c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "name",
+                                        "text": "類別",
+                                        "flex": 1
+                                    },
+                                    "designerId": "a05db04a-6671-45f3-bf76-aabd22ad2c1a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "name",
+                                        "text": "來源單別",
+                                        "flex": 1
+                                    },
+                                    "designerId": "5925bc1d-ddd4-4d31-9358-ad9902f9c755"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "來源單號",
+                                        "flex": 1
+                                    },
+                                    "designerId": "73500c06-0b3c-43fd-899d-07e7a64b9c8d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "會計科目",
+                                        "flex": 1
+                                    },
+                                    "designerId": "12827d35-9bb6-4405-b63b-fbb5464b46db"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "科目名稱",
+                                        "flex": 1
+                                    },
+                                    "designerId": "81f064ce-d82f-44c4-a455-cedd841d9f0c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "幣別",
+                                        "flex": 1
+                                    },
+                                    "designerId": "c09defa5-6859-473e-9c70-ec915dbe6bd0"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "部門別",
+                                        "flex": 1
+                                    },
+                                    "designerId": "269503cd-1055-4650-ab7b-bbb7d53b0a2e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "部門名稱",
+                                        "flex": 1
+                                    },
+                                    "designerId": "a8cbf8ed-a260-478b-a0b9-f0ef9c144ed0"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "enableColumnHide": false,
+                                        "dataIndex": "typeName",
+                                        "hideable": false,
+                                        "text": "匯率",
+                                        "flex": 1
+                                    },
+                                    "designerId": "c7ca4d48-b86b-4a42-8647-87307bb5b462"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "tax",
+                                        "text": "稅額",
+                                        "flex": 1
+                                    },
+                                    "designerId": "bcaea1e9-851b-4406-b9f4-80d66a6630f3"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "subamounts",
+                                        "text": "貨款",
+                                        "flex": 1
+                                    },
+                                    "designerId": "7a0de78b-7e75-4ef4-b1e3-f7a7567725ef"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": null,
+                                        "dataIndex": "totalAmount",
+                                        "text": "合計金額",
+                                        "flex": 1
+                                    },
+                                    "designerId": "6d8b217a-f780-4c62-9eab-d9404fa54703"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "width": null,
+                                        "defaultWidth": null,
+                                        "dataIndex": "customerOrderDet.id",
+                                        "groupable": null,
+                                        "text": "CustomerOrderDet.id",
+                                        "flex": 1
+                                    },
+                                    "designerId": "15ebadc0-6c9a-4438-90fb-378469b9532f"
+                                },
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processDetailGrid",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "",
+                                            "return Utilities.processConfigBundle(config, 'saleSheetDet');"
+                                        ]
+                                    },
+                                    "designerId": "b8db89e6-860a-4270-9244-b766c308273a"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype: 'commonshowtoolbar'",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "showDetail",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "0cb05d64-2bd6-4d36-bc81-4aa17b2de520",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "container|align": "stretch",
+                        "itemId": "detailForm1",
+                        "layout": "vbox",
+                        "bodyBorder": null,
+                        "bodyPadding": 10,
+                        "title": ""
+                    },
+                    "designerId": "53ece338-beee-4b33-bd6c-c8b2fd28f9b1",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "dock": null,
+                                "hidden": true,
+                                "width": null,
+                                "fieldLabel": "accountSheet.id",
+                                "name": "accountSheet.id",
+                                "readOnly": true
+                            },
+                            "designerId": "52c071f6-6ced-4a70-87f6-6d8a21dc9c5e"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "fieldLabel": "id",
+                                "name": "id",
+                                "readOnly": true
+                            },
+                            "designerId": "6e8870c2-f243-4c2e-9695-c11b292814f2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "typeName",
+                                "name": "typeName",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "a2f2dc53-06ec-429f-8439-e4b04382dd79"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "name",
+                                "name": "name",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "abda04a5-fede-441d-ac5e-153faecb311d"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": null,
+                                "fieldLabel": "sequence",
+                                "name": "sequence",
+                                "readOnly": true,
+                                "allowBlank": false
+                            },
+                            "designerId": "ecea554d-546f-429b-9ffd-571896edee6a"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "documentSource",
+                                "fieldLabel": "借貸方",
+                                "name": "documentSource",
+                                "displayField": "name",
+                                "queryMode": "local",
+                                "store": "DocumentSheetStore",
+                                "valueField": "name"
+                            },
+                            "designerId": "c1858a81-094d-45cb-9cf1-2d84a35fe9bf"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "documentSource1",
+                                "fieldLabel": "類別",
+                                "name": "documentSource",
+                                "displayField": "name",
+                                "queryMode": "local",
+                                "store": "DocumentSheetStore",
+                                "valueField": "name"
+                            },
+                            "designerId": "94848d3b-96ee-4364-9800-36ef99a2cc2a"
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "container|align": "stretch",
+                                "height": null,
+                                "itemId": "sourceSheetContainer",
+                                "width": null,
+                                "layout": "hbox",
+                                "fieldLabel": null
+                            },
+                            "designerId": "3e29b97c-a107-4906-aff3-16716045cffb",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "hidden": true,
+                                        "fieldLabel": "saleSheetDet.id",
+                                        "name": "sourceDocumentName",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "ccf92031-fc72-4962-b51d-601f38853b0d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": "sourceSheet.Num",
+                                        "name": "documentTypeName",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "8ae141f1-13d3-4596-aa78-b5da9652fbbb"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "documentName",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "34a941cb-3004-487a-924d-854b67aefb27"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "documentSequence",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "7a108043-c2b2-4fc7-9e33-f7d70c508eec"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "frame": null,
+                                        "layout|flex": null,
+                                        "layout|margins": "1"
+                                    },
+                                    "designerId": "8baad783-0583-44ed-88ff-acee6f27a4d8",
+                                    "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "documentSource2",
+                                "fieldLabel": "會計科目",
+                                "name": "documentSource",
+                                "displayField": "name",
+                                "queryMode": "local",
+                                "store": "DocumentSheetStore",
+                                "valueField": "name"
+                            },
+                            "designerId": "4080d5aa-d9be-4fd0-9f48-292872a3ecf7"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "documentSource3",
+                                "fieldLabel": "會計名稱",
+                                "name": "documentSource",
+                                "displayField": "name",
+                                "queryMode": "local",
+                                "store": "DocumentSheetStore",
+                                "valueField": "name"
+                            },
+                            "designerId": "95e8ef0d-8625-4633-a1fc-b8d3524c97f2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "部門別",
+                                "name": "subamounts",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "8bd1dc20-41b2-4d14-84b9-bebff95cf465"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "部門名稱",
+                                "name": "subamounts",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "ab90a771-8258-419b-bfe4-34ac9b8156be"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "幣別",
+                                "name": "subamounts",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "e11e3e86-4d81-459f-be2b-ad09264d9452"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "匯率",
+                                "name": "subamounts",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "bd1bc296-2693-474e-86d1-73db8bac1dee"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "原幣金額",
+                                "name": "subamounts",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "5bf958ac-69d5-4b2f-86ad-2ff00d4c0c92"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "本幣金額",
+                                "name": "tax",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "5d952bd0-c372-40ec-9fde-ad8e71eb93b4"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "fieldLabel": "備註",
+                                "name": "remark",
+                                "readOnly": true,
+                                "allowBlank": null
+                            },
+                            "designerId": "0fcfb7c0-ed35-4197-a157-f05801da82c9"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processDetailForm1",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "return Utilities.processConfigBundle(config, 'accountSheetDet');"
+                                ]
+                            },
+                            "designerId": "b953ec83-3a3d-4931-80f9-53c10d122035"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "itemId": "customerOrderDetIndex",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "087761d6-64d7-4b33-8cd5-309d9d4db509",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "777ca23b-2052-4d13-bab0-2eb26f4485ef",
+                    "masterInstanceId": "2efb4c35-8765-40df-8927-701f6ea32aa1"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "57fe5412-0d77-4f61-81fe-6a9e600fb807",
+                    "masterInstanceId": "eac725e1-abe7-42a6-aaea-a2fd3125607c"
+                }
+            ]
+        }
+    ]
+}
