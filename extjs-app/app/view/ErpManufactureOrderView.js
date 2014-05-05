@@ -19,6 +19,8 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
 
     requires: [
         'foodprint.view.ErpManufactureOrderGrid',
+        'foodprint.view.CommonWorkstationCombo',
+        'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
@@ -92,6 +94,24 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     fieldLabel: 'typeName',
                                     name: 'typeName',
                                     readOnly: true
+                                },
+                                {
+                                    xtype: 'commonworkstationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Workstation_title',
+                                    name: 'workstation.title'
+                                },
+                                {
+                                    xtype: 'commonsuppliercombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Supplier_title',
+                                    name: 'supplier.title'
                                 },
                                 {
                                     xtype: 'commonitemcombo',

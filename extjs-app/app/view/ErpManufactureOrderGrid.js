@@ -56,6 +56,44 @@ Ext.define('foodprint.view.ErpManufactureOrderGrid', {
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
+                    dataIndex: 'workstation.id',
+                    text: 'Workstation.Id',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'workstation.name',
+                    text: 'Workstation.Name',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'workstation.title',
+                    text: 'Workstation.Title',
+                    flex: 1
+                },
+                {
+                    xtype: 'numbercolumn',
+                    hidden: true,
+                    dataIndex: 'supplier.id',
+                    text: 'Supplier.Id',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'supplier.name',
+                    text: 'Supplier.Name',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'supplier.title',
+                    text: 'Supplier.Title',
+                    flex: 1
+                },
+                {
+                    xtype: 'numbercolumn',
+                    hidden: true,
                     dataIndex: 'item.id',
                     text: 'Item.id',
                     flex: 1,

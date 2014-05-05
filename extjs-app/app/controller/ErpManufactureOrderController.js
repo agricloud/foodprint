@@ -22,11 +22,15 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
 
     models: [
         'ErpManufactureOrder',
-        'Item'
+        'Item',
+        'Workstation',
+        'Supplier'
     ],
     stores: [
         'ErpManufactureOrderStore',
-        'ItemStore'
+        'ItemStore',
+        'WorkstationStore',
+        'SupplierStore'
     ],
     views: [
         'ErpManufactureOrderView'
@@ -80,6 +84,10 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
+            var wscombo=form.findField('workstation.id');
+            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
             var itemcombo=form.findField('item.id');
             Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
 

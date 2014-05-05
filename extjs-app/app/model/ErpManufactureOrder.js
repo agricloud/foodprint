@@ -28,11 +28,27 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
             name: 'typeName'
         },
         {
-            mapping: 'item.id',
+            name: 'workstation.id'
+        },
+        {
+            name: 'workstation.name'
+        },
+        {
+            name: 'workstation.title'
+        },
+        {
+            name: 'supplier.id'
+        },
+        {
+            name: 'supplier.name'
+        },
+        {
+            name: 'supplier.title'
+        },
+        {
             name: 'item.id'
         },
         {
-            mapping: 'item.name',
             name: 'item.name'
         },
         {
@@ -42,11 +58,9 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
             name: 'qty'
         },
         {
-            mapping: 'batch.id',
             name: 'batch.id'
         },
         {
-            mapping: 'batch.name',
             name: 'batch.name'
         }
     ],
