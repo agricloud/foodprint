@@ -480,7 +480,6 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     doPrint: function() {
-
         var that = this;
         var id = -1;
         console.log(this.getMainForm());
