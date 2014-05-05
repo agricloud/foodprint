@@ -139,7 +139,13 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                 }
                             ]
                         })
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 }
             ]
         });
@@ -149,6 +155,10 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
 
     processForm: function(config) {
         return Utilities.processConfigBundle(config, 'manufactureOrder');
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });

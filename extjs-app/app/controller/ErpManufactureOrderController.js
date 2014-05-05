@@ -64,6 +64,9 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
                 itemdblclick: this.doShowManufactureOrder
+            },
+            'erpmanufactureorderview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
             }
 
         });
@@ -79,6 +82,7 @@ Ext.define('foodprint.controller.ErpManufactureOrderController', {
             //在此使combo重新load store
             var itemcombo=form.findField('item.id');
             Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+
         });
     }
 
