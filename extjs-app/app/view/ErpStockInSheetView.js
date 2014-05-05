@@ -261,7 +261,13 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                 })
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -452,6 +458,10 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
 
     onGridBeforeRender: function(component, eOpts) {
         component.getStore().removeAll();
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });

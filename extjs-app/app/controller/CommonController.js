@@ -74,6 +74,7 @@ Ext.define('foodprint.controller.CommonController', {
                 that.actionName = 'save';
                 that.activeEditor();
                 that.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(true);
+                that.getMainForm().up('panel[itemId=show]').down('commonprintbtn').setDisabled(true);
 
                 if(form.findField('typeName')&&form.findField('name')){
                     form.findField('typeName').setReadOnly( false );
@@ -211,6 +212,8 @@ Ext.define('foodprint.controller.CommonController', {
     activeEditor: function() {
         if(this.getMainForm().up('panel[itemId=show]').down('commondeletebtn'))
         this.getMainForm().up('panel[itemId=show]').down('commondeletebtn').setDisabled(false);
+        if(this.getMainForm().up('panel[itemId=show]').down('commonprintbtn'))
+        this.getMainForm().up('panel[itemId=show]').down('commonprintbtn').setDisabled(false);
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainForm().up('panel[itemId=show]'));
     },
 
@@ -294,7 +297,6 @@ Ext.define('foodprint.controller.CommonController', {
             grid.getStore().getProxy().extraParams = params;
             grid.getStore().load();
 
-            that.showPrintBtn();
         });
 
 
@@ -477,15 +479,11 @@ Ext.define('foodprint.controller.CommonController', {
         this.getDetailGrid().up('panel[itemId=indexDetail]').down('commoncreatebtn').setDisabled(true);
     },
 
-    showPrintBtn: function() {
-        this.getMainForm().up('panel[itemId=show]').down('commonprintbtn').show();
-    },
-
     doPrint: function() {
 
         var that = this;
         var id = -1;
-
+        console.log(this.getMainForm());
         if(this.getMainForm().getForm().findField('id'))
         id = this.getMainForm().getForm().findField('id').getValue();
 
