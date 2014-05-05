@@ -132,6 +132,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         var params = {}
         params["saleSheet.id"]=record.data.id;
 
+
         grid.getStore().getProxy().extraParams = params;
         grid.getStore().load();
     },

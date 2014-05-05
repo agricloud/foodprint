@@ -18,6 +18,7 @@ Ext.define('foodprint.model.Currency', {
 
     fields: [
         {
+            mapping: 'id',
             name: 'id'
         },
         {
@@ -30,7 +31,7 @@ Ext.define('foodprint.model.Currency', {
 
     proxy: {
         type: 'rest',
-        url: '/foodpaint?foodpaintController=currency',
+        url: '/currency',
         reader: {
             type: 'json',
             root: 'currencyInstanceList',

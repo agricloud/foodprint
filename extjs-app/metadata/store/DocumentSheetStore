@@ -8,16 +8,17 @@
     "userConfig": {
         "batchUpdateMode": null,
         "model": null,
-        "storeId": "CurrencyStore",
-        "designer|userClassName": "CurrencyStore",
+        "storeId": "MyJsonStore2",
+        "designer|userClassName": "DocumentSheetStore",
         "data": [
             "[",
-            "    {\"currencyName\":\"TW\",\"rate\":\"1\"},",
-            "    {\"currencyName\":\"US\",\"rate\":\"2\"},",
-            "    {\"currencyName\":\"EUR\",\"rate\":\"3\"}]"
+            "    {\"name\":\"銷貨單\",\"index\":\"1\"},",
+            "    {\"name\":\"銷退單\",\"index\":\"2\"},",
+            "    {\"name\":\"其他\",\"index\":\"3\"},    ",
+            "]"
         ]
     },
-    "designerId": "dcca30b4-236a-46ea-a4ba-c44bc953c000",
+    "designerId": "64de12c7-b89c-4518-9910-bbfa8ef92cbf",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -27,9 +28,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "currencyName"
+                "name": "name"
             },
-            "designerId": "24c89eab-f708-4e78-b304-ebf1d6c2cdba"
+            "designerId": "b10a1e99-3066-48bb-a9ae-fc52e7e589ad"
         },
         {
             "type": "Ext.data.Field",
@@ -39,9 +40,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "rate"
+                "name": "index"
             },
-            "designerId": "48eab4d9-90a1-4f91-98f8-b0a4805452e7"
+            "designerId": "92bfc5a0-4882-4423-81ce-0fcf09d54359"
         }
     ]
 }

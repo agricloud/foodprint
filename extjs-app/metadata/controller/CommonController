@@ -507,6 +507,25 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "activeSaleReturnSheetDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleReturnSheetDetIndex]\"));",
+                    "",
+                    "var saleReturnSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleReturnSheetDetIndex]\").down(\"grid[itemId=saleReturnSheetDetGrid]\");",
+                    ""
+                ]
+            },
+            "designerId": "71b67433-4672-436f-9099-b5923e7c225a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doCreateAndIndexDetail",
                 "implHandler": [
                     "this.doCreate();",

@@ -60,15 +60,6 @@ Ext.define('foodprint.model.MyModel', {
             name: 'originalTotalAmount'
         },
         {
-            name: 'subamounts'
-        },
-        {
-            name: 'tax'
-        },
-        {
-            name: 'totalAmount'
-        },
-        {
             name: 'originalReceived'
         },
         {

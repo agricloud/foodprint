@@ -9,12 +9,20 @@
         "models": [
             "ErpAccountSheetDet",
             "ErpAccountSheet",
-            "Customer"
+            "Customer",
+            "ErpSaleSheet",
+            "ErpSaleSheetDet",
+            "ErpSaleReturnSheet",
+            "ErpSaleReturnSheetDet"
         ],
         "stores": [
             "ErpAccountSheetDetStore",
             "ErpAccountSheetStore",
-            "CustomerStore"
+            "CustomerStore",
+            "ErpSaleSheetStore",
+            "ErpSaleSheetDetStore",
+            "ErpSaleReturnSheetStore",
+            "ErpSaleReturnSheetDetStore"
         ],
         "views": [
             "ErpAccountSheetView"
@@ -97,6 +105,9 @@
                     "    'erpaccountsheetview #showDetail commonshowtoolbar commondeletebtn':{",
                     "        click:this.doDeleteDetail",
                     "    },",
+                    "    'erpaccountsheetview #showDetail #sourceSheetContainer commonselectbtn':{",
+                    "        click:this.doShowSourceSheetDetIndex",
+                    "    },",
                     "    'erpaccountsheetview #showDetail commonshowtoolbar commonsavebtn':{",
                     "        click:this.doSaveDetail",
                     "    },",
@@ -108,10 +119,19 @@
                     "        deselect: this.disableDetailShowBtn,",
                     "        itemdblclick: this.doShowAccountSheetDet",
                     "    },",
-                    "",
-                    "",
+                    "    'erpaccountsheetview #saleSheetDetIndex erpsalesheetgrid':{",
+                    "        select: this.doIndexDetailSaleSheet",
+                    "    },",
+                    "    'erpaccountsheetview #saleReturnSheetDetIndex erpsalereturnsheetgrid':{",
+                    "        select: this.doIndexDetailSaleReturnSheet",
+                    "    },",
+                    "    'erpaccountsheetview #saleReturnSheetDetIndex erpsalereturnsheetdetgrid':{",
+                    "        itemdblclick: this.doSelectSaleReturnSheetDet",
+                    "    },",
+                    " \t'erpaccountsheetview #saleSheetDetIndex erpsalesheetdetgrid':{",
+                    "        itemdblclick: this.doSelectSaleSheetDet",
+                    "    },",
                     "});",
-                    "",
                     "",
                     "",
                     "this.domainName = 'foodpaint';",
@@ -147,6 +167,183 @@
                 "selector": "erpaccountsheetview #detailForm"
             },
             "designerId": "d1730a75-b6e5-436a-a234-ad67297211ff"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailSaleSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=erpSaleSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"saleSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();",
+                    ""
+                ]
+            },
+            "designerId": "acf383e2-9a56-4c3f-a0dc-f7e37bd114ca"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexDetailSaleReturnSheet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=saleReturnSheetDetIndex]\").down(\"grid[itemId=erpSaleReturnSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().data.clear();",
+                    "",
+                    "var params = {}",
+                    "params[\"saleReturnSheet.id\"]=record.data.id;",
+                    "",
+                    "grid.getStore().getProxy().extraParams = params;",
+                    "grid.getStore().load();",
+                    ""
+                ]
+            },
+            "designerId": "5a567aaf-5123-403f-8d5a-56e7aa1edcbd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectSaleSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'sourceDocumentName':record.data['id'],",
+                    "    'documentTypeName':record.data['typeName'],",
+                    "    'documentName':record.data['name'],",
+                    "    'documentSequence':record.data['sequence'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],  ",
+                    "    'item.id':record.data['item.id'], ",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],    ",
+                    "    'qty':record.data['qty'],",
+                    "    'price':record.data['price'],    ",
+                    "    'tax':record.data['tax'],",
+                    "    'totalAmount':record.data['totalAmount'],",
+                    "    'subamounts':record.data['subamounts'],",
+                    "",
+                    "});",
+                    "",
+                    "//warehouseLocation combo需指定warehouse id才可load",
+                    "var wlcombo=this.getDetailForm().up().up().down(\"form[itemId=detailForm]\").down(\"combo[itemId=commonWarehouseLocationCombo]\");",
+                    "Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);",
+                    "",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "dd124fc7-1a28-4cb8-8c61-10959ad59cec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectSaleReturnSheetDet",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "",
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'sourceDocumentName':record.data['id'],",
+                    "    'documentTypeName':record.data['typeName'],",
+                    "    'documentName':record.data['name'],",
+                    "    'documentSequence':record.data['sequence'],",
+                    "    'warehouse.id':record.data['warehouse.id'],",
+                    "    'warehouse.title':record.data['warehouse.title'],",
+                    "    'warehouseLocation.id':record.data['warehouseLocation.id'], ",
+                    "    'warehouseLocation.title':record.data['warehouseLocation.title'],  ",
+                    "    'item.id':record.data['item.id'], ",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.id':record.data['batch.id'],",
+                    "    'batch.name':record.data['batch.name'],    ",
+                    "    'qty':record.data['qty'],",
+                    "    'price':record.data['price'],    ",
+                    "    'tax':record.data['tax'],",
+                    "    'totalAmount':record.data['totalAmount'],",
+                    "    'subamounts':record.data['subamounts'],",
+                    "",
+                    "",
+                    "});",
+                    "",
+                    "//warehouseLocation combo需指定warehouse id才可load",
+                    "var wlcombo=this.getDetailForm().up().up().down(\"form[itemId=detailForm]\").down(\"combo[itemId=commonWarehouseLocationCombo]\");",
+                    "Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);",
+                    "",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "fae6c058-f91e-4af8-b22b-dd7b3bf98a9b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSourceSheetDetIndex",
+                "implHandler": [
+                    "var source=this.getDetailForm().down('combo[itemId=documentSource]').getValue()",
+                    "",
+                    "if(source=='銷貨單'){",
+                    "    this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\"));",
+                    "    var saleSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=saleSheetDetGrid]\");",
+                    "}",
+                    "",
+                    "",
+                    "if(source=='銷退單'){",
+                    "    this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=saleReturnSheetDetIndex]\"));",
+                    "    var saleReturnSheetDetGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleReturnSheetDetIndex]\").down(\"grid[itemId=saleReturnSheetDetGrid]\");",
+                    "}",
+                    ""
+                ]
+            },
+            "designerId": "984f7dc5-0f8a-4851-8799-601ec02663c5"
         },
         {
             "type": "basicfunction",

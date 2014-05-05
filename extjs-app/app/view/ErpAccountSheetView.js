@@ -26,6 +26,8 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpSaleSheetGrid',
         'foodprint.view.ErpSaleSheetDetGrid',
+        'foodprint.view.ErpSaleReturnSheetGrid',
+        'foodprint.view.ErpSaleReturnSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -173,21 +175,28 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     flex: 1,
                                                     fieldLabel: 'currency',
                                                     name: 'currency',
-                                                    allowBlank: false
+                                                    allowBlank: false,
+                                                    displayField: 'currencyName',
+                                                    store: 'CurrencyStore',
+                                                    valueField: 'rate'
                                                 },
                                                 {
                                                     xtype: 'textfield',
                                                     flex: 1,
+                                                    itemId: 'rate',
                                                     fieldLabel: 'rate',
                                                     name: 'rate',
                                                     allowBlank: false
                                                 },
                                                 {
-                                                    xtype: 'textfield',
+                                                    xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: 'receivables',
                                                     name: 'receivables',
-                                                    allowBlank: false
+                                                    allowBlank: false,
+                                                    displayField: 'name',
+                                                    store: 'ReceivablesStore',
+                                                    valueField: 'index'
                                                 },
                                                 {
                                                     xtype: 'datefield',
@@ -218,31 +227,34 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     name: 'received'
                                                 },
                                                 {
-                                                    xtype: 'displayfield',
-                                                    itemId: 'amounts',
+                                                    xtype: 'textfield',
+                                                    itemId: 'subamounts',
                                                     padding: '',
                                                     width: 150,
                                                     fieldLabel: 'amounts',
                                                     labelWidth: 70,
-                                                    name: 'amounts'
+                                                    name: 'subamounts',
+                                                    readOnly: true
                                                 },
                                                 {
-                                                    xtype: 'displayfield',
+                                                    xtype: 'textfield',
                                                     itemId: 'tax',
                                                     padding: '',
                                                     width: 150,
                                                     fieldLabel: 'tax',
                                                     labelWidth: 70,
-                                                    name: 'tax'
+                                                    name: 'tax',
+                                                    readOnly: true
                                                 },
                                                 {
-                                                    xtype: 'displayfield',
+                                                    xtype: 'textfield',
                                                     itemId: 'totalAmount',
                                                     padding: '',
                                                     width: 150,
-                                                    fieldLabel: 'TotalAmount',
+                                                    fieldLabel: 'Total',
                                                     labelWidth: 70,
-                                                    name: 'totalAmount'
+                                                    name: 'totalAmount',
+                                                    readOnly: true
                                                 },
                                                 {
                                                     xtype: 'checkboxfield',
@@ -461,25 +473,19 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'documentSource',
-                                            text: 'Source',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'datecolumn',
-                                            dataIndex: 'documentDateCreated',
-                                            text: 'documentDateCreated',
+                                            text: 'documentSource',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'documentSource',
-                                            text: 'typeName',
+                                            dataIndex: 'documentTypeName',
+                                            text: 'documentTypeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'warehouse.name',
-                                            text: 'name',
+                                            dataIndex: 'documentName',
+                                            text: 'documentName',
                                             flex: 1
                                         },
                                         {
@@ -489,9 +495,29 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             flex: 1
                                         },
                                         {
+                                            xtype: 'datecolumn',
+                                            dataIndex: 'accountSheetDet.dateCreated',
+                                            text: 'documentDateCreated',
+                                            flex: 1
+                                        },
+                                        {
                                             xtype: 'gridcolumn',
-                                            dataIndex: ' subamounts',
-                                            text: ' subamounts',
+                                            hidden: true,
+                                            dataIndex: 'documentSource',
+                                            text: 'name',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            hidden: true,
+                                            dataIndex: 'typeName',
+                                            text: 'typeName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'subamounts',
+                                            text: 'subamounts',
                                             flex: 1
                                         },
                                         {
@@ -502,8 +528,8 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: ' totalAmount',
-                                            text: ' totalAmount',
+                                            dataIndex: 'totalAmount',
+                                            text: 'totalAmount',
                                             flex: 1
                                         }
                                     ],
@@ -578,8 +604,13 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                 },
                                 {
                                     xtype: 'combobox',
+                                    itemId: 'documentSource',
                                     fieldLabel: 'documentSource',
-                                    name: 'documentSource'
+                                    name: 'documentSource',
+                                    displayField: 'name',
+                                    queryMode: 'local',
+                                    store: 'DocumentSheetStore',
+                                    valueField: 'name'
                                 },
                                 {
                                     xtype: 'fieldcontainer',
@@ -593,23 +624,23 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                             xtype: 'numberfield',
                                             hidden: true,
                                             fieldLabel: 'saleSheetDet.id',
-                                            name: 'saleSheetDet.id',
+                                            name: 'sourceDocumentName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
                                             fieldLabel: 'sourceSheet.Num',
-                                            name: 'saleSheetDet.typeName',
+                                            name: 'documentTypeName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'saleSheetDet.name',
+                                            name: 'documentName',
                                             readOnly: true
                                         },
                                         {
                                             xtype: 'textfield',
-                                            name: 'saleSheetDet.sequence',
+                                            name: 'documentSequence',
                                             readOnly: true
                                         },
                                         {
@@ -657,9 +688,21 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     readOnly: true
                                 },
                                 {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
+                                    readOnly: true
+                                },
+                                {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: '單價',
+                                    name: 'price',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -667,12 +710,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     hidden: true,
                                     fieldLabel: 'id',
                                     name: 'batch.id',
-                                    readOnly: true
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: 'Batch.name',
-                                    name: 'batch.name',
                                     readOnly: true
                                 },
                                 {
@@ -717,6 +754,24 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                         },
                         {
                             xtype: 'erpsalesheetdetgrid',
+                            flex: 1
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'saleReturnSheetDetIndex',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'erpsalereturnsheetgrid',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'erpsalereturnsheetdetgrid',
                             flex: 1
                         }
                     ]

@@ -57,7 +57,7 @@ Ext.define('foodprint.view.CommonCurrencyCombo', {
         if(combo.up() && combo.up() instanceof Ext.form.Panel && combo.up().getForm()){
             combo.up().getForm().setValues({
 
-                'currency.id':records[0].data['id'],
+
                 'currency.currencyName':records[0].data['currencyName'],
                 'currency.rate':records[0].data['rate']
             });

@@ -36,6 +36,9 @@ Ext.define('foodprint.model.ErpAccountSheetDet', {
             name: 'documentSource'
         },
         {
+            name: 'sourceDocumentName'
+        },
+        {
             name: 'documentTypeName'
         },
         {

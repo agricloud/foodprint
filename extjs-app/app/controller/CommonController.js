@@ -285,6 +285,14 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
+    activeSaleReturnSheetDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=saleReturnSheetDetIndex]"));
+
+        var saleReturnSheetDetGrid=this.getMainGrid().up().up().down("panel[itemId=saleReturnSheetDetIndex]").down("grid[itemId=saleReturnSheetDetGrid]");
+
+    },
+
     doCreateAndIndexDetail: function() {
         this.doCreate();
         //單頭單身合併時 需將單身store移除

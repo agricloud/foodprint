@@ -23,12 +23,20 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
     models: [
         'ErpAccountSheetDet',
         'ErpAccountSheet',
-        'Customer'
+        'Customer',
+        'ErpSaleSheet',
+        'ErpSaleSheetDet',
+        'ErpSaleReturnSheet',
+        'ErpSaleReturnSheetDet'
     ],
     stores: [
         'ErpAccountSheetDetStore',
         'ErpAccountSheetStore',
-        'CustomerStore'
+        'CustomerStore',
+        'ErpSaleSheetStore',
+        'ErpSaleSheetDetStore',
+        'ErpSaleReturnSheetStore',
+        'ErpSaleReturnSheetDetStore'
     ],
     views: [
         'ErpAccountSheetView'
@@ -84,6 +92,9 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
             'erpaccountsheetview #showDetail commonshowtoolbar commondeletebtn':{
                 click:this.doDeleteDetail
             },
+            'erpaccountsheetview #showDetail #sourceSheetContainer commonselectbtn':{
+                click:this.doShowSourceSheetDetIndex
+            },
             'erpaccountsheetview #showDetail commonshowtoolbar commonsavebtn':{
                 click:this.doSaveDetail
             },
@@ -95,16 +106,135 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowAccountSheetDet
             },
-
-
+            'erpaccountsheetview #saleSheetDetIndex erpsalesheetgrid':{
+                select: this.doIndexDetailSaleSheet
+            },
+            'erpaccountsheetview #saleReturnSheetDetIndex erpsalereturnsheetgrid':{
+                select: this.doIndexDetailSaleReturnSheet
+            },
+            'erpaccountsheetview #saleReturnSheetDetIndex erpsalereturnsheetdetgrid':{
+                itemdblclick: this.doSelectSaleReturnSheetDet
+            },
+            'erpaccountsheetview #saleSheetDetIndex erpsalesheetdetgrid':{
+                itemdblclick: this.doSelectSaleSheetDet
+            },
         });
-
 
 
         this.domainName = 'foodpaint';
         this.foodpaintController = 'accountSheet';
         this.foodpaintDetController = 'accountSheetDet';
         this.masterKey='accountSheet.id';
+    },
+
+    doIndexDetailSaleSheet: function(obj, record, index, eOpts) {
+        var grid = this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=erpSaleSheetDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["saleSheet.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+
+    },
+
+    doIndexDetailSaleReturnSheet: function(obj, record, index, eOpts) {
+
+        var grid = this.getMainGrid().up().up().down("panel[itemId=saleReturnSheetDetIndex]").down("grid[itemId=erpSaleReturnSheetDetGrid]");
+
+        grid.getStore().data.clear();
+
+        var params = {}
+        params["saleReturnSheet.id"]=record.data.id;
+
+        grid.getStore().getProxy().extraParams = params;
+        grid.getStore().load();
+
+    },
+
+    doSelectSaleSheetDet: function(obj, record, index, eOpts) {
+
+        this.getDetailForm().getForm().setValues({
+
+            'sourceDocumentName':record.data['id'],
+            'documentTypeName':record.data['typeName'],
+            'documentName':record.data['name'],
+            'documentSequence':record.data['sequence'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.title':record.data['warehouseLocation.title'],  
+            'item.id':record.data['item.id'], 
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],    
+            'qty':record.data['qty'],
+            'price':record.data['price'],    
+            'tax':record.data['tax'],
+            'totalAmount':record.data['totalAmount'],
+            'subamounts':record.data['subamounts'],
+
+        });
+
+        //warehouseLocation combo需指定warehouse id才可load
+        var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
+        Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
+
+
+        this.activeDetailEditor();
+    },
+
+    doSelectSaleReturnSheetDet: function(obj, record, index, eOpts) {
+
+        this.getDetailForm().getForm().setValues({
+
+            'sourceDocumentName':record.data['id'],
+            'documentTypeName':record.data['typeName'],
+            'documentName':record.data['name'],
+            'documentSequence':record.data['sequence'],
+            'warehouse.id':record.data['warehouse.id'],
+            'warehouse.title':record.data['warehouse.title'],
+            'warehouseLocation.id':record.data['warehouseLocation.id'], 
+            'warehouseLocation.title':record.data['warehouseLocation.title'],  
+            'item.id':record.data['item.id'], 
+            'item.name':record.data['item.name'],
+            'item.title':record.data['item.title'],
+            'batch.id':record.data['batch.id'],
+            'batch.name':record.data['batch.name'],    
+            'qty':record.data['qty'],
+            'price':record.data['price'],    
+            'tax':record.data['tax'],
+            'totalAmount':record.data['totalAmount'],
+            'subamounts':record.data['subamounts'],
+
+
+        });
+
+        //warehouseLocation combo需指定warehouse id才可load
+        var wlcombo=this.getDetailForm().up().up().down("form[itemId=detailForm]").down("combo[itemId=commonWarehouseLocationCombo]");
+        Utilities.compositionComboReload(wlcombo, 'warehouse.id',record.data['warehouse.id'],record.data['warehouseLocation.id']);
+
+
+        this.activeDetailEditor();
+    },
+
+    doShowSourceSheetDetIndex: function() {
+        var source=this.getDetailForm().down('combo[itemId=documentSource]').getValue()
+
+        if(source=='銷貨單'){
+            this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]"));
+            var saleSheetDetGrid=this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=saleSheetDetGrid]");
+        }
+
+
+        if(source=='銷退單'){
+            this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=saleReturnSheetDetIndex]"));
+            var saleReturnSheetDetGrid=this.getMainGrid().up().up().down("panel[itemId=saleReturnSheetDetIndex]").down("grid[itemId=saleReturnSheetDetGrid]");
+        }
+
     },
 
     doShowAccountSheet: function() {
