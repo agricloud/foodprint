@@ -138,7 +138,13 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -318,6 +324,10 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'materialSheetDet');
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });

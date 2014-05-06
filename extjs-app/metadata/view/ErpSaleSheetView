@@ -260,6 +260,23 @@
                             "masterInstanceId": "0c9e0fab-cb97-4428-b9d7-00aed6a346cd"
                         }
                     ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onShowAfterRender",
+                        "implHandler": [
+                            "component.down('commonshowtoolbar').down('commonprintbtn').show();"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "designerId": "2224b4f4-af4c-4c7a-a777-96173a6ffff3"
                 }
             ]
         },

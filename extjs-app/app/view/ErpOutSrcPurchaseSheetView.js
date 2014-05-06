@@ -128,7 +128,13 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -311,6 +317,10 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseSheetView', {
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });

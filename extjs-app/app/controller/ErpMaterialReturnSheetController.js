@@ -80,6 +80,9 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             'erpmaterialreturnsheetview #show commonshowtoolbar commoncancelbtn':{
                 click:this.doCancel
             },
+            'erpmaterialreturnsheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
+            },
             'erpmaterialreturnsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,

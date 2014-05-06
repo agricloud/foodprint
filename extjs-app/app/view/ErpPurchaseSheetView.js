@@ -127,7 +127,13 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -246,6 +252,10 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'purchaseSheetDet');
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });
