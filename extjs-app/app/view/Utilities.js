@@ -176,6 +176,7 @@ Ext.define('foodprint.view.Utilities', {
     },
 
     processConfigBundle: function(config, prefix) {
+
         if (!prefix) {
             console.warn("processConfigBundle require a prefix argument");
         }
@@ -214,7 +215,7 @@ Ext.define('foodprint.view.Utilities', {
             }
         }
 
-        if ((config instanceof Ext.grid.Panel || config.xtype=='gridpanel') && config.columns) {
+        if ((config instanceof Ext.grid.Panel || config.xtype=='gridpanel' || config.xtype=='treepanel') && config.columns) {
             if(config.title != null)
             config.title = this.getMsg(prefix+'.label');
             for (var i=0; i<config.columns.length; i++) {
