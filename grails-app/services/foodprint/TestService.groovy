@@ -105,8 +105,8 @@ class TestService {
         messageSource.addMessage("country.SPAIN.label", Locale.getDefault(), "西班牙") 
     }
     def createCloudFarmData = {
-        //def site1 = new Site(name:"site1",title:"雲林斗六許家農場",description:"專門栽種符合TGAP柑桔類之果園",address:"雲林縣斗六市重光里").save(failOnError: true)
-        //def user2 = new User(username: 'huang', password: 'huang', enabled: true,site:site1).save(fai6lOnError: true)
+        def site1 = new Site(name:"site1",title:"雲林斗六許家農場",description:"專門栽種符合TGAP柑桔類之果園",address:"雲林縣斗六市重光里").save(failOnError: true)
+        def user2 = new User(username: 'huang', password: 'huang', enabled: true,site:site1).save(fai6lOnError: true)
         def workstation1 = new Workstation(name:"workstation1",title:"柳丁栽種區-1985",description:"地號：1111-1111").save(failOnError: true)
         
         def supplier1 = new Supplier(name:"supplier1",title:"農家樂",tel:"05-5342501",email:"long@agri.com",address:"雲林縣斗六市成功路").save(failOnError: true)
