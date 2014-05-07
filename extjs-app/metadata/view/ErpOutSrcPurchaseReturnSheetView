@@ -833,6 +833,23 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onShowAfterRender",
+                        "implHandler": [
+                            "component.down('commonshowtoolbar').down('commonprintbtn').show();"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "designerId": "7bd52bfd-6d8f-4dca-ac2e-e5e93e89011a"
                 }
             ]
         },

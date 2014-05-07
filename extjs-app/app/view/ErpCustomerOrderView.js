@@ -131,7 +131,13 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        afterrender: {
+                            fn: me.onShowAfterRender,
+                            scope: me
+                        }
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -223,6 +229,10 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
 
     processDetailForm: function(config) {
         return Utilities.processConfigBundle(config, 'customerOrderDet');
+    },
+
+    onShowAfterRender: function(component, eOpts) {
+        component.down('commonshowtoolbar').down('commonprintbtn').show();
     }
 
 });

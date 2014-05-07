@@ -480,10 +480,9 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     doPrint: function() {
-
         var that = this;
         var id = -1;
-        console.log(this.getMainForm());
+
         if(this.getMainForm().getForm().findField('id'))
         id = this.getMainForm().getForm().findField('id').getValue();
 

@@ -78,6 +78,9 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             'erppurchasereturnsheetview #show commonshowtoolbar commoncancelbtn':{
                 click:this.doCancel
             },
+            'erppurchasereturnsheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
+            },
             'erppurchasereturnsheetview #grid':{
                 select: this.enableShowBtn,
                 deselect: this.disableShowBtn,
