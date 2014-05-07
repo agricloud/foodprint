@@ -87,9 +87,10 @@ class TraceTreeController {
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
                 node.qty = manufactureOrder.qty
-                manufactureOrder.stockInSheetDets.eachWithIndex(){ stockInSheetDet, i ->
+                def stockInSheetDets=foodpaintService.queryStockInSheetDetByManufactureOrder(manufactureOrder.typeName,manufactureOrder.name)
+                stockInSheetDets.data.eachWithIndex(){ stockInSheetDet, i ->
                     node.sheet += stockInSheetDet.typeName+"-"+stockInSheetDet.name+"-"+stockInSheetDet.sequence
-                    if(i != manufactureOrder.stockInSheetDets.size()-1)
+                    if(i != stockInSheetDets.data.size()-1)
                         node.sheet += ","
                 }
                 childJson << node
@@ -107,9 +108,10 @@ class TraceTreeController {
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
                 node.qty = manufactureOrder.qty
-                manufactureOrder.outSrcPurchaseSheetDets.eachWithIndex(){ outSrcPurchaseSheetDet, i ->
+                def outSrcPurchaseSheetDets=foodpaintService.queryOutSrcPurchaseSheetDetByManufactureOrder(manufactureOrder.typeName,manufactureOrder.name)
+                outSrcPurchaseSheetDets.data.eachWithIndex(){ outSrcPurchaseSheetDet, i ->
                     node.sheet += outSrcPurchaseSheetDet.typeName+"-"+outSrcPurchaseSheetDet.name+"-"+outSrcPurchaseSheetDet.sequence
-                    if(i != manufactureOrder.outSrcPurchaseSheetDets.size()-1)
+                    if(i != outSrcPurchaseSheetDets.data.size()-1)
                         node.sheet += ","
                 }
                 childJson << node
@@ -272,7 +274,10 @@ class TraceTreeController {
 
             manufactureOrders.data.each{ manufactureOrder->
                 def node = [:]
-                node.note = "製造領用"//目前無法經製令判斷是自製或託外
+                if(manufactureOrder.workstation)
+                    node.note = "自製領用"
+                if(manufactureOrder.supplier)
+                    node.note = "託外領用"
                 node.sheet = "領料單: "
                 node.type = "製令"
                 node.class = "ManufactureOrder"
@@ -280,11 +285,14 @@ class TraceTreeController {
                 node.item = manufactureOrder.item
                 node.qty = manufactureOrder.qty
 
-                manufactureOrder.materialSheetDets.eachWithIndex(){ materialSheetDet, i ->
+                def materialSheetDets=foodpaintService.queryMaterialSheetDetByManufactureOrder(manufactureOrder.typeName,manufactureOrder.name)
+                materialSheetDets.data.eachWithIndex(){ materialSheetDet, i ->
                     node.sheet += materialSheetDet.typeName+"-"+materialSheetDet.name+"-"+materialSheetDet.sequence
-                    if(i != manufactureOrder.materialSheetDets.size()-1)
+                    if(i != materialSheetDets.data.size()-1)
                         node.sheet += ","
                 }
+
+                node.sheetDetail=materialSheetDets.data
                 childJson << node
             }
         }
@@ -343,9 +351,8 @@ class TraceTreeController {
         
         def childJson = []
 
-        def batchs = foodpaintService.queryBatchFormStockInSheetDetByManufactureOrder(typeName, name).data
-
-        batchs.each(){ batch ->
+        def batchs = foodpaintService.queryBatchFormStockInSheetDetByManufactureOrder(typeName, name)
+        batchs.data.each(){ batch ->
             def node = [:]
             node.note="入庫"
             node.type = "批號"
@@ -366,8 +373,8 @@ class TraceTreeController {
             childJson << node
         }
 
-        batchs = foodpaintService.queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder(typeName, name).data
-        batchs.each(){ batch ->
+        batchs = foodpaintService.queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder(typeName, name)
+        batchs.data.each(){ batch ->
             def node = [:]
             node.note="託外"
             node.type = "批號"

@@ -26,58 +26,8 @@ Ext.define('foodprint.store.ForwardTraceTreeStore', {
         me.callParent([Ext.apply({
             autoLoad: false,
             model: 'foodprint.model.TraceTree',
-            storeId: 'MyTreeStore',
+            storeId: 'ForwardTraceTreeStore',
             folderSort: true,
-            fields: [
-                {
-                    mapping: 'id',
-                    name: 'id'
-                },
-                {
-                    mapping: 'name',
-                    name: 'name'
-                },
-                {
-                    mapping: 'expectQty',
-                    name: 'expectQty'
-                },
-                {
-                    mapping: 'dueDate',
-                    name: 'dueDate'
-                },
-                {
-                    mapping: 'manufactureDate',
-                    name: 'manufactureDate'
-                },
-                {
-                    mapping: 'expirationDate',
-                    name: 'expirationDate'
-                },
-                {
-                    mapping: 'batchType.name',
-                    name: 'batchType'
-                },
-                {
-                    mapping: 'country.name',
-                    name: 'country'
-                },
-                {
-                    mapping: 'item.id',
-                    name: 'item.id'
-                },
-                {
-                    mapping: 'item.name',
-                    name: 'item.name'
-                },
-                {
-                    mapping: 'item.title',
-                    name: 'item.title'
-                },
-                {
-                    mapping: 'supplier.id',
-                    name: 'supplier.id'
-                }
-            ],
             proxy: {
                 type: 'ajax',
                 url: '/traceTree/forwardTrace'
