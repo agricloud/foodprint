@@ -108,10 +108,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
                 itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet
             },
             'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{
-                click:this.activeOurSrcPurchaseSheetDetIndex
-            },
-            'erpoutsrcpurchasereturnsheetview #showDetail #detailForm commoncancelbtn':{
-                click:this.doCancelSelectOutSrcPurchaseSheetDet
+                click:this.activeOutSrcPurchaseSheetDetIndex
             },
             'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{
                 select: this.doIndexDetailOutSrcPurchaseSheet
@@ -221,10 +218,6 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
         this.doShowDetail(function(success,form,action){
 
         });
-    },
-
-    doCancelSelectOutSrcPurchaseSheetDet: function() {
-        this.doCancelSelect();
     }
 
 });

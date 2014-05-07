@@ -471,11 +471,10 @@
             "userConfig": {
                 "fn": "activeMaterialSheetDetIndex",
                 "implHandler": [
-                    "",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\"));"
                 ]
             },
-            "designerId": "f33e0283-6b71-4019-8b86-cc240b1c32bc"
+            "designerId": "65b100ec-738f-4721-91e5-0e1ece89b254"
         },
         {
             "type": "basicfunction",
@@ -485,13 +484,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activeOurSrcPurchaseSheetDetIndex",
+                "fn": "activeOutSrcPurchaseSheetDetIndex",
                 "implHandler": [
-                    "",
                     "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\"));"
                 ]
             },
-            "designerId": "75519c68-84f4-4103-bedf-924648e7c322"
+            "designerId": "9c68aad4-2c85-443f-8183-2209081c4ede"
         },
         {
             "type": "basicfunction",
@@ -879,33 +877,6 @@
                 ]
             },
             "designerId": "c3fea807-2a1c-4937-be4a-d37bab965887"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCancelSelect",
-                "implHandler": [
-                    "var form=this.getDetailForm();",
-                    "var id=form.down('field[name=id]').getValue();",
-                    "var typeName=form.down('field[name=typeName]').getValue();",
-                    "var name=form.down('field[name=name]').getValue();",
-                    "var sequence=form.down('field[name=sequence]').getValue();",
-                    "form.getForm().reset(true);",
-                    "",
-                    "form.getForm().setValues({",
-                    "    'id':id,",
-                    "    'typeName':typeName,",
-                    "    'name':name,",
-                    "    'sequence':sequence",
-                    "});"
-                ]
-            },
-            "designerId": "ac7bc535-cda1-43bb-aeeb-6fc17dc3166a"
         }
     ]
 }

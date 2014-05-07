@@ -117,10 +117,7 @@
                     "        itemdblclick: this.doShowOutSrcPurchaseReturnSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #showDetail commonselectbtn':{",
-                    "        click:this.activeOurSrcPurchaseSheetDetIndex",
-                    "    },",
-                    "    'erpoutsrcpurchasereturnsheetview #showDetail #detailForm commoncancelbtn':{",
-                    "        click:this.doCancelSelectOutSrcPurchaseSheetDet",
+                    "        click:this.activeOutSrcPurchaseSheetDetIndex",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetgrid':{",
                     "        select: this.doIndexDetailOutSrcPurchaseSheet",
@@ -336,21 +333,6 @@
                 ]
             },
             "designerId": "b7d65f65-c351-495c-bd48-5d598acbd340"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCancelSelectOutSrcPurchaseSheetDet",
-                "implHandler": [
-                    "this.doCancelSelect();"
-                ]
-            },
-            "designerId": "f7213f48-8130-4e0b-895f-68e09ae1eecd"
         }
     ]
 }

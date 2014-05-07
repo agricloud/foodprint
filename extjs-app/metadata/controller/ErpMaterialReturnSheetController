@@ -132,9 +132,6 @@
                     "    'erpmaterialreturnsheetview #showDetail #detailForm commonselectbtn':{",
                     "        click:this.activeMaterialSheetDetIndex",
                     "    },",
-                    "    'erpmaterialreturnsheetview #showDetail #detailForm commoncancelbtn':{",
-                    "        click:this.doCancelSelectMaterialSheetDet",
-                    "    },",
                     "    'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetgrid':{",
                     "        select: this.doIndexDetailMaterialSheet",
                     "    }",
@@ -371,33 +368,6 @@
                 ]
             },
             "designerId": "6b94438d-235f-49bb-afc6-4f715e8df94b"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doCancelSelectMaterialSheetDet",
-                "implHandler": [
-                    "var form=this.getDetailForm();",
-                    "var id=form.down('field[name=id]').getValue();",
-                    "var typeName=form.down('field[name=typeName]').getValue();",
-                    "var name=form.down('field[name=name]').getValue();",
-                    "var sequence=form.down('field[name=sequence]').getValue();",
-                    "form.getForm().reset(true);",
-                    "",
-                    "form.getForm().setValues({",
-                    "    'id':id,",
-                    "    'typeName':typeName,",
-                    "    'name':name,",
-                    "    'sequence':sequence",
-                    "});"
-                ]
-            },
-            "designerId": "2499f2ef-f484-4091-8ccd-68d417ea226d"
         }
     ]
 }

@@ -22,7 +22,6 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
         'foodprint.view.CommonWorkstationCombo',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
-        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpManufactureOrderGrid',
@@ -394,12 +393,6 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         },
                                         {
                                             xtype: 'commonselectbtn'
-                                        },
-                                        {
-                                            xtype: 'commoncancelbtn',
-                                            frame: false,
-                                            glyph: 0,
-                                            margins: '1'
                                         }
                                     ]
                                 },
@@ -424,11 +417,24 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     readOnly: true
                                 },
                                 {
-                                    xtype: 'commonwarehousecombo',
-                                    flex: 1
+                                    xtype: 'commonwarehousecombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'warehouse.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'commonwarehouselocationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'warehouseLocation.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',

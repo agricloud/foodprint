@@ -21,7 +21,6 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
         'foodprint.view.ErpOutSrcPurchaseReturnSheetGrid',
         'foodprint.view.CommonSupplierCombo',
         'foodprint.view.CommonSelectBtn',
-        'foodprint.view.CommonCancelBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
         'foodprint.view.ErpManufactureOrderGrid',
@@ -356,12 +355,6 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                         },
                                         {
                                             xtype: 'commonselectbtn'
-                                        },
-                                        {
-                                            xtype: 'commoncancelbtn',
-                                            frame: false,
-                                            glyph: 0,
-                                            margins: '1'
                                         }
                                     ]
                                 },
@@ -397,7 +390,21 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     xtype: 'commonwarehousecombo'
                                 },
                                 {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'warehouse.title',
+                                    readOnly: true
+                                },
+                                {
                                     xtype: 'commonwarehouselocationcombo'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.title',
+                                    name: 'warehouseLocation.title',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'numberfield',
