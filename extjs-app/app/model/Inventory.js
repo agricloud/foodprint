@@ -39,6 +39,9 @@ Ext.define('foodprint.model.Inventory', {
             name: 'item.title'
         },
         {
+            name: 'item.unit'
+        },
+        {
             name: 'qty'
         },
         {
