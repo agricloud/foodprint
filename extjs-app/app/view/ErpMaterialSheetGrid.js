@@ -38,57 +38,57 @@ Ext.define('foodprint.view.ErpMaterialSheetGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'typeName',
-                    text: 'TypeName',
+                    text: 'typeName',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'workstation.id',
-                    text: 'Workstation.Id',
+                    text: 'workstation.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.name',
-                    text: 'Workstation.Name',
+                    text: 'workstation.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.title',
-                    text: 'Workstation.Title',
+                    text: 'workstation.title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'supplier.id',
-                    text: 'Supplier.Id',
+                    text: 'supplier.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.name',
-                    text: 'Supplier.Name',
+                    text: 'supplier.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.title',
-                    text: 'Supplier.Title',
+                    text: 'supplier.title',
                     flex: 1
                 }
             ],

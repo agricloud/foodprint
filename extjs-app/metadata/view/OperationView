@@ -141,25 +141,6 @@
                             "designerId": "917bdf0c-0c8f-47a8-b28f-34e058c581d2"
                         },
                         {
-                            "type": "processcfgfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "processLocalized",
-                                "designer|params": [
-                                    "config"
-                                ],
-                                "implHandler": [
-                                    "",
-                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'operation'));"
-                                ]
-                            },
-                            "designerId": "c1e47074-b31b-4ec0-a54a-4f822f8d1acb"
-                        },
-                        {
                             "type": "basiceventbinding",
                             "reference": {
                                 "name": "listeners",
@@ -175,6 +156,25 @@
                                 "scope": "me"
                             },
                             "designerId": "b3b7dd86-9d62-47ca-a771-5808b340aa3f"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "",
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'operation'));"
+                                ]
+                            },
+                            "designerId": "fe78dd4c-9886-47e1-9ac1-1c90b4d8c6c8"
                         }
                     ]
                 }

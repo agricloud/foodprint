@@ -31,47 +31,47 @@ Ext.define('foodprint.view.UserForm', {
             items: [
                 {
                     xtype: 'numberfield',
-                    fieldLabel: 'ID',
+                    fieldLabel: 'id',
                     name: 'id',
                     readOnly: true
                 },
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'User Name',
+                    fieldLabel: 'username',
                     name: 'username',
                     allowBlank: false
                 },
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'Full Name',
+                    fieldLabel: 'fullName',
                     name: 'fullName'
                 },
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'Password',
+                    fieldLabel: 'password',
                     name: 'password'
                 },
                 {
                     xtype: 'checkboxfield',
-                    fieldLabel: 'Enabled',
+                    fieldLabel: 'enabled',
                     name: 'enabled'
                 },
                 {
                     xtype: 'textfield',
                     hidden: true,
-                    fieldLabel: 'Site_id',
+                    fieldLabel: 'site.id',
                     name: 'site.id',
                     readOnly: true
                 },
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'Site_name',
+                    fieldLabel: 'site.name',
                     name: 'site.name',
                     readOnly: true
                 },
                 {
                     xtype: 'textfield',
-                    fieldLabel: 'Site_title',
+                    fieldLabel: 'site.title',
                     name: 'site.title',
                     readOnly: true
                 }

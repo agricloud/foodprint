@@ -38,90 +38,90 @@ Ext.define('foodprint.view.ErpManufactureOrderGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'typeName',
-                    text: 'TypeName',
+                    text: 'typeName',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'workstation.id',
-                    text: 'Workstation.Id',
+                    text: 'workstation.Id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.name',
-                    text: 'Workstation.Name',
+                    text: 'workstation.Name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.title',
-                    text: 'Workstation.Title',
+                    text: 'workstation.Title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'supplier.id',
-                    text: 'Supplier.Id',
+                    text: 'supplier.Id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.name',
-                    text: 'Supplier.Name',
+                    text: 'supplier.Name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.title',
-                    text: 'Supplier.Title',
+                    text: 'supplier.Title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'item.id',
-                    text: 'Item.id',
+                    text: 'item.id',
                     flex: 1,
                     format: '0,000'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.name',
-                    text: 'Item.name',
+                    text: 'item.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.title',
-                    text: 'Item.title',
+                    text: 'item.title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'batch.id',
-                    text: 'Batch.id',
+                    text: 'batch.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'batch.name',
-                    text: 'Batch.name',
+                    text: 'batch.name',
                     flex: 1
                 },
                 {

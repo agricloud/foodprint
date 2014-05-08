@@ -18,7 +18,6 @@ Ext.define('foodprint.model.Workstation', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {

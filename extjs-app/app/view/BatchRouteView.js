@@ -86,7 +86,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Batch_id',
+                                    fieldLabel: 'batch.id',
                                     name: 'batch.id',
                                     readOnly: true,
                                     allowBlank: false
@@ -110,7 +110,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Operation_title',
+                                    fieldLabel: 'operation.title',
                                     name: 'operation.title',
                                     allowBlank: false
                                 },
@@ -120,7 +120,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Workstation_title',
+                                    fieldLabel: 'workstation.title',
                                     name: 'workstation.title'
                                 },
                                 {
@@ -129,7 +129,7 @@ Ext.define('foodprint.view.BatchRouteView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Supplier_title',
+                                    fieldLabel: 'supplier.title',
                                     name: 'supplier.title'
                                 }
                             ]

@@ -46,69 +46,69 @@ Ext.define('foodprint.view.BatchRouteGrid', {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'operation.id',
-                    text: 'Operation_id',
+                    text: 'operation.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'operation.name',
-                    text: 'Operation_name',
+                    text: 'operation.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'operation.title',
-                    text: 'Operation_title',
+                    text: 'operation.title',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'workstation.id',
-                    text: 'Workstation_id',
+                    text: 'workstation.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.name',
-                    text: 'Workstation_name',
+                    text: 'workstation.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'workstation.title',
-                    text: 'Workstation_title',
+                    text: 'workstation.title',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'supplier.id',
-                    text: 'Supplier_id',
+                    text: 'supplier.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.name',
-                    text: 'Supplier_name',
+                    text: 'supplier.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.title',
-                    text: 'Supplier_title',
+                    text: 'supplier.title',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     dataIndex: 'startDate',
-                    text: 'StartDate',
+                    text: 'startDate',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     dataIndex: 'endDate',
-                    text: 'EndDate',
+                    text: 'endDate',
                     flex: 1
                 }
             ],

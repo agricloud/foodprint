@@ -18,18 +18,15 @@ Ext.define('foodprint.model.BatchRotue', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {
-            mapping: 'batch.id',
             name: 'batch.id'
         },
         {
             name: 'sequence'
         },
         {
-            mapping: 'operation.id',
             name: 'operation.id'
         },
         {
@@ -39,7 +36,6 @@ Ext.define('foodprint.model.BatchRotue', {
             name: 'operation.title'
         },
         {
-            mapping: 'workstation.id',
             name: 'workstation.id'
         },
         {

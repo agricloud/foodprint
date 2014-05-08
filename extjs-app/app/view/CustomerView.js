@@ -55,31 +55,31 @@ Ext.define('foodprint.view.CustomerView', {
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'name',
-                                    text: 'Name',
+                                    text: 'name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'title',
-                                    text: 'Title',
+                                    text: 'title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'tel',
-                                    text: 'Tel',
+                                    text: 'tel',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'email',
-                                    text: 'Email',
+                                    text: 'email',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'address',
-                                    text: 'Address',
+                                    text: 'address',
                                     flex: 1
                                 }
                             ],

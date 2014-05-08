@@ -66,57 +66,57 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'id',
-                                    text: 'Id',
+                                    text: 'id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'typeName',
-                                    text: 'TypeName',
+                                    text: 'typeName',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'name',
-                                    text: 'Name',
+                                    text: 'name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'workstation.id',
-                                    text: 'Workstation.Id',
+                                    text: 'workstation.id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'workstation.name',
-                                    text: 'Workstation.Name',
+                                    text: 'workstation.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'workstation.title',
-                                    text: 'Workstation.Title',
+                                    text: 'workstation.title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'supplier.id',
-                                    text: 'Supplier.Id',
+                                    text: 'supplier.id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'supplier.name',
-                                    text: 'Supplier.Name',
+                                    text: 'supplier.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'supplier.title',
-                                    text: 'Supplier.Title',
+                                    text: 'supplier.title',
                                     flex: 1
                                 }
                             ],
@@ -178,7 +178,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Workstation_title',
+                                    fieldLabel: 'workstation.title',
                                     name: 'workstation.title'
                                 },
                                 {
@@ -187,7 +187,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Supplier_title',
+                                    fieldLabel: 'supplier.title',
                                     name: 'supplier.title'
                                 }
                             ]
@@ -216,27 +216,27 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'id',
-                                            text: 'Id',
+                                            text: 'id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
                                             dataIndex: 'typeName',
-                                            text: 'TypeName',
+                                            text: 'typeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
                                             dataIndex: 'name',
-                                            text: 'Name',
+                                            text: 'name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             dataIndex: 'sequence',
-                                            text: 'Sequence',
+                                            text: 'sequence',
                                             flex: 1,
                                             format: '0,000'
                                         },
@@ -244,89 +244,89 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'manufactureOrder.id',
-                                            text: 'ManufactureOrder.id',
+                                            text: 'manufactureOrder.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'manufactureOrder.typeName',
-                                            text: 'ManufactureOrder.typeName',
+                                            text: 'manufactureOrder.typeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'manufactureOrder.name',
-                                            text: 'ManufactureOrder.name',
+                                            text: 'manufactureOrder.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'warehouse.id',
-                                            text: 'Warehouse.id',
+                                            text: 'warehouse.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouse.name',
-                                            text: 'Warehouse.name',
+                                            text: 'warehouse.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouse.title',
-                                            text: 'Warehouse.title',
+                                            text: 'warehouse.title',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'warehouseLocation.id',
-                                            text: 'WarehouseLocation.id',
+                                            text: 'warehouseLocation.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.name',
-                                            text: 'WarehouseLocation.name',
+                                            text: 'warehouseLocation.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.title',
-                                            text: 'WarehouseLocation.title',
+                                            text: 'warehouseLocation.title',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'batch.id',
-                                            text: 'Batch.id',
+                                            text: 'batch.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'batch.name',
-                                            text: 'Batch.name',
+                                            text: 'batch.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'item.id',
-                                            text: 'Item.id',
+                                            text: 'item.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'item.name',
-                                            text: 'Item.name',
+                                            text: 'item.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'item.title',
-                                            text: 'Item.title',
+                                            text: 'item.title',
                                             flex: 1
                                         },
                                         {
@@ -513,7 +513,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Warehouse.title',
+                                    fieldLabel: 'warehouse.title',
                                     name: 'warehouse.title'
                                 },
                                 {
@@ -523,7 +523,7 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
+                                    fieldLabel: 'warehouseLocation.title',
                                     name: 'warehouseLocation.title'
                                 },
                                 {
@@ -552,14 +552,14 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.name',
+                                    fieldLabel: 'item.name',
                                     name: 'item.name',
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {

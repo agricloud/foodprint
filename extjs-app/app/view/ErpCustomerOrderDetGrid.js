@@ -31,27 +31,27 @@ Ext.define('foodprint.view.ErpCustomerOrderDetGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'typeName',
-                    text: 'TypeName',
+                    text: 'typeName',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     dataIndex: 'sequence',
-                    text: 'Sequence',
+                    text: 'sequence',
                     flex: 1,
                     format: '0,000'
                 },
@@ -59,19 +59,19 @@ Ext.define('foodprint.view.ErpCustomerOrderDetGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'item.id',
-                    text: 'Item.id',
+                    text: 'item.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.name',
-                    text: 'Item.name',
+                    text: 'item.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.title',
-                    text: 'Item.title',
+                    text: 'item.title',
                     flex: 1
                 },
                 {

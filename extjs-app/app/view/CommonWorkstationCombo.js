@@ -18,7 +18,7 @@ Ext.define('foodprint.view.CommonWorkstationCombo', {
     alias: 'widget.commonworkstationcombo',
 
     itemId: 'commonWorkstationCombo',
-    fieldLabel: 'Workstation.name',
+    fieldLabel: 'workstation.name',
     name: 'workstation.id',
     displayField: 'name',
     forceSelection: true,

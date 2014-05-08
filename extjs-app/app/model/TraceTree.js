@@ -24,15 +24,12 @@ Ext.define('foodprint.model.TraceTree', {
             name: 'type'
         },
         {
-            mapping: 'name',
             name: 'name'
         },
         {
-            mapping: 'item.name',
             name: 'item.name'
         },
         {
-            mapping: 'item.title',
             name: 'item.title'
         },
         {

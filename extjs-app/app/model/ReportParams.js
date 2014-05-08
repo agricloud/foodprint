@@ -21,59 +21,45 @@ Ext.define('foodprint.model.ReportParams', {
             name: 'id'
         },
         {
-            mapping: 'report.id',
             name: 'report.id'
         },
         {
-            mapping: 'report.name',
             name: 'report.name'
         },
         {
-            mapping: 'param.id',
             name: 'param.id'
         },
         {
-            mapping: 'param.name',
             name: 'param.name'
         },
         {
-            mapping: 'param.title',
             name: 'param.title'
         },
         {
-            mapping: 'item.id',
             name: 'item.id'
         },
         {
-            mapping: 'item.name',
             name: 'item.name'
         },
         {
-            mapping: 'item.title',
             name: 'item.title'
         },
         {
-            mapping: 'workstation.id',
             name: 'workstation.id'
         },
         {
-            mapping: 'workstation.name',
             name: 'workstation.name'
         },
         {
-            mapping: 'workstation.title',
             name: 'workstation.title'
         },
         {
-            mapping: 'operation.id',
             name: 'operation.id'
         },
         {
-            mapping: 'operation.name',
             name: 'operation.name'
         },
         {
-            mapping: 'operation.title',
             name: 'operation.title'
         },
         {

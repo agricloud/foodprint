@@ -65,38 +65,38 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'id',
-                                    text: 'Id',
+                                    text: 'id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'typeName',
-                                    text: 'TypeName',
+                                    text: 'typeName',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'name',
-                                    text: 'Name',
+                                    text: 'name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'customer.id',
-                                    text: 'Customer.Id',
+                                    text: 'customer.Id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'customer.name',
-                                    text: 'Customer.Name',
+                                    text: 'customer.Name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'customer.title',
-                                    text: 'Customer.Title',
+                                    text: 'customer.Title',
                                     flex: 1
                                 }
                             ],
@@ -159,7 +159,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Customer.title',
+                                    fieldLabel: 'customer.title',
                                     name: 'customer.title'
                                 }
                             ]
@@ -188,27 +188,27 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'id',
-                                            text: 'Id',
+                                            text: 'id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
                                             dataIndex: 'typeName',
-                                            text: 'TypeName',
+                                            text: 'typeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
                                             dataIndex: 'name',
-                                            text: 'Name',
+                                            text: 'name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             dataIndex: 'sequence',
-                                            text: 'Sequence',
+                                            text: 'sequence',
                                             flex: 1,
                                             format: '0,000'
                                         },
@@ -216,70 +216,70 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'warehouse.id',
-                                            text: 'Warehouse.id',
+                                            text: 'warehouse.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouse.name',
-                                            text: 'Warehouse.name',
+                                            text: 'warehouse.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouse.title',
-                                            text: 'Warehouse.title',
+                                            text: 'warehouse.title',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'warehouseLocation.id',
-                                            text: 'WarehouseLocation.id',
+                                            text: 'warehouseLocation.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.name',
-                                            text: 'WarehouseLocation.name',
+                                            text: 'warehouseLocation.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'warehouseLocation.title',
-                                            text: 'WarehouseLocation.title',
+                                            text: 'warehouseLocation.title',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'batch.id',
-                                            text: 'Batch.id',
+                                            text: 'batch.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'batch.name',
-                                            text: 'Batch.name',
+                                            text: 'batch.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'item.id',
-                                            text: 'Item.id',
+                                            text: 'item.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'item.name',
-                                            text: 'Item.name',
+                                            text: 'item.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'item.title',
-                                            text: 'Item.title',
+                                            text: 'item.title',
                                             flex: 1
                                         },
                                         {
@@ -292,25 +292,25 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'customerOrderDet.id',
-                                            text: 'CustomerOrderDet.id',
+                                            text: 'customerOrderDet.id',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'customerOrderDet.typeName',
-                                            text: 'CustomerOrderDet.typeName',
+                                            text: 'customerOrderDet.typeName',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             dataIndex: 'customerOrderDet.name',
-                                            text: 'CustomerOrderDet.name',
+                                            text: 'customerOrderDet.name',
                                             flex: 1
                                         },
                                         {
                                             xtype: 'numbercolumn',
                                             dataIndex: 'customerOrderDet.sequence',
-                                            text: 'CustomerOrderDet.sequence',
+                                            text: 'customerOrderDet.sequence',
                                             flex: 1,
                                             format: '0,000'
                                         },
@@ -495,7 +495,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Warehouse.title',
+                                    fieldLabel: 'warehouse.title',
                                     name: 'warehouse.title'
                                 },
                                 {
@@ -505,7 +505,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
+                                    fieldLabel: 'warehouseLocation.title',
                                     name: 'warehouseLocation.title'
                                 },
                                 {
@@ -520,7 +520,7 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Batch.name',
+                                    fieldLabel: 'batch.name',
                                     name: 'batch.name',
                                     allowBlank: false
                                 },
@@ -536,14 +536,14 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.name',
+                                    fieldLabel: 'item.name',
                                     name: 'item.name',
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {

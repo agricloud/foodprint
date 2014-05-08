@@ -18,7 +18,6 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {

@@ -18,7 +18,7 @@ Ext.define('foodprint.view.CommonBatchCombo', {
     alias: 'widget.commonbatchcombo',
 
     itemId: 'commonBatchCombo',
-    fieldLabel: 'Batch.name',
+    fieldLabel: 'batch.name',
     name: 'batch.id',
     selectOnFocus: true,
     displayField: 'name',

@@ -38,7 +38,7 @@ Ext.define('foodprint.view.OperationView', {
                         type: 'vbox'
                     },
                     items: [
-                        me.processLocalized({
+                        me.processGrid({
                             xtype: 'gridpanel',
                             flex: 1,
                             itemId: 'grid',
@@ -144,7 +144,7 @@ Ext.define('foodprint.view.OperationView', {
         me.callParent(arguments);
     },
 
-    processLocalized: function(config) {
+    processGrid: function(config) {
 
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'operation'));
     },

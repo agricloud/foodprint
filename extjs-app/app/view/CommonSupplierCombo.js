@@ -18,7 +18,7 @@ Ext.define('foodprint.view.CommonSupplierCombo', {
     alias: 'widget.commonsuppliercombo',
 
     itemId: 'commonSupplierCombo',
-    fieldLabel: 'Supplier.name',
+    fieldLabel: 'supplier.name',
     name: 'supplier.id',
     displayField: 'name',
     forceSelection: true,

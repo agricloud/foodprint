@@ -123,29 +123,29 @@ Ext.define('foodprint.view.SiteView', {
                                 {
                                     xtype: 'numberfield',
                                     hidden: true,
-                                    fieldLabel: 'ID',
+                                    fieldLabel: 'id',
                                     name: 'id',
                                     readOnly: true
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Name',
+                                    fieldLabel: 'name',
                                     name: 'name',
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Title',
+                                    fieldLabel: 'title',
                                     name: 'title'
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Description',
+                                    fieldLabel: 'description',
                                     name: 'description'
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Address',
+                                    fieldLabel: 'address',
                                     name: 'address'
                                 }
                             ]

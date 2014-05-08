@@ -18,6 +18,7 @@ Ext.define('foodprint.view.CommonReportCombo', {
     alias: 'widget.commonreportcombo',
 
     itemId: 'commonReportCombo',
+    fieldLabel: 'report.nme',
     name: 'report.id',
     displayField: 'name',
     minChars: 0,

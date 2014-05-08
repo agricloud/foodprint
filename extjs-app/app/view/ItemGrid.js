@@ -28,52 +28,52 @@ Ext.define('foodprint.view.ItemGrid', {
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'title',
-                    text: 'Title',
+                    text: 'title',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'spec',
-                    text: 'Spec',
+                    text: 'spec',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'unit',
-                    text: 'Unit',
+                    text: 'unit',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'description',
-                    text: 'Description',
+                    text: 'description',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'dueDays',
-                    text: 'DueDays',
+                    text: 'dueDays',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     hidden: true,
                     dataIndex: 'effectStartDate',
-                    text: 'EffectStartDate',
+                    text: 'effectStartDate',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     hidden: true,
                     dataIndex: 'effectEndDate',
-                    text: 'EffectEndDate',
+                    text: 'effectEndDate',
                     flex: 1
                 }
             ],

@@ -101,7 +101,7 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Workstation_title',
+                                    fieldLabel: 'workstation.title',
                                     name: 'workstation.title'
                                 },
                                 {
@@ -110,7 +110,7 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Supplier_title',
+                                    fieldLabel: 'supplier.title',
                                     name: 'supplier.title'
                                 },
                                 {

@@ -75,74 +75,74 @@ Ext.define('foodprint.view.ReportParamsView', {
                                     xtype: 'gridcolumn',
                                     hidden: true,
                                     dataIndex: 'report.id',
-                                    text: 'Report_id',
+                                    text: 'report.id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     hidden: true,
                                     dataIndex: 'report.name',
-                                    text: 'Report_name',
+                                    text: 'report.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'param.name',
-                                    text: 'Param_name',
+                                    text: 'param.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'param.title',
-                                    text: 'Param_title',
+                                    text: 'param.title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'operation.name',
-                                    text: 'Operation_name',
+                                    text: 'operation.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'operation.title',
-                                    text: 'Operation_title',
+                                    text: 'operation.title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'workstation.name',
-                                    text: 'Workstation_name',
+                                    text: 'workstation.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'workstation.title',
-                                    text: 'Workstation_title',
+                                    text: 'workstation.title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'supplier.name',
-                                    text: 'Supplier_name',
+                                    text: 'supplier.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'supplier.title',
-                                    text: 'Supplier_title',
+                                    text: 'supplier.title',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'item.name',
-                                    text: 'Item_name',
+                                    text: 'item.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'item.title',
-                                    text: 'Item_title',
+                                    text: 'item.title',
                                     flex: 1
                                 }
                             ],
@@ -202,7 +202,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Param_title',
+                                    fieldLabel: 'param.title',
                                     name: 'param.title',
                                     allowBlank: false
                                 },
@@ -211,7 +211,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Operation_title',
+                                    fieldLabel: 'operation.title',
                                     name: 'operation.title',
                                     allowBlank: false
                                 },
@@ -220,7 +220,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Workstation_title',
+                                    fieldLabel: 'workstation.title',
                                     name: 'workstation.title'
                                 },
                                 {
@@ -230,7 +230,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 {
                                     xtype: 'textfield',
                                     flex: 1,
-                                    fieldLabel: 'Supplier_title',
+                                    fieldLabel: 'supplier.title',
                                     name: 'supplier.title'
                                 },
                                 {
@@ -240,7 +240,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                                 {
                                     xtype: 'textfield',
                                     flex: 1,
-                                    fieldLabel: 'Item_title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 }
                             ]

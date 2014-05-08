@@ -32,104 +32,104 @@ Ext.define('foodprint.view.BatchGrid', {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1.5
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'item.id',
-                    text: 'Item_id',
+                    text: 'item.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.name',
-                    text: 'Item_Name',
+                    text: 'item.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.title',
-                    text: 'Item_Title',
+                    text: 'item.title',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.spec',
-                    text: 'Item_Spec',
+                    text: 'item.spec',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.unit',
-                    text: 'Item_Unit',
+                    text: 'item.unit',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.description',
-                    text: 'Item_Description',
+                    text: 'item.description',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'country',
-                    text: 'Country',
+                    text: 'country',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'countryTitle',
-                    text: 'CountryTitle',
+                    text: 'countryTitle',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'supplier.id',
-                    text: 'Supplier_Id',
+                    text: 'supplier.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'supplier.name',
-                    text: 'Supplier_Name',
+                    text: 'supplier.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'supplier.title',
-                    text: 'Supplier_Title',
+                    text: 'supplier.title',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     hidden: true,
                     dataIndex: 'dueDate',
-                    text: 'DueDate',
+                    text: 'dueDate',
                     flex: 1,
                     format: 'Y-m-d'
                 },
                 {
                     xtype: 'numbercolumn',
                     dataIndex: 'expectQty',
-                    text: 'ExpectQty',
+                    text: 'expectQty',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     hidden: true,
                     dataIndex: 'manufactureDate',
-                    text: 'ManufactureDate',
+                    text: 'manufactureDate',
                     flex: 1,
                     format: 'Y-m-d'
                 },
@@ -137,7 +137,7 @@ Ext.define('foodprint.view.BatchGrid', {
                     xtype: 'datecolumn',
                     hidden: true,
                     dataIndex: 'expirationDate',
-                    text: 'ExpirationDate',
+                    text: 'expirationDate',
                     flex: 1,
                     format: 'Y-m-d'
                 },
@@ -145,7 +145,7 @@ Ext.define('foodprint.view.BatchGrid', {
                     xtype: 'gridcolumn',
                     hidden: true,
                     dataIndex: 'remark',
-                    text: 'Remark',
+                    text: 'remark',
                     flex: 1
                 }
             ],

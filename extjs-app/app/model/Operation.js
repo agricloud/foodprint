@@ -18,7 +18,6 @@ Ext.define('foodprint.model.Operation', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {

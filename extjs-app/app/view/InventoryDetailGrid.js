@@ -38,107 +38,107 @@ Ext.define('foodprint.view.InventoryDetailGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'warehouse.id',
-                    text: 'Warehouse.id',
+                    text: 'warehouse.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'warehouse.name',
-                    text: 'Warehouse.name',
+                    text: 'warehouse.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'warehouse.title',
-                    text: 'Warehouse.title',
+                    text: 'warehouse.title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'warehouseLocation.id',
-                    text: 'WarehouseLocation.id',
+                    text: 'warehouseLocation.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'warehouseLocation.name',
-                    text: 'WarehouseLocation.name',
+                    text: 'warehouseLocation.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'warehouseLocation.title',
-                    text: 'WarehouseLocation.title',
+                    text: 'warehouseLocation.title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'item.id',
-                    text: 'Item.id',
+                    text: 'item.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.name',
-                    text: 'Item.name',
+                    text: 'item.name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.title',
-                    text: 'Item.title',
+                    text: 'item.title',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'batch.id',
-                    text: 'Batch.id',
+                    text: 'batch.id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'batch.name',
-                    text: 'Batch.name',
+                    text: 'batch.name',
                     flex: 1
                 },
                 {
                     xtype: 'numbercolumn',
                     dataIndex: 'qty',
-                    text: 'Qty',
+                    text: 'qty',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'item.unit',
-                    text: 'Item.unit',
+                    text: 'item.unit',
                     flex: 0.5
                 },
                 {
                     xtype: 'datecolumn',
                     dataIndex: 'lastInDate',
-                    text: 'LastInDate',
+                    text: 'lastInDate',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     dataIndex: 'lastOutDate',
-                    text: 'LastOutDate',
+                    text: 'lastOutDate',
                     flex: 1
                 },
                 {
                     xtype: 'datecolumn',
                     dataIndex: 'lastUpdated',
-                    text: 'LastUpdated',
+                    text: 'lastUpdated',
                     flex: 1
                 }
             ],

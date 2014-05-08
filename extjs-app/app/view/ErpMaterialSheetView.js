@@ -105,7 +105,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Workstation_title',
+                                    fieldLabel: 'workstation.title',
                                     name: 'workstation.title'
                                 },
                                 {
@@ -114,7 +114,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Supplier_title',
+                                    fieldLabel: 'supplier.title',
                                     name: 'supplier.title'
                                 }
                             ]
@@ -245,7 +245,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Warehouse.title',
+                                    fieldLabel: 'warehouse.title',
                                     name: 'warehouse.title'
                                 },
                                 {
@@ -255,7 +255,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
+                                    fieldLabel: 'warehouseLocation.title',
                                     name: 'warehouseLocation.title'
                                 },
                                 {
@@ -273,14 +273,14 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.name',
+                                    fieldLabel: 'item.name',
                                     name: 'item.name',
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {

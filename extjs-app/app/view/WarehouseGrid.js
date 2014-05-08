@@ -38,25 +38,25 @@ Ext.define('foodprint.view.WarehouseGrid', {
                     xtype: 'numbercolumn',
                     hidden: true,
                     dataIndex: 'id',
-                    text: 'Id',
+                    text: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'name',
-                    text: 'Name',
+                    text: 'name',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'title',
-                    text: 'Title',
+                    text: 'title',
                     flex: 1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'remark',
-                    text: 'Remark',
+                    text: 'remark',
                     flex: 1
                 }
             ],

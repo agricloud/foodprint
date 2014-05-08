@@ -114,7 +114,7 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Warehouse.title',
+                                    fieldLabel: 'warehouse.title',
                                     name: 'warehouse.title'
                                 },
                                 {
@@ -124,7 +124,7 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
+                                    fieldLabel: 'warehouseLocation.title',
                                     name: 'warehouseLocation.title'
                                 },
                                 {
@@ -134,7 +134,7 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {
@@ -150,7 +150,7 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.unit',
+                                    fieldLabel: 'item.unit',
                                     name: 'item.unit'
                                 }
                             ]

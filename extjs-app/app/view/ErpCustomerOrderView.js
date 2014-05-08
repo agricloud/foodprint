@@ -204,7 +204,7 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {

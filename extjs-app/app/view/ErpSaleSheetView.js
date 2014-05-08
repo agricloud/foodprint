@@ -108,7 +108,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Customer.title',
+                                    fieldLabel: 'customer.title',
                                     name: 'customer.title'
                                 }
                             ]
@@ -249,7 +249,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Warehouse.title',
+                                    fieldLabel: 'warehouse.title',
                                     name: 'warehouse.title'
                                 },
                                 {
@@ -259,7 +259,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'WarehouseLocation.title',
+                                    fieldLabel: 'warehouseLocation.title',
                                     name: 'warehouseLocation.title'
                                 },
                                 {
@@ -269,7 +269,7 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                 {
                                     xtype: 'textfield',
                                     disabled: true,
-                                    fieldLabel: 'Item.title',
+                                    fieldLabel: 'item.title',
                                     name: 'item.title'
                                 },
                                 {

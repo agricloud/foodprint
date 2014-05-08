@@ -18,7 +18,6 @@ Ext.define('foodprint.model.ItemRoute', {
 
     fields: [
         {
-            mapping: 'id',
             name: 'id'
         },
         {
@@ -34,7 +33,6 @@ Ext.define('foodprint.model.ItemRoute', {
             name: 'sequence'
         },
         {
-            mapping: 'operation.id',
             name: 'operation.id'
         },
         {
@@ -44,7 +42,6 @@ Ext.define('foodprint.model.ItemRoute', {
             name: 'operation.title'
         },
         {
-            mapping: 'workstation.id',
             name: 'workstation.id'
         },
         {
