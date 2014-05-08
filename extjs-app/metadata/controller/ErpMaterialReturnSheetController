@@ -126,8 +126,7 @@
                     "        itemdblclick: this.doShowMaterialReturnSheetDet",
                     "    },",
                     "    'erpmaterialreturnsheetview #materialSheetDetIndex #detailGrid':{",
-                    "        //itemdblclick: this.doSelectMaterialSheetDet //另解",
-                    "        itemdblclick: this.doShowMaterialSheetDet",
+                    "        itemdblclick: this.doSelectMaterialSheetDet",
                     "    },",
                     "    'erpmaterialreturnsheetview #showDetail #detailForm commonselectbtn':{",
                     "        click:this.activeMaterialSheetDetIndex",
@@ -318,63 +317,6 @@
                 ]
             },
             "designerId": "82ee89ab-7fd0-4cb1-91f2-4d486cb75054"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doShowMaterialSheetDet",
-                "designer|params": [
-                    "callback"
-                ],
-                "implHandler": [
-                    "/*",
-                    "this.doShowDetail(function(success,form,action){",
-                    "});",
-                    "*/",
-                    "",
-                    "console.log('commonController--'+this.domainName+'--doShowDetail');",
-                    "",
-                    "var that = this;",
-                    "console.log(that);",
-                    "",
-                    "var record= this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0];",
-                    "var id = -1;",
-                    "",
-                    "if(this.getMaterialSheetDetGrid().getSelectionModel().getSelection()[0])",
-                    "id = record.data.id;",
-                    "",
-                    "",
-                    "this.getDetailForm().getForm().load({",
-                    "    url:this.getRoot()+'/'+this.domainName+'/show/'+id,",
-                    "    params: this.getDetailParams(),",
-                    "    waitMsg:Utilities.getMsg('default.message.load'),",
-                    "    success: function(form, action) {",
-                    "",
-                    "        that.activeDetailEditor();",
-                    "        that.detailActionName = 'update';",
-                    "",
-                    "        if (callback && callback instanceof Function) {",
-                    "            callback(true,form,action);",
-                    "        }",
-                    "    },",
-                    "",
-                    "    failure: function(form, action) {",
-                    "        Ext.MessageBox.alert('Failure',action.result.message);",
-                    "        if (callback && callback instanceof Function){",
-                    "            callback(false,form,action);",
-                    "        }",
-                    "    }",
-                    "});",
-                    "",
-                    ""
-                ]
-            },
-            "designerId": "6b94438d-235f-49bb-afc6-4f715e8df94b"
         }
     ]
 }

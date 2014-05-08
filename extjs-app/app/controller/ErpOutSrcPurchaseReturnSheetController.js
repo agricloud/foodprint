@@ -114,7 +114,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
                 select: this.doIndexDetailOutSrcPurchaseSheet
             },
             'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex #detailGrid':{
-                itemdblclick: this.doShowOutSrcPurchaseSheetDet
+                itemdblclick: this.doSelectOutSrcPurchaseSheetDet
             }
 
         });
@@ -148,48 +148,6 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             'warehouseLocation.title':record.data['warehouseLocation.title']
         });
         this.activeDetailEditor();
-    },
-
-    doShowOutSrcPurchaseSheetDet: function(callback) {
-        /*
-        this.doShowDetail(function(success,form,action){
-        });
-        */
-
-        console.log('commonController--'+this.domainName+'--doShowDetail');
-
-        var that = this;
-        console.log(that);
-
-        var record= this.getOutSrcPurchaseSheetDetGrid().getSelectionModel().getSelection()[0];
-        var id = -1;
-
-        if(this.getOutSrcPurchaseSheetDetGrid().getSelectionModel().getSelection()[0])
-        id = record.data.id;
-
-
-        this.getDetailForm().getForm().load({
-            url:this.getRoot()+'/'+this.domainName+'/show/'+id,
-            params: this.getDetailParams(),
-            waitMsg:Utilities.getMsg('default.message.load'),
-            success: function(form, action) {
-
-                that.activeDetailEditor();
-                that.detailActionName = 'update';
-
-                if (callback && callback instanceof Function) {
-                    callback(true,form,action);
-                }
-            },
-
-            failure: function(form, action) {
-                Ext.MessageBox.alert('Failure',action.result.message);
-                if (callback && callback instanceof Function){
-                    callback(false,form,action);
-                }
-            }
-        });
-
     },
 
     doIndexDetailOutSrcPurchaseSheet: function(obj, record, index, eOpts) {
