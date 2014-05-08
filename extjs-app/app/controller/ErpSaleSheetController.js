@@ -164,7 +164,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
         this.activeDetailEditor();
     },
 
-    doCancelCustomerOrderDet: function() {
+    doCancelCustomerOrderDet: function(combo, records, eOpts) {
 
         this.getDetailForm().getForm().setValues({
             'customerOrderDet.id':null,
@@ -172,19 +172,8 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
             'customerOrderDet.name':null,
             'customerOrderDet.sequence':null
         });
-    },
 
-    reloadBatchComboByItem: function(itemId) {
-        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
-        combo.getStore().load({
-            url:'/batch/indexByItem',
-            params: {'item.id': itemId}
-        });
-        //combo在remote模式下
-        //設定第一次trigger時自動load
-        //造成此處指定查詢的Batch結果會被覆蓋
-        //給定lastQuery使系統默認為已load過
-        combo.lastQuery='';
+        this.reloadBatchComboByItem(records[0].data.id);
     },
 
     doShowSaleSheet: function() {

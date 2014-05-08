@@ -121,6 +121,9 @@
                     "        deselect: this.disableDetailShowBtn,",
                     "        itemdblclick: this.doShowMaterialSheetDet",
                     "    },",
+                    "    'erpmaterialsheetview #showDetail commonitemcombo':{",
+                    "        select:this.doReloadBatchComboByItem",
+                    "    },",
                     "    'erpmaterialsheetview #showDetail commonselectbtn':{",
                     "        click:this.activeManufactureOrderIndex",
                     "    },",
@@ -184,6 +187,7 @@
                     "    'manufactureOrder.typeName':record.data['typeName'],",
                     "    'manufactureOrder.name':record.data['name']",
                     "});",
+                    "",
                     "this.activeDetailEditor();"
                 ]
             },
@@ -227,6 +231,8 @@
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
                     "    //在此使combo重新load store",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
                     "    var batchcombo=form.findField('batch.id');",
                     "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
                     "",
@@ -240,6 +246,24 @@
                 ]
             },
             "designerId": "6a74ed08-eac8-4d96-9345-7b95019f4b6e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doReloadBatchComboByItem",
+                "designer|params": [
+                    "combo, records, eOpts"
+                ],
+                "implHandler": [
+                    "this.reloadBatchComboByItem(records[0].data.id);"
+                ]
+            },
+            "designerId": "8636c911-4a09-44a6-b573-7c8bc386f5b4"
         }
     ]
 }

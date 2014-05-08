@@ -25,6 +25,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonWarehouseCombo',
         'foodprint.view.CommonWarehouseLocationCombo',
+        'foodprint.view.CommonItemCombo',
         'foodprint.view.CommonBatchCombo',
         'foodprint.view.ErpManufactureOrderGrid',
         'foodprint.view.CommonIndexToolbar',
@@ -259,22 +260,7 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                     name: 'warehouseLocation.title'
                                 },
                                 {
-                                    xtype: 'commonbatchcombo',
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'numberfield',
-                                    hidden: true,
-                                    fieldLabel: 'item.id',
-                                    name: 'item.id',
-                                    readOnly: true,
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    fieldLabel: 'item.name',
-                                    name: 'item.name',
+                                    xtype: 'commonitemcombo',
                                     allowBlank: false
                                 },
                                 {
@@ -282,6 +268,10 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                     disabled: true,
                                     fieldLabel: 'item.title',
                                     name: 'item.title'
+                                },
+                                {
+                                    xtype: 'commonbatchcombo',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',

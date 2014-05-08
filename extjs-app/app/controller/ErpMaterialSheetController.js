@@ -108,6 +108,9 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
                 deselect: this.disableDetailShowBtn,
                 itemdblclick: this.doShowMaterialSheetDet
             },
+            'erpmaterialsheetview #showDetail commonitemcombo':{
+                select:this.doReloadBatchComboByItem
+            },
             'erpmaterialsheetview #showDetail commonselectbtn':{
                 click:this.activeManufactureOrderIndex
             },
@@ -131,6 +134,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             'manufactureOrder.typeName':record.data['typeName'],
             'manufactureOrder.name':record.data['name']
         });
+
         this.activeDetailEditor();
     },
 
@@ -152,6 +156,8 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
             //在此使combo重新load store
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
             var batchcombo=form.findField('batch.id');
             Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
 
@@ -162,6 +168,10 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
         });
+    },
+
+    doReloadBatchComboByItem: function(combo, records, eOpts) {
+        this.reloadBatchComboByItem(records[0].data.id);
     }
 
 });

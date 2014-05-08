@@ -495,6 +495,20 @@ Ext.define('foodprint.controller.CommonController', {
                 window.open("http://localhost:8180/reportFiles/"+obj.fileName);
             }
         });
+    },
+
+    reloadBatchComboByItem: function(itemId) {
+        //目前有領料單、銷貨單使用此方法
+        var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
+        combo.getStore().load({
+            url:'/batch/indexByItem',
+            params: {'item.id': itemId}
+        });
+        //combo在remote模式下
+        //設定第一次trigger時自動load
+        //造成此處指定查詢的Batch結果會被覆蓋
+        //給定lastQuery使系統默認為已load過
+        combo.lastQuery='';
     }
 
 });

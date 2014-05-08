@@ -862,6 +862,34 @@
                 ]
             },
             "designerId": "bec68629-f783-4a24-9b93-bfc6c26a19c8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadBatchComboByItem",
+                "designer|params": [
+                    "itemId"
+                ],
+                "implHandler": [
+                    "//目前有領料單、銷貨單使用此方法",
+                    "var combo = this.getDetailForm().down(\"combo[itemId=commonBatchCombo]\");",
+                    "combo.getStore().load({",
+                    "    url:'/batch/indexByItem',",
+                    "    params: {'item.id': itemId}",
+                    "});",
+                    "//combo在remote模式下",
+                    "//設定第一次trigger時自動load",
+                    "//造成此處指定查詢的Batch結果會被覆蓋",
+                    "//給定lastQuery使系統默認為已load過",
+                    "combo.lastQuery='';"
+                ]
+            },
+            "designerId": "a732f102-41ca-43bf-9ccf-d1cf87021076"
         }
     ]
 }
