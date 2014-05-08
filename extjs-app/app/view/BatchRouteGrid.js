@@ -18,6 +18,7 @@ Ext.define('foodprint.view.BatchRouteGrid', {
     alias: 'widget.batchroutegrid',
 
     itemId: 'batchRouteGrid',
+    title: 'BatchRoute',
     store: 'BatchRouteStore',
 
     initComponent: function() {

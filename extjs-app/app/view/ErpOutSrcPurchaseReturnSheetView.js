@@ -590,7 +590,7 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
     },
 
     processDetailForm: function(config) {
-        return Utilities.processConfigBundle(config, 'outSrcPurchaseSheetDet');
+        return Utilities.processConfigBundle(config, 'outSrcPurchaseReturnSheetDet');
     },
 
     onErpOutSrcPurchaseReturnSheetGridAfterRender: function(component, eOpts) {

@@ -57,7 +57,6 @@ Ext.define('foodprint.view.BatchRouteView', {
                             xtype: 'batchroutegrid',
                             itemId: 'grid',
                             autoScroll: true,
-                            title: '批號途程',
                             flex: 1
                         }
                     ]

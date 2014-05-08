@@ -68,7 +68,7 @@ Ext.define('foodprint.view.ReportParamsView', {
                             flex: 1,
                             itemId: 'grid',
                             autoScroll: true,
-                            title: '履歷參數',
+                            title: 'ReportParams',
                             store: 'ReportParamsStore',
                             columns: [
                                 {

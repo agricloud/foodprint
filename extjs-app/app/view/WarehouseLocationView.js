@@ -52,6 +52,7 @@ Ext.define('foodprint.view.WarehouseLocationView', {
                             xtype: 'gridpanel',
                             flex: 1,
                             itemId: 'grid',
+                            title: 'WarehouseLocation',
                             store: 'WarehouseLocationStore',
                             columns: [
                                 {
@@ -165,6 +166,7 @@ Ext.define('foodprint.view.WarehouseLocationView', {
 
     processWarehouseLocationGrid: function(config) {
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'warehouseLocation'));
+
     },
 
     processForm: function(config) {

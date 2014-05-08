@@ -191,7 +191,7 @@ Ext.define('foodprint.view.Utilities', {
             for (var i=0; i<config.items.length; i++) {
                 var target = config.items[i];
 
-                if (target.fieldLabel) {
+                if (target.fieldLabel && target.name) {
                     var key = prefix+'.'+target.name+'.label';
 
                     // Check lang def exists
@@ -199,7 +199,7 @@ Ext.define('foodprint.view.Utilities', {
                         target.fieldLabel = this.getMsg(key);
                     }else console.log(key);
                 }
-                if(target.items){
+                if(target.items){ 
                     for(var j=0; j<target.items.length; j++){
                         var innerTarget=target.items[j];
                         if(innerTarget.fieldLabel){

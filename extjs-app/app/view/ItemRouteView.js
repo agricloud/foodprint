@@ -56,7 +56,7 @@ Ext.define('foodprint.view.ItemRouteView', {
                             flex: 1,
                             itemId: 'grid',
                             autoScroll: true,
-                            title: '品項途程',
+                            title: 'ItemRoute',
                             store: 'ItemRouteStore',
                             columns: [
                                 {
