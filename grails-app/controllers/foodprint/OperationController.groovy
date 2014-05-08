@@ -13,7 +13,7 @@ class OperationController {
 
 
         render (contentType: 'application/json') {
-            [operationInstanceList: list, operationInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

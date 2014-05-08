@@ -31,7 +31,7 @@ Ext.define('foodprint.model.ParamType', {
         url: '/enum/indexParamType',
         reader: {
             type: 'json',
-            root: 'ParamType'
+            root: 'data'
         }
     }
 });

@@ -206,47 +206,6 @@
             "designerId": "358c8b54-ddec-4fc1-a5b2-b01fb7adda61"
         },
         {
-            "type": "Ext.data.proxy.Rest",
-            "reference": {
-                "name": "proxy",
-                "type": "object"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "url": "/batch"
-            },
-            "designerId": "2af9e052-d37f-4104-80f8-1b2ec64b2ba6",
-            "cn": [
-                {
-                    "type": "Ext.data.reader.Json",
-                    "reference": {
-                        "name": "reader",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "root": "batchInstanceList",
-                        "totalProperty": "batchInstanceTotal"
-                    },
-                    "designerId": "7ea66f74-c046-4c9b-a314-3bd492f5b0ee"
-                }
-            ]
-        },
-        {
-            "type": "Ext.data.association.BelongsTo",
-            "reference": {
-                "name": "belongsTo",
-                "type": "object"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "model": "Item",
-                "designer|displayName": "belongsToItem",
-                "getterName": "getItem"
-            },
-            "designerId": "c6e9d32c-1ab9-4636-97bc-e4b53d1c7d57"
-        },
-        {
             "type": "Ext.data.Field",
             "reference": {
                 "name": "fields",
@@ -283,6 +242,46 @@
                 "name": "remark"
             },
             "designerId": "93455e35-77be-4b45-b81b-19d83494761c"
+        },
+        {
+            "type": "Ext.data.association.BelongsTo",
+            "reference": {
+                "name": "belongsTo",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "Item",
+                "designer|displayName": "belongsToItem",
+                "getterName": "getItem"
+            },
+            "designerId": "c6e9d32c-1ab9-4636-97bc-e4b53d1c7d57"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/batch"
+            },
+            "designerId": "2af9e052-d37f-4104-80f8-1b2ec64b2ba6",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data"
+                    },
+                    "designerId": "7ea66f74-c046-4c9b-a314-3bd492f5b0ee"
+                }
+            ]
         }
     ]
 }

@@ -14,7 +14,7 @@ class UserController {
 
 
         render (contentType: 'application/json') {
-            [userInstanceList: list, userInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

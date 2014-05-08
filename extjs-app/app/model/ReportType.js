@@ -31,7 +31,7 @@ Ext.define('foodprint.model.ReportType', {
         url: '/enum/indexReportType',
         reader: {
             type: 'json',
-            root: 'ReportType'
+            root: 'data'
         }
     }
 });

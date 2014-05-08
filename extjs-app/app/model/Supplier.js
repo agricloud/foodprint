@@ -48,8 +48,7 @@ Ext.define('foodprint.model.Supplier', {
         url: '/supplier',
         reader: {
             type: 'json',
-            root: 'supplierInstanceList',
-            totalProperty: 'supplierInstanceTotal'
+            root: 'data'
         }
     }
 });

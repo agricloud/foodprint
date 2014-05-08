@@ -36,8 +36,7 @@ Ext.define('foodprint.model.Workstation', {
         url: '/workstation/',
         reader: {
             type: 'json',
-            root: 'workstationInstanceList',
-            totalProperty: 'workstationInstanceTotal'
+            root: 'data'
         }
     }
 });

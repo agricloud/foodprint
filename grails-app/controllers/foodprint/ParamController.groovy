@@ -13,7 +13,7 @@ class ParamController {
         def list = Param.createCriteria().list(params,params.criteria)
 
         render (contentType: 'application/json') {
-            [paramInstanceList: list, paramInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

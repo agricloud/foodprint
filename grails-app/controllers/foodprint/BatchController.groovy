@@ -12,7 +12,7 @@ class BatchController {
         def list = Batch.createCriteria().list(params,params.criteria)        
 
         render (contentType: 'application/json') {
-            [batchInstanceList: list, batchInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
     }
 
@@ -21,7 +21,7 @@ class BatchController {
         def list = Batch.findAllByItem(item)     
 
         render (contentType: 'application/json') {
-            [batchInstanceList: list, batchInstanceTotal: list.size()]
+            [data: list, total: list.size()]
         }
     }
 

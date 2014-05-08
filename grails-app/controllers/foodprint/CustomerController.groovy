@@ -12,7 +12,7 @@ class CustomerController {
 
 
         render (contentType: 'application/json') {
-            [customerInstanceList: list, customerInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

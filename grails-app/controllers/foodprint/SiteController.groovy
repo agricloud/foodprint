@@ -10,7 +10,7 @@ class SiteController {
     def index = {
         def list = Site.createCriteria().list(params,params.criteria)
         render (contentType: 'application/json') {
-            [siteInstanceList: list, siteInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
     }
 

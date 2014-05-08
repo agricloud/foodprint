@@ -16,7 +16,7 @@ class ReportParamsController {
         if(reportParams){   
         
             render (contentType: 'application/json') {
-                [success: true,reportParamsInstanceList: reportParams, reportParamsInstanceTotal: reportParams.size()]
+                [success: true,data: reportParams, total: reportParams.size()]
             }
         }
         else{

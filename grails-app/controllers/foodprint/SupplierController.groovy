@@ -11,7 +11,7 @@ class SupplierController {
     def index() {
         def list = Supplier.createCriteria().list(params,params.criteria)
         render (contentType: 'application/json') {
-            [supplierInstanceList: list, supplierInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
     }
 

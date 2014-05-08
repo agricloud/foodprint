@@ -10,7 +10,7 @@ class ItemController {
     def index = {
         def list = Item.createCriteria().list(params,params.criteria)
         render (contentType: 'application/json') {
-            [itemInstanceList: list, itemInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
     }
 

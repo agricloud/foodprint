@@ -15,7 +15,7 @@ class ReportController {
 
 
         render (contentType: 'application/json') {
-            [reportInstanceList: list, reportInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

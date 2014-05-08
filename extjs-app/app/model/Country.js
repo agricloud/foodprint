@@ -31,7 +31,7 @@ Ext.define('foodprint.model.Country', {
         url: '/enum/indexCountry',
         reader: {
             type: 'json',
-            root: 'Country'
+            root: 'data'
         }
     }
 });

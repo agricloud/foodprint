@@ -11,7 +11,7 @@ class WorkstationController {
 
 
         render (contentType: 'application/json') {
-            [workstationInstanceList: list, workstationInstanceTotal: list.totalCount]
+            [data: list, total: list.totalCount]
         }
         
     }

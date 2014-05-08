@@ -36,8 +36,7 @@ Ext.define('foodprint.model.Operation', {
         url: '/operation',
         reader: {
             type: 'json',
-            root: 'operationInstanceList',
-            totalProperty: 'operationInstanceTotal'
+            root: 'data'
         }
     }
 });

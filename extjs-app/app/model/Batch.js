@@ -80,18 +80,17 @@ Ext.define('foodprint.model.Batch', {
         }
     ],
 
+    belongsTo: {
+        model: 'foodprint.model.Item',
+        getterName: 'getItem'
+    },
+
     proxy: {
         type: 'rest',
         url: '/batch',
         reader: {
             type: 'json',
-            root: 'batchInstanceList',
-            totalProperty: 'batchInstanceTotal'
+            root: 'data'
         }
-    },
-
-    belongsTo: {
-        model: 'foodprint.model.Item',
-        getterName: 'getItem'
     }
 });
