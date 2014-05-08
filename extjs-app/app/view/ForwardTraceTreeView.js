@@ -22,8 +22,7 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
     ],
 
     layout: {
-        align: 'stretch',
-        type: 'vbox'
+        type: 'card'
     },
 
     initComponent: function() {
@@ -32,94 +31,200 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'commontracetoolbar',
-                    width: 100
+                    xtype: 'panel',
+                    itemId: 'treeDiagram',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'commontracetoolbar',
+                            width: 100
+                        },
+                        me.processTree({
+                            xtype: 'treepanel',
+                            flex: 1,
+                            itemId: 'tree',
+                            collapsible: false,
+                            store: 'ForwardTraceTreeStore',
+                            useArrows: true,
+                            columns: [
+                                {
+                                    xtype: 'treecolumn',
+                                    dataIndex: 'arrow',
+                                    text: 'arrow',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'note',
+                                    text: 'note',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'class',
+                                    text: 'class',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'type',
+                                    text: 'type',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'name',
+                                    text: 'name',
+                                    flex: 2
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.name',
+                                    text: 'item.name',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.title',
+                                    text: 'item.title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.spec',
+                                    text: 'item.spec',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    dataIndex: 'qty',
+                                    text: 'qty',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.unit',
+                                    text: 'item.unit',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'sheet',
+                                    text: 'sheet',
+                                    flex: 3
+                                }
+                            ]
+                        })
+                    ]
                 },
-                me.processForwardTraceTreePanel({
-                    xtype: 'treepanel',
-                    flex: 1,
-                    itemId: 'forwardTraceTreePanel',
-                    collapsible: false,
-                    store: 'ForwardTraceTreeStore',
-                    useArrows: true,
-                    columns: [
+                {
+                    xtype: 'panel',
+                    itemId: 'sheetDetail',
+                    items: [
                         {
-                            xtype: 'treecolumn',
-                            dataIndex: 'arrow',
-                            text: 'arrow',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'note',
-                            text: 'note',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            hidden: true,
-                            dataIndex: 'class',
-                            text: 'class',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'type',
-                            text: 'type',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'name',
-                            text: 'name',
-                            flex: 2
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.name',
-                            text: 'item.name',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.title',
-                            text: 'item.title',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.spec',
-                            text: 'item.spec',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'qty',
-                            text: 'qty',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            hidden: true,
-                            dataIndex: 'item.unit',
-                            text: 'item.unit',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'sheet',
-                            text: 'sheet',
-                            flex: 3
+                            xtype: 'gridpanel',
+                            itemId: 'sheetGrid',
+                            title: 'Sheet',
+                            store: 'TraceSheetDetailStore',
+                            columns: [
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'id',
+                                    text: 'id',
+                                    format: '0,000'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'typeName',
+                                    text: 'typeName'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'name',
+                                    text: 'name'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'sequence',
+                                    text: 'sequence'
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'item.id',
+                                    text: 'item.id',
+                                    format: '0,000'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.name',
+                                    text: 'item.name'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.title',
+                                    text: 'item.title'
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'warehouse.id',
+                                    text: 'warehouse.id',
+                                    format: '0,000'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouse.name',
+                                    text: 'warehouse.name'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouse.title',
+                                    text: 'warehouse.title'
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    hidden: true,
+                                    dataIndex: 'warehouseLocation.id',
+                                    text: 'warehouseLocation.id',
+                                    format: '0,000'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouseLocation.name',
+                                    text: 'warehouseLocation.name'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'warehouseLocation.title',
+                                    text: 'warehouseLocation.title'
+                                },
+                                {
+                                    xtype: 'numbercolumn',
+                                    dataIndex: 'qty',
+                                    text: 'qty'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'item.unit',
+                                    text: 'item.unit'
+                                }
+                            ]
                         }
                     ]
-                })
+                }
             ]
         });
 
         me.callParent(arguments);
     },
 
-    processForwardTraceTreePanel: function(config) {
+    processTree: function(config) {
 
 
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'forwardTraceTree'));

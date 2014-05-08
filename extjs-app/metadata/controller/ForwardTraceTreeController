@@ -7,10 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "TraceTree"
+            "TraceTree",
+            "TraceSheetDetail"
         ],
         "stores": [
-            "ForwardTraceTreeStore"
+            "ForwardTraceTreeStore",
+            "TraceSheetDetailStore"
         ],
         "views": [
             "ForwardTraceTreeView"
@@ -42,26 +44,14 @@
                     "    'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
                     "        click: this.doCollapseall",
                     "    },",
-                    "    'forwardtracetreeview treepanel[itemId=forwardTraceTreePanel]':{",
-                    "        beforeitemexpand: this.addExtraParamsToStore",
+                    "    'forwardtracetreeview treepanel[itemId=tree]':{",
+                    "        beforeitemexpand: this.addExtraParamsToStore,",
+                    "        celldblclick: this.doIndexSheetDetail",
                     "    }",
                     "});"
                 ]
             },
             "designerId": "20b74fdb-20d3-40cf-a893-4ea30bc20542"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "forwardTraceTreeCt",
-                "selector": "forwardtracetreeview"
-            },
-            "designerId": "1b94751d-ce91-4ada-b4c5-e9be4142678e"
         },
         {
             "type": "basicfunction",
@@ -76,15 +66,15 @@
                     "",
                     "console.log(\"forwardTraceTree.doSetRoot\");",
                     "",
-                    "if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
+                    "if(this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
                     "",
-                    "    var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();",
+                    "    var treeStore=this.getMainTree().getStore();",
                     "    var that = this;",
                     "    Ext.Ajax.request({",
                     "        method: 'GET',",
                     "        url:'/traceTree/forwardTraceRoot/',",
                     "        params:{",
-                    "            'id':this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()",
+                    "            'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()",
                     "        },",
                     "        success:function(response,options){",
                     "            //console.log(response);",
@@ -106,8 +96,8 @@
                     "",
                     "            };",
                     "            treeStore.setRootNode(root);",
-                    "            that.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
-                    "            that.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    "            that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "            that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
                     "        },",
                     "        callback: function(options,success,response) {",
                     "",
@@ -157,7 +147,7 @@
                 ],
                 "implHandler": [
                     "",
-                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var me = this.getMainTree();",
                     "var toolbar = button.up('toolbar');",
                     "",
                     "me.getEl().mask('Expanding tree...');",
@@ -185,7 +175,7 @@
                     "button, e, eOpts"
                 ],
                 "implHandler": [
-                    "var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');",
+                    "var me = this.getMainTree();",
                     "var toolbar = button.up('toolbar');",
                     "",
                     "toolbar.disable();",
@@ -213,10 +203,65 @@
                     "var params={};",
                     "params.class = node.data.class;",
                     "params.name = node.data.name;",
-                    "this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore().getProxy().extraParams = params;"
+                    "this.getMainTree().getStore().getProxy().extraParams = params;"
                 ]
             },
             "designerId": "9f8949c4-4960-407f-8d20-df322388795e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexSheetDetail",
+                "designer|params": [
+                    "view, td, cellIndex, record, tr, rowIndex, e, eOpts"
+                ],
+                "implHandler": [
+                    "//cellIndex:第幾欄",
+                    "//record:該列資料",
+                    "//rowIndex:第幾列",
+                    "",
+                    "if(this.getMainTree().headerCt.getHeaderAtIndex(cellIndex).dataIndex==\"sheet\"){",
+                    "    if(record.raw.sheetDetail){",
+                    "        this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);",
+                    "        this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));",
+                    "",
+                    "",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "ff748aa0-2498-4598-9e69-49a9744eb8f7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainTree",
+                "selector": "forwardtracetreeview #tree"
+            },
+            "designerId": "09281429-ce53-4639-a9c5-672ae294395a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sheetGrid",
+                "selector": "forwardtracetreeview #sheetGrid"
+            },
+            "designerId": "bc07fffe-0214-4011-8208-600ff58bf73f"
         }
     ]
 }

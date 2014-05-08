@@ -17,10 +17,12 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
     extend: 'Ext.app.Controller',
 
     models: [
-        'TraceTree'
+        'TraceTree',
+        'TraceSheetDetail'
     ],
     stores: [
-        'ForwardTraceTreeStore'
+        'ForwardTraceTreeStore',
+        'TraceSheetDetailStore'
     ],
     views: [
         'ForwardTraceTreeView'
@@ -28,8 +30,12 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
     refs: [
         {
-            ref: 'forwardTraceTreeCt',
-            selector: 'forwardtracetreeview'
+            ref: 'mainTree',
+            selector: 'forwardtracetreeview #tree'
+        },
+        {
+            ref: 'sheetGrid',
+            selector: 'forwardtracetreeview #sheetGrid'
         }
     ],
 
@@ -44,8 +50,9 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
             'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{
                 click: this.doCollapseall
             },
-            'forwardtracetreeview treepanel[itemId=forwardTraceTreePanel]':{
-                beforeitemexpand: this.addExtraParamsToStore
+            'forwardtracetreeview treepanel[itemId=tree]':{
+                beforeitemexpand: this.addExtraParamsToStore,
+                celldblclick: this.doIndexSheetDetail
             }
         });
     },
@@ -54,15 +61,15 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
         console.log("forwardTraceTree.doSetRoot");
 
-        if(this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
+        if(this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()!='') {
 
-            var treeStore=this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore();
+            var treeStore=this.getMainTree().getStore();
             var that = this;
             Ext.Ajax.request({
                 method: 'GET',
                 url:'/traceTree/forwardTraceRoot/',
                 params:{
-                    'id':this.getForwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()
+                    'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()
                 },
                 success:function(response,options){
                     //console.log(response);
@@ -84,8 +91,8 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
                     };
                     treeStore.setRootNode(root);
-                    that.getForwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
-                    that.getForwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
+                    that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);
+                    that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
                 },
                 callback: function(options,success,response) {
 
@@ -121,7 +128,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
     doExpandall: function(button, e, eOpts) {
 
-        var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');
+        var me = this.getMainTree();
         var toolbar = button.up('toolbar');
 
         me.getEl().mask('Expanding tree...');
@@ -135,7 +142,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
     },
 
     doCollapseall: function(button, e, eOpts) {
-        var me = button.up().up().down('treepanel[itemId=forwardTraceTreePanel]');
+        var me = this.getMainTree();
         var toolbar = button.up('toolbar');
 
         toolbar.disable();
@@ -149,7 +156,22 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
         var params={};
         params.class = node.data.class;
         params.name = node.data.name;
-        this.getForwardTraceTreeCt().down('treepanel[itemId=forwardTraceTreePanel]').getStore().getProxy().extraParams = params;
+        this.getMainTree().getStore().getProxy().extraParams = params;
+    },
+
+    doIndexSheetDetail: function(view, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        //cellIndex:第幾欄
+        //record:該列資料
+        //rowIndex:第幾列
+
+        if(this.getMainTree().headerCt.getHeaderAtIndex(cellIndex).dataIndex=="sheet"){
+            if(record.raw.sheetDetail){
+                this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);
+                this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));
+
+
+            }
+        }
     }
 
 });
