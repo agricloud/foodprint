@@ -63,8 +63,7 @@ Ext.define('foodprint.model.Inventory', {
         url: '/foodpaint?foodpaintController=inventory',
         reader: {
             type: 'json',
-            root: 'inventoryInstanceList',
-            totalProperty: 'inventoryInstanceTotal'
+            root: 'data'
         }
     }
 });

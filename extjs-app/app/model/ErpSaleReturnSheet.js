@@ -42,8 +42,7 @@ Ext.define('foodprint.model.ErpSaleReturnSheet', {
         url: '/foodpaint?foodpaintController=saleReturnSheet',
         reader: {
             type: 'json',
-            root: 'saleReturnSheetInstanceList',
-            totalProperty: 'saleReturnSheetInstanceTotal'
+            root: 'data'
         }
     }
 });

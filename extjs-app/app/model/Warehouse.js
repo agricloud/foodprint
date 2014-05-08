@@ -36,8 +36,7 @@ Ext.define('foodprint.model.Warehouse', {
         url: '/foodpaint?foodpaintController=warehouse',
         reader: {
             type: 'json',
-            root: 'warehouseInstanceList',
-            totalProperty: 'warehouseInstanceTotal'
+            root: 'data'
         }
     }
 });

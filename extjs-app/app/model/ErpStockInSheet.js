@@ -42,8 +42,7 @@ Ext.define('foodprint.model.ErpStockInSheet', {
         url: '/foodpaint?foodpaintController=stockInSheet',
         reader: {
             type: 'json',
-            root: 'stockInSheetInstanceList',
-            totalProperty: 'stockInSheetInstanceTotal'
+            root: 'data'
         }
     }
 });

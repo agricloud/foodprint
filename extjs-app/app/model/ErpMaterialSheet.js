@@ -51,8 +51,7 @@ Ext.define('foodprint.model.ErpMaterialSheet', {
         url: '/foodpaint?foodpaintController=materialSheet',
         reader: {
             type: 'json',
-            root: 'materialSheetInstanceList',
-            totalProperty: 'materialSheetInstanceTotal'
+            root: 'data'
         }
     }
 });

@@ -69,8 +69,7 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
         url: '/foodpaint?foodpaintController=manufactureOrder',
         reader: {
             type: 'json',
-            root: 'manufactureOrderInstanceList',
-            totalProperty: 'manufactureOrderInstanceTotal'
+            root: 'data'
         }
     }
 });

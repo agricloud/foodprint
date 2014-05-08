@@ -42,8 +42,7 @@ Ext.define('foodprint.model.ErpPurchaseSheet', {
         url: '/foodpaint?foodpaintController=purchaseSheet',
         reader: {
             type: 'json',
-            root: 'purchaseSheetInstanceList',
-            totalProperty: 'purchaseSheetInstanceTotal'
+            root: 'data'
         }
     }
 });
