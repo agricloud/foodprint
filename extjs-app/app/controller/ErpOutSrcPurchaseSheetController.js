@@ -85,7 +85,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
                 itemdblclick: this.doShowOutSrcPurchaseSheet
             },
             'erpoutsrcpurchasesheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateOutSrcPurchaseSheetDet
             },
             'erpoutsrcpurchasesheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowOutSrcPurchaseSheetDet
@@ -120,6 +120,44 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
         this.masterKey='outSrcPurchaseSheet.id';
     },
 
+    doShowOutSrcPurchaseSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var spcombo=form.findField('supplier.id');
+            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
+
+        });
+    },
+
+    doCreateOutSrcPurchaseSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出供應商符合的製令
+            that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.outSrcPurchaseSheet.supplier.id);
+        });
+    },
+
+    doShowOutSrcPurchaseSheetDet: function() {
+        var that=this;
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出供應商符合的製令
+            that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.outSrcPurchaseSheet.supplier.id);
+        });
+    },
+
     doSelectManufactureOrder: function(obj, record, index, eOpts) {
         this.getDetailForm().getForm().setValues({
 
@@ -133,32 +171,6 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
             'qty':record.data['qty']
         });
         this.activeDetailEditor();
-    },
-
-    doShowOutSrcPurchaseSheet: function() {
-        this.doShowAndIndexDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var spcombo=form.findField('supplier.id');
-            Utilities.comboReload(spcombo,action.result.data['supplier.id'],action.result.data['supplier.name']);
-
-        });
-    },
-
-    doShowOutSrcPurchaseSheetDet: function() {
-
-        this.doShowDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var whcombo=form.findField('warehouse.id');
-            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
-
-            //warehouseLocation combo需指定warehouse id才可load
-            var wlcombo=form.findField('warehouseLocation.id');
-            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
-        });
     }
 
 });

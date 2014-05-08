@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
                 itemdblclick: this.doShowMaterialSheet
             },
             'erpmaterialsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateMaterialSheetDet
             },
             'erpmaterialsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowMaterialSheetDet
@@ -127,17 +127,6 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
         this.masterKey='materialSheet.id';
     },
 
-    doSelectManufactureOrder: function(obj, record, index, eOpts) {
-        this.getDetailForm().getForm().setValues({
-
-            'manufactureOrder.id':record.data['id'],
-            'manufactureOrder.typeName':record.data['typeName'],
-            'manufactureOrder.name':record.data['name']
-        });
-
-        this.activeDetailEditor();
-    },
-
     doShowMaterialSheet: function() {
         this.doShowAndIndexDetail(function(success,form,action){
             //由於store設定load第1-50筆
@@ -150,8 +139,22 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
         });
     },
 
-    doShowMaterialSheetDet: function() {
+    doCreateMaterialSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
 
+            //篩選出工作站/供應商符合的製令
+            if(action.result.data.materialSheet.workstation){
+                that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.materialSheet.workstation.id,null);
+            }
+            if(action.result.data.materialSheet.supplier){
+                that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.materialSheet.supplier.id);
+            }
+        });
+    },
+
+    doShowMaterialSheetDet: function() {
+        var that=this;
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -167,11 +170,30 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出工作站/供應商符合的製令
+            if(action.result.data.materialSheet.workstation){
+                that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.materialSheet.workstation.id,null);
+            }
+            if(action.result.data.materialSheet.supplier){
+                that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.materialSheet.supplier.id);
+            }
         });
     },
 
     doReloadBatchComboByItem: function(combo, records, eOpts) {
         this.reloadBatchComboByItem(records[0].data.id);
+    },
+
+    doSelectManufactureOrder: function(obj, record, index, eOpts) {
+        this.getDetailForm().getForm().setValues({
+
+            'manufactureOrder.id':record.data['id'],
+            'manufactureOrder.typeName':record.data['typeName'],
+            'manufactureOrder.name':record.data['name']
+        });
+
+        this.activeDetailEditor();
     }
 
 });

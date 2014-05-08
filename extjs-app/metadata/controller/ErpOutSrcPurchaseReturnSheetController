@@ -74,7 +74,7 @@
                     "        itemdblclick: this.doShowOutSrcPurchaseReturnSheet",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateOutSrcPurchaseReturnSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowOutSrcPurchaseReturnSheetDet",
@@ -167,8 +167,29 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateOutSrcPurchaseReturnSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出供應商符合的託外進貨單",
+                    "    that.reloadOurSrcPurchaseSheetBySupplier(action.result.data.outSrcPurchaseReturnSheet.supplier.id);",
+                    "});"
+                ]
+            },
+            "designerId": "6a8911f1-5846-4463-ad25-f06638c1ef68"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowOutSrcPurchaseReturnSheetDet",
                 "implHandler": [
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -179,10 +200,40 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "    ",
+                    "    //篩選出供應商符合的託外進貨單",
+                    "    that.reloadOurSrcPurchaseSheetBySupplier(action.result.data.outSrcPurchaseReturnSheet.supplier.id);",
                     "});"
                 ]
             },
             "designerId": "b58f98fd-37ca-4580-ad82-f469020d6c50"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadOurSrcPurchaseSheetBySupplier",
+                "designer|params": [
+                    "supplierId"
+                ],
+                "implHandler": [
+                    "//重新load篩選出符合的託外進貨單",
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\").down(\"grid[itemId=erpOutSrcPurchaseSheetGrid]\");",
+                    "var detailGrid = this.getMainGrid().up().up().down(\"panel[itemId=outSrcPurchaseSheetDetIndex]\").down(\"grid[itemId=erpOutSrcPurchaseSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().removeAll();",
+                    "grid.getStore().load({",
+                    "    url:'/foodpaint/action?foodpaintController=outSrcPurchaseSheet&foodpaintAction=indexBySupplier/',",
+                    "    params: {'supplier.id': supplierId}",
+                    "});",
+                    "detailGrid.getStore().removeAll();"
+                ]
+            },
+            "designerId": "7cf4d091-f396-4a03-9514-1e291f2bfcdb"
         },
         {
             "type": "basicfunction",

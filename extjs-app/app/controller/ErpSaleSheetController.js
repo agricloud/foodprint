@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
                 itemdblclick: this.doShowSaleSheet
             },
             'erpsalesheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateSaleSheetDet
             },
             'erpsalesheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowSaleSheetDet
@@ -133,6 +133,69 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
         this.masterKey='saleSheet.id';
     },
 
+    doShowSaleSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var cucombo=form.findField('customer.id');
+            Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
+
+        });
+    },
+
+    doCreateSaleSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出客戶符合的訂單
+            that.reloadCustomerOrderByCustomer(action.result.data.saleSheet.customer.id);
+        });
+    },
+
+    doShowSaleSheetDet: function() {
+        var that=this;
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+            var batchcombo=form.findField('batch.id');
+            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
+            var itemcombo=form.findField('item.id');
+            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出客戶符合的訂單
+            that.reloadCustomerOrderByCustomer(action.result.data.saleSheet.customer.id);
+        });
+    },
+
+    reloadCustomerOrderByCustomer: function(customerId) {
+        //重新load篩選出符合的訂單
+
+        var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderGrid]");
+        var detailGrid=this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=customerOrder&foodpaintAction=indexByCustomer/',
+            params: {'customer.id': customerId}
+        });
+
+        detailGrid.getStore().removeAll();
+    },
+
+    activeCustomerOrderDetIndex: function() {
+
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
+
+    },
+
     doIndexDetailCustomerOrder: function(obj, record, index, eOpts) {
         var grid = this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]").down("grid[itemId=erpCustomerOrderDetGrid]");
 
@@ -174,43 +237,6 @@ Ext.define('foodprint.controller.ErpSaleSheetController', {
         });
 
         this.reloadBatchComboByItem(records[0].data.id);
-    },
-
-    doShowSaleSheet: function() {
-        this.doShowAndIndexDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var cucombo=form.findField('customer.id');
-            Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);
-
-        });
-    },
-
-    doShowSaleSheetDet: function() {
-
-        this.doShowDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var whcombo=form.findField('warehouse.id');
-            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
-            var batchcombo=form.findField('batch.id');
-            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
-            var itemcombo=form.findField('item.id');
-            Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
-
-            //warehouseLocation combo需指定warehouse id才可load
-            var wlcombo=form.findField('warehouseLocation.id');
-            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
-
-        });
-    },
-
-    activeCustomerOrderDetIndex: function() {
-
-        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=customerOrderDetIndex]"));
-
     }
 
 });

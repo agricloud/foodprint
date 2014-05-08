@@ -87,7 +87,7 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
                 itemdblclick: this.doShowSaleReturnSheet
             },
             'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateSaleReturnSheetDet
             },
             'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowSaleReturnSheetDet
@@ -135,7 +135,17 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
         });
     },
 
+    doCreateSaleReturnSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出客戶符合的銷貨單
+            that.reloadSaleSheetByCustomer(action.result.data.saleReturnSheet.customer.id);
+        });
+    },
+
     doShowSaleReturnSheetDet: function() {
+        var that=this;
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -147,7 +157,24 @@ Ext.define('foodprint.controller.ErpSaleReturnSheetController', {
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
 
+            //篩選出客戶符合的銷貨單
+            that.reloadSaleSheetByCustomer(action.result.data.saleReturnSheet.customer.id);
         });
+    },
+
+    reloadSaleSheetByCustomer: function(customerId) {
+        //重新load篩選出符合的銷貨單
+
+        var grid = this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=erpSaleSheetGrid]");
+        var detailGrid=this.getMainGrid().up().up().down("panel[itemId=saleSheetDetIndex]").down("grid[itemId=erpSaleSheetDetGrid]");
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=saleSheet&foodpaintAction=indexByCustomer/',
+            params: {'customer.id': customerId}
+        });
+
+        detailGrid.getStore().removeAll();
     },
 
     activeSaleSheetDetIndex: function() {

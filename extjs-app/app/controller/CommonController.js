@@ -260,11 +260,6 @@ Ext.define('foodprint.controller.CommonController', {
         else return {};
     },
 
-    activeManufactureOrderIndex: function() {
-        //領料單、入庫單、託外進貨單會呼叫此方法
-        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
-    },
-
     doCreateAndIndexDetail: function() {
         this.doCreate();
         //單頭單身合併時 需將單身store移除
@@ -339,7 +334,7 @@ Ext.define('foodprint.controller.CommonController', {
 
     },
 
-    doCreateDetail: function() {
+    doCreateDetail: function(callback) {
         console.log('commonController--'+this.domainName+'--doCreateDetail');
         var that = this
 
@@ -354,6 +349,10 @@ Ext.define('foodprint.controller.CommonController', {
                 that.detailActionName = 'save';
                 that.activeDetailEditor();
                 that.getDetailForm().up('panel[itemId=showDetail]').down('commondeletebtn').setDisabled(true);
+
+                if (callback && callback instanceof Function) {
+                    callback(true,form,action)
+                }
 
             },
 
@@ -497,8 +496,30 @@ Ext.define('foodprint.controller.CommonController', {
         });
     },
 
+    activeManufactureOrderIndex: function() {
+        //領料單、入庫單、託外進貨單會呼叫此方法
+
+        //跳轉至製令grid畫面
+        this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]"));
+    },
+
+    reloadManufactureOrderByWorkstationOrSupplier: function(workstationId, supplierId) {
+        //領料單、入庫單、託外進貨單會呼叫此方法
+
+        //重新load篩選出符合的製令
+        var grid = this.getMainGrid().up().up().down("panel[itemId=manufactureOrderIndex]").down("grid[itemId=erpManufactureOrderGrid]")
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=manufactureOrder&foodpaintAction=indexByWorkstationOrSupplier/',
+            params: {'workstation.id': workstationId,
+                'supplier.id': supplierId
+            }
+        });
+    },
+
     reloadBatchComboByItem: function(itemId) {
-        //目前有領料單、銷貨單使用此方法
+        //領料單、銷貨單呼叫此方法
         var combo = this.getDetailForm().down("combo[itemId=commonBatchCombo]");
         combo.getStore().load({
             url:'/batch/indexByItem',

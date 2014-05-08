@@ -89,7 +89,7 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
                 itemdblclick: this.doShowMaterialReturnSheet
             },
             'erpmaterialreturnsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateMaterialReturnSheetDet
             },
             'erpmaterialreturnsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowMaterialReturnSheetDet
@@ -137,7 +137,22 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
         });
     },
 
+    doCreateMaterialReturnSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出工作站/供應商符合的領料單
+            if(action.result.data.materialReturnSheet.workstation){
+                that.reloadMaterialSheetByWorkstationOrSupplier(action.result.data.materialReturnSheet.workstation.id,null);
+            }
+            if(action.result.data.materialReturnSheet.supplier){
+                that.reloadMaterialSheetByWorkstationOrSupplier(null,action.result.data.materialReturnSheet.supplier.id);
+            }
+        });
+    },
+
     doShowMaterialReturnSheetDet: function() {
+        var that=this;
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -148,7 +163,31 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出工作站/供應商符合的領料單
+            if(action.result.data.materialReturnSheet.workstation){
+                that.reloadMaterialSheetByWorkstationOrSupplier(action.result.data.materialReturnSheet.workstation.id,null);
+            }
+            if(action.result.data.materialReturnSheet.supplier){
+                that.reloadMaterialSheetByWorkstationOrSupplier(null,action.result.data.materialReturnSheet.supplier.id);
+            }
         });
+    },
+
+    reloadMaterialSheetByWorkstationOrSupplier: function(workstationId, supplierId) {
+        //重新load篩選出符合的領料單
+        var grid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=erpMaterialSheetGrid]");
+        var detailGrid = this.getMainGrid().up().up().down("panel[itemId=materialSheetDetIndex]").down("grid[itemId=erpMaterialSheetDetGrid]");
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=materialSheet&foodpaintAction=indexByWorkstationOrSupplier/',
+            params: {'workstation.id': workstationId,
+                'supplier.id': supplierId
+            }
+        });
+
+        detailGrid.getStore().removeAll();
     },
 
     activeMaterialSheetDetIndex: function() {

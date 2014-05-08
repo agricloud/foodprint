@@ -87,7 +87,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
                 itemdblclick: this.doShowPurchaseReturnSheet
             },
             'erppurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreatePurchaseReturnSheetDet
             },
             'erppurchasereturnsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowPurchaseReturnSheetDet
@@ -133,8 +133,17 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
         });
     },
 
-    doShowPurchaseReturnSheetDet: function() {
+    doCreatePurchaseReturnSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
 
+            //篩選出供應商符合的進貨單
+            that.reloadPurchaseSheetBySupplier(action.result.data.purchaseReturnSheet.supplier.id);
+        });
+    },
+
+    doShowPurchaseReturnSheetDet: function() {
+        var that=this;
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -145,7 +154,23 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出供應商符合的進貨單
+            that.reloadPurchaseSheetBySupplier(action.result.data.purchaseReturnSheet.supplier.id);
         });
+    },
+
+    reloadPurchaseSheetBySupplier: function(supplierId) {
+        //重新load篩選出符合的進貨單
+        var grid = this.getMainGrid().up().up().down("panel[itemId=purchaseSheetDetIndex]").down("grid[itemId=erpPurchaseSheetGrid]");
+        var detailGrid = this.getMainGrid().up().up().down("panel[itemId=purchaseSheetDetIndex]").down("grid[itemId=erpPurchaseSheetDetGrid]");
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=purchaseSheet&foodpaintAction=indexBySupplier/',
+            params: {'supplier.id': supplierId}
+        });
+        detailGrid.getStore().removeAll();
     },
 
     doIndexDetailPurchaseSheet: function(obj, record, index, eOpts) {

@@ -126,7 +126,7 @@
                     "        itemdblclick: this.doShowSaleReturnSheet",
                     "    },",
                     "    'erpsalereturnsheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateSaleReturnSheetDet",
                     "    },",
                     "    'erpsalereturnsheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowSaleReturnSheetDet",
@@ -195,8 +195,29 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateSaleReturnSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出客戶符合的銷貨單",
+                    "    that.reloadSaleSheetByCustomer(action.result.data.saleReturnSheet.customer.id);",
+                    "});"
+                ]
+            },
+            "designerId": "6c870df6-88c4-47b4-9904-d550a846561b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowSaleReturnSheetDet",
                 "implHandler": [
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -208,10 +229,41 @@
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
                     "",
+                    "    //篩選出客戶符合的銷貨單",
+                    "    that.reloadSaleSheetByCustomer(action.result.data.saleReturnSheet.customer.id);",
                     "});"
                 ]
             },
             "designerId": "9e1de035-64f9-4c4d-9e62-2a1705c8eab6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadSaleSheetByCustomer",
+                "designer|params": [
+                    "customerId"
+                ],
+                "implHandler": [
+                    "//重新load篩選出符合的銷貨單",
+                    "",
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=erpSaleSheetGrid]\");",
+                    "var detailGrid=this.getMainGrid().up().up().down(\"panel[itemId=saleSheetDetIndex]\").down(\"grid[itemId=erpSaleSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().removeAll();",
+                    "grid.getStore().load({",
+                    "    url:'/foodpaint/action?foodpaintController=saleSheet&foodpaintAction=indexByCustomer/',",
+                    "    params: {'customer.id': customerId}",
+                    "});",
+                    "",
+                    "detailGrid.getStore().removeAll();"
+                ]
+            },
+            "designerId": "f9510716-9e95-40be-afb8-f1c607e51d53"
         },
         {
             "type": "basicfunction",

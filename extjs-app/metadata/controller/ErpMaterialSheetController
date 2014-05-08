@@ -102,7 +102,7 @@
                     "        itemdblclick: this.doShowMaterialSheet",
                     "    },",
                     "    'erpmaterialsheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateMaterialSheetDet",
                     "    },",
                     "    'erpmaterialsheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowMaterialSheetDet",
@@ -176,31 +176,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectManufactureOrder",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'manufactureOrder.id':record.data['id'],",
-                    "    'manufactureOrder.typeName':record.data['typeName'],",
-                    "    'manufactureOrder.name':record.data['name']",
-                    "});",
-                    "",
-                    "this.activeDetailEditor();"
-                ]
-            },
-            "designerId": "a48968bc-3db8-4241-928e-695a913b8800"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "doShowMaterialSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
@@ -224,9 +199,34 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateMaterialSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出工作站/供應商符合的製令",
+                    "    if(action.result.data.materialSheet.workstation){",
+                    "        that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.materialSheet.workstation.id,null);",
+                    "    }",
+                    "    if(action.result.data.materialSheet.supplier){",
+                    "        that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.materialSheet.supplier.id);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "f29d572b-650e-4c44-b0f3-76b1fddcf39b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowMaterialSheetDet",
                 "implHandler": [
-                    "",
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -242,6 +242,14 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "    //篩選出工作站/供應商符合的製令",
+                    "    if(action.result.data.materialSheet.workstation){",
+                    "        that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.materialSheet.workstation.id,null);",
+                    "    }",
+                    "    if(action.result.data.materialSheet.supplier){",
+                    "        that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.materialSheet.supplier.id);",
+                    "    }",
                     "});"
                 ]
             },
@@ -264,6 +272,31 @@
                 ]
             },
             "designerId": "8636c911-4a09-44a6-b573-7c8bc386f5b4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name']",
+                    "});",
+                    "",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "a48968bc-3db8-4241-928e-695a913b8800"
         }
     ]
 }

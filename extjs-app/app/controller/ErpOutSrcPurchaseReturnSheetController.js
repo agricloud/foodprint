@@ -87,7 +87,7 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
                 itemdblclick: this.doShowOutSrcPurchaseReturnSheet
             },
             'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateOutSrcPurchaseReturnSheetDet
             },
             'erpoutsrcpurchasereturnsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowOutSrcPurchaseReturnSheetDet
@@ -133,7 +133,17 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
         });
     },
 
+    doCreateOutSrcPurchaseReturnSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出供應商符合的託外進貨單
+            that.reloadOurSrcPurchaseSheetBySupplier(action.result.data.outSrcPurchaseReturnSheet.supplier.id);
+        });
+    },
+
     doShowOutSrcPurchaseReturnSheetDet: function() {
+        var that=this;
         this.doShowDetail(function(success,form,action){
             //由於store設定load第1-50筆
             //導致doShow時若資料屬於第50筆之後無法正常顯示
@@ -144,7 +154,23 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出供應商符合的託外進貨單
+            that.reloadOurSrcPurchaseSheetBySupplier(action.result.data.outSrcPurchaseReturnSheet.supplier.id);
         });
+    },
+
+    reloadOurSrcPurchaseSheetBySupplier: function(supplierId) {
+        //重新load篩選出符合的託外進貨單
+        var grid = this.getMainGrid().up().up().down("panel[itemId=outSrcPurchaseSheetDetIndex]").down("grid[itemId=erpOutSrcPurchaseSheetGrid]");
+        var detailGrid = this.getMainGrid().up().up().down("panel[itemId=outSrcPurchaseSheetDetIndex]").down("grid[itemId=erpOutSrcPurchaseSheetDetGrid]");
+
+        grid.getStore().removeAll();
+        grid.getStore().load({
+            url:'/foodpaint/action?foodpaintController=outSrcPurchaseSheet&foodpaintAction=indexBySupplier/',
+            params: {'supplier.id': supplierId}
+        });
+        detailGrid.getStore().removeAll();
     },
 
     activeOutSrcPurchaseSheetDetIndex: function(obj, record, index, eOpts) {

@@ -98,7 +98,7 @@
                     "        itemdblclick: this.doShowOutSrcPurchaseSheet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateOutSrcPurchaseSheetDet",
                     "    },",
                     "    'erpoutsrcpurchasesheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowOutSrcPurchaseSheetDet",
@@ -169,35 +169,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectManufactureOrder",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'manufactureOrder.id':record.data['id'],",
-                    "    'manufactureOrder.typeName':record.data['typeName'],",
-                    "    'manufactureOrder.name':record.data['name'],",
-                    "    'item.id':record.data['item.id'],",
-                    "    'item.name':record.data['item.name'],",
-                    "    'item.title':record.data['item.title'],",
-                    "    'batch.name':record.data['batch.name'],",
-                    "    'qty':record.data['qty']",
-                    "});",
-                    "this.activeDetailEditor();"
-                ]
-            },
-            "designerId": "4373b9e2-e5c8-4304-a999-7b7cac47c3d5"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "doShowOutSrcPurchaseSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
@@ -220,9 +191,29 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateOutSrcPurchaseSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出供應商符合的製令",
+                    "    that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.outSrcPurchaseSheet.supplier.id);",
+                    "});"
+                ]
+            },
+            "designerId": "32f00a3f-1fe3-4c14-a068-3907ca5a3be7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowOutSrcPurchaseSheetDet",
                 "implHandler": [
-                    "",
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -233,10 +224,42 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "    //篩選出供應商符合的製令",
+                    "    that.reloadManufactureOrderByWorkstationOrSupplier(null,action.result.data.outSrcPurchaseSheet.supplier.id);",
                     "});"
                 ]
             },
             "designerId": "8952a41d-e347-45ec-8a81-ece5ff4cf5fc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "4373b9e2-e5c8-4304-a999-7b7cac47c3d5"
         }
     ]
 }

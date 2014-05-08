@@ -76,7 +76,7 @@
                     "        itemdblclick: this.doShowMaterialReturnSheet",
                     "    },",
                     "    'erpmaterialreturnsheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateMaterialReturnSheetDet",
                     "    },",
                     "    'erpmaterialreturnsheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowMaterialReturnSheetDet",
@@ -197,8 +197,34 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateMaterialReturnSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出工作站/供應商符合的領料單",
+                    "    if(action.result.data.materialReturnSheet.workstation){",
+                    "        that.reloadMaterialSheetByWorkstationOrSupplier(action.result.data.materialReturnSheet.workstation.id,null);",
+                    "    }",
+                    "    if(action.result.data.materialReturnSheet.supplier){",
+                    "        that.reloadMaterialSheetByWorkstationOrSupplier(null,action.result.data.materialReturnSheet.supplier.id);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "59c0f112-0e7b-4494-b476-e6319dec832a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowMaterialReturnSheetDet",
                 "implHandler": [
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -209,10 +235,48 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "\t//篩選出工作站/供應商符合的領料單",
+                    "    if(action.result.data.materialReturnSheet.workstation){",
+                    "        that.reloadMaterialSheetByWorkstationOrSupplier(action.result.data.materialReturnSheet.workstation.id,null);",
+                    "    }",
+                    "    if(action.result.data.materialReturnSheet.supplier){",
+                    "        that.reloadMaterialSheetByWorkstationOrSupplier(null,action.result.data.materialReturnSheet.supplier.id);",
+                    "    }",
                     "});"
                 ]
             },
             "designerId": "5bbf645f-afb5-4f6f-8774-91e70587d768"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadMaterialSheetByWorkstationOrSupplier",
+                "designer|params": [
+                    "workstationId, supplierId"
+                ],
+                "implHandler": [
+                    "//重新load篩選出符合的領料單",
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=erpMaterialSheetGrid]\");",
+                    "var detailGrid = this.getMainGrid().up().up().down(\"panel[itemId=materialSheetDetIndex]\").down(\"grid[itemId=erpMaterialSheetDetGrid]\");",
+                    "",
+                    "grid.getStore().removeAll();",
+                    "grid.getStore().load({",
+                    "    url:'/foodpaint/action?foodpaintController=materialSheet&foodpaintAction=indexByWorkstationOrSupplier/',",
+                    "    params: {'workstation.id': workstationId,",
+                    "        'supplier.id': supplierId",
+                    "    }",
+                    "});",
+                    "",
+                    "detailGrid.getStore().removeAll();"
+                ]
+            },
+            "designerId": "2f8f602c-f43a-48e7-8949-d4e3cedaa477"
         },
         {
             "type": "basicfunction",

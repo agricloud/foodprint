@@ -85,7 +85,7 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
                 itemdblclick: this.doShowStockInSheet
             },
             'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{
-                click:this.doCreateDetail
+                click:this.doCreateStockInSheetDet
             },
             'erpstockinsheetview #show commonindextoolbar commonshowbtn':{
                 click:this.doShowStockInSheetDet
@@ -120,6 +120,44 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
         this.masterKey='stockInSheet.id';
     },
 
+    doShowStockInSheet: function() {
+        this.doShowAndIndexDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var wscombo=form.findField('workstation.id');
+            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
+        });
+    },
+
+    doCreateStockInSheetDet: function() {
+        var that=this;
+        this.doCreateDetail(function(success,form,action){
+
+            //篩選出工作站符合的製令
+            that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.stockInSheet.workstation.id,null);
+        });
+    },
+
+    doShowStockInSheetDet: function() {
+        var that=this;
+        this.doShowDetail(function(success,form,action){
+            //由於store設定load第1-50筆
+            //導致doShow時若資料屬於第50筆之後無法正常顯示
+            //在此使combo重新load store
+            var whcombo=form.findField('warehouse.id');
+            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
+
+            //warehouseLocation combo需指定warehouse id才可load
+            var wlcombo=form.findField('warehouseLocation.id');
+            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
+
+            //篩選出工作站符合的製令
+            that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.stockInSheet.workstation.id,null);
+
+        });
+    },
+
     doSelectManufactureOrder: function(obj, record, index, eOpts) {
         this.getDetailForm().getForm().setValues({
 
@@ -133,30 +171,6 @@ Ext.define('foodprint.controller.ErpStockInSheetController', {
             'qty':record.data['qty']
         });
         this.activeDetailEditor();
-    },
-
-    doShowStockInSheet: function() {
-        this.doShowAndIndexDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var wscombo=form.findField('workstation.id');
-            Utilities.comboReload(wscombo,action.result.data['workstation.id'],action.result.data['workstation.name']);
-        });
-    },
-
-    doShowStockInSheetDet: function() {
-        this.doShowDetail(function(success,form,action){
-            //由於store設定load第1-50筆
-            //導致doShow時若資料屬於第50筆之後無法正常顯示
-            //在此使combo重新load store
-            var whcombo=form.findField('warehouse.id');
-            Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);
-
-            //warehouseLocation combo需指定warehouse id才可load
-            var wlcombo=form.findField('warehouseLocation.id');
-            Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);
-        });
     }
 
 });

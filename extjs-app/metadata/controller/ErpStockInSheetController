@@ -98,7 +98,7 @@
                     "        itemdblclick: this.doShowStockInSheet",
                     "    },",
                     "    'erpstockinsheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateStockInSheetDet",
                     "    },",
                     "    'erpstockinsheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowStockInSheetDet",
@@ -169,35 +169,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "doSelectManufactureOrder",
-                "designer|params": [
-                    "obj, record, index, eOpts"
-                ],
-                "implHandler": [
-                    "this.getDetailForm().getForm().setValues({",
-                    "",
-                    "    'manufactureOrder.id':record.data['id'],",
-                    "    'manufactureOrder.typeName':record.data['typeName'],",
-                    "    'manufactureOrder.name':record.data['name'],",
-                    "    'item.id':record.data['item.id'],",
-                    "    'item.name':record.data['item.name'],",
-                    "    'item.title':record.data['item.title'],",
-                    "    'batch.name':record.data['batch.name'],",
-                    "    'qty':record.data['qty']",
-                    "});",
-                    "this.activeDetailEditor();"
-                ]
-            },
-            "designerId": "739e5c8a-6c08-43bd-b34a-59e6cc9f1384"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "doShowStockInSheet",
                 "implHandler": [
                     "this.doShowAndIndexDetail(function(success,form,action){",
@@ -219,8 +190,29 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "doCreateStockInSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出工作站符合的製令",
+                    "    that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.stockInSheet.workstation.id,null);",
+                    "});"
+                ]
+            },
+            "designerId": "e4bab3df-860a-4e6b-9804-f5275945f8fb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fn": "doShowStockInSheetDet",
                 "implHandler": [
+                    "var that=this;",
                     "this.doShowDetail(function(success,form,action){",
                     "    //由於store設定load第1-50筆",
                     "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
@@ -231,10 +223,43 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "    //篩選出工作站符合的製令",
+                    "    that.reloadManufactureOrderByWorkstationOrSupplier(action.result.data.stockInSheet.workstation.id,null);",
+                    "",
                     "});"
                 ]
             },
             "designerId": "569a7416-3c4a-4dad-8b30-0e7840bcd860"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectManufactureOrder",
+                "designer|params": [
+                    "obj, record, index, eOpts"
+                ],
+                "implHandler": [
+                    "this.getDetailForm().getForm().setValues({",
+                    "",
+                    "    'manufactureOrder.id':record.data['id'],",
+                    "    'manufactureOrder.typeName':record.data['typeName'],",
+                    "    'manufactureOrder.name':record.data['name'],",
+                    "    'item.id':record.data['item.id'],",
+                    "    'item.name':record.data['item.name'],",
+                    "    'item.title':record.data['item.title'],",
+                    "    'batch.name':record.data['batch.name'],",
+                    "    'qty':record.data['qty']",
+                    "});",
+                    "this.activeDetailEditor();"
+                ]
+            },
+            "designerId": "739e5c8a-6c08-43bd-b34a-59e6cc9f1384"
         }
     ]
 }

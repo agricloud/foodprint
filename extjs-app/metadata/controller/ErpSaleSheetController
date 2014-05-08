@@ -102,7 +102,7 @@
                     "        itemdblclick: this.doShowSaleSheet",
                     "    },",
                     "    'erpsalesheetview #show commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreateDetail",
+                    "        click:this.doCreateSaleSheetDet",
                     "    },",
                     "    'erpsalesheetview #show commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowSaleSheetDet",
@@ -173,6 +173,127 @@
                 "selector": "erpsalesheetview #detailForm"
             },
             "designerId": "59a671ac-54e4-493c-9126-be629efbf683"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleSheet",
+                "implHandler": [
+                    "this.doShowAndIndexDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var cucombo=form.findField('customer.id');",
+                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "cf359228-d23c-47f2-bfbd-13134e77aaf5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreateSaleSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doCreateDetail(function(success,form,action){",
+                    "",
+                    "    //篩選出客戶符合的訂單",
+                    "    that.reloadCustomerOrderByCustomer(action.result.data.saleSheet.customer.id);",
+                    "});"
+                ]
+            },
+            "designerId": "eb263798-e009-46d4-b330-f9ef106e0ca9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doShowSaleSheetDet",
+                "implHandler": [
+                    "var that=this;",
+                    "this.doShowDetail(function(success,form,action){",
+                    "    //由於store設定load第1-50筆",
+                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
+                    "    //在此使combo重新load store",
+                    "    var whcombo=form.findField('warehouse.id');",
+                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
+                    "    var batchcombo=form.findField('batch.id');",
+                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
+                    "    var itemcombo=form.findField('item.id');",
+                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
+                    "",
+                    "    //warehouseLocation combo需指定warehouse id才可load",
+                    "    var wlcombo=form.findField('warehouseLocation.id');",
+                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
+                    "",
+                    "    //篩選出客戶符合的訂單",
+                    "    that.reloadCustomerOrderByCustomer(action.result.data.saleSheet.customer.id);",
+                    "});"
+                ]
+            },
+            "designerId": "5671cc17-3cf2-4f79-b28d-4391c19b49d4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reloadCustomerOrderByCustomer",
+                "designer|params": [
+                    "customerId"
+                ],
+                "implHandler": [
+                    "//重新load篩選出符合的訂單",
+                    "",
+                    "var grid = this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=erpCustomerOrderGrid]\");",
+                    "var detailGrid=this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\").down(\"grid[itemId=erpCustomerOrderDetGrid]\");",
+                    "",
+                    "grid.getStore().removeAll();",
+                    "grid.getStore().load({",
+                    "    url:'/foodpaint/action?foodpaintController=customerOrder&foodpaintAction=indexByCustomer/',",
+                    "    params: {'customer.id': customerId}",
+                    "});",
+                    "",
+                    "detailGrid.getStore().removeAll();"
+                ]
+            },
+            "designerId": "36f3510a-48ef-4f25-a3d2-e6ae5e08e5d4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeCustomerOrderDetIndex",
+                "implHandler": [
+                    "",
+                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\"));",
+                    ""
+                ]
+            },
+            "designerId": "8676bd37-1db7-4bab-b6a6-9258ff0acddd"
         },
         {
             "type": "basicfunction",
@@ -258,76 +379,6 @@
                 ]
             },
             "designerId": "0095450a-8516-401c-8537-b4514941881d"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doShowSaleSheet",
-                "implHandler": [
-                    "this.doShowAndIndexDetail(function(success,form,action){",
-                    "    //由於store設定load第1-50筆",
-                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
-                    "    //在此使combo重新load store",
-                    "    var cucombo=form.findField('customer.id');",
-                    "    Utilities.comboReload(cucombo,action.result.data['customer.id'],action.result.data['customer.name']);",
-                    "",
-                    "});"
-                ]
-            },
-            "designerId": "cf359228-d23c-47f2-bfbd-13134e77aaf5"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "doShowSaleSheetDet",
-                "implHandler": [
-                    "",
-                    "this.doShowDetail(function(success,form,action){",
-                    "    //由於store設定load第1-50筆",
-                    "    //導致doShow時若資料屬於第50筆之後無法正常顯示",
-                    "    //在此使combo重新load store",
-                    "    var whcombo=form.findField('warehouse.id');",
-                    "    Utilities.comboReload(whcombo,action.result.data['warehouse.id'],action.result.data['warehouse.name']);",
-                    "    var batchcombo=form.findField('batch.id');",
-                    "    Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);",
-                    "    var itemcombo=form.findField('item.id');",
-                    "    Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);",
-                    "",
-                    "    //warehouseLocation combo需指定warehouse id才可load",
-                    "    var wlcombo=form.findField('warehouseLocation.id');",
-                    "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
-                    "",
-                    "});"
-                ]
-            },
-            "designerId": "5671cc17-3cf2-4f79-b28d-4391c19b49d4"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "activeCustomerOrderDetIndex",
-                "implHandler": [
-                    "",
-                    "this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().up().up().down(\"panel[itemId=customerOrderDetIndex]\"));",
-                    ""
-                ]
-            },
-            "designerId": "8676bd37-1db7-4bab-b6a6-9258ff0acddd"
         }
     ]
 }
