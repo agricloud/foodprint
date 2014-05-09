@@ -49,7 +49,11 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                 click: this.doCollapseall
             },
             'backwardtracetreeview treepanel[itemId=tree]':{
-                beforeitemexpand: this.addExtraParamsToStore
+                beforeitemexpand: this.addExtraParamsToStore,
+                celldblclick: this.doIndexSheetDetail
+            },
+            'backwardtracetreeview toolbar commonbackbtn':{
+                click: this.activeTreeDiagram
             }
         });
 
@@ -86,6 +90,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
                         'item.spec':record.item.spec,
                         'item.unit':record.item.unit,
                         'qty':record.qty,
+                        'sheetDetail':record.sheetDetail,
                         'children':record.children
 
                     };
@@ -134,6 +139,26 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
         params.class = node.data.class;
         params.name = node.data.name;
         this.getMainTree().getStore().getProxy().extraParams = params;
+    },
+
+    doIndexSheetDetail: function(view, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        //cellIndex:第幾欄
+        //record:該列資料
+        //rowIndex:第幾列
+
+        if(this.getMainTree().headerCt.getHeaderAtIndex(cellIndex).dataIndex=="sheet"){
+            if(record.raw.sheetDetail){
+                this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);
+                this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));
+
+
+            }
+        }
+    },
+
+    activeTreeDiagram: function() {
+        this.getSheetGrid().getStore().removeAll();
+        this.getSheetGrid().up('panel[itemId=sheetDetail]').up().getLayout().setActiveItem(this.getMainTree().up('panel[itemId=treeDiagram]'));
     }
 
 });

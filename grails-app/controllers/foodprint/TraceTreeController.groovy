@@ -63,6 +63,7 @@ class TraceTreeController {
 
             rootJson.qty = rootJson.qty.toLong()+sheet.qty.toLong()
         }
+        rootJson.sheetDetail=sourceSheet.data
         
         render (contentType: 'application/json') {
             rootJson
@@ -93,6 +94,7 @@ class TraceTreeController {
                     if(i != stockInSheetDets.data.size()-1)
                         node.sheet += ","
                 }
+                node.sheetDetail=stockInSheetDets.data
                 childJson << node
             }
         }
@@ -114,6 +116,7 @@ class TraceTreeController {
                     if(i != outSrcPurchaseSheetDets.data.size()-1)
                         node.sheet += ","
                 }
+                node.sheetDetail=outSrcPurchaseSheetDets.data
                 childJson << node
             }
         }
@@ -138,6 +141,7 @@ class TraceTreeController {
                         node.sheet += ","
                     node.qty = node.qty.toLong()+purchaseSheetDet.qty.toLong()
                 }
+                node.sheetDetail=purchaseSheetDets.data
                 childJson << node
             }
         }
@@ -189,6 +193,7 @@ class TraceTreeController {
                     node.sheet += ","
                 node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
+            node.sheetDetail=sourceSheet.data
             childJson << node
         }
 

@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "container|align": "stretch",
         "height": null,
         "itemId": "backwardTraceTreeCt",
         "width": null,
@@ -16,7 +15,7 @@
             "foodprint.view.CommonTraceToolbar",
             "foodprint.view.CommonBackBtn"
         ],
-        "layout": "vbox"
+        "layout": "card"
     },
     "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
     "cn": [
@@ -29,7 +28,6 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
-                "layout|flex": 1,
                 "tbar": [
                     "{",
                     "\txtype: 'commontracetoolbar',",
@@ -66,6 +64,57 @@
                     },
                     "designerId": "ca248d41-a919-4f52-ac14-6bd1f8d82cc1",
                     "masterInstanceId": "d88c80ee-764d-4988-a4fd-dc1b7e0349a3"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype:'toolbar',",
+                    "    items:[",
+                    "    \t{",
+                    "    \t\txtype: 'commonbackbtn'",
+                    "        }",
+                    "    ]",
+                    "}"
+                ],
+                "container|align": "stretch",
+                "itemId": "sheetDetail",
+                "layout": "vbox",
+                "title": null
+            },
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "07847a92-b40e-4daa-b01c-a284c29cb2c0",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "sheetGrid",
+                        "layout|flex": 1
+                    },
+                    "designerId": "decd5656-bc99-4e38-ad10-90726d27a35d",
+                    "masterInstanceId": "3d4bf7a1-2359-40f9-b00a-d2dc0da9767e"
                 }
             ]
         }

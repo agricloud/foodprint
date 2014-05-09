@@ -19,14 +19,14 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
 
     requires: [
         'foodprint.view.TraceTree',
+        'foodprint.view.TraceSheetGrid',
         'foodprint.view.CommonTraceToolbar',
         'foodprint.view.CommonBackBtn'
     ],
 
     itemId: 'backwardTraceTreeCt',
     layout: {
-        align: 'stretch',
-        type: 'vbox'
+        type: 'card'
     },
 
     initComponent: function() {
@@ -36,7 +36,6 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
             items: [
                 {
                     xtype: 'panel',
-                    flex: 1,
                     tbar: {
                         xtype: 'commontracetoolbar',
                         width: 100
@@ -51,6 +50,29 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
                             xtype: 'tracetree',
                             itemId: 'tree',
                             store: 'BackwardTraceTreeStore',
+                            flex: 1
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'toolbar',
+                        items: [
+                            {
+                                xtype: 'commonbackbtn'
+                            }
+                        ]
+                    },
+                    itemId: 'sheetDetail',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
+                        {
+                            xtype: 'tracesheetgrid',
+                            itemId: 'sheetGrid',
                             flex: 1
                         }
                     ]

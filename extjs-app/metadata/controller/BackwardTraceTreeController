@@ -43,7 +43,11 @@
                     "        click: this.doCollapseall",
                     "    },",
                     "    'backwardtracetreeview treepanel[itemId=tree]':{",
-                    "        beforeitemexpand: this.addExtraParamsToStore",
+                    "        beforeitemexpand: this.addExtraParamsToStore,",
+                    "        celldblclick: this.doIndexSheetDetail",
+                    "    },",
+                    "    'backwardtracetreeview toolbar commonbackbtn':{",
+                    "        click: this.activeTreeDiagram",
                     "    }",
                     "});",
                     "",
@@ -91,6 +95,7 @@
                     "                'item.spec':record.item.spec,",
                     "                'item.unit':record.item.unit,",
                     "                'qty':record.qty,",
+                    "                'sheetDetail':record.sheetDetail,",
                     "                'children':record.children",
                     "",
                     "            };",
@@ -184,6 +189,51 @@
                 ]
             },
             "designerId": "5d58c40d-08a5-478f-8301-9088795f06f7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doIndexSheetDetail",
+                "designer|params": [
+                    "view, td, cellIndex, record, tr, rowIndex, e, eOpts"
+                ],
+                "implHandler": [
+                    "//cellIndex:第幾欄",
+                    "//record:該列資料",
+                    "//rowIndex:第幾列",
+                    "",
+                    "if(this.getMainTree().headerCt.getHeaderAtIndex(cellIndex).dataIndex==\"sheet\"){",
+                    "    if(record.raw.sheetDetail){",
+                    "        this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);",
+                    "        this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));",
+                    "",
+                    "",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "9fb0ca81-e94c-488b-97b2-9aff6a1b9f6d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeTreeDiagram",
+                "implHandler": [
+                    "this.getSheetGrid().getStore().removeAll();",
+                    "this.getSheetGrid().up('panel[itemId=sheetDetail]').up().getLayout().setActiveItem(this.getMainTree().up('panel[itemId=treeDiagram]'));"
+                ]
+            },
+            "designerId": "d1389623-6c98-41bd-adfc-5534bb326276"
         },
         {
             "type": "controllerref",
