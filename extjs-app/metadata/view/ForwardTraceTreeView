@@ -10,6 +10,9 @@
         "width": null,
         "designer|userClassName": "ForwardTraceTreeView",
         "designer|userAlias": "forwardtracetreeview",
+        "requires": [
+            "foodprint.view.CommonBackBtn"
+        ],
         "layout": "card"
     },
     "designerId": "27738884-27eb-4b4f-a044-887a4c636a35",
@@ -253,10 +256,32 @@
             },
             "codeClass": null,
             "userConfig": {
+                "tbar": [
+                    "{",
+                    "    xtype:'toolbar',",
+                    "    items:[",
+                    "    \t{",
+                    "    \t\txtype: 'commonbackbtn'",
+                    "        }",
+                    "    ]",
+                    "}"
+                ],
+                "container|align": "stretch",
                 "itemId": "sheetDetail",
+                "layout": "vbox",
                 "title": null
             },
+            "configAlternates": {
+                "tbar": "object"
+            },
             "designerId": "841640ee-b2b7-46bb-8862-865631d965a0",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "Ext.grid.Panel",
@@ -266,8 +291,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 1,
+                        "dock": null,
                         "itemId": "sheetGrid",
-                        "title": "Sheet",
+                        "title": null,
                         "store": "TraceSheetDetailStore"
                     },
                     "designerId": "797842f7-70f8-4870-b747-2c9e7e333e9a",
@@ -283,6 +310,7 @@
                                 "hidden": true,
                                 "dataIndex": "id",
                                 "text": "id",
+                                "flex": 1,
                                 "format": "0,000"
                             },
                             "designerId": "e3b21254-7e1b-487b-85e7-fc7fca947e14"
@@ -296,7 +324,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "typeName",
-                                "text": "typeName"
+                                "text": "typeName",
+                                "flex": 1
                             },
                             "designerId": "53b389e5-d0d5-4005-b4a7-df758b81f39c"
                         },
@@ -309,7 +338,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "name",
-                                "text": "name"
+                                "text": "name",
+                                "flex": 1
                             },
                             "designerId": "8aa2b4ab-97a4-4014-b94c-fd7fd6c9cf05"
                         },
@@ -322,7 +352,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "sequence",
-                                "text": "sequence"
+                                "text": "sequence",
+                                "flex": 1
                             },
                             "designerId": "9a502694-d114-40c5-901a-8bd541474cea"
                         },
@@ -337,6 +368,7 @@
                                 "hidden": true,
                                 "dataIndex": "item.id",
                                 "text": "item.id",
+                                "flex": 1,
                                 "format": "0,000"
                             },
                             "designerId": "57840766-986a-4cb3-ad9e-d890eb977686"
@@ -350,7 +382,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "item.name",
-                                "text": "item.name"
+                                "text": "item.name",
+                                "flex": 1
                             },
                             "designerId": "a6372eaa-7dcd-458b-b7a3-c41ed823499f"
                         },
@@ -363,7 +396,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "item.title",
-                                "text": "item.title"
+                                "text": "item.title",
+                                "flex": 1
                             },
                             "designerId": "bcd9c6d6-f0bd-4df8-914b-377d7e325586"
                         },
@@ -378,6 +412,7 @@
                                 "hidden": true,
                                 "dataIndex": "warehouse.id",
                                 "text": "warehouse.id",
+                                "flex": 1,
                                 "format": "0,000"
                             },
                             "designerId": "26ec9979-86bd-44a8-abd5-bebd9535c898"
@@ -391,7 +426,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "warehouse.name",
-                                "text": "warehouse.name"
+                                "text": "warehouse.name",
+                                "flex": 1
                             },
                             "designerId": "b2761d1c-d67b-49e6-a0ea-6f94e7f68216"
                         },
@@ -404,7 +440,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "warehouse.title",
-                                "text": "warehouse.title"
+                                "text": "warehouse.title",
+                                "flex": 1
                             },
                             "designerId": "d787d9b4-915b-4c37-be9b-453cab099d88"
                         },
@@ -419,6 +456,7 @@
                                 "hidden": true,
                                 "dataIndex": "warehouseLocation.id",
                                 "text": "warehouseLocation.id",
+                                "flex": 1,
                                 "format": "0,000"
                             },
                             "designerId": "fa76b6b7-75f2-4a40-8c7b-a9fc2d421ff1"
@@ -432,7 +470,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "warehouseLocation.name",
-                                "text": "warehouseLocation.name"
+                                "text": "warehouseLocation.name",
+                                "flex": 1
                             },
                             "designerId": "2864341d-f3a6-433c-b603-06f4dc85e7e7"
                         },
@@ -445,7 +484,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "warehouseLocation.title",
-                                "text": "warehouseLocation.title"
+                                "text": "warehouseLocation.title",
+                                "flex": 1
                             },
                             "designerId": "d5379940-e136-48de-aedc-67387a0dd7bc"
                         },
@@ -458,7 +498,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "qty",
-                                "text": "qty"
+                                "text": "qty",
+                                "flex": 1
                             },
                             "designerId": "bbbbb67f-d673-468d-a157-90369559043d"
                         },
@@ -471,7 +512,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "item.unit",
-                                "text": "item.unit"
+                                "text": "item.unit",
+                                "flex": 1
                             },
                             "designerId": "553b5991-2b48-4512-a182-bd8721c9847a"
                         },
@@ -483,6 +525,26 @@
                             },
                             "codeClass": null,
                             "designerId": "33803af9-c336-4863-8f9e-4ab4388ed75e"
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processSheetGrid",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "",
+                                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'traceSheetDetail'));",
+                                    ""
+                                ]
+                            },
+                            "designerId": "93469c6a-65f8-46bd-9cdd-10164761cd56"
                         }
                     ]
                 }

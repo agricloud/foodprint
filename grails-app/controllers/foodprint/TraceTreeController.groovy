@@ -257,6 +257,7 @@ class TraceTreeController {
                 rootJson.sheet += ","
             rootJson.qty = rootJson.qty.toLong()+sheet.qty.toLong()
         }
+        rootJson.sheetDetail=sourceSheet.data
 
         render (contentType: 'application/json') {
             rootJson
@@ -317,6 +318,7 @@ class TraceTreeController {
                         node.sheet += ","
                     node.qty = node.qty.toLong()+saleSheetDet.qty.toLong()
                 }
+                node.sheetDetail=saleSheetDets.data
                 childJson << node
             }
         }
@@ -370,6 +372,7 @@ class TraceTreeController {
                     node.sheet += ","
                 node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
+            node.sheetDetail=sourceSheet.data
             childJson << node
         }
 
@@ -392,6 +395,7 @@ class TraceTreeController {
                     node.sheet += ","
                 node.qty = node.qty.toLong()+sheet.qty.toLong()
             }
+            node.sheetDetail=sourceSheet.data
             childJson << node
         }
         //葉節點：查詢該製令是否仍有在製品

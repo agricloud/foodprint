@@ -1,0 +1,42 @@
+{
+    "type": "Ext.button.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "commonBackBtn",
+        "style": "font-family:Pictos;",
+        "designer|userClassName": "CommonBackBtn",
+        "designer|userAlias": "commonbackbtn",
+        "glyph": 115,
+        "text": "Back"
+    },
+    "configAlternates": {
+        "style": "string"
+    },
+    "designerId": "a05ac430-5be5-4c6a-b7d4-5d0b6c62c441",
+    "cn": [
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonBackBtn",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "config.text=Utilities.getMsg('common.backBtn.label');",
+                    "",
+                    "return config;"
+                ]
+            },
+            "designerId": "ac82d8be-f7ba-4246-a58f-04091090cc8b"
+        }
+    ]
+}

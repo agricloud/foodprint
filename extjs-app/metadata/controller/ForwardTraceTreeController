@@ -47,6 +47,9 @@
                     "    'forwardtracetreeview treepanel[itemId=tree]':{",
                     "        beforeitemexpand: this.addExtraParamsToStore,",
                     "        celldblclick: this.doIndexSheetDetail",
+                    "    },",
+                    "    'forwardtracetreeview toolbar commonbackbtn':{",
+                    "        click: this.activeTreeDiagram",
                     "    }",
                     "});"
                 ]
@@ -92,6 +95,7 @@
                     "                'item.spec':record.item.spec,",
                     "                'item.unit':record.item.unit,",
                     "                'qty':record.qty,",
+                    "                'sheetDetail':record.sheetDetail,",
                     "                'children':record.children",
                     "",
                     "            };",
@@ -236,6 +240,22 @@
                 ]
             },
             "designerId": "ff748aa0-2498-4598-9e69-49a9744eb8f7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeTreeDiagram",
+                "implHandler": [
+                    "this.getSheetGrid().getStore().removeAll();",
+                    "this.getSheetGrid().up('panel[itemId=sheetDetail]').up().getLayout().setActiveItem(this.getMainTree().up('panel[itemId=treeDiagram]'));"
+                ]
+            },
+            "designerId": "3504f527-a7d4-4421-b34d-87d2e1de70e5"
         },
         {
             "type": "controllerref",

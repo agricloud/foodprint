@@ -53,6 +53,9 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
             'forwardtracetreeview treepanel[itemId=tree]':{
                 beforeitemexpand: this.addExtraParamsToStore,
                 celldblclick: this.doIndexSheetDetail
+            },
+            'forwardtracetreeview toolbar commonbackbtn':{
+                click: this.activeTreeDiagram
             }
         });
     },
@@ -87,6 +90,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
                         'item.spec':record.item.spec,
                         'item.unit':record.item.unit,
                         'qty':record.qty,
+                        'sheetDetail':record.sheetDetail,
                         'children':record.children
 
                     };
@@ -172,6 +176,11 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
             }
         }
+    },
+
+    activeTreeDiagram: function() {
+        this.getSheetGrid().getStore().removeAll();
+        this.getSheetGrid().up('panel[itemId=sheetDetail]').up().getLayout().setActiveItem(this.getMainTree().up('panel[itemId=treeDiagram]'));
     }
 
 });

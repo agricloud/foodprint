@@ -32,12 +32,16 @@ Ext.define('foodprint.view.CommonTraceToolbar', {
                     xtype: 'button',
                     disabled: true,
                     itemId: 'commonExpandallBtn',
+                    style: 'font-family:Pictos;',
+                    glyph: 43,
                     text: 'ExpandAll'
                 }),
                 me.processCommonCollapseallBtn({
                     xtype: 'button',
                     disabled: true,
                     itemId: 'commonCollapseallBtn',
+                    style: 'font-family:Pictos;',
+                    glyph: 45,
                     text: 'CollapseAll'
                 }),
                 {
