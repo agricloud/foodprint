@@ -18,8 +18,9 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
     alias: 'widget.backwardtracetreeview',
 
     requires: [
+        'foodprint.view.TraceTree',
         'foodprint.view.CommonTraceToolbar',
-        'foodprint.view.CommonBatchCombo'
+        'foodprint.view.CommonBackBtn'
     ],
 
     itemId: 'backwardTraceTreeCt',
@@ -34,95 +35,30 @@ Ext.define('foodprint.view.BackwardTraceTreeView', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'commontracetoolbar'
-                },
-                me.processBackwardTraceTreePanel({
-                    xtype: 'treepanel',
+                    xtype: 'panel',
                     flex: 1,
-                    itemId: 'backwardTraceTreePanel',
-                    collapsible: false,
-                    store: 'BackwardTraceTreeStore',
-                    useArrows: true,
-                    columns: [
+                    tbar: {
+                        xtype: 'commontracetoolbar',
+                        width: 100
+                    },
+                    itemId: 'treeDiagram',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    },
+                    items: [
                         {
-                            xtype: 'treecolumn',
-                            dataIndex: 'arrow',
-                            text: 'arrow',
+                            xtype: 'tracetree',
+                            itemId: 'tree',
+                            store: 'BackwardTraceTreeStore',
                             flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'note',
-                            text: 'note',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            hidden: true,
-                            dataIndex: 'class',
-                            text: 'class',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'type',
-                            text: 'type',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'name',
-                            text: 'name',
-                            flex: 2
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.name',
-                            text: 'item.name',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.title',
-                            text: 'item.title',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.spec',
-                            text: 'item.spec',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'qty',
-                            text: 'qty',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'item.unit',
-                            text: 'item.unit',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'sheet',
-                            text: 'sheet',
-                            flex: 3
                         }
                     ]
-                })
+                }
             ]
         });
 
         me.callParent(arguments);
-    },
-
-    processBackwardTraceTreePanel: function(config) {
-
-
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'backwardTraceTree'));
     }
 
 });

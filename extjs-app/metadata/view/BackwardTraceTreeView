@@ -13,219 +13,59 @@
         "designer|userClassName": "BackwardTraceTreeView",
         "designer|userAlias": "backwardtracetreeview",
         "requires": [
-            "foodprint.view.CommonBatchCombo"
+            "foodprint.view.CommonTraceToolbar",
+            "foodprint.view.CommonBackBtn"
         ],
         "layout": "vbox"
     },
     "designerId": "deebdad1-f89d-45f3-b367-db313f2f03d6",
     "cn": [
         {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "designerId": "d245b922-3131-4d2b-8b77-e77f87d577b1",
-            "masterInstanceId": "23f3bbfe-f534-441c-abba-028441187e12"
-        },
-        {
-            "type": "Ext.tree.Panel",
+            "type": "Ext.panel.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
+                "container|align": "stretch",
                 "layout|flex": 1,
-                "height": null,
-                "itemId": "backwardTraceTreePanel",
-                "width": null,
-                "collapsible": false,
-                "title": null,
-                "normalViewConfig": null,
-                "store": "BackwardTraceTreeStore",
-                "useArrows": true
+                "tbar": [
+                    "{",
+                    "\txtype: 'commontracetoolbar',",
+                    "\twidth: 100",
+                    "}"
+                ],
+                "itemId": "treeDiagram",
+                "layout": "vbox",
+                "title": null
             },
-            "designerId": "959d5fd3-d214-469d-95cf-990941426116",
-            "isBuiltIn": true,
-            "iconCls": "icon-treegridpanel",
-            "autoName": "TreeGrid",
+            "configAlternates": {
+                "tbar": "object"
+            },
+            "designerId": "e5d8018b-700a-4751-9c9c-5183e4fa8528",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tbar",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
-                    "type": "Ext.tree.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "arrow",
-                        "text": "arrow",
-                        "flex": 1
-                    },
-                    "designerId": "ecd406bf-6e39-4e1c-9539-697ff2c6121d"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "note",
-                        "text": "note",
-                        "flex": 1
-                    },
-                    "designerId": "f30b909c-7745-427e-bb28-a2391f23cd0b"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "hidden": true,
-                        "dataIndex": "class",
-                        "text": "class",
-                        "flex": 1
-                    },
-                    "designerId": "936bd654-32df-40bf-bc82-55d5ddb68856"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "type",
-                        "text": "type",
-                        "flex": 1
-                    },
-                    "designerId": "a7e351f3-7448-4c50-b1ec-729e998f29bd"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "name",
-                        "text": "name",
-                        "flex": 2
-                    },
-                    "designerId": "bdbf8523-6359-434b-aa49-dce3377f9f8f"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "item.name",
-                        "text": "item.name",
-                        "flex": 1
-                    },
-                    "designerId": "fba8cc7c-281d-42b3-8b80-0277d12ec73b"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "item.title",
-                        "text": "item.title",
-                        "flex": 1
-                    },
-                    "designerId": "a4feb73e-b7f6-4e46-8fdf-b5a2ab0e9265"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "item.spec",
-                        "text": "item.spec",
-                        "flex": 1
-                    },
-                    "designerId": "64007f9e-f3af-4268-a6e9-28d6f2f901be"
-                },
-                {
-                    "type": "Ext.grid.column.Number",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "qty",
-                        "text": "qty",
-                        "flex": 1
-                    },
-                    "designerId": "02a1daa0-240f-440c-a663-cf71650710b4"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "item.unit",
-                        "text": "item.unit",
-                        "flex": 1
-                    },
-                    "designerId": "9cfb2f52-f6ac-4d45-ad00-de750fc183a6"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "sheet",
-                        "text": "sheet",
-                        "flex": 3
-                    },
-                    "designerId": "955aa7f5-39eb-45fa-a27e-d860bf673c52"
-                },
-                {
-                    "type": "processcfgfunction",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "processBackwardTraceTreePanel",
-                        "designer|params": [
-                            "config"
-                        ],
-                        "implHandler": [
-                            "",
-                            "",
-                            "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'backwardTraceTree'));"
-                        ]
+                        "itemId": "tree",
+                        "store": "BackwardTraceTreeStore",
+                        "layout|flex": 1
                     },
-                    "designerId": "0b8dc678-cf65-4679-85ef-79955414c4d3"
+                    "designerId": "ca248d41-a919-4f52-ac14-6bd1f8d82cc1",
+                    "masterInstanceId": "d88c80ee-764d-4988-a4fd-dc1b7e0349a3"
                 }
             ]
         }

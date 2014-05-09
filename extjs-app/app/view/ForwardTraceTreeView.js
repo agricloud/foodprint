@@ -18,8 +18,10 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
     alias: 'widget.forwardtracetreeview',
 
     requires: [
-        'foodprint.view.CommonTraceToolbar',
-        'foodprint.view.CommonBackBtn'
+        'foodprint.view.TraceTree',
+        'foodprint.view.TraceSheetGrid',
+        'foodprint.view.CommonBackBtn',
+        'foodprint.view.CommonTraceToolbar'
     ],
 
     layout: {
@@ -33,6 +35,10 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
             items: [
                 {
                     xtype: 'panel',
+                    tbar: {
+                        xtype: 'commontracetoolbar',
+                        width: 100
+                    },
                     itemId: 'treeDiagram',
                     layout: {
                         align: 'stretch',
@@ -40,86 +46,11 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                     },
                     items: [
                         {
-                            xtype: 'commontracetoolbar',
-                            width: 100
-                        },
-                        me.processTree({
-                            xtype: 'treepanel',
+                            xtype: 'tracetree',
                             flex: 1,
                             itemId: 'tree',
-                            collapsible: false,
-                            store: 'ForwardTraceTreeStore',
-                            useArrows: true,
-                            columns: [
-                                {
-                                    xtype: 'treecolumn',
-                                    dataIndex: 'arrow',
-                                    text: 'arrow',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'note',
-                                    text: 'note',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    hidden: true,
-                                    dataIndex: 'class',
-                                    text: 'class',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'type',
-                                    text: 'type',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'name',
-                                    text: 'name',
-                                    flex: 2
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.name',
-                                    text: 'item.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.title',
-                                    text: 'item.title',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.spec',
-                                    text: 'item.spec',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'qty',
-                                    text: 'qty',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.unit',
-                                    text: 'item.unit',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'sheet',
-                                    text: 'sheet',
-                                    flex: 3
-                                }
-                            ]
-                        })
+                            store: 'ForwardTraceTreeStore'
+                        }
                     ]
                 },
                 {
@@ -138,130 +69,17 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                         type: 'vbox'
                     },
                     items: [
-                        me.processSheetGrid({
-                            xtype: 'gridpanel',
+                        {
+                            xtype: 'tracesheetgrid',
                             flex: 1,
-                            itemId: 'sheetGrid',
-                            store: 'TraceSheetDetailStore',
-                            columns: [
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'id',
-                                    text: 'id',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'typeName',
-                                    text: 'typeName',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'name',
-                                    text: 'name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'sequence',
-                                    text: 'sequence',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'item.id',
-                                    text: 'item.id',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.name',
-                                    text: 'item.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.title',
-                                    text: 'item.title',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'warehouse.id',
-                                    text: 'warehouse.id',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'warehouse.name',
-                                    text: 'warehouse.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'warehouse.title',
-                                    text: 'warehouse.title',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    hidden: true,
-                                    dataIndex: 'warehouseLocation.id',
-                                    text: 'warehouseLocation.id',
-                                    flex: 1,
-                                    format: '0,000'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'warehouseLocation.name',
-                                    text: 'warehouseLocation.name',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'warehouseLocation.title',
-                                    text: 'warehouseLocation.title',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'qty',
-                                    text: 'qty',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'item.unit',
-                                    text: 'item.unit',
-                                    flex: 1
-                                }
-                            ]
-                        })
+                            itemId: 'sheetGrid'
+                        }
                     ]
                 }
             ]
         });
 
         me.callParent(arguments);
-    },
-
-    processTree: function(config) {
-
-
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'forwardTraceTree'));
-    },
-
-    processSheetGrid: function(config) {
-
-        return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'traceSheetDetail'));
-
     }
 
 });

@@ -28,8 +28,12 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
 
     refs: [
         {
-            ref: 'backwardTraceTreeCt',
-            selector: 'backwardtracetreeview'
+            ref: 'mainTree',
+            selector: 'backwardtracetreeview #tree'
+        },
+        {
+            ref: 'sheetGrid',
+            selector: 'backwardtracetreeview #sheetGrid'
         }
     ],
 
@@ -38,14 +42,13 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
             'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{
                 select:this.doSetRoot
             },
-
             'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{
                 click:this.doExpandall
             },
             'backwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{
                 click: this.doCollapseall
             },
-            'backwardtracetreeview treepanel[itemId=backwardTraceTreePanel]':{
+            'backwardtracetreeview treepanel[itemId=tree]':{
                 beforeitemexpand: this.addExtraParamsToStore
             }
         });
@@ -57,15 +60,15 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
         console.log("backwardTraceTree.doSetRoot");
 
 
-        if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {
+        if(this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()!='') {
 
-            var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();
+            var treeStore=this.getMainTree().getStore();
             var that = this;
             Ext.Ajax.request({
                 method: 'GET',
                 url:'/traceTree/backwardTraceRoot/',
                 params:{
-                    'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()
+                    'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()
                 },
                 success:function(response,options){
                     //console.log(response);
@@ -87,8 +90,8 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
 
                     };
                     treeStore.setRootNode(root);
-                    that.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);
-                    that.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
+                    that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);
+                    that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
 
                 },
                 callback: function(options,success,response) {
@@ -101,7 +104,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
     doExpandall: function(button, e, eOpts) {
 
 
-        var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
+        var me = this.getMainTree();
         var toolbar = button.up('toolbar');
 
         me.getEl().mask('Expanding tree...');
@@ -116,7 +119,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
 
     doCollapseall: function(button, e, eOpts) {
 
-        var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');
+        var me = this.getMainTree();
         var toolbar = button.up('toolbar');
 
         toolbar.disable();
@@ -130,7 +133,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
         var params={};
         params.class = node.data.class;
         params.name = node.data.name;
-        this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore().getProxy().extraParams = params;
+        this.getMainTree().getStore().getProxy().extraParams = params;
     }
 
 });

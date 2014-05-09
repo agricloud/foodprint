@@ -36,14 +36,13 @@
                     "    'backwardtracetreeview commontracetoolbar combo[itemId=commonBatchCombo]':{",
                     "        select:this.doSetRoot",
                     "    },",
-                    "",
                     "    'backwardtracetreeview commontracetoolbar button[itemId=commonExpandallBtn]':{",
                     "        click:this.doExpandall",
                     "    },",
                     "    'backwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
                     "        click: this.doCollapseall",
                     "    },",
-                    "    'backwardtracetreeview treepanel[itemId=backwardTraceTreePanel]':{",
+                    "    'backwardtracetreeview treepanel[itemId=tree]':{",
                     "        beforeitemexpand: this.addExtraParamsToStore",
                     "    }",
                     "});",
@@ -52,19 +51,6 @@
                 ]
             },
             "designerId": "da8a1ebd-7566-48b8-b4cd-5566c6bbdde1"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "backwardTraceTreeCt",
-                "selector": "backwardtracetreeview"
-            },
-            "designerId": "971d2765-9fec-4fa7-bb19-015743b1d69b"
         },
         {
             "type": "basicfunction",
@@ -79,15 +65,15 @@
                     "console.log(\"backwardTraceTree.doSetRoot\");",
                     "",
                     "",
-                    "if(this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
+                    "if(this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()!='') {",
                     "",
-                    "    var treeStore=this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore();",
+                    "    var treeStore=this.getMainTree().getStore();",
                     "    var that = this;",
                     "    Ext.Ajax.request({",
                     "        method: 'GET',",
                     "        url:'/traceTree/backwardTraceRoot/',",
                     "        params:{",
-                    "            'id':this.getBackwardTraceTreeCt().down('combo[itemId=commonBatchCombo]').getValue()",
+                    "            'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()",
                     "        },",
                     "        success:function(response,options){",
                     "            //console.log(response);",
@@ -109,8 +95,8 @@
                     "",
                     "            };",
                     "            treeStore.setRootNode(root);",
-                    "            that.getBackwardTraceTreeCt().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
-                    "            that.getBackwardTraceTreeCt().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    "            that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
+                    "            that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
                     "",
                     "        },",
                     "        callback: function(options,success,response) {",
@@ -137,7 +123,7 @@
                 "implHandler": [
                     "",
                     "",
-                    "var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
+                    "var me = this.getMainTree();",
                     "var toolbar = button.up('toolbar');",
                     "",
                     "me.getEl().mask('Expanding tree...');",
@@ -166,13 +152,13 @@
                 ],
                 "implHandler": [
                     "",
-                    "    var me = button.up().up().down('treepanel[itemId=backwardTraceTreePanel]');",
-                    "    var toolbar = button.up('toolbar');",
+                    "var me = this.getMainTree();",
+                    "var toolbar = button.up('toolbar');",
                     "",
-                    "    toolbar.disable();",
-                    "    me.collapseAll(function() {",
-                    "        toolbar.enable();",
-                    "    });",
+                    "toolbar.disable();",
+                    "me.collapseAll(function() {",
+                    "    toolbar.enable();",
+                    "});",
                     ""
                 ]
             },
@@ -194,10 +180,36 @@
                     "var params={};",
                     "params.class = node.data.class;",
                     "params.name = node.data.name;",
-                    "this.getBackwardTraceTreeCt().down('treepanel[itemId=backwardTraceTreePanel]').getStore().getProxy().extraParams = params;"
+                    "this.getMainTree().getStore().getProxy().extraParams = params;"
                 ]
             },
             "designerId": "5d58c40d-08a5-478f-8301-9088795f06f7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainTree",
+                "selector": "backwardtracetreeview #tree"
+            },
+            "designerId": "43016ea7-2418-42db-b50c-b5c6370cae8d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sheetGrid",
+                "selector": "backwardtracetreeview #sheetGrid"
+            },
+            "designerId": "7cabdfe9-0bb8-4374-b417-46f80ca12684"
         }
     ]
 }
