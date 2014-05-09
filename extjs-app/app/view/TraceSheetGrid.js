@@ -113,6 +113,20 @@ Ext.define('foodprint.view.TraceSheetGrid', {
                 },
                 {
                     xtype: 'numbercolumn',
+                    hidden: true,
+                    dataIndex: 'batch.id',
+                    text: 'batch.id',
+                    flex: 1,
+                    format: '0,000'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'batch.name',
+                    text: 'batch.name',
+                    flex: 1
+                },
+                {
+                    xtype: 'numbercolumn',
                     dataIndex: 'qty',
                     text: 'qty',
                     flex: 1
