@@ -137,7 +137,13 @@ Ext.define('foodprint.view.TraceSheetGrid', {
                     text: 'item.unit',
                     flex: 1
                 }
-            ]
+            ],
+            listeners: {
+                beforerender: {
+                    fn: me.onTraceSheetGridBeforeRender,
+                    scope: me
+                }
+            }
         });
 
         me.processTraceSheetGrid(me);
@@ -148,6 +154,10 @@ Ext.define('foodprint.view.TraceSheetGrid', {
 
         return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'traceSheet'));
 
+    },
+
+    onTraceSheetGridBeforeRender: function(component, eOpts) {
+        component.getStore().removeAll();
     }
 
 });

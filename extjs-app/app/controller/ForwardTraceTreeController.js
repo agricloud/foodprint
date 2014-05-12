@@ -172,8 +172,6 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
             if(record.raw.sheetDetail){
                 this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);
                 this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));
-
-
             }
         }
     },

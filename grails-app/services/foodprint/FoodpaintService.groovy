@@ -113,8 +113,8 @@ class FoodpaintService {
         doCallFoodpaint(url)
     }
 
-    def queryMaterialSheetDetByManufactureOrder(String typeName, String name){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryMaterialSheetDetByManufactureOrder/?typeName=${typeName}&name=${name}"
+    def queryMaterialSheetDetByBatch(String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryMaterialSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
     
