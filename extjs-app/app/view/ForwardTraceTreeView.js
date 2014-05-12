@@ -47,9 +47,9 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                     items: [
                         {
                             xtype: 'tracetree',
-                            flex: 1,
                             itemId: 'tree',
-                            store: 'ForwardTraceTreeStore'
+                            store: 'ForwardTraceTreeStore',
+                            flex: 1
                         }
                     ]
                 },
@@ -71,8 +71,8 @@ Ext.define('foodprint.view.ForwardTraceTreeView', {
                     items: [
                         {
                             xtype: 'tracesheetgrid',
-                            flex: 1,
-                            itemId: 'sheetGrid'
+                            itemId: 'sheetGrid',
+                            flex: 1
                         }
                     ]
                 }

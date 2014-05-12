@@ -88,7 +88,7 @@ class TraceTreeController {
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
                 node.qty = 0
-                def stockInSheetDets=foodpaintService.queryStockInSheetDetByManufactureOrder(manufactureOrder.typeName,manufactureOrder.name)
+                def stockInSheetDets=foodpaintService.queryStockInSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
                 stockInSheetDets.data.eachWithIndex(){ stockInSheetDet, i ->
                     node.sheet += stockInSheetDet.typeName+"-"+stockInSheetDet.name+"-"+stockInSheetDet.sequence
                     if(i != stockInSheetDets.data.size()-1)
@@ -111,7 +111,7 @@ class TraceTreeController {
                 node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
                 node.item = batch.item
                 node.qty = 0
-                def outSrcPurchaseSheetDets=foodpaintService.queryOutSrcPurchaseSheetDetByManufactureOrder(manufactureOrder.typeName,manufactureOrder.name)
+                def outSrcPurchaseSheetDets=foodpaintService.queryOutSrcPurchaseSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
                 outSrcPurchaseSheetDets.data.eachWithIndex(){ outSrcPurchaseSheetDet, i ->
                     node.sheet += outSrcPurchaseSheetDet.typeName+"-"+outSrcPurchaseSheetDet.name+"-"+outSrcPurchaseSheetDet.sequence
                     if(i != outSrcPurchaseSheetDets.data.size()-1)
@@ -281,9 +281,6 @@ class TraceTreeController {
         if(manufactureOrders.data){
 
             manufactureOrders.data.each{ manufactureOrder->
-                println '-----------------------------------------------'
-                println manufactureOrder.typeName+"-"+manufactureOrder.name
-                println "item.name="+manufactureOrder.item.name
                 def node = [:]
                 if(manufactureOrder.workstation)
                     node.note = "自製領用"
@@ -296,12 +293,9 @@ class TraceTreeController {
                 node.item = batch.item
                 node.qty = 0
 
-                def materialSheetDets=foodpaintService.queryMaterialSheetDetByBatch(batch.name)
+                def materialSheetDets=foodpaintService.queryMaterialSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
                 
                 materialSheetDets.data.eachWithIndex(){ materialSheetDet, i ->
-                    println '-------------------------------22222'
-                    println materialSheetDet.typeName+"-"+materialSheetDet.name
-                    println "item.name="+materialSheetDet.item.name
                     node.sheet += materialSheetDet.typeName+"-"+materialSheetDet.name+"-"+materialSheetDet.sequence
                     if(i != materialSheetDets.data.size()-1)
                         node.sheet += ","
@@ -378,7 +372,7 @@ class TraceTreeController {
             node.sheet = "入庫單: "
             node.qty = 0
 
-            def sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
+            def sourceSheet=foodpaintService.queryStockInSheetDetByBatchAndManufactureOrder(batch.name,typeName,name)
 
             sourceSheet.data.eachWithIndex{ sheet , i->
                 node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
@@ -401,7 +395,7 @@ class TraceTreeController {
             node.sheet = "託外進貨單: "
             node.qty = 0
 
-            def sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatch(batch.name)
+            def sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatchAndManufactureOrder(batch.name,typeName,name)
 
             sourceSheet.data.eachWithIndex{ sheet , i->
                 node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
