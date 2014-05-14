@@ -38,27 +38,37 @@ class FoodpaintService {
 
     //逆溯
     def querySaleSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByBatch/?batchName=${batchName}"
+        doCallFoodpaint(url)
+    }
+
+    def querySaleReturnSheetDetByBatch(String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleReturnSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryManufactureOrderFromStockInSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromStockInSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromStockInSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def querySupplierFromPurchaseSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySupplierFromPurchaseSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySupplierFromPurchaseSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryPurchaseSheetDetBySupplierAndBatch(String supplierName, String batchName){
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseSheetDetBySupplierAndBatch/?supplierName=${supplierName}&batchName=${batchName}"
+        doCallFoodpaint(url)
+    }
+
+    def queryPurchaseReturnSheetDetBySupplierAndBatch(String supplierName, String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseReturnSheetDetBySupplierAndBatch/?supplierName=${supplierName}&batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
@@ -69,7 +79,7 @@ class FoodpaintService {
 
     //順溯
     def queryManufactureOrderFromMaterialSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromMaterialSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderFromMaterialSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
@@ -78,13 +88,23 @@ class FoodpaintService {
         doCallFoodpaint(url)
     }
 
+    def queryMaterialReturnSheetDetByBatchAndManufactureOrder(String batchName, String typeName, String name){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryMaterialReturnSheetDetByBatchAndManufactureOrder/?batchName=${batchName}&typeName=${typeName}&name=${name}"
+        doCallFoodpaint(url)
+    }
+
     def queryCustomerFromSaleSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryCustomerFromSaleSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryCustomerFromSaleSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def querySaleSheetDetByCustomerAndBatch(String customerName, String batchName){
         def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleSheetDetByCustomerAndBatch/?customerName=${customerName}&batchName=${batchName}"
+        doCallFoodpaint(url)
+    }
+
+    def querySaleReturnSheetDetByCustomerAndBatch(String customerName, String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/querySaleReturnSheetDetByCustomerAndBatch/?customerName=${customerName}&batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
@@ -107,22 +127,32 @@ class FoodpaintService {
     //順+逆
 
     def queryStockInSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryStockInSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryStockInSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryOutSrcPurchaseSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryOutSrcPurchaseSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryOutSrcPurchaseSheetDetByBatch/?batchName=${batchName}"
+        doCallFoodpaint(url)
+    }
+
+    def queryOutSrcPurchaseReturnSheetDetByBatch(String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryOutSrcPurchaseReturnSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryPurchaseSheetDetByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseSheetDetByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseSheetDetByBatch/?batchName=${batchName}"
+        doCallFoodpaint(url)
+    }
+
+    def queryPurchaseReturnSheetDetByBatch(String batchName){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryPurchaseReturnSheetDetByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
     def queryManufactureOrderByBatch(String batchName){
-        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderByBatch/?batchName="+batchName
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryManufactureOrderByBatch/?batchName=${batchName}"
         doCallFoodpaint(url)
     }
 
@@ -136,7 +166,10 @@ class FoodpaintService {
         doCallFoodpaint(url)
     }
 
-
+    def queryOutSrcPurchaseReturnSheetDetByBatchAndManufactureOrder(String batchName, String typeName, String name){
+        def url = "${grailsApplication.config.grails.foodpaint.service.api.url}/queryOutSrcPurchaseReturnSheetDetByBatchAndManufactureOrder/?batchName=${batchName}&typeName=${typeName}&name=${name}"
+        doCallFoodpaint(url)
+    }
 
     def doCallFoodpaint(url){
         if (!ping()) {

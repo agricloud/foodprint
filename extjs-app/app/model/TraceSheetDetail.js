@@ -71,5 +71,13 @@ Ext.define('foodprint.model.TraceSheetDetail', {
         {
             name: 'qty'
         }
-    ]
+    ],
+
+    proxy: {
+        type: 'memory',
+        reader: {
+            type: 'json',
+            idProperty: 'undefined'
+        }
+    }
 });

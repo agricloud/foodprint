@@ -50,7 +50,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
             },
             'backwardtracetreeview treepanel[itemId=tree]':{
                 beforeitemexpand: this.addExtraParamsToStore,
-                celldblclick: this.doIndexSheetDetail
+                cellclick: this.doIndexSheetDetail
             },
             'backwardtracetreeview toolbar commonbackbtn':{
                 click: this.activeTreeDiagram
@@ -148,7 +148,7 @@ Ext.define('foodprint.controller.BackwardTraceTreeController', {
 
         if(this.getMainTree().headerCt.getHeaderAtIndex(cellIndex).dataIndex=="sheet"){
             if(record.raw.sheetDetail){
-                this.getSheetGrid().getStore().loadData(record.raw.sheetDetail);
+                this.getSheetGrid().getStore().loadRawData(record.raw.sheetDetail);
                 this.getMainTree().up('panel[itemId=treeDiagram]').up().getLayout().setActiveItem(this.getSheetGrid().up('panel[itemId=sheetDetail]'));
 
 
