@@ -66,25 +66,78 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'workstationMaintain',
                                     text: 'Workstation Maintain'
                                 }),
-                                me.processOperationMaintain({
+                                me.processWarehouseMaintain({
                                     xtype: 'button',
-                                    itemId: 'operationMaintain',
-                                    text: 'Operation Maintain'
-                                }),
-                                me.processSupplierMaintain({
-                                    xtype: 'button',
-                                    itemId: 'supplierMaintain',
-                                    text: 'Supplier Maintain'
+                                    itemId: 'warehouseMaintain',
+                                    text: 'Warehouse Maintain'
                                 }),
                                 me.processItemMaintain({
                                     xtype: 'button',
                                     itemId: 'itemMaintain',
                                     text: 'Item Maintain'
                                 }),
+                                me.processSupplierMaintain({
+                                    xtype: 'button',
+                                    itemId: 'supplierMaintain',
+                                    text: 'Supplier Maintain'
+                                }),
+                                me.processCustomerMaintain({
+                                    xtype: 'button',
+                                    itemId: 'customerMaintain',
+                                    text: 'Customer Maintain'
+                                })
+                            ]
+                        }),
+                        me.processWarehouseModule({
+                            xtype: 'panel',
+                            width: 150,
+                            title: 'Warehouse Module',
+                            items: [
                                 me.processBatchMaintain({
                                     xtype: 'button',
                                     itemId: 'batchMaintain',
                                     text: 'Batch Maintain'
+                                }),
+                                me.processWarehouseLocationMaintain({
+                                    xtype: 'button',
+                                    itemId: 'warehouseLocationMaintain',
+                                    text: 'WarehouseLocation Maintain'
+                                }),
+                                me.processInventoryView({
+                                    xtype: 'button',
+                                    itemId: 'inventoryView',
+                                    text: 'Inventory View'
+                                }),
+                                me.processInventoryDetailView({
+                                    xtype: 'button',
+                                    itemId: 'inventoryDetailView',
+                                    text: 'InventoryDetail View'
+                                }),
+                                me.processErpMaterialSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialSheetMaintain',
+                                    text: 'MaterialSheet Maintain'
+                                }),
+                                me.processErpMaterialReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialReturnSheetMaintain',
+                                    text: 'MaterialSheet Maintain'
+                                }),
+                                me.processErpStockInSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpStockInSheetMaintain',
+                                    text: 'StockInSheet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processWorkOrderModule({
+                            xtype: 'panel',
+                            title: 'Work Order Module',
+                            items: [
+                                me.processOperationMaintain({
+                                    xtype: 'button',
+                                    itemId: 'operationMaintain',
+                                    text: 'Operation Maintain'
                                 }),
                                 me.processItemRouteMaintain({
                                     xtype: 'button',
@@ -101,60 +154,17 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'batchSourceMaintain',
                                     text: 'Batch Source Maintain'
                                 }),
-                                me.processCustomerMaintain({
+                                me.processErpManufactureOrderMaintain({
                                     xtype: 'button',
-                                    itemId: 'customerMaintain',
-                                    text: 'Customer Maintain'
+                                    itemId: 'erpManufactureOrderMaintain',
+                                    text: 'ManufactureOrder Maintain'
                                 })
                             ]
                         }),
-                        me.processBasicInventoryMaintain({
+                        me.processPurchaseModule({
                             xtype: 'panel',
-                            height: 250,
-                            width: 400,
-                            layout: {
-                                align: 'stretch',
-                                type: 'vbox'
-                            },
-                            title: 'Basic Inventory Maintain',
+                            title: 'Purchase Module',
                             items: [
-                                me.processWarehouseMaintain({
-                                    xtype: 'button',
-                                    itemId: 'warehouseMaintain',
-                                    text: 'Warehouse Maintain'
-                                }),
-                                me.processWarehouseLocationMaintain({
-                                    xtype: 'button',
-                                    itemId: 'warehouseLocationMaintain',
-                                    text: 'WarehouseLocation Maintain'
-                                }),
-                                me.processInventoryView({
-                                    xtype: 'button',
-                                    itemId: 'inventoryView',
-                                    text: 'Inventory View'
-                                }),
-                                me.processInventoryDetailView({
-                                    xtype: 'button',
-                                    itemId: 'inventoryDetailView',
-                                    text: 'InventoryDetail View'
-                                })
-                            ]
-                        }),
-                        me.processSheetMaintain({
-                            xtype: 'panel',
-                            height: 250,
-                            width: 400,
-                            layout: {
-                                align: 'stretch',
-                                type: 'vbox'
-                            },
-                            title: 'Sheet Maintain',
-                            items: [
-                                me.processErpCustomerOrderMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpCustomerOrderMaintain',
-                                    text: 'CustomerOrder Maintain'
-                                }),
                                 me.processErpPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpPurchaseSheetMaintain',
@@ -165,26 +175,6 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpPurchaseReturnSheetMaintain',
                                     text: 'PurchaseReturnSheet Maintain'
                                 }),
-                                me.processErpManufactureOrderMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpManufactureOrderMaintain',
-                                    text: 'ManufactureOrder Maintain'
-                                }),
-                                me.processErpMaterialSheetMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpMaterialSheetMaintain',
-                                    text: 'MaterialSheet Maintain'
-                                }),
-                                me.processErpMaterialReturnSheetMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpMaterialReturnSheetMaintain',
-                                    text: 'MaterialSheet Maintain'
-                                }),
-                                me.processErpStockInSheetMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpStockInSheetMaintain',
-                                    text: 'StockInSheet Maintain'
-                                }),
                                 me.processErpOutSrcPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpOutSrcPurchaseSheetMaintain',
@@ -194,6 +184,17 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpOutSrcPurchaseReturnSheetMaintain',
                                     text: 'OutSrcPurchaseReturnSheet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processSaleModule({
+                            xtype: 'panel',
+                            title: 'Sale Module',
+                            items: [
+                                me.processErpCustomerOrderMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpCustomerOrderMaintain',
+                                    text: 'CustomerOrder Maintain'
                                 }),
                                 me.processErpSaleSheetMaintain({
                                     xtype: 'button',
@@ -207,6 +208,27 @@ Ext.define('foodprint.view.MainContainer', {
                                 })
                             ]
                         }),
+                        me.processElectronicCommerceMaintain({
+                            xtype: 'panel',
+                            title: 'Electronic Commerce Maintain',
+                            items: [
+                                me.processGoodsListDataMaintain({
+                                    xtype: 'button',
+                                    itemId: 'goodsListDataMaintain',
+                                    text: 'Goods List Data Maintain'
+                                }),
+                                me.processMemberDataMaintain({
+                                    xtype: 'button',
+                                    itemId: 'memberDataMaintain',
+                                    text: 'Member Data Maintain'
+                                }),
+                                me.processEmailDataMaintain({
+                                    xtype: 'button',
+                                    itemId: 'emailDataMaintain',
+                                    text: 'emailDataMaintain'
+                                })
+                            ]
+                        }),
                         me.processDataCollect({
                             xtype: 'panel',
                             height: 250,
@@ -217,15 +239,15 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'Data Collect',
                             items: [
-                                me.processParamMaintain({
-                                    xtype: 'button',
-                                    itemId: 'paramMaintain',
-                                    text: 'Param Maintain'
-                                }),
                                 me.processReportMaintain({
                                     xtype: 'button',
                                     itemId: 'reportMaintain',
                                     text: 'Report Maintain'
+                                }),
+                                me.processParamMaintain({
+                                    xtype: 'button',
+                                    itemId: 'paramMaintain',
+                                    text: 'Param Maintain'
                                 }),
                                 me.processReportParamsMaintain({
                                     xtype: 'button',
@@ -345,14 +367,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processOperationMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.operationMaintain.label');
-
-        return config;
-    },
-
-    processSupplierMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.supplierMaintain.label');
+    processWarehouseMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.warehouseMaintain.label');
 
         return config;
     },
@@ -363,26 +379,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processBatchMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.batchMaintain.label');
-
-        return config;
-    },
-
-    processItemRouteMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');
-
-        return config;
-    },
-
-    processBatchRouteMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');
-
-        return config;
-    },
-
-    processBatchSourceMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.batchSourceMaintain.label');
+    processSupplierMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.supplierMaintain.label');
 
         return config;
     },
@@ -399,8 +397,8 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processWarehouseMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.warehouseMaintain.label');
+    processBatchMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchMaintain.label');
 
         return config;
     },
@@ -423,36 +421,6 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processBasicInventoryMaintain: function(config) {
-        config.title=Utilities.getMsg('mainContainer.basicInventoryMaintain.label');
-
-        return config;
-    },
-
-    processErpCustomerOrderMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseSheetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseReturnSheetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpManufactureOrderMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');
-
-        return config;
-    },
-
     processErpMaterialSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.materialSheetMaintain.label');
 
@@ -471,6 +439,60 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processWarehouseModule: function(config) {
+        config.title=Utilities.getMsg('mainContainer.warehouseModule.label');
+
+        return config;
+    },
+
+    processOperationMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.operationMaintain.label');
+
+        return config;
+    },
+
+    processItemRouteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.itemRouteMaintain.label');
+
+        return config;
+    },
+
+    processBatchRouteMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchRouteMaintain.label');
+
+        return config;
+    },
+
+    processBatchSourceMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.batchSourceMaintain.label');
+
+        return config;
+    },
+
+    processErpManufactureOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');
+
+        return config;
+    },
+
+    processWorkOrderModule: function(config) {
+        config.title=Utilities.getMsg('mainContainer.workOrderModule.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
+
+        return config;
+    },
+
     processErpOutSrcPurchaseSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
 
@@ -479,6 +501,18 @@ Ext.define('foodprint.view.MainContainer', {
 
     processErpOutSrcPurchaseReturnSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processPurchaseModule: function(config) {
+        config.title=Utilities.getMsg('mainContainer.purchaseModule.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
 
         return config;
     },
@@ -495,20 +529,44 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processSheetMaintain: function(config) {
-        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
+    processSaleModule: function(config) {
+        config.title=Utilities.getMsg('mainContainer.saleModule.label');
 
         return config;
     },
 
-    processParamMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.paramMaintain.label');
+    processGoodsListDataMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.goodsListDataMaintain.label');
+
+        return config;
+    },
+
+    processMemberDataMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.memberDataMaintain.label');
+
+        return config;
+    },
+
+    processEmailDataMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.emailDataMaintain.label');
+
+        return config;
+    },
+
+    processElectronicCommerceMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.label');
 
         return config;
     },
 
     processReportMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.reportMaintain.label');
+
+        return config;
+    },
+
+    processParamMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.paramMaintain.label');
 
         return config;
     },
