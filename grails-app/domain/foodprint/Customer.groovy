@@ -11,8 +11,13 @@ class Customer {
 	String name
 	String title
 	String tel
+	String fax
 	String email
 	String address
+	/**
+     * 送貨地址
+     */
+	String shippingAddress
 
     static constraints = {
 		site nullable:true
@@ -20,6 +25,7 @@ class Customer {
 		creator nullable:true
     	name unique:true
     	tel nullable:true
+    	fax nullable:true
     	email nullable:true
     	address nullable:true
     }
