@@ -13,6 +13,7 @@ class BootStrap {
 
 
         environments {
+            def site1 = new Site(name:"AgriCloud",title:"AgriCloud實驗室附設虛擬工廠").save(failOnError: true)
             def role1 = Role.findOrSaveByAuthority('ROLE_ADMIN')
             def user1 = User.findByUsername('admin')
 
