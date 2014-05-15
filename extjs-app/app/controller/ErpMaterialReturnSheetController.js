@@ -113,6 +113,9 @@ Ext.define('foodprint.controller.ErpMaterialReturnSheetController', {
             },
             'erpmaterialreturnsheetview #materialSheetDetIndex erpmaterialsheetdetgrid':{
                 itemdblclick: this.doSelectMaterialSheetDet
+            },
+            'erpmaterialreturnsheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
             }
         });
 
