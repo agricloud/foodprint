@@ -110,6 +110,9 @@ Ext.define('foodprint.controller.ErpMaterialSheetController', {
             },
             'erpmaterialsheetview #manufactureOrderIndex erpmanufactureordergrid':{
                 itemdblclick: this.doSelectManufactureOrder
+            },
+            'erpmaterialsheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
             }
 
         });
