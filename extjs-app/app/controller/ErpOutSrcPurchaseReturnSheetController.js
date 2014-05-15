@@ -111,6 +111,9 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseReturnSheetController', {
             },
             'erpoutsrcpurchasereturnsheetview #outSrcPurchaseSheetDetIndex erpoutsrcpurchasesheetdetgrid':{
                 itemdblclick: this.doSelectOutSrcPurchaseSheetDet
+            },
+            'erpoutsrcpurchasereturnsheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
             }
         });
         this.domainName = 'foodpaint';

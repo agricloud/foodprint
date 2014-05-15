@@ -106,6 +106,9 @@ Ext.define('foodprint.controller.ErpOutSrcPurchaseSheetController', {
             },
             'erpoutsrcpurchasesheetview #manufactureOrderIndex erpmanufactureordergrid':{
                 itemdblclick: this.doSelectManufactureOrder
+            },
+            'erpoutsrcpurchasesheetview #show commonshowtoolbar commonprintbtn':{
+                click:this.doPrint
             }
 
         });
