@@ -38,6 +38,9 @@ Ext.define('foodprint.model.ErpCustomerOrder', {
         {
             name: 'dueDate',
             type: 'date'
+        },
+        {
+            name: 'shippingAddress'
         }
     ],
 

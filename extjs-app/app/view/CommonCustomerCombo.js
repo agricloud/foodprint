@@ -57,7 +57,8 @@ Ext.define('foodprint.view.CommonCustomerCombo', {
         if(combo.up() && combo.up().getForm()){
             combo.up().getForm().setValues({
 
-                'customer.title':records[0].data['title']
+                'customer.title':records[0].data['title'],
+                'shippingAddress':records[0].data['shippingAddress'],
             });
         }
     },

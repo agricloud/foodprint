@@ -28,6 +28,7 @@ class Customer {
     	fax nullable:true
     	email nullable:true
     	address nullable:true
+    	shippingAddress nullable:true
     }
 
 

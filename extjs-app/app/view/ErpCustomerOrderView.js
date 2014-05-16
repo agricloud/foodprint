@@ -109,6 +109,11 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                     xtype: 'datefield',
                                     fieldLabel: 'dueDate',
                                     name: 'dueDate'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'shippingAddress',
+                                    name: 'shippingAddress'
                                 }
                             ]
                         }),

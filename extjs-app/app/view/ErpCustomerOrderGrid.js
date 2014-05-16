@@ -78,6 +78,12 @@ Ext.define('foodprint.view.ErpCustomerOrderGrid', {
                     dataIndex: 'dueDate',
                     text: 'dueDate',
                     flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'shippingAddress',
+                    text: 'shippingAddress',
+                    flex: 1
                 }
             ],
             listeners: {

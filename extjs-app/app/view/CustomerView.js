@@ -72,6 +72,12 @@ Ext.define('foodprint.view.CustomerView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'fax',
+                                    text: 'fax',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'email',
                                     text: 'email',
                                     flex: 1
@@ -80,6 +86,12 @@ Ext.define('foodprint.view.CustomerView', {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'address',
                                     text: 'address',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'shippingAddress',
+                                    text: 'shippingAddress',
                                     flex: 1
                                 }
                             ],
@@ -149,6 +161,11 @@ Ext.define('foodprint.view.CustomerView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    fieldLabel: 'fax',
+                                    name: 'fax'
+                                },
+                                {
+                                    xtype: 'textfield',
                                     fieldLabel: 'email',
                                     name: 'email'
                                 },
@@ -156,6 +173,11 @@ Ext.define('foodprint.view.CustomerView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'address',
                                     name: 'address'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'shippingAddress',
+                                    name: 'shippingAddress'
                                 }
                             ]
                         })

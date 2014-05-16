@@ -359,8 +359,10 @@ class ConvertService {
     	result.name = customer.name
 		result.title = customer.title
 		result.tel = customer.tel
+		result.fax = customer.fax
 		result.email = customer.email
 		result.address = customer.address
+		result.shippingAddress = customer.shippingAddress
 
 		result
     }

@@ -30,10 +30,16 @@ Ext.define('foodprint.model.Customer', {
             name: 'tel'
         },
         {
+            name: 'fax'
+        },
+        {
             name: 'email'
         },
         {
             name: 'address'
+        },
+        {
+            name: 'shippingAddress'
         }
     ],
 
