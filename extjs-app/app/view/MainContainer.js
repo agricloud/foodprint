@@ -610,85 +610,85 @@ Ext.define('foodprint.view.MainContainer', {
     },
 
     processGoodsListDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.goodsListDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.goodsListDataMaintain.label');
 
         return config;
     },
 
     processMemberDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.memberDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.memberDataMaintain.label');
 
         return config;
     },
 
     processBasicDataMaintain1: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.basicDataMaintain.label');
+        config.title=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.basicDataMaintain.label');
 
         return config;
     },
 
     processOrderConfirm: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderConfirm.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderConfirm.label');
 
         return config;
     },
 
     processOrderAccount: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderAccount.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderAccount.label');
 
         return config;
     },
 
     processOrderShip: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShip.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderShip.label');
 
         return config;
     },
 
     processEmailDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.emailDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.emailDataMaintain.label');
 
         return config;
     },
 
     processOrderTrace: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderTrace.label');
+        config.title=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderTrace.label');
 
         return config;
     },
 
     processOrderView: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderView.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderView.label');
 
         return config;
     },
 
     processOrderCanceled: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderCanceled.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderCanceled.label');
 
         return config;
     },
 
     processOrderShipped: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShipped.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderShipped.label');
 
         return config;
     },
 
     processOrderMark: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMark.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderMark.label');
 
         return config;
     },
 
     processOrderStatus: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderStatus.label');
+        config.title=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderStatus.label');
 
         return config;
     },
 
     processECommerceOrderMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMaintain.label');
+        config.title=Utilities.getMsg('mainContainer.electronicCommerceDataMaintain.orderMaintain.label');
 
         return config;
     },
