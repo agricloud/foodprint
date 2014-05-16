@@ -1140,112 +1140,513 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "bodyPadding": 3,
                         "title": "Electronic Commerce Maintain"
                     },
                     "designerId": "0c1865f9-3175-4bb2-932b-bcc748faf95c",
                     "cn": [
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.container.Container",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "goodsListDataMaintain",
-                                "text": "Goods List Data Maintain"
+                                "itemId": "myContainer",
+                                "layout": "accordion"
                             },
-                            "designerId": "066bba55-6df9-4dbc-b665-2b7992812b4d",
+                            "designerId": "7d8e5a3b-4ddc-4f08-9610-79b2a2464f5d",
                             "cn": [
                                 {
-                                    "type": "processcfgfunction",
+                                    "type": "Ext.panel.Panel",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processGoodsListDataMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.goodsListDataMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
+                                        "itemId": "",
+                                        "title": "Basic Data Maintain"
                                     },
-                                    "designerId": "29077e6c-977d-49b0-bd8a-de5fda62c10d"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "memberDataMaintain",
-                                "text": "Member Data Maintain"
-                            },
-                            "designerId": "8782af84-94b5-4122-9320-0895239f77af",
-                            "cn": [
+                                    "designerId": "23e4a2ee-0074-4ff4-9bbc-d6b6b17e2ba8",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "goodsListDataMaintain",
+                                                "text": "Goods List Data Maintain"
+                                            },
+                                            "designerId": "066bba55-6df9-4dbc-b665-2b7992812b4d",
+                                            "cn": [
+                                                {
+                                                    "type": "processcfgfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "processGoodsListDataMaintain",
+                                                        "designer|params": [
+                                                            "config"
+                                                        ],
+                                                        "implHandler": [
+                                                            "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.goodsListDataMaintain.label');",
+                                                            "",
+                                                            "return config;"
+                                                        ]
+                                                    },
+                                                    "designerId": "29077e6c-977d-49b0-bd8a-de5fda62c10d"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "memberDataMaintain",
+                                                "text": "Member Data Maintain"
+                                            },
+                                            "designerId": "8782af84-94b5-4122-9320-0895239f77af",
+                                            "cn": [
+                                                {
+                                                    "type": "processcfgfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "processMemberDataMaintain",
+                                                        "designer|params": [
+                                                            "config"
+                                                        ],
+                                                        "implHandler": [
+                                                            "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.memberDataMaintain.label');",
+                                                            "",
+                                                            "return config;"
+                                                        ]
+                                                    },
+                                                    "designerId": "c4221625-016f-4351-b13f-f98b85d79c5b"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "processcfgfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "processBasicDataMaintain1",
+                                                "designer|params": [
+                                                    "config"
+                                                ],
+                                                "implHandler": [
+                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.basicDataMaintain.label');",
+                                                    "",
+                                                    "return config;"
+                                                ]
+                                            },
+                                            "designerId": "06ef1d07-6eaf-4fab-86fe-4942c63fc32b"
+                                        }
+                                    ]
+                                },
                                 {
-                                    "type": "processcfgfunction",
+                                    "type": "Ext.panel.Panel",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processMemberDataMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.memberDataMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
+                                        "itemId": null,
+                                        "layout": "accordion",
+                                        "bodyPadding": 3,
+                                        "title": "E-Commerce Order Maintain"
                                     },
-                                    "designerId": "c4221625-016f-4351-b13f-f98b85d79c5b"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "emailDataMaintain",
-                                "text": "emailDataMaintain"
-                            },
-                            "designerId": "d6715a38-eb97-4bb1-8f36-f9f462037b31",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processEmailDataMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.emailDataMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "22cd7deb-a19d-41b4-bbfb-a6a2fb79f32c"
+                                    "designerId": "bf21da7d-0c4d-477a-94f3-4b87ba960ab3",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.panel.Panel",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "title": "Order Trace"
+                                            },
+                                            "designerId": "4bd7d011-436f-49d5-8b2e-c5678db506d5",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderConfirm",
+                                                        "text": "Order Confirm"
+                                                    },
+                                                    "designerId": "52ea05e0-b3f5-4617-a2a9-a779fa35c972",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderConfirm",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderConfirm.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "f7c16db1-86f9-4f07-832d-bd686856fa84"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderAccount",
+                                                        "text": "Order Account"
+                                                    },
+                                                    "designerId": "62ee3429-3d21-4584-90e5-e385763a250c",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderAccount",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderAccount.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "e03e22d7-aa0a-4ff0-9be8-afe101119c88"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderShip",
+                                                        "text": "Order Shipped"
+                                                    },
+                                                    "designerId": "ed9d4f65-aca8-42b1-85ab-f38592b91222",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderShip",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShip.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "3a253dd7-eb29-4da0-bc3e-20abed7ca7bb"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "emailDataMaintain",
+                                                        "text": "e-mail Data Maintain"
+                                                    },
+                                                    "designerId": "d6715a38-eb97-4bb1-8f36-f9f462037b31",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processEmailDataMaintain",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.emailDataMaintain.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "22cd7deb-a19d-41b4-bbfb-a6a2fb79f32c"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "processcfgfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "processOrderTrace",
+                                                        "designer|params": [
+                                                            "config"
+                                                        ],
+                                                        "implHandler": [
+                                                            "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderTrace.label');",
+                                                            "",
+                                                            "return config;"
+                                                        ]
+                                                    },
+                                                    "designerId": "f0cab17f-1bdc-45ce-85ba-25f2b3995808"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.panel.Panel",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "title": "Order Status"
+                                            },
+                                            "designerId": "bde32299-51bb-4f93-9479-aeb26cf3aef7",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderView",
+                                                        "text": "Order View"
+                                                    },
+                                                    "designerId": "11f90cdf-ea72-40f4-88aa-9e481d80bff3",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderView",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderView.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "16b549c0-ac3e-4b66-a344-eaa77cf76127"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderCanceled",
+                                                        "text": "Order Canceled"
+                                                    },
+                                                    "designerId": "401c0dca-11db-49ab-9dcc-e5bda48d56cb",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderCanceled",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderCanceled.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "5c45d007-39b5-499b-b080-16835321d794"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderShipped",
+                                                        "text": "Order Shipped"
+                                                    },
+                                                    "designerId": "34caf145-295c-4b01-9b57-3b136ddae942",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderShipped",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShipped.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "5a056b84-4c19-4fe9-b987-5f825a9ca7f6"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "orderMark",
+                                                        "text": "Order Mark"
+                                                    },
+                                                    "designerId": "0cc47ec8-17ff-4444-913c-c3817f326cc2",
+                                                    "cn": [
+                                                        {
+                                                            "type": "processcfgfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "processOrderMark",
+                                                                "designer|params": [
+                                                                    "config"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMark.label');",
+                                                                    "",
+                                                                    "return config;"
+                                                                ]
+                                                            },
+                                                            "designerId": "88082987-a0c5-406b-b651-75b8130da662"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "processcfgfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "processOrderStatus",
+                                                        "designer|params": [
+                                                            "config"
+                                                        ],
+                                                        "implHandler": [
+                                                            "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderStatus.label');",
+                                                            "",
+                                                            "return config;"
+                                                        ]
+                                                    },
+                                                    "designerId": "3e0e53e1-4a45-4a4f-809a-307685dc2792"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "processcfgfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "processECommerceOrderMaintain",
+                                                "designer|params": [
+                                                    "config"
+                                                ],
+                                                "implHandler": [
+                                                    "config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMaintain.label');",
+                                                    "",
+                                                    "return config;"
+                                                ]
+                                            },
+                                            "designerId": "6265ffdb-4069-4d62-99ff-bdc5c44aea4b"
+                                        }
+                                    ]
                                 }
                             ]
                         },

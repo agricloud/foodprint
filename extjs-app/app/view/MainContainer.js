@@ -210,23 +210,97 @@ Ext.define('foodprint.view.MainContainer', {
                         }),
                         me.processElectronicCommerceMaintain({
                             xtype: 'panel',
+                            bodyPadding: 3,
                             title: 'Electronic Commerce Maintain',
                             items: [
-                                me.processGoodsListDataMaintain({
-                                    xtype: 'button',
-                                    itemId: 'goodsListDataMaintain',
-                                    text: 'Goods List Data Maintain'
-                                }),
-                                me.processMemberDataMaintain({
-                                    xtype: 'button',
-                                    itemId: 'memberDataMaintain',
-                                    text: 'Member Data Maintain'
-                                }),
-                                me.processEmailDataMaintain({
-                                    xtype: 'button',
-                                    itemId: 'emailDataMaintain',
-                                    text: 'emailDataMaintain'
-                                })
+                                {
+                                    xtype: 'container',
+                                    itemId: 'myContainer',
+                                    layout: {
+                                        type: 'accordion'
+                                    },
+                                    items: [
+                                        me.processBasicDataMaintain1({
+                                            xtype: 'panel',
+                                            itemId: '',
+                                            title: 'Basic Data Maintain',
+                                            items: [
+                                                me.processGoodsListDataMaintain({
+                                                    xtype: 'button',
+                                                    itemId: 'goodsListDataMaintain',
+                                                    text: 'Goods List Data Maintain'
+                                                }),
+                                                me.processMemberDataMaintain({
+                                                    xtype: 'button',
+                                                    itemId: 'memberDataMaintain',
+                                                    text: 'Member Data Maintain'
+                                                })
+                                            ]
+                                        }),
+                                        me.processECommerceOrderMaintain({
+                                            xtype: 'panel',
+                                            layout: {
+                                                type: 'accordion'
+                                            },
+                                            bodyPadding: 3,
+                                            title: 'E-Commerce Order Maintain',
+                                            items: [
+                                                me.processOrderTrace({
+                                                    xtype: 'panel',
+                                                    title: 'Order Trace',
+                                                    items: [
+                                                        me.processOrderConfirm({
+                                                            xtype: 'button',
+                                                            itemId: 'orderConfirm',
+                                                            text: 'Order Confirm'
+                                                        }),
+                                                        me.processOrderAccount({
+                                                            xtype: 'button',
+                                                            itemId: 'orderAccount',
+                                                            text: 'Order Account'
+                                                        }),
+                                                        me.processOrderShip({
+                                                            xtype: 'button',
+                                                            itemId: 'orderShip',
+                                                            text: 'Order Shipped'
+                                                        }),
+                                                        me.processEmailDataMaintain({
+                                                            xtype: 'button',
+                                                            itemId: 'emailDataMaintain',
+                                                            text: 'e-mail Data Maintain'
+                                                        })
+                                                    ]
+                                                }),
+                                                me.processOrderStatus({
+                                                    xtype: 'panel',
+                                                    title: 'Order Status',
+                                                    items: [
+                                                        me.processOrderView({
+                                                            xtype: 'button',
+                                                            itemId: 'orderView',
+                                                            text: 'Order View'
+                                                        }),
+                                                        me.processOrderCanceled({
+                                                            xtype: 'button',
+                                                            itemId: 'orderCanceled',
+                                                            text: 'Order Canceled'
+                                                        }),
+                                                        me.processOrderShipped({
+                                                            xtype: 'button',
+                                                            itemId: 'orderShipped',
+                                                            text: 'Order Shipped'
+                                                        }),
+                                                        me.processOrderMark({
+                                                            xtype: 'button',
+                                                            itemId: 'orderMark',
+                                                            text: 'Order Mark'
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        })
+                                    ]
+                                }
                             ]
                         }),
                         me.processDataCollect({
@@ -536,19 +610,85 @@ Ext.define('foodprint.view.MainContainer', {
     },
 
     processGoodsListDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.goodsListDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.goodsListDataMaintain.label');
 
         return config;
     },
 
     processMemberDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.memberDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.memberDataMaintain.label');
+
+        return config;
+    },
+
+    processBasicDataMaintain1: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.basicDataMaintain.label');
+
+        return config;
+    },
+
+    processOrderConfirm: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderConfirm.label');
+
+        return config;
+    },
+
+    processOrderAccount: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderAccount.label');
+
+        return config;
+    },
+
+    processOrderShip: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShip.label');
 
         return config;
     },
 
     processEmailDataMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.emailDataMaintain.label');
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.emailDataMaintain.label');
+
+        return config;
+    },
+
+    processOrderTrace: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderTrace.label');
+
+        return config;
+    },
+
+    processOrderView: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderView.label');
+
+        return config;
+    },
+
+    processOrderCanceled: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderCanceled.label');
+
+        return config;
+    },
+
+    processOrderShipped: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderShipped.label');
+
+        return config;
+    },
+
+    processOrderMark: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMark.label');
+
+        return config;
+    },
+
+    processOrderStatus: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderStatus.label');
+
+        return config;
+    },
+
+    processECommerceOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.electronicCommerceMaintain.orderMaintain.label');
 
         return config;
     },
