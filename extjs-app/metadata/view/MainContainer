@@ -270,42 +270,6 @@
                             ]
                         },
                         {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "itemId": "customerMaintain",
-                                "text": "Customer Maintain"
-                            },
-                            "designerId": "235384bf-4b2f-4c9f-99ad-3fba8604c80f",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processCustomerMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.customerMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "21bace99-e195-42c3-b8d1-6720bf2bc32d"
-                                }
-                            ]
-                        },
-                        {
                             "type": "processcfgfunction",
                             "reference": {
                                 "name": "items",
@@ -1004,6 +968,41 @@
                     },
                     "designerId": "e579eef2-079e-4536-be08-d3707110c2d0",
                     "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "customerMaintain",
+                                "text": "Customer Maintain"
+                            },
+                            "designerId": "235384bf-4b2f-4c9f-99ad-3fba8604c80f",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processCustomerMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "21bace99-e195-42c3-b8d1-6720bf2bc32d"
+                                }
+                            ]
+                        },
                         {
                             "type": "Ext.button.Button",
                             "reference": {

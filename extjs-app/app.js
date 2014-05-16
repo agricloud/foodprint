@@ -36,6 +36,9 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    views: [
+        'ForwardTraceTreeView'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

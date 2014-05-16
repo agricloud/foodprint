@@ -80,11 +80,6 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'supplierMaintain',
                                     text: 'Supplier Maintain'
-                                }),
-                                me.processCustomerMaintain({
-                                    xtype: 'button',
-                                    itemId: 'customerMaintain',
-                                    text: 'Customer Maintain'
                                 })
                             ]
                         }),
@@ -191,6 +186,11 @@ Ext.define('foodprint.view.MainContainer', {
                             xtype: 'panel',
                             title: 'Sale Module',
                             items: [
+                                me.processCustomerMaintain({
+                                    xtype: 'button',
+                                    itemId: 'customerMaintain',
+                                    text: 'Customer Maintain'
+                                }),
                                 me.processErpCustomerOrderMaintain({
                                     xtype: 'button',
                                     itemId: 'erpCustomerOrderMaintain',
@@ -385,12 +385,6 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processCustomerMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerMaintain.label');
-
-        return config;
-    },
-
     processBasicDataMaintain: function(config) {
         config.title=Utilities.getMsg('mainContainer.basicDataMaintain.label');
 
@@ -507,6 +501,12 @@ Ext.define('foodprint.view.MainContainer', {
 
     processPurchaseModule: function(config) {
         config.title=Utilities.getMsg('mainContainer.purchaseModule.label');
+
+        return config;
+    },
+
+    processCustomerMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerMaintain.label');
 
         return config;
     },
