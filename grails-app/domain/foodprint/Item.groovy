@@ -26,7 +26,7 @@ class Item {
 		name unique: true, blank: false
 		description nullable:true
 		spec nullable:true
-		unit nullable:true
+		// unit nullable:true
 		dueDays nullable: true
 		effectStartDate nullable: true
 		effectEndDate nullable: true
