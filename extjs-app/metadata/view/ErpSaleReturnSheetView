@@ -177,7 +177,7 @@
                             "userConfig": {
                                 "hidden": true,
                                 "dataIndex": "customer.id",
-                                "text": "customer.Id",
+                                "text": "customer.id",
                                 "flex": 1
                             },
                             "designerId": "9708e839-1c94-4832-952a-ea3bc4844bdb"
@@ -191,7 +191,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "customer.name",
-                                "text": "customer.Name",
+                                "text": "customer.name",
                                 "flex": 1
                             },
                             "designerId": "d4e69209-9198-44ce-bddd-8f0ddfbc76a1"
@@ -205,10 +205,53 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "customer.title",
-                                "text": "customer.Title",
+                                "text": "customer.title",
                                 "flex": 1
                             },
                             "designerId": "5ebbf798-e6b8-464b-b091-21aea68ab8f8"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "customer.tel",
+                                "text": "customer.tel",
+                                "flex": 1
+                            },
+                            "designerId": "3c039663-7e1f-4803-bff0-89524b21c433"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "customer.fax",
+                                "text": "customer.fax",
+                                "flex": 1
+                            },
+                            "designerId": "ebaff58c-769b-4ede-8b96-7fb4133e9102"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaultWidth": null,
+                                "dataIndex": "pickUpAddress",
+                                "text": "pickUpAddress",
+                                "flex": 1
+                            },
+                            "designerId": "377bbce9-c38d-40ad-899a-ea5c974c3c88"
                         }
                     ]
                 }
@@ -340,6 +383,52 @@
                                 "name": "customer.title"
                             },
                             "designerId": "b109405d-2167-44cd-8fea-5b4d39e5539a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "customer.tel",
+                                "name": "customer.tel"
+                            },
+                            "designerId": "8d61f290-719e-45ed-85f8-58461e225086"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "customer.fax",
+                                "name": "customer.fax"
+                            },
+                            "designerId": "f797f3aa-d355-46ce-8764-26be407ae2b1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "dock": null,
+                                "width": 100,
+                                "fieldLabel": "pickUpAddress",
+                                "name": "pickUpAddress"
+                            },
+                            "designerId": "007015ad-3e21-479f-9345-26dd9370ad30"
                         },
                         {
                             "type": "processcfgfunction",

@@ -34,6 +34,15 @@ Ext.define('foodprint.model.ErpSaleSheet', {
         },
         {
             name: 'customer.title'
+        },
+        {
+            name: 'customer.tel'
+        },
+        {
+            name: 'customer.fax'
+        },
+        {
+            name: 'shippingAddress'
         }
     ],
 

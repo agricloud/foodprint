@@ -110,6 +110,23 @@ Ext.define('foodprint.view.ErpSaleSheetView', {
                                     disabled: true,
                                     fieldLabel: 'customer.title',
                                     name: 'customer.title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'customer.tel',
+                                    name: 'customer.tel'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'customer.fax',
+                                    name: 'customer.fax'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'shippingAddress',
+                                    name: 'shippingAddress'
                                 }
                             ]
                         }),

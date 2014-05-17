@@ -84,19 +84,37 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     xtype: 'numbercolumn',
                                     hidden: true,
                                     dataIndex: 'customer.id',
-                                    text: 'customer.Id',
+                                    text: 'customer.id',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'customer.name',
-                                    text: 'customer.Name',
+                                    text: 'customer.name',
                                     flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'customer.title',
-                                    text: 'customer.Title',
+                                    text: 'customer.title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customer.tel',
+                                    text: 'customer.tel',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'customer.fax',
+                                    text: 'customer.fax',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'pickUpAddress',
+                                    text: 'pickUpAddress',
                                     flex: 1
                                 }
                             ],
@@ -161,6 +179,24 @@ Ext.define('foodprint.view.ErpSaleReturnSheetView', {
                                     disabled: true,
                                     fieldLabel: 'customer.title',
                                     name: 'customer.title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'customer.tel',
+                                    name: 'customer.tel'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'customer.fax',
+                                    name: 'customer.fax'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    width: 100,
+                                    fieldLabel: 'pickUpAddress',
+                                    name: 'pickUpAddress'
                                 }
                             ]
                         }),

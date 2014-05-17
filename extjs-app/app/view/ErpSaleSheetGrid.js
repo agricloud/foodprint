@@ -71,6 +71,24 @@ Ext.define('foodprint.view.ErpSaleSheetGrid', {
                     dataIndex: 'customer.title',
                     text: 'customer.Title',
                     flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'customer.tel',
+                    text: 'customer.tel',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'customer.fax',
+                    text: 'customer.fax',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'shippingAddress',
+                    text: 'shippingAddress',
+                    flex: 1
                 }
             ],
             listeners: {
