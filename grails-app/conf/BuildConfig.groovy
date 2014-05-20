@@ -105,6 +105,8 @@ grails.project.dependency.resolution = {
 
         compile ":crypto:2.0"  
 
+        compile ":jasper:1.8.0"
+
 
         // Grails Ant Plugin
         // 執行 Ant 任務
