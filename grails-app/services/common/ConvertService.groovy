@@ -202,6 +202,7 @@ class ConvertService {
 	    result.country = country.name
         result.countryTitle = country.title
 	    result.tel = supplier.tel
+	    result.fax = supplier.fax
 	    result.email = supplier.email
 	    result.address = supplier.address
 	    
