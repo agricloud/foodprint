@@ -13,6 +13,7 @@ class Supplier {
 	Country country=Country.TAIWAN
     String tel
     String fax
+    String contact
     String email
     String address
 
@@ -23,6 +24,7 @@ class Supplier {
     	name unique: true, blank: false
         tel nullable:true
         fax nullable:true
+        contact nullable:true
         email nullable:true
         address nullable:true
     }

@@ -203,6 +203,7 @@ class ConvertService {
         result.countryTitle = country.title
 	    result.tel = supplier.tel
 	    result.fax = supplier.fax
+	    result.contact = supplier.contact
 	    result.email = supplier.email
 	    result.address = supplier.address
 	    
@@ -361,6 +362,7 @@ class ConvertService {
 		result.title = customer.title
 		result.tel = customer.tel
 		result.fax = customer.fax
+		result.contact = customer.contact
 		result.email = customer.email
 		result.address = customer.address
 		result.shippingAddress = customer.shippingAddress

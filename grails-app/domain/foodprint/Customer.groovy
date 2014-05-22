@@ -12,6 +12,7 @@ class Customer {
 	String title
 	String tel
 	String fax
+	String contact
 	String email
 	String address
 	/**
@@ -26,6 +27,7 @@ class Customer {
     	name unique:true
     	tel nullable:true
     	fax nullable:true
+    	contact nullable:true
     	email nullable:true
     	address nullable:true
     	shippingAddress nullable:true
