@@ -1,213 +1,39 @@
 package foodprint
 import grails.converters.JSON
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
+//generate irepoet
+import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
+import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
+import org.apache.commons.io.FileUtils
+//ireport sorting list
+import net.sf.jasperreports.engine.JRSortField
+import net.sf.jasperreports.engine.design.JRDesignSortField
+import net.sf.jasperreports.engine.type.SortOrderEnum
+import net.sf.jasperreports.engine.type.SortFieldTypeEnum
 
 class TraceTreeController {
-    def foodpaintService
+    def traceService
+    def jasperService
+    def dateService
 
     def backwardTraceRoot(){
-        def batch=Batch.findById(params.id)
-
-        def rootJson = [:]
-        def sourceSheetType
-        def sourceSheet
-        def returnSheetType
-        def returnSheet
-
-        rootJson.type = "批號"
-        rootJson.class = "Batch"
-        rootJson.name = batch.name
-        rootJson.item = batch.item
-        rootJson.qty = 0
-
-        sourceSheet=foodpaintService.querySaleSheetDetByBatch(batch.name)
-        if(sourceSheet.data){
-            rootJson.note = "銷貨"//實際上該批號可能還有部分存於庫存
-            sourceSheetType = "銷貨單: "
-            returnSheetType = "銷退單: "
-            returnSheet=foodpaintService.querySaleReturnSheetDetByBatch(batch.name)
-        }
-        else{
-            sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
-            if(sourceSheet.data){
-                rootJson.note = "自製"
-                sourceSheetType = "入庫單: "
-            }
-            else{
-                sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatch(batch.name)
-                if(sourceSheet.data){
-                    rootJson.note = "託外"
-                    sourceSheetType = "託外進貨單: "
-                    returnSheetType = "託外退貨單: "
-                    returnSheet=foodpaintService.queryOutSrcPurchaseReturnSheetDetByBatch(batch.name)
-                }
-                else{
-                    sourceSheet=foodpaintService.queryPurchaseSheetDetByBatch(batch.name)
-                    if(sourceSheet.data){
-                        rootJson.note = "採購"
-                        sourceSheetType = "進貨單: "
-                        returnSheetType = "退貨單: "
-                        returnSheet=foodpaintService.queryPurchaseReturnSheetDetByBatch(batch.name)
-                    }
-                    else{
-                        //子節點
-                       sourceSheet=foodpaintService.queryManufactureOrderByBatch(batch.name)
-                        if(sourceSheet.data){
-                            rootJson.note = "在製"
-                            sourceSheetType = "製令: "
-                            rootJson.children = []
-                        } 
-                    }
-                }
-            }
-        }
-        rootJson = processNodeSheet(rootJson, sourceSheetType, sourceSheet, returnSheetType, returnSheet)
         
         render (contentType: 'application/json') {
-            rootJson
+            traceService.backwardTraceRoot(params.id)
         }
     }
 
-    //逆溯批號來源，可能是由製令製造或由供應商進貨。
-    //由於foodprint製令有記錄批號，因此可能會有在製狀態未入庫的製令，尚未處理。
-    def backwardTraceByBatch(){
-        def batch=Batch.findByName(params.name)
-
-        def childJson = []
-        def sourceSheetType
-        def returnSheetType
-
-        def manufactureOrders=foodpaintService.queryManufactureOrderFromStockInSheetDetByBatch(batch.name)
-        if(manufactureOrders.data){
-            manufactureOrders.data.each(){ manufactureOrder ->
-                def node = [:]
-                node.note = "自製"
-                node.type = "製令"
-                node.class = "ManufactureOrder"
-                node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
-                node.item = batch.item
-                node.qty = 0
-                sourceSheetType = "入庫單: "
-
-                def stockInSheetDets=foodpaintService.queryStockInSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
-
-                node = processNodeSheet(node, sourceSheetType, stockInSheetDets, null, null)
-
-                childJson << node
-            }
-        }
-
-        manufactureOrders=foodpaintService.queryManufactureOrderFromOutSrcPurchaseSheetDetByBatch(batch.name) 
-        if(manufactureOrders.data){
-            manufactureOrders.data.each(){ manufactureOrder ->
-                def node = [:]
-                node.note = "託外"   
-                node.type = "製令"
-                node.class = "ManufactureOrder"
-                node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
-                node.item = batch.item
-                node.qty = 0
-                sourceSheetType = "託外進貨單: "
-                returnSheetType = "託外退貨單: "
-
-                
-                def outSrcPurchaseSheetDets=foodpaintService.queryOutSrcPurchaseSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
-                def outSrcPurchaseReturnSheetDets=foodpaintService.queryOutSrcPurchaseReturnSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
-
-                node = processNodeSheet(node, sourceSheetType, outSrcPurchaseSheetDets, returnSheetType, outSrcPurchaseReturnSheetDets)
-
-                childJson << node
-            }
-        }
-
-        //葉節點：供應商
-        def suppliers=foodpaintService.querySupplierFromPurchaseSheetDetByBatch(batch.name)
-        if(suppliers.data){
-            suppliers.data.each(){ supplier->
-                def node = [:]
-                node.leaf =true
-                node.note = "廠商"
-                node.type = "供應商"
-                node.class = "Supplier"
-                node.name = supplier.name+"/"+supplier.title
-                node.item = batch.item
-                node.qty = 0
-                sourceSheetType = "進貨單: "
-                returnSheetType = "退貨單: "
-
-                def purchaseSheetDets=foodpaintService.queryPurchaseSheetDetBySupplierAndBatch(supplier.name,batch.name)
-                def purchaseReturnSheetDets=foodpaintService.queryPurchaseReturnSheetDetBySupplierAndBatch(supplier.name,batch.name)
-
-                node = processNodeSheet(node, sourceSheetType, purchaseSheetDets, returnSheetType, purchaseReturnSheetDets)
-
-                childJson << node
-            }
-        }
-
-        return childJson
-
-    }
-
-    //逆溯製令領用了哪些批號
-    def backwardTraceByManufactureOrder(){
-
-        String typeName = params.name.split("-")[0]
-        String name = params.name.split("-")[1]
-        def batchs = foodpaintService.queryBatchFromMaterialSheetDetByManufactureOrder(typeName, name).data
-
-        def childJson = []
-        def sourceSheetType
-        def sourceSheet
-        def returnSheetType
-        def returnSheet
-
-        batchs.each(){ batch ->
-            def node = [:]
-            node.note="領用"
-            node.type = "批號"
-            node.class = "Batch"
-            node.name = batch.name
-            node.item = batch.item
-            node.qty = 0
-
-            sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
-            if(sourceSheet.data){
-                node.sheet = "入庫單: "
-            }
-            else{
-                sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatch(batch.name)
-                if(sourceSheet.data){
-                    sourceSheetType = "託外進貨單: "
-                    returnSheetType = "託外退貨單: "
-                    returnSheet=foodpaintService.queryOutSrcPurchaseReturnSheetDetByBatch(batch.name)
-                }
-                else{
-                    sourceSheet=foodpaintService.queryPurchaseSheetDetByBatch(batch.name)
-                    if(sourceSheet.data){
-                        sourceSheetType = "進貨單: "
-                        returnSheetType = "退貨單: "
-                        returnSheet=foodpaintService.queryPurchaseReturnSheetDetByBatch(batch.name)
-                    }
-                    else{
-                        log.error "逆溯查無此批號${batch.name}！"
-                    }
-                }
-            }
-
-            node = processNodeSheet(node, sourceSheetType, sourceSheet, returnSheetType, returnSheet)
-            childJson << node
-        }
-
-        return childJson
-
-    }
+    
     def backwardTrace(){
 
         def childJson
         if(params.class == "Batch")
-            childJson = backwardTraceByBatch()
-        else if(params.class == "ManufactureOrder")
-            childJson = backwardTraceByManufactureOrder()
+            childJson = traceService.backwardTraceByBatch(params.name)
+        else if(params.class == "ManufactureOrder"){
+            String typeName = params.name.split("-")[0]
+            String name = params.name.split("-")[1]
+            childJson = traceService.backwardTraceByManufactureOrder(typeName,name)
+        }
 
         render (contentType: 'application/json') {
             childJson
@@ -215,199 +41,21 @@ class TraceTreeController {
     }
 
     def forwardTraceRoot(){
-        def batch=Batch.findById(params.id)
-
-        def rootJson = [:]
-        def sourceSheetType
-        def sourceSheet
-        def returnSheetType
-        def returnSheet
-
-        rootJson.type = "批號"
-        rootJson.class = "Batch"
-        rootJson.name = batch.name
-        rootJson.item = batch.item
-        rootJson.qty = 0
-
-        sourceSheet=foodpaintService.queryPurchaseSheetDetByBatch(batch.name)
-        if(sourceSheet.data){
-            rootJson.note = "採購"
-            sourceSheetType = "進貨單: "
-            returnSheetType = "退貨單: "
-            returnSheet=foodpaintService.queryPurchaseReturnSheetDetByBatch(batch.name)
-        }
-        else{
-            sourceSheet=foodpaintService.queryStockInSheetDetByBatch(batch.name)
-            if(sourceSheet.data){
-                rootJson.note = "自製"
-                sourceSheetType = "入庫單: "
-            }
-            else{
-                sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatch(batch.name)
-                if(sourceSheet.data){
-                    rootJson.note = "託外"
-                    sourceSheetType = "託外進貨單: "
-                    returnSheetType = "託外退貨單: "
-                    returnSheet=foodpaintService.queryOutSrcPurchaseReturnSheetDetByBatch(batch.name)
-                }
-                else{
-                    //子節點
-                   sourceSheet=foodpaintService.queryManufactureOrderByBatch(batch.name)
-                    if(sourceSheet.data){
-                        rootJson.note = "在製"
-                        sourceSheetType = "製令: "
-                        rootJson.children = []
-                    }
-                }
-            }
-        }
-        rootJson = processNodeSheet(rootJson, sourceSheetType, sourceSheet, returnSheetType, returnSheet)
-
         render (contentType: 'application/json') {
-            rootJson
+            traceService.forwardTraceRoot(params.id)
         }
-    }
-
-    //順溯批號流向，可能是被製令領用、銷貨給客戶或存於庫存中。
-    def forwardTraceByBatch(){
-        def batch=Batch.findByName(params.name)
-
-        def childJson = []
-        def sourceSheetType
-        def returnSheetType
-
-        def manufactureOrders=foodpaintService.queryManufactureOrderFromMaterialSheetDetByBatch(batch.name)
-        if(manufactureOrders.data){
-
-            manufactureOrders.data.each{ manufactureOrder->
-                def node = [:]
-                if(manufactureOrder.workstation)
-                    node.note = "自製領用"
-                if(manufactureOrder.supplier)
-                    node.note = "託外領用"
-                node.type = "製令"
-                node.class = "ManufactureOrder"
-                node.name = manufactureOrder.typeName+"-"+manufactureOrder.name
-                node.item = batch.item
-                node.qty = 0
-                sourceSheetType = "領料單: "
-                returnSheetType = "退料單: "
-
-                def materialSheetDets=foodpaintService.queryMaterialSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
-                def materialReturnSheetDets=foodpaintService.queryMaterialReturnSheetDetByBatchAndManufactureOrder(batch.name,manufactureOrder.typeName,manufactureOrder.name)
-                
-                node = processNodeSheet(node, sourceSheetType, materialSheetDets, returnSheetType, materialReturnSheetDets)
-
-                childJson << node
-            }
-        }
-        //葉節點：客戶
-        def customers=foodpaintService.queryCustomerFromSaleSheetDetByBatch(batch.name)
-        if(customers.data){
-            customers.data.each(){ customer->
-                def node = [:]
-                node.leaf =true
-                node.note = "客戶"
-                node.sheet = "銷貨單: "
-                node.type = "客戶"
-                node.class = "Customer"
-                node.name = customer.name+"/"+customer.title
-                node.item = batch.item
-                node.qty = 0
-                sourceSheetType = "銷貨單: "
-                returnSheetType = "銷退單: "
-
-                def saleSheetDets=foodpaintService.querySaleSheetDetByCustomerAndBatch(customer.name,batch.name)
-                def saleReturnSheetDets=foodpaintService.querySaleReturnSheetDetByCustomerAndBatch(customer.name,batch.name)
-                
-                node = processNodeSheet(node, sourceSheetType, saleSheetDets, returnSheetType, saleReturnSheetDets)
-
-                childJson << node
-            }
-        }
-        //葉節點：庫存
-        def inventoryDetails=foodpaintService.queryInventoryByBatchAndGroupByWarehouse(batch.name)
-        if(inventoryDetails.data){
-            inventoryDetails.data.each(){ inventoryDetail ->
-                //0:warehouse.id,1:warehouse.name,2:warehouse.title,3:item.id,4:item.name,5:item.title,6:batch.id,7:batch.name,8:sum(qty)
-                def node = [:]
-                node.leaf = true
-                node.note = "庫存"
-                node.sheet = null
-                node.type = "倉庫"
-                node.class = "Warehouse"
-                // node.name = inventoryDetail.warehouse.name+"/"+inventoryDetail.warehouse.title
-                node.name = inventoryDetail[1]+"/"+inventoryDetail[2]
-                node.item = batch.item
-                // node.qty = inventoryDetail.qty
-                node.qty = inventoryDetail[8]
-                childJson << node
-            }
-        }
-
-        return childJson
-
-    }
-    //順溯製令流向，可能入庫至批號或仍在製造中。
-    def forwardTraceByManufactureOrder(){
-
-        String typeName = params.name.split("-")[0]
-        String name = params.name.split("-")[1]
-        
-        def childJson = []
-        def sourceSheetType
-        def sourceSheet
-        def returnSheetType
-        def returnSheet
-
-        def batchs = foodpaintService.queryBatchFormStockInSheetDetByManufactureOrder(typeName, name)
-        batchs.data.each(){ batch ->
-            def node = [:]
-            node.note="入庫"
-            node.type = "批號"
-            node.class = "Batch"
-            node.name = batch.name
-            node.item = batch.item
-            node.qty = 0
-            sourceSheetType = "入庫單: "
-
-            sourceSheet=foodpaintService.queryStockInSheetDetByBatchAndManufactureOrder(batch.name,typeName,name)
-
-            childJson << node
-        }
-
-        batchs = foodpaintService.queryBatchFormOutSrcPurchaseSheetDetByManufactureOrder(typeName, name)
-        batchs.data.each(){ batch ->
-            def node = [:]
-            node.note="託外"
-            node.type = "批號"
-            node.class = "Batch"
-            node.name = batch.name
-            node.item = batch.item
-            node.qty = 0
-            sourceSheetType = "託外進貨單: "
-            returnSheetType = "託外退貨單: "
-            
-            sourceSheet=foodpaintService.queryOutSrcPurchaseSheetDetByBatchAndManufactureOrder(batch.name,typeName,name)
-            returnSheet=foodpaintService.queryOutSrcPurchaseReturnSheetDetByBatchAndManufactureOrder(batch.name,typeName,name)
-
-            node = processNodeSheet(node, sourceSheetType, sourceSheet, returnSheetType, returnSheet)
-
-            childJson << node
-        }
-        //葉節點：查詢該製令是否仍有在製品
-
-        return childJson
-
     }
 
     def forwardTrace(){
 
         def childJson
         if(params.class == "Batch")
-            childJson = forwardTraceByBatch()
-        else if(params.class == "ManufactureOrder")
-            childJson = forwardTraceByManufactureOrder()
+            childJson = traceService.forwardTraceByBatch(params.name)
+        else if(params.class == "ManufactureOrder"){
+            String typeName = params.name.split("-")[0]
+            String name = params.name.split("-")[1]
+            childJson = traceService.forwardTraceByManufactureOrder(typeName,name)
+        }
 
         render (contentType: 'application/json') {
             childJson
@@ -415,34 +63,181 @@ class TraceTreeController {
 
     }
 
-    def processNodeSheet(node, String sourceSheetType, sourceSheet, String returnSheetType, returnSheet){
-        node.sheet = sourceSheetType
-        sourceSheet.data.eachWithIndex{ sheet , i->
-            if(node.note == "在製")
-                node.sheet += sheet.typeName+"-"+sheet.name
-            else
-                node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
-                
-            if(i != sourceSheet.data.size()-1)
-                node.sheet += ","
+    def backwardTracePrint(){
+        def root = traceService.backwardTraceRoot(params.id)
+        def nodes=[root]
+        def leafs = []
+        def reportTitle = message(code: 'backwardTrace.report.title.label')
+        def detailReportTitle = message(code: 'backwardTrace.detailReport.title.label')
 
-            node.qty = node.qty.toLong()+sheet.qty.toLong()
-        }
-        node.sheetDetail=sourceSheet.data
-
-        if(returnSheet?.data){
-            node.sheet += " "+returnSheetType
-            returnSheet.data.eachWithIndex{ sheet , i->
-                node.sheet += sheet.typeName+"-"+sheet.name+"-"+sheet.sequence
-
-                if(i != returnSheet.data.size()-1)
-                    node.sheet += ","
-
-                node.qty = node.qty.toLong()-sheet.qty.toLong()
+        //回溯出葉節點
+        int index = 0
+        while(index < nodes.size()){
+            def node=nodes[index]
+            if(node.leaf){
+                // println "i'm leaf"+ node.note+"/"+node.type+"/"+node.name
+                //不加入重複的葉節點
+                def repeat = false
+                for(leaf in leafs){
+                    if(node.name==leaf.name && node.batch==leaf.batch && node.sheetDetail==leaf.sheetDetail){
+                        repeat = true
+                        break
+                    }
+                }
+                if(!repeat)
+                    leafs << node 
             }
-            node.sheetDetail+=returnSheet.data
+            else if(!node.children || node.children!=[]){
+                params.name = node.name
+                if(node.class == "Batch"){
+                    nodes += traceService.backwardTraceByBatch(params.name)
+                }
+                else if(node.class == "ManufactureOrder"){
+                    String typeName = node.name.split("-")[0]
+                    String name = node.name.split("-")[1]
+                    nodes += traceService.backwardTraceByManufactureOrder(typeName,name)
+                }
+            }
+            index++
         }
 
-        node
+        def fileName = print(reportTitle, detailReportTitle, root, leafs)
+
+        render (contentType: 'application/json') {
+            [fileName:fileName]
+        }
+
     }
+
+    def forwardTracePrint(){
+        def root = traceService.backwardTraceRoot(params.id)
+        def nodes=[root]
+        def leafs = []
+        def reportTitle = message(code: 'forwardTrace.report.title.label')
+        def detailReportTitle = message(code: 'forwardTrace.detailReport.title.label')
+
+        //回溯出葉節點
+        int index = 0
+        while(index < nodes.size()){
+            def node=nodes[index]
+            if(node.leaf){
+                // println "i'm leaf"+ node.note+"/"+node.type+"/"+node.name
+                //不加入重複的葉節點
+                def repeat = false
+                for(leaf in leafs){
+                    if(node.name==leaf.name && node.batch==leaf.batch && node.sheetDetail==leaf.sheetDetail){
+                        repeat = true
+                        break
+                    }
+                }
+                if(!repeat)
+                    leafs << node 
+            }
+            else if(!node.children || node.children!=[]){
+                params.name = node.name
+                if(node.class == "Batch"){
+                    nodes += traceService.forwardTraceByBatch(params.name)
+                }
+                else if(node.class == "ManufactureOrder"){
+                    String typeName = node.name.split("-")[0]
+                    String name = node.name.split("-")[1]
+                    nodes += traceService.forwardTraceByManufactureOrder(typeName,name)
+                }
+            }
+            index++
+        }
+
+        def fileName = print(reportTitle, detailReportTitle, root, leafs)
+
+        render (contentType: 'application/json') {
+            [fileName:fileName]
+        }
+
+    }
+
+    def print(reportTitle, detailReportTitle, root, leafs){
+        
+        def site
+        if(params.site.id && params.site.id!="null")
+            site = Site.get(params.site.id)
+        
+        //報表依指定欄位排序
+        List<JRSortField> sortList = new ArrayList<JRSortField>();
+        JRDesignSortField sortField = new JRDesignSortField();
+        sortField.setName('dateCreated');
+        sortField.setOrder(SortOrderEnum.DESCENDING);
+        sortField.setType(SortFieldTypeEnum.FIELD);
+        sortList.add(sortField);   
+
+        //子報表1資料 = 根節點單據
+        def detailData1=[]
+        root.sheetDetail.each{  sheet ->
+            sheet.dateCreated = dateService.parseISO8601ToUTC(sheet.dateCreated)
+            detailData1<< sheet
+        }
+        //子報表1參數
+        def detailParams1 = [:]
+        detailParams1["SORT_FIELDS"]=sortList
+
+        //子報表2資料 = 葉節點單據        
+        def detailData2=[]
+        leafs.each{ leaf ->
+
+            if(leaf.sheetDetail){
+                leaf.sheetDetail.each{ sheet ->
+                    sheet.nodeType=leaf.type
+                    sheet.nodeName=leaf.name
+                    sheet.nodeTel=leaf.tel
+                    sheet.nodeFax=leaf.fax
+                    sheet.nodeAddress=leaf.address
+                    sheet.nodeContact=leaf.contact
+                    sheet.dateCreated = dateService.parseISO8601ToUTC(sheet.dateCreated)
+                    detailData2<< sheet
+                }
+            }
+            else{//無單據的葉節點 ex: 庫存
+                def data=[:]
+                data.nodeType=leaf.type
+                data.nodeName=leaf.name
+                data.nodeTel=leaf.tel
+                data.nodeFax=leaf.fax
+                data.nodeAddress=leaf.address
+                data.nodeContact=leaf.contact
+                data["item.name"]=leaf.item.name
+                data["item.title"]=leaf.item.title
+                data["item.spec"]=leaf.item.spec
+                data["item.unit"]=leaf.item.unit
+                data["batch.name"]=leaf.batch.name
+                data.qty=leaf.qty
+                data["warehouse.name"]=leaf["warehouse.name"]
+                data["warehouse.title"]=leaf["warehouse.title"]
+                detailData2<< data
+            }
+        }
+        //子報表2參數
+        def detailParams2 = [:]
+        detailParams2["report.title"]=detailReportTitle
+        detailParams2["SORT_FIELDS"]=sortList
+
+        //設定額外傳入參數
+        def parameters=[:]
+        parameters["site.title"]=site?.title
+        parameters["report.title"]=reportTitle
+        parameters["REPORT_TIME_ZONE"]=dateService.getTimeZone()
+        parameters["SUBREPORT_DIR"]=servletContext.getResource("/reports/")
+
+        parameters["detailData1"]=detailData1
+        parameters["detailData2"]=detailData2
+        parameters["detailParams1"]=detailParams1
+        parameters["detailParams2"]=detailParams2
+
+        def reportDef = new JasperReportDef(name:'TraceReport.jasper',parameters:parameters,reportData:[root],fileFormat:JasperExportFormat.PDF_FORMAT)
+
+        def fileName=dateService.getStrDate('yyyy-MM-dd HHmmss')+" "+reportTitle+".pdf"
+        
+        FileUtils.writeByteArrayToFile(new File("web-app/reportFiles/"+fileName), jasperService.generateReport(reportDef).toByteArray())
+
+        return fileName
+    }
+
 }

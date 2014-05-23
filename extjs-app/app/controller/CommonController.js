@@ -491,7 +491,8 @@ Ext.define('foodprint.controller.CommonController', {
 
             success: function(response){
                 var obj = Ext.decode(response.responseText);
-                window.open("http://localhost:8180/reportFiles/"+obj.fileName);
+
+                window.open(Utilities.getSysConfig("foodpaintUrl")+"/reportFiles/"+obj.fileName);
             }
         });
     },

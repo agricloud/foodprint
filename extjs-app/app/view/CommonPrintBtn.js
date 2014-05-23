@@ -17,7 +17,7 @@ Ext.define('foodprint.view.CommonPrintBtn', {
     extend: 'Ext.button.Button',
     alias: 'widget.commonprintbtn',
 
-    itemId: 'commonPrinttBtn',
+    itemId: 'commonPrintBtn',
     style: 'font-family:Pictos;',
     glyph: 77,
     text: 'Print',

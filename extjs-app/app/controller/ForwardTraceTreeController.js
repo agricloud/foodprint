@@ -50,6 +50,9 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
             'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{
                 click: this.doCollapseall
             },
+            'forwardtracetreeview commontracetoolbar button[itemId=commonPrintBtn]':{
+                click: this.doPrint
+            },
             'forwardtracetreeview treepanel[itemId=tree]':{
                 beforeitemexpand: this.addExtraParamsToStore,
                 cellclick: this.doIndexSheetDetail
@@ -97,6 +100,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
                     treeStore.setRootNode(root);
                     that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);
                     that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);
+                    that.getMainTree().up().down('button[itemId=commonPrintBtn]').setDisabled(false);
                 },
                 callback: function(options,success,response) {
 
@@ -179,6 +183,23 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
     activeTreeDiagram: function() {
         this.getSheetGrid().getStore().removeAll();
         this.getSheetGrid().up('panel[itemId=sheetDetail]').up().getLayout().setActiveItem(this.getMainTree().up('panel[itemId=treeDiagram]'));
+    },
+
+    doPrint: function() {
+        Ext.Ajax.request({
+            method: 'GET',
+            url:'/traceTree/forwardTracePrint/',
+            params:{
+                'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()
+            },
+            success:function(response,options){
+                //console.log(response);
+                //console.log(options);
+                var record = Ext.decode(response.responseText);
+                //console.log(record);
+                window.open("/reportFiles/"+record.fileName);
+            }
+        });
     }
 
 });

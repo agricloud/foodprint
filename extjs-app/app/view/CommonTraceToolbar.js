@@ -18,6 +18,7 @@ Ext.define('foodprint.view.CommonTraceToolbar', {
     alias: 'widget.commontracetoolbar',
 
     requires: [
+        'foodprint.view.CommonPrintBtn',
         'foodprint.view.CommonBatchCombo'
     ],
 
@@ -44,6 +45,10 @@ Ext.define('foodprint.view.CommonTraceToolbar', {
                     glyph: 45,
                     text: 'CollapseAll'
                 }),
+                {
+                    xtype: 'commonprintbtn',
+                    disabled: true
+                },
                 {
                     xtype: 'commonbatchcombo'
                 }

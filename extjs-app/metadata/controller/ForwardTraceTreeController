@@ -44,6 +44,9 @@
                     "    'forwardtracetreeview commontracetoolbar button[itemId=commonCollapseallBtn]':{",
                     "        click: this.doCollapseall",
                     "    },",
+                    "    'forwardtracetreeview commontracetoolbar button[itemId=commonPrintBtn]':{",
+                    "        click: this.doPrint",
+                    "    },",
                     "    'forwardtracetreeview treepanel[itemId=tree]':{",
                     "        beforeitemexpand: this.addExtraParamsToStore,",
                     "        cellclick: this.doIndexSheetDetail",
@@ -102,6 +105,7 @@
                     "            treeStore.setRootNode(root);",
                     "            that.getMainTree().up().down('button[itemId=commonExpandallBtn]').setDisabled(false);",
                     "            that.getMainTree().up().down('button[itemId=commonCollapseallBtn]').setDisabled(false);",
+                    "            that.getMainTree().up().down('button[itemId=commonPrintBtn]').setDisabled(false);",
                     "        },",
                     "        callback: function(options,success,response) {",
                     "",
@@ -254,6 +258,34 @@
                 ]
             },
             "designerId": "3504f527-a7d4-4421-b34d-87d2e1de70e5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doPrint",
+                "implHandler": [
+                    "Ext.Ajax.request({",
+                    "    method: 'GET',",
+                    "    url:'/traceTree/forwardTracePrint/',",
+                    "    params:{",
+                    "        'id':this.getMainTree().up().down('combo[itemId=commonBatchCombo]').getValue()",
+                    "    },",
+                    "    success:function(response,options){",
+                    "        //console.log(response);",
+                    "        //console.log(options);",
+                    "        var record = Ext.decode(response.responseText);",
+                    "        //console.log(record);",
+                    "        window.open(\"/reportFiles/\"+record.fileName);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "4a1bc9dc-c24e-4cda-a354-c71556c3eb76"
         },
         {
             "type": "controllerref",
