@@ -83,8 +83,20 @@ Ext.define('foodprint.view.SupplierView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'contact',
+                                    text: 'contact',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'tel',
                                     text: 'tel',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'fax',
+                                    text: 'fax',
                                     flex: 1
                                 },
                                 {
@@ -164,8 +176,18 @@ Ext.define('foodprint.view.SupplierView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    fieldLabel: 'contact',
+                                    name: 'contact'
+                                },
+                                {
+                                    xtype: 'textfield',
                                     fieldLabel: 'tel',
                                     name: 'tel'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: 'fax',
+                                    name: 'fax'
                                 },
                                 {
                                     xtype: 'textfield',

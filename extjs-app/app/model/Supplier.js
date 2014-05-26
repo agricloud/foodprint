@@ -33,7 +33,13 @@ Ext.define('foodprint.model.Supplier', {
             name: 'countryTitle'
         },
         {
+            name: 'contact'
+        },
+        {
             name: 'tel'
+        },
+        {
+            name: 'fax'
         },
         {
             name: 'email'

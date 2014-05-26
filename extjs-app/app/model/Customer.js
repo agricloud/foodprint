@@ -27,6 +27,9 @@ Ext.define('foodprint.model.Customer', {
             name: 'title'
         },
         {
+            name: 'contact'
+        },
+        {
             name: 'tel'
         },
         {
