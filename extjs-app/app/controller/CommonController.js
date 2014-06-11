@@ -205,7 +205,7 @@ Ext.define('foodprint.controller.CommonController', {
     },
 
     activeGrid: function() {
-
+        //if(this.getMainForm().up('panel[itemId=show]'))
         this.getMainForm().up('panel[itemId=show]').up().getLayout().setActiveItem(this.getMainGrid().down().up("panel[itemId=index]"));
     },
 

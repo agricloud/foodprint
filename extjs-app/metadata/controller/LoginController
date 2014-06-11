@@ -158,6 +158,7 @@
                     "btn, e, eOpts"
                 ],
                 "implHandler": [
+                    "console.log('doReset');",
                     "var form = btn.up('form').getForm();",
                     "form.reset();"
                 ]
@@ -179,6 +180,7 @@
                     "eOpts"
                 ],
                 "implHandler": [
+                    "console.log('doCreateUser');",
                     "var mainVP = Ext.getCmp('mainVP');",
                     "mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=register]'));",
                     "",
@@ -225,7 +227,7 @@
                     "    if(success){",
                     "",
                     "        if(that.actionName === 'save'){",
-                    "            that.doCancel();",
+                    "            that.doCancelUser();",
                     "            that.actionName = '' ;",
                     "        }",
                     "    }",

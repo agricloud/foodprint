@@ -93,11 +93,13 @@ Ext.define('foodprint.controller.LoginController', {
     },
 
     doReset: function(btn, e, eOpts) {
+        console.log('doReset');
         var form = btn.up('form').getForm();
         form.reset();
     },
 
     doCreateUser: function(btn, e, eOpts) {
+        console.log('doCreateUser');
         var mainVP = Ext.getCmp('mainVP');
         mainVP.getLayout().setActiveItem(mainVP.down('panel[itemId=register]'));
 
@@ -130,7 +132,7 @@ Ext.define('foodprint.controller.LoginController', {
             if(success){
 
                 if(that.actionName === 'save'){
-                    that.doCancel();
+                    that.doCancelUser();
                     that.actionName = '' ;
                 }
             }

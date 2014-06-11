@@ -40,6 +40,17 @@ Ext.define('foodprint.view.MainViewport', {
                     tbar: {
                         xtype: 'commonshowtoolbar'
                     },
+                    itemId: '',
+                    layout: {
+                        align: 'stretch',
+                        type: 'vbox'
+                    }
+                },
+                {
+                    xtype: 'panel',
+                    tbar: {
+                        xtype: 'commonshowtoolbar'
+                    },
                     itemId: 'register',
                     layout: {
                         align: 'stretch',
