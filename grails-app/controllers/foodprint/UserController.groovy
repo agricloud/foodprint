@@ -49,19 +49,35 @@ class UserController {
             params["site.id"] = site.id
         }
 
-        def userInstance=new User(params)
+        if(params.password ==~ /^[a-zA-Z0-9]*$/){
+            def userInstance=new User(params)
         
-        render (contentType: 'application/json') {
-            domainService.save(userInstance)
+            render (contentType: 'application/json') {
+                domainService.save(userInstance)
+            }
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'user.password.not.valid')]
+            }  
         }
     }
 
     def update(){
-        def userInstance = User.get(params.id)
-        userInstance.properties=params
-        render (contentType: 'application/json') {
-            domainService.save(userInstance)
-        }         
+
+        if(params.password ==~ /^[a-zA-Z0-9]*$/){
+            def userInstance = User.get(params.id)
+            userInstance.properties=params
+        
+            render (contentType: 'application/json') {
+                domainService.save(userInstance)
+            }
+        }
+        else{
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'user.password.not.valid')]
+            }  
+        }       
     }
 
 
