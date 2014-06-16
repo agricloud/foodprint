@@ -26,10 +26,10 @@ class CustomerControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 customerInstanceList 屬性，且有一筆資料 name 屬性為 customer"
-            assert response.json.customerInstanceList[0].name == "customer"
+            assert response.json.data[0].name == "customer"
 
         then: "json 裡有 customerInstanceTotal 屬性為 1"
-            assert response.json.customerInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

@@ -24,9 +24,9 @@ class SupplierControllerTests {
         new Supplier(name: 'supplier', title: 'supplier').save(failOnError: true)
         controller.index()
 
-        assert response.json.supplierInstanceList.size() == 1   
-        assert response.json.supplierInstanceTotal == 1   
-        assert response.json.supplierInstanceList[0].name == "supplier"
+        assert response.json.data.size() == 1   
+        assert response.json.total == 1   
+        assert response.json.data[0].name == "supplier"
     }
 
     void testShow(){

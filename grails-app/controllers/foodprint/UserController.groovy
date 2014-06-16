@@ -65,7 +65,7 @@ class UserController {
 
     def update(){
 
-        if(params.password ==~ /^[a-zA-Z0-9]*$/){
+        if(!params.password || params.password ==~ /^[a-zA-Z0-9]*$/){
             def userInstance = User.get(params.id)
             userInstance.properties=params
         

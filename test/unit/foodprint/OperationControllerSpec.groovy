@@ -26,10 +26,10 @@ class OperationControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 operationInstanceList 屬性，且有一筆資料 name 屬性為 operation"
-            assert response.json.operationInstanceList[0].name == "operation"
+            assert response.json.data[0].name == "operation"
 
         then: "json 裡有 operationInstanceTotal 屬性為 1"
-            assert response.json.operationInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

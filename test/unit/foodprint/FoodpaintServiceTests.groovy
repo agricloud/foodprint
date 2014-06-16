@@ -1,5 +1,6 @@
 package foodprint
 
+import common.*
 import grails.test.mixin.*
 import org.junit.*
 import grails.converters.*
@@ -16,7 +17,7 @@ import grails.converters.*
     Operation,
     Supplier,
     Batch,
-    BatchSource])
+    BatchSource, DateService])
 class FoodpaintServiceTests {
 
     void testOperationImport() {
@@ -48,7 +49,7 @@ class FoodpaintServiceTests {
         assert Operation.count() == 1
     }
     void testBatchImport() {
-        new Item(name: "K640F01", title: 'item1').save(failOnError: true, flush:true)
+        new Item(name: "K640F01", title: 'item1', unit: 'kg').save(failOnError: true, flush:true)
 
 
         def batchJson = '''
@@ -61,10 +62,7 @@ class FoodpaintServiceTests {
                         },
                         "importFlag": -1,
                         "expirationDate": null,
-                        "batchType": {
-                            "name": "PRODUCT",
-                            "enumType": "foodpaint.BatchType"
-                        },
+                        "batchType": "PRODUCT",
                         "class": "foodpaint.Batch",
                         "lastUpdated": "2013-11-10T07:24:52Z",
                         "expectQty": 0,
@@ -101,10 +99,7 @@ class FoodpaintServiceTests {
                             "dateCreated": "2013-11-10T07:24:49Z",
                             "class": "foodpaint.Supplier",
                             "creator": "",
-                            "country": {
-                                "name": "TAIWAN",
-                                "enumType": "foodpaint.Country"
-                            }
+                            "country": "TAIWAN"
                         }
                     }
                 ]
@@ -165,10 +160,7 @@ class FoodpaintServiceTests {
                         "dateCreated": "2013-11-10T07:24:49Z",
                         "class": "foodpaint.Supplier",
                         "creator": "",
-                        "country": {
-                            "name": "TAIWAN",
-                            "enumType": "foodpaint.Country"
-                        }
+                        "country": "TAIWAN"
                     }
                 ]
             }

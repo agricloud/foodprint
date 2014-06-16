@@ -26,10 +26,10 @@ class WorkstationControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 workstationInstanceList 屬性，且有一筆資料 name 屬性為 workstation"
-            assert response.json.workstationInstanceList[0].name == "workstation"
+            assert response.json.data[0].name == "workstation"
 
         then: "json 裡有 workstationInstanceTotal 屬性為 1"
-            assert response.json.workstationInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

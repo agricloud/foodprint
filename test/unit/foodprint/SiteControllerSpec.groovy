@@ -26,10 +26,10 @@ class SiteControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 siteInstanceList 屬性，且有一筆資料 name 屬性為 site"
-            assert response.json.siteInstanceList[0].name == "site"
+            assert response.json.data[0].name == "site"
 
         then: "json 裡有 siteInstanceTotal 屬性為 1"
-            assert response.json.siteInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

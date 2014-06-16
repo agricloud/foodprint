@@ -20,7 +20,7 @@ class BatchReportDetControllerSpec extends Specification {
 
     void "測試 showBatchRouteParams action，並且 response 為 json 格式"() {
         setup: "建立測試資料"
-            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1', unit: 'kg').save(failOnError: true)
             def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def workstation = new Workstation(name: 'workstation',title:'workstation').save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
@@ -65,7 +65,7 @@ class BatchReportDetControllerSpec extends Specification {
     void "測試 doSaveOrUpdate action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def item = new Item(name:"item1", title: 'item1').save(failOnError: true)
+            def item = new Item(name:"item1", title: 'item1', unit: 'kg').save(failOnError: true)
             def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def workstation = new Workstation(name: 'workstation',title:'workstation').save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)

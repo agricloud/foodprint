@@ -26,10 +26,10 @@ class SupplierControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 supplierInstanceList 屬性，且有一筆資料 name 屬性為 supplier"
-            assert response.json.supplierInstanceList[0].name == "supplier"
+            assert response.json.data[0].name == "supplier"
 
         then: "json 裡有 supplierInstanceTotal 屬性為 1"
-            assert response.json.supplierInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

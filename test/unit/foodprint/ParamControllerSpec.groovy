@@ -26,10 +26,10 @@ class ParamControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 paramInstanceList 屬性，且有一筆資料 name 屬性為 param"
-            assert response.json.paramInstanceList[0].name == "param"
+            assert response.json.data[0].name == "param"
 
         then: "json 裡有 paramInstanceTotal 屬性為 1"
-            assert response.json.paramInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

@@ -33,10 +33,10 @@ class ReportParamsControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 reportParamsInstanceList 屬性，且有一筆資料 report.id 屬性與測試資料 report.id相同"
-            assert response.json.reportParamsInstanceList[0].report.id == report.id
+            assert response.json.data[0].report.id == report.id
 
         then: "json 裡有 reportParamsInstanceTotal 屬性為 1"
-            assert response.json.reportParamsInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

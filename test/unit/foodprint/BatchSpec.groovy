@@ -14,8 +14,8 @@ class BatchSpec extends Specification {
 
     void "測試新增批號與取得清單"() {
     	given: '產生一個測試批號 domain'
-    	def item = new Item(name:'item', title: 'item1').save()
-    	new Batch(name: 'batch', item:item).save()
+    	def item = new Item(name:'item', title: 'item1', unit: 'kg').save(failOnError: true)
+    	new Batch(name: 'batch', item:item).save(failOnError: true)
 
     	when: '要求取得批號清單'
     	def batchList = Batch.list()

@@ -29,10 +29,10 @@ class UserControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 userInstanceList 屬性，且有一筆資料 name 屬性為 user"
-            assert response.json.userInstanceList[0].username == "user"
+            assert response.json.data[0].username == "user"
 
         then: "json 裡有 userInstanceTotal 屬性為 1"
-            assert response.json.userInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

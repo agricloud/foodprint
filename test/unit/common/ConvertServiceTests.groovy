@@ -18,7 +18,7 @@ class ConvertServiceTests {
 
 	void testItemJsonConvert() {
 
-    	def item = new Item(name: 'item1', title: 'item1').save()
+    	def item = new Item(name: 'item1', title: 'item1', unit: 'kg').save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Item) {
 		    service.itemParseJson(it)
@@ -29,8 +29,8 @@ class ConvertServiceTests {
     void testBatchJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
-    	def item = new Item(name: 'item1', title: 'item1').save()
-    	def batch = new Batch(name:'batch1', item: item, expectQty:10).save()
+    	def item = new Item(name: 'item1', title: 'item1', unit: 'kg').save(failOnError: true)
+    	def batch = new Batch(name:'batch1', item: item, expectQty:10).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Batch) {
 		    service.batchParseJson(it)
@@ -44,13 +44,13 @@ class ConvertServiceTests {
     }
 
     void testBatchRouteJsonConvert() {
-    	def item = new Item(name: 'item1',title:'品項1').save()
-    	def ws = new Workstation(name: 'workstation1',title:'生產線1').save()
-    	def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save()
+    	def item = new Item(name: 'item1',title:'品項1', unit: 'kg').save(failOnError: true)
+    	def ws = new Workstation(name: 'workstation1',title:'生產線1').save(failOnError: true)
+    	def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save(failOnError: true)
     	sp.id=null
-    	def op = new Operation(name: 'operation1',title:'製程1').save()
-    	def batch = new Batch(name:'batch1', item: item, expectQty:10).save()
-    	def batchRoute = new BatchRoute(batch:batch,sequence:1,workstation:ws,supplier:sp,operation:op).save()
+    	def op = new Operation(name: 'operation1',title:'製程1').save(failOnError: true)
+    	def batch = new Batch(name:'batch1', item: item, expectQty:10).save(failOnError: true)
+    	def batchRoute = new BatchRoute(batch:batch,sequence:1,workstation:ws,supplier:sp,operation:op).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(BatchRoute) {
 		    service.batchRouteParseJson(it)
@@ -77,11 +77,11 @@ class ConvertServiceTests {
     void testBatchSourceJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
-    	def item = new Item(name: 'item1', title: 'item1').save()
-    	def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save()
-    	def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save()
+    	def item = new Item(name: 'item1', title: 'item1',unit:'kg').save(failOnError: true)
+    	def batch1 = new Batch(name:'batch1', item: item, expectQty:10).save(failOnError: true)
+    	def batch2 = new Batch(name:'batch2', item: item, expectQty:10).save(failOnError: true)
 
-    	def batchSource = new BatchSource(batch:batch1,childBatch:batch2).save()
+    	def batchSource = new BatchSource(batch:batch1,childBatch:batch2).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Batch) {
 		    service.batchParseJson(it)
@@ -126,7 +126,7 @@ class ConvertServiceTests {
 
     void testUserJsonConvert() {
 
-    	def user = new User( username:"user",password:"user", enabled: true).save()
+    	def user = new User( username:"user",password:"user", enabled: true).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(User) {
 		    service.userParseJson(it)
@@ -137,7 +137,7 @@ class ConvertServiceTests {
 
     void testCustomerJsonConvert() {
 
-    	def customer = new Customer(name:"cutstomer",title:"客戶Ａ").save()
+    	def customer = new Customer(name:"cutstomer",title:"客戶Ａ").save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Customer) {
 		    service.customerParseJson(it)
@@ -149,7 +149,7 @@ class ConvertServiceTests {
     void testSupplierJsonConvert() {
     	messageSource.addMessage("country.TAIWAN.label", Locale.getDefault(), "台灣")
 
-    	def supplier = new Supplier(name:"supplier",title:"供應商Ａ").save()
+    	def supplier = new Supplier(name:"supplier",title:"供應商Ａ").save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Supplier) {
 		    service.supplierParseJson(it)
@@ -160,7 +160,7 @@ class ConvertServiceTests {
 
     void testOperationJsonConvert() {
 
-    	def operation = new Operation(name: 'operation1',title:'製程1').save()
+    	def operation = new Operation(name: 'operation1',title:'製程1').save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Operation) {
 		    service.operationParseJson(it)
@@ -171,7 +171,7 @@ class ConvertServiceTests {
 
     void testWorkstationJsonConvert() {
 
-    	def workstation = new Workstation(name: 'workstation1',title:'製程1').save()
+    	def workstation = new Workstation(name: 'workstation1',title:'製程1').save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Workstation) {
 		    service.workstationParseJson(it)
@@ -184,7 +184,7 @@ class ConvertServiceTests {
 
     	messageSource.addMessage("paramType.INTEGER.label", Locale.getDefault(), "整數")
 
-	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save()
+	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Param) {
 		    service.paramParseJson(it)
@@ -198,7 +198,7 @@ class ConvertServiceTests {
 
     	messageSource.addMessage("reportType.INSPECT.label", Locale.getDefault(), "檢驗")
 
-	    def report=new Report(name:"report",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save()
+	    def report=new Report(name:"report",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Report) {
 		    service.reportParseJson(it)
@@ -208,14 +208,14 @@ class ConvertServiceTests {
 	}
 
 	void testReportParamsJsonConvert(){
-	    def item = new Item(name: 'item1',title:'品項1').save()
-	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save()
-	    def report=new Report(name:"report",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save()
-	    def ws = new Workstation(name: 'workstation1',title:'生產線1').save()
-	    def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save()
+	    def item = new Item(name: 'item1',title:'品項1',unit:'kg').save(failOnError: true)
+	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save(failOnError: true)
+	    def report=new Report(name:"report",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save(failOnError: true)
+	    def ws = new Workstation(name: 'workstation1',title:'生產線1').save(failOnError: true)
+	    def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save(failOnError: true)
 	    sp.id=null
-	    def op = new Operation(name: 'operation1',title:'製程1').save()
-		def reportparams=new  ReportParams (report:report,param:param,workstation:ws,supplier:sp,operation:op,item:item).save()
+	    def op = new Operation(name: 'operation1',title:'製程1').save(failOnError: true)
+		def reportparams=new  ReportParams (report:report,param:param,workstation:ws,supplier:sp,operation:op,item:item).save(failOnError: true)
 
 
 		JSON.registerObjectMarshaller(Item) {
@@ -244,17 +244,17 @@ class ConvertServiceTests {
 	}
 
     void testBatchReportDetJsonConvert(){
-	    def item = new Item(name: 'item1',title:'品項1').save()
-	    def batch = new Batch(name:'batch1', item: item, expectQty:10).save()
-	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save()
-	    def report=new Report(name:"report3",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save()
-	    def ws = new Workstation(name: 'workstation1',title:'生產線1').save()
-	    def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save()
+	    def item = new Item(name: 'item1',title:'品項1',unit:'kg').save(failOnError: true)
+	    def batch = new Batch(name:'batch1', item: item, expectQty:10).save(failOnError: true)
+	    def param = new Param(name:"A",title:"益多松",defaultValue:"0.0",paramType:ParamType.INTEGER).save(failOnError: true)
+	    def report=new Report(name:"report3",title:"成品檢驗報告集", reportType: ReportType.INSPECT).save(failOnError: true)
+	    def ws = new Workstation(name: 'workstation1',title:'生產線1').save(failOnError: true)
+	    def sp = [:];//new Supplier(name: 'supplier1',title:'供應商1').save(failOnError: true)
 	    sp.id=null
-	    def op = new Operation(name: 'operation1',title:'製程1').save()
-		def reportparams=new  ReportParams (report:report,param:param,workstation:ws,supplier:sp,operation:op,item:item).save()
+	    def op = new Operation(name: 'operation1',title:'製程1').save(failOnError: true)
+		def reportparams=new  ReportParams (report:report,param:param,workstation:ws,supplier:sp,operation:op,item:item).save(failOnError: true)
 		
-	    def brd = new BatchReportDet(batch:batch,reportParams:reportparams,value:"20").save()
+	    def brd = new BatchReportDet(batch:batch,reportParams:reportparams,value:"20").save(failOnError: true)
 
 		JSON.registerObjectMarshaller(Batch) {
 		    service.batchParseJson(it)

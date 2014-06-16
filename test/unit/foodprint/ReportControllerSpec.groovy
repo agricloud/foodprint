@@ -26,10 +26,10 @@ class ReportControllerSpec extends Specification {
             assert response.json
 
         then: "json 裡有 reportInstanceList 屬性，且有一筆資料 name 屬性為 report"
-            assert response.json.reportInstanceList[0].name == "report"
+            assert response.json.data[0].name == "report"
 
         then: "json 裡有 reportInstanceTotal 屬性為 1"
-            assert response.json.reportInstanceTotal == 1   
+            assert response.json.total == 1   
 
     }
 

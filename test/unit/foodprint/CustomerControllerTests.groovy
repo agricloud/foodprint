@@ -24,9 +24,9 @@ class CustomerControllerTests {
         new Customer(name: 'customer', title: 'customer').save(failOnError: true)
         controller.index()
 
-        assert response.json.customerInstanceList.size() == 1   
-        assert response.json.customerInstanceTotal == 1   
-        assert response.json.customerInstanceList[0].name == "customer"
+        assert response.json.data.size() == 1   
+        assert response.json.total == 1   
+        assert response.json.data[0].name == "customer"
     }
 
     void testShow(){

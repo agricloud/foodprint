@@ -50,7 +50,7 @@ class ExtJSFiltersTests {
 	    withFilters(controller:'*', action:'*') {
 	        controller.index()
 	        println response.json
-	        assert response.json.itemInstanceTotal == 1
+	        assert response.json.total == 1
 	    }
 
 	}
