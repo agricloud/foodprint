@@ -65,7 +65,7 @@
                 "implHandler": [
                     "this.control({",
                     "    'itemview #index commonindextoolbar commoncreatebtn':{",
-                    "        click:this.doCreate",
+                    "        click:this.doCreateForm",
                     "    },",
                     "    'itemview #index commonindextoolbar commonshowbtn':{",
                     "        click:this.doShowForm",
@@ -123,6 +123,21 @@
                 ]
             },
             "designerId": "5e6fba30-e6de-4d49-8bdd-0ab01a862455"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doCreateForm",
+                "implHandler": [
+                    "this.getImageUploader().emptyImage();"
+                ]
+            },
+            "designerId": "52e61aef-a4b2-43af-9c01-c8372110ceec"
         }
     ]
 }

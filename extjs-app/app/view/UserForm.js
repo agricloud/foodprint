@@ -31,6 +31,7 @@ Ext.define('foodprint.view.UserForm', {
             items: [
                 {
                     xtype: 'numberfield',
+                    hidden: true,
                     fieldLabel: 'id',
                     name: 'id',
                     readOnly: true
@@ -49,7 +50,8 @@ Ext.define('foodprint.view.UserForm', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'password',
-                    name: 'password'
+                    name: 'password',
+                    inputType: 'password'
                 },
                 {
                     xtype: 'checkboxfield',

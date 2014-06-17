@@ -48,7 +48,7 @@ Ext.define('foodprint.controller.ItemController', {
     init: function(application) {
         this.control({
             'itemview #index commonindextoolbar commoncreatebtn':{
-                click:this.doCreate
+                click:this.doCreateForm
             },
             'itemview #index commonindextoolbar commonshowbtn':{
                 click:this.doShowForm
@@ -79,6 +79,10 @@ Ext.define('foodprint.controller.ItemController', {
 
         this.setImageUploader();
         this.doShow();
+    },
+
+    doCreateForm: function() {
+        this.getImageUploader().emptyImage();
     }
 
 });
