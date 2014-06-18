@@ -156,6 +156,7 @@ Ext.define('foodprint.view.SupplierView', {
                             items: [
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
                                     readOnly: true

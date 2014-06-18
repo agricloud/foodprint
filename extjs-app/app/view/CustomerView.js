@@ -145,6 +145,7 @@ Ext.define('foodprint.view.CustomerView', {
                             items: [
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
                                     readOnly: true

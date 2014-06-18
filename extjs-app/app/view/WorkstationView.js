@@ -122,6 +122,7 @@ Ext.define('foodprint.view.WorkstationView', {
                                     items: [
                                         {
                                             xtype: 'numberfield',
+                                            hidden: true,
                                             fieldLabel: 'id',
                                             name: 'id',
                                             readOnly: true

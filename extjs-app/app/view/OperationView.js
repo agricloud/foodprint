@@ -114,6 +114,7 @@ Ext.define('foodprint.view.OperationView', {
                             items: [
                                 {
                                     xtype: 'numberfield',
+                                    hidden: true,
                                     fieldLabel: 'id',
                                     name: 'id',
                                     readOnly: true
