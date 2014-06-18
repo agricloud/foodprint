@@ -83,6 +83,7 @@ Ext.define('foodprint.controller.ItemController', {
 
     doCreateForm: function() {
         this.getImageUploader().emptyImage();
+        this.doCreate();
     }
 
 });
