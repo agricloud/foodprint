@@ -36,6 +36,27 @@ class SupplierController {
     }
 
     def save(){
+        if(!(params.tel ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.tel.not.valid')]
+            }
+            return
+        }
+
+        if(!(params.fax ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.tel.not.valid')]
+            }
+            return
+        }
+
+        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.email.not.valid')]
+            }
+            return
+        }
+
         def supplierInstance=new Supplier(params)
         render (contentType: 'application/json') {
             domainService.save(supplierInstance)
@@ -43,6 +64,26 @@ class SupplierController {
     }
 
     def update(){
+        if(!(params.tel ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.tel.not.valid')]
+            }
+            return
+        }
+
+        if(!(params.fax ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.tel.not.valid')]
+            }
+            return
+        }
+        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'supplier.email.not.valid')]
+            }
+            return
+        }
+
         def  supplierInstance = Supplier.get(params.id)
         supplierInstance.properties = params
         render (contentType: 'application/json') {

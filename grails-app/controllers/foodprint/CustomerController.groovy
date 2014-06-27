@@ -38,6 +38,27 @@ class CustomerController {
         }
     }
     def save = {
+        //\d表示需輸入的內容需為數字0-9,-或者輸入的內容為符號"-",^表示開頭$表示結尾
+        if(!(params.tel ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.tel.not.valid')]
+            }
+            return
+        }
+
+        if(!(params.fax ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.tel.not.valid')]
+            }
+            return
+        }
+
+        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.email.not.valid')]
+            }
+            return
+        }
 
         def customerInstance=new Customer(params)
         
@@ -47,11 +68,32 @@ class CustomerController {
     }
 
     def update = {
+        if(!(params.tel ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.tel.not.valid')]
+            }
+            return
+        }
+
+        if(!(params.fax ==~ /^[\d-]*$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.tel.not.valid')]
+            }
+            return
+        }
+
+        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'customer.email.not.valid')]
+            }
+            return
+        }
+
         def  customerInstance = Customer.get(params.id)
         customerInstance.properties=params
         render (contentType: 'application/json') {
             domainService.save(customerInstance)
-        }         
+        }  
     }
 
 
