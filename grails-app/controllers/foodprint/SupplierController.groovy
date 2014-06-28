@@ -36,14 +36,14 @@ class SupplierController {
     }
 
     def save(){
-        if(!(params.tel ==~ /^[\d-]*$/)){
+        if(params.tel && !(params.tel ==~ /^[\d-]*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.tel.not.valid')]
             }
             return
         }
 
-        if(!(params.fax ==~ /^[\d-]*$/)){
+        if(params.fax && !(params.fax ==~ /^[\d-]*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.tel.not.valid')]
             }
@@ -64,14 +64,14 @@ class SupplierController {
     }
 
     def update(){
-        if(!(params.tel ==~ /^[\d-]*$/)){
+        if(params.tel && !(params.tel ==~ /^[\d-]*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.tel.not.valid')]
             }
             return
         }
 
-        if(!(params.fax ==~ /^[\d-]*$/)){
+        if(params.fax && !(params.fax ==~ /^[\d-]*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.tel.not.valid')]
             }

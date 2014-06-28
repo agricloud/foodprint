@@ -65,6 +65,12 @@ class BatchRouteController {
     }
 
     def save = {
+        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchRoute.workstation.supplier.should.exists.one')]
+            }
+            return
+        }
         def batchRoute= new BatchRoute(params)
         render (contentType: 'application/json') {
             domainService.save(batchRoute)
@@ -73,19 +79,15 @@ class BatchRouteController {
 
 
     def update = {
+
+        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+            render (contentType: 'application/json') {
+                [success: false,message:message(code: 'batchRoute.workstation.supplier.should.exists.one')]
+            }
+            return
+        }
+
         def  batchRoute = BatchRoute.get(params.id)
-
-        if(!params?.workstation?.id || !params.workstation.id.trim()){
-            params.remove("workstation.id")
-            params.remove("workstation.title")  
-            params.put("workstation",null) 
-        }
-        if(!params?.workstation?.id || !params.supplier.id.trim()){
-            params.remove("supplier.id")
-            params.remove("supplier.title")
-            params.put("supplier",null)
-        }
-
         batchRoute.properties=params   
         render (contentType: 'application/json') {
             domainService.save(batchRoute)

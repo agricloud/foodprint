@@ -16,12 +16,13 @@ class SupplierControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        params["name"] = 'supplierNewName'
-        params["title"] = 'supplierNewName'
+        params["name"] = 'supplier'
+        params["title"] = 'supplier'
     }
 
     void testIndex() {
-        new Supplier(name: 'supplier', title: 'supplier').save(failOnError: true)
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
         controller.index()
 
         assert response.json.data.size() == 1   
@@ -30,13 +31,15 @@ class SupplierControllerTests {
     }
 
     void testShow(){
-        def supplier = new Supplier(name: 'supplier', title: 'supplier').save(failOnError: true)
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
 
-        params.id = supplier.id
+        params.id = 1
         controller.show()
 
         assert response.json.success
         assert response.json.data.class == "foodprint.Supplier"
+        assert response.json.data.name == "supplier"
 
     }
 
@@ -52,26 +55,86 @@ class SupplierControllerTests {
 
         assert response.json.success
         assert Supplier.list().size() == 1
-        assert Supplier.get(1).name == 'supplierNewName'   
+        assert Supplier.get(1).name == 'supplier'   
     }
 
     def testUpdate(){
-        def supplier = new Supplier(name: 'supplier', title: 'supplier').save(failOnError: true)
-
         populateValidParams(params)
-        params.id = supplier.id
+        def supplier = new Supplier(params).save(failOnError: true)
 
+        params.id = 1
+        params.title = "newSupplier"
         controller.update()
         
         assert response.json.success
         assert Supplier.list().size() == 1
-        assert Supplier.get(1).name == 'supplierNewName'
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'newSupplier'
+    }
+
+    def testUpdateWithCorrectTelData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.tel = "02-29953221"
+        controller.update()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).tel == '02-29953221'
+    }
+    def testUpdateWithIncorrectTelData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.tel = "abc02-29953221"
+        controller.update()
+        
+        assert response.json.success == false
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).tel == null
+    }
+
+    def testUpdateWithCorrectFaxData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.fax = "02-29953221"
+        controller.update()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).fax == '02-29953221'
+    }
+    def testUpdateWithIncorrectFaxData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.fax = "abc02-29953221"
+        controller.update()
+        
+        assert response.json.success == false
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).fax == null
     }
 
     def testDelete(){
-        def supplier = new Supplier(name: 'supplier', title: 'supplier').save(failOnError: true)
-        params.id = supplier.id
-
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+        
+        params.id = 1
         controller.delete()
         assert response.json.success
         assert Supplier.list().size() == 0
