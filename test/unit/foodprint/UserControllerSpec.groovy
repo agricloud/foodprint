@@ -20,7 +20,7 @@ class UserControllerSpec extends Specification {
 
     void "測試 index action，並且 response 為 json 格式"() {
         setup: "建立 User 測試資料"
-            new User(username: 'user', password:'user').save(failOnError: true)
+            new User(username: 'user', password:'user', fullName:'user').save(failOnError: true)
 
         when: "執行 UserController 提供的 index action"
             controller.index()
@@ -39,7 +39,7 @@ class UserControllerSpec extends Specification {
     void "測試 show action，並且 response 為 json 格式"() {
 
         setup: "建立測試資料"
-            def user = new User(username: 'user', password:'user').save(failOnError: true)
+            def user = new User(username: 'user', password:'user', fullName:'user').save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = user.id
@@ -78,8 +78,9 @@ class UserControllerSpec extends Specification {
         setup: "前端傳入資料"
             params["username"] = 'user'
             params["password"] = 'user'
+            params["fullName"] = 'user'
 
-        when: "執行 save action"
+        when: "執行 save action"  
             controller.save()
 
         then: "response 要能取得 json 格式初始資料"
@@ -96,7 +97,7 @@ class UserControllerSpec extends Specification {
     void "測試 update action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def user = new User(username: 'user', password:'user').save(failOnError: true)
+            def user = new User(username: 'user', password:'user', fullName:'user').save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
             params.id = user.id
@@ -121,7 +122,7 @@ class UserControllerSpec extends Specification {
     void "測試 delete action，並且回傳為 json 格式"() {
 
         setup: "建立測試資料"
-            def user = new User(username: 'user', password:'user').save(failOnError: true)
+            def user = new User(username: 'user', password:'user', fullName:'user').save(failOnError: true)
         
         and: "前端傳入資料，定義 id 為測試資料的 id"
             params.id = user.id

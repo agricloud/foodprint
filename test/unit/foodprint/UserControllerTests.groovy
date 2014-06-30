@@ -19,24 +19,28 @@ class UserControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        params["name"] = 'userNewName'
-        params["username"] = 'userNewName'
+        params["name"] = 'user'
+        params["username"] = 'user'
+        params["fullName"] = 'user'
         params["password"] = 'password'
     }
 
     void testIndex() {
-        new User(name: 'user', username: 'user', password:'user').save(failOnError: true)
+        populateValidParams(params)
+        def user = new User(params).save(failOnError: true)
         controller.index()
 
         assert response.json.data.size() == 1   
         assert response.json.total == 1   
         assert response.json.data[0].username == "user"
+
     }
 
     void testShow(){
-        def user = new User(name: 'user', username: 'user', password:'user').save(failOnError: true)
+        populateValidParams(params)
+        def user = new User(params).save(failOnError: true)
 
-        params.id = user.id
+        params.id = 1
         controller.show()
 
         assert response.json.success
@@ -50,54 +54,70 @@ class UserControllerTests {
         assert response.json.data.class == "foodprint.User"
     }
 
-    void testSave(){
-        populateValidParams(params)
-        controller.save()
+    // void testSave(){
+    //     populateValidParams(params)
+    //     controller.save()
 
-        assert response.json.success
-        assert User.list().size() == 1
-        assert User.get(1).username == 'userNewName'   
-    }
+    //     assert response.json.success
+    //     assert User.list().size() == 1
+    //     assert User.get(1).username == 'user'   
+    // }
 
-    //測試非英文、數字之密碼
-    void testSaveWithInvalidPassword(){
-        populateValidParams(params)
-        params["password"] = '密碼123'
-        controller.save()
+    // //測試非英文、數字之密碼
+    // void testSaveWithInvalidPassword(){
+    //     populateValidParams(params)
+    //     params["password"] = '密碼123'
+    //     controller.save()
 
-        assert response.json.success == false
-        assert User.list().size() == 0
+    //     assert response.json.success == false
+    //     assert User.list().size() == 0
 
-    }
+    // }
 
     def testUpdate(){
-        def user = new User(name: 'user', username: 'user', password:'user').save(failOnError: true)
-
         populateValidParams(params)
-        params.id = user.id
+        def user = new User(params).save(failOnError: true)
 
+        params.id = 1
+        params.fullName = "newUser"
         controller.update()
         
         assert response.json.success
         assert User.list().size() == 1
-        assert User.get(1).username == 'userNewName'
+        assert User.get(1).name == 'user'
+        assert User.get(1).fullName == 'newUser'
+    }
+
+    //測試正確英文、數字之密碼
+    void testUpdateWithValidPassword(){
+        populateValidParams(params)
+        def user = new User(params).save(failOnError: true)
+
+        params.id = 1
+        params["password"] = 'pass123'
+        controller.update()
+
+        assert response.json.success == true
+        assert User.list().size() == 1
     }
 
     //測試非英文、數字之密碼
     void testUpdateWithInvalidPassword(){
-        def user = new User(name: 'user', username: 'user', password:'user').save(failOnError: true)
         populateValidParams(params)
-        params.id = user.id
+        def user = new User(params).save(failOnError: true)
+
+        params.id = 1
         params["password"] = '密碼123'
-        controller.save()
+        controller.update()
 
         assert response.json.success == false
         assert User.list().size() == 1
     }
 
     def testDelete(){
-        def user = new User(name: 'user', username: 'user', password:'user').save(failOnError: true)
-        params.id = user.id
+        populateValidParams(params)
+        def user = new User(params).save(failOnError: true)
+        params.id = 1
 
         controller.delete()
         assert response.json.success
