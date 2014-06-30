@@ -103,6 +103,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 }),
                                 me.processBatchSourceMaintain({
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'batchSourceMaintain',
                                     text: 'Batch Source Maintain'
                                 })
