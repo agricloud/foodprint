@@ -65,7 +65,7 @@ class BatchRouteController {
     }
 
     def save = {
-        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+        if((!params.workstation?.id && !params.supplier?.id)||(params.workstation?.id && params.supplier?.id)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'batchRoute.workstation.supplier.should.exists.one')]
             }
@@ -80,7 +80,7 @@ class BatchRouteController {
 
     def update = {
 
-        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+        if((!params.workstation?.id && !params.supplier?.id)||(params.workstation?.id && params.supplier?.id)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'batchRoute.workstation.supplier.should.exists.one')]
             }

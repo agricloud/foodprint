@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.Specification
 
 @TestFor(ItemRouteController)
-@Mock([ItemRoute, Item, Operation, 
+@Mock([ItemRoute, Item, Operation, Workstation,
     DomainService, TestService])
 class ItemRouteControllerSpec extends Specification {
 
@@ -90,11 +90,13 @@ class ItemRouteControllerSpec extends Specification {
         setup:"建立測試資料"
             def item = new Item(name:"item1", title: 'item1', unit: 'kg').save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
+            def workstation = new Workstation(name:"workstation1",title:"workstation1").save(failOnError: true)
 
         and: "前端傳入資料"
             params["sequence"] = 1            
             params["item.id"] = item.id
             params["operation.id"] = operation.id
+            params["workstation.id"] = workstation.id
 
         when: "執行 save action"
             controller.save()
@@ -114,15 +116,17 @@ class ItemRouteControllerSpec extends Specification {
 
         setup: "建立測試資料"
             def item1 = new Item(name:"item1", title: 'item1', unit: 'kg').save(failOnError: true)
-            def item2 = new Item(name:"item2", title: 'item2', unit: 'kg').save(failOnError: true)
 
-            def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
+            def operation1 = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
+            def operation2 = new Operation(name:"operation2",title:"除草").save(failOnError: true)
 
-            def itemRoute = new ItemRoute(item:item1,sequence:1,operation:operation).save(failOnError: true)
+            def workstation = new Workstation(name:"workstation1",title:"workstation1").save(failOnError: true)
+            def itemRoute = new ItemRoute(item:item1,sequence:1,operation:operation1,workstation:workstation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
             params.id = itemRoute.id
-            params["item.id"] = item2.id
+            params["operation.id"]=operation2.id
+            params["workstation.id"]=workstation.id
 
         when: "執行 update action"
             controller.update()
@@ -137,7 +141,7 @@ class ItemRouteControllerSpec extends Specification {
             assert ItemRoute.list().size() == 1
 
         then: "修改後的屬性有正確寫入"
-            assert ItemRoute.get(1).item == item2
+            assert ItemRoute.get(1).operation == operation2
     }
 
     void "測試 delete action，並且回傳為 json 格式"() {

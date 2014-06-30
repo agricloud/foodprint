@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.Specification
 
 @TestFor(BatchRouteController)
-@Mock([BatchRoute, Item, Batch, Operation,
+@Mock([BatchRoute, Item, Batch, Operation, Workstation,
     DomainService, TestService])
 class BatchRouteControllerSpec extends Specification {
 
@@ -92,12 +92,14 @@ class BatchRouteControllerSpec extends Specification {
         setup: "建立測試資料"
             def item = new Item(name:"item1", title: 'item1', unit:'kg').save(failOnError: true)
             def batch = new Batch(name:"batch1",item:item,).save(failOnError: true)
+            def workstation = new Workstation(name:"workstation1",title:"workstation1").save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
 
         and: "前端傳入資料，定義 item.id 為測試資料的 item.id"
             params["sequence"] = 1  
             params["batch.id"]=batch.id
             params["operation.id"] = operation.id
+            params["workstation.id"] = workstation.id
 
         when: "執行 save action"
             controller.save()
@@ -120,11 +122,13 @@ class BatchRouteControllerSpec extends Specification {
             def batch1 = new Batch(name:"batch1",item:item,).save(failOnError: true)
             def batch2 = new Batch(name:"batch2",item:item,).save(failOnError: true)
             def operation = new Operation(name:"operation1",title:"施肥").save(failOnError: true)
-            def batchRoute = new BatchRoute(batch:batch1, sequence:1, operation:operation).save(failOnError: true)
+            def workstation = new Workstation(name:"workstation1",title:"workstation1").save(failOnError: true)
+            def batchRoute = new BatchRoute(batch:batch1, sequence:1, operation:operation,workstation:workstation).save(failOnError: true)
 
         and: "前端傳入資料，定義 id 為測試資料的 id，並且修改屬性"
             params.id = batchRoute.id
             params["batch.id"] = batch2.id
+            params["workstation.id"] = workstation.id
 
         when: "執行 update action"
             controller.update()

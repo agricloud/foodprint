@@ -67,7 +67,7 @@ class ItemRouteController {
 
     def save = {
 
-        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+        if((!params.workstation?.id && !params.supplier?.id)||(params.workstation?.id && params.supplier?.id)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'itemRoute.workstation.supplier.should.exists.one')]
             }
@@ -84,7 +84,7 @@ class ItemRouteController {
     def update = {
         def itemRouteInstance = ItemRoute.get(params.id)
         
-        if((!params.workstation.id && !params.supplier.id)||(params.workstation.id && params.supplier.id)){
+        if((!params.workstation?.id && !params.supplier?.id)||(params.workstation?.id && params.supplier?.id)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'itemRoute.workstation.supplier.should.exists.one')]
             }
