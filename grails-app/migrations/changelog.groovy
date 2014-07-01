@@ -1179,4 +1179,6 @@ databaseChangeLog = {
 	changeSet(author: "pipi (generated)", id: "1389858126106-58") {
 		addForeignKeyConstraint(baseColumnNames: "site_id", baseTableName: "workstation", constraintName: "FK22AA55036B3BA5F9", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "site", referencesUniqueColumn: "false")
 	}
+
+	include file: '1.0.1.groovy'
 }
