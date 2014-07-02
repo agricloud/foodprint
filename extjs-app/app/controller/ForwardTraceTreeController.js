@@ -84,7 +84,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
                     //console.log(record);
                     var root={
                         'note':record.note,
-                        'class':record.class,
+                        'class':record.className,
                         'type':record.type,
                         'name':record.name,
                         'sheet':record.sheet,
@@ -162,7 +162,7 @@ Ext.define('foodprint.controller.ForwardTraceTreeController', {
 
     addExtraParamsToStore: function(node, eOpts) {
         var params={};
-        params.class = node.data.class;
+        params.className = node.data.className;
         params.name = node.data.name;
         this.getMainTree().getStore().getProxy().extraParams = params;
     },

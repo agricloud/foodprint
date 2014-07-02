@@ -45,7 +45,7 @@ Ext.define('foodprint.model.TraceTree', {
             name: 'sheet'
         },
         {
-            name: 'class'
+            name: 'className'
         },
         {
             name: 'arrow'

@@ -27,9 +27,9 @@ class TraceTreeController {
     def backwardTrace(){
 
         def childJson
-        if(params.class == "Batch")
+        if(params.className == "Batch")
             childJson = traceService.backwardTraceByBatch(params.name)
-        else if(params.class == "ManufactureOrder"){
+        else if(params.className == "ManufactureOrder"){
             String typeName = params.name.split("-")[0]
             String name = params.name.split("-")[1]
             childJson = traceService.backwardTraceByManufactureOrder(typeName,name)
@@ -49,9 +49,9 @@ class TraceTreeController {
     def forwardTrace(){
 
         def childJson
-        if(params.class == "Batch")
+        if(params.className == "Batch")
             childJson = traceService.forwardTraceByBatch(params.name)
-        else if(params.class == "ManufactureOrder"){
+        else if(params.className == "ManufactureOrder"){
             String typeName = params.name.split("-")[0]
             String name = params.name.split("-")[1]
             childJson = traceService.forwardTraceByManufactureOrder(typeName,name)
@@ -89,10 +89,10 @@ class TraceTreeController {
             }
             else if(!node.children || node.children!=[]){
                 params.name = node.name
-                if(node.class == "Batch"){
+                if(node.className == "Batch"){
                     nodes += traceService.backwardTraceByBatch(params.name)
                 }
-                else if(node.class == "ManufactureOrder"){
+                else if(node.className == "ManufactureOrder"){
                     String typeName = node.name.split("-")[0]
                     String name = node.name.split("-")[1]
                     nodes += traceService.backwardTraceByManufactureOrder(typeName,name)
@@ -135,10 +135,10 @@ class TraceTreeController {
             }
             else if(!node.children || node.children!=[]){
                 params.name = node.name
-                if(node.class == "Batch"){
+                if(node.className == "Batch"){
                     nodes += traceService.forwardTraceByBatch(params.name)
                 }
-                else if(node.class == "ManufactureOrder"){
+                else if(node.className == "ManufactureOrder"){
                     String typeName = node.name.split("-")[0]
                     String name = node.name.split("-")[1]
                     nodes += traceService.forwardTraceByManufactureOrder(typeName,name)

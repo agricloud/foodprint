@@ -41,8 +41,8 @@ Ext.define('foodprint.view.TraceTree', {
                 {
                     xtype: 'gridcolumn',
                     hidden: true,
-                    dataIndex: 'class',
-                    text: 'class',
+                    dataIndex: 'className',
+                    text: 'className',
                     flex: 1
                 },
                 {
