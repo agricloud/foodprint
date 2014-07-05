@@ -23,9 +23,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
         'foodprint.view.CommonSelectBtn',
         'foodprint.view.CommonCancelBtn',
         'foodprint.view.ErpSaleSheetGrid',
-        'foodprint.view.ErpSaleSheetDetGrid',
-        'foodprint.view.ErpSaleReturnSheetGrid',
-        'foodprint.view.ErpSaleReturnSheetDetGrid',
         'foodprint.view.CommonIndexToolbar',
         'foodprint.view.CommonShowToolbar'
     ],
@@ -731,10 +728,6 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                         {
                             xtype: 'erpsalesheetgrid',
                             flex: 1
-                        },
-                        {
-                            xtype: 'erpsalesheetdetgrid',
-                            flex: 1
                         }
                     ]
                 },
@@ -744,17 +737,7 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                     layout: {
                         align: 'stretch',
                         type: 'vbox'
-                    },
-                    items: [
-                        {
-                            xtype: 'erpsalereturnsheetgrid',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'erpsalereturnsheetdetgrid',
-                            flex: 1
-                        }
-                    ]
+                    }
                 }
             ]
         });
