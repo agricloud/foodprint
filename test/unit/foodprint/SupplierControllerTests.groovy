@@ -58,7 +58,75 @@ class SupplierControllerTests {
         assert Supplier.get(1).name == 'supplier'   
     }
 
-    def testUpdate(){
+    void testSaveWithCorrectTelData(){
+        params.tel = "02-29953221"
+        populateValidParams(params)
+
+        controller.save()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).tel == '02-29953221'
+    }
+    void testSaveWithIncorrectTelData(){
+        params.tel = "abc02-29953221"
+        populateValidParams(params)
+
+        controller.save()
+        
+        println Supplier.list()
+        assert response.json.success == false
+        assert Supplier.list().size() == 0
+    }
+
+    void testSaveWithCorrectFaxData(){
+        params.fax = "02-29953221"
+        populateValidParams(params)
+
+        controller.save()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).fax == '02-29953221'
+    }
+
+    void testSaveWithIncorrectFaxData(){
+        params.fax = "abc02-29953221"
+        populateValidParams(params)
+
+        controller.save()
+        
+        assertFalse response.json.success
+        assert Supplier.list().size() == 0
+    }
+
+    void testSaveWithCorrectEmailData(){
+        params.email = "aaa@yuntech.edu.tw"
+        populateValidParams(params)
+
+        controller.save()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).email == 'aaa@yuntech.edu.tw'
+    }
+    void testSaveWithIncorrectEmailData(){
+        params.fax = "aaa.yuntech.edu.tw"
+        populateValidParams(params)
+
+        controller.save()
+        
+        assertFalse response.json.success
+        assert Supplier.list().size() == 0
+    }
+
+    void testUpdate(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
 
@@ -72,7 +140,7 @@ class SupplierControllerTests {
         assert Supplier.get(1).title == 'newSupplier'
     }
 
-    def testUpdateWithCorrectTelData(){
+    void testUpdateWithCorrectTelData(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
 
@@ -86,7 +154,7 @@ class SupplierControllerTests {
         assert Supplier.get(1).title == 'supplier'
         assert Supplier.get(1).tel == '02-29953221'
     }
-    def testUpdateWithIncorrectTelData(){
+    void testUpdateWithIncorrectTelData(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
 
@@ -94,14 +162,14 @@ class SupplierControllerTests {
         params.tel = "abc02-29953221"
         controller.update()
         
-        assert response.json.success == false
+        assertFalse response.json.success
         assert Supplier.list().size() == 1
         assert Supplier.get(1).name == 'supplier'
         assert Supplier.get(1).title == 'supplier'
         assert Supplier.get(1).tel == null
     }
 
-    def testUpdateWithCorrectFaxData(){
+    void testUpdateWithCorrectFaxData(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
 
@@ -115,7 +183,7 @@ class SupplierControllerTests {
         assert Supplier.get(1).title == 'supplier'
         assert Supplier.get(1).fax == '02-29953221'
     }
-    def testUpdateWithIncorrectFaxData(){
+    void testUpdateWithIncorrectFaxData(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
 
@@ -123,14 +191,44 @@ class SupplierControllerTests {
         params.fax = "abc02-29953221"
         controller.update()
         
-        assert response.json.success == false
+        assertFalse response.json.success
         assert Supplier.list().size() == 1
         assert Supplier.get(1).name == 'supplier'
         assert Supplier.get(1).title == 'supplier'
         assert Supplier.get(1).fax == null
     }
 
-    def testDelete(){
+
+    void testUpdateWithCorrectEmailData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.email = "aaa@yuntech.edu.tw"
+        controller.update()
+        
+        assert response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).email == 'aaa@yuntech.edu.tw'
+    }
+    void testUpdateWithIncorrectEmailData(){
+        populateValidParams(params)
+        def supplier = new Supplier(params).save(failOnError: true)
+
+        params.id = 1
+        params.email = "aaa.yuntech.edu.tw"
+        controller.update()
+        
+        assertFalse response.json.success
+        assert Supplier.list().size() == 1
+        assert Supplier.get(1).name == 'supplier'
+        assert Supplier.get(1).title == 'supplier'
+        assert Supplier.get(1).email == null
+    }
+
+    void testDelete(){
         populateValidParams(params)
         def supplier = new Supplier(params).save(failOnError: true)
         
