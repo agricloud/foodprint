@@ -23,7 +23,7 @@ class Batch  {
 	]
 
 	String name
-	Long expectQty = 0
+	double expectQty = 0
 	Date dueDate
 	Date manufactureDate
 	Date expirationDate
