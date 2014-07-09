@@ -50,7 +50,7 @@ class SupplierController {
             return
         }
 
-        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+        if(params.email && !(params.email ==~ /^[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.email.not.valid')]
             }
@@ -77,7 +77,7 @@ class SupplierController {
             }
             return
         }
-        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+        if(params.email && !(params.email ==~ /^[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'supplier.email.not.valid')]
             }

@@ -13,16 +13,6 @@ hibernate {
 
 // environment specific settings
 environments {
-    dbToUpdate {
-        dataSource {
-            dbCreate = ""
-            driverClassNamse = "com.mysql.jdbc.Driver"
-            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-            username = "root"
-            password = "demo"
-            url = "jdbc:mysql://140.125.94.174:3306/foodprint?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull"
-        }
-    }
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''

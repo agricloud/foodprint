@@ -39,7 +39,7 @@ class CustomerController {
     }
     def save = {
         //\d表示需輸入的內容需為數字0-9,-或者輸入的內容為符號"-",^表示開頭$表示結尾
-        if(params.tel && !(params.tel ==~ /^[\d-]*$/)){
+        if(params.tel && !(params.tel ==~ /^[\d-有效的]*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'customer.tel.not.valid')]
             }
@@ -53,7 +53,7 @@ class CustomerController {
             return
         }
 
-        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+        if(params.email && !(params.email ==~ /^[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'customer.email.not.valid')]
             }
@@ -81,8 +81,8 @@ class CustomerController {
             }
             return
         }
-
-        if(params.email && !(params.email ==~ /^[a-zA-Z0-9]*[@]+$/)){
+        //[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$
+        if(params.email && !(params.email ==~ /^[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$/)){
             render (contentType: 'application/json') {
                 [success: false,message:message(code: 'customer.email.not.valid')]
             }
