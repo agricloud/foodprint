@@ -41,7 +41,7 @@ class Batch  {
 		editor nullable:true
 		creator nullable:true
 		name unique: true, blank: false
-		expectQty min: 0L
+		expectQty min: 0.0d
 		dueDate nullable: true
 		manufactureDate nullable: true
 		expirationDate nullable: true
