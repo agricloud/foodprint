@@ -6,8 +6,9 @@ class FoodpaintJob {
     }
 
     def group = "MyGroup"
-    def execute(){
-        log.info "execute foodpaintService.doDataImport()"
-        foodpaintService.doDataImport()
-    }
+    //由於paint/print連同一資料庫 暫不匯入
+    // def execute(){
+    //     log.info "execute foodpaintService.doDataImport()"
+    //     foodpaintService.doDataImport()
+    // }
 }
