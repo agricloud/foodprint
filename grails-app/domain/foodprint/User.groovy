@@ -27,7 +27,8 @@ class User {
 
 	static constraints = {
 		site nullable: true
-		username 	blank: false, unique: true
+		username(unique:['site'])
+        username blank: false
 		password 	blank: false
 		fullName 	nullable: true, blank: true
 		email 		nullable: true, email: true

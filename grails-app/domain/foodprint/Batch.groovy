@@ -40,7 +40,8 @@ class Batch  {
 		site nullable:true
 		editor nullable:true
 		creator nullable:true
-		name unique: true, blank: false
+		name(unique:['site'])
+        name blank: false
 		expectQty min: 0.0d
 		dueDate nullable: true
 		manufactureDate nullable: true

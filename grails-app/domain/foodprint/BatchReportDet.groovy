@@ -14,7 +14,7 @@ class BatchReportDet {
 	BatchRoute batchRoute
 
     static constraints = {
-    	reportParams unique: 'batch'
+    	reportParams(unique:['batch','site'])
     	site nullable:true
     	editor nullable:true
 		creator nullable:true
