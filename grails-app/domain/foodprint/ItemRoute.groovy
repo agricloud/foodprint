@@ -18,7 +18,7 @@ class ItemRoute {
         site nullable:true
         editor nullable:true
         creator nullable:true
-    	sequence unique:'item'
+    	sequence(unique:['item','site'])
         workstation nullable:true
         supplier  nullable:true
     }

@@ -23,7 +23,7 @@ class ReportParams {
         site nullable:true
         editor nullable:true
         creator nullable:true
-        param unique:'report'
+        param(unique:['report','site'])
     	workstation nullable:true
         supplier nullable:true
     }

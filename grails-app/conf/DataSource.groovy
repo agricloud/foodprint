@@ -13,6 +13,27 @@ hibernate {
 
 // environment specific settings
 environments {
+    dbToUpdate {
+        dataSource {
+            pooled = true
+            username = "root"
+            password = "root"
+            dbCreate = ''
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+            url = "jdbc:mysql://localhost:3306/foodtest?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull"
+            
+        }
+
+        dataSource_erp {
+            pooled = true
+            driverClassName = "org.h2.Driver"
+            username = "sa"
+            password = ""
+            dbCreate = "create-drop"
+            url = "jdbc:h2:mem:devErpDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+        }
+    }
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''

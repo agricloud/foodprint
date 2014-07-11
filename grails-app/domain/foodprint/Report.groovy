@@ -23,6 +23,8 @@ class Report {
 		site nullable:true
 		editor nullable:true
 		creator nullable:true
+		name(unique:['site'])
+        name blank: false
 		description nullable:true
     	effectStartDate nullable:true
     	effectEndDate nullable:true

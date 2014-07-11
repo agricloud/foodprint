@@ -16,7 +16,8 @@ class Operation {
 		site nullable:true
 		editor nullable:true
 		creator nullable:true
-    	name unique:true, blank: false
+    	name(unique:['site'])
+        name blank: false
     	description nullable:true
     }
 }
