@@ -76,6 +76,20 @@ Ext.define('foodprint.view.WarehouseLocationView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'capacity',
+                                    text: 'capacity',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    hidden: true,
+                                    dataIndex: 'capacityUnit',
+                                    text: 'capacityUnit',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     dataIndex: 'description',
                                     text: 'description',
                                     flex: 1
@@ -143,6 +157,18 @@ Ext.define('foodprint.view.WarehouseLocationView', {
                                     xtype: 'textfield',
                                     fieldLabel: 'title',
                                     name: 'title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'capacity',
+                                    name: 'capacity'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'capacityUnit',
+                                    name: 'capacityUnit'
                                 },
                                 {
                                     xtype: 'textfield',

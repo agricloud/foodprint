@@ -27,6 +27,12 @@ Ext.define('foodprint.model.Warehouse', {
             name: 'title'
         },
         {
+            name: 'capacity'
+        },
+        {
+            name: 'capacityUnit'
+        },
+        {
             name: 'remark'
         }
     ],
