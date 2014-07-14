@@ -36,6 +36,12 @@ Ext.define('foodprint.model.WarehouseLocation', {
             name: 'warehouse.title'
         },
         {
+            name: 'capacity'
+        },
+        {
+            name: 'capacityUnit'
+        },
+        {
             name: 'description'
         },
         {

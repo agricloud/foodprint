@@ -66,7 +66,7 @@ class ExtJSFilters {
                             if(it.type == 'string'){
                                 it.value = it.value+"%"
                             }else if(it.type == 'numeric'){
-                                 it.value = it.value.toLong()
+                                 it.value = it.value.toDouble()
                             }else if(it.type == 'date'){
                                 it.value = dateService.parseToUTC('MM/dd/yyyy',it.value)
                             }

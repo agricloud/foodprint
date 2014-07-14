@@ -399,7 +399,7 @@ class TraceService {
             if(i != sourceSheet.data.size()-1)
                 node.sheet += ","
 
-            node.qty = node.qty.toLong()+sheet.qty.toLong()
+            node.qty = node.qty.toDouble()+sheet.qty.toDouble()
         }
         node.sheetDetail=sourceSheet.data
 
@@ -411,7 +411,7 @@ class TraceService {
                 if(i != returnSheet.data.size()-1)
                     node.sheet += ","
 
-                node.qty = node.qty.toLong()-sheet.qty.toLong()
+                node.qty = node.qty.toDouble()-sheet.qty.toDouble()
             }
             node.sheetDetail+=returnSheet.data
         }

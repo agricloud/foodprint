@@ -90,6 +90,18 @@ Ext.define('foodprint.view.WarehouseView', {
                                 },
                                 {
                                     xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'capacity',
+                                    name: 'capacity'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    hidden: true,
+                                    fieldLabel: 'capacityUnit',
+                                    name: 'capacityUnit'
+                                },
+                                {
+                                    xtype: 'textfield',
                                     fieldLabel: 'remark',
                                     name: 'remark'
                                 }
