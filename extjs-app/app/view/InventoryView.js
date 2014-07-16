@@ -36,7 +36,8 @@ Ext.define('foodprint.view.InventoryView', {
                 {
                     xtype: 'panel',
                     tbar: {
-                        xtype: 'commonindextoolbar'
+                        xtype: 'commonindextoolbar',
+                        hidden: true
                     },
                     itemId: 'index',
                     layout: {
@@ -121,7 +122,8 @@ Ext.define('foodprint.view.InventoryView', {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty',
-                                    allowBlank: false
+                                    allowBlank: false,
+                                    minValue: 0
                                 },
                                 {
                                     xtype: 'textfield',

@@ -216,7 +216,14 @@ Ext.define('foodprint.view.ErpCustomerOrderView', {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty',
-                                    allowBlank: false
+                                    allowBlank: false,
+                                    minValue: 0
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })

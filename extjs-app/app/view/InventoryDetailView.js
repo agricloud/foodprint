@@ -138,14 +138,17 @@ Ext.define('foodprint.view.InventoryDetailView', {
                                     name: 'item.title'
                                 },
                                 {
-                                    xtype: 'commonbatchcombo',
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Batch.name',
+                                    name: 'batch.name',
                                     allowBlank: false
                                 },
                                 {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty',
-                                    allowBlank: false
+                                    allowBlank: false,
+                                    minValue: 0
                                 },
                                 {
                                     xtype: 'textfield',

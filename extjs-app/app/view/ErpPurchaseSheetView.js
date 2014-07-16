@@ -234,7 +234,14 @@ Ext.define('foodprint.view.ErpPurchaseSheetView', {
                                     xtype: 'numberfield',
                                     fieldLabel: 'qty',
                                     name: 'qty',
-                                    allowBlank: false
+                                    allowBlank: false,
+                                    minValue: 0
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'Item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })

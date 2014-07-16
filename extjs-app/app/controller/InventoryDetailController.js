@@ -101,9 +101,6 @@ Ext.define('foodprint.controller.InventoryDetailController', {
             var itemcombo=form.findField('item.id');
             Utilities.comboReload(itemcombo,action.result.data['item.id'],action.result.data['item.name']);
 
-            var batchcombo=form.findField('batch.id');
-            Utilities.comboReload(batchcombo,action.result.data['batch.id'],action.result.data['batch.name']);
-
             //warehouseLocation combo需指定warehouse id才可load
             var wlcombo=form.findField('warehouseLocation.id');
             Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);

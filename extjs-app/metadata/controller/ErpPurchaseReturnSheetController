@@ -226,7 +226,7 @@
                     "    //warehouseLocation combo需指定warehouse id才可load",
                     "    var wlcombo=form.findField('warehouseLocation.id');",
                     "    Utilities.compositionComboReload(wlcombo, 'warehouse.id', action.result.data['warehouse.id'],action.result.data['warehouseLocation.id']);",
-                    "    ",
+                    "",
                     "    //篩選出供應商符合的進貨單",
                     "    that.reloadPurchaseSheetBySupplier(action.result.data.purchaseReturnSheet.supplier.id);",
                     "});"
@@ -313,6 +313,7 @@
                     "    'item.id':record.data['item.id'],",
                     "    'item.name':record.data['item.name'],   ",
                     "    'item.title':record.data['item.title'],",
+                    "    'item.unit':record.data['item.unit'],",
                     "    'batch.id':record.data['batch.id'],",
                     "    'batch.name':record.data['batch.name'],",
                     "    'qty':record.data['qty']",

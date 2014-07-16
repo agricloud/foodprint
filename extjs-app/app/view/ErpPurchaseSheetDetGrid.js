@@ -126,9 +126,15 @@ Ext.define('foodprint.view.ErpPurchaseSheetDetGrid', {
                     flex: 1
                 },
                 {
-                    xtype: 'gridcolumn',
+                    xtype: 'numbercolumn',
                     dataIndex: 'qty',
                     text: 'qty',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'item.unit',
+                    text: 'item.unit',
                     flex: 1
                 }
             ],

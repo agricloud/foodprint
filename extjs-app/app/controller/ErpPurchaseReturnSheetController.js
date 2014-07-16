@@ -199,6 +199,7 @@ Ext.define('foodprint.controller.ErpPurchaseReturnSheetController', {
             'item.id':record.data['item.id'],
             'item.name':record.data['item.name'],   
             'item.title':record.data['item.title'],
+            'item.unit':record.data['item.unit'],
             'batch.id':record.data['batch.id'],
             'batch.name':record.data['batch.name'],
             'qty':record.data['qty']

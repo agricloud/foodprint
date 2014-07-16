@@ -302,18 +302,21 @@
                             "designerId": "d5561ea4-a6aa-4905-a444-05e36eba67c4"
                         },
                         {
-                            "type": "linkedinstance",
+                            "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": null,
+                                "disabled": null,
+                                "fieldLabel": "Batch.name",
+                                "name": "batch.name",
                                 "allowBlank": false,
-                                "layout|flex": null
+                                "allowOnlyWhitespace": null
                             },
-                            "designerId": "da26a73b-a96e-468d-9ac2-e27eb07fc59b",
-                            "masterInstanceId": "ad084776-ade5-4889-98b9-5bfe9e82fb32"
+                            "designerId": "21f92831-0a5a-4e2e-8df4-3fdd5295993f"
                         },
                         {
                             "type": "Ext.form.field.Number",
@@ -326,7 +329,8 @@
                                 "fieldLabel": "qty",
                                 "name": "qty",
                                 "readOnly": null,
-                                "allowBlank": false
+                                "allowBlank": false,
+                                "minValue": 0
                             },
                             "designerId": "9a2315d5-7259-4bd1-a998-86850fad4546"
                         },
