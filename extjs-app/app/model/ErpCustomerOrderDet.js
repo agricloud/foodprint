@@ -42,6 +42,9 @@ Ext.define('foodprint.model.ErpCustomerOrderDet', {
             name: 'item.title'
         },
         {
+            name: 'item.unit'
+        },
+        {
             name: 'qty'
         }
     ],
