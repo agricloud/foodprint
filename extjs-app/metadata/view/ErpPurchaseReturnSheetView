@@ -436,7 +436,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "id",
                                         "groupable": null,
-                                        "text": "Id",
+                                        "text": "id",
                                         "flex": 1
                                     },
                                     "designerId": "11cc69d7-d74a-4ca5-ba5f-cdd8865d408f"
@@ -451,7 +451,7 @@
                                     "userConfig": {
                                         "hidden": true,
                                         "dataIndex": "typeName",
-                                        "text": "TypeName",
+                                        "text": "typeName",
                                         "flex": 1
                                     },
                                     "designerId": "2ab1b226-d9d5-4236-b23f-b230bf8dc8e7"
@@ -466,7 +466,7 @@
                                     "userConfig": {
                                         "hidden": true,
                                         "dataIndex": "name",
-                                        "text": "Name",
+                                        "text": "name",
                                         "flex": 1
                                     },
                                     "designerId": "bcdc5a37-981d-445f-9244-bc1e651a83af"
@@ -482,7 +482,7 @@
                                         "width": null,
                                         "defaultWidth": null,
                                         "dataIndex": "sequence",
-                                        "text": "Sequence",
+                                        "text": "sequence",
                                         "flex": 1,
                                         "format": "0,000"
                                     },
@@ -501,7 +501,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "warehouse.id",
                                         "groupable": null,
-                                        "text": "Warehouse.id",
+                                        "text": "warehouse.id",
                                         "flex": 1
                                     },
                                     "designerId": "5e728ecd-3924-4bc6-9b5e-f70651343fef"
@@ -516,7 +516,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouse.name",
-                                        "text": "Warehouse.name",
+                                        "text": "warehouse.name",
                                         "flex": 1
                                     },
                                     "designerId": "bfccb500-bc3a-48fa-8f2e-be0bb6720978"
@@ -531,7 +531,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouse.title",
-                                        "text": "Warehouse.title",
+                                        "text": "warehouse.title",
                                         "flex": 1
                                     },
                                     "designerId": "772624ca-7caf-4488-8ec9-3ba253153b22"
@@ -549,7 +549,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "warehouseLocation.id",
                                         "groupable": null,
-                                        "text": "WarehouseLocation.id",
+                                        "text": "warehouseLocation.id",
                                         "flex": 1
                                     },
                                     "designerId": "c33ff747-11f8-4912-9754-fd0ed7b4b25c"
@@ -564,7 +564,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouseLocation.name",
-                                        "text": "WarehouseLocation.name",
+                                        "text": "warehouseLocation.name",
                                         "flex": 1
                                     },
                                     "designerId": "e887fb5f-fe73-4efb-85cd-c2519f52cea5"
@@ -579,7 +579,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "warehouseLocation.title",
-                                        "text": "WarehouseLocation.title",
+                                        "text": "warehouseLocation.title",
                                         "flex": 1
                                     },
                                     "designerId": "813e94c2-585e-4a38-a7cb-685b4abeb622"
@@ -597,7 +597,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "batch.id",
                                         "groupable": null,
-                                        "text": "Batch.id",
+                                        "text": "batch.id",
                                         "flex": 1
                                     },
                                     "designerId": "fea4b151-a5b6-4f91-b0f3-ff24212c93ad"
@@ -612,7 +612,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "batch.name",
-                                        "text": "Batch.name",
+                                        "text": "batch.name",
                                         "flex": 1
                                     },
                                     "designerId": "ea84e79b-57ec-4b3e-aae9-c4bacfe63d53"
@@ -630,7 +630,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "item.id",
                                         "groupable": null,
-                                        "text": "Item.id",
+                                        "text": "item.id",
                                         "flex": 1
                                     },
                                     "designerId": "2cac4c3f-840e-4d9e-9604-abccdd34008f"
@@ -645,7 +645,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "item.name",
-                                        "text": "Item.name",
+                                        "text": "item.name",
                                         "flex": 1
                                     },
                                     "designerId": "8c62430b-2d9d-4670-baef-b4cfa031540d"
@@ -660,13 +660,13 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "item.title",
-                                        "text": "Item.title",
+                                        "text": "item.title",
                                         "flex": 1
                                     },
                                     "designerId": "b52364bb-0fbb-4c7c-ab86-2a1a8353156d"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Column",
+                                    "type": "Ext.grid.column.Number",
                                     "reference": {
                                         "name": "columns",
                                         "type": "array"
@@ -682,6 +682,21 @@
                                         "flex": 1
                                     },
                                     "designerId": "8379a48b-c9d5-41f3-a20c-b3bb3d3ac22d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": null,
+                                        "dataIndex": "item.unit",
+                                        "text": "item.unit",
+                                        "flex": 1
+                                    },
+                                    "designerId": "1f7a49b5-09ab-475e-b7c9-8db8dfd7445b"
                                 },
                                 {
                                     "type": "basiceventbinding",
@@ -713,7 +728,7 @@
                                         "defaultWidth": null,
                                         "dataIndex": "purchaseSheetDet.id",
                                         "groupable": null,
-                                        "text": "PurchaseSheetDet.id",
+                                        "text": "purchaseSheetDet.id",
                                         "flex": 1
                                     },
                                     "designerId": "c89c9080-2ca2-4f23-8d18-6a0a5fbc9838"
@@ -728,7 +743,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "purchaseSheetDet.typeName",
-                                        "text": "PurchaseSheetDet.typeName",
+                                        "text": "purchaseSheetDet.typeName",
                                         "flex": 1
                                     },
                                     "designerId": "09f6e6ff-9b2e-4986-95b8-6d0860f125f7"
@@ -743,7 +758,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "purchaseSheetDet.name",
-                                        "text": "PurchaseSheetDet.name",
+                                        "text": "purchaseSheetDet.name",
                                         "flex": 1
                                     },
                                     "designerId": "4978cf49-ef81-4f64-b045-3f14637924ab"
@@ -758,7 +773,7 @@
                                     "userConfig": {
                                         "width": null,
                                         "dataIndex": "purchaseSheetDet.sequence",
-                                        "text": "PurchaseSheetDet.sequence",
+                                        "text": "purchaseSheetDet.sequence",
                                         "flex": 1
                                     },
                                     "designerId": "ede8cda9-bc74-41e4-ba55-63d71f5b6a58"
@@ -1212,9 +1227,26 @@
                                 "disabled": null,
                                 "fieldLabel": "qty",
                                 "name": "qty",
-                                "allowBlank": false
+                                "allowBlank": false,
+                                "minValue": 0
                             },
                             "designerId": "ba900f5f-ec14-46d5-b92b-cfa6a9a5cff1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "disabled": true,
+                                "fieldLabel": "Item.unit",
+                                "name": "item.unit",
+                                "allowBlank": null
+                            },
+                            "designerId": "658d2f61-7a00-41c9-a047-fd9f1f621456"
                         },
                         {
                             "type": "processcfgfunction",

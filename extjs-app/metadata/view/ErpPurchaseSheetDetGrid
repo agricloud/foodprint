@@ -273,7 +273,24 @@
             "designerId": "6e45ca08-67e7-4e44-8d5c-a9a4aaa543ab"
         },
         {
-            "type": "Ext.grid.column.Column",
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridBeforeRender",
+                "implHandler": [
+                    "component.getStore().removeAll();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "d96d4fdb-577e-4102-84d2-c24f415b2fa1"
+        },
+        {
+            "type": "Ext.grid.column.Number",
             "reference": {
                 "name": "columns",
                 "type": "array"
@@ -291,21 +308,19 @@
             "designerId": "9460e0de-9cd0-4a6c-847a-1a9e694b3548"
         },
         {
-            "type": "basiceventbinding",
+            "type": "Ext.grid.column.Column",
             "reference": {
-                "name": "listeners",
+                "name": "columns",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onGridBeforeRender",
-                "implHandler": [
-                    "component.getStore().removeAll();"
-                ],
-                "name": "beforerender",
-                "scope": "me"
+                "width": null,
+                "dataIndex": "item.unit",
+                "text": "item.unit",
+                "flex": 1
             },
-            "designerId": "d96d4fdb-577e-4102-84d2-c24f415b2fa1"
+            "designerId": "dd2988c4-909c-43b7-8836-e1ef898ce7c9"
         },
         {
             "type": "processcfgfunction",

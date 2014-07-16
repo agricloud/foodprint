@@ -67,6 +67,9 @@ Ext.define('foodprint.model.ErpPurchaseSheetDet', {
         },
         {
             name: 'qty'
+        },
+        {
+            name: 'item.unit'
         }
     ],
 
