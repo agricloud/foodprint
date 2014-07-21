@@ -132,13 +132,6 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     name: 'item.spec'
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    disabled: true,
-                                    itemId: 'item.unit',
-                                    fieldLabel: 'item.unit',
-                                    name: 'item.unit'
-                                },
-                                {
                                     xtype: 'textareafield',
                                     disabled: true,
                                     itemId: 'item.description',
@@ -156,6 +149,13 @@ Ext.define('foodprint.view.ErpManufactureOrderView', {
                                     fieldLabel: 'qty',
                                     name: 'qty',
                                     allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    itemId: 'item.unit',
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })
