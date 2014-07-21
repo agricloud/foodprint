@@ -51,6 +51,9 @@ Ext.define('foodprint.model.ErpMaterialSheetDet', {
             name: 'item.title'
         },
         {
+            name: 'item.unit'
+        },
+        {
             name: 'batch.id'
         },
         {

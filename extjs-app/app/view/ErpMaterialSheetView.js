@@ -278,6 +278,12 @@ Ext.define('foodprint.view.ErpMaterialSheetView', {
                                     fieldLabel: 'qty',
                                     name: 'qty',
                                     allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })
