@@ -250,6 +250,12 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                             dataIndex: 'qty',
                                             text: 'qty',
                                             flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.unit',
+                                            text: 'item.unit',
+                                            flex: 1
                                         }
                                     ],
                                     listeners: {
@@ -414,6 +420,12 @@ Ext.define('foodprint.view.ErpStockInSheetView', {
                                     fieldLabel: 'qty',
                                     name: 'qty',
                                     allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })

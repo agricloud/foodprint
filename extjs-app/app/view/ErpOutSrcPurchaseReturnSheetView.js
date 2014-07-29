@@ -308,6 +308,12 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                             flex: 1
                                         },
                                         {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'item.unit',
+                                            text: 'item.unit',
+                                            flex: 1
+                                        },
+                                        {
                                             xtype: 'numbercolumn',
                                             hidden: true,
                                             dataIndex: 'outSrcPurchaseSheetDet.id',
@@ -540,6 +546,12 @@ Ext.define('foodprint.view.ErpOutSrcPurchaseReturnSheetView', {
                                     fieldLabel: 'qty',
                                     name: 'qty',
                                     allowBlank: false
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 }
                             ]
                         })
