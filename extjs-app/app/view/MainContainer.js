@@ -157,6 +157,104 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpCustomerOrderMaintain',
                                     text: 'CustomerOrder Maintain'
                                 }),
+                                me.processErpCustomerOrderDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpCustomerOrderDetMaintain',
+                                    text: 'CustomerOrderDet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain',
+                                    text: 'PurchaseSheet Maintain'
+                                }),
+                                me.processErpPurchaseReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseReturnSheetMaintain',
+                                    text: 'PurchaseReturnSheet Maintain'
+                                }),
+                                me.processErpPurchaseSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpPurchaseSheetDetMaintain',
+                                    text: 'PurchaseSheetDet Maintain'
+                                }),
+                                me.processErpManufactureOrderMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpManufactureOrderMaintain',
+                                    text: 'ManufactureOrder Maintain'
+                                }),
+                                me.processErpMaterialSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpMaterialSheetMaintain',
+                                    text: 'MaterialSheet Maintain'
+                                }),
+                                me.processErpMaterialSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpMaterialSheetDetMaintain',
+                                    text: 'MaterialSheetDet Maintain'
+                                }),
+                                me.processErpStockInSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpStockInSheetMaintain',
+                                    text: 'StockInSheet Maintain'
+                                }),
+                                me.processErpStockInSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpStockInSheetDetMaintain',
+                                    text: 'StockInSheetDet Maintain'
+                                }),
+                                me.processErpOutSrcPurchaseSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpOutSrcPurchaseSheetMaintain',
+                                    text: 'OutSrcPurchaseSheet Maintain'
+                                }),
+                                me.processErpOutSrcPurchaseSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpOutSrcPurchaseSheetDetMaintain',
+                                    text: 'OutSrcPurchaseSheetDet Maintain'
+                                }),
+                                me.processErpSaleSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpSaleSheetMaintain',
+                                    text: 'SaleSheet Maintain'
+                                }),
+                                me.processErpSaleSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpSaleSheetDetMaintain',
+                                    text: 'SaleSheetDet Maintain'
+                                }),
+                                me.processErpSaleReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpSaleReturnSheetMaintain',
+                                    text: 'SaleReturnSheet Maintain'
+                                }),
+                                me.processErpAccountSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpAccountSheetMaintain',
+                                    text: 'AccountSheet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processSheetMaintain({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Sheet Maintain',
+                            items: [
+                                me.processErpCustomerOrderMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpCustomerOrderMaintain',
+                                    text: 'CustomerOrder Maintain'
+                                }),
                                 me.processErpPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpPurchaseSheetMaintain',
@@ -427,6 +525,108 @@ Ext.define('foodprint.view.MainContainer', {
 
     processBasicInventoryMaintain: function(config) {
         config.title=Utilities.getMsg('mainContainer.basicInventoryMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpManufactureOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');
+
+        return config;
+    },
+
+    processErpMaterialSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpMaterialSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpStockInSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.stockInSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpStockInSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpOutSrcPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpOutSrcPurchaseSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpSaleSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.saleSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpSaleSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpSaleReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpAccountSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');
+
+        return config;
+    },
+
+    processSheetMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
 
         return config;
     },

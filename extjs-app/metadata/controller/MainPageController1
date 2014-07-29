@@ -1,0 +1,899 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "MainContainer",
+            "OperationView",
+            "MainViewport",
+            "ItemView",
+            "UserView",
+            "ItemRouteView",
+            "BatchView",
+            "BatchRouteView",
+            "CustomerView",
+            "BatchReportDetView",
+            "ReportView",
+            "ParamView",
+            "WorkstationView"
+        ],
+        "designer|userClassName": "MainPageController"
+    },
+    "designerId": "69b8bd03-5295-4a0d-abdc-5a914a5089c0",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainContainer",
+                "selector": "maincontainer"
+            },
+            "designerId": "93c3ceb1-910d-411d-877d-f94a0c4a1ec3"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.control({",
+                    "    'maincontainer button[itemId=siteMaintain]':{",
+                    "        click:this.siteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=userMaintain]':{",
+                    "        click:this.userMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=itemMaintain]':{",
+                    "        click:this.itemMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchMaintain]':{",
+                    "        click:this.batchMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=workstationMaintain]':{",
+                    "        click:this.workstationMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=operationMaintain]':{",
+                    "        click:this.operationMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchParamsMaintain]':{",
+                    "        click:this.batchParamsMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=paramMaintain]':{",
+                    "        click:this.paramMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=reportMaintain]':{",
+                    "        click:this.reportMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=reportParamsMaintain]':{",
+                    "        click:this.reportParamsMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=forwardTrace]':{",
+                    "        click:this.forwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=backwardTrace]':{",
+                    "        click:this.backwardTrace",
+                    "    },",
+                    "    'maincontainer button[itemId=customerMaintain]':{",
+                    "        click:this.customerMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=supplierMaintain]':{",
+                    "        click:this.supplierMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=itemRouteMaintain]':{",
+                    "        click:this.itemRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchRouteMaintain]':{",
+                    "        click:this.batchRouteMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=batchSourceMaintain]':{",
+                    "        click:this.batchSourceMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=warehouseMaintain]':{",
+                    "        click:this.warehouseMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=warehouseLocationMaintain]':{",
+                    "        click:this.warehouseLocationMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=inventoryView]':{",
+                    "        click:this.inventoryView",
+                    "    },",
+                    "    'maincontainer button[itemId=inventoryDetailView]':{",
+                    "        click:this.inventoryDetailView",
+                    "    },",
+                    "    'maincontainer button[itemId=erpCustomerOrderMaintain]':{",
+                    "        click:this.erpCustomerOrderMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{",
+                    "        click:this.erpCustomerOrderDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpPurchaseSheetMaintain]':{",
+                    "        click:this.erpPurchaseSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{",
+                    "        click:this.erpPurchaseSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpManufactureOrderMaintain]':{",
+                    "        click:this.erpManufactureOrderMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpMaterialSheetMaintain]':{",
+                    "        click:this.erpMaterialSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{",
+                    "        click:this.erpMaterialSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpStockInSheetMaintain]':{",
+                    "        click:this.erpStockInSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpStockInSheetDetMaintain]':{",
+                    "        click:this.erpStockInSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{",
+                    "        click:this.erpOutSrcPurchaseSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpSaleSheetMaintain]':{",
+                    "        click:this.erpSaleSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpSaleSheetDetMaintain]':{",
+                    "        click:this.erpSaleSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpSaleReturnSheetMaintain]':{",
+                    "        click:this.erpSaleReturnSheetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpSaleReturnSheetDetMaintain]':{",
+                    "        click:this.erpSaleReturnSheetDetMaintain",
+                    "    },",
+                    "    'maincontainer button[itemId=erpPurchaseReturnSheetMaintain]':{",
+                    "        click:this.erpPurchaseReturnSheetMaintain",
+                    "    },    ",
+                    "    'maincontainer button[itemId=erpAccountSheetMaintain]':{",
+                    "        click:this.erpAccountSheetMaintain",
+                    "    },    ",
+                    "",
+                    "    'maincontainer':{",
+                    "        afterrender:function(){",
+                    "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
+                    "            link.on('click', Utilities.logout);",
+                    "",
+                    "        }",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "c3cfb16e-3536-4a44-b256-70190eac7149"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "maintainBtn",
+                "designer|params": [
+                    "xtypeStr",
+                    "tabName",
+                    "docLink"
+                ],
+                "implHandler": [
+                    "//console.log(this.getMainContainer());",
+                    "var mainPanel = this.getMainContainer().down('panel[itemId=mainPanel]');",
+                    "",
+                    "//console.log(mainPanel);",
+                    "",
+                    "mainPanel.removeAll() ",
+                    "",
+                    "mainPanel.add({ ",
+                    "    xtype: xtypeStr,",
+                    "    title:tabName +'　'+'<a href=\"'+docLink+'\" target=\"_blank\" style=\"color:grey;text-decoration:underline;\">說明</a>'",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "c050570c-d3ef-47c4-8bcc-b06180495a4c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "siteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'siteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.siteMaintain.label');//'工廠維護';",
+                    "var docLink = '';//'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "83530780-cf04-452c-8a53-2ca26104e397"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "userMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'userview';",
+                    "var tabName = Utilities.getMsg('mainContainer.userMaintain.label');//'使用者維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQ2F1RkV6aTZQSTA/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "d22eda36-e226-4221-bc08-39fee90397b7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'itemview';",
+                    "var tabName = Utilities.getMsg('mainContainer.itemMaintain.label');//'品項維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisY1BuTHZEOWswZE0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "408d9151-e3f5-4354-9f84-8a828e73f5a8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchMaintain.label');//'批號維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "cfe21988-5b6b-453d-b778-1ce6c24032b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "operationMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'operationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.operationMaintain.label');//'製程維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisNDVROVpIcDMzNTQ/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "9964a422-6ec3-4c9d-99e6-13ab5feeaea7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "workstationMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'workstationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.workstationMaintain.label');//'工作站維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisS0JyNjByV0ZfblU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a12b22f4-a32b-483c-a471-64f360912c61"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reportMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'reportview';",
+                    "var tabName = Utilities.getMsg('mainContainer.reportMaintain.label');//'履歷維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisQkotRTdfRFNPVk0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "e7f9c793-6be5-4b2d-95a7-b68fde658a77"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "paramMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'paramview';",
+                    "var tabName = Utilities.getMsg('mainContainer.paramMaintain.label');//'參數設定';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisc3lCM0g0Y0hRWFE/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "6ec507ae-4915-4bab-9c20-ff561914b140"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchParamsMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchreportdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchParamsMaintain.label');//'批號履歷維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisZDlmbmpyR0NaYmM/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "07188dc5-2164-4dcb-bb32-94a25de15900"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "forwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'forwardtracetreeview';",
+                    "var tabName = Utilities.getMsg('mainContainer.forwardTrace.label');//'順向追溯';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisU1podnpJdzctY0E/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "4d7b83d7-ac96-43b7-b383-dd768cab69e2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "backwardTrace",
+                "implHandler": [
+                    "var xtypeStr = 'backwardtracetreeview';",
+                    "var tabName = Utilities.getMsg('mainContainer.backwardTrace.label');//'逆向追溯';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMWZrN0xKY1pmSGc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "37094ab8-b867-432a-9c4b-692e2cb2822b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "customerMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'customerview';",
+                    "var tabName = Utilities.getMsg('mainContainer.customerMaintain.label');//'客戶維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisbG83RFV0eVcyc0U/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "bae50c90-0511-43d0-9a61-d9837619683e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "itemRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'itemrouteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.itemRouteMaintain.label');//'品項途程維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisWklaSEJheExCSVU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "82f04561-5a50-4b33-afcc-ad68493d6b89"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchRouteMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchrouteview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchRouteMaintain.label');//'批號途程維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMVcteWhWYVo5bU0/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "c0b00d76-68de-456b-be03-9f03ffae8117"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "reportParamsMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'reportparamsview';",
+                    "var tabName = Utilities.getMsg('mainContainer.reportParamsMaintain.label');//'履歷參數維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisSS12Ym5TT2VPSlk/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "990d423f-3f33-46ed-834c-4a2cb63925f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "supplierMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'supplierview';",
+                    "var tabName = Utilities.getMsg('mainContainer.supplierMaintain.label');//'供應商維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajniseF9mX0RYN19mR1U/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "1aa90db2-9da7-4a09-9e1a-5ac1be5afcb4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "batchSourceMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'batchsourceview';",
+                    "var tabName = Utilities.getMsg('mainContainer.batchSourceMaintain.label');//'批號途程維護';",
+                    "var docLink = 'https://drive.google.com/file/d/0B_Z9et2ajnisMlZpQ1F1U3ZzZUU/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "59e72445-55d6-494b-8095-8f3f7431f057"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpManufactureOrderMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpmanufactureorderview';",
+                    "var tabName = Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');//'製令維護';",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "15ec667a-e849-4108-b974-897335baf79d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpCustomerOrderMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpcustomerorderview';",
+                    "var tabName = Utilities.getMsg('mainContainer.customerOrderMaintain.label');//'訂單維護';",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "c93b1892-9437-43cb-9c08-14b0de0dea7a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpCustomerOrderDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpcustomerorderdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "ddfc7542-c972-430d-95df-60bfd4c87723"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "e3ede10a-43ca-426c-a6bd-22ccf704d731"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpMaterialSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpmaterialsheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "42fd8d86-5e75-46c5-a206-03ed0cb9451b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpPurchaseSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erppurchasesheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "c39ed255-3445-4308-b32b-939727700131"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpPurchaseReturnSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erppurchasereturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "fd85824a-6586-47be-b741-9ef0a0177cb5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpPurchaseSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erppurchasesheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "8e4e8f45-7de6-45b4-bd00-7d3eddcafe13"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpStockInSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpstockinsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.stockInSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "b3c26a03-0d31-4f69-b548-20a99e011d5d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpStockInSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpstockinsheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "810dc9e9-4091-4252-a328-dcb701f58658"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpOutSrcPurchaseSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpoutsrcpurchasesheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "8fec6248-b181-42ae-bbcb-05b030865b78"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpOutSrcPurchaseSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpoutsrcpurchasesheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "722891df-7900-47bc-b4d8-ae9302bd10b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpSaleSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpsalesheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.saleSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "86c5422b-bea4-4b53-8393-6b5fe3816420"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpSaleReturnSheetMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpsalereturnsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "84f366c9-0608-48b7-a382-53f59ab0c1db"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpAccountSheetMaintain",
+                "implHandler": [
+                    "var xtypeStr = 'erpaccountsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.accountSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "b3d6a782-ba2a-4b99-bf1f-931d90baffa0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpSaleSheetDetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpsalesheetdetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "ffbd88aa-6768-45c1-be04-c277d1961df2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "warehouseMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'warehouseview';",
+                    "var tabName = Utilities.getMsg('mainContainer.warehouseMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a7861c32-a813-41bc-91c7-6ea33034b74c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "warehouseLocationMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'warehouselocationview';",
+                    "var tabName = Utilities.getMsg('mainContainer.warehouseLocationMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "a20ee31b-c8e4-46fc-8111-fe97af21f839"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "inventoryView",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'inventoryview';",
+                    "var tabName = Utilities.getMsg('mainContainer.inventoryView.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "6825873a-7249-46af-b395-90ba00ef0e51"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "inventoryDetailView",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'inventorydetailview';",
+                    "var tabName = Utilities.getMsg('mainContainer.inventoryDetailView.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "1766eea0-8b3c-4144-ba85-68ae7eb53a44"
+        }
+    ]
+}
