@@ -13,12 +13,14 @@ class BatchController {
 
         render (contentType: 'application/json') {
             [data: list, total: list.totalCount]
+            [data: list, total: list.totalCount]
         }
     }
 
     def indexByItem = {
+        def site = Site.get(params.site.id)
         def item = Item.get(params.item.id)
-        def list = Batch.findAllByItem(item)     
+        def list = Batch.findAllByItemAndSite(item,site)   
 
         render (contentType: 'application/json') {
             [data: list, total: list.size()]

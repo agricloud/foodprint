@@ -54,6 +54,9 @@ Ext.define('foodprint.model.ErpManufactureOrder', {
             name: 'item.title'
         },
         {
+            name: 'item.unit'
+        },
+        {
             name: 'qty'
         },
         {

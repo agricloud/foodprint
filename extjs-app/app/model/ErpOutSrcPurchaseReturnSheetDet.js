@@ -42,6 +42,9 @@ Ext.define('foodprint.model.ErpOutSrcPurchaseReturnSheetDet', {
             name: 'item.title'
         },
         {
+            name: 'item.unit'
+        },
+        {
             name: 'batch.id'
         },
         {

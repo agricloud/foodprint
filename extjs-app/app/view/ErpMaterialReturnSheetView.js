@@ -331,6 +331,12 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
+                                            dataIndex: 'item.unit',
+                                            text: 'item.unit',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
                                             dataIndex: 'qty',
                                             text: 'qty',
                                             flex: 1
@@ -561,6 +567,12 @@ Ext.define('foodprint.view.ErpMaterialReturnSheetView', {
                                     disabled: true,
                                     fieldLabel: 'item.title',
                                     name: 'item.title'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    disabled: true,
+                                    fieldLabel: 'item.unit',
+                                    name: 'item.unit'
                                 },
                                 {
                                     xtype: 'numberfield',
