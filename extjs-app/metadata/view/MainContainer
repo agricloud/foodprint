@@ -1473,6 +1473,225 @@
                     "userConfig": {
                         "container|align": "stretch",
                         "height": 250,
+                        "hidden": null,
+                        "width": 400,
+                        "layout": "vbox",
+                        "title": "Accounts Payable"
+                    },
+                    "designerId": "db1ed2ac-a609-4b4d-91aa-ff3533399776",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "hidden": true,
+                                "itemId": "erpPurchaseSheetDetMaintain",
+                                "text": "PurchaseSheetDet Maintain"
+                            },
+                            "designerId": "2f88c94f-b57a-4849-ae0f-c7c4967ddacf",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseSheetDetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "dd760aa9-0976-46ae-b4f8-ec44db37ab46"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpPurchaseSheetMaintain",
+                                "text": "PurchaseSheet Maintain"
+                            },
+                            "designerId": "fea2a357-1fea-4848-9024-1cfac74335f1",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "1d3cbed4-a0d5-4de7-8435-0b51abaaf316"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpPurchaseReturnSheetMaintain",
+                                "text": "PurchaseReturnSheet Maintain"
+                            },
+                            "designerId": "6afaf112-66f8-4b3f-b6f5-ebb668dd3c6e",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseReturnSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "6ec03a3e-2083-4283-8ed5-66ec189dd993"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpPurchaseSheetMaintain1",
+                                "text": "PurchaseSheet Maintain"
+                            },
+                            "designerId": "687f9b58-d155-46e2-abcd-dad8d69125f9",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseSheetMaintain1",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.payableDocumentSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "771f9f13-684d-4d8a-8341-262f98d92051"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpPurchaseSheetMaintain2",
+                                "text": "PurchaseSheet Maintain"
+                            },
+                            "designerId": "c5853cf8-e0f9-4a69-a597-ce8346ae4889",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpPurchaseSheetMaintain2",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.payableSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "c09e509e-5a6e-4618-badc-9394796e0a2b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processAccountsPayable",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config.title=Utilities.getMsg('mainContainer.generalLedgerAccountantMaintain.label');",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "3b53df2f-cdd0-4297-808a-8459a0d0bbd0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
                         "width": 400,
                         "designer|displayName": null,
                         "layout": "vbox",

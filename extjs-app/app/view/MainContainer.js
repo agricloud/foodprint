@@ -279,6 +279,44 @@ Ext.define('foodprint.view.MainContainer', {
                                 })
                             ]
                         }),
+                        me.processAccountsPayable({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Accounts Payable',
+                            items: [
+                                me.processErpPurchaseSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpPurchaseSheetDetMaintain',
+                                    text: 'PurchaseSheetDet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain',
+                                    text: 'PurchaseSheet Maintain'
+                                }),
+                                me.processErpPurchaseReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseReturnSheetMaintain',
+                                    text: 'PurchaseReturnSheet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain1({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain1',
+                                    text: 'PurchaseSheet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain2({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain2',
+                                    text: 'PurchaseSheet Maintain'
+                                })
+                            ]
+                        }),
                         me.processDataCollect({
                             xtype: 'panel',
                             height: 250,
@@ -630,6 +668,41 @@ Ext.define('foodprint.view.MainContainer', {
     processAccountsPayable: function(config) {
         config.title=Utilities.getMsg('mainContainer.accountsPayableMaintain.label');
 
+        return config;
+    },
+
+    processErpPurchaseSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain1: function(config) {
+        config.text=Utilities.getMsg('mainContainer.payableDocumentSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain2: function(config) {
+        config.text=Utilities.getMsg('mainContainer.payableSheetMaintain.label');
+
+        return config;
+    },
+
+    processAccountsPayable: function(config) {
+        config.title=Utilities.getMsg('mainContainer.generalLedgerAccountantMaintain.label');
         return config;
     },
 
