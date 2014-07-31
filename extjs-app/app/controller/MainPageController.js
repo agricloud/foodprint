@@ -18,7 +18,18 @@ Ext.define('foodprint.controller.MainPageController', {
 
     views: [
         'MainContainer',
-        'MainViewport'
+        'OperationView',
+        'MainViewport',
+        'ItemView',
+        'UserView',
+        'ItemRouteView',
+        'BatchView',
+        'BatchRouteView',
+        'CustomerView',
+        'BatchReportDetView',
+        'ReportView',
+        'ParamView',
+        'WorkstationView'
     ],
 
     refs: [
@@ -96,11 +107,14 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpCustomerOrderMaintain]':{
                 click:this.erpCustomerOrderMaintain
             },
+            'maincontainer button[itemId=erpCustomerOrderDetMaintain]':{
+                click:this.erpCustomerOrderDetMaintain
+            },
             'maincontainer button[itemId=erpPurchaseSheetMaintain]':{
                 click:this.erpPurchaseSheetMaintain
             },
-            'maincontainer button[itemId=erpPurchaseReturnSheetMaintain]':{
-                click:this.erpPurchaseReturnSheetMaintain
+            'maincontainer button[itemId=erpPurchaseSheetDetMaintain]':{
+                click:this.erpPurchaseSheetDetMaintain
             },
             'maincontainer button[itemId=erpManufactureOrderMaintain]':{
                 click:this.erpManufactureOrderMaintain
@@ -108,24 +122,40 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpMaterialSheetMaintain]':{
                 click:this.erpMaterialSheetMaintain
             },
-            'maincontainer button[itemId=erpMaterialReturnSheetMaintain]':{
-                click:this.erpMaterialReturnSheetMaintain
+            'maincontainer button[itemId=erpMaterialSheetDetMaintain]':{
+                click:this.erpMaterialSheetDetMaintain
             },
             'maincontainer button[itemId=erpStockInSheetMaintain]':{
                 click:this.erpStockInSheetMaintain
             },
+            'maincontainer button[itemId=erpStockInSheetDetMaintain]':{
+                click:this.erpStockInSheetDetMaintain
+            },
             'maincontainer button[itemId=erpOutSrcPurchaseSheetMaintain]':{
                 click:this.erpOutSrcPurchaseSheetMaintain
             },
-            'maincontainer button[itemId=erpOutSrcPurchaseReturnSheetMaintain]':{
-                click:this.erpOutSrcPurchaseReturnSheetMaintain
+            'maincontainer button[itemId=erpOutSrcPurchaseSheetDetMaintain]':{
+                click:this.erpOutSrcPurchaseSheetDetMaintain
             },
             'maincontainer button[itemId=erpSaleSheetMaintain]':{
                 click:this.erpSaleSheetMaintain
             },
+            'maincontainer button[itemId=erpSaleSheetDetMaintain]':{
+                click:this.erpSaleSheetDetMaintain
+            },
             'maincontainer button[itemId=erpSaleReturnSheetMaintain]':{
                 click:this.erpSaleReturnSheetMaintain
             },
+            'maincontainer button[itemId=erpSaleReturnSheetDetMaintain]':{
+                click:this.erpSaleReturnSheetDetMaintain
+            },
+            'maincontainer button[itemId=erpPurchaseReturnSheetMaintain]':{
+                click:this.erpPurchaseReturnSheetMaintain
+            },    
+            'maincontainer button[itemId=erpAccountSheetMaintain]':{
+                click:this.erpAccountSheetMaintain
+            },    
+
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -287,6 +317,14 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpCustomerOrderDetMaintain: function() {
+
+        var xtypeStr = 'erpcustomerorderdetview';
+        var tabName = Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');//'訂單單身維護';
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpMaterialSheetMaintain: function() {
 
         var xtypeStr = 'erpmaterialsheetview';
@@ -295,10 +333,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpMaterialReturnSheetMaintain: function() {
+    erpMaterialSheetDetMaintain: function() {
 
-        var xtypeStr = 'erpmaterialreturnsheetview';
-        var tabName = Utilities.getMsg('mainContainer.materialReturnSheetMaintain.label');
+        var xtypeStr = 'erpmaterialsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.materialSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
@@ -312,8 +350,17 @@ Ext.define('foodprint.controller.MainPageController', {
     },
 
     erpPurchaseReturnSheetMaintain: function() {
+
         var xtypeStr = 'erppurchasereturnsheetview';
         var tabName = Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpPurchaseSheetDetMaintain: function() {
+
+        var xtypeStr = 'erppurchasesheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
@@ -326,6 +373,14 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
+    erpStockInSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpstockinsheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.stockInSheetDetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
     erpOutSrcPurchaseSheetMaintain: function() {
 
         var xtypeStr = 'erpoutsrcpurchasesheetview';
@@ -334,10 +389,10 @@ Ext.define('foodprint.controller.MainPageController', {
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
 
-    erpOutSrcPurchaseReturnSheetMaintain: function() {
+    erpOutSrcPurchaseSheetDetMaintain: function() {
 
-        var xtypeStr = 'erpoutsrcpurchasereturnsheetview';
-        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseReturnSheetMaintain.label');
+        var xtypeStr = 'erpoutsrcpurchasesheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.outSrcPurchaseSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
@@ -351,9 +406,23 @@ Ext.define('foodprint.controller.MainPageController', {
     },
 
     erpSaleReturnSheetMaintain: function() {
-
         var xtypeStr = 'erpsalereturnsheetview';
         var tabName = Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpAccountSheetMaintain: function() {
+        var xtypeStr = 'erpaccountsheetview';
+        var tabName = Utilities.getMsg('mainContainer.accountSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpSaleSheetDetMaintain: function() {
+
+        var xtypeStr = 'erpsalesheetdetview';
+        var tabName = Utilities.getMsg('mainContainer.saleSheetDetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },
