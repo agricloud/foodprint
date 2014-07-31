@@ -152,33 +152,6 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'Sheet Maintain',
                             items: [
-                                me.processErpCustomerOrderMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpCustomerOrderMaintain',
-                                    text: 'CustomerOrder Maintain'
-                                }),
-                                me.processErpCustomerOrderDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpCustomerOrderDetMaintain',
-                                    text: 'CustomerOrderDet Maintain'
-                                }),
-                                me.processErpPurchaseSheetMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpPurchaseSheetMaintain',
-                                    text: 'PurchaseSheet Maintain'
-                                }),
-                                me.processErpPurchaseReturnSheetMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpPurchaseReturnSheetMaintain',
-                                    text: 'PurchaseReturnSheet Maintain'
-                                }),
-                                me.processErpPurchaseSheetDetMaintain({
-                                    xtype: 'button',
-                                    hidden: true,
-                                    itemId: 'erpPurchaseSheetDetMaintain',
-                                    text: 'PurchaseSheetDet Maintain'
-                                }),
                                 me.processErpManufactureOrderMaintain({
                                     xtype: 'button',
                                     itemId: 'erpManufactureOrderMaintain',
@@ -216,6 +189,29 @@ Ext.define('foodprint.view.MainContainer', {
                                     hidden: true,
                                     itemId: 'erpOutSrcPurchaseSheetDetMaintain',
                                     text: 'OutSrcPurchaseSheetDet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processAccountsReceivable({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Accounts Receivable',
+                            items: [
+                                me.processErpCustomerOrderMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpCustomerOrderMaintain',
+                                    text: 'CustomerOrder Maintain'
+                                }),
+                                me.processErpCustomerOrderDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpCustomerOrderDetMaintain',
+                                    text: 'CustomerOrderDet Maintain'
                                 }),
                                 me.processErpSaleSheetMaintain({
                                     xtype: 'button',
@@ -233,10 +229,53 @@ Ext.define('foodprint.view.MainContainer', {
                                     itemId: 'erpSaleReturnSheetMaintain',
                                     text: 'SaleReturnSheet Maintain'
                                 }),
+                                me.processErpReceivableSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpReceivableSheetMaintain',
+                                    text: 'ReceivableSheet Maintain'
+                                }),
                                 me.processErpAccountSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpAccountSheetMaintain',
                                     text: 'AccountSheet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processAccountsPayable({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Accounts Payable',
+                            items: [
+                                me.processErpPurchaseSheetDetMaintain({
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'erpPurchaseSheetDetMaintain',
+                                    text: 'PurchaseSheetDet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain',
+                                    text: 'PurchaseSheet Maintain'
+                                }),
+                                me.processErpPurchaseReturnSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseReturnSheetMaintain',
+                                    text: 'PurchaseReturnSheet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain1({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain1',
+                                    text: 'PurchaseSheet Maintain'
+                                }),
+                                me.processErpPurchaseSheetMaintain2({
+                                    xtype: 'button',
+                                    itemId: 'erpPurchaseSheetMaintain2',
+                                    text: 'PurchaseSheet Maintain'
                                 })
                             ]
                         }),
@@ -462,36 +501,6 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpCustomerOrderMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
-
-        return config;
-    },
-
-    processErpCustomerOrderDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseSheetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseReturnSheetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
-
-        return config;
-    },
-
-    processErpPurchaseSheetDetMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
-
-        return config;
-    },
-
     processErpManufactureOrderMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.manufactureOrderMaintain.label');
 
@@ -534,6 +543,24 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processSheetMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderDetMaintain.label');
+
+        return config;
+    },
+
     processErpSaleSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.saleSheetMaintain.label');
 
@@ -552,14 +579,56 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processErpReceivableSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.receivableSheetMaintain.label');
+
+        return config;
+    },
+
     processErpAccountSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');
 
         return config;
     },
 
-    processSheetMaintain: function(config) {
-        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
+    processAccountsReceivable: function(config) {
+        config.title=Utilities.getMsg('mainContainer.accountsReceivableMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetDetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetDetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseReturnSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.purchaseReturnSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain1: function(config) {
+        config.text=Utilities.getMsg('mainContainer.payableDocumentSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpPurchaseSheetMaintain2: function(config) {
+        config.text=Utilities.getMsg('mainContainer.payableSheetMaintain.label');
+
+        return config;
+    },
+
+    processAccountsPayable: function(config) {
+        config.title=Utilities.getMsg('mainContainer.accountsPayableMaintain.label');
 
         return config;
     },
