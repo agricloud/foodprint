@@ -279,7 +279,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 })
                             ]
                         }),
-                        me.processAccountsPayable({
+                        me.processGeneralLedgerAccountant({
                             xtype: 'panel',
                             height: 250,
                             width: 400,
@@ -287,7 +287,7 @@ Ext.define('foodprint.view.MainContainer', {
                                 align: 'stretch',
                                 type: 'vbox'
                             },
-                            title: 'Accounts Payable',
+                            title: 'General Ledger Accountant',
                             items: [
                                 me.processErpPurchaseSheetDetMaintain({
                                     xtype: 'button',
@@ -701,7 +701,7 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processAccountsPayable: function(config) {
+    processGeneralLedgerAccountant: function(config) {
         config.title=Utilities.getMsg('mainContainer.generalLedgerAccountantMaintain.label');
         return config;
     },
