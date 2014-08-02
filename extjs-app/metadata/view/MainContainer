@@ -683,42 +683,6 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "erpCustomerOrderMaintain",
-                                "text": "CustomerOrder Maintain"
-                            },
-                            "designerId": "9063411f-49af-43d6-ae87-a9ea895199d0",
-                            "cn": [
-                                {
-                                    "type": "processcfgfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "processErpCustomerOrderMaintain",
-                                        "designer|params": [
-                                            "config"
-                                        ],
-                                        "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');",
-                                            "",
-                                            "return config;"
-                                        ]
-                                    },
-                                    "designerId": "6bfee9ae-0118-4fe7-b088-0142cbf384b1"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
                                 "itemId": "erpPurchaseSheetMaintain",
                                 "text": "PurchaseSheet Maintain"
                             },
@@ -999,6 +963,82 @@
                             ]
                         },
                         {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processSheetMaintain",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');",
+                                    "",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "8dd5d0a0-97c2-485a-81d1-cad964d73a8c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
+                        "hidden": null,
+                        "width": 400,
+                        "designer|displayName": null,
+                        "layout": "vbox",
+                        "title": "Accounts Receivable"
+                    },
+                    "designerId": "2569bdd4-282b-4c4b-8c0b-1a4f4e72d688",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpCustomerOrderMaintain",
+                                "text": "CustomerOrder Maintain"
+                            },
+                            "designerId": "5408a573-06f8-44b5-bfba-17e4ffb049ea",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpCustomerOrderMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "9032a911-b1b1-4cdd-8758-a7ca03c64d7a"
+                                }
+                            ]
+                        },
+                        {
                             "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",
@@ -1010,7 +1050,7 @@
                                 "itemId": "erpSaleSheetMaintain",
                                 "text": "SaleSheet Maintain"
                             },
-                            "designerId": "506fcfc3-3778-4b3c-992c-405ffad9fac8",
+                            "designerId": "18657dcf-12ef-4ed4-b36d-d8e6cafe4419",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -1030,7 +1070,7 @@
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "1163ca75-d68d-4bf5-9954-f0aef14b2b38"
+                                    "designerId": "bfc5128a-9968-4b18-b434-9d19b189c9f5"
                                 }
                             ]
                         },
@@ -1046,7 +1086,7 @@
                                 "itemId": "erpSaleReturnSheetMaintain",
                                 "text": "SaleReturnSheet Maintain"
                             },
-                            "designerId": "4d9313d4-84bf-4a97-b943-5d066da5d650",
+                            "designerId": "3e873e43-f947-4205-a154-f37de8b44dc2",
                             "cn": [
                                 {
                                     "type": "processcfgfunction",
@@ -1066,7 +1106,79 @@
                                             "return config;"
                                         ]
                                     },
-                                    "designerId": "b0d7b276-299c-4145-955b-a9d67d3a53ef"
+                                    "designerId": "8bfd6008-8e01-47e1-ba46-0cc5f2603abe"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpAccountSheetMaintain",
+                                "text": "AccountSheet Maintain"
+                            },
+                            "designerId": "6a4c2ea0-7a19-4de2-b16c-4878e9de1d0f",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpAccountSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "c8acde05-f994-4b3b-a111-7fa55b81864a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "erpReceivableSheetMaintain",
+                                "text": "ReceivableSheet Maintain"
+                            },
+                            "designerId": "eb10c22d-efa9-449d-8e47-7a845309a7a2",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processErpReceivableSheetMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.receivableSheetMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "9faaa0e6-b03f-4449-93a4-6e93a3ed08e5"
                                 }
                             ]
                         },
@@ -1078,17 +1190,17 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "processSheetMaintain",
+                                "fn": "processAccountsReceivable",
                                 "designer|params": [
                                     "config"
                                 ],
                                 "implHandler": [
-                                    "config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');",
+                                    "config.title=Utilities.getMsg('mainContainer.accountsReceivableMaintain.label');",
                                     "",
                                     "return config;"
                                 ]
                             },
-                            "designerId": "8dd5d0a0-97c2-485a-81d1-cad964d73a8c"
+                            "designerId": "219c23cd-0a66-437b-95ff-76a9c6fa7786"
                         }
                     ]
                 },

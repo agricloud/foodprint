@@ -152,11 +152,6 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'Sheet Maintain',
                             items: [
-                                me.processErpCustomerOrderMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpCustomerOrderMaintain',
-                                    text: 'CustomerOrder Maintain'
-                                }),
                                 me.processErpPurchaseSheetMaintain({
                                     xtype: 'button',
                                     itemId: 'erpPurchaseSheetMaintain',
@@ -196,6 +191,23 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpOutSrcPurchaseReturnSheetMaintain',
                                     text: 'OutSrcPurchaseReturnSheet Maintain'
+                                })
+                            ]
+                        }),
+                        me.processAccountsReceivable({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Accounts Receivable',
+                            items: [
+                                me.processErpCustomerOrderMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpCustomerOrderMaintain',
+                                    text: 'CustomerOrder Maintain'
                                 }),
                                 me.processErpSaleSheetMaintain({
                                     xtype: 'button',
@@ -206,6 +218,16 @@ Ext.define('foodprint.view.MainContainer', {
                                     xtype: 'button',
                                     itemId: 'erpSaleReturnSheetMaintain',
                                     text: 'SaleReturnSheet Maintain'
+                                }),
+                                me.processErpAccountSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpAccountSheetMaintain',
+                                    text: 'AccountSheet Maintain'
+                                }),
+                                me.processErpReceivableSheetMaintain({
+                                    xtype: 'button',
+                                    itemId: 'erpReceivableSheetMaintain',
+                                    text: 'ReceivableSheet Maintain'
                                 })
                             ]
                         }),
@@ -431,12 +453,6 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpCustomerOrderMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
-
-        return config;
-    },
-
     processErpPurchaseSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.purchaseSheetMaintain.label');
 
@@ -485,6 +501,18 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
+    processSheetMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
+
+        return config;
+    },
+
+    processErpCustomerOrderMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.customerOrderMaintain.label');
+
+        return config;
+    },
+
     processErpSaleSheetMaintain: function(config) {
         config.text=Utilities.getMsg('mainContainer.saleSheetMaintain.label');
 
@@ -497,8 +525,20 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processSheetMaintain: function(config) {
-        config.title=Utilities.getMsg('mainContainer.sheetMaintain.label');
+    processErpAccountSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.accountSheetMaintain.label');
+
+        return config;
+    },
+
+    processErpReceivableSheetMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.receivableSheetMaintain.label');
+
+        return config;
+    },
+
+    processAccountsReceivable: function(config) {
+        config.title=Utilities.getMsg('mainContainer.accountsReceivableMaintain.label');
 
         return config;
     },
