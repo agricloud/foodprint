@@ -39,7 +39,7 @@ Ext.define('foodprint.controller.ErpAccountSheetController', {
         'ErpSaleReturnSheetDetStore'
     ],
     views: [
-        null
+        'ErpAccountSheetView'
     ],
 
     refs: [
