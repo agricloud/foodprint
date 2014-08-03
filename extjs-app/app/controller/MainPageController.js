@@ -126,6 +126,9 @@ Ext.define('foodprint.controller.MainPageController', {
             'maincontainer button[itemId=erpSaleReturnSheetMaintain]':{
                 click:this.erpSaleReturnSheetMaintain
             },
+            'maincontainer button[itemId=erpAccountSheetMaintain]':{
+                click:this.erpAccountSheetMaintain
+            },
             'maincontainer':{
                 afterrender:function(){
                     var link = Ext.get('btn-logout'); // will grab all DOM inputs
@@ -354,6 +357,14 @@ Ext.define('foodprint.controller.MainPageController', {
 
         var xtypeStr = 'erpsalereturnsheetview';
         var tabName = Utilities.getMsg('mainContainer.saleReturnSheetMaintain.label');
+        var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
+        this.maintainBtn(xtypeStr,tabName,docLink);
+    },
+
+    erpAccountSheetMaintain: function() {
+
+        var xtypeStr = 'erpaccountsheetview';
+        var tabName = Utilities.getMsg('mainContainer.accountSheetMaintain.label');
         var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';
         this.maintainBtn(xtypeStr,tabName,docLink);
     },

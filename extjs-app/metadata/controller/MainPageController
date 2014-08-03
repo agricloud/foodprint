@@ -137,6 +137,9 @@
                     "    'maincontainer button[itemId=erpSaleReturnSheetMaintain]':{",
                     "        click:this.erpSaleReturnSheetMaintain",
                     "    },",
+                    "    'maincontainer button[itemId=erpAccountSheetMaintain]':{",
+                    "        click:this.erpAccountSheetMaintain",
+                    "    },",
                     "    'maincontainer':{",
                     "        afterrender:function(){",
                     "            var link = Ext.get('btn-logout'); // will grab all DOM inputs",
@@ -694,6 +697,25 @@
                 ]
             },
             "designerId": "1daf8e21-e36b-4cb4-8d12-992770b34c89"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "erpAccountSheetMaintain",
+                "implHandler": [
+                    "",
+                    "var xtypeStr = 'erpaccountsheetview';",
+                    "var tabName = Utilities.getMsg('mainContainer.accountSheetMaintain.label');",
+                    "var docLink = '';// 'https://drive.google.com/file/d/0B_Z9et2ajnisQS16ekwwTWFBVXc/edit?usp=sharing';",
+                    "this.maintainBtn(xtypeStr,tabName,docLink);"
+                ]
+            },
+            "designerId": "1b6f4974-9018-4dce-bb69-41a3027eb01e"
         },
         {
             "type": "basicfunction",

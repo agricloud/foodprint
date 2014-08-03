@@ -36,6 +36,10 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    views: [
+        'MyPanel144',
+        'MyForm99'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',
@@ -71,7 +75,8 @@ Ext.application({
         'ErpPurchaseReturnSheetController',
         'ErpOutSrcPurchaseReturnSheetController',
         'ErpSaleReturnSheetController',
-        'ErpMaterialReturnSheetController'
+        'ErpMaterialReturnSheetController',
+        'ErpAccountSheetController'
     ],
     name: 'foodprint',
 
