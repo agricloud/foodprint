@@ -20,7 +20,7 @@ Ext.define('foodprint.store.DocumentSheetStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: 'MyJsonStore2',
+            storeId: 'DocumentSheetStore',
             data: [
                 {
                     name: '銷貨單',

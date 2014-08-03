@@ -16,10 +16,15 @@
 Ext.define('foodprint.store.CurrencyStore', {
     extend: 'Ext.data.Store',
 
+    requires: [
+        'foodprint.model.Currency'
+    ],
+
     constructor: function(cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            model: 'foodprint.model.Currency',
             storeId: 'CurrencyStore',
             data: [
                 {
