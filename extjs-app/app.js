@@ -36,6 +36,12 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    views: [
+        'ErpReceivableSheetGrid',
+        'ErpReceivableSheetDetGrid',
+        'ErpAccountsPayableVoucherSheetView',
+        'ErpAccountsPayableSheetView'
+    ],
     autoCreateViewport: true,
     controllers: [
         'MainPageController',

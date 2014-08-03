@@ -1,0 +1,322 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "itemId": "detailGrid",
+        "padding": null,
+        "width": null,
+        "designer|userClassName": "ErpReceivableSheetDetGrid",
+        "designer|userAlias": "erpreceivablesheetdetgrid",
+        "autoScroll": true,
+        "title": "ErpReceivableSheetDet",
+        "store": "ErpSaleSheetDetStore"
+    },
+    "configAlternates": {
+        "tbar": "object"
+    },
+    "designerId": "24783838-b644-4601-9108-34032e1e1f5a",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "a87d6166-5d6b-44ac-9e48-59449bad5b94"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "id",
+                "groupable": null,
+                "text": "Id",
+                "flex": 1
+            },
+            "designerId": "6d97e9b4-3fa2-46b2-ac03-9ca232145d38"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "sequence",
+                "text": "Sequence",
+                "flex": 1,
+                "format": "0,000"
+            },
+            "designerId": "a1fd8c15-351f-41a0-93a0-4da72848907e"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridBeforeRender1",
+                "implHandler": [
+                    "component.getStore().removeAll();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "designerId": "43af0152-7c35-4f02-8011-2d1e1549d43f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "借/貸",
+                "flex": 1
+            },
+            "designerId": "1c563f02-6c4d-428c-9be0-7f80c468b42c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "類別",
+                "flex": 1
+            },
+            "designerId": "a05db04a-6671-45f3-bf76-aabd22ad2c1a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "來源單別",
+                "flex": 1
+            },
+            "designerId": "5925bc1d-ddd4-4d31-9358-ad9902f9c755"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "來源單號",
+                "flex": 1
+            },
+            "designerId": "73500c06-0b3c-43fd-899d-07e7a64b9c8d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "會計科目",
+                "flex": 1
+            },
+            "designerId": "12827d35-9bb6-4405-b63b-fbb5464b46db"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "科目名稱",
+                "flex": 1
+            },
+            "designerId": "81f064ce-d82f-44c4-a455-cedd841d9f0c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "幣別",
+                "flex": 1
+            },
+            "designerId": "c09defa5-6859-473e-9c70-ec915dbe6bd0"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "部門別",
+                "flex": 1
+            },
+            "designerId": "269503cd-1055-4650-ab7b-bbb7d53b0a2e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "部門名稱",
+                "flex": 1
+            },
+            "designerId": "a8cbf8ed-a260-478b-a0b9-f0ef9c144ed0"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "enableColumnHide": false,
+                "dataIndex": "typeName",
+                "hideable": false,
+                "text": "匯率",
+                "flex": 1
+            },
+            "designerId": "c7ca4d48-b86b-4a42-8647-87307bb5b462"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "dataIndex": "tax",
+                "text": "稅額",
+                "flex": 1
+            },
+            "designerId": "bcaea1e9-851b-4406-b9f4-80d66a6630f3"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "dataIndex": "subamounts",
+                "text": "貨款",
+                "flex": 1
+            },
+            "designerId": "7a0de78b-7e75-4ef4-b1e3-f7a7567725ef"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": null,
+                "dataIndex": "totalAmount",
+                "text": "合計金額",
+                "flex": 1
+            },
+            "designerId": "6d8b217a-f780-4c62-9eab-d9404fa54703"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "width": null,
+                "defaultWidth": null,
+                "dataIndex": "customerOrderDet.id",
+                "groupable": null,
+                "text": "CustomerOrderDet.id",
+                "flex": 1
+            },
+            "designerId": "15ebadc0-6c9a-4438-90fb-378469b9532f"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpReceivableSheetDetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "",
+                    "return Utilities.processConfigBundle(config, 'receivableSheetDet');"
+                ]
+            },
+            "designerId": "b8db89e6-860a-4270-9244-b766c308273a"
+        }
+    ]
+}

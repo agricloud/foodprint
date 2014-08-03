@@ -1,0 +1,206 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "erpReceivableSheetGrid",
+        "designer|userClassName": "ErpReceivableSheetGrid",
+        "designer|userAlias": "erpreceivablesheetgrid",
+        "title": null,
+        "store": "ErpSaleSheetStore"
+    },
+    "designerId": "594b5730-3c1f-424b-8487-3f53a81b2cc3",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "70ebe07a-c27a-456b-9521-fc7c379700f8"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processErpSaleSheetGrid",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "return Utilities.createFiltersFeature(Utilities.processConfigBundle(config, 'saleSheet'));"
+                ]
+            },
+            "designerId": "3a6a1af6-1fd7-4aa8-874d-e5be8ec6c318"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "width": 360,
+                "displayInfo": true,
+                "store": "ErpSaleSheetStore"
+            },
+            "designerId": "94e705be-25a6-482d-b8d6-7f404e0d71d8"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "id",
+                "text": "id",
+                "flex": 1
+            },
+            "designerId": "a79f4568-1855-437c-848d-156d40111b09"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "typeName",
+                "text": "typeName",
+                "flex": 1
+            },
+            "designerId": "cc70b307-0369-4824-94c4-84bfcc442059"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "name",
+                "text": "name",
+                "flex": 1
+            },
+            "designerId": "d974f3ab-1125-46ca-9aab-9ad757c4a8c6"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onErpSaleSheetGridAfterRender",
+                "implHandler": [
+                    "component.getStore().load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "designerId": "4f26c8a4-c6b6-4b26-9f50-ce0eadeb7b93"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "dataIndex": "customer.id",
+                "text": "customer.Id",
+                "flex": 1
+            },
+            "designerId": "a5b2917c-5270-4cd5-8237-00da2c74513e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.name",
+                "text": "customer.Name",
+                "flex": 1
+            },
+            "designerId": "fbcd94f3-9b25-4dbb-a1f1-fce70901f037"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.title",
+                "text": "customer.Title",
+                "flex": 1
+            },
+            "designerId": "d2c1043f-e850-4e7b-8e43-09307da3c211"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.tel",
+                "text": "customer.tel",
+                "flex": 1
+            },
+            "designerId": "65e03bdb-794a-4f35-b44a-531d35d5f3d6"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "customer.fax",
+                "text": "customer.fax",
+                "flex": 1
+            },
+            "designerId": "4e18bebf-312a-43bc-bcc0-bcb10ca18fe1"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultWidth": null,
+                "dataIndex": "shippingAddress",
+                "text": "shippingAddress",
+                "flex": 1
+            },
+            "designerId": "110d9863-ed5b-454d-a280-1dcc9250be1c"
+        }
+    ]
+}
