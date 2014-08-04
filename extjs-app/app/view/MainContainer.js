@@ -253,6 +253,38 @@ Ext.define('foodprint.view.MainContainer', {
                                 })
                             ]
                         }),
+                        me.processAccountTitleMaintain({
+                            xtype: 'panel',
+                            height: 250,
+                            width: 400,
+                            layout: {
+                                align: 'stretch',
+                                type: 'vbox'
+                            },
+                            title: 'Account Title Maintain',
+                            items: [
+                                me.processFirstGradeAccountMaintain({
+                                    xtype: 'button',
+                                    itemId: 'firstGradeAccountMaintain',
+                                    text: 'First Grade Account Maintain'
+                                }),
+                                me.processSecodeGradeAccountMaintain({
+                                    xtype: 'button',
+                                    itemId: '',
+                                    text: 'Secode Grade Account Maintain'
+                                }),
+                                me.processThridGradeAccountMaintain({
+                                    xtype: 'button',
+                                    itemId: 'thridGradeAccountMaintain',
+                                    text: 'Thrid Grade Account Maintain'
+                                }),
+                                me.processFourthGradeAccountMaintain({
+                                    xtype: 'button',
+                                    itemId: 'fourthGradeAccountMaintain',
+                                    text: 'Fourth Grade Account Maintain'
+                                })
+                            ]
+                        }),
                         me.processGeneralLedgerAccountant({
                             xtype: 'panel',
                             height: 250,
@@ -263,11 +295,6 @@ Ext.define('foodprint.view.MainContainer', {
                             },
                             title: 'General Ledger Accountant',
                             items: [
-                                me.processErpAccountTitleMaintain({
-                                    xtype: 'button',
-                                    itemId: 'erpAccountTitleMaintain',
-                                    text: 'Account Title Maintain'
-                                }),
                                 me.processErpVoucherMaintain({
                                     xtype: 'button',
                                     itemId: 'erpVoucherMaintain',
@@ -625,8 +652,32 @@ Ext.define('foodprint.view.MainContainer', {
         return config;
     },
 
-    processErpAccountTitleMaintain: function(config) {
-        config.text=Utilities.getMsg('mainContainer.accountTitleMaintain.label');
+    processFirstGradeAccountMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.firstGradeAccountMaintain.label');
+
+        return config;
+    },
+
+    processSecodeGradeAccountMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.secodeGradeAccountMaintain.label');
+
+        return config;
+    },
+
+    processThridGradeAccountMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.thridGradeAccountMaintain.label');
+
+        return config;
+    },
+
+    processFourthGradeAccountMaintain: function(config) {
+        config.text=Utilities.getMsg('mainContainer.fourthGradeAccountMaintain.label');
+
+        return config;
+    },
+
+    processAccountTitleMaintain: function(config) {
+        config.title=Utilities.getMsg('mainContainer.accountTitleMaintain.label');
 
         return config;
     },

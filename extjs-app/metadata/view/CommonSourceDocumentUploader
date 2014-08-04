@@ -1,0 +1,318 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "domainName": "none",
+        "domainId": -1,
+        "container|align": "stretch",
+        "container|pack": null,
+        "container|padding": null,
+        "height": null,
+        "maxHeight": 200,
+        "minHeight": null,
+        "width": null,
+        "designer|userClassName": "CommonSourceDocumentUploader",
+        "designer|userAlias": "commonsourcedocumentuploader",
+        "layout": "vbox",
+        "bodyPadding": 10,
+        "title": null,
+        "standardSubmit": null
+    },
+    "designerId": "5d0ea432-affb-4754-9696-250a7551a648",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "domainName",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "domainId",
+            "type": "number"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "testbtn",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "dock": "top",
+                "container|align": null,
+                "container|pack": "center"
+            },
+            "designerId": "daf7a9fa-c0ba-4aec-bf14-a6591b1aeeb3",
+            "cn": [
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "fieldLabel": null,
+                        "name": "file",
+                        "buttonOnly": true
+                    },
+                    "designerId": "b5b64b47-dc3f-4c19-9b61-4cccde7cc473"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "上傳憑證"
+                    },
+                    "designerId": "f916593f-3f4d-494d-b62c-2c1ae198fab4",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "button.up('commonimageuploader').saveImage();"
+                                ]
+                            },
+                            "designerId": "14363d08-47bb-471d-b648-e7f0ec6e2379"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "確認憑證"
+                    },
+                    "designerId": "c3dd49ab-8a7d-4ac3-870f-d273543706d4",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "button.up('commonimageuploader').deleteImage();"
+                                ]
+                            },
+                            "designerId": "8591d780-98dd-4705-a644-83cdddf2a645"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "dock": null,
+                "itemId": "mainImg",
+                "src": ""
+            },
+            "designerId": "9041b2d5-51ec-42a8-a2bd-3f07f4017f13"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showImage",
+                "implHandler": [
+                    "",
+                    "console.log(\"do show img \"+'/attachment/show/'+this.domainId+\"?domainName=\"+this.domainName+'&fileType=jpg');",
+                    "this.getComponent(\"mainImg\").setSrc('/attachment/show/'+this.domainId+'?domainName='+this.domainName+'&fileType=jpg');"
+                ]
+            },
+            "designerId": "42f03f63-46ee-43d9-a224-39c6499d2d9c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "saveImage",
+                "implHandler": [
+                    "",
+                    "var form = this.getForm();",
+                    "var domainName = this.domainName;",
+                    "var domainId = this.domainId;",
+                    "",
+                    "if(!domainId){",
+                    "    Ext.Msg.alert('Error', \"can't get id!\");",
+                    "",
+                    "}else if(form.isValid()){",
+                    "    var that=this;",
+                    "    form.submit({",
+                    "        url: '/attachment/save',",
+                    "        waitMsg: 'Uploading your file...',",
+                    "        params: {",
+                    "            domainName:domainName,",
+                    "            domainId: domainId,",
+                    "            fileType: 'jpg'",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', 'Your file has been uploaded.');",
+                    "            that.showImage();",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "designerId": "2bf36403-6e50-4928-920e-f8c29d0775eb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "deleteImage",
+                "implHandler": [
+                    "var that=this;",
+                    "Ext.Ajax.request( {  ",
+                    "    url : '/attachment/delete/'+this.domainId,",
+                    "    method : 'post',  ",
+                    "    params : {  ",
+                    "        domainName : this.domainName,",
+                    "    fileType: 'jpg'",
+                    "    },  ",
+                    "    success : function(response, options) {  ",
+                    "        that.emptyImage();",
+                    "    },  ",
+                    "    failure : function() {  ",
+                    "        Ext.Msg.alert('Error', \"can't delete image\");",
+                    "    }  ",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "designerId": "1d61473a-6b5b-4ee3-a769-bcb325c09fc3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "emptyImage",
+                "implHandler": [
+                    "this.getComponent(\"mainImg\").setSrc('');"
+                ]
+            },
+            "designerId": "b88bcb8a-1bf6-4cd3-a6e7-ce49b5ca662a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showToolbar",
+                "implHandler": [
+                    "this.down(\"toolbar\").setVisible(true); "
+                ]
+            },
+            "designerId": "21b8b1c9-47c4-4a57-9309-17a0e11078b3"
+        },
+        {
+            "type": "processcfgfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "processCommonImageUploader",
+                "designer|params": [
+                    "config"
+                ],
+                "implHandler": [
+                    "console.log(config.dockedItems);",
+                    "",
+                    "config.dockedItems[0].hidden=true;",
+                    "",
+                    "config.dockedItems[0].items[0].buttonText=Utilities.getMsg('common.fileBrowse.label');",
+                    "config.dockedItems[0].items[1].text=Utilities.getMsg('common.uploadBtn.label');",
+                    "config.dockedItems[0].items[2].text=Utilities.getMsg('common.deleteBtn.label');"
+                ]
+            },
+            "designerId": "cd88fbc1-1c0a-46f0-97da-ff5b62ba1e32"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setDomainId",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "this.domainId=id;"
+                ]
+            },
+            "designerId": "a9b46250-3724-40ec-8eec-f98e2ecb89c9"
+        }
+    ]
+}

@@ -1326,13 +1326,12 @@
                     "userConfig": {
                         "container|align": "stretch",
                         "height": 250,
-                        "hidden": null,
                         "width": 400,
                         "designer|displayName": null,
                         "layout": "vbox",
-                        "title": "General Ledger Accountant"
+                        "title": "Account Title Maintain"
                     },
-                    "designerId": "72074f12-61cd-477a-a424-dec21a1da067",
+                    "designerId": "f77ac55c-3d29-4950-8ae8-441f1587da9c",
                     "cn": [
                         {
                             "type": "Ext.button.Button",
@@ -1343,8 +1342,116 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "itemId": "erpAccountTitleMaintain",
-                                "text": "Account Title Maintain"
+                                "itemId": "firstGradeAccountMaintain",
+                                "text": "First Grade Account Maintain"
+                            },
+                            "designerId": "e25a2efd-9faa-4f52-8531-b90ac1ed3bc7",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processFirstGradeAccountMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.firstGradeAccountMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "c194cbd1-5a07-4165-9c21-983b507f9f76"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "",
+                                "text": "Secode Grade Account Maintain"
+                            },
+                            "designerId": "89e50347-a48e-4bbe-9e3c-bce761039210",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processSecodeGradeAccountMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.secodeGradeAccountMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "5d3d1155-9acd-4d35-9ea7-f9fc22b4d17a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "thridGradeAccountMaintain",
+                                "text": "Thrid Grade Account Maintain"
+                            },
+                            "designerId": "11b8e055-9c36-44c2-9ffc-3545f1d85169",
+                            "cn": [
+                                {
+                                    "type": "processcfgfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "processThridGradeAccountMaintain",
+                                        "designer|params": [
+                                            "config"
+                                        ],
+                                        "implHandler": [
+                                            "config.text=Utilities.getMsg('mainContainer.thridGradeAccountMaintain.label');",
+                                            "",
+                                            "return config;"
+                                        ]
+                                    },
+                                    "designerId": "e8660c93-a7cf-4fc4-bf2f-8e9fe709ddb1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "fourthGradeAccountMaintain",
+                                "text": "Fourth Grade Account Maintain"
                             },
                             "designerId": "7cd70ffa-ed15-43be-836a-1554696971e1",
                             "cn": [
@@ -1356,12 +1463,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "processErpAccountTitleMaintain",
+                                        "fn": "processFourthGradeAccountMaintain",
                                         "designer|params": [
                                             "config"
                                         ],
                                         "implHandler": [
-                                            "config.text=Utilities.getMsg('mainContainer.accountTitleMaintain.label');",
+                                            "config.text=Utilities.getMsg('mainContainer.fourthGradeAccountMaintain.label');",
                                             "",
                                             "return config;"
                                         ]
@@ -1370,6 +1477,46 @@
                                 }
                             ]
                         },
+                        {
+                            "type": "processcfgfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "processAccountTitleMaintain",
+                                "designer|params": [
+                                    "config"
+                                ],
+                                "implHandler": [
+                                    "config.title=Utilities.getMsg('mainContainer.accountTitleMaintain.label');",
+                                    "",
+                                    "return config;"
+                                ]
+                            },
+                            "designerId": "58b71b0f-bbb1-4dbd-aa4d-b5257eee32f9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "height": 250,
+                        "hidden": null,
+                        "width": 400,
+                        "designer|displayName": null,
+                        "layout": "vbox",
+                        "title": "General Ledger Accountant"
+                    },
+                    "designerId": "72074f12-61cd-477a-a424-dec21a1da067",
+                    "cn": [
                         {
                             "type": "Ext.button.Button",
                             "reference": {

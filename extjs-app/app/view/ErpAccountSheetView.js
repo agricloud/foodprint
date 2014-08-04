@@ -166,12 +166,29 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                                     name: 'accountDate'
                                                 },
                                                 {
+                                                    xtype: 'combobox',
+                                                    flex: 1,
+                                                    fieldLabel: 'currency',
+                                                    name: 'currency',
+                                                    allowBlank: false,
+                                                    valueField: 'rate'
+                                                },
+                                                {
                                                     xtype: 'textfield',
                                                     flex: 1,
                                                     itemId: 'rate',
                                                     fieldLabel: 'rate',
                                                     name: 'rate',
                                                     allowBlank: false
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    flex: 1,
+                                                    fieldLabel: 'receivables',
+                                                    name: 'receivables',
+                                                    allowBlank: false,
+                                                    displayField: 'name',
+                                                    valueField: 'index'
                                                 },
                                                 {
                                                     xtype: 'datefield',
@@ -576,6 +593,52 @@ Ext.define('foodprint.view.ErpAccountSheetView', {
                                     name: 'sequence',
                                     readOnly: true,
                                     allowBlank: false
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    itemId: 'documentSource',
+                                    fieldLabel: 'documentSource',
+                                    name: 'documentSource',
+                                    displayField: 'name',
+                                    queryMode: 'local',
+                                    valueField: 'name'
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    itemId: 'sourceSheetContainer',
+                                    layout: {
+                                        align: 'stretch',
+                                        type: 'hbox'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'numberfield',
+                                            hidden: true,
+                                            fieldLabel: 'saleSheetDet.id',
+                                            name: 'sourceDocumentName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: 'sourceSheet.Num',
+                                            name: 'documentTypeName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'documentName',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            name: 'documentSequence',
+                                            readOnly: true
+                                        },
+                                        {
+                                            xtype: 'commonselectbtn',
+                                            margins: '1'
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'textfield',

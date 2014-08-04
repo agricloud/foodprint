@@ -36,11 +36,15 @@ Ext.application({
         path: '../i18n',
         noCache: true//,format: 'json'
     },
+    models: [
+        'Site'
+    ],
     views: [
         'ErpReceivableSheetGrid',
         'ErpReceivableSheetDetGrid',
         'ErpAccountsPayableVoucherSheetView',
-        'ErpAccountsPayableSheetView'
+        'ErpAccountsPayableSheetView',
+        'CommonSourceDocumentUploader'
     ],
     autoCreateViewport: true,
     controllers: [

@@ -148,7 +148,7 @@ Ext.define('foodprint.view.ErpAccountsPayableVoucherSheetView', {
                     itemId: 'showDetail',
                     layout: {
                         align: 'stretch',
-                        type: 'vbox'
+                        type: 'hbox'
                     },
                     items: [
                         me.processDetailForm({

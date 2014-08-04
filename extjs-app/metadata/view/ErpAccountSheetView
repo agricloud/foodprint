@@ -308,6 +308,24 @@
                                             "designerId": "2d99b8c7-686e-4db3-9dd8-ff007ed8c399"
                                         },
                                         {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "fieldLabel": "currency",
+                                                "name": "currency",
+                                                "allowBlank": false,
+                                                "displayField": null,
+                                                "store": null,
+                                                "valueField": "rate"
+                                            },
+                                            "designerId": "7d0f22d4-974d-4054-b578-b68ef3eac40e"
+                                        },
+                                        {
                                             "type": "Ext.form.field.Text",
                                             "reference": {
                                                 "name": "items",
@@ -322,6 +340,24 @@
                                                 "allowBlank": false
                                             },
                                             "designerId": "d0f8fe46-273b-448f-970a-78bd3f1183b5"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "fieldLabel": "receivables",
+                                                "name": "receivables",
+                                                "allowBlank": false,
+                                                "displayField": "name",
+                                                "store": null,
+                                                "valueField": "index"
+                                            },
+                                            "designerId": "3c93d9b2-3d61-447d-9fe6-24edc3fbf5cf"
                                         },
                                         {
                                             "type": "Ext.form.field.Date",
@@ -1309,6 +1345,127 @@
                                 "allowBlank": false
                             },
                             "designerId": "46120115-36df-4ce6-9f75-c2cc5c6ba16f"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "itemId": "documentSource",
+                                "fieldLabel": "documentSource",
+                                "name": "documentSource",
+                                "displayField": "name",
+                                "queryMode": "local",
+                                "store": null,
+                                "valueField": "name"
+                            },
+                            "designerId": "59876a36-9a58-46e9-9703-8668178b0476"
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "container|align": "stretch",
+                                "height": null,
+                                "itemId": "sourceSheetContainer",
+                                "width": null,
+                                "layout": "hbox",
+                                "fieldLabel": null
+                            },
+                            "designerId": "9b5e1b54-4b49-4fb3-88d1-20b0eeab8ad5",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "hidden": true,
+                                        "fieldLabel": "saleSheetDet.id",
+                                        "name": "sourceDocumentName",
+                                        "readOnly": true
+                                    },
+                                    "designerId": "b95481e8-8825-433b-9345-3e3b960c6f9a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": "sourceSheet.Num",
+                                        "name": "documentTypeName",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "1fe5fb93-5e10-478b-93e8-c74c9d21687a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "documentName",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "1371e36b-2824-402b-a8d0-ea86a5cc2c1e"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "disabled": null,
+                                        "fieldLabel": null,
+                                        "name": "documentSequence",
+                                        "readOnly": true,
+                                        "allowBlank": null
+                                    },
+                                    "designerId": "885c92a1-9bad-488c-adb0-99cb7f53fec7"
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "frame": null,
+                                        "layout|flex": null,
+                                        "layout|margins": "1"
+                                    },
+                                    "designerId": "336da9c6-46fb-48c5-8fbd-30da5e6e1fa3",
+                                    "masterInstanceId": "51a68706-28ee-4908-afc0-672c74f28c75"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Text",
